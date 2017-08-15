@@ -5,7 +5,11 @@ const _Array = Array;
 const _Number = Number;
 const _String = String;
 
-//is
+/**
+ * ##############################
+ * is
+ * ##############################
+ */
 const isSame = (a, b) => a === b;
 const isEqual = (a, b) => {
     if (isSame(a, b)) {
@@ -34,10 +38,8 @@ const isEqual = (a, b) => {
 
     return false;
 };
-
 const isInstanceOf = (val, target) => val instanceof target;
 const isTypeOf = (val, type) => isSame(typeof val, type);
-
 const isDefined = val => !isTypeOf(val, "undefined");
 const isNil = val => !isDefined(val) || isSame(val, null);
 const isEmpty = val => {
@@ -49,7 +51,6 @@ const isEmpty = val => {
         return false;
     }
 };
-
 const isArray = val => _Array.isArray(val);
 const isArrayLike = val => isObjectLike(val) && hasLength(val);
 const isObject = val => isInstanceOf(val, _Object);
@@ -59,21 +60,37 @@ const isNumber = val => isTypeOf(val, "number");
 const isString = val => isTypeOf(val, "string");
 const isStringNumber = val => !isNaN(toNumber(val));
 
-//has
+/**
+ * ##############################
+ * has
+ * ##############################
+ */
 const hasKey = (target, key) => key in target;
 const hasLength = target => isDefined(target.length);
 
-//to
+/**
+ * ##############################
+ * to
+ * ##############################
+ */
 const toNumber = str => _Number(str);
 const toString = val => _String(val);
 
-//clone
+/**
+ * ##############################
+ * clone
+ * ##############################
+ */
 const cloneArray = arr => _Array.from(arr);
 //const cloneArrayDeep = arr => cloneArray(forEachDeep(arr,val=>isArray(val) ? cloneArray(val) : val));
 const cloneObject = obj => _Object.assign({}, obj);
 //const cloneObjectDeep = obj => cloneObject(forEachEntryDeep(arr,val=>isObject(val) ? cloneArray(val) : val));
 
-//forEach
+/**
+ * ##############################
+ * forEach
+ * ##############################
+ */
 const forEach = (arr, fn) => arr.forEach(fn);
 const forEachDeep = (arr, fn) => {
     forEach(arr, (val, index) => {
@@ -81,13 +98,12 @@ const forEachDeep = (arr, fn) => {
             forEachDeep(val, fn);
         }
 
-        fn(val, index);
+        fn(val, index, arr);
     });
 };
-
 const forEachEntry = (obj, fn) => {
     forEach(objEntries(obj), (entry, index) => {
-        fn(entry[1], entry[0], index);
+        fn(entry[1], entry[0], index, obj);
     });
 };
 const forEachEntryDeep = (obj, fn) => {
@@ -96,16 +112,40 @@ const forEachEntryDeep = (obj, fn) => {
             forEachDeep(val, fn);
         }
 
-        fn(val, key, index);
+        fn(val, key, index, obj);
     });
 };
 
-//arr
+/**
+ * ##############################
+ * arr
+ * ##############################
+ */
 
-//obj
+/**
+ * ##############################
+ * obj
+ * ##############################
+ */
 const objKeys = obj => _Object.keys(obj);
 const objValues = obj => _Object.values(obj);
 const objEntries = obj => _Object.entries(obj);
+const objMap = (obj, fn) => {
+    const objNew = cloneObject(obj);
+
+    forEachEntry(objNew, (val, key, index) => {
+        objNew[key] = fn(val, key, index, objNew);
+    });
+
+    return objNew;
+};
+const objMapDeep = (obj, fn) => objMap(obj, (val, key, index, objNew) => {
+    if (isObject(val)) {
+        return objMap(val, fn);
+    } else {
+        return fn(val, key, index, objNew);
+    }
+});
 //const objMerge
 //const objMergeDeep
 
@@ -145,11 +185,11 @@ const lightdash = {
     forEachEntry,
     forEachEntryDeep,
 
-    //objMerge,
-    //objMergeDeep,
     objKeys,
     objValues,
-    objEntries
+    objEntries,
+    objMap,
+    objMapDeep,
 };
 
 module.exports = lightdash;
