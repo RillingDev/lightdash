@@ -80,16 +80,6 @@ const toString = val => _String(val);
 
 /**
  * ##############################
- * clone
- * ##############################
- */
-const cloneArray = arr => _Array.from(arr);
-//const cloneArrayDeep = arr => cloneArray(forEachDeep(arr,val=>isArray(val) ? cloneArray(val) : val));
-const cloneObject = obj => _Object.assign({}, obj);
-//const cloneObjectDeep = obj => cloneObject(forEachEntryDeep(arr,val=>isObject(val) ? cloneArray(val) : val));
-
-/**
- * ##############################
  * forEach
  * ##############################
  */
@@ -123,15 +113,18 @@ const forEachEntryDeep = (obj, fn) => {
  * arr
  * ##############################
  */
+const arrClone = arr => _Array.from(arr);
+const arrCloneDeep = arr => arrMapDeep(arrClone(arr), val => isArray(val) ? arrClone(val) : val);
+const arrMap = (arr, fn) => arr.map(fn);
+const arrMapDeep = (arr, fn) => arrMap(arr, (val, index, arr) => isArray(val) ? arrMapDeep(val, fn) : fn(val, index, arr));
 
 /**
  * ##############################
  * obj
  * ##############################
  */
-const objKeys = obj => _Object.keys(obj);
-const objValues = obj => _Object.values(obj);
-const objEntries = obj => _Object.entries(obj);
+const objClone = obj => _Object.assign({}, obj);
+const objCloneDeep = obj => objMapDeep(objClone(obj), val => isObject(val) ? objClone(val) : val);
 const objMap = (obj, fn) => {
     const objNew = cloneObject(obj);
 
@@ -143,13 +136,18 @@ const objMap = (obj, fn) => {
 };
 const objMapDeep = (obj, fn) => objMap(obj, (val, key, index, objNew) => {
     if (isObject(val)) {
-        return objMap(val, fn);
+        return objMapDeep(val, fn);
     } else {
         return fn(val, key, index, objNew);
     }
 });
 //const objMerge
 //const objMergeDeep
+//const objDefaults
+//const objDefaultsDeep
+const objKeys = obj => _Object.keys(obj);
+const objValues = obj => _Object.values(obj);
+const objEntries = obj => _Object.entries(obj);
 
 const lightdash = {
     isSame,
@@ -177,21 +175,23 @@ const lightdash = {
     toNumber,
     toString,
 
-    cloneObject,
-    //cloneObjectDeep,
-    cloneArray,
-    //cloneArray,
-
     forEach,
     forEachDeep,
     forEachEntry,
     forEachEntryDeep,
 
-    objKeys,
-    objValues,
-    objEntries,
+    arrClone,
+    arrCloneDeep,
+    arrMap,
+    arrMapDeep,
+
+    objClone,
+    objCloneDeep,
     objMap,
     objMapDeep,
+    objKeys,
+    objValues,
+    objEntries
 };
 
 export default lightdash;
