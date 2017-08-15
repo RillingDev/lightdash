@@ -1,5 +1,6 @@
 "use strict";
 
+const typescript = require("rollup-plugin-typescript");
 const babel = require("babel-core");
 const uglify = require("uglify-es");
 const bundle = require("./lib/bundle");
@@ -30,4 +31,8 @@ bundle([{
             compact: false
         }).code
     ).code
-}], []);
+}], [
+    typescript({
+        typescript: require("typescript")
+    })
+]);

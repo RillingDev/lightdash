@@ -1,5 +1,6 @@
 "use strict";
 
+const typescript = require("rollup-plugin-typescript");
 const bundle = require("./lib/bundle");
 
 bundle([{
@@ -17,4 +18,8 @@ bundle([{
     ext: "",
     name: "IIFE",
     fn: code => code
-}], []);
+}], [
+    typescript({
+        typescript: require("typescript")
+    })
+]);

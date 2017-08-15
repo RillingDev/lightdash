@@ -16,7 +16,7 @@ module.exports = function (formats, plugins) {
     rollup
         .rollup({
             plugins,
-            entry: `${CONSTANTS.dirBase.input}/${CONSTANTS.js.input}.js`,
+            entry: `${CONSTANTS.dirBase.input}/${CONSTANTS.js.input}.ts`,
         })
         .catch(err => {
             console.log(err);
