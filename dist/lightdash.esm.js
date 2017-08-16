@@ -44,7 +44,7 @@ const isEqual = (a, b) => {
  * Checks if the value is instanceof the target
  *
  * @param {*} val
- * @param {Function} target
+ * @param {Class} target
  * @returns {boolean}
  */
 const isInstanceOf = (val, target) => val instanceof target;

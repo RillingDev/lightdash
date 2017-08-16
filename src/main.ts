@@ -1,5 +1,6 @@
 "use strict";
 
+type Class = Function;
 type ForEachIterator = (val?: any, index?: number, arr?: Array<any>) => void;
 type ForEachEntryIterator = (val?: any, key?: string, index?: number, obj?: Object) => void;
 
@@ -60,10 +61,10 @@ const isEqual = (a: any, b: any): boolean => {
  * Checks if the value is instanceof the target
  *
  * @param {*} val
- * @param {Function} target
+ * @param {Class} target
  * @returns {boolean}
  */
-const isInstanceOf = (val: any, target: Function): boolean => val instanceof target;
+const isInstanceOf = (val: any, target: Class): boolean => val instanceof target;
 
 /**
  * Checks if the value is typeof the typestring

@@ -50,7 +50,7 @@ var lightdash = function () {
    * Checks if the value is instanceof the target
    *
    * @param {*} val
-   * @param {Function} target
+   * @param {Class} target
    * @returns {boolean}
    */
 
