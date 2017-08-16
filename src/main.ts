@@ -188,8 +188,7 @@ const isStringNumber = (val: any): boolean => !isNaN(_Number(val));
  * @returns {boolean}
  */
 const hasKey = (target: Object, key: string): boolean => key in target;
-
-
+//const hasPath
 
 
 

@@ -5,7 +5,7 @@ const {
 } = require("../dist/lightdash.common");
 
 describe("isEmpty", () => {
-    it("Primitives", () => {
+    it("Simple", () => {
         expect(isEmpty(2)).toBe(false);
         expect(isEmpty("foo")).toBe(false);
         expect(isEmpty([])).toBe(true);
