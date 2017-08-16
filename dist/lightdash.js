@@ -67,6 +67,15 @@ var lightdash = function () {
 
   const isTypeOf = (val, type) => isSame(typeof val, type);
   /**
+   * Checks if a value is undefined
+   *
+   * @param {*} val
+   * @returns {boolean}
+   */
+
+
+  const isUndefined = val => isTypeOf(val, "undefined");
+  /**
    * Checks if a value is not undefined
    *
    * @param {*} val
@@ -74,7 +83,7 @@ var lightdash = function () {
    */
 
 
-  const isDefined = val => !isTypeOf(val, "undefined");
+  const isDefined = val => !isUndefined(val);
   /**
    * Checks if a value is either undefined or null
    *
@@ -83,7 +92,7 @@ var lightdash = function () {
    */
 
 
-  const isNil = val => !isDefined(val) || isSame(val, null);
+  const isNil = val => isUndefined(val) || isSame(val, null);
   /**
    * Checks if an array has no items, or an object has no keys
    *
@@ -376,6 +385,7 @@ var lightdash = function () {
     isEqual,
     isInstanceOf,
     isTypeOf,
+    isUndefined,
     isDefined,
     isNil,
     isEmpty,

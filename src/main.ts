@@ -75,12 +75,20 @@ const isInstanceOf = (val: any, target: Function): boolean => val instanceof tar
 const isTypeOf = (val: any, type: string): boolean => isSame(typeof val, type);
 
 /**
+ * Checks if a value is undefined
+ *
+ * @param {*} val
+ * @returns {boolean}
+ */
+const isUndefined = (val: any): boolean => isTypeOf(val, "undefined");
+
+/**
  * Checks if a value is not undefined
  *
  * @param {*} val
  * @returns {boolean}
  */
-const isDefined = (val: any): boolean => !isTypeOf(val, "undefined");
+const isDefined = (val: any): boolean => !isUndefined(val);
 
 /**
  * Checks if a value is either undefined or null
@@ -88,7 +96,7 @@ const isDefined = (val: any): boolean => !isTypeOf(val, "undefined");
  * @param {*} val
  * @returns {boolean}
  */
-const isNil = (val: any): boolean => !isDefined(val) || isSame(val, null);
+const isNil = (val: any): boolean => isUndefined(val) || isSame(val, null);
 
 /**
  * Checks if an array has no items, or an object has no keys
@@ -376,6 +384,7 @@ const lightdash = {
     isEqual,
     isInstanceOf,
     isTypeOf,
+    isUndefined,
     isDefined,
     isNil,
     isEmpty,
