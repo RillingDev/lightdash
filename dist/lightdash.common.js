@@ -25,12 +25,15 @@ const isEqual = (a, b) => {
     if (isObject(a) && isObject(b) && objKeys(a).length === objKeys(b).length) {
         let result = true;
         forEachEntry(a, (val_a, key) => {
-            if (hasKey(b, key)) {
-                const val_b = b[key];
-                result = isEqual(val_a, val_b);
-            }
-            else {
-                result = false;
+            //Only Check if the comparison didnt fail already
+            if (result === true) {
+                if (hasKey(b, key)) {
+                    const val_b = b[key];
+                    result = isEqual(val_a, val_b);
+                }
+                else {
+                    result = false;
+                }
             }
         });
         return result;

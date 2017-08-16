@@ -38,12 +38,15 @@ const isEqual = (a: any, b: any): boolean => {
         let result = true;
 
         forEachEntry(a, (val_a: any, key: string): void => {
-            if (hasKey(b, key)) {
-                const val_b = b[key];
+            //Only Check if the comparison didnt fail already
+            if (result === true) {
+                if (hasKey(b, key)) {
+                    const val_b = b[key];
 
-                result = isEqual(val_a, val_b);
-            } else {
-                result = false;
+                    result = isEqual(val_a, val_b);
+                } else {
+                    result = false;
+                }
             }
         });
 
