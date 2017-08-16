@@ -22,23 +22,18 @@ const isEqual = (a, b) => {
     if (isSame(a, b)) {
         return true;
     }
-    if (isObject(a)) {
-        if (objKeys(a).length !== objKeys(b).length) {
-            return false;
-        }
-        else {
-            let result = true;
-            forEachEntry(a, (val_a, key) => {
-                if (hasKey(b, key)) {
-                    const val_b = b[key];
-                    result = isEqual(val_a, val_b);
-                }
-                else {
-                    result = false;
-                }
-            });
-            return result;
-        }
+    if (isObject(a) && isObject(b) && objKeys(a).length === objKeys(b).length) {
+        let result = true;
+        forEachEntry(a, (val_a, key) => {
+            if (hasKey(b, key)) {
+                const val_b = b[key];
+                result = isEqual(val_a, val_b);
+            }
+            else {
+                result = false;
+            }
+        });
+        return result;
     }
     return false;
 };
@@ -86,11 +81,8 @@ const isNil = (val) => isUndefined(val) || isSame(val, null);
  * @returns {boolean}
  */
 const isEmpty = (val) => {
-    if (isArrayLike(val)) {
-        return isSame(val.length, 0);
-    }
-    else if (isObjectLike(val)) {
-        return isSame(objKeys(val).length, 0);
+    if (isObjectLike(val)) {
+        return (isArrayLike(val) ? val.length : objKeys(val).length) === 0;
     }
     else {
         return false;
