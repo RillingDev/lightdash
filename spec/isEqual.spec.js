@@ -41,5 +41,53 @@ describe("isEqual", () => {
             a: 2,
             c: 8
         })).toBe(false);
+        expect(isEqual({
+            a: 2,
+            b: 4,
+            c: {
+                x: 1,
+                y: [1, 2, 3],
+                z: {
+                    g: 2
+                },
+            }
+        }, {
+            a: 2,
+            b: 4,
+            c: {
+                x: 1,
+                y: [1, 2, 3],
+                z: {
+                    g: 2
+                },
+            }
+        })).toBe(true);
+        expect(isEqual({
+            a: 2,
+            b: 4,
+            c: {
+                x: 1,
+                y: [1, 2, 3],
+                z: {
+                    g: 2
+                },
+            }
+        }, {
+            a: 2,
+            b: 4,
+            c: {
+                x: 1,
+                y: [1, 2, "foo"],
+                z: {
+                    g: 2
+                },
+            }
+        })).toBe(false);
+        expect(isEqual({
+            "1": 2,
+            "2": 12
+        }, [2, 12])).toBe(false);
+        expect(isEqual(Math, Math)).toBe(true);
+        expect(isEqual(null, {})).toBe(false);
     });
 });

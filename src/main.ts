@@ -126,7 +126,7 @@ const isArray = (val: any): boolean => _Array.isArray(val);
  * @param {*} val
  * @returns {boolean}
  */
-const isArrayLike = (val: any): boolean => isObjectLike(val) && hasLength(val);
+const isArrayLike = (val: any): boolean => isObjectLike(val) && hasKey(val, "length");
 
 /**
  * Checks if a value is an object
@@ -188,14 +188,6 @@ const isStringNumber = (val: any): boolean => !isNaN(_Number(val));
  * @returns {boolean}
  */
 const hasKey = (target: Object, key: string): boolean => key in target;
-
-/**
- * Checks if a target has a length property
- *
- * @param {Object} target
- * @returns {boolean}
- */
-const hasLength = (target: Object): boolean => hasKey(target, "length");
 
 
 
@@ -397,7 +389,6 @@ const lightdash = {
     isStringNumber,
 
     hasKey,
-    hasLength,
 
     forEach,
     forEachDeep,
