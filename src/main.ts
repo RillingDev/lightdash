@@ -30,7 +30,7 @@ const isSame = (a: any, b: any): boolean => a === b;
  * @returns {boolean}
  */
 const isEqual = (a: any, b: any): boolean => {
-    if (isSame(a, b)) {
+    if (a === b) {
         return true;
     }
 
@@ -69,7 +69,7 @@ const isInstanceOf = (val: any, target: Class): boolean => val instanceof target
  * @param {string} type
  * @returns {boolean}
  */
-const isTypeOf = (val: any, type: string): boolean => isSame(typeof val, type);
+const isTypeOf = (val: any, type: string): boolean => typeof val === type;
 
 /**
  * Checks if a value is undefined
@@ -93,7 +93,7 @@ const isDefined = (val: any): boolean => !isUndefined(val);
  * @param {*} val
  * @returns {boolean}
  */
-const isNil = (val: any): boolean => isUndefined(val) || isSame(val, null);
+const isNil = (val: any): boolean => isUndefined(val) || val === null;
 
 /**
  * Checks if an array has no items, or an object has no keys
@@ -339,6 +339,7 @@ const objMapDeep = (obj: Object, fn: ForEachEntryIterator): Object => objMap(obj
         return fn(val, key, index, objNew);
     }
 });
+
 /*
 //const objMerge
 //const objMergeDeep
@@ -366,9 +367,9 @@ const objValues = (obj: Object): Array<any> => _Object.values(obj);
  * Returns an array of the objects entries
  *
  * @param {Object} obj
- * @returns {[string, any][]}
+ * @returns {Array<[string, any]>}
  */
-const objEntries = (obj: Object): [string, any][] => _Object.entries(obj);
+const objEntries = (obj: Object): Array<[string, any]> => _Object.entries(obj);
 
 
 

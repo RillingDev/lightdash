@@ -17,7 +17,7 @@ const isSame = (a, b) => a === b;
  * @returns {boolean}
  */
 const isEqual = (a, b) => {
-    if (isSame(a, b)) {
+    if (a === b) {
         return true;
     }
     if (isObject(a) && isObject(b) && objKeys(a).length === objKeys(b).length) {
@@ -50,7 +50,7 @@ const isInstanceOf = (val, target) => val instanceof target;
  * @param {string} type
  * @returns {boolean}
  */
-const isTypeOf = (val, type) => isSame(typeof val, type);
+const isTypeOf = (val, type) => typeof val === type;
 /**
  * Checks if a value is undefined
  *
@@ -71,7 +71,7 @@ const isDefined = (val) => !isUndefined(val);
  * @param {*} val
  * @returns {boolean}
  */
-const isNil = (val) => isUndefined(val) || isSame(val, null);
+const isNil = (val) => isUndefined(val) || val === null;
 /**
  * Checks if an array has no items, or an object has no keys
  *
@@ -300,7 +300,7 @@ const objValues = (obj) => _Object.values(obj);
  * Returns an array of the objects entries
  *
  * @param {Object} obj
- * @returns {[string, any][]}
+ * @returns {Array<[string, any]>}
  */
 const objEntries = (obj) => _Object.entries(obj);
 const lightdash = {

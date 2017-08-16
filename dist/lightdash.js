@@ -23,7 +23,7 @@ var lightdash = function () {
 
 
   const isEqual = (a, b) => {
-    if (isSame(a, b)) {
+    if (a === b) {
       return true;
     }
 
@@ -61,7 +61,7 @@ var lightdash = function () {
    */
 
 
-  const isTypeOf = (val, type) => isSame(typeof val, type);
+  const isTypeOf = (val, type) => typeof val === type;
   /**
    * Checks if a value is undefined
    *
@@ -88,7 +88,7 @@ var lightdash = function () {
    */
 
 
-  const isNil = val => isUndefined(val) || isSame(val, null);
+  const isNil = val => isUndefined(val) || val === null;
   /**
    * Checks if an array has no items, or an object has no keys
    *
@@ -368,7 +368,7 @@ var lightdash = function () {
    * Returns an array of the objects entries
    *
    * @param {Object} obj
-   * @returns {[string, any][]}
+   * @returns {Array<[string, any]>}
    */
 
 
