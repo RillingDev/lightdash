@@ -1,7 +1,6 @@
 "use strict";
 
 const {
-    isArray,
     isObject,
     forEach,
     forEachDeep,
@@ -13,7 +12,7 @@ describe("forEachDeep", () => {
         const result = [];
 
         forEachDeep(input, (val, index, arr) => {
-            if (!isArray(val) && !isObject(val)) {
+            if (!isObject(val)) {
                 result.push(val);
             }
         });

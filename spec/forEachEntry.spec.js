@@ -2,7 +2,6 @@
 
 const {
     isArray,
-    isObject,
     forEachEntry,
     forEachEntryDeep,
 } = require("../dist/lightdash.common");
@@ -48,7 +47,7 @@ describe("forEachEntryDeep", () => {
         const result = [];
 
         forEachEntryDeep(input, (val, index, arr) => {
-            if (!isArray(val) && !isObject(val)) {
+            if (!isArray(val)) {
                 result.push(val);
             }
         });

@@ -175,7 +175,11 @@ const isString = (val: any): boolean => isTypeOf(val, "string");
  * @returns {boolean}
  */
 const isStringNumber = (val: any): boolean => !isNaN(_Number(val));
-
+//const isSymbol
+//const isMap
+//const isSet
+//const isDate
+//const isArrayTyped
 
 
 
@@ -189,6 +193,15 @@ const isStringNumber = (val: any): boolean => !isNaN(_Number(val));
  */
 const hasKey = (target: Object, key: string): boolean => key in target;
 //const hasPath
+
+
+
+
+
+//const numberClamp
+//const numberIsInRange
+
+
 
 
 
@@ -206,15 +219,7 @@ const forEach = (arr: Array<any>, fn: ForEachIterator): void => arr.forEach(fn);
  * @param {Array<any>} arr
  * @param {ForEachIterator} fn
  */
-const forEachDeep = (arr: Array<any>, fn: ForEachIterator): void => {
-    forEach(arr, (val, index) => {
-        if (isArray(val)) {
-            forEachDeep(val, fn);
-        }
-
-        fn(val, index, arr);
-    });
-};
+const forEachDeep = (arr: Array<any>, fn: ForEachIterator): void => forEach(arr, (val, index) => isArray(val) ? forEachDeep(val, fn) : fn(val, index, arr));
 
 /**
  * Iterate over each entry of an object
@@ -234,15 +239,7 @@ const forEachEntry = (obj: Object, fn: ForEachEntryIterator): void => {
  * @param {Object} obj
  * @param {ForEachEntryIterator} fn
  */
-const forEachEntryDeep = (obj: Object, fn: ForEachEntryIterator): void => {
-    forEachEntry(obj, (val, key, index) => {
-        if (isObject(val)) {
-            forEachEntryDeep(val, fn);
-        }
-
-        fn(val, key, index, obj);
-    });
-};
+const forEachEntryDeep = (obj: Object, fn: ForEachEntryIterator): void => forEachEntry(obj, (val, key, index) => isObject(val) ? forEachEntryDeep(val, fn) : fn(val, key, index, obj));
 
 
 
@@ -281,10 +278,14 @@ const arrMap = (arr: Array<any>, fn: ForEachIterator): Array<any> => arr.map(fn)
  * @returns {Array<any>}
  */
 const arrMapDeep = (arr: Array<any>, fn: ForEachIterator): Array<any> => arrMap(arr, (val, index, arr) => isArray(val) ? arrMapDeep(val, fn) : fn(val, index, arr));
-
-
-
-
+//const arrFlatten
+//const arrFlattenDeep
+//const arrCompact
+//const arrDifference=(arr,...arr)
+//const arrShared=(arr,...arr)
+//const arrUnique=(arr,...arr)
+//const arrChunk
+//const arrStep
 
 /**
  * Creates a new object with the entries of the input object

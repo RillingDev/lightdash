@@ -178,7 +178,12 @@ var lightdash = function () {
    */
 
 
-  const isStringNumber = val => !isNaN(_Number(val));
+  const isStringNumber = val => !isNaN(_Number(val)); //const isSymbol
+  //const isMap
+  //const isSet
+  //const isDate
+  //const isArrayTyped
+
   /**
    * Checks if a target has a certain key
    *
@@ -188,7 +193,10 @@ var lightdash = function () {
    */
 
 
-  const hasKey = (target, key) => key in target;
+  const hasKey = (target, key) => key in target; //const hasPath
+  //const numberClamp
+  //const numberIsInRange
+
   /**
    * Iterate over each value of an array
    *
@@ -206,15 +214,7 @@ var lightdash = function () {
    */
 
 
-  const forEachDeep = (arr, fn) => {
-    forEach(arr, (val, index) => {
-      if (isArray(val)) {
-        forEachDeep(val, fn);
-      }
-
-      fn(val, index, arr);
-    });
-  };
+  const forEachDeep = (arr, fn) => forEach(arr, (val, index) => isArray(val) ? forEachDeep(val, fn) : fn(val, index, arr));
   /**
    * Iterate over each entry of an object
    *
@@ -236,15 +236,7 @@ var lightdash = function () {
    */
 
 
-  const forEachEntryDeep = (obj, fn) => {
-    forEachEntry(obj, (val, key, index) => {
-      if (isObject(val)) {
-        forEachEntryDeep(val, fn);
-      }
-
-      fn(val, key, index, obj);
-    });
-  };
+  const forEachEntryDeep = (obj, fn) => forEachEntry(obj, (val, key, index) => isObject(val) ? forEachEntryDeep(val, fn) : fn(val, key, index, obj));
   /**
    * Creates a new array with the values of the input array
    *
@@ -282,7 +274,15 @@ var lightdash = function () {
    */
 
 
-  const arrMapDeep = (arr, fn) => arrMap(arr, (val, index, arr) => isArray(val) ? arrMapDeep(val, fn) : fn(val, index, arr));
+  const arrMapDeep = (arr, fn) => arrMap(arr, (val, index, arr) => isArray(val) ? arrMapDeep(val, fn) : fn(val, index, arr)); //const arrFlatten
+  //const arrFlattenDeep
+  //const arrCompact
+  //const arrDifference=(arr,...arr)
+  //const arrShared=(arr,...arr)
+  //const arrUnique=(arr,...arr)
+  //const arrChunk
+  //const arrStep
+
   /**
    * Creates a new object with the entries of the input object
    *

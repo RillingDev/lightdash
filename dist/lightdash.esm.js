@@ -145,6 +145,11 @@ const isString = (val) => isTypeOf(val, "string");
  * @returns {boolean}
  */
 const isStringNumber = (val) => !isNaN(_Number(val));
+//const isSymbol
+//const isMap
+//const isSet
+//const isDate
+//const isArrayTyped
 /**
  * Checks if a target has a certain key
  *
@@ -153,6 +158,9 @@ const isStringNumber = (val) => !isNaN(_Number(val));
  * @returns {boolean}
  */
 const hasKey = (target, key) => key in target;
+//const hasPath
+//const numberClamp
+//const numberIsInRange
 /**
  * Iterate over each value of an array
  *
@@ -166,14 +174,7 @@ const forEach = (arr, fn) => arr.forEach(fn);
  * @param {Array<any>} arr
  * @param {ForEachIterator} fn
  */
-const forEachDeep = (arr, fn) => {
-    forEach(arr, (val, index) => {
-        if (isArray(val)) {
-            forEachDeep(val, fn);
-        }
-        fn(val, index, arr);
-    });
-};
+const forEachDeep = (arr, fn) => forEach(arr, (val, index) => isArray(val) ? forEachDeep(val, fn) : fn(val, index, arr));
 /**
  * Iterate over each entry of an object
  *
@@ -191,14 +192,7 @@ const forEachEntry = (obj, fn) => {
  * @param {Object} obj
  * @param {ForEachEntryIterator} fn
  */
-const forEachEntryDeep = (obj, fn) => {
-    forEachEntry(obj, (val, key, index) => {
-        if (isObject(val)) {
-            forEachEntryDeep(val, fn);
-        }
-        fn(val, key, index, obj);
-    });
-};
+const forEachEntryDeep = (obj, fn) => forEachEntry(obj, (val, key, index) => isObject(val) ? forEachEntryDeep(val, fn) : fn(val, key, index, obj));
 /**
  * Creates a new array with the values of the input array
  *
@@ -229,6 +223,14 @@ const arrMap = (arr, fn) => arr.map(fn);
  * @returns {Array<any>}
  */
 const arrMapDeep = (arr, fn) => arrMap(arr, (val, index, arr) => isArray(val) ? arrMapDeep(val, fn) : fn(val, index, arr));
+//const arrFlatten
+//const arrFlattenDeep
+//const arrCompact
+//const arrDifference=(arr,...arr)
+//const arrShared=(arr,...arr)
+//const arrUnique=(arr,...arr)
+//const arrChunk
+//const arrStep
 /**
  * Creates a new object with the entries of the input object
  *
