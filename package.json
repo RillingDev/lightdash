@@ -22,7 +22,8 @@
         "build": "node tasks/jsDev.js",
         "dist": "node tasks/jsDist.js",
         "lint": "eslint src/",
-        "test": "jasmine"
+        "test": "jasmine",
+        "docs": "jsdoc dist/lightdash.esm.js --destination ./docs"
     },
     "repository": {
         "type": "git",
