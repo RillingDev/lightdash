@@ -4,6 +4,7 @@ var lightdash = function () {
   const _Object = Object;
   const _Array = Array;
   const _Number = Number;
+  const _Map = Map;
   /**
    * Checks if two values reference the same object
    *
@@ -274,9 +275,26 @@ var lightdash = function () {
    */
 
 
-  const arrMapDeep = (arr, fn) => arrMap(arr, (val, index, arr) => isArray(val) ? arrMapDeep(val, fn) : fn(val, index, arr)); //const arrFlatten
-  //const arrFlattenDeep
-  //const arrCompact
+  const arrMapDeep = (arr, fn) => arrMap(arr, (val, index, arr) => isArray(val) ? arrMapDeep(val, fn) : fn(val, index, arr));
+  /**
+   * Recursively flattens an array
+   *
+   * @param {Array<any>} arr
+   * @returns {Array<any>}
+   */
+
+
+  const arrFlattenDeep = arr => {
+    const result = [];
+    forEach(arr, val => {
+      if (isArray(val)) {
+        result.push(...arrFlattenDeep(val));
+      } else {
+        result.push(val);
+      }
+    });
+    return result;
+  }; //const arrCompact
   //const arrDifference=(arr,...arr)
   //const arrShared=(arr,...arr)
   //const arrUnique=(arr,...arr)
@@ -367,6 +385,14 @@ var lightdash = function () {
 
 
   const objEntries = obj => _Object.entries(obj);
+  /**
+   * Creates a Map from an Object
+   * @param {Object} obj
+   * @returns {Map}
+   */
+
+
+  const mapFromObject = obj => new _Map(objEntries(obj));
 
   const lightdash = {
     isSame,
@@ -394,13 +420,15 @@ var lightdash = function () {
     arrCloneDeep,
     arrMap,
     arrMapDeep,
+    arrFlattenDeep,
     objClone,
     objCloneDeep,
     objMap,
     objMapDeep,
     objKeys,
     objValues,
-    objEntries
+    objEntries,
+    mapFromObject
   };
   return lightdash;
 }();

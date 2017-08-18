@@ -8,8 +8,8 @@ const _Object = Object;
 const _Array = Array;
 const _Number = Number;
 const _String = String;
-
-
+const _Map = Map;
+const _Set = Set;
 
 
 
@@ -278,8 +278,26 @@ const arrMap = (arr: Array<any>, fn: ForEachIterator): Array<any> => arr.map(fn)
  * @returns {Array<any>}
  */
 const arrMapDeep = (arr: Array<any>, fn: ForEachIterator): Array<any> => arrMap(arr, (val, index, arr) => isArray(val) ? arrMapDeep(val, fn) : fn(val, index, arr));
-//const arrFlatten
-//const arrFlattenDeep
+
+/**
+ * Recursively flattens an array
+ *
+ * @param {Array<any>} arr
+ * @returns {Array<any>}
+ */
+const arrFlattenDeep = (arr: Array<any>) => {
+    const result: Array<any> = [];
+
+    forEach(arr, val => {
+        if (isArray(val)) {
+            result.push(...arrFlattenDeep(val));
+        } else {
+            result.push(val);
+        }
+    });
+
+    return result;
+}
 //const arrCompact
 //const arrDifference=(arr,...arr)
 //const arrShared=(arr,...arr)
@@ -370,6 +388,17 @@ const objEntries = (obj: Object): Array<[string, any]> => _Object.entries(obj);
 
 
 
+/**
+ * Creates a Map from an Object
+ * @param {Object} obj
+ * @returns {Map}
+ */
+const mapFromObject = (obj: Object) => new _Map(objEntries(obj));
+
+
+
+
+
 const lightdash = {
     isSame,
     isEqual,
@@ -399,6 +428,7 @@ const lightdash = {
     arrCloneDeep,
     arrMap,
     arrMapDeep,
+    arrFlattenDeep,
 
     objClone,
     objCloneDeep,
@@ -406,7 +436,9 @@ const lightdash = {
     objMapDeep,
     objKeys,
     objValues,
-    objEntries
+    objEntries,
+
+    mapFromObject
 };
 
 export default lightdash;
