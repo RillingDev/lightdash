@@ -4,8 +4,10 @@ const _Object = Object;
 const _Array = Array;
 const _Number = Number;
 const _Map = Map;
+const _Set = Set;
+const _Date = Date;
 /**
- * Checks if two values reference the same object
+ * Checks if two values are the same
  *
  * @param {*} a
  * @param {*} b
@@ -79,19 +81,40 @@ const isDefined = (val) => !isUndefined(val);
  */
 const isNil = (val) => isUndefined(val) || val === null;
 /**
- * Checks if an array has no items, or an object has no keys
+ * Checks if a value is a boolean
  *
  * @param {*} val
  * @returns {boolean}
  */
-const isEmpty = (val) => {
-    if (isObjectLike(val)) {
-        return (isArrayLike(val) ? val.length : objKeys(val).length) === 0;
-    }
-    else {
-        return false;
-    }
-};
+const isBoolean = (val) => isTypeOf(val, "boolean");
+/**
+ * Checks if a value is a number
+ *
+ * @param {*} val
+ * @returns {boolean}
+ */
+const isNumber = (val) => isTypeOf(val, "number");
+/**
+ * Checks if a value is a string
+ *
+ * @param {*} val
+ * @returns {boolean}
+ */
+const isString = (val) => isTypeOf(val, "string");
+/**
+ * Checks if a value is a number as a string
+ *
+ * @param {*} val
+ * @returns {boolean}
+ */
+const isStringNumber = (val) => !isNaN(_Number(val));
+/**
+ * Checks if a value is a symbol
+ *
+ * @param {*} val
+ * @returns {boolean}
+ */
+const isSymbol = (val) => isTypeOf(val, "symbol");
 /**
  * Checks if a value is an array
  *
@@ -121,38 +144,40 @@ const isObject = (val) => isInstanceOf(val, _Object);
  */
 const isObjectLike = (val) => !isNil(val) && isTypeOf(val, "object");
 /**
- * Checks if a value is a boolean
+ * Checks if a value is an map
  *
  * @param {*} val
  * @returns {boolean}
  */
-const isBoolean = (val) => isTypeOf(val, "boolean");
+const isMap = (val) => isInstanceOf(val, _Map);
 /**
- * Checks if a value is a number
+ * Checks if a value is an map
  *
  * @param {*} val
  * @returns {boolean}
  */
-const isNumber = (val) => isTypeOf(val, "number");
+const isSet = (val) => isInstanceOf(val, _Set);
 /**
- * Checks if a value is a string
+ * Checks if a value is an date object
  *
  * @param {*} val
  * @returns {boolean}
  */
-const isString = (val) => isTypeOf(val, "string");
+const isDate = (val) => isInstanceOf(val, _Date);
 /**
- * Checks if a value is a number as a string
+ * Checks if an array has no items, or an object has no keys
  *
  * @param {*} val
  * @returns {boolean}
  */
-const isStringNumber = (val) => !isNaN(_Number(val));
-//const isSymbol
-//const isMap
-//const isSet
-//const isDate
-//const isArrayTyped
+const isEmpty = (val) => {
+    if (isObjectLike(val)) {
+        return (isArrayLike(val) ? val.length : objKeys(val).length) === 0;
+    }
+    else {
+        return false;
+    }
+};
 /**
  * Checks if a target has a certain key
  *
@@ -334,15 +359,19 @@ const lightdash = {
     isUndefined,
     isDefined,
     isNil,
-    isEmpty,
-    isObject,
-    isObjectLike,
-    isArray,
-    isArrayLike,
     isBoolean,
     isNumber,
     isString,
     isStringNumber,
+    isSymbol,
+    isObject,
+    isObjectLike,
+    isArray,
+    isArrayLike,
+    isMap,
+    isSet,
+    isDate,
+    isEmpty,
     hasKey,
     forEach,
     forEachDeep,

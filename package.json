@@ -40,17 +40,16 @@
     },
     "homepage": "https://github.com/FelixRilling/lightdash#readme",
     "devDependencies": {
-        "babel-core": "^7.0.0-alpha.18",
-        "babel-preset-es2016": "^7.0.0-alpha.18",
-        "eslint": "^4.4.0",
+        "babel-core": "^7.0.0-alpha.19",
+        "babel-preset-env": "^1.6.0",
+        "eslint": "^4.5.0",
         "eslint-plugin-unicorn": "^2.1.2",
-        "jasmine": "^2.7.0",
-        "jsdoc": "^3.5.4",
-        "npm-run-all": "^4.0.2",
-        "rollup": "^0.45.2",
+        "jasmine": "^2.8.0",
+        "npm-run-all": "^4.1.0",
+        "rollup": "^0.48.2",
+        "uglify-es": "^3.0.28",
         "rollup-plugin-typescript": "^0.8.1",
-        "typescript": "^2.4.2",
-        "uglify-es": "^3.0.27"
+        "typescript": "^2.4.2"
     },
     "dependencies": {}
 }
