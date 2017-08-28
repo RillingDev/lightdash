@@ -11,7 +11,7 @@ const _String = String;
 const _Map = Map;
 const _Set = Set;
 const _Date = Date;
-
+const _Math = Math;
 
 /**
  * Checks if two values are the same
@@ -223,14 +223,55 @@ const hasKey = (target: Object, key: string): boolean => key in target;
 
 
 
-
-
-//const numberClamp
-//const numberIsInRange
+//const getPath
 
 
 
+/**
+ * Clamps a number in a range
+ *
+ * @param {number} val
+ * @param {number} min
+ * @param {number} max
+ * @returns {number}
+ */
+const numberClamp = (val: number, min: number, max: number): number => {
+    if (val < min) {
+        return min;
+    } else if (val > max) {
+        return max;
+    } else {
+        return val;
+    }
+};
 
+/**
+ * Checks if a number is in the given range
+ *
+ * @param {number} val
+ * @param {number} min
+ * @param {number} max
+ * @returns {boolean}
+ */
+const numberIsInRange = (val: number, min: number, max: number): boolean => val >= min && val <= max;
+
+/**
+ * Return a random float number in the range
+ *
+ * @param {number} [min=0]
+ * @param {number} [max=1]
+ * @returns {number}
+ */
+const numberRandomFloat = (min: number = 0, max: number = 1): number => min + _Math.random() * (max - min);
+
+/**
+ * Return a random integer number in the range
+ *
+ * @param {number} [min=0]
+ * @param {number} [max=100]
+ * @returns {number}
+ */
+const numberRandomInt = (min: number = 0, max: number = 100): number => _Math.floor(numberRandomFloat(min, max) / (max - min) * (max - min + 1));
 
 /**
  * Iterate over each value of an array
@@ -449,6 +490,11 @@ const lightdash = {
     isEmpty,
 
     hasKey,
+
+    numberClamp,
+    numberIsInRange,
+    numberRandomFloat,
+    numberRandomInt,
 
     forEach,
     forEachDeep,
