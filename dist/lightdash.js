@@ -280,7 +280,7 @@ var lightdash = function () {
    */
 
 
-  const numberRandomInt = (min = 0, max = 100) => _Math.floor(numberRandomFloat(min, max) / (max - min) * (max - min + 1));
+  const numberRandomInt = (min = 0, max = 1) => _Math.floor(numberRandomFloat(min, max) / (max - min) * (max - min + 1));
   /**
    * Iterate over each value of an array
    *

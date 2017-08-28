@@ -271,7 +271,7 @@ const numberRandomFloat = (min: number = 0, max: number = 1): number => min + _M
  * @param {number} [max=100]
  * @returns {number}
  */
-const numberRandomInt = (min: number = 0, max: number = 100): number => _Math.floor(numberRandomFloat(min, max) / (max - min) * (max - min + 1));
+const numberRandomInt = (min: number = 0, max: number = 1): number => _Math.floor(numberRandomFloat(min, max) / (max - min) * (max - min + 1));
 
 /**
  * Iterate over each value of an array
