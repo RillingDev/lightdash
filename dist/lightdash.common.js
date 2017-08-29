@@ -2,13 +2,6 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-const _Object = Object;
-const _Array = Array;
-const _Number = Number;
-const _Map = Map;
-const _Set = Set;
-const _Date = Date;
-const _Math = Math;
 /**
  * Checks if two values are the same
  *
@@ -110,7 +103,7 @@ const isString = (val) => isTypeOf(val, "string");
  * @param {*} val
  * @returns {boolean}
  */
-const isStringNumber = (val) => !isNaN(_Number(val));
+const isStringNumber = (val) => !isNaN(Number(val));
 /**
  * Checks if a value is a symbol
  *
@@ -124,7 +117,7 @@ const isSymbol = (val) => isTypeOf(val, "symbol");
  * @param {*} val
  * @returns {boolean}
  */
-const isArray = (val) => _Array.isArray(val);
+const isArray = (val) => Array.isArray(val);
 /**
  * Checks if a value is object-like and has a length property
  *
@@ -138,7 +131,7 @@ const isArrayLike = (val) => isObjectLike(val) && hasKey(val, "length");
  * @param {*} val
  * @returns {boolean}
  */
-const isObject = (val) => isInstanceOf(val, _Object);
+const isObject = (val) => isInstanceOf(val, Object);
 /**
  * Checks if a value is not nil and has a typeof object
  *
@@ -152,21 +145,21 @@ const isObjectLike = (val) => !isNil(val) && isTypeOf(val, "object");
  * @param {*} val
  * @returns {boolean}
  */
-const isMap = (val) => isInstanceOf(val, _Map);
+const isMap = (val) => isInstanceOf(val, Map);
 /**
  * Checks if a value is an map
  *
  * @param {*} val
  * @returns {boolean}
  */
-const isSet = (val) => isInstanceOf(val, _Set);
+const isSet = (val) => isInstanceOf(val, Set);
 /**
  * Checks if a value is an date object
  *
  * @param {*} val
  * @returns {boolean}
  */
-const isDate = (val) => isInstanceOf(val, _Date);
+const isDate = (val) => isInstanceOf(val, Date);
 /**
  * Checks if an array has no items, or an object has no keys
  *
@@ -271,7 +264,7 @@ const numberIsInRange = (val, min, max) => val >= min && val <= max;
  * @param {number} [max=1]
  * @returns {number}
  */
-const numberRandomFloat = (min = 0, max = 1) => min + _Math.random() * (max - min);
+const numberRandomFloat = (min = 0, max = 1) => min + Math.random() * (max - min);
 /**
  * Return a random integer number in the range
  *
@@ -279,7 +272,7 @@ const numberRandomFloat = (min = 0, max = 1) => min + _Math.random() * (max - mi
  * @param {number} [max=100]
  * @returns {number}
  */
-const numberRandomInt = (min = 0, max = 1) => _Math.floor(numberRandomFloat(min, max) / (max - min) * (max - min + 1));
+const numberRandomInt = (min = 0, max = 1) => Math.floor(numberRandomFloat(min, max) / (max - min) * (max - min + 1));
 /**
  * Iterate over each value of an array
  *
@@ -318,7 +311,7 @@ const forEachEntryDeep = (obj, fn) => forEachEntry(obj, (val, key, index) => isO
  * @param {Array<any>} arr
  * @returns {Array<any>}
  */
-const arrClone = (arr) => _Array.from(arr);
+const arrClone = (arr) => Array.from(arr);
 /**
  * Deeply creates a new array with the values of the input array
  *
@@ -378,7 +371,7 @@ const arrCompact = (arr) => arr.filter(val => !isNil(val) && !isEmpty(val));
  * @param {Object} obj
  * @returns {Object}
  */
-const objClone = (obj) => _Object.assign({}, obj);
+const objClone = (obj) => Object.assign({}, obj);
 /**
  * Deeply creates a new object with the entries of the input object
  *
@@ -427,27 +420,27 @@ const objMapDeep = (obj, fn) => objMap(obj, (val, key, index, objNew) => {
  * @param {Object} obj
  * @returns {Array<string>}
  */
-const objKeys = (obj) => _Object.keys(obj);
+const objKeys = (obj) => Object.keys(obj);
 /**
  * Returns an array of the objects values
  *
  * @param {Object} obj
  * @returns {Array<any>}
  */
-const objValues = (obj) => _Object.values(obj);
+const objValues = (obj) => Object.values(obj);
 /**
  * Returns an array of the objects entries
  *
  * @param {Object} obj
  * @returns {Array<[string, any]>}
  */
-const objEntries = (obj) => _Object.entries(obj);
+const objEntries = (obj) => Object.entries(obj);
 /**
  * Creates a Map from an Object
  * @param {Object} obj
  * @returns {Map}
  */
-const mapFromObject = (obj) => new _Map(objEntries(obj));
+const mapFromObject = (obj) => new Map(objEntries(obj));
 
 exports.isSame = isSame;
 exports.isEqual = isEqual;

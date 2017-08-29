@@ -1,13 +1,5 @@
 var lightdash = function (exports) {
   'use strict';
-
-  const _Object = Object;
-  const _Array = Array;
-  const _Number = Number;
-  const _Map = Map;
-  const _Set = Set;
-  const _Date = Date;
-  const _Math = Math;
   /**
    * Checks if two values are the same
    *
@@ -131,7 +123,7 @@ var lightdash = function (exports) {
    */
 
 
-  const isStringNumber = val => !isNaN(_Number(val));
+  const isStringNumber = val => !isNaN(Number(val));
   /**
    * Checks if a value is a symbol
    *
@@ -149,7 +141,7 @@ var lightdash = function (exports) {
    */
 
 
-  const isArray = val => _Array.isArray(val);
+  const isArray = val => Array.isArray(val);
   /**
    * Checks if a value is object-like and has a length property
    *
@@ -167,7 +159,7 @@ var lightdash = function (exports) {
    */
 
 
-  const isObject = val => isInstanceOf(val, _Object);
+  const isObject = val => isInstanceOf(val, Object);
   /**
    * Checks if a value is not nil and has a typeof object
    *
@@ -185,7 +177,7 @@ var lightdash = function (exports) {
    */
 
 
-  const isMap = val => isInstanceOf(val, _Map);
+  const isMap = val => isInstanceOf(val, Map);
   /**
    * Checks if a value is an map
    *
@@ -194,7 +186,7 @@ var lightdash = function (exports) {
    */
 
 
-  const isSet = val => isInstanceOf(val, _Set);
+  const isSet = val => isInstanceOf(val, Set);
   /**
    * Checks if a value is an date object
    *
@@ -203,7 +195,7 @@ var lightdash = function (exports) {
    */
 
 
-  const isDate = val => isInstanceOf(val, _Date);
+  const isDate = val => isInstanceOf(val, Date);
   /**
    * Checks if an array has no items, or an object has no keys
    *
@@ -322,7 +314,7 @@ var lightdash = function (exports) {
    */
 
 
-  const numberRandomFloat = (min = 0, max = 1) => min + _Math.random() * (max - min);
+  const numberRandomFloat = (min = 0, max = 1) => min + Math.random() * (max - min);
   /**
    * Return a random integer number in the range
    *
@@ -332,7 +324,7 @@ var lightdash = function (exports) {
    */
 
 
-  const numberRandomInt = (min = 0, max = 1) => _Math.floor(numberRandomFloat(min, max) / (max - min) * (max - min + 1));
+  const numberRandomInt = (min = 0, max = 1) => Math.floor(numberRandomFloat(min, max) / (max - min) * (max - min + 1));
   /**
    * Iterate over each value of an array
    *
@@ -381,7 +373,7 @@ var lightdash = function (exports) {
    */
 
 
-  const arrClone = arr => _Array.from(arr);
+  const arrClone = arr => Array.from(arr);
   /**
    * Deeply creates a new array with the values of the input array
    *
@@ -452,7 +444,7 @@ var lightdash = function (exports) {
    */
 
 
-  const objClone = obj => _Object.assign({}, obj);
+  const objClone = obj => Object.assign({}, obj);
   /**
    * Deeply creates a new object with the entries of the input object
    *
@@ -509,7 +501,7 @@ var lightdash = function (exports) {
    */
 
 
-  const objKeys = obj => _Object.keys(obj);
+  const objKeys = obj => Object.keys(obj);
   /**
    * Returns an array of the objects values
    *
@@ -518,7 +510,7 @@ var lightdash = function (exports) {
    */
 
 
-  const objValues = obj => _Object.values(obj);
+  const objValues = obj => Object.values(obj);
   /**
    * Returns an array of the objects entries
    *
@@ -527,7 +519,7 @@ var lightdash = function (exports) {
    */
 
 
-  const objEntries = obj => _Object.entries(obj);
+  const objEntries = obj => Object.entries(obj);
   /**
    * Creates a Map from an Object
    * @param {Object} obj
@@ -535,7 +527,7 @@ var lightdash = function (exports) {
    */
 
 
-  const mapFromObject = obj => new _Map(objEntries(obj));
+  const mapFromObject = obj => new Map(objEntries(obj));
 
   exports.isSame = isSame;
   exports.isEqual = isEqual;
