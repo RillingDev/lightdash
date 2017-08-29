@@ -202,8 +202,10 @@ const isDate = (val: any): boolean => isInstanceOf(val, _Date);
  * @returns {boolean}
  */
 const isEmpty = (val: any): boolean => {
-    if (isObjectLike(val)) {
-        return (isArrayLike(val) ? val.length : objKeys(val).length) === 0;
+    if (hasKey(val, "length")) {
+        return val.length === 0;
+    } else if (isObjectLike(val)) {
+        return objKeys(val).length === 0;
     } else {
         return false;
     }
@@ -218,7 +220,7 @@ const isEmpty = (val: any): boolean => {
  * @param {string} key
  * @returns {boolean}
  */
-const hasKey = (target: Object, key: string): boolean => key in target;
+const hasKey = (target: any, key: string): boolean => isDefined(target[key]);
 //const hasPath
 
 
@@ -366,7 +368,14 @@ const arrFlattenDeep = (arr: Array<any>) => {
 
     return result;
 }
-//const arrCompact
+
+/**
+ * Filters every empty, undefined or null value from an array out
+ *
+ * @param {Array<any>} arr
+ * @returns {Array<any>}
+ */
+const arrCompact = (arr: Array<any>): Array<any> => arr.filter(val => !isNil(val) && !isEmpty(val));
 //const arrDifference=(arr,...arr)
 //const arrShared=(arr,...arr)
 //const arrUnique=(arr,...arr)

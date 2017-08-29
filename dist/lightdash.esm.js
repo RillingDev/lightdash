@@ -170,8 +170,11 @@ const isDate = (val) => isInstanceOf(val, _Date);
  * @returns {boolean}
  */
 const isEmpty = (val) => {
-    if (isObjectLike(val)) {
-        return (isArrayLike(val) ? val.length : objKeys(val).length) === 0;
+    if (hasKey(val, "length")) {
+        return val.length === 0;
+    }
+    else if (isObjectLike(val)) {
+        return objKeys(val).length === 0;
     }
     else {
         return false;
@@ -184,7 +187,7 @@ const isEmpty = (val) => {
  * @param {string} key
  * @returns {boolean}
  */
-const hasKey = (target, key) => key in target;
+const hasKey = (target, key) => isDefined(target[key]);
 //const hasPath
 //const getPath
 /**
@@ -311,7 +314,6 @@ const arrFlattenDeep = (arr) => {
     });
     return result;
 };
-//const arrCompact
 //const arrDifference=(arr,...arr)
 //const arrShared=(arr,...arr)
 //const arrUnique=(arr,...arr)

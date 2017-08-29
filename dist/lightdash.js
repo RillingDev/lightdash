@@ -213,8 +213,10 @@ var lightdash = function () {
 
 
   const isEmpty = val => {
-    if (isObjectLike(val)) {
-      return (isArrayLike(val) ? val.length : objKeys(val).length) === 0;
+    if (hasKey(val, "length")) {
+      return val.length === 0;
+    } else if (isObjectLike(val)) {
+      return objKeys(val).length === 0;
     } else {
       return false;
     }
@@ -228,7 +230,7 @@ var lightdash = function () {
    */
 
 
-  const hasKey = (target, key) => key in target; //const hasPath
+  const hasKey = (target, key) => isDefined(target[key]); //const hasPath
   //const getPath
 
   /**
@@ -377,8 +379,7 @@ var lightdash = function () {
       }
     });
     return result;
-  }; //const arrCompact
-  //const arrDifference=(arr,...arr)
+  }; //const arrDifference=(arr,...arr)
   //const arrShared=(arr,...arr)
   //const arrUnique=(arr,...arr)
   //const arrChunk
