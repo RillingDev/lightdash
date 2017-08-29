@@ -1,5 +1,7 @@
 'use strict';
 
+Object.defineProperty(exports, '__esModule', { value: true });
+
 const _Object = Object;
 const _Array = Array;
 const _Number = Number;
@@ -446,52 +448,49 @@ const objEntries = (obj) => _Object.entries(obj);
  * @returns {Map}
  */
 const mapFromObject = (obj) => new _Map(objEntries(obj));
-const lightdash = {
-    isSame,
-    isEqual,
-    isInstanceOf,
-    isTypeOf,
-    isUndefined,
-    isDefined,
-    isNil,
-    isBoolean,
-    isNumber,
-    isString,
-    isStringNumber,
-    isSymbol,
-    isObject,
-    isObjectLike,
-    isArray,
-    isArrayLike,
-    isMap,
-    isSet,
-    isDate,
-    isEmpty,
-    hasKey,
-    hasPath,
-    getPath,
-    numberClamp,
-    numberIsInRange,
-    numberRandomFloat,
-    numberRandomInt,
-    forEach,
-    forEachDeep,
-    forEachEntry,
-    forEachEntryDeep,
-    arrClone,
-    arrCloneDeep,
-    arrMap,
-    arrMapDeep,
-    arrFlattenDeep,
-    arrCompact,
-    objClone,
-    objCloneDeep,
-    objMap,
-    objMapDeep,
-    objKeys,
-    objValues,
-    objEntries,
-    mapFromObject
-};
 
-module.exports = lightdash;
+exports.isSame = isSame;
+exports.isEqual = isEqual;
+exports.isInstanceOf = isInstanceOf;
+exports.isTypeOf = isTypeOf;
+exports.isUndefined = isUndefined;
+exports.isDefined = isDefined;
+exports.isNil = isNil;
+exports.isBoolean = isBoolean;
+exports.isNumber = isNumber;
+exports.isString = isString;
+exports.isStringNumber = isStringNumber;
+exports.isSymbol = isSymbol;
+exports.isObject = isObject;
+exports.isObjectLike = isObjectLike;
+exports.isArray = isArray;
+exports.isArrayLike = isArrayLike;
+exports.isMap = isMap;
+exports.isSet = isSet;
+exports.isDate = isDate;
+exports.isEmpty = isEmpty;
+exports.hasKey = hasKey;
+exports.hasPath = hasPath;
+exports.getPath = getPath;
+exports.numberClamp = numberClamp;
+exports.numberIsInRange = numberIsInRange;
+exports.numberRandomFloat = numberRandomFloat;
+exports.numberRandomInt = numberRandomInt;
+exports.forEach = forEach;
+exports.forEachDeep = forEachDeep;
+exports.forEachEntry = forEachEntry;
+exports.forEachEntryDeep = forEachEntryDeep;
+exports.arrClone = arrClone;
+exports.arrCloneDeep = arrCloneDeep;
+exports.arrMap = arrMap;
+exports.arrMapDeep = arrMapDeep;
+exports.arrFlattenDeep = arrFlattenDeep;
+exports.arrCompact = arrCompact;
+exports.objClone = objClone;
+exports.objCloneDeep = objCloneDeep;
+exports.objMap = objMap;
+exports.objMapDeep = objMapDeep;
+exports.objKeys = objKeys;
+exports.objValues = objValues;
+exports.objEntries = objEntries;
+exports.mapFromObject = mapFromObject;

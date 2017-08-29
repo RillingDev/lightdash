@@ -444,52 +444,5 @@ const objEntries = (obj) => _Object.entries(obj);
  * @returns {Map}
  */
 const mapFromObject = (obj) => new _Map(objEntries(obj));
-const lightdash = {
-    isSame,
-    isEqual,
-    isInstanceOf,
-    isTypeOf,
-    isUndefined,
-    isDefined,
-    isNil,
-    isBoolean,
-    isNumber,
-    isString,
-    isStringNumber,
-    isSymbol,
-    isObject,
-    isObjectLike,
-    isArray,
-    isArrayLike,
-    isMap,
-    isSet,
-    isDate,
-    isEmpty,
-    hasKey,
-    hasPath,
-    getPath,
-    numberClamp,
-    numberIsInRange,
-    numberRandomFloat,
-    numberRandomInt,
-    forEach,
-    forEachDeep,
-    forEachEntry,
-    forEachEntryDeep,
-    arrClone,
-    arrCloneDeep,
-    arrMap,
-    arrMapDeep,
-    arrFlattenDeep,
-    arrCompact,
-    objClone,
-    objCloneDeep,
-    objMap,
-    objMapDeep,
-    objKeys,
-    objValues,
-    objEntries,
-    mapFromObject
-};
 
-export default lightdash;
+export { isSame, isEqual, isInstanceOf, isTypeOf, isUndefined, isDefined, isNil, isBoolean, isNumber, isString, isStringNumber, isSymbol, isObject, isObjectLike, isArray, isArrayLike, isMap, isSet, isDate, isEmpty, hasKey, hasPath, getPath, numberClamp, numberIsInRange, numberRandomFloat, numberRandomInt, forEach, forEachDeep, forEachEntry, forEachEntryDeep, arrClone, arrCloneDeep, arrMap, arrMapDeep, arrFlattenDeep, arrCompact, objClone, objCloneDeep, objMap, objMapDeep, objKeys, objValues, objEntries, mapFromObject };

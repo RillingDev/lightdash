@@ -4,14 +4,7 @@ type Class = Function;
 type ForEachIterator = (val?: any, index?: number, arr?: Array<any>) => void;
 type ForEachEntryIterator = (val?: any, key?: string, index?: number, obj?: Object) => void;
 
-const _Object = Object;
-const _Array = Array;
-const _Number = Number;
-const _String = String;
-const _Map = Map;
-const _Set = Set;
-const _Date = Date;
-const _Math = Math;
+
 
 
 
@@ -130,7 +123,7 @@ const isString = (val: any): boolean => isTypeOf(val, "string");
  * @param {*} val
  * @returns {boolean}
  */
-const isStringNumber = (val: any): boolean => !isNaN(_Number(val));
+const isStringNumber = (val: any): boolean => !isNaN(Number(val));
 
 /**
  * Checks if a value is a symbol
@@ -146,7 +139,7 @@ const isSymbol = (val: any): boolean => isTypeOf(val, "symbol");
  * @param {*} val
  * @returns {boolean}
  */
-const isArray = (val: any): boolean => _Array.isArray(val);
+const isArray = (val: any): boolean => Array.isArray(val);
 
 /**
  * Checks if a value is object-like and has a length property
@@ -162,7 +155,7 @@ const isArrayLike = (val: any): boolean => isObjectLike(val) && hasKey(val, "len
  * @param {*} val
  * @returns {boolean}
  */
-const isObject = (val: any): boolean => isInstanceOf(val, _Object);
+const isObject = (val: any): boolean => isInstanceOf(val, Object);
 
 /**
  * Checks if a value is not nil and has a typeof object
@@ -178,7 +171,7 @@ const isObjectLike = (val: any): boolean => !isNil(val) && isTypeOf(val, "object
  * @param {*} val
  * @returns {boolean}
  */
-const isMap = (val: any): boolean => isInstanceOf(val, _Map);
+const isMap = (val: any): boolean => isInstanceOf(val, Map);
 
 /**
  * Checks if a value is an map
@@ -186,7 +179,7 @@ const isMap = (val: any): boolean => isInstanceOf(val, _Map);
  * @param {*} val
  * @returns {boolean}
  */
-const isSet = (val: any): boolean => isInstanceOf(val, _Set);
+const isSet = (val: any): boolean => isInstanceOf(val, Set);
 
 /**
  * Checks if a value is an date object
@@ -194,7 +187,7 @@ const isSet = (val: any): boolean => isInstanceOf(val, _Set);
  * @param {*} val
  * @returns {boolean}
  */
-const isDate = (val: any): boolean => isInstanceOf(val, _Date);
+const isDate = (val: any): boolean => isInstanceOf(val, Date);
 
 
 /**
@@ -313,7 +306,7 @@ const numberIsInRange = (val: number, min: number, max: number): boolean => val 
  * @param {number} [max=1]
  * @returns {number}
  */
-const numberRandomFloat = (min: number = 0, max: number = 1): number => min + _Math.random() * (max - min);
+const numberRandomFloat = (min: number = 0, max: number = 1): number => min + Math.random() * (max - min);
 
 /**
  * Return a random integer number in the range
@@ -322,7 +315,7 @@ const numberRandomFloat = (min: number = 0, max: number = 1): number => min + _M
  * @param {number} [max=100]
  * @returns {number}
  */
-const numberRandomInt = (min: number = 0, max: number = 1): number => _Math.floor(numberRandomFloat(min, max) / (max - min) * (max - min + 1));
+const numberRandomInt = (min: number = 0, max: number = 1): number => Math.floor(numberRandomFloat(min, max) / (max - min) * (max - min + 1));
 
 /**
  * Iterate over each value of an array
@@ -368,7 +361,7 @@ const forEachEntryDeep = (obj: Object, fn: ForEachEntryIterator): void => forEac
  * @param {Array<any>} arr
  * @returns {Array<any>}
  */
-const arrClone = (arr: Array<any>): Array<any> => _Array.from(arr);
+const arrClone = (arr: Array<any>): Array<any> => Array.from(arr);
 
 /**
  * Deeply creates a new array with the values of the input array
@@ -435,7 +428,7 @@ const arrCompact = (arr: Array<any>): Array<any> => arr.filter(val => !isNil(val
  * @param {Object} obj
  * @returns {Object}
  */
-const objClone = (obj: Object): Object => _Object.assign({}, obj);
+const objClone = (obj: Object): Object => Object.assign({}, obj);
 
 /**
  * Deeply creates a new object with the entries of the input object
@@ -490,7 +483,7 @@ const objMapDeep = (obj: Object, fn: ForEachEntryIterator): Object => objMap(obj
  * @param {Object} obj
  * @returns {Array<string>}
  */
-const objKeys = (obj: Object): Array<string> => _Object.keys(obj);
+const objKeys = (obj: Object): Array<string> => Object.keys(obj);
 
 /**
  * Returns an array of the objects values
@@ -498,7 +491,7 @@ const objKeys = (obj: Object): Array<string> => _Object.keys(obj);
  * @param {Object} obj
  * @returns {Array<any>}
  */
-const objValues = (obj: Object): Array<any> => _Object.values(obj);
+const objValues = (obj: Object): Array<any> => Object.values(obj);
 
 /**
  * Returns an array of the objects entries
@@ -506,7 +499,7 @@ const objValues = (obj: Object): Array<any> => _Object.values(obj);
  * @param {Object} obj
  * @returns {Array<[string, any]>}
  */
-const objEntries = (obj: Object): Array<[string, any]> => _Object.entries(obj);
+const objEntries = (obj: Object): Array<[string, any]> => Object.entries(obj);
 
 
 
@@ -515,13 +508,13 @@ const objEntries = (obj: Object): Array<[string, any]> => _Object.entries(obj);
  * @param {Object} obj
  * @returns {Map}
  */
-const mapFromObject = (obj: Object) => new _Map(objEntries(obj));
+const mapFromObject = (obj: Object) => new Map(objEntries(obj));
 
 
 
 
 
-const lightdash = {
+export {
     isSame,
     isEqual,
     isInstanceOf,
@@ -575,5 +568,3 @@ const lightdash = {
 
     mapFromObject
 };
-
-export default lightdash;
