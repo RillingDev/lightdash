@@ -185,13 +185,55 @@ const isEmpty = (val) => {
 /**
  * Checks if a target has a certain key
  *
- * @param {Object} target
+ * @param {any} target
  * @param {string} key
  * @returns {boolean}
  */
 const hasKey = (target, key) => isDefined(target[key]);
-//const hasPath
-//const getPath
+/**
+ * Checks if a target has a path of keys
+ *
+ * @param {any} target
+ * @param {Array<string>} path
+ * @returns {boolean}
+ */
+const hasPath = (target, path) => {
+    let targetCurrent = target;
+    let index = 0;
+    while (isDefined(targetCurrent) && index < path.length) {
+        const keyCurrent = path[index];
+        if (hasKey(targetCurrent, keyCurrent)) {
+            targetCurrent = targetCurrent[keyCurrent];
+            index++;
+        }
+        else {
+            return false;
+        }
+    }
+    return true;
+};
+/**
+ * Accesses a target by a path of keys. If the path doesn't exist, null is returned
+ *
+ * @param {any} target
+ * @param {Array<string>} path
+ * @returns {boolean}
+ */
+const getPath = (target, path) => {
+    let targetCurrent = target;
+    let index = 0;
+    while (isDefined(targetCurrent) && index < path.length) {
+        const keyCurrent = path[index];
+        if (hasKey(targetCurrent, keyCurrent)) {
+            targetCurrent = targetCurrent[keyCurrent];
+            index++;
+        }
+        else {
+            return null;
+        }
+    }
+    return targetCurrent;
+};
 /**
  * Clamps a number in a range
  *
@@ -316,6 +358,13 @@ const arrFlattenDeep = (arr) => {
     });
     return result;
 };
+/**
+ * Filters every empty, undefined or null value from an array out
+ *
+ * @param {Array<any>} arr
+ * @returns {Array<any>}
+ */
+const arrCompact = (arr) => arr.filter(val => !isNil(val) && !isEmpty(val));
 //const arrDifference=(arr,...arr)
 //const arrShared=(arr,...arr)
 //const arrUnique=(arr,...arr)
@@ -419,6 +468,8 @@ const lightdash = {
     isDate,
     isEmpty,
     hasKey,
+    hasPath,
+    getPath,
     numberClamp,
     numberIsInRange,
     numberRandomFloat,
@@ -432,6 +483,7 @@ const lightdash = {
     arrMap,
     arrMapDeep,
     arrFlattenDeep,
+    arrCompact,
     objClone,
     objCloneDeep,
     objMap,

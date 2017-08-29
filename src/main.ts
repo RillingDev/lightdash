@@ -13,6 +13,8 @@ const _Set = Set;
 const _Date = Date;
 const _Math = Math;
 
+
+
 /**
  * Checks if two values are the same
  *
@@ -216,16 +218,63 @@ const isEmpty = (val: any): boolean => {
 /**
  * Checks if a target has a certain key
  *
- * @param {Object} target
+ * @param {any} target
  * @param {string} key
  * @returns {boolean}
  */
 const hasKey = (target: any, key: string): boolean => isDefined(target[key]);
-//const hasPath
+
+/**
+ * Checks if a target has a path of keys
+ *
+ * @param {any} target
+ * @param {Array<string>} path
+ * @returns {boolean}
+ */
+const hasPath = (target: any, path: Array<string>): boolean => {
+    let targetCurrent = target;
+    let index = 0;
+
+    while (isDefined(targetCurrent) && index < path.length) {
+        const keyCurrent = path[index];
+
+        if (hasKey(targetCurrent, keyCurrent)) {
+            targetCurrent = targetCurrent[keyCurrent];
+            index++;
+        } else {
+            return false;
+        }
+    }
+
+    return true;
+};
 
 
 
-//const getPath
+/**
+ * Accesses a target by a path of keys. If the path doesn't exist, null is returned
+ *
+ * @param {any} target
+ * @param {Array<string>} path
+ * @returns {boolean}
+ */
+const getPath = (target: any, path: Array<string>): any | null => {
+    let targetCurrent = target;
+    let index = 0;
+
+    while (isDefined(targetCurrent) && index < path.length) {
+        const keyCurrent = path[index];
+
+        if (hasKey(targetCurrent, keyCurrent)) {
+            targetCurrent = targetCurrent[keyCurrent];
+            index++;
+        } else {
+            return null;
+        }
+    }
+
+    return targetCurrent;
+};
 
 
 
@@ -310,8 +359,6 @@ const forEachEntry = (obj: Object, fn: ForEachEntryIterator): void => {
  * @param {ForEachEntryIterator} fn
  */
 const forEachEntryDeep = (obj: Object, fn: ForEachEntryIterator): void => forEachEntry(obj, (val, key, index) => isObject(val) ? forEachEntryDeep(val, fn) : fn(val, key, index, obj));
-
-
 
 
 
@@ -463,8 +510,6 @@ const objEntries = (obj: Object): Array<[string, any]> => _Object.entries(obj);
 
 
 
-
-
 /**
  * Creates a Map from an Object
  * @param {Object} obj
@@ -499,6 +544,9 @@ const lightdash = {
     isEmpty,
 
     hasKey,
+    hasPath,
+
+    getPath,
 
     numberClamp,
     numberIsInRange,
@@ -515,6 +563,7 @@ const lightdash = {
     arrMap,
     arrMapDeep,
     arrFlattenDeep,
+    arrCompact,
 
     objClone,
     objCloneDeep,
