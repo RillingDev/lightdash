@@ -21,7 +21,6 @@
         "start": "npm-run-all lint build test",
         "build": "node tasks/jsDev.js",
         "dist": "node tasks/jsDist.js",
-        "lint": "eslint src/",
         "test": "jasmine",
         "docs": "jsdoc dist/lightdash.esm.js --destination ./docs"
     },
@@ -40,16 +39,15 @@
     },
     "homepage": "https://github.com/FelixRilling/lightdash#readme",
     "devDependencies": {
-        "babel-core": "^7.0.0-alpha.19",
+        "babel-core": "^7.0.0-beta",
         "babel-preset-env": "^1.6.0",
-        "eslint": "^4.5.0",
-        "eslint-plugin-unicorn": "^2.1.2",
         "jasmine": "^2.8.0",
-        "npm-run-all": "^4.1.0",
-        "rollup": "^0.48.2",
-        "uglify-es": "^3.0.28",
+        "npm-run-all": "^4.1.1",
+        "rollup": "^0.50.0",
         "rollup-plugin-typescript": "^0.8.1",
-        "typescript": "^2.4.2"
+        "tslint": "^5.7.0",
+        "typescript": "^2.5.2",
+        "uglify-es": "^3.1.1"
     },
     "dependencies": {}
 }

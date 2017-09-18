@@ -1,10 +1,6 @@
-"use strict";
-
 type Class = Function;
 type ForEachIterator = (val?: any, index?: number, arr?: Array<any>) => void;
 type ForEachEntryIterator = (val?: any, key?: string, index?: number, obj?: Object) => void;
-
-
 
 
 
@@ -509,8 +505,6 @@ const objEntries = (obj: Object): Array<[string, any]> => Object.entries(obj);
  * @returns {Map}
  */
 const mapFromObject = (obj: Object) => new Map(objEntries(obj));
-
-
 
 
 
