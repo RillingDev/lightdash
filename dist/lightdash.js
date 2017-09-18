@@ -25,12 +25,12 @@ var lightdash = function (exports) {
 
     if (isObject(a) && isObject(b) && objKeys(a).length === objKeys(b).length) {
       let result = true;
-      forEachEntry(a, (val_a, key) => {
-        //Only Check if the comparison didnt fail already
+      forEachEntry(a, (aVal, key) => {
+        // Only Check if the comparison didnt fail already
         if (result === true) {
           if (hasKey(b, key)) {
-            const val_b = b[key];
-            result = isEqual(val_a, val_b);
+            const bVal = b[key];
+            result = isEqual(aVal, bVal);
           } else {
             result = false;
           }
@@ -227,7 +227,7 @@ var lightdash = function (exports) {
    * Checks if a target has a path of keys
    *
    * @param {any} target
-   * @param {Array<string>} path
+   * @param {string[]} path
    * @returns {boolean}
    */
 
@@ -253,7 +253,7 @@ var lightdash = function (exports) {
    * Accesses a target by a path of keys. If the path doesn't exist, null is returned
    *
    * @param {any} target
-   * @param {Array<string>} path
+   * @param {string[]} path
    * @returns {boolean}
    */
 
@@ -328,7 +328,7 @@ var lightdash = function (exports) {
   /**
    * Iterate over each value of an array
    *
-   * @param {Array<any>} arr
+   * @param {any[]} arr
    * @param {ForEachIterator} fn
    */
 
@@ -337,7 +337,7 @@ var lightdash = function (exports) {
   /**
    * Deeply iterate over each value of an array
    *
-   * @param {Array<any>} arr
+   * @param {any[]} arr
    * @param {ForEachIterator} fn
    */
 
@@ -346,7 +346,7 @@ var lightdash = function (exports) {
   /**
    * Iterate over each entry of an object
    *
-   * @param {Object} obj
+   * @param {object} obj
    * @param {ForEachEntryIterator} fn
    */
 
@@ -359,7 +359,7 @@ var lightdash = function (exports) {
   /**
    * Deeply iterate over each entry of an object
    *
-   * @param {Object} obj
+   * @param {object} obj
    * @param {ForEachEntryIterator} fn
    */
 
@@ -368,8 +368,8 @@ var lightdash = function (exports) {
   /**
    * Creates a new array with the values of the input array
    *
-   * @param {Array<any>} arr
-   * @returns {Array<any>}
+   * @param {any[]} arr
+   * @returns {any[]}
    */
 
 
@@ -377,8 +377,8 @@ var lightdash = function (exports) {
   /**
    * Deeply creates a new array with the values of the input array
    *
-   * @param {Array<any>} arr
-   * @returns {Array<any>}
+   * @param {any[]} arr
+   * @returns {any[]}
    */
 
 
@@ -386,9 +386,9 @@ var lightdash = function (exports) {
   /**
    * Maps the values of the input array with the iterator function and return the result
    *
-   * @param {Array<any>} arr
+   * @param {any[]} arr
    * @param {ForEachIterator} fn
-   * @returns {Array<any>}
+   * @returns {any[]}
    */
 
 
@@ -396,18 +396,18 @@ var lightdash = function (exports) {
   /**
    * Deeply maps the values of the input array with the iterator function and return the result
    *
-   * @param {Array<any>} arr
+   * @param {any[]} arr
    * @param {ForEachIterator} fn
-   * @returns {Array<any>}
+   * @returns {any[]}
    */
 
 
-  const arrMapDeep = (arr, fn) => arrMap(arr, (val, index, arr) => isArray(val) ? arrMapDeep(val, fn) : fn(val, index, arr));
+  const arrMapDeep = (arr, fn) => arrMap(arr, (val, index) => isArray(val) ? arrMapDeep(val, fn) : fn(val, index, arr));
   /**
    * Recursively flattens an array
    *
-   * @param {Array<any>} arr
-   * @returns {Array<any>}
+   * @param {any[]} arr
+   * @returns {any[]}
    */
 
 
@@ -425,22 +425,22 @@ var lightdash = function (exports) {
   /**
    * Filters every empty, undefined or null value from an array out
    *
-   * @param {Array<any>} arr
-   * @returns {Array<any>}
+   * @param {any[]} arr
+   * @returns {any[]}
    */
 
 
-  const arrCompact = arr => arr.filter(val => !isNil(val) && !isEmpty(val)); //const arrDifference=(arr,...arr)
-  //const arrShared=(arr,...arr)
-  //const arrUnique=(arr,...arr)
-  //const arrChunk
-  //const arrStep
+  const arrCompact = arr => arr.filter(val => !isNil(val) && !isEmpty(val)); // const arrDifference=(arr,...arr)
+  // const arrShared=(arr,...arr)
+  // const arrUnique=(arr,...arr)
+  // const arrChunk
+  // const arrStep
 
   /**
    * Creates a new object with the entries of the input object
    *
-   * @param {Object} obj
-   * @returns {Object}
+   * @param {object} obj
+   * @returns {object}
    */
 
 
@@ -497,7 +497,7 @@ var lightdash = function (exports) {
    * Returns an array of the objects keys
    *
    * @param {Object} obj
-   * @returns {Array<string>}
+   * @returns {string[]}
    */
 
 
@@ -506,7 +506,7 @@ var lightdash = function (exports) {
    * Returns an array of the objects values
    *
    * @param {Object} obj
-   * @returns {Array<any>}
+   * @returns {any[]}
    */
 
 

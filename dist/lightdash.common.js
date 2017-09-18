@@ -23,12 +23,12 @@ const isEqual = (a, b) => {
     }
     if (isObject(a) && isObject(b) && objKeys(a).length === objKeys(b).length) {
         let result = true;
-        forEachEntry(a, (val_a, key) => {
-            //Only Check if the comparison didnt fail already
+        forEachEntry(a, (aVal, key) => {
+            // Only Check if the comparison didnt fail already
             if (result === true) {
                 if (hasKey(b, key)) {
-                    const val_b = b[key];
-                    result = isEqual(val_a, val_b);
+                    const bVal = b[key];
+                    result = isEqual(aVal, bVal);
                 }
                 else {
                     result = false;
@@ -189,7 +189,7 @@ const hasKey = (target, key) => isDefined(target[key]);
  * Checks if a target has a path of keys
  *
  * @param {any} target
- * @param {Array<string>} path
+ * @param {string[]} path
  * @returns {boolean}
  */
 const hasPath = (target, path) => {
@@ -211,7 +211,7 @@ const hasPath = (target, path) => {
  * Accesses a target by a path of keys. If the path doesn't exist, null is returned
  *
  * @param {any} target
- * @param {Array<string>} path
+ * @param {string[]} path
  * @returns {boolean}
  */
 const getPath = (target, path) => {
@@ -272,25 +272,26 @@ const numberRandomFloat = (min = 0, max = 1) => min + Math.random() * (max - min
  * @param {number} [max=100]
  * @returns {number}
  */
-const numberRandomInt = (min = 0, max = 1) => Math.floor(numberRandomFloat(min, max) / (max - min) * (max - min + 1));
+const numberRandomInt = (min = 0, max = 1) => Math.floor(numberRandomFloat(min, max) /
+    (max - min) * (max - min + 1));
 /**
  * Iterate over each value of an array
  *
- * @param {Array<any>} arr
+ * @param {any[]} arr
  * @param {ForEachIterator} fn
  */
 const forEach = (arr, fn) => arr.forEach(fn);
 /**
  * Deeply iterate over each value of an array
  *
- * @param {Array<any>} arr
+ * @param {any[]} arr
  * @param {ForEachIterator} fn
  */
 const forEachDeep = (arr, fn) => forEach(arr, (val, index) => isArray(val) ? forEachDeep(val, fn) : fn(val, index, arr));
 /**
  * Iterate over each entry of an object
  *
- * @param {Object} obj
+ * @param {object} obj
  * @param {ForEachEntryIterator} fn
  */
 const forEachEntry = (obj, fn) => {
@@ -301,49 +302,49 @@ const forEachEntry = (obj, fn) => {
 /**
  * Deeply iterate over each entry of an object
  *
- * @param {Object} obj
+ * @param {object} obj
  * @param {ForEachEntryIterator} fn
  */
 const forEachEntryDeep = (obj, fn) => forEachEntry(obj, (val, key, index) => isObject(val) ? forEachEntryDeep(val, fn) : fn(val, key, index, obj));
 /**
  * Creates a new array with the values of the input array
  *
- * @param {Array<any>} arr
- * @returns {Array<any>}
+ * @param {any[]} arr
+ * @returns {any[]}
  */
 const arrClone = (arr) => Array.from(arr);
 /**
  * Deeply creates a new array with the values of the input array
  *
- * @param {Array<any>} arr
- * @returns {Array<any>}
+ * @param {any[]} arr
+ * @returns {any[]}
  */
-const arrCloneDeep = (arr) => arrMapDeep(arrClone(arr), val => isArray(val) ? arrClone(val) : val);
+const arrCloneDeep = (arr) => arrMapDeep(arrClone(arr), (val) => isArray(val) ? arrClone(val) : val);
 /**
  * Maps the values of the input array with the iterator function and return the result
  *
- * @param {Array<any>} arr
+ * @param {any[]} arr
  * @param {ForEachIterator} fn
- * @returns {Array<any>}
+ * @returns {any[]}
  */
 const arrMap = (arr, fn) => arr.map(fn);
 /**
  * Deeply maps the values of the input array with the iterator function and return the result
  *
- * @param {Array<any>} arr
+ * @param {any[]} arr
  * @param {ForEachIterator} fn
- * @returns {Array<any>}
+ * @returns {any[]}
  */
-const arrMapDeep = (arr, fn) => arrMap(arr, (val, index, arr) => isArray(val) ? arrMapDeep(val, fn) : fn(val, index, arr));
+const arrMapDeep = (arr, fn) => arrMap(arr, (val, index) => isArray(val) ? arrMapDeep(val, fn) : fn(val, index, arr));
 /**
  * Recursively flattens an array
  *
- * @param {Array<any>} arr
- * @returns {Array<any>}
+ * @param {any[]} arr
+ * @returns {any[]}
  */
 const arrFlattenDeep = (arr) => {
     const result = [];
-    forEach(arr, val => {
+    forEach(arr, (val) => {
         if (isArray(val)) {
             result.push(...arrFlattenDeep(val));
         }
@@ -356,20 +357,20 @@ const arrFlattenDeep = (arr) => {
 /**
  * Filters every empty, undefined or null value from an array out
  *
- * @param {Array<any>} arr
- * @returns {Array<any>}
+ * @param {any[]} arr
+ * @returns {any[]}
  */
-const arrCompact = (arr) => arr.filter(val => !isNil(val) && !isEmpty(val));
-//const arrDifference=(arr,...arr)
-//const arrShared=(arr,...arr)
-//const arrUnique=(arr,...arr)
-//const arrChunk
-//const arrStep
+const arrCompact = (arr) => arr.filter((val) => !isNil(val) && !isEmpty(val));
+// const arrDifference=(arr,...arr)
+// const arrShared=(arr,...arr)
+// const arrUnique=(arr,...arr)
+// const arrChunk
+// const arrStep
 /**
  * Creates a new object with the entries of the input object
  *
- * @param {Object} obj
- * @returns {Object}
+ * @param {object} obj
+ * @returns {object}
  */
 const objClone = (obj) => Object.assign({}, obj);
 /**
@@ -378,7 +379,7 @@ const objClone = (obj) => Object.assign({}, obj);
  * @param {Object} obj
  * @returns {Object}
  */
-const objCloneDeep = (obj) => objMapDeep(objClone(obj), val => isObject(val) ? objClone(val) : val);
+const objCloneDeep = (obj) => objMapDeep(objClone(obj), (val) => isObject(val) ? objClone(val) : val);
 /**
  * Maps each entry of an object and returns the result
  *
@@ -418,14 +419,14 @@ const objMapDeep = (obj, fn) => objMap(obj, (val, key, index, objNew) => {
  * Returns an array of the objects keys
  *
  * @param {Object} obj
- * @returns {Array<string>}
+ * @returns {string[]}
  */
 const objKeys = (obj) => Object.keys(obj);
 /**
  * Returns an array of the objects values
  *
  * @param {Object} obj
- * @returns {Array<any>}
+ * @returns {any[]}
  */
 const objValues = (obj) => Object.values(obj);
 /**
