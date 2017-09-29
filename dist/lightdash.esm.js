@@ -95,7 +95,7 @@ const isDate = (val) => isInstanceOf(val, Date);
  * @param {Object} obj
  * @returns {string[]}
  */
-const objKeys$1 = (obj) => Object.keys(obj);
+const objKeys = (obj) => Object.keys(obj);
 
 /**
  * Checks if an array has no items, or an object has no keys
@@ -108,20 +108,12 @@ const isEmpty = (val) => {
         return val.length === 0;
     }
     else if (isObjectLike(val)) {
-        return objKeys$1(val).length === 0;
+        return objKeys(val).length === 0;
     }
     else {
         return false;
     }
 };
-
-/**
- * Checks if a value is an object
- *
- * @param {*} val
- * @returns {boolean}
- */
-const isObject = (val) => isInstanceOf(val, Object);
 
 /**
  * Returns an array of the objects entries
@@ -150,6 +142,14 @@ const forEachEntry = (obj, fn) => {
         fn(entry[1], entry[0], index, obj);
     });
 };
+
+/**
+ * Checks if a value is an object
+ *
+ * @param {*} val
+ * @returns {boolean}
+ */
+const isObject = (val) => isInstanceOf(val, Object);
 
 /**
  * Deeply checks if the contents of two values are the same
@@ -390,6 +390,24 @@ const arrChunk = (arr, chunk) => {
 const arrClone = (arr) => Array.from(arr);
 
 /**
+ * Maps the values of the input array with the iterator function and return the result
+ *
+ * @param {any[]} arr
+ * @param {ForEachIterator} fn
+ * @returns {any[]}
+ */
+const arrMap = (arr, fn) => arr.map(fn);
+
+/**
+ * Deeply maps the values of the input array with the iterator function and return the result
+ *
+ * @param {any[]} arr
+ * @param {ForEachIterator} fn
+ * @returns {any[]}
+ */
+const arrMapDeep = (arr, fn) => arrMap(arr, (val, index) => isArray(val) ? arrMapDeep(val, fn) : fn(val, index, arr));
+
+/**
  * Deeply creates a new array with the values of the input array
  *
  * @param {any[]} arr
@@ -425,24 +443,6 @@ const arrFlattenDeep = (arr) => {
 };
 
 /**
- * Maps the values of the input array with the iterator function and return the result
- *
- * @param {any[]} arr
- * @param {ForEachIterator} fn
- * @returns {any[]}
- */
-const arrMap = (arr, fn) => arr.map(fn);
-
-/**
- * Deeply maps the values of the input array with the iterator function and return the result
- *
- * @param {any[]} arr
- * @param {ForEachIterator} fn
- * @returns {any[]}
- */
-const arrMapDeep$1 = (arr, fn) => arrMap(arr, (val, index) => isArray(val) ? arrMapDeep$1(val, fn) : fn(val, index, arr));
-
-/**
  * Returns a new array with every n-th item
  *
  * @param {any[]} arr
@@ -458,14 +458,6 @@ const arrStep = (arr, step) => arr.filter((val, index) => index % step === 0);
  * @returns {object}
  */
 const objClone = (obj) => Object.assign({}, obj);
-
-/**
- * Deeply creates a new object with the entries of the input object
- *
- * @param {Object} obj
- * @returns {Object}
- */
-const objCloneDeep = (obj) => objMapDeep(objClone(obj), (val) => isObject(val) ? objClone(val) : val);
 
 /**
  * Maps each entry of an object and returns the result
@@ -489,14 +481,22 @@ const objMap = (obj, fn) => {
  * @param {ForEachEntryIterator} fn
  * @returns {Object}
  */
-const objMapDeep$1 = (obj, fn) => objMap(obj, (val, key, index, objNew) => {
+const objMapDeep = (obj, fn) => objMap(obj, (val, key, index, objNew) => {
     if (isObject(val)) {
-        return objMapDeep$1(val, fn);
+        return objMapDeep(val, fn);
     }
     else {
         return fn(val, key, index, objNew);
     }
 });
+
+/**
+ * Deeply creates a new object with the entries of the input object
+ *
+ * @param {Object} obj
+ * @returns {Object}
+ */
+const objCloneDeep = (obj) => objMapDeep(objClone(obj), (val) => isObject(val) ? objClone(val) : val);
 
 /**
  * Returns an array of the objects values
@@ -513,4 +513,4 @@ const objValues = (obj) => Object.values(obj);
  */
 const mapFromObject = (obj) => new Map(objEntries(obj));
 
-export { isSame, isEqual, isInstanceOf, isTypeOf, isUndefined, isDefined, isNil, isBoolean, isNumber, isString, isStringNumber, isSymbol, isObject, isObjectLike, isArray, isArrayLike, isMap, isSet, isDate, isEmpty, isInRange, hasKey, hasPath, getPath, numberClamp, numberRandomFloat, numberRandomInt, forTimes, forEach, forEachDeep, forEachEntry, forEachEntryDeep, arrClone, arrCloneDeep, arrMap, arrMapDeep$1 as arrMapDeep, arrFlattenDeep, arrCompact, arrChunk, arrStep, objClone, objCloneDeep, objMap, objMapDeep$1 as objMapDeep, objKeys$1 as objKeys, objValues, objEntries, mapFromObject };
+export { isSame, isEqual, isInstanceOf, isTypeOf, isUndefined, isDefined, isNil, isBoolean, isNumber, isString, isStringNumber, isSymbol, isObject, isObjectLike, isArray, isArrayLike, isMap, isSet, isDate, isEmpty, isInRange, hasKey, hasPath, getPath, numberClamp, numberRandomFloat, numberRandomInt, forTimes, forEach, forEachDeep, forEachEntry, forEachEntryDeep, arrClone, arrCloneDeep, arrMap, arrMapDeep, arrFlattenDeep, arrCompact, arrChunk, arrStep, objClone, objCloneDeep, objMap, objMapDeep, objKeys, objValues, objEntries, mapFromObject };

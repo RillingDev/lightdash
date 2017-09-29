@@ -1,5 +1,6 @@
 import isArray from "../is/array";
 import arrClone from "./clone";
+import arrMapDeep from "./mapDeep";
 
 /**
  * Deeply creates a new array with the values of the input array

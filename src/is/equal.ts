@@ -1,6 +1,7 @@
-import isObject from "./object";
-import hasKey from "../has/key";
 import forEachEntry from "../for/eachEntry";
+import hasKey from "../has/key";
+import objKeys from "../obj/keys";
+import isObject from "./object";
 
 /**
  * Deeply checks if the contents of two values are the same

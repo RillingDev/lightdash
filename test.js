@@ -1,7 +1,7 @@
 "use strict";
 
 const {
-    arrStep
+    arrCloneDeep
 } = require("./dist/lightdash.common");
 
-console.log(arrStep([1, 2, 3, 4, 5, 6, 7, 8], 4));
+console.log(arrCloneDeep([1, 2, 3, 4, 5, 6, 7, 8], 4));

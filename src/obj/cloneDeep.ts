@@ -1,5 +1,6 @@
 import isObject from "../is/object";
 import objClone from "./clone";
+import objMapDeep from "./mapDeep";
 
 /**
  * Deeply creates a new object with the entries of the input object
