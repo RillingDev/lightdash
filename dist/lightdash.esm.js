@@ -1,11 +1,156 @@
 /**
- * Checks if two values are the same
+ * Checks if a value is an array
  *
- * @param {*} a
- * @param {*} b
+ * @param {*} val
  * @returns {boolean}
  */
-const isSame = (a, b) => a === b;
+const isArray = (val) => Array.isArray(val);
+
+/**
+ * Checks if the value is typeof the typestring
+ *
+ * @param {*} val
+ * @param {string} type
+ * @returns {boolean}
+ */
+const isTypeOf = (val, type) => typeof val === type;
+
+/**
+ * Checks if a value is undefined
+ *
+ * @param {*} val
+ * @returns {boolean}
+ */
+const isUndefined = (val) => isTypeOf(val, "undefined");
+
+/**
+ * Checks if a value is not undefined
+ *
+ * @param {*} val
+ * @returns {boolean}
+ */
+const isDefined = (val) => !isUndefined(val);
+
+/**
+ * Checks if a target has a certain key
+ *
+ * @param {any} target
+ * @param {string} key
+ * @returns {boolean}
+ */
+const hasKey = (target, key) => isDefined(target[key]);
+
+/**
+ * Checks if a value is either undefined or null
+ *
+ * @param {*} val
+ * @returns {boolean}
+ */
+const isNil = (val) => isUndefined(val) || val === null;
+
+/**
+ * Checks if a value is not nil and has a typeof object
+ *
+ * @param {*} val
+ * @returns {boolean}
+ */
+const isObjectLike = (val) => !isNil(val) && isTypeOf(val, "object");
+
+/**
+ * Checks if a value is object-like and has a length property
+ *
+ * @param {*} val
+ * @returns {boolean}
+ */
+const isArrayLike = (val) => isObjectLike(val) && hasKey(val, "length");
+
+/**
+ * Checks if a value is a boolean
+ *
+ * @param {*} val
+ * @returns {boolean}
+ */
+const isBoolean = (val) => isTypeOf(val, "boolean");
+
+/**
+ * Checks if the value is instanceof the target
+ *
+ * @param {*} val
+ * @param {Class} target
+ * @returns {boolean}
+ */
+const isInstanceOf = (val, target) => val instanceof target;
+
+/**
+ * Checks if a value is an date object
+ *
+ * @param {*} val
+ * @returns {boolean}
+ */
+const isDate = (val) => isInstanceOf(val, Date);
+
+/**
+ * Returns an array of the objects keys
+ *
+ * @param {Object} obj
+ * @returns {string[]}
+ */
+const objKeys$1 = (obj) => Object.keys(obj);
+
+/**
+ * Checks if an array has no items, or an object has no keys
+ *
+ * @param {*} val
+ * @returns {boolean}
+ */
+const isEmpty = (val) => {
+    if (hasKey(val, "length")) {
+        return val.length === 0;
+    }
+    else if (isObjectLike(val)) {
+        return objKeys$1(val).length === 0;
+    }
+    else {
+        return false;
+    }
+};
+
+/**
+ * Checks if a value is an object
+ *
+ * @param {*} val
+ * @returns {boolean}
+ */
+const isObject = (val) => isInstanceOf(val, Object);
+
+/**
+ * Returns an array of the objects entries
+ *
+ * @param {Object} obj
+ * @returns {Array<[string, any]>}
+ */
+const objEntries = (obj) => Object.entries(obj);
+
+/**
+ * Iterate over each value of an array
+ *
+ * @param {any[]} arr
+ * @param {ForEachIterator} fn
+ */
+const forEach = (arr, fn) => arr.forEach(fn);
+
+/**
+ * Iterate over each entry of an object
+ *
+ * @param {object} obj
+ * @param {ForEachEntryIterator} fn
+ */
+const forEachEntry = (obj, fn) => {
+    forEach(objEntries(obj), (entry, index) => {
+        fn(entry[1], entry[0], index, obj);
+    });
+};
+
 /**
  * Deeply checks if the contents of two values are the same
  *
@@ -35,106 +180,7 @@ const isEqual = (a, b) => {
     }
     return false;
 };
-/**
- * Checks if the value is instanceof the target
- *
- * @param {*} val
- * @param {Class} target
- * @returns {boolean}
- */
-const isInstanceOf = (val, target) => val instanceof target;
-/**
- * Checks if the value is typeof the typestring
- *
- * @param {*} val
- * @param {string} type
- * @returns {boolean}
- */
-const isTypeOf = (val, type) => typeof val === type;
-/**
- * Checks if a value is undefined
- *
- * @param {*} val
- * @returns {boolean}
- */
-const isUndefined = (val) => isTypeOf(val, "undefined");
-/**
- * Checks if a value is not undefined
- *
- * @param {*} val
- * @returns {boolean}
- */
-const isDefined = (val) => !isUndefined(val);
-/**
- * Checks if a value is either undefined or null
- *
- * @param {*} val
- * @returns {boolean}
- */
-const isNil = (val) => isUndefined(val) || val === null;
-/**
- * Checks if a value is a boolean
- *
- * @param {*} val
- * @returns {boolean}
- */
-const isBoolean = (val) => isTypeOf(val, "boolean");
-/**
- * Checks if a value is a number
- *
- * @param {*} val
- * @returns {boolean}
- */
-const isNumber = (val) => isTypeOf(val, "number");
-/**
- * Checks if a value is a string
- *
- * @param {*} val
- * @returns {boolean}
- */
-const isString = (val) => isTypeOf(val, "string");
-/**
- * Checks if a value is a number as a string
- *
- * @param {*} val
- * @returns {boolean}
- */
-const isStringNumber = (val) => !isNaN(Number(val));
-/**
- * Checks if a value is a symbol
- *
- * @param {*} val
- * @returns {boolean}
- */
-const isSymbol = (val) => isTypeOf(val, "symbol");
-/**
- * Checks if a value is an array
- *
- * @param {*} val
- * @returns {boolean}
- */
-const isArray = (val) => Array.isArray(val);
-/**
- * Checks if a value is object-like and has a length property
- *
- * @param {*} val
- * @returns {boolean}
- */
-const isArrayLike = (val) => isObjectLike(val) && hasKey(val, "length");
-/**
- * Checks if a value is an object
- *
- * @param {*} val
- * @returns {boolean}
- */
-const isObject = (val) => isInstanceOf(val, Object);
-/**
- * Checks if a value is not nil and has a typeof object
- *
- * @param {*} val
- * @returns {boolean}
- */
-const isObjectLike = (val) => !isNil(val) && isTypeOf(val, "object");
+
 /**
  * Checks if a value is an map
  *
@@ -142,6 +188,24 @@ const isObjectLike = (val) => !isNil(val) && isTypeOf(val, "object");
  * @returns {boolean}
  */
 const isMap = (val) => isInstanceOf(val, Map);
+
+/**
+ * Checks if a value is a number
+ *
+ * @param {*} val
+ * @returns {boolean}
+ */
+const isNumber = (val) => isTypeOf(val, "number");
+
+/**
+ * Checks if two values are the same
+ *
+ * @param {*} a
+ * @param {*} b
+ * @returns {boolean}
+ */
+const isSame = (a, b) => a === b;
+
 /**
  * Checks if a value is an map
  *
@@ -149,38 +213,31 @@ const isMap = (val) => isInstanceOf(val, Map);
  * @returns {boolean}
  */
 const isSet = (val) => isInstanceOf(val, Set);
+
 /**
- * Checks if a value is an date object
+ * Checks if a value is a string
  *
  * @param {*} val
  * @returns {boolean}
  */
-const isDate = (val) => isInstanceOf(val, Date);
+const isString = (val) => isTypeOf(val, "string");
+
 /**
- * Checks if an array has no items, or an object has no keys
+ * Checks if a value is a number as a string
  *
  * @param {*} val
  * @returns {boolean}
  */
-const isEmpty = (val) => {
-    if (hasKey(val, "length")) {
-        return val.length === 0;
-    }
-    else if (isObjectLike(val)) {
-        return objKeys(val).length === 0;
-    }
-    else {
-        return false;
-    }
-};
+const isStringNumber = (val) => !isNaN(Number(val));
+
 /**
- * Checks if a target has a certain key
+ * Checks if a value is a symbol
  *
- * @param {any} target
- * @param {string} key
+ * @param {*} val
  * @returns {boolean}
  */
-const hasKey = (target, key) => isDefined(target[key]);
+const isSymbol = (val) => isTypeOf(val, "symbol");
+
 /**
  * Checks if a target has a path of keys
  *
@@ -203,6 +260,7 @@ const hasPath = (target, path) => {
     }
     return true;
 };
+
 /**
  * Accesses a target by a path of keys. If the path doesn't exist, null is returned
  *
@@ -225,6 +283,7 @@ const getPath = (target, path) => {
     }
     return targetCurrent;
 };
+
 /**
  * Clamps a number in a range
  *
@@ -244,6 +303,7 @@ const numberClamp = (val, min, max) => {
         return val;
     }
 };
+
 /**
  * Checks if a number is in the given range
  *
@@ -253,6 +313,7 @@ const numberClamp = (val, min, max) => {
  * @returns {boolean}
  */
 const numberIsInRange = (val, min, max) => val >= min && val <= max;
+
 /**
  * Return a random float number in the range
  *
@@ -261,6 +322,7 @@ const numberIsInRange = (val, min, max) => val >= min && val <= max;
  * @returns {number}
  */
 const numberRandomFloat = (min = 0, max = 1) => min + Math.random() * (max - min);
+
 /**
  * Return a random integer number in the range
  *
@@ -270,6 +332,23 @@ const numberRandomFloat = (min = 0, max = 1) => min + Math.random() * (max - min
  */
 const numberRandomInt = (min = 0, max = 1) => Math.floor(numberRandomFloat(min, max) /
     (max - min) * (max - min + 1));
+
+/**
+ * Deeply iterate over each value of an array
+ *
+ * @param {any[]} arr
+ * @param {ForEachIterator} fn
+ */
+const forEachDeep = (arr, fn) => forEach(arr, (val, index) => isArray(val) ? forEachDeep(val, fn) : fn(val, index, arr));
+
+/**
+ * Deeply iterate over each entry of an object
+ *
+ * @param {object} obj
+ * @param {ForEachEntryIterator} fn
+ */
+const forEachEntryDeep = (obj, fn) => forEachEntry(obj, (val, key, index) => isObject(val) ? forEachEntryDeep(val, fn) : fn(val, key, index, obj));
+
 /**
  * wrapper around a simple for-loop
  *
@@ -283,38 +362,25 @@ const forTimes = (start, max, increase, fn) => {
         fn(index);
     }
 };
+
 /**
- * Iterate over each value of an array
+ * Chunks an array
  *
  * @param {any[]} arr
- * @param {ForEachIterator} fn
+ * @param {number} chunk
+ * @returns {any[]}
  */
-const forEach = (arr, fn) => arr.forEach(fn);
-/**
- * Deeply iterate over each value of an array
- *
- * @param {any[]} arr
- * @param {ForEachIterator} fn
- */
-const forEachDeep = (arr, fn) => forEach(arr, (val, index) => isArray(val) ? forEachDeep(val, fn) : fn(val, index, arr));
-/**
- * Iterate over each entry of an object
- *
- * @param {object} obj
- * @param {ForEachEntryIterator} fn
- */
-const forEachEntry = (obj, fn) => {
-    forEach(objEntries(obj), (entry, index) => {
-        fn(entry[1], entry[0], index, obj);
+const arrChunk = (arr, chunk) => {
+    const result = [];
+    if (chunk <= 0) {
+        throw new Error("Cannot create chunks smaller than 1");
+    }
+    forTimes(0, arr.length, chunk, (index) => {
+        result.push(arr.slice(index, index + chunk));
     });
+    return result;
 };
-/**
- * Deeply iterate over each entry of an object
- *
- * @param {object} obj
- * @param {ForEachEntryIterator} fn
- */
-const forEachEntryDeep = (obj, fn) => forEachEntry(obj, (val, key, index) => isObject(val) ? forEachEntryDeep(val, fn) : fn(val, key, index, obj));
+
 /**
  * Creates a new array with the values of the input array
  *
@@ -322,6 +388,7 @@ const forEachEntryDeep = (obj, fn) => forEachEntry(obj, (val, key, index) => isO
  * @returns {any[]}
  */
 const arrClone = (arr) => Array.from(arr);
+
 /**
  * Deeply creates a new array with the values of the input array
  *
@@ -329,22 +396,15 @@ const arrClone = (arr) => Array.from(arr);
  * @returns {any[]}
  */
 const arrCloneDeep = (arr) => arrMapDeep(arrClone(arr), (val) => isArray(val) ? arrClone(val) : val);
+
 /**
- * Maps the values of the input array with the iterator function and return the result
+ * Filters every empty, undefined or null value from an array out
  *
  * @param {any[]} arr
- * @param {ForEachIterator} fn
  * @returns {any[]}
  */
-const arrMap = (arr, fn) => arr.map(fn);
-/**
- * Deeply maps the values of the input array with the iterator function and return the result
- *
- * @param {any[]} arr
- * @param {ForEachIterator} fn
- * @returns {any[]}
- */
-const arrMapDeep = (arr, fn) => arrMap(arr, (val, index) => isArray(val) ? arrMapDeep(val, fn) : fn(val, index, arr));
+const arrCompact = (arr) => arr.filter((val) => !isNil(val) && !isEmpty(val));
+
 /**
  * Recursively flattens an array
  *
@@ -363,34 +423,34 @@ const arrFlattenDeep = (arr) => {
     });
     return result;
 };
+
 /**
- * Filters every empty, undefined or null value from an array out
+ * Maps the values of the input array with the iterator function and return the result
  *
  * @param {any[]} arr
+ * @param {ForEachIterator} fn
  * @returns {any[]}
  */
-const arrCompact = (arr) => arr.filter((val) => !isNil(val) && !isEmpty(val));
-// const arrDifference=(arr,...arr)
-// const arrShared=(arr,...arr)
-// const arrUnique=(arr,...arr)
+const arrMap = (arr, fn) => arr.map(fn);
+
 /**
- * Chunks an array
+ * Deeply maps the values of the input array with the iterator function and return the result
  *
  * @param {any[]} arr
- * @param {number} chunk
+ * @param {ForEachIterator} fn
  * @returns {any[]}
  */
-const arrChunk = (arr, chunk) => {
-    const result = [];
-    if (chunk <= 0) {
-        throw new Error("Cannot create chunks smaller than 1");
-    }
-    forTimes(0, arr.length, chunk, (index) => {
-        result.push(arr.slice(index, index + chunk));
-    });
-    return result;
-};
+const arrMapDeep$1 = (arr, fn) => arrMap(arr, (val, index) => isArray(val) ? arrMapDeep$1(val, fn) : fn(val, index, arr));
+
+/**
+ * Returns a new array with every n-th item
+ *
+ * @param {any[]} arr
+ * @param {number} step
+ * @returns {any[]}
+ */
 const arrStep = (arr, step) => arr.filter((val, index) => index % step === 0);
+
 /**
  * Creates a new object with the entries of the input object
  *
@@ -398,6 +458,7 @@ const arrStep = (arr, step) => arr.filter((val, index) => index % step === 0);
  * @returns {object}
  */
 const objClone = (obj) => Object.assign({}, obj);
+
 /**
  * Deeply creates a new object with the entries of the input object
  *
@@ -405,6 +466,7 @@ const objClone = (obj) => Object.assign({}, obj);
  * @returns {Object}
  */
 const objCloneDeep = (obj) => objMapDeep(objClone(obj), (val) => isObject(val) ? objClone(val) : val);
+
 /**
  * Maps each entry of an object and returns the result
  *
@@ -419,6 +481,7 @@ const objMap = (obj, fn) => {
     });
     return objNew;
 };
+
 /**
  * Deeply maps each entry of an object and returns the result
  *
@@ -426,27 +489,15 @@ const objMap = (obj, fn) => {
  * @param {ForEachEntryIterator} fn
  * @returns {Object}
  */
-const objMapDeep = (obj, fn) => objMap(obj, (val, key, index, objNew) => {
+const objMapDeep$1 = (obj, fn) => objMap(obj, (val, key, index, objNew) => {
     if (isObject(val)) {
-        return objMapDeep(val, fn);
+        return objMapDeep$1(val, fn);
     }
     else {
         return fn(val, key, index, objNew);
     }
 });
-/*
-//const objMerge
-//const objMergeDeep
-//const objDefaults
-//const objDefaultsDeep
-*/
-/**
- * Returns an array of the objects keys
- *
- * @param {Object} obj
- * @returns {string[]}
- */
-const objKeys = (obj) => Object.keys(obj);
+
 /**
  * Returns an array of the objects values
  *
@@ -454,13 +505,7 @@ const objKeys = (obj) => Object.keys(obj);
  * @returns {any[]}
  */
 const objValues = (obj) => Object.values(obj);
-/**
- * Returns an array of the objects entries
- *
- * @param {Object} obj
- * @returns {Array<[string, any]>}
- */
-const objEntries = (obj) => Object.entries(obj);
+
 /**
  * Creates a Map from an Object
  * @param {Object} obj
@@ -468,4 +513,4 @@ const objEntries = (obj) => Object.entries(obj);
  */
 const mapFromObject = (obj) => new Map(objEntries(obj));
 
-export { isSame, isEqual, isInstanceOf, isTypeOf, isUndefined, isDefined, isNil, isBoolean, isNumber, isString, isStringNumber, isSymbol, isObject, isObjectLike, isArray, isArrayLike, isMap, isSet, isDate, isEmpty, hasKey, hasPath, getPath, numberClamp, numberIsInRange, numberRandomFloat, numberRandomInt, forTimes, forEach, forEachDeep, forEachEntry, forEachEntryDeep, arrClone, arrCloneDeep, arrMap, arrMapDeep, arrFlattenDeep, arrCompact, arrChunk, arrStep, objClone, objCloneDeep, objMap, objMapDeep, objKeys, objValues, objEntries, mapFromObject };
+export { isSame, isEqual, isInstanceOf, isTypeOf, isUndefined, isDefined, isNil, isBoolean, isNumber, isString, isStringNumber, isSymbol, isObject, isObjectLike, isArray, isArrayLike, isMap, isSet, isDate, isEmpty, hasKey, hasPath, getPath, numberClamp, numberIsInRange, numberRandomFloat, numberRandomInt, forTimes, forEach, forEachDeep, forEachEntry, forEachEntryDeep, arrClone, arrCloneDeep, arrMap, arrMapDeep$1 as arrMapDeep, arrFlattenDeep, arrCompact, arrChunk, arrStep, objClone, objCloneDeep, objMap, objMapDeep$1 as objMapDeep, objKeys$1 as objKeys, objValues, objEntries, mapFromObject };

@@ -1,0 +1,1 @@
+// const arrShared=(arr,...arr)

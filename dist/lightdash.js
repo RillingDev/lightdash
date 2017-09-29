@@ -1,14 +1,172 @@
 var lightdash = function (exports) {
   'use strict';
   /**
-   * Checks if two values are the same
+   * Checks if a value is an array
    *
-   * @param {*} a
-   * @param {*} b
+   * @param {*} val
    * @returns {boolean}
    */
 
-  const isSame = (a, b) => a === b;
+  const isArray = val => Array.isArray(val);
+  /**
+   * Checks if the value is typeof the typestring
+   *
+   * @param {*} val
+   * @param {string} type
+   * @returns {boolean}
+   */
+
+
+  const isTypeOf = (val, type) => typeof val === type;
+  /**
+   * Checks if a value is undefined
+   *
+   * @param {*} val
+   * @returns {boolean}
+   */
+
+
+  const isUndefined = val => isTypeOf(val, "undefined");
+  /**
+   * Checks if a value is not undefined
+   *
+   * @param {*} val
+   * @returns {boolean}
+   */
+
+
+  const isDefined = val => !isUndefined(val);
+  /**
+   * Checks if a target has a certain key
+   *
+   * @param {any} target
+   * @param {string} key
+   * @returns {boolean}
+   */
+
+
+  const hasKey = (target, key) => isDefined(target[key]);
+  /**
+   * Checks if a value is either undefined or null
+   *
+   * @param {*} val
+   * @returns {boolean}
+   */
+
+
+  const isNil = val => isUndefined(val) || val === null;
+  /**
+   * Checks if a value is not nil and has a typeof object
+   *
+   * @param {*} val
+   * @returns {boolean}
+   */
+
+
+  const isObjectLike = val => !isNil(val) && isTypeOf(val, "object");
+  /**
+   * Checks if a value is object-like and has a length property
+   *
+   * @param {*} val
+   * @returns {boolean}
+   */
+
+
+  const isArrayLike = val => isObjectLike(val) && hasKey(val, "length");
+  /**
+   * Checks if a value is a boolean
+   *
+   * @param {*} val
+   * @returns {boolean}
+   */
+
+
+  const isBoolean = val => isTypeOf(val, "boolean");
+  /**
+   * Checks if the value is instanceof the target
+   *
+   * @param {*} val
+   * @param {Class} target
+   * @returns {boolean}
+   */
+
+
+  const isInstanceOf = (val, target) => val instanceof target;
+  /**
+   * Checks if a value is an date object
+   *
+   * @param {*} val
+   * @returns {boolean}
+   */
+
+
+  const isDate = val => isInstanceOf(val, Date);
+  /**
+   * Returns an array of the objects keys
+   *
+   * @param {Object} obj
+   * @returns {string[]}
+   */
+
+
+  const objKeys$1 = obj => Object.keys(obj);
+  /**
+   * Checks if an array has no items, or an object has no keys
+   *
+   * @param {*} val
+   * @returns {boolean}
+   */
+
+
+  const isEmpty = val => {
+    if (hasKey(val, "length")) {
+      return val.length === 0;
+    } else if (isObjectLike(val)) {
+      return objKeys$1(val).length === 0;
+    } else {
+      return false;
+    }
+  };
+  /**
+   * Checks if a value is an object
+   *
+   * @param {*} val
+   * @returns {boolean}
+   */
+
+
+  const isObject = val => isInstanceOf(val, Object);
+  /**
+   * Returns an array of the objects entries
+   *
+   * @param {Object} obj
+   * @returns {Array<[string, any]>}
+   */
+
+
+  const objEntries = obj => Object.entries(obj);
+  /**
+   * Iterate over each value of an array
+   *
+   * @param {any[]} arr
+   * @param {ForEachIterator} fn
+   */
+
+
+  const forEach = (arr, fn) => arr.forEach(fn);
+  /**
+   * Iterate over each entry of an object
+   *
+   * @param {object} obj
+   * @param {ForEachEntryIterator} fn
+   */
+
+
+  const forEachEntry = (obj, fn) => {
+    forEach(objEntries(obj), (entry, index) => {
+      fn(entry[1], entry[0], index, obj);
+    });
+  };
   /**
    * Deeply checks if the contents of two values are the same
    *
@@ -42,61 +200,14 @@ var lightdash = function (exports) {
     return false;
   };
   /**
-   * Checks if the value is instanceof the target
-   *
-   * @param {*} val
-   * @param {Class} target
-   * @returns {boolean}
-   */
-
-
-  const isInstanceOf = (val, target) => val instanceof target;
-  /**
-   * Checks if the value is typeof the typestring
-   *
-   * @param {*} val
-   * @param {string} type
-   * @returns {boolean}
-   */
-
-
-  const isTypeOf = (val, type) => typeof val === type;
-  /**
-   * Checks if a value is undefined
+   * Checks if a value is an map
    *
    * @param {*} val
    * @returns {boolean}
    */
 
 
-  const isUndefined = val => isTypeOf(val, "undefined");
-  /**
-   * Checks if a value is not undefined
-   *
-   * @param {*} val
-   * @returns {boolean}
-   */
-
-
-  const isDefined = val => !isUndefined(val);
-  /**
-   * Checks if a value is either undefined or null
-   *
-   * @param {*} val
-   * @returns {boolean}
-   */
-
-
-  const isNil = val => isUndefined(val) || val === null;
-  /**
-   * Checks if a value is a boolean
-   *
-   * @param {*} val
-   * @returns {boolean}
-   */
-
-
-  const isBoolean = val => isTypeOf(val, "boolean");
+  const isMap = val => isInstanceOf(val, Map);
   /**
    * Checks if a value is a number
    *
@@ -106,6 +217,25 @@ var lightdash = function (exports) {
 
 
   const isNumber = val => isTypeOf(val, "number");
+  /**
+   * Checks if two values are the same
+   *
+   * @param {*} a
+   * @param {*} b
+   * @returns {boolean}
+   */
+
+
+  const isSame = (a, b) => a === b;
+  /**
+   * Checks if a value is an map
+   *
+   * @param {*} val
+   * @returns {boolean}
+   */
+
+
+  const isSet = val => isInstanceOf(val, Set);
   /**
    * Checks if a value is a string
    *
@@ -133,96 +263,6 @@ var lightdash = function (exports) {
 
 
   const isSymbol = val => isTypeOf(val, "symbol");
-  /**
-   * Checks if a value is an array
-   *
-   * @param {*} val
-   * @returns {boolean}
-   */
-
-
-  const isArray = val => Array.isArray(val);
-  /**
-   * Checks if a value is object-like and has a length property
-   *
-   * @param {*} val
-   * @returns {boolean}
-   */
-
-
-  const isArrayLike = val => isObjectLike(val) && hasKey(val, "length");
-  /**
-   * Checks if a value is an object
-   *
-   * @param {*} val
-   * @returns {boolean}
-   */
-
-
-  const isObject = val => isInstanceOf(val, Object);
-  /**
-   * Checks if a value is not nil and has a typeof object
-   *
-   * @param {*} val
-   * @returns {boolean}
-   */
-
-
-  const isObjectLike = val => !isNil(val) && isTypeOf(val, "object");
-  /**
-   * Checks if a value is an map
-   *
-   * @param {*} val
-   * @returns {boolean}
-   */
-
-
-  const isMap = val => isInstanceOf(val, Map);
-  /**
-   * Checks if a value is an map
-   *
-   * @param {*} val
-   * @returns {boolean}
-   */
-
-
-  const isSet = val => isInstanceOf(val, Set);
-  /**
-   * Checks if a value is an date object
-   *
-   * @param {*} val
-   * @returns {boolean}
-   */
-
-
-  const isDate = val => isInstanceOf(val, Date);
-  /**
-   * Checks if an array has no items, or an object has no keys
-   *
-   * @param {*} val
-   * @returns {boolean}
-   */
-
-
-  const isEmpty = val => {
-    if (hasKey(val, "length")) {
-      return val.length === 0;
-    } else if (isObjectLike(val)) {
-      return objKeys(val).length === 0;
-    } else {
-      return false;
-    }
-  };
-  /**
-   * Checks if a target has a certain key
-   *
-   * @param {any} target
-   * @param {string} key
-   * @returns {boolean}
-   */
-
-
-  const hasKey = (target, key) => isDefined(target[key]);
   /**
    * Checks if a target has a path of keys
    *
@@ -326,6 +366,24 @@ var lightdash = function (exports) {
 
   const numberRandomInt = (min = 0, max = 1) => Math.floor(numberRandomFloat(min, max) / (max - min) * (max - min + 1));
   /**
+   * Deeply iterate over each value of an array
+   *
+   * @param {any[]} arr
+   * @param {ForEachIterator} fn
+   */
+
+
+  const forEachDeep = (arr, fn) => forEach(arr, (val, index) => isArray(val) ? forEachDeep(val, fn) : fn(val, index, arr));
+  /**
+   * Deeply iterate over each entry of an object
+   *
+   * @param {object} obj
+   * @param {ForEachEntryIterator} fn
+   */
+
+
+  const forEachEntryDeep = (obj, fn) => forEachEntry(obj, (val, key, index) => isObject(val) ? forEachEntryDeep(val, fn) : fn(val, key, index, obj));
+  /**
    * wrapper around a simple for-loop
    *
    * @param {number} start
@@ -340,115 +398,6 @@ var lightdash = function (exports) {
       fn(index);
     }
   };
-  /**
-   * Iterate over each value of an array
-   *
-   * @param {any[]} arr
-   * @param {ForEachIterator} fn
-   */
-
-
-  const forEach = (arr, fn) => arr.forEach(fn);
-  /**
-   * Deeply iterate over each value of an array
-   *
-   * @param {any[]} arr
-   * @param {ForEachIterator} fn
-   */
-
-
-  const forEachDeep = (arr, fn) => forEach(arr, (val, index) => isArray(val) ? forEachDeep(val, fn) : fn(val, index, arr));
-  /**
-   * Iterate over each entry of an object
-   *
-   * @param {object} obj
-   * @param {ForEachEntryIterator} fn
-   */
-
-
-  const forEachEntry = (obj, fn) => {
-    forEach(objEntries(obj), (entry, index) => {
-      fn(entry[1], entry[0], index, obj);
-    });
-  };
-  /**
-   * Deeply iterate over each entry of an object
-   *
-   * @param {object} obj
-   * @param {ForEachEntryIterator} fn
-   */
-
-
-  const forEachEntryDeep = (obj, fn) => forEachEntry(obj, (val, key, index) => isObject(val) ? forEachEntryDeep(val, fn) : fn(val, key, index, obj));
-  /**
-   * Creates a new array with the values of the input array
-   *
-   * @param {any[]} arr
-   * @returns {any[]}
-   */
-
-
-  const arrClone = arr => Array.from(arr);
-  /**
-   * Deeply creates a new array with the values of the input array
-   *
-   * @param {any[]} arr
-   * @returns {any[]}
-   */
-
-
-  const arrCloneDeep = arr => arrMapDeep(arrClone(arr), val => isArray(val) ? arrClone(val) : val);
-  /**
-   * Maps the values of the input array with the iterator function and return the result
-   *
-   * @param {any[]} arr
-   * @param {ForEachIterator} fn
-   * @returns {any[]}
-   */
-
-
-  const arrMap = (arr, fn) => arr.map(fn);
-  /**
-   * Deeply maps the values of the input array with the iterator function and return the result
-   *
-   * @param {any[]} arr
-   * @param {ForEachIterator} fn
-   * @returns {any[]}
-   */
-
-
-  const arrMapDeep = (arr, fn) => arrMap(arr, (val, index) => isArray(val) ? arrMapDeep(val, fn) : fn(val, index, arr));
-  /**
-   * Recursively flattens an array
-   *
-   * @param {any[]} arr
-   * @returns {any[]}
-   */
-
-
-  const arrFlattenDeep = arr => {
-    const result = [];
-    forEach(arr, val => {
-      if (isArray(val)) {
-        result.push(...arrFlattenDeep(val));
-      } else {
-        result.push(val);
-      }
-    });
-    return result;
-  };
-  /**
-   * Filters every empty, undefined or null value from an array out
-   *
-   * @param {any[]} arr
-   * @returns {any[]}
-   */
-
-
-  const arrCompact = arr => arr.filter(val => !isNil(val) && !isEmpty(val)); // const arrDifference=(arr,...arr)
-  // const arrShared=(arr,...arr)
-  // const arrUnique=(arr,...arr)
-
   /**
    * Chunks an array
    *
@@ -470,6 +419,80 @@ var lightdash = function (exports) {
     });
     return result;
   };
+  /**
+   * Creates a new array with the values of the input array
+   *
+   * @param {any[]} arr
+   * @returns {any[]}
+   */
+
+
+  const arrClone = arr => Array.from(arr);
+  /**
+   * Deeply creates a new array with the values of the input array
+   *
+   * @param {any[]} arr
+   * @returns {any[]}
+   */
+
+
+  const arrCloneDeep = arr => arrMapDeep(arrClone(arr), val => isArray(val) ? arrClone(val) : val);
+  /**
+   * Filters every empty, undefined or null value from an array out
+   *
+   * @param {any[]} arr
+   * @returns {any[]}
+   */
+
+
+  const arrCompact = arr => arr.filter(val => !isNil(val) && !isEmpty(val));
+  /**
+   * Recursively flattens an array
+   *
+   * @param {any[]} arr
+   * @returns {any[]}
+   */
+
+
+  const arrFlattenDeep = arr => {
+    const result = [];
+    forEach(arr, val => {
+      if (isArray(val)) {
+        result.push(...arrFlattenDeep(val));
+      } else {
+        result.push(val);
+      }
+    });
+    return result;
+  };
+  /**
+   * Maps the values of the input array with the iterator function and return the result
+   *
+   * @param {any[]} arr
+   * @param {ForEachIterator} fn
+   * @returns {any[]}
+   */
+
+
+  const arrMap = (arr, fn) => arr.map(fn);
+  /**
+   * Deeply maps the values of the input array with the iterator function and return the result
+   *
+   * @param {any[]} arr
+   * @param {ForEachIterator} fn
+   * @returns {any[]}
+   */
+
+
+  const arrMapDeep$1 = (arr, fn) => arrMap(arr, (val, index) => isArray(val) ? arrMapDeep$1(val, fn) : fn(val, index, arr));
+  /**
+   * Returns a new array with every n-th item
+   *
+   * @param {any[]} arr
+   * @param {number} step
+   * @returns {any[]}
+   */
+
 
   const arrStep = (arr, step) => arr.filter((val, index) => index % step === 0);
   /**
@@ -515,29 +538,13 @@ var lightdash = function (exports) {
    */
 
 
-  const objMapDeep = (obj, fn) => objMap(obj, (val, key, index, objNew) => {
+  const objMapDeep$1 = (obj, fn) => objMap(obj, (val, key, index, objNew) => {
     if (isObject(val)) {
-      return objMapDeep(val, fn);
+      return objMapDeep$1(val, fn);
     } else {
       return fn(val, key, index, objNew);
     }
   });
-  /*
-  //const objMerge
-  //const objMergeDeep
-  //const objDefaults
-  //const objDefaultsDeep
-  */
-
-  /**
-   * Returns an array of the objects keys
-   *
-   * @param {Object} obj
-   * @returns {string[]}
-   */
-
-
-  const objKeys = obj => Object.keys(obj);
   /**
    * Returns an array of the objects values
    *
@@ -547,15 +554,6 @@ var lightdash = function (exports) {
 
 
   const objValues = obj => Object.values(obj);
-  /**
-   * Returns an array of the objects entries
-   *
-   * @param {Object} obj
-   * @returns {Array<[string, any]>}
-   */
-
-
-  const objEntries = obj => Object.entries(obj);
   /**
    * Creates a Map from an Object
    * @param {Object} obj
@@ -600,7 +598,7 @@ var lightdash = function (exports) {
   exports.arrClone = arrClone;
   exports.arrCloneDeep = arrCloneDeep;
   exports.arrMap = arrMap;
-  exports.arrMapDeep = arrMapDeep;
+  exports.arrMapDeep = arrMapDeep$1;
   exports.arrFlattenDeep = arrFlattenDeep;
   exports.arrCompact = arrCompact;
   exports.arrChunk = arrChunk;
@@ -608,8 +606,8 @@ var lightdash = function (exports) {
   exports.objClone = objClone;
   exports.objCloneDeep = objCloneDeep;
   exports.objMap = objMap;
-  exports.objMapDeep = objMapDeep;
-  exports.objKeys = objKeys;
+  exports.objMapDeep = objMapDeep$1;
+  exports.objKeys = objKeys$1;
   exports.objValues = objValues;
   exports.objEntries = objEntries;
   exports.mapFromObject = mapFromObject;

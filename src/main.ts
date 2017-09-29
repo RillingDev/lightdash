@@ -1,229 +1,58 @@
-/**
- * wrapper around a simple for-loop
- *
- * @param {number} start
- * @param {number} max
- * @param {number} increase
- * @param {(val?: number) => void} fn
- */
-const forTimes = (start: number, max: number, increase: number, fn: (index?: number) => void): void => {
-    for (let index = start; index < max; index += increase) {
-        fn(index);
-    }
-};
-/**
- * Iterate over each value of an array
- *
- * @param {any[]} arr
- * @param {ForEachIterator} fn
- */
-const forEach = (arr: any[], fn: ForEachIterator): void => arr.forEach(fn);
+import isArray from "./is/array";
+import isArrayLike from "./is/arrayLike";
+import isBoolean from "./is/boolean";
+import isDate from "./is/date";
+import isDefined from "./is/defined";
+import isEmpty from "./is/empty";
+import isEqual from "./is/equal";
+import isInstanceOf from "./is/instanceOf";
+import isMap from "./is/map";
+import isNil from "./is/nil";
+import isNumber from "./is/number";
+import isObject from "./is/object";
+import isObjectLike from "./is/objectLike";
+import isSame from "./is/same";
+import isSet from "./is/set";
+import isString from "./is/string";
+import isStringNumber from "./is/stringNumber";
+import isSymbol from "./is/symbol";
+import isTypeOf from "./is/typeOf";
+import isUndefined from "./is/undefined";
 
-/**
- * Deeply iterate over each value of an array
- *
- * @param {any[]} arr
- * @param {ForEachIterator} fn
- */
-const forEachDeep = (arr: any[], fn: ForEachIterator): void => forEach(arr,
-    (val, index) => isArray(val) ? forEachDeep(val, fn) : fn(val, index, arr));
+import hasKey from "./has/key";
+import hasPath from "./has/path";
 
-/**
- * Iterate over each entry of an object
- *
- * @param {object} obj
- * @param {ForEachEntryIterator} fn
- */
-const forEachEntry = (obj: object, fn: ForEachEntryIterator): void => {
-    forEach(objEntries(obj), (entry, index) => {
-        fn(entry[1], entry[0], index, obj);
-    });
-};
+import getPath from "./get/path";
 
-/**
- * Deeply iterate over each entry of an object
- *
- * @param {object} obj
- * @param {ForEachEntryIterator} fn
- */
-const forEachEntryDeep = (obj: object, fn: ForEachEntryIterator): void => forEachEntry(obj,
-    (val, key, index) => isObject(val) ? forEachEntryDeep(val, fn) : fn(val, key, index, obj));
+import numberClamp from "./number/clamp";
+import numberIsInRange from "./number/isInRange";
+import numberRandomFloat from "./number/randomFloat";
+import numberRandomInt from "./number/randomInt";
 
-/**
- * Creates a new array with the values of the input array
- *
- * @param {any[]} arr
- * @returns {any[]}
- */
-const arrClone = (arr: any[]): any[] => Array.from(arr);
+import forEach from "./for/each";
+import forEachDeep from "./for/eachDeep";
+import forEachEntry from "./for/eachEntry";
+import forEachEntryDeep from "./for/eachEntryDeep";
+import forTimes from "./for/times";
 
-/**
- * Deeply creates a new array with the values of the input array
- *
- * @param {any[]} arr
- * @returns {any[]}
- */
-const arrCloneDeep = (arr: any[]): any[] => arrMapDeep(
-    arrClone(arr), (val) => isArray(val) ? arrClone(val) : val);
+import arrChunk from "./arr/chunk";
+import arrClone from "./arr/clone";
+import arrCloneDeep from "./arr/cloneDeep";
+import arrCompact from "./arr/compact";
+import arrFlattenDeep from "./arr/flattenDeep";
+import arrMap from "./arr/map";
+import arrMapDeep from "./arr/mapDeep";
+import arrStep from "./arr/step";
 
-/**
- * Maps the values of the input array with the iterator function and return the result
- *
- * @param {any[]} arr
- * @param {ForEachIterator} fn
- * @returns {any[]}
- */
-const arrMap = (arr: any[], fn: ForEachIterator): any[] => arr.map(fn);
+import objClone from "./obj/clone";
+import objCloneDeep from "./obj/cloneDeep";
+import objEntries from "./obj/entries";
+import objKeys from "./obj/keys";
+import objMap from "./obj/map";
+import objMapDeep from "./obj/mapDeep";
+import objValues from "./obj/values";
 
-/**
- * Deeply maps the values of the input array with the iterator function and return the result
- *
- * @param {any[]} arr
- * @param {ForEachIterator} fn
- * @returns {any[]}
- */
-const arrMapDeep = (arr: any[], fn: ForEachIterator): any[] => arrMap(arr,
-    (val, index) => isArray(val) ? arrMapDeep(val, fn) : fn(val, index, arr));
-
-/**
- * Recursively flattens an array
- *
- * @param {any[]} arr
- * @returns {any[]}
- */
-const arrFlattenDeep = (arr: any[]) => {
-    const result: any[] = [];
-
-    forEach(arr, (val) => {
-        if (isArray(val)) {
-            result.push(...arrFlattenDeep(val));
-        } else {
-            result.push(val);
-        }
-    });
-
-    return result;
-};
-
-/**
- * Filters every empty, undefined or null value from an array out
- *
- * @param {any[]} arr
- * @returns {any[]}
- */
-const arrCompact = (arr: any[]): any[] => arr.filter((val) => !isNil(val) && !isEmpty(val));
-// const arrDifference=(arr,...arr)
-// const arrShared=(arr,...arr)
-// const arrUnique=(arr,...arr)
-
-/**
- * Chunks an array
- *
- * @param {any[]} arr
- * @param {number} chunk
- * @returns {any[]}
- */
-const arrChunk = (arr: any[], chunk: number): any[] => {
-    const result: any[] = [];
-
-    if (chunk <= 0) {
-        throw new Error("Cannot create chunks smaller than 1");
-    }
-
-    forTimes(0, arr.length, chunk, (index) => {
-        result.push(arr.slice(index, index + chunk));
-    });
-
-    return result;
-};
-
-const arrStep = (arr: any[], step: number): any[] => arr.filter((val, index) => index % step === 0);
-
-/**
- * Creates a new object with the entries of the input object
- *
- * @param {object} obj
- * @returns {object}
- */
-const objClone = (obj: object): object => Object.assign({}, obj);
-
-/**
- * Deeply creates a new object with the entries of the input object
- *
- * @param {Object} obj
- * @returns {Object}
- */
-const objCloneDeep = (obj: object): object => objMapDeep(objClone(obj), (val) => isObject(val) ? objClone(val) : val);
-
-/**
- * Maps each entry of an object and returns the result
- *
- * @param {Object} obj
- * @param {ForEachEntryIterator} fn
- * @returns {Object}
- */
-const objMap = (obj: object, fn: ForEachEntryIterator): object => {
-    const objNew: { [key: string]: any } = objClone(obj);
-
-    forEachEntry(objNew, (val, key, index) => {
-        objNew[key] = fn(val, key, index, objNew);
-    });
-
-    return objNew;
-};
-
-/**
- * Deeply maps each entry of an object and returns the result
- *
- * @param {Object} obj
- * @param {ForEachEntryIterator} fn
- * @returns {Object}
- */
-const objMapDeep = (obj: object, fn: ForEachEntryIterator): object => objMap(obj, (val, key, index, objNew) => {
-    if (isObject(val)) {
-        return objMapDeep(val, fn);
-    } else {
-        return fn(val, key, index, objNew);
-    }
-});
-
-/*
-//const objMerge
-//const objMergeDeep
-//const objDefaults
-//const objDefaultsDeep
-*/
-
-/**
- * Returns an array of the objects keys
- *
- * @param {Object} obj
- * @returns {string[]}
- */
-const objKeys = (obj: object): string[] => Object.keys(obj);
-
-/**
- * Returns an array of the objects values
- *
- * @param {Object} obj
- * @returns {any[]}
- */
-const objValues = (obj: object): any[] => Object.values(obj);
-
-/**
- * Returns an array of the objects entries
- *
- * @param {Object} obj
- * @returns {Array<[string, any]>}
- */
-const objEntries = (obj: object): Array<[string, any]> => Object.entries(obj);
-
-/**
- * Creates a Map from an Object
- * @param {Object} obj
- * @returns {Map}
- */
-const mapFromObject = (obj: object) => new Map(objEntries(obj));
+import mapFromObject from "./map/fromObject";
 
 export {
     isSame,
