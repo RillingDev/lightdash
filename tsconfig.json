@@ -3,6 +3,6 @@
         "module": "esnext",
         "noImplicitAny": true,
         "target": "esnext",
-        "moduleResolution":"node"
+        "moduleResolution": "node"
     }
 }
