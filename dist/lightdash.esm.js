@@ -182,6 +182,16 @@ const isEqual = (a, b) => {
 };
 
 /**
+ * Checks if a number is in the given range
+ *
+ * @param {number} val
+ * @param {number} min
+ * @param {number} max
+ * @returns {boolean}
+ */
+const isInRange = (val, min, max) => val >= min && val <= max;
+
+/**
  * Checks if a value is an map
  *
  * @param {*} val
@@ -303,16 +313,6 @@ const numberClamp = (val, min, max) => {
         return val;
     }
 };
-
-/**
- * Checks if a number is in the given range
- *
- * @param {number} val
- * @param {number} min
- * @param {number} max
- * @returns {boolean}
- */
-const numberIsInRange = (val, min, max) => val >= min && val <= max;
 
 /**
  * Return a random float number in the range
@@ -513,4 +513,4 @@ const objValues = (obj) => Object.values(obj);
  */
 const mapFromObject = (obj) => new Map(objEntries(obj));
 
-export { isSame, isEqual, isInstanceOf, isTypeOf, isUndefined, isDefined, isNil, isBoolean, isNumber, isString, isStringNumber, isSymbol, isObject, isObjectLike, isArray, isArrayLike, isMap, isSet, isDate, isEmpty, hasKey, hasPath, getPath, numberClamp, numberIsInRange, numberRandomFloat, numberRandomInt, forTimes, forEach, forEachDeep, forEachEntry, forEachEntryDeep, arrClone, arrCloneDeep, arrMap, arrMapDeep$1 as arrMapDeep, arrFlattenDeep, arrCompact, arrChunk, arrStep, objClone, objCloneDeep, objMap, objMapDeep$1 as objMapDeep, objKeys$1 as objKeys, objValues, objEntries, mapFromObject };
+export { isSame, isEqual, isInstanceOf, isTypeOf, isUndefined, isDefined, isNil, isBoolean, isNumber, isString, isStringNumber, isSymbol, isObject, isObjectLike, isArray, isArrayLike, isMap, isSet, isDate, isEmpty, isInRange, hasKey, hasPath, getPath, numberClamp, numberRandomFloat, numberRandomInt, forTimes, forEach, forEachDeep, forEachEntry, forEachEntryDeep, arrClone, arrCloneDeep, arrMap, arrMapDeep$1 as arrMapDeep, arrFlattenDeep, arrCompact, arrChunk, arrStep, objClone, objCloneDeep, objMap, objMapDeep$1 as objMapDeep, objKeys$1 as objKeys, objValues, objEntries, mapFromObject };

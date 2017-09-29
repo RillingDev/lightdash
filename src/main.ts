@@ -5,6 +5,7 @@ import isDate from "./is/date";
 import isDefined from "./is/defined";
 import isEmpty from "./is/empty";
 import isEqual from "./is/equal";
+import isInRange from "./is/inRange";
 import isInstanceOf from "./is/instanceOf";
 import isMap from "./is/map";
 import isNil from "./is/nil";
@@ -25,7 +26,6 @@ import hasPath from "./has/path";
 import getPath from "./get/path";
 
 import numberClamp from "./number/clamp";
-import numberIsInRange from "./number/isInRange";
 import numberRandomFloat from "./number/randomFloat";
 import numberRandomInt from "./number/randomInt";
 
@@ -75,6 +75,7 @@ export {
     isSet,
     isDate,
     isEmpty,
+    isInRange,
 
     hasKey,
     hasPath,
@@ -82,7 +83,6 @@ export {
     getPath,
 
     numberClamp,
-    numberIsInRange,
     numberRandomFloat,
     numberRandomInt,
 

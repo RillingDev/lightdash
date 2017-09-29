@@ -200,6 +200,17 @@ var lightdash = function (exports) {
     return false;
   };
   /**
+   * Checks if a number is in the given range
+   *
+   * @param {number} val
+   * @param {number} min
+   * @param {number} max
+   * @returns {boolean}
+   */
+
+
+  const isInRange = (val, min, max) => val >= min && val <= max;
+  /**
    * Checks if a value is an map
    *
    * @param {*} val
@@ -334,17 +345,6 @@ var lightdash = function (exports) {
       return val;
     }
   };
-  /**
-   * Checks if a number is in the given range
-   *
-   * @param {number} val
-   * @param {number} min
-   * @param {number} max
-   * @returns {boolean}
-   */
-
-
-  const numberIsInRange = (val, min, max) => val >= min && val <= max;
   /**
    * Return a random float number in the range
    *
@@ -583,11 +583,11 @@ var lightdash = function (exports) {
   exports.isSet = isSet;
   exports.isDate = isDate;
   exports.isEmpty = isEmpty;
+  exports.isInRange = isInRange;
   exports.hasKey = hasKey;
   exports.hasPath = hasPath;
   exports.getPath = getPath;
   exports.numberClamp = numberClamp;
-  exports.numberIsInRange = numberIsInRange;
   exports.numberRandomFloat = numberRandomFloat;
   exports.numberRandomInt = numberRandomInt;
   exports.forTimes = forTimes;

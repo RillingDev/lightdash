@@ -6,6 +6,6 @@
  * @param {number} max
  * @returns {boolean}
  */
-const numberIsInRange = (val: number, min: number, max: number): boolean => val >= min && val <= max;
+const isInRange = (val: number, min: number, max: number): boolean => val >= min && val <= max;
 
-export default numberIsInRange;
+export default isInRange;
