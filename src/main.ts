@@ -1,203 +1,42 @@
-type Class = any;
-type ForEachIterator = (val?: any, index?: number, arr?: any[]) => void;
-type ForEachEntryIterator = (val?: any, key?: string, index?: number, obj?: object) => void;
 
-/**
- * Checks if two values are the same
- *
- * @param {*} a
- * @param {*} b
- * @returns {boolean}
- */
-const isSame = (a: any, b: any): boolean => a === b;
 
-/**
- * Deeply checks if the contents of two values are the same
- *
- * @param {*} a
- * @param {*} b
- * @returns {boolean}
- */
-const isEqual = (a: any, b: any): boolean => {
-    if (a === b) {
-        return true;
-    }
 
-    if (isObject(a) && isObject(b) && objKeys(a).length === objKeys(b).length) {
-        let result = true;
 
-        forEachEntry(a, (aVal: any, key: string): void => {
-            // Only Check if the comparison didnt fail already
-            if (result === true) {
-                if (hasKey(b, key)) {
-                    const bVal = b[key];
 
-                    result = isEqual(aVal, bVal);
-                } else {
-                    result = false;
-                }
-            }
-        });
 
-        return result;
-    }
 
-    return false;
-};
 
-/**
- * Checks if the value is instanceof the target
- *
- * @param {*} val
- * @param {Class} target
- * @returns {boolean}
- */
-const isInstanceOf = (val: any, target: Class): boolean => val instanceof target;
 
-/**
- * Checks if the value is typeof the typestring
- *
- * @param {*} val
- * @param {string} type
- * @returns {boolean}
- */
-const isTypeOf = (val: any, type: string): boolean => typeof val === type;
 
-/**
- * Checks if a value is undefined
- *
- * @param {*} val
- * @returns {boolean}
- */
-const isUndefined = (val: any): boolean => isTypeOf(val, "undefined");
 
-/**
- * Checks if a value is not undefined
- *
- * @param {*} val
- * @returns {boolean}
- */
-const isDefined = (val: any): boolean => !isUndefined(val);
 
-/**
- * Checks if a value is either undefined or null
- *
- * @param {*} val
- * @returns {boolean}
- */
-const isNil = (val: any): boolean => isUndefined(val) || val === null;
 
-/**
- * Checks if a value is a boolean
- *
- * @param {*} val
- * @returns {boolean}
- */
-const isBoolean = (val: any): boolean => isTypeOf(val, "boolean");
 
-/**
- * Checks if a value is a number
- *
- * @param {*} val
- * @returns {boolean}
- */
-const isNumber = (val: any): boolean => isTypeOf(val, "number");
 
-/**
- * Checks if a value is a string
- *
- * @param {*} val
- * @returns {boolean}
- */
-const isString = (val: any): boolean => isTypeOf(val, "string");
 
-/**
- * Checks if a value is a number as a string
- *
- * @param {*} val
- * @returns {boolean}
- */
-const isStringNumber = (val: any): boolean => !isNaN(Number(val));
 
-/**
- * Checks if a value is a symbol
- *
- * @param {*} val
- * @returns {boolean}
- */
-const isSymbol = (val: any): boolean => isTypeOf(val, "symbol");
 
-/**
- * Checks if a value is an array
- *
- * @param {*} val
- * @returns {boolean}
- */
-const isArray = (val: any): boolean => Array.isArray(val);
 
-/**
- * Checks if a value is object-like and has a length property
- *
- * @param {*} val
- * @returns {boolean}
- */
-const isArrayLike = (val: any): boolean => isObjectLike(val) && hasKey(val, "length");
 
-/**
- * Checks if a value is an object
- *
- * @param {*} val
- * @returns {boolean}
- */
-const isObject = (val: any): boolean => isInstanceOf(val, Object);
 
-/**
- * Checks if a value is not nil and has a typeof object
- *
- * @param {*} val
- * @returns {boolean}
- */
-const isObjectLike = (val: any): boolean => !isNil(val) && isTypeOf(val, "object");
 
-/**
- * Checks if a value is an map
- *
- * @param {*} val
- * @returns {boolean}
- */
-const isMap = (val: any): boolean => isInstanceOf(val, Map);
 
-/**
- * Checks if a value is an map
- *
- * @param {*} val
- * @returns {boolean}
- */
-const isSet = (val: any): boolean => isInstanceOf(val, Set);
 
-/**
- * Checks if a value is an date object
- *
- * @param {*} val
- * @returns {boolean}
- */
-const isDate = (val: any): boolean => isInstanceOf(val, Date);
 
-/**
- * Checks if an array has no items, or an object has no keys
- *
- * @param {*} val
- * @returns {boolean}
- */
-const isEmpty = (val: any): boolean => {
-    if (hasKey(val, "length")) {
-        return val.length === 0;
-    } else if (isObjectLike(val)) {
-        return objKeys(val).length === 0;
-    } else {
-        return false;
-    }
-};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /**
  * Checks if a target has a certain key
