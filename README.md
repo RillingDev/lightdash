@@ -13,6 +13,7 @@ When using this, importing the modules you want from the file fitting your envir
 For detailed descriptions and type annotations check the source or run `npm run docs`
 
 ### is
+
 - isSame
 - isEqual
 - isInstanceOf
@@ -33,35 +34,44 @@ For detailed descriptions and type annotations check the source or run `npm run 
 - isSet
 - isDate
 - isEmpty
+- isInRange
 
 ### has
+
 - hasKey
 - hasPath
 
 ### get
+
 - getPath
 
 ### number
+
 - numberClamp
-- numberIsInRange
 - numberRandomFloat
 - numberRandomInt
 
 ### forEach
+
+- forTimes
 - forEach
 - forEachDeep
 - forEachEntry
 - forEachEntryDeep
 
 ### arr
+
 - arrClone
 - arrCloneDeep
 - arrMap
 - arrMapDeep
 - arrFlattenDeep
 - arrCompact
+- arrChunk
+- arrStep
 
 ### obj
+
 - objClone
 - objCloneDeep
 - objMap
@@ -71,4 +81,5 @@ For detailed descriptions and type annotations check the source or run `npm run 
 - objEntries
 
 ### map
+
 - mapFromObject

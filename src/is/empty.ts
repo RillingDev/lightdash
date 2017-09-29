@@ -1,6 +1,6 @@
-import isObjectLike from "./objectLike";
 import hasKey from "../has/key";
 import objKeys from "../obj/keys";
+import isObjectLike from "./objectLike";
 
 /**
  * Checks if an array has no items, or an object has no keys
