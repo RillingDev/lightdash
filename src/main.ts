@@ -307,6 +307,19 @@ const numberRandomInt = (min: number = 0, max: number = 1): number => Math.floor
     (max - min) * (max - min + 1));
 
 /**
+ * wrapper around a simple for-loop
+ *
+ * @param {number} start
+ * @param {number} max
+ * @param {number} increase
+ * @param {(val?: number) => void} fn
+ */
+const forTimes = (start: number, max: number, increase: number, fn: (index?: number) => void): void => {
+    for (let index = start; index < max; index += increase) {
+        fn(index);
+    }
+};
+/**
  * Iterate over each value of an array
  *
  * @param {any[]} arr
@@ -410,8 +423,29 @@ const arrCompact = (arr: any[]): any[] => arr.filter((val) => !isNil(val) && !is
 // const arrDifference=(arr,...arr)
 // const arrShared=(arr,...arr)
 // const arrUnique=(arr,...arr)
-// const arrChunk
-// const arrStep
+
+/**
+ * Chunks an array
+ *
+ * @param {any[]} arr
+ * @param {number} chunk
+ * @returns {any[]}
+ */
+const arrChunk = (arr: any[], chunk: number): any[] => {
+    const result: any[] = [];
+
+    if (chunk <= 0) {
+        throw new Error("Cannot create chunks smaller than 1");
+    }
+
+    forTimes(0, arr.length, chunk, (index) => {
+        result.push(arr.slice(index, index + chunk));
+    });
+
+    return result;
+};
+
+const arrStep = (arr: any[], step: number): any[] => arr.filter((val, index) => index % step === 0);
 
 /**
  * Creates a new object with the entries of the input object
@@ -531,6 +565,7 @@ export {
     numberRandomFloat,
     numberRandomInt,
 
+    forTimes,
     forEach,
     forEachDeep,
     forEachEntry,
@@ -542,6 +577,8 @@ export {
     arrMapDeep,
     arrFlattenDeep,
     arrCompact,
+    arrChunk,
+    arrStep,
 
     objClone,
     objCloneDeep,

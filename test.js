@@ -1,7 +1,7 @@
 "use strict";
 
 const {
-    isEqual
+    arrStep
 } = require("./dist/lightdash.common");
 
-console.log(isEqual(null, {}));
+console.log(arrStep([1, 2, 3, 4, 5, 6, 7, 8], 4));
