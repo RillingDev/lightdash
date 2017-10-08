@@ -118,7 +118,7 @@ const isEmpty = (val) => {
  * Returns an array of the objects entries
  *
  * @param {Object} obj
- * @returns {Array<[string, any]>}
+ * @returns {Entry[]}
  */
 const objEntries = (obj) => Object.entries(obj);
 
@@ -257,37 +257,6 @@ const isStringNumber = (val) => !isNaN(Number(val));
 const isSymbol = (val) => isTypeOf(val, "symbol");
 
 /**
- * Checks if a target has a path of keys
- *
- * @param {any} target
- * @param {string[]} path
- * @returns {boolean}
- */
-const hasPath = (target, path) => {
-    let targetCurrent = target;
-    let index = 0;
-    while (isDefined(targetCurrent) && index < path.length) {
-        const keyCurrent = path[index];
-        if (hasKey(targetCurrent, keyCurrent)) {
-            targetCurrent = targetCurrent[keyCurrent];
-            index++;
-        }
-        else {
-            return false;
-        }
-    }
-    return true;
-};
-
-/**
- * Returns length property of target
- *
- * @param {any} target
- * @returns {number}
- */
-const getLength = (target) => target.length;
-
-/**
  * Accesses a target by a path of keys. If the path doesn't exist, null is returned
  *
  * @param {any} target
@@ -309,6 +278,23 @@ const getPath = (target, path) => {
     }
     return targetCurrent;
 };
+
+/**
+ * Checks if a target has a path of keys
+ *
+ * @param {any} target
+ * @param {string[]} path
+ * @returns {boolean}
+ */
+const hasPath = (target, path) => isNil(getPath(target, path));
+
+/**
+ * Returns length property of target
+ *
+ * @param {any} target
+ * @returns {number}
+ */
+const getLength = (target) => target.length;
 
 /**
  * Clamps a number in a range
@@ -371,7 +357,7 @@ const forEachEntryDeep = (obj, fn) => forEachEntry(obj, (val, key, index) => isO
  * @param {number} start
  * @param {number} max
  * @param {number} increase
- * @param {(val?: number) => void} fn
+ * @param {ForTimesIterator} fn
  */
 const forTimes = (start, max, increase, fn) => {
     for (let index = start; index < max; index += increase) {

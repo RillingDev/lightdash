@@ -18,12 +18,12 @@
         }
     },
     "scripts": {
-        "start": "npm-run-all lint build test",
+        "start": "npm-run-all lint build test docs",
         "build": "node tasks/jsDev.js",
         "dist": "node tasks/jsDist.js",
         "test": "jasmine",
         "lint": "tslint src/**/*.ts",
-        "docs": "jsdoc dist/lightdash.esm.js --destination ./docs"
+        "docs": "jsdoc dist/lightdash.common.js --destination ./docs"
     },
     "repository": {
         "type": "git",
@@ -44,11 +44,12 @@
         "babel-plugin-external-helpers": "^7.0.0-beta.2",
         "babel-preset-env": "^1.6.0",
         "jasmine": "^2.8.0",
+        "jsdoc": "^3.5.5",
         "npm-run-all": "^4.1.1",
+        "rollup": "^0.50.0",
         "rollup-plugin-babel": "^3.0.2",
         "rollup-plugin-typescript": "^0.8.1",
         "rollup-plugin-uglify-es": "0.0.1",
-        "rollup": "^0.50.0",
         "tslint": "^5.7.0",
         "typescript": "^2.5.3",
         "uglify-es": "^3.1.3"

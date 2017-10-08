@@ -1,12 +1,16 @@
+import {
+    ForTimesIterator,
+} from "../types";
+
 /**
  * wrapper around a simple for-loop
  *
  * @param {number} start
  * @param {number} max
  * @param {number} increase
- * @param {(val?: number) => void} fn
+ * @param {ForTimesIterator} fn
  */
-const forTimes = (start: number, max: number, increase: number, fn: (index?: number) => void): void => {
+const forTimes = (start: number, max: number, increase: number, fn: ForTimesIterator): void => {
     for (let index = start; index < max; index += increase) {
         fn(index);
     }
