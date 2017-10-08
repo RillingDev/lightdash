@@ -1,4 +1,4 @@
-import hasKey from "../has/key";
+import hasLength from "../has/length";
 import objKeys from "../obj/keys";
 import isObjectLike from "./objectLike";
 
@@ -9,7 +9,7 @@ import isObjectLike from "./objectLike";
  * @returns {boolean}
  */
 const isEmpty = (val: any): boolean => {
-    if (hasKey(val, "length")) {
+    if (hasLength(val)) {
         return val.length === 0;
     } else if (isObjectLike(val)) {
         return objKeys(val).length === 0;

@@ -21,8 +21,10 @@ import isTypeOf from "./is/typeOf";
 import isUndefined from "./is/undefined";
 
 import hasKey from "./has/key";
+import hasLength from "./has/length";
 import hasPath from "./has/path";
 
+import getLength from "./get/length";
 import getPath from "./get/path";
 
 import numberClamp from "./number/clamp";
@@ -78,8 +80,10 @@ export {
     isInRange,
 
     hasKey,
+    hasLength,
     hasPath,
 
+    getLength,
     getPath,
 
     numberClamp,

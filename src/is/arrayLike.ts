@@ -1,4 +1,4 @@
-import hasKey from "../has/key";
+import hasLength from "../has/length";
 import isObjectLike from "./objectLike";
 
 /**
@@ -7,6 +7,6 @@ import isObjectLike from "./objectLike";
  * @param {*} val
  * @returns {boolean}
  */
-const isArrayLike = (val: any): boolean => isObjectLike(val) && hasKey(val, "length");
+const isArrayLike = (val: any): boolean => isObjectLike(val) && hasLength(val);
 
 export default isArrayLike;

@@ -36,13 +36,12 @@ const isUndefined = (val) => isTypeOf(val, "undefined");
 const isDefined = (val) => !isUndefined(val);
 
 /**
- * Checks if a target has a certain key
+ * Checks if a target has a length key
  *
  * @param {any} target
- * @param {string} key
  * @returns {boolean}
  */
-const hasKey = (target, key) => isDefined(target[key]);
+const hasLength = (target) => isDefined(target.length);
 
 /**
  * Checks if a value is either undefined or null
@@ -66,7 +65,7 @@ const isObjectLike = (val) => !isNil(val) && isTypeOf(val, "object");
  * @param {*} val
  * @returns {boolean}
  */
-const isArrayLike = (val) => isObjectLike(val) && hasKey(val, "length");
+const isArrayLike = (val) => isObjectLike(val) && hasLength(val);
 
 /**
  * Checks if a value is a boolean
@@ -108,7 +107,7 @@ const objKeys = (obj) => Object.keys(obj);
  * @returns {boolean}
  */
 const isEmpty = (val) => {
-    if (hasKey(val, "length")) {
+    if (hasLength(val)) {
         return val.length === 0;
     }
     else if (isObjectLike(val)) {
@@ -146,6 +145,15 @@ const forEachEntry = (obj, fn) => {
         fn(entry[1], entry[0], index, obj);
     });
 };
+
+/**
+ * Checks if a target has a certain key
+ *
+ * @param {any} target
+ * @param {string} key
+ * @returns {boolean}
+ */
+const hasKey = (target, key) => isDefined(target[key]);
 
 /**
  * Checks if a value is an object
@@ -274,6 +282,14 @@ const hasPath = (target, path) => {
     }
     return true;
 };
+
+/**
+ * Returns length property of target
+ *
+ * @param {any} target
+ * @returns {number}
+ */
+const getLength = (target) => target.length;
 
 /**
  * Accesses a target by a path of keys. If the path doesn't exist, null is returned
@@ -539,7 +555,9 @@ exports.isDate = isDate;
 exports.isEmpty = isEmpty;
 exports.isInRange = isInRange;
 exports.hasKey = hasKey;
+exports.hasLength = hasLength;
 exports.hasPath = hasPath;
+exports.getLength = getLength;
 exports.getPath = getPath;
 exports.numberClamp = numberClamp;
 exports.numberRandomFloat = numberRandomFloat;
