@@ -14,6 +14,9 @@
             "namespace": {
                 "module": "lightdash",
                 "file": "lightdash"
+            },
+            "targets": {
+                "browsers": "chrome >= 58"
             }
         }
     },
@@ -23,7 +26,7 @@
         "dist": "node tasks/jsDist.js",
         "test": "jasmine",
         "lint": "tslint src/**/*.ts",
-        "docs": "jsdoc dist/lightdash.common.js --destination ./docs"
+        "docs": "jsdoc dist/lightdash.esm.js --destination ./docs"
     },
     "repository": {
         "type": "git",

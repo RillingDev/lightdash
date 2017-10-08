@@ -39,10 +39,12 @@ For detailed descriptions and type annotations check the source or run `npm run 
 ### has
 
 - hasKey
+- hasLength
 - hasPath
 
 ### get
 
+- getLength
 - getPath
 
 ### number
