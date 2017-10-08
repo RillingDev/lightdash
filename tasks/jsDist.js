@@ -41,7 +41,7 @@ bundle([{
     typescript({
         typescript: typescript_core
     }),
-    babel(options_babel),
+    //babel(options_babel),
 ]);
 
 bundle([{
@@ -52,6 +52,6 @@ bundle([{
     typescript({
         typescript: typescript_core
     }),
-    babel(options_babel),
+    //babel(options_babel),
     uglify()
 ]);
