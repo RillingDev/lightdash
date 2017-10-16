@@ -18,13 +18,15 @@ const isEqual = (a: any, b: any): boolean => {
     if (isObject(a) && isObject(b) && objKeys(a).length === objKeys(b).length) {
         let result = true;
 
-        forEachEntry(a, (aVal: any, key: string): void => {
+        // tslint:disable-next-line
+        forEachEntry(a, (val_a: any, key: string): void => {
             // Only Check if the comparison didnt fail already
             if (result === true) {
                 if (hasKey(b, key)) {
-                    const bVal = b[key];
+                    // tslint:disable-next-line
+                    const val_b = b[key];
 
-                    result = isEqual(aVal, bVal);
+                    result = isEqual(val_a, val_b);
                 } else {
                     result = false;
                 }

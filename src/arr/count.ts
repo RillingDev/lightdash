@@ -1,7 +1,16 @@
 import forEach from "../for/each";
+import {
+    ElementCounted,
+} from "../types";
 import arrClone from "./clone";
 
-const arrCount = (arr: any[]): Array<[any, number]> => {
+/**
+ * Counts how many times an element appears in an array
+ *
+ * @param {any[]} arr
+ * @returns {ElementCounted[]}
+ */
+const arrCount = (arr: any[]): ElementCounted[] => {
     const result: Map<any, number> = new Map();
 
     forEach(arr, (val) => {

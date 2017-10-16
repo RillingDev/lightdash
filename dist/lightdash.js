@@ -175,12 +175,14 @@ const isEqual = (a, b) => {
     }
     if (isObject(a) && isObject(b) && objKeys(a).length === objKeys(b).length) {
         let result = true;
-        forEachEntry(a, (aVal, key) => {
+        // tslint:disable-next-line
+        forEachEntry(a, (val_a, key) => {
             // Only Check if the comparison didnt fail already
             if (result === true) {
                 if (hasKey(b, key)) {
-                    const bVal = b[key];
-                    result = isEqual(aVal, bVal);
+                    // tslint:disable-next-line
+                    const val_b = b[key];
+                    result = isEqual(val_a, val_b);
                 }
                 else {
                     result = false;
@@ -428,6 +430,12 @@ const arrCloneDeep = (arr) => arrMapDeep(arrClone(arr), (val) => isArray(val) ? 
  */
 const arrCompact = (arr) => arr.filter((val) => !isNil(val) && !isEmpty(val));
 
+/**
+ * Counts how many times an element appears in an array
+ *
+ * @param {any[]} arr
+ * @returns {ElementCounted[]}
+ */
 const arrCount = (arr) => {
     const result = new Map();
     forEach(arr, (val) => {

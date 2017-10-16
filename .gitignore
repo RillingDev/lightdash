@@ -32,5 +32,3 @@ bower_components/
 
 # Debug Files
 .tmp/
-npm-debug.*
-docs/

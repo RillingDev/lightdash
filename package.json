@@ -26,7 +26,7 @@
         "dist": "node tasks/jsDist.js",
         "test": "jasmine",
         "lint": "tslint src/**/*.ts",
-        "docs": "jsdoc dist/lightdash.esm.js --destination ./docs"
+        "docs": "jsdoc -c jsdoc.json"
     },
     "repository": {
         "type": "git",
@@ -46,8 +46,9 @@
         "babel-core": "^7.0.0-beta.2",
         "babel-plugin-external-helpers": "^7.0.0-beta.2",
         "babel-preset-env": "^1.6.0",
+        "docdash": "^0.4.0",
         "jasmine": "^2.8.0",
-        "jsdoc": "^3.5.5",
+        "jsdoc": "git+https://github.com/jsdoc3/jsdoc.git",
         "npm-run-all": "^4.1.1",
         "rollup": "^0.50.0",
         "rollup-plugin-babel": "^3.0.2",
