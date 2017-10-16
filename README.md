@@ -10,6 +10,6 @@ When using this, importing the modules you want from the file fitting your envir
 
 ## Contents
 
-[**Docs**](https://felixrilling.github.io/lightdash/)
+### [Docs](https://felixrilling.github.io/lightdash/)
 
 For detailed descriptions and type annotations check the source or run `npm run docs`
