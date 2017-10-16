@@ -428,6 +428,25 @@ const arrCloneDeep = (arr) => arrMapDeep(arrClone(arr), (val) => isArray(val) ? 
  */
 const arrCompact = (arr) => arr.filter((val) => !isNil(val) && !isEmpty(val));
 
+const arrCount = (arr) => {
+    const result = new Map();
+    forEach(arr, (val) => {
+        result.set(val, result.has(val) ? result.get(val) + 1 : 1);
+    });
+    // tslint:disable-next-line
+    return arrClone(result);
+};
+
+/**
+ * Returns an array of all elements that only exist in one of every given arrays
+ *
+ * @param {...any[]} arrs
+ * @returns {any[]}
+ */
+const arrDifference = (...arrs) => arrCount([].concat(...arrs))
+    .filter((pair) => pair[1] === 1)
+    .map((pair) => pair[0]);
+
 /**
  * Recursively flattens an array
  *
@@ -448,6 +467,16 @@ const arrFlattenDeep = (arr) => {
 };
 
 /**
+ * Returns an array of all elements that exist in all given arrays
+ *
+ * @param {...any[]} arrs
+ * @returns {any[]}
+ */
+const arrIntersection = (...arrs) => arrCount([].concat(...arrs))
+    .filter((pair) => pair[1] === arrs.length)
+    .map((pair) => pair[0]);
+
+/**
  * Returns a new array with every n-th item
  *
  * @param {any[]} arr
@@ -455,6 +484,15 @@ const arrFlattenDeep = (arr) => {
  * @returns {any[]}
  */
 const arrStep = (arr, step) => arr.filter((val, index) => index % step === 0);
+
+// tslint:disable
+/**
+ * Returns an array of all unique elements in an array
+ *
+ * @param {any[]} arr
+ * @returns {any[]}
+ */
+const arrUniq = (arr) => arrClone(new Set(arr));
 
 /**
  * Creates a new object with the entries of the input object
@@ -560,6 +598,10 @@ exports.arrFlattenDeep = arrFlattenDeep;
 exports.arrCompact = arrCompact;
 exports.arrChunk = arrChunk;
 exports.arrStep = arrStep;
+exports.arrCount = arrCount;
+exports.arrDifference = arrDifference;
+exports.arrIntersection = arrIntersection;
+exports.arrUniq = arrUniq;
 exports.objClone = objClone;
 exports.objCloneDeep = objCloneDeep;
 exports.objMap = objMap;

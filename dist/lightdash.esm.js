@@ -425,6 +425,25 @@ const arrCloneDeep = (arr) => arrMapDeep(arrClone(arr), (val) => isArray(val) ? 
  */
 const arrCompact = (arr) => arr.filter((val) => !isNil(val) && !isEmpty(val));
 
+const arrCount = (arr) => {
+    const result = new Map();
+    forEach(arr, (val) => {
+        result.set(val, result.has(val) ? result.get(val) + 1 : 1);
+    });
+    // tslint:disable-next-line
+    return arrClone(result);
+};
+
+/**
+ * Returns an array of all elements that only exist in one of every given arrays
+ *
+ * @param {...any[]} arrs
+ * @returns {any[]}
+ */
+const arrDifference = (...arrs) => arrCount([].concat(...arrs))
+    .filter((pair) => pair[1] === 1)
+    .map((pair) => pair[0]);
+
 /**
  * Recursively flattens an array
  *
@@ -445,6 +464,16 @@ const arrFlattenDeep = (arr) => {
 };
 
 /**
+ * Returns an array of all elements that exist in all given arrays
+ *
+ * @param {...any[]} arrs
+ * @returns {any[]}
+ */
+const arrIntersection = (...arrs) => arrCount([].concat(...arrs))
+    .filter((pair) => pair[1] === arrs.length)
+    .map((pair) => pair[0]);
+
+/**
  * Returns a new array with every n-th item
  *
  * @param {any[]} arr
@@ -452,6 +481,15 @@ const arrFlattenDeep = (arr) => {
  * @returns {any[]}
  */
 const arrStep = (arr, step) => arr.filter((val, index) => index % step === 0);
+
+// tslint:disable
+/**
+ * Returns an array of all unique elements in an array
+ *
+ * @param {any[]} arr
+ * @returns {any[]}
+ */
+const arrUniq = (arr) => arrClone(new Set(arr));
 
 /**
  * Creates a new object with the entries of the input object
@@ -515,4 +553,4 @@ const objValues = (obj) => Object.values(obj);
  */
 const mapFromObject = (obj) => new Map(objEntries(obj));
 
-export { isSame, isEqual, isInstanceOf, isTypeOf, isUndefined, isDefined, isNil, isBoolean, isNumber, isString, isStringNumber, isSymbol, isObject, isObjectLike, isArray, isArrayLike, isMap, isSet, isDate, isEmpty, isInRange, hasKey, hasLength, hasPath, getLength, getPath, numberClamp, numberRandomFloat, numberRandomInt, forTimes, forEach, forEachDeep, forEachEntry, forEachEntryDeep, arrClone, arrCloneDeep, arrMap, arrMapDeep, arrFlattenDeep, arrCompact, arrChunk, arrStep, objClone, objCloneDeep, objMap, objMapDeep, objKeys, objValues, objEntries, mapFromObject };
+export { isSame, isEqual, isInstanceOf, isTypeOf, isUndefined, isDefined, isNil, isBoolean, isNumber, isString, isStringNumber, isSymbol, isObject, isObjectLike, isArray, isArrayLike, isMap, isSet, isDate, isEmpty, isInRange, hasKey, hasLength, hasPath, getLength, getPath, numberClamp, numberRandomFloat, numberRandomInt, forTimes, forEach, forEachDeep, forEachEntry, forEachEntryDeep, arrClone, arrCloneDeep, arrMap, arrMapDeep, arrFlattenDeep, arrCompact, arrChunk, arrStep, arrCount, arrDifference, arrIntersection, arrUniq, objClone, objCloneDeep, objMap, objMapDeep, objKeys, objValues, objEntries, mapFromObject };

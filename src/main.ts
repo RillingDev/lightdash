@@ -41,10 +41,14 @@ import arrChunk from "./arr/chunk";
 import arrClone from "./arr/clone";
 import arrCloneDeep from "./arr/cloneDeep";
 import arrCompact from "./arr/compact";
+import arrCount from "./arr/count";
+import arrDifference from "./arr/difference";
 import arrFlattenDeep from "./arr/flattenDeep";
+import arrIntersection from "./arr/intersection";
 import arrMap from "./arr/map";
 import arrMapDeep from "./arr/mapDeep";
 import arrStep from "./arr/step";
+import arrUniq from "./arr/uniq";
 
 import objClone from "./obj/clone";
 import objCloneDeep from "./obj/cloneDeep";
@@ -104,6 +108,10 @@ export {
     arrCompact,
     arrChunk,
     arrStep,
+    arrCount,
+    arrDifference,
+    arrIntersection,
+    arrUniq,
 
     objClone,
     objCloneDeep,

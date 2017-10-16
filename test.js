@@ -1,7 +1,7 @@
 "use strict";
 
 const {
-    arrCloneDeep
+    arrShared
 } = require("./dist/lightdash.common");
 
-console.log(arrCloneDeep([1, 2, 3, 4, 5, 6, 7, 8], 4));
+console.log(arrShared([1, 2, "foO", 3], [1, 0, 3, 4], [1, 5, 3]));
