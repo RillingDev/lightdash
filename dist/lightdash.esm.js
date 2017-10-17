@@ -1,33 +1,80 @@
 /**
  * Checks if a value is an array
  *
- * @param {*} val
+ * @since 1.0.0
+ * @param {any} val
  * @returns {boolean}
+ * @example
+ * // returns true
+ * isArray([]);
+ * isArray([1, 2, 3]);
+ *
+ * @example
+ * // returns false
+ * isArray({});
  */
 const isArray = (val) => Array.isArray(val);
 
 /**
- * Checks if the value is typeof the typestring
+ * Checks if the value has a certain typestring
  *
- * @param {*} val
+ * @since 1.0.0
+ * @param {any} val
  * @param {string} type
  * @returns {boolean}
+ * @example
+ * //returns true
+ * isTypeOf({},"object")
+ * isTypeOf([],"object")
+ * isTypeOf("foo","string")
+ *
+ * @example
+ * //returns false
+ * isTypeOf("foo","number")
  */
 const isTypeOf = (val, type) => typeof val === type;
 
 /**
  * Checks if a value is undefined
  *
- * @param {*} val
+ * @since 1.0.0
+ * @param {any} val
  * @returns {boolean}
+ * @example
+ * //returns false
+ * const a = {};
+ *
+ * isUndefined(a.b)
+ * isUndefined(undefined)
+ *
+ * @example
+ * //returns false
+ * const a = {};
+ *
+ * isUndefined(1)
+ * isUndefined(a)
  */
 const isUndefined = (val) => isTypeOf(val, "undefined");
 
 /**
  * Checks if a value is not undefined
  *
- * @param {*} val
+ * @since 1.0.0
+ * @param {any} val
  * @returns {boolean}
+ * @example
+ * //returns true
+ * const a = {};
+ *
+ * isDefined(1)
+ * isDefined(a)
+ *
+ * @example
+ * //returns false
+ * const a = {};
+ *
+ * isDefined(a.b)
+ * isDefined(undefined)
  */
 const isDefined = (val) => !isUndefined(val);
 
@@ -42,49 +89,113 @@ const hasLength = (target) => isDefined(target.length);
 /**
  * Checks if a value is either undefined or null
  *
- * @param {*} val
+ * @since 1.0.0
+ * @param {any} val
  * @returns {boolean}
+ * @example
+ * //returns true
+ * isNil(null)
+ * isNil(undefined)
+ *
+ * @example
+ * //returns false
+ * isNil(0)
+ * isNil({})
  */
 const isNil = (val) => isUndefined(val) || val === null;
 
 /**
  * Checks if a value is not nil and has a typeof object
  *
- * @param {*} val
+ * @since 1.0.0
+ * @param {any} val
  * @returns {boolean}
+ * @example
+ * //returns true
+ * isObjectLike({})
+ * isObjectLike([])
+ *
+ * @example
+ * //returns false
+ * isObjectLike(null)
+ * isObjectLike(1)
  */
 const isObjectLike = (val) => !isNil(val) && isTypeOf(val, "object");
 
 /**
  * Checks if a value is object-like and has a length property
  *
- * @param {*} val
+ * @since 1.0.0
+ * @param {any} val
  * @returns {boolean}
+ * @example
+ * //returns true
+ * isArrayLike([])
+ * isArrayLike({length:0})
+ *
+ * @example
+ * //returns false
+ * isArrayLike({})
+ * isArrayLike(null)
+ * isArrayLike("foo")
+ * isArrayLike(1)
  */
 const isArrayLike = (val) => isObjectLike(val) && hasLength(val);
 
 /**
  * Checks if a value is a boolean
  *
- * @param {*} val
+ * @since 1.0.0
+ * @param {any} val
  * @returns {boolean}
+ * @example
+ * //returns true
+ * isBoolean(true)
+ * isBoolean(false)
+ *
+ * @example
+ * //returns false
+ * isBoolean(0)
+ * isBoolean(null)
+ * isBoolean("")
  */
 const isBoolean = (val) => isTypeOf(val, "boolean");
 
 /**
  * Checks if the value is instanceof the target
  *
- * @param {*} val
+ * @since 1.0.0
+ * @param {any} val
  * @param {Class} target
  * @returns {boolean}
+ * @example
+ * //returns true
+ * isInstanceOf({},Object)
+ * isInstanceOf([],Object)
+ * isInstanceOf([],Array)
+ *
+ * @example
+ * //returns false
+ * isInstanceOf({},Array)
+ * isInstanceOf([],Map)
  */
 const isInstanceOf = (val, target) => val instanceof target;
 
 /**
  * Checks if a value is an date object
  *
- * @param {*} val
+ * @since 1.0.0
+ * @param {any} val
  * @returns {boolean}
+ * @example
+ * //returns true
+ * isDate(new Date())
+ * isDate(new Date("2017/1/1"))
+ *
+ * @example
+ * //returns false
+ * isDate(Date.now())
+ * isDate("2017/1/1")
  */
 const isDate = (val) => isInstanceOf(val, Date);
 
@@ -99,8 +210,19 @@ const objKeys = (obj) => Object.keys(obj);
 /**
  * Checks if an array has no items, or an object has no keys
  *
- * @param {*} val
+ * @since 1.0.0
+ * @param {any} val
  * @returns {boolean}
+ * @example
+ * //returns true
+ * isEmpty([])
+ * isEmpty({})
+ * isEmpty("")
+ *
+ * @example
+ * //returns false
+ * isEmpty("foo")
+ * isEmpty([1,2])
  */
 const isEmpty = (val) => {
     if (hasLength(val)) {
@@ -154,17 +276,38 @@ const hasKey = (target, key) => isDefined(target[key]);
 /**
  * Checks if a value is an object
  *
- * @param {*} val
+ * @since 1.0.0
+ * @param {any} val
  * @returns {boolean}
+ * @example
+ * //returns true
+ * isObject({})
+ * isObject([])
+ *
+ * @example
+ * //returns false
+ * isObject(1)
  */
 const isObject = (val) => isInstanceOf(val, Object);
 
 /**
- * Deeply checks if the contents of two values are the same
+ * Deep checks if the contents of two values are the same
  *
- * @param {*} a
- * @param {*} b
+ * @since 1.0.0
+ * @param {any} a
+ * @param {any} b
  * @returns {boolean}
+ * @example
+ * //returns true
+ * isEqual(1,1)
+ * isEqual({},{})
+ * isEqual([1,2],[1,2])
+ * isEqual([1,2,[3,4]],[1,2,[3,4]])
+ *
+ * @example
+ * //returns false
+ * isEqual([1,2,3],[1])
+ * isEqual([1,2,[3]],[1,2,[4]])
  */
 const isEqual = (a, b) => {
     if (a === b) {
@@ -192,69 +335,140 @@ const isEqual = (a, b) => {
 };
 
 /**
- * Checks if a number is in the given range
+ * Checks if a value is a map
  *
- * @param {number} val
- * @param {number} min
- * @param {number} max
+ * @since 1.0.0
+ * @param {any} val
  * @returns {boolean}
- */
-const isInRange = (val, min, max) => val >= min && val <= max;
-
-/**
- * Checks if a value is an map
+ * @example
+ * //returns true
+ * isMap(new Map())
  *
- * @param {*} val
- * @returns {boolean}
+ * @example
+ * //returns false
+ * isMap([[1,2]])
  */
 const isMap = (val) => isInstanceOf(val, Map);
 
 /**
  * Checks if a value is a number
  *
- * @param {*} val
+ * @since 1.0.0
+ * @param {any} val
  * @returns {boolean}
+ * @example
+ * //returns true
+ * isNumber(1)
+ * isNumber(2.34)
+ *
+ * @example
+ * //returns false
+ * isNumber(null)
  */
 const isNumber = (val) => isTypeOf(val, "number");
 
 /**
+ * Checks if a value is a primitive
+ *
+ * @since 1.0.0
+ * @param {any} val
+ * @returns {boolean}
+ * @example
+ * //returns true
+ * isObjectLike(1)
+ * isObjectLike(null)
+ *
+ * @example
+ * //returns false
+ * isObjectLike({})
+ * isObjectLike([])
+ */
+const isPrimitive = (val) => !isObjectLike(val);
+
+/**
  * Checks if two values are the same
  *
- * @param {*} a
- * @param {*} b
+ * @since 1.0.0
+ * @param {any} a
+ * @param {any} b
  * @returns {boolean}
+ * @example
+ * //returns true
+ * const a = [];
+ *
+ * isSame(1,1)
+ * isSame("foo","foo")
+ * isSame(a,a)
+ *
+ * @example
+ * //returns false
+ * isSame({},{})
+ * isSame([],[])
  */
 const isSame = (a, b) => a === b;
 
 /**
- * Checks if a value is an map
+ * Checks if a value is a set
  *
- * @param {*} val
+ * @since 1.0.0
+ * @param {any} val
  * @returns {boolean}
+ * @example
+ * //returns true
+ * isSet(new Set())
+ *
+ * @example
+ * //returns false
+ * isSet([1,2])
  */
 const isSet = (val) => isInstanceOf(val, Set);
 
 /**
  * Checks if a value is a string
  *
- * @param {*} val
+ * @since 1.0.0
+ * @param {any} val
  * @returns {boolean}
+ * @example
+ * //returns true
+ * isString("foo")
+ *
+ * @example
+ * //returns false
+ * isString(1)
  */
 const isString = (val) => isTypeOf(val, "string");
 
 /**
  * Checks if a value is a number as a string
  *
- * @param {*} val
+ * @since 1.0.0
+ * @param {string} val
  * @returns {boolean}
+ * @example
+ * //returns true
+ * isStringNumber("123")
+ * isStringNumber("0b010")
+ *
+ * @example
+ * //returns false
+ * isStringNumber("foo")
  */
 const isStringNumber = (val) => !isNaN(Number(val));
 
 /**
  * Checks if a value is a symbol
  *
- * @param {*} val
+ * @since 1.0.0
+ * @param {any} val
  * @returns {boolean}
+ * @example
+ * //returns true
+ * isSymbol(Symbol())
+ *
+ * @example
+ * //returns false
+ * isStringNumber("foo")
  */
 const isSymbol = (val) => isTypeOf(val, "symbol");
 
@@ -317,6 +531,17 @@ const numberClamp = (val, min, max) => {
         return val;
     }
 };
+
+/**
+ * Checks if a number is in the given range
+ *
+ * @since 1.0.0
+ * @param {number} val
+ * @param {number} min
+ * @param {number} max
+ * @returns {boolean}
+ */
+const numberInRange = (val, min, max) => val >= min && val <= max;
 
 /**
  * Return a random float number in the range
@@ -561,4 +786,4 @@ const objValues = (obj) => Object.values(obj);
  */
 const mapFromObject = (obj) => new Map(objEntries(obj));
 
-export { isSame, isEqual, isInstanceOf, isTypeOf, isUndefined, isDefined, isNil, isBoolean, isNumber, isString, isStringNumber, isSymbol, isObject, isObjectLike, isArray, isArrayLike, isMap, isSet, isDate, isEmpty, isInRange, hasKey, hasLength, hasPath, getLength, getPath, numberClamp, numberRandomFloat, numberRandomInt, forTimes, forEach, forEachDeep, forEachEntry, forEachEntryDeep, arrClone, arrCloneDeep, arrMap, arrMapDeep, arrFlattenDeep, arrCompact, arrChunk, arrStep, arrCount, arrDifference, arrIntersection, arrUniq, objClone, objCloneDeep, objMap, objMapDeep, objKeys, objValues, objEntries, mapFromObject };
+export { isSame, isEqual, isInstanceOf, isTypeOf, isUndefined, isDefined, isNil, isBoolean, isNumber, isString, isStringNumber, isSymbol, isObject, isObjectLike, isArray, isArrayLike, isMap, isSet, isDate, isEmpty, isPrimitive, hasKey, hasLength, hasPath, getLength, getPath, numberInRange, numberClamp, numberRandomFloat, numberRandomInt, forTimes, forEach, forEachDeep, forEachEntry, forEachEntryDeep, arrClone, arrCloneDeep, arrMap, arrMapDeep, arrFlattenDeep, arrCompact, arrChunk, arrStep, arrCount, arrDifference, arrIntersection, arrUniq, objClone, objCloneDeep, objMap, objMapDeep, objKeys, objValues, objEntries, mapFromObject };

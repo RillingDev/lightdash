@@ -4,11 +4,23 @@ import objKeys from "../obj/keys";
 import isObject from "./object";
 
 /**
- * Deeply checks if the contents of two values are the same
+ * Deep checks if the contents of two values are the same
  *
- * @param {*} a
- * @param {*} b
+ * @since 1.0.0
+ * @param {any} a
+ * @param {any} b
  * @returns {boolean}
+ * @example
+ * //returns true
+ * isEqual(1,1)
+ * isEqual({},{})
+ * isEqual([1,2],[1,2])
+ * isEqual([1,2,[3,4]],[1,2,[3,4]])
+ *
+ * @example
+ * //returns false
+ * isEqual([1,2,3],[1])
+ * isEqual([1,2,[3]],[1,2,[4]])
  */
 const isEqual = (a: any, b: any): boolean => {
     if (a === b) {

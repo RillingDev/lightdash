@@ -5,8 +5,19 @@ import isObjectLike from "./objectLike";
 /**
  * Checks if an array has no items, or an object has no keys
  *
- * @param {*} val
+ * @since 1.0.0
+ * @param {any} val
  * @returns {boolean}
+ * @example
+ * //returns true
+ * isEmpty([])
+ * isEmpty({})
+ * isEmpty("")
+ *
+ * @example
+ * //returns false
+ * isEmpty("foo")
+ * isEmpty([1,2])
  */
 const isEmpty = (val: any): boolean => {
     if (hasLength(val)) {

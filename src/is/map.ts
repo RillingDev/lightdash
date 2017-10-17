@@ -1,10 +1,18 @@
 import isInstanceOf from "./instanceOf";
 
 /**
- * Checks if a value is an map
+ * Checks if a value is a map
  *
- * @param {*} val
+ * @since 1.0.0
+ * @param {any} val
  * @returns {boolean}
+ * @example
+ * //returns true
+ * isMap(new Map())
+ *
+ * @example
+ * //returns false
+ * isMap([[1,2]])
  */
 const isMap = (val: any): boolean => isInstanceOf(val, Map);
 

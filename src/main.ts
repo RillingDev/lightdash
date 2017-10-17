@@ -5,13 +5,13 @@ import isDate from "./is/date";
 import isDefined from "./is/defined";
 import isEmpty from "./is/empty";
 import isEqual from "./is/equal";
-import isInRange from "./is/inRange";
 import isInstanceOf from "./is/instanceOf";
 import isMap from "./is/map";
 import isNil from "./is/nil";
 import isNumber from "./is/number";
 import isObject from "./is/object";
 import isObjectLike from "./is/objectLike";
+import isPrimitive from "./is/primitive";
 import isSame from "./is/same";
 import isSet from "./is/set";
 import isString from "./is/string";
@@ -28,6 +28,7 @@ import getLength from "./get/length";
 import getPath from "./get/path";
 
 import numberClamp from "./number/clamp";
+import numberInRange from "./number/inRange";
 import numberRandomFloat from "./number/randomFloat";
 import numberRandomInt from "./number/randomInt";
 
@@ -81,7 +82,7 @@ export {
     isSet,
     isDate,
     isEmpty,
-    isInRange,
+    isPrimitive,
 
     hasKey,
     hasLength,
@@ -90,6 +91,7 @@ export {
     getLength,
     getPath,
 
+    numberInRange,
     numberClamp,
     numberRandomFloat,
     numberRandomInt,
