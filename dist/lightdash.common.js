@@ -652,8 +652,11 @@ const arrClone = (arr) => Array.from(arr);
  *
  * @since 1.0.0
  * @param {any[]} arr
- * @param {ForEachIterator} fn fn(val: any, index: number, arr: any[])
+ * @param {function} fn fn(val: any, index: number, arr: any[])
  * @returns {any[]}
+ * @example
+ * //returns [4,8]
+ * arrMap([2,4],val=>val*2)
  */
 const arrMap = (arr, fn) => arr.map(fn);
 
@@ -662,8 +665,11 @@ const arrMap = (arr, fn) => arr.map(fn);
  *
  * @since 1.0.0
  * @param {any[]} arr
- * @param {ForEachIterator} fn fn(val: any, index: number, arr: any[])
+ * @param {function} fn fn(val: any, index: number, arr: any[])
  * @returns {any[]}
+ * @example
+ * //returns [4,8,[2,2,[32],8]]
+ * arrMapDeep([2,4,[1,1,[16],4]],val=>val*2)
  */
 const arrMapDeep = (arr, fn) => arrMap(arr, (val, index) => isArray(val) ? arrMapDeep(val, fn) : fn(val, index, arr));
 
@@ -738,6 +744,13 @@ const arrDifference = (arr, ...values) => {
  * @since 1.0.0
  * @param {any[]} arr
  * @returns {any[]}
+ * @example
+ * //returns [1,2,3]
+ * arrFlattenDeep([1,2,[3]])
+ *
+ * @example
+ * //returns [1,2,3,5,6,6]
+ * arrFlattenDeep([1,2,[3,[[[5]]],[6,[6]]])
  */
 const arrFlattenDeep = (arr) => {
     const result = [];
@@ -779,6 +792,9 @@ const arrIntersection = (arr, ...values) => {
  * @param {any[]} arr
  * @param {number} step
  * @returns {any[]}
+ * @example
+ * //returns [2,4,6]
+ * arrStep([1,2,3,4,5,6],2)
  */
 const arrStep = (arr, step) => arr.filter((val, index) => index % step === 0);
 
@@ -789,6 +805,9 @@ const arrStep = (arr, step) => arr.filter((val, index) => index % step === 0);
  * @since 1.0.0
  * @param {any[]} arr
  * @returns {any[]}
+ * @example
+ * //returns [1,2,3,4]
+ * arrUniq([1,1,1,2,3,1,2,1,4])
  */
 const arrUniq = (arr) => arrClone(new Set(arr));
 
@@ -858,6 +877,9 @@ const objValues = (obj) => Object.values(obj);
  * @since 1.0.0
  * @param {Object} obj
  * @returns {Map}
+ * @example
+ * //returns Map{a:1, b:4, c:5}
+ * mapFromObject({a:1,b:4,c:5})
  */
 const mapFromObject = (obj) => new Map(objEntries(obj));
 

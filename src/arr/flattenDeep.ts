@@ -7,6 +7,13 @@ import isArray from "../is/array";
  * @since 1.0.0
  * @param {any[]} arr
  * @returns {any[]}
+ * @example
+ * //returns [1,2,3]
+ * arrFlattenDeep([1,2,[3]])
+ *
+ * @example
+ * //returns [1,2,3,5,6,6]
+ * arrFlattenDeep([1,2,[3,[[[5]]],[6,[6]]])
  */
 const arrFlattenDeep = (arr: any[]) => {
     const result: any[] = [];
