@@ -85,8 +85,20 @@ const isDefined = (val) => !isUndefined(val);
 /**
  * Checks if a target has a length key
  *
+ * @since 2.0.0
  * @param {any} target
  * @returns {boolean}
+ * @example
+ * //returns true
+ * isArrayLike([])
+ * isArrayLike({length:0})
+ * isArrayLike("foo")
+ *
+ * @example
+ * //returns false
+ * isArrayLike({})
+ * isArrayLike(null)
+ * isArrayLike(1)
  */
 const hasLength = (target) => isDefined(target.length);
 
@@ -271,9 +283,21 @@ const forEachEntry = (obj, fn) => {
 /**
  * Checks if a target has a certain key
  *
+ * @since 1.0.0
  * @param {any} target
  * @param {string} key
  * @returns {boolean}
+ * @example
+ * //returns true
+ * isArrayLike([1,2,3],"0")
+ * isArrayLike({length:0},"length")
+ * isArrayLike("foo","replace")
+ *
+ * @example
+ * //returns false
+ * isArrayLike({},"foo")
+ * isArrayLike(null,"foo")
+ * isArrayLike(1,"foo")
  */
 const hasKey = (target, key) => isDefined(target[key]);
 
@@ -479,9 +503,21 @@ const isSymbol = (val) => isTypeOf(val, "symbol");
 /**
  * Accesses a target by a path of keys. If the path doesn't exist, null is returned
  *
+ * @since 2.0.0
  * @param {any} target
  * @param {string[]} path
  * @returns {boolean}
+ * @example
+ * // returns 1
+ * getLength({a:1},["a"]);
+ *
+ * @example
+ * // returns 6
+ * getLength([4,6,8],["1"]);
+ *
+ * @example
+ * // returns 10
+ * getLength({a:{b:2,c:[10,20]}},["a","c","0"]);
  */
 const getPath = (target, path) => {
     let targetCurrent = target;
@@ -502,17 +538,42 @@ const getPath = (target, path) => {
 /**
  * Checks if a target has a path of keys
  *
+ * @since 2.0.0
  * @param {any} target
  * @param {string[]} path
  * @returns {boolean}
+ * @example
+ * // returns true
+ * getLength({a:1},["a"]);
+ * getLength([4,6,8],["1"]);
+ * getLength({a:{b:2,c:[10,20]}},["a","c","0"]);
+ *
+ * @example
+ * // returns false
+ * getLength({a:1},["c"]);
+ * getLength([4,6,8],["8"]);
+ * getLength({a:{b:2,c:[10,20]}},["f","x","231","21"]);
+ * getLength(1,["foo"]);
  */
 const hasPath = (target, path) => isNil(getPath(target, path));
 
 /**
  * Returns length property of target
  *
+ * @since 1.0.0
  * @param {any} target
  * @returns {number}
+ * @example
+ * // returns 2
+ * getLength([1,2]);
+ *
+ * @example
+ * // returns 3
+ * getLength("foo");
+ *
+ * @example
+ * // returns 10
+ * getLength({length:10});
  */
 const getLength = (target) => target.length;
 
@@ -797,11 +858,6 @@ exports.isTypeOf = isTypeOf;
 exports.isUndefined = isUndefined;
 exports.isDefined = isDefined;
 exports.isNil = isNil;
-exports.isBoolean = isBoolean;
-exports.isNumber = isNumber;
-exports.isString = isString;
-exports.isStringNumber = isStringNumber;
-exports.isSymbol = isSymbol;
 exports.isObject = isObject;
 exports.isObjectLike = isObjectLike;
 exports.isArray = isArray;
@@ -811,6 +867,11 @@ exports.isSet = isSet;
 exports.isDate = isDate;
 exports.isEmpty = isEmpty;
 exports.isPrimitive = isPrimitive;
+exports.isNumber = isNumber;
+exports.isString = isString;
+exports.isStringNumber = isStringNumber;
+exports.isBoolean = isBoolean;
+exports.isSymbol = isSymbol;
 exports.hasKey = hasKey;
 exports.hasLength = hasLength;
 exports.hasPath = hasPath;
