@@ -1,7 +1,7 @@
 "use strict";
 
 const {
-    isArrayLike
+    arrChunk
 } = require("./dist/lightdash.common");
 
-console.log(isArrayLike("foo"));
+console.log(arrChunk([1, 2, 3, 4, 5], 2));

@@ -664,14 +664,16 @@ const forTimes = (start, max, increase, fn) => {
  * @returns {any[]}
  */
 const arrChunk = (arr, chunk) => {
-    const result = [];
-    if (chunk <= 0) {
-        throw new Error("Cannot create chunks smaller than 1");
+    if (chunk < 1) {
+        return [];
     }
-    forTimes(0, arr.length, chunk, (index) => {
-        result.push(arr.slice(index, index + chunk));
-    });
-    return result;
+    else {
+        const result = [];
+        forTimes(0, arr.length, chunk, (index) => {
+            result.push(arr.slice(index, index + chunk));
+        });
+        return result;
+    }
 };
 
 /**
