@@ -1,6 +1,7 @@
 /**
  * Returns a new array with every n-th item
  *
+ * @since 1.0.0
  * @param {any[]} arr
  * @param {number} step
  * @returns {any[]}

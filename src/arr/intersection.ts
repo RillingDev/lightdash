@@ -4,6 +4,7 @@ import arrCount from "./count";
 /**
  * Returns an array of all elements that exist in all given arrays
  *
+ * @since 2.0.0
  * @param {...any[]} arrs
  * @returns {any[]}
  */

@@ -8,7 +8,7 @@ import {
  * @param {number} start
  * @param {number} max
  * @param {number} increase
- * @param {ForTimesIterator} fn
+ * @param {function} fn fn(val: number)
  */
 const forTimes = (start: number, max: number, increase: number, fn: ForTimesIterator): void => {
     for (let index = start; index < max; index += increase) {

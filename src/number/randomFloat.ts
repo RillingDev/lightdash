@@ -1,6 +1,7 @@
 /**
  * Return a random float number in the range
  *
+ * @since 1.0.0
  * @param {number} [min=0]
  * @param {number} [max=1]
  * @returns {number}

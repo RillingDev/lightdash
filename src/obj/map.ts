@@ -7,8 +7,9 @@ import objClone from "./clone";
 /**
  * Maps each entry of an object and returns the result
  *
+ * @since 1.0.0
  * @param {Object} obj
- * @param {ForEachEntryIterator} fn
+ * @param {function} fn fn(val: any, key: any, index: number, arr: any[])
  * @returns {Object}
  */
 const objMap = (obj: object, fn: ForEachEntryIterator): object => {

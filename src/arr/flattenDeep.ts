@@ -4,6 +4,7 @@ import isArray from "../is/array";
 /**
  * Recursively flattens an array
  *
+ * @since 1.0.0
  * @param {any[]} arr
  * @returns {any[]}
  */

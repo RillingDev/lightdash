@@ -1,6 +1,7 @@
 /**
  * Clamps a number in a range
  *
+ * @since 1.0.0
  * @param {number} val
  * @param {number} min
  * @param {number} max

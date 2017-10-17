@@ -180,8 +180,9 @@ const isBoolean = (val) => isTypeOf(val, "boolean");
 /**
  * Returns an array of the objects keys
  *
+ * @since 1.0.0
  * @param {Object} obj
- * @returns {string[]}
+ * @returns {any[]}
  */
 const objKeys = (obj) => Object.keys(obj);
 
@@ -233,8 +234,9 @@ const isEmpty = (val) => {
 /**
  * Returns an array of the objects entries
  *
+ * @since 1.0.0
  * @param {Object} obj
- * @returns {Entry[]}
+ * @returns {any[]} Array<[key: any, val: any]>]
  */
 const objEntries = (obj) => Object.entries(obj);
 
@@ -242,7 +244,7 @@ const objEntries = (obj) => Object.entries(obj);
  * Iterate over each value of an array
  *
  * @param {any[]} arr
- * @param {ForEachIterator} fn
+ * @param {function} fn fn(val: any, index: number, arr: any[])
  */
 const forEach = (arr, fn) => arr.forEach(fn);
 
@@ -250,7 +252,7 @@ const forEach = (arr, fn) => arr.forEach(fn);
  * Iterate over each entry of an object
  *
  * @param {object} obj
- * @param {ForEachEntryIterator} fn
+ * @param {function} fn fn(val: any, key: any, index: number, arr: any[])
  */
 const forEachEntry = (obj, fn) => {
     forEach(objEntries(obj), (entry, index) => {
@@ -521,6 +523,7 @@ const hasPath = (target, path) => isNil(getPath(target, path));
 /**
  * Clamps a number in a range
  *
+ * @since 1.0.0
  * @param {number} val
  * @param {number} min
  * @param {number} max
@@ -552,6 +555,7 @@ const numberInRange = (val, min, max) => val >= min && val <= max;
 /**
  * Return a random float number in the range
  *
+ * @since 1.0.0
  * @param {number} [min=0]
  * @param {number} [max=1]
  * @returns {number}
@@ -561,6 +565,7 @@ const numberRandomFloat = (min = 0, max = 1) => min + Math.random() * (max - min
 /**
  * Return a random integer number in the range
  *
+ * @since 1.0.0
  * @param {number} [min=0]
  * @param {number} [max=100]
  * @returns {number}
@@ -572,7 +577,7 @@ const numberRandomInt = (min = 0, max = 1) => Math.floor(numberRandomFloat(min, 
  * Deeply iterate over each value of an array
  *
  * @param {any[]} arr
- * @param {ForEachIterator} fn
+ * @param {function} fn fn(val: any, index: number, arr: any[])
  */
 const forEachDeep = (arr, fn) => forEach(arr, (val, index) => isArray(val) ? forEachDeep(val, fn) : fn(val, index, arr));
 
@@ -580,7 +585,7 @@ const forEachDeep = (arr, fn) => forEach(arr, (val, index) => isArray(val) ? for
  * Deeply iterate over each entry of an object
  *
  * @param {object} obj
- * @param {ForEachEntryIterator} fn
+ * @param {function} fn fn(val: any, key: any, index: number, arr: any[])
  */
 const forEachEntryDeep = (obj, fn) => forEachEntry(obj, (val, key, index) => isObject(val) ? forEachEntryDeep(val, fn) : fn(val, key, index, obj));
 
@@ -590,7 +595,7 @@ const forEachEntryDeep = (obj, fn) => forEachEntry(obj, (val, key, index) => isO
  * @param {number} start
  * @param {number} max
  * @param {number} increase
- * @param {ForTimesIterator} fn
+ * @param {function} fn fn(val: number)
  */
 const forTimes = (start, max, increase, fn) => {
     for (let index = start; index < max; index += increase) {
@@ -601,6 +606,7 @@ const forTimes = (start, max, increase, fn) => {
 /**
  * Chunks an array
  *
+ * @since 2.0.0
  * @param {any[]} arr
  * @param {number} chunk
  * @returns {any[]}
@@ -621,6 +627,7 @@ const arrChunk = (arr, chunk) => {
 /**
  * Creates a new array with the values of the input array
  *
+ * @since 1.0.0
  * @param {any[]} arr
  * @returns {any[]}
  */
@@ -629,8 +636,9 @@ const arrClone = (arr) => Array.from(arr);
 /**
  * Maps the values of the input array with the iterator function and return the result
  *
+ * @since 1.0.0
  * @param {any[]} arr
- * @param {ForEachIterator} fn
+ * @param {ForEachIterator} fn fn(val: any, index: number, arr: any[])
  * @returns {any[]}
  */
 const arrMap = (arr, fn) => arr.map(fn);
@@ -638,8 +646,9 @@ const arrMap = (arr, fn) => arr.map(fn);
 /**
  * Deeply maps the values of the input array with the iterator function and return the result
  *
+ * @since 1.0.0
  * @param {any[]} arr
- * @param {ForEachIterator} fn
+ * @param {ForEachIterator} fn fn(val: any, index: number, arr: any[])
  * @returns {any[]}
  */
 const arrMapDeep = (arr, fn) => arrMap(arr, (val, index) => isArray(val) ? arrMapDeep(val, fn) : fn(val, index, arr));
@@ -647,6 +656,7 @@ const arrMapDeep = (arr, fn) => arrMap(arr, (val, index) => isArray(val) ? arrMa
 /**
  * Deeply creates a new array with the values of the input array
  *
+ * @since 2.0.0
  * @param {any[]} arr
  * @returns {any[]}
  */
@@ -655,6 +665,7 @@ const arrCloneDeep = (arr) => arrMapDeep(arrClone(arr), (val) => isArray(val) ? 
 /**
  * Filters every empty, undefined or null value from an array out
  *
+ * @since 1.0.0
  * @param {any[]} arr
  * @returns {any[]}
  */
@@ -663,8 +674,9 @@ const arrCompact = (arr) => arr.filter((val) => !isNil(val) && !isEmpty(val));
 /**
  * Counts how many times an element appears in an array
  *
+ * @since 2.0.0
  * @param {any[]} arr
- * @returns {ElementCounted[]}
+ * @returns {any[]} Array<[element: any, count: number]>
  */
 const arrCount = (arr) => {
     const result = new Map();
@@ -678,6 +690,7 @@ const arrCount = (arr) => {
 /**
  * Returns an array of all elements that only exist in one of every given arrays
  *
+ * @since 2.0.0
  * @param {...any[]} arrs
  * @returns {any[]}
  */
@@ -688,6 +701,7 @@ const arrDifference = (...arrs) => arrCount([].concat(...arrs))
 /**
  * Recursively flattens an array
  *
+ * @since 1.0.0
  * @param {any[]} arr
  * @returns {any[]}
  */
@@ -707,6 +721,7 @@ const arrFlattenDeep = (arr) => {
 /**
  * Returns an array of all elements that exist in all given arrays
  *
+ * @since 2.0.0
  * @param {...any[]} arrs
  * @returns {any[]}
  */
@@ -717,6 +732,7 @@ const arrIntersection = (...arrs) => arrCount([].concat(...arrs))
 /**
  * Returns a new array with every n-th item
  *
+ * @since 1.0.0
  * @param {any[]} arr
  * @param {number} step
  * @returns {any[]}
@@ -727,6 +743,7 @@ const arrStep = (arr, step) => arr.filter((val, index) => index % step === 0);
 /**
  * Returns an array of all unique elements in an array
  *
+ * @since 1.0.0
  * @param {any[]} arr
  * @returns {any[]}
  */
@@ -735,6 +752,7 @@ const arrUniq = (arr) => arrClone(new Set(arr));
 /**
  * Creates a new object with the entries of the input object
  *
+ * @since 1.0.0
  * @param {object} obj
  * @returns {object}
  */
@@ -743,8 +761,9 @@ const objClone = (obj) => Object.assign({}, obj);
 /**
  * Maps each entry of an object and returns the result
  *
+ * @since 1.0.0
  * @param {Object} obj
- * @param {ForEachEntryIterator} fn
+ * @param {function} fn fn(val: any, key: any, index: number, arr: any[])
  * @returns {Object}
  */
 const objMap = (obj, fn) => {
@@ -758,8 +777,9 @@ const objMap = (obj, fn) => {
 /**
  * Deeply maps each entry of an object and returns the result
  *
+ * @since 1.0.0
  * @param {Object} obj
- * @param {ForEachEntryIterator} fn
+ * @param {function} fn fn(val: any, key: any, index: number, arr: any[])
  * @returns {Object}
  */
 const objMapDeep = (obj, fn) => objMap(obj, (val, key, index, objNew) => {
@@ -774,6 +794,7 @@ const objMapDeep = (obj, fn) => objMap(obj, (val, key, index, objNew) => {
 /**
  * Deeply creates a new object with the entries of the input object
  *
+ * @since 1.0.0
  * @param {Object} obj
  * @returns {Object}
  */
@@ -782,6 +803,7 @@ const objCloneDeep = (obj) => objMapDeep(objClone(obj), (val) => isObject(val) ?
 /**
  * Returns an array of the objects values
  *
+ * @since 1.0.0
  * @param {Object} obj
  * @returns {any[]}
  */
@@ -789,6 +811,8 @@ const objValues = (obj) => Object.values(obj);
 
 /**
  * Creates a Map from an Object
+ *
+ * @since 1.0.0
  * @param {Object} obj
  * @returns {Map}
  */

@@ -7,8 +7,9 @@ import arrClone from "./clone";
 /**
  * Counts how many times an element appears in an array
  *
+ * @since 2.0.0
  * @param {any[]} arr
- * @returns {ElementCounted[]}
+ * @returns {any[]} Array<[element: any, count: number]>
  */
 const arrCount = (arr: any[]): ElementCounted[] => {
     const result: Map<any, number> = new Map();

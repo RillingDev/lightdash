@@ -3,6 +3,7 @@ import numberRandomFloat from "./randomFloat";
 /**
  * Return a random integer number in the range
  *
+ * @since 1.0.0
  * @param {number} [min=0]
  * @param {number} [max=100]
  * @returns {number}

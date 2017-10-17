@@ -7,7 +7,7 @@ import forEach from "./each";
  * Iterate over each entry of an object
  *
  * @param {object} obj
- * @param {ForEachEntryIterator} fn
+ * @param {function} fn fn(val: any, key: any, index: number, arr: any[])
  */
 const forEachEntry = (obj: object, fn: ForEachEntryIterator): void => {
     forEach(objEntries(obj), (entry, index) => {

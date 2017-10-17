@@ -3,6 +3,7 @@ import forTimes from "../for/times";
 /**
  * Chunks an array
  *
+ * @since 2.0.0
  * @param {any[]} arr
  * @param {number} chunk
  * @returns {any[]}

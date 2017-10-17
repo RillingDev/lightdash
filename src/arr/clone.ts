@@ -1,6 +1,7 @@
 /**
  * Creates a new array with the values of the input array
  *
+ * @since 1.0.0
  * @param {any[]} arr
  * @returns {any[]}
  */
