@@ -1,10 +1,8 @@
 "use strict";
 
 const {
-    isEmpty
+    arrDifference
 } = require("./dist/lightdash.common");
 
-console.log(isEmpty([1, 2, 3, 4, 5]));
-console.log(isEmpty({}));
-console.log(isEmpty([]));
-console.log(isEmpty(""));
+
+console.log(arrDifference([1, 2, 3], [0, 0, 0], [1, 2, 0]))

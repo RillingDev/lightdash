@@ -607,6 +607,13 @@ const forTimes = (start, max, increase, fn) => {
  * @param {any[]} arr
  * @param {number} chunk
  * @returns {any[]}
+ * @example
+ * //returns [[1,2],[3,4],[5,6]]
+ * arrChunk([1,2,3,4,5,6],2)
+ *
+ * @example
+ * //returns [[1,2,3],[4,5]]
+ * arrChunk([1,2,3,4,5],3)
  */
 const arrChunk = (arr, chunk) => {
     if (chunk < 1) {
@@ -627,6 +634,12 @@ const arrChunk = (arr, chunk) => {
  * @since 1.0.0
  * @param {any[]} arr
  * @returns {any[]}
+ * @example
+ * //returns a = [1,2,3], b = [1,10,3]
+ * const a = [1,2,3];
+ * const b = arrClone(a);
+ *
+ * b[1] = 10;
  */
 const arrClone = (arr) => Array.from(arr);
 
@@ -656,24 +669,36 @@ const arrMapDeep = (arr, fn) => arrMap(arr, (val, index) => isArray(val) ? arrMa
  * @since 2.0.0
  * @param {any[]} arr
  * @returns {any[]}
+ * @example
+ * //returns a = [1,2,3,[5,[6]]], b = [1,2,3,[5,[10]]]
+ * const a = [1,2,3,[5,[6]]];
+ * const b = arrCloneDeep(a);
+ *
+ * b[3][1][0] = 10;
  */
 const arrCloneDeep = (arr) => arrMapDeep(arrClone(arr), (val) => isArray(val) ? arrClone(val) : val);
 
 /**
- * Filters every empty, undefined or null value from an array out
+ * Filters every empty, undefined or null value out
  *
  * @since 1.0.0
  * @param {any[]} arr
  * @returns {any[]}
+ * @example
+ * //returns [1,2,3,4,5]
+ * arrCompact([1,"","",2,3,null,4,undefined,5,""])
  */
 const arrCompact = (arr) => arr.filter((val) => !isNil(val) && !isEmpty(val));
 
 /**
- * Counts how many times an element appears in an array
+ * Counts how many times an element appears in an array and returns an array containing [value,count] pairs
  *
  * @since 2.0.0
  * @param {any[]} arr
  * @returns {any[]} Array<[element: any, count: number]>
+ * @example
+ * //returns [[1,4],[2,2],[3,1],[4,1]]
+ * arrCount([1,1,2,2,1,3,4,1])
  */
 const arrCount = (arr) => {
     const result = new Map();
@@ -690,6 +715,13 @@ const arrCount = (arr) => {
  * @since 2.0.0
  * @param {...any[]} arrs
  * @returns {any[]}
+ * @example
+ * //returns [2,"foo"]
+ * arrDifference([1,2,3],[1,"foo",3])
+ *
+ * @example
+ * //returns [2,"foo"]
+ * arrDifference([1,2,3],[1,"foo",3], [0,0,0])
  */
 const arrDifference = (...arrs) => arrCount([].concat(...arrs))
     .filter((pair) => pair[1] === 1)

@@ -127,7 +127,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="lightdash.esm.js.html">lightdash.esm.js</a>, <a href="lightdash.esm.js.html#line611">line 611</a>
+        <a href="lightdash.esm.js.html">lightdash.esm.js</a>, <a href="lightdash.esm.js.html#line618">line 618</a>
     </li></ul></dd>
     
 
@@ -179,6 +179,15 @@
 
 
 
+
+
+    <h5>Examples</h5>
+    
+    <pre class="prettyprint"><code>//returns [[1,2],[3,4],[5,6]]
+arrChunk([1,2,3,4,5,6],2)</code></pre>
+
+    <pre class="prettyprint"><code>//returns [[1,2,3],[4,5]]
+arrChunk([1,2,3,4,5],3)</code></pre>
 
 
 
@@ -304,7 +313,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="lightdash.esm.js.html">lightdash.esm.js</a>, <a href="lightdash.esm.js.html#line631">line 631</a>
+        <a href="lightdash.esm.js.html">lightdash.esm.js</a>, <a href="lightdash.esm.js.html#line644">line 644</a>
     </li></ul></dd>
     
 
@@ -356,6 +365,15 @@
 
 
 
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>//returns a = [1,2,3], b = [1,10,3]
+const a = [1,2,3];
+const b = arrClone(a);
+
+b[1] = 10;</code></pre>
 
 
 
@@ -458,7 +476,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="lightdash.esm.js.html">lightdash.esm.js</a>, <a href="lightdash.esm.js.html#line660">line 660</a>
+        <a href="lightdash.esm.js.html">lightdash.esm.js</a>, <a href="lightdash.esm.js.html#line679">line 679</a>
     </li></ul></dd>
     
 
@@ -510,6 +528,15 @@
 
 
 
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>//returns a = [1,2,3,[5,[6]]], b = [1,2,3,[5,[10]]]
+const a = [1,2,3,[5,[6]]];
+const b = arrCloneDeep(a);
+
+b[3][1][0] = 10;</code></pre>
 
 
 
@@ -612,7 +639,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="lightdash.esm.js.html">lightdash.esm.js</a>, <a href="lightdash.esm.js.html#line669">line 669</a>
+        <a href="lightdash.esm.js.html">lightdash.esm.js</a>, <a href="lightdash.esm.js.html#line691">line 691</a>
     </li></ul></dd>
     
 
@@ -655,7 +682,7 @@
 
 
 <div class="description">
-    Filters every empty, undefined or null value from an array out
+    Filters every empty, undefined or null value out
 </div>
 
 
@@ -664,6 +691,12 @@
 
 
 
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>//returns [1,2,3,4,5]
+arrCompact([1,"","",2,3,null,4,undefined,5,""])</code></pre>
 
 
 
@@ -766,7 +799,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="lightdash.esm.js.html">lightdash.esm.js</a>, <a href="lightdash.esm.js.html#line678">line 678</a>
+        <a href="lightdash.esm.js.html">lightdash.esm.js</a>, <a href="lightdash.esm.js.html#line703">line 703</a>
     </li></ul></dd>
     
 
@@ -809,7 +842,7 @@
 
 
 <div class="description">
-    Counts how many times an element appears in an array
+    Counts how many times an element appears in an array and returns an array containing [value,count] pairs
 </div>
 
 
@@ -818,6 +851,12 @@
 
 
 
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>//returns [[1,4],[2,2],[3,1],[4,1]]
+arrCount([1,1,2,2,1,3,4,1])</code></pre>
 
 
 
@@ -924,7 +963,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="lightdash.esm.js.html">lightdash.esm.js</a>, <a href="lightdash.esm.js.html#line694">line 694</a>
+        <a href="lightdash.esm.js.html">lightdash.esm.js</a>, <a href="lightdash.esm.js.html#line719">line 719</a>
     </li></ul></dd>
     
 
@@ -1090,7 +1129,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="lightdash.esm.js.html">lightdash.esm.js</a>, <a href="lightdash.esm.js.html#line705">line 705</a>
+        <a href="lightdash.esm.js.html">lightdash.esm.js</a>, <a href="lightdash.esm.js.html#line730">line 730</a>
     </li></ul></dd>
     
 
@@ -1244,7 +1283,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="lightdash.esm.js.html">lightdash.esm.js</a>, <a href="lightdash.esm.js.html#line725">line 725</a>
+        <a href="lightdash.esm.js.html">lightdash.esm.js</a>, <a href="lightdash.esm.js.html#line750">line 750</a>
     </li></ul></dd>
     
 
@@ -1410,7 +1449,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="lightdash.esm.js.html">lightdash.esm.js</a>, <a href="lightdash.esm.js.html#line641">line 641</a>
+        <a href="lightdash.esm.js.html">lightdash.esm.js</a>, <a href="lightdash.esm.js.html#line654">line 654</a>
     </li></ul></dd>
     
 
@@ -1587,7 +1626,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="lightdash.esm.js.html">lightdash.esm.js</a>, <a href="lightdash.esm.js.html#line651">line 651</a>
+        <a href="lightdash.esm.js.html">lightdash.esm.js</a>, <a href="lightdash.esm.js.html#line664">line 664</a>
     </li></ul></dd>
     
 
@@ -1764,7 +1803,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="lightdash.esm.js.html">lightdash.esm.js</a>, <a href="lightdash.esm.js.html#line737">line 737</a>
+        <a href="lightdash.esm.js.html">lightdash.esm.js</a>, <a href="lightdash.esm.js.html#line762">line 762</a>
     </li></ul></dd>
     
 
@@ -1941,7 +1980,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="lightdash.esm.js.html">lightdash.esm.js</a>, <a href="lightdash.esm.js.html#line747">line 747</a>
+        <a href="lightdash.esm.js.html">lightdash.esm.js</a>, <a href="lightdash.esm.js.html#line772">line 772</a>
     </li></ul></dd>
     
 
@@ -6889,7 +6928,7 @@ isUndefined(a)</code></pre>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="lightdash.esm.js.html">lightdash.esm.js</a>, <a href="lightdash.esm.js.html#line816">line 816</a>
+        <a href="lightdash.esm.js.html">lightdash.esm.js</a>, <a href="lightdash.esm.js.html#line841">line 841</a>
     </li></ul></dd>
     
 
@@ -7869,7 +7908,7 @@ isUndefined(a)</code></pre>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="lightdash.esm.js.html">lightdash.esm.js</a>, <a href="lightdash.esm.js.html#line756">line 756</a>
+        <a href="lightdash.esm.js.html">lightdash.esm.js</a>, <a href="lightdash.esm.js.html#line781">line 781</a>
     </li></ul></dd>
     
 
@@ -8023,7 +8062,7 @@ isUndefined(a)</code></pre>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="lightdash.esm.js.html">lightdash.esm.js</a>, <a href="lightdash.esm.js.html#line798">line 798</a>
+        <a href="lightdash.esm.js.html">lightdash.esm.js</a>, <a href="lightdash.esm.js.html#line823">line 823</a>
     </li></ul></dd>
     
 
@@ -8489,7 +8528,7 @@ isUndefined(a)</code></pre>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="lightdash.esm.js.html">lightdash.esm.js</a>, <a href="lightdash.esm.js.html#line766">line 766</a>
+        <a href="lightdash.esm.js.html">lightdash.esm.js</a>, <a href="lightdash.esm.js.html#line791">line 791</a>
     </li></ul></dd>
     
 
@@ -8666,7 +8705,7 @@ isUndefined(a)</code></pre>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="lightdash.esm.js.html">lightdash.esm.js</a>, <a href="lightdash.esm.js.html#line782">line 782</a>
+        <a href="lightdash.esm.js.html">lightdash.esm.js</a>, <a href="lightdash.esm.js.html#line807">line 807</a>
     </li></ul></dd>
     
 
@@ -8843,7 +8882,7 @@ isUndefined(a)</code></pre>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="lightdash.esm.js.html">lightdash.esm.js</a>, <a href="lightdash.esm.js.html#line807">line 807</a>
+        <a href="lightdash.esm.js.html">lightdash.esm.js</a>, <a href="lightdash.esm.js.html#line832">line 832</a>
     </li></ul></dd>
     
 
@@ -8998,7 +9037,7 @@ isUndefined(a)</code></pre>
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.0-dev</a> on Tue Oct 17 2017 14:38:53 GMT+0200 (CEST) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.0-dev</a> on Tue Oct 17 2017 14:47:05 GMT+0200 (CEST) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
 </footer>
 
 <script>prettyPrint();</script>
