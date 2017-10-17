@@ -24,11 +24,6 @@ import hasPath from "./has/path";
 
 import getPath from "./get/path";
 
-import numberClamp from "./number/clamp";
-import numberInRange from "./number/inRange";
-import numberRandomFloat from "./number/randomFloat";
-import numberRandomInt from "./number/randomInt";
-
 import forEach from "./for/each";
 import forEachDeep from "./for/eachDeep";
 import forEachEntry from "./for/eachEntry";
@@ -58,6 +53,11 @@ import objValues from "./obj/values";
 
 import mapFromObject from "./map/fromObject";
 
+import numberClamp from "./number/clamp";
+import numberInRange from "./number/inRange";
+import numberRandomFloat from "./number/randomFloat";
+import numberRandomInt from "./number/randomInt";
+
 export {
     isSame,
     isEqual,
@@ -84,11 +84,6 @@ export {
     hasPath,
 
     getPath,
-
-    numberInRange,
-    numberClamp,
-    numberRandomFloat,
-    numberRandomInt,
 
     forTimes,
     forEach,
@@ -118,4 +113,10 @@ export {
     objEntries,
 
     mapFromObject,
+
+    numberInRange,
+    numberClamp,
+    numberRandomFloat,
+    numberRandomInt,
+
 };

@@ -534,88 +534,6 @@ const getPath = (target, path) => {
 const hasPath = (target, path) => isNil(getPath(target, path));
 
 /**
- * Clamps a number in a range
- *
- * @since 1.0.0
- * @param {number} val
- * @param {number} min
- * @param {number} max
- * @returns {number}
- * @example
- * //returns 5
- * numberClamp(5,0,10)
- *
- * @example
- * //returns 0
- * numberClamp(-2,0,10)
- *
- * @example
- * //returns 10
- * numberClamp(99,0,10)
- */
-const numberClamp = (val, min, max) => {
-    if (val < min) {
-        return min;
-    }
-    else if (val > max) {
-        return max;
-    }
-    else {
-        return val;
-    }
-};
-
-/**
- * Checks if a number is in the given range
- *
- * @since 1.0.0
- * @param {number} val
- * @param {number} min
- * @param {number} max
- * @returns {boolean}
- * @example
- * //returns true
- * numberInRange(0.5,0,1)
- * numberInRange(1,0,1)
- * numberInRange(0,-5,5)
- *
- * @example
- * //returns false
- * numberInRange(-1,0,5)
- * numberInRange(10,0,5)
- */
-const numberInRange = (val, min, max) => val >= min && val <= max;
-
-/**
- * Return a random float number in the range
- *
- * @since 1.0.0
- * @param {number} [min=0]
- * @param {number} [max=1]
- * @returns {number}
- * @example
- * numberRandomFloat(0,1) // 0.56832138
- * numberRandomFloat(0,100) // 54.2135123
- * numberRandomFloat(0.1,0.2) // 0.125323
- */
-const numberRandomFloat = (min = 0, max = 1) => min + Math.random() * (max - min);
-
-/**
- * Return a random integer number in the range
- *
- * @since 1.0.0
- * @param {number} [min=0]
- * @param {number} [max=100]
- * @returns {number}
- * @example
- * numberRandomInt(0,1) // 1
- * numberRandomInt(0,100) // 54
- * numberRandomInt(-10,10) // 2
- */
-const numberRandomInt = (min = 0, max = 1) => Math.floor(numberRandomFloat(min, max) /
-    (max - min) * (max - min + 1));
-
-/**
  * Deeply iterate over each value of an array
  *
  * @param {any[]} arr
@@ -960,4 +878,86 @@ const objValues = (obj) => Object.values(obj);
  */
 const mapFromObject = (obj) => new Map(objEntries(obj));
 
-export { isSame, isEqual, isInstanceOf, isTypeOf, isUndefined, isDefined, isNil, isObject, isObjectLike, isArray, isArrayLike, isMap, isSet, isEmpty, isPrimitive, isNumber, isString, isStringNumber, isBoolean, isSymbol, hasKey, hasPath, getPath, numberInRange, numberClamp, numberRandomFloat, numberRandomInt, forTimes, forEach, forEachDeep, forEachEntry, forEachEntryDeep, arrClone, arrCloneDeep, arrMap, arrMapDeep, arrFlattenDeep, arrCompact, arrChunk, arrStep, arrCount, arrDifference, arrIntersection, arrUniq, objClone, objCloneDeep, objMap, objMapDeep, objKeys, objValues, objEntries, mapFromObject };
+/**
+ * Clamps a number in a range
+ *
+ * @since 1.0.0
+ * @param {number} val
+ * @param {number} min
+ * @param {number} max
+ * @returns {number}
+ * @example
+ * //returns 5
+ * numberClamp(5,0,10)
+ *
+ * @example
+ * //returns 0
+ * numberClamp(-2,0,10)
+ *
+ * @example
+ * //returns 10
+ * numberClamp(99,0,10)
+ */
+const numberClamp = (val, min, max) => {
+    if (val < min) {
+        return min;
+    }
+    else if (val > max) {
+        return max;
+    }
+    else {
+        return val;
+    }
+};
+
+/**
+ * Checks if a number is in the given range
+ *
+ * @since 1.0.0
+ * @param {number} val
+ * @param {number} min
+ * @param {number} max
+ * @returns {boolean}
+ * @example
+ * //returns true
+ * numberInRange(0.5,0,1)
+ * numberInRange(1,0,1)
+ * numberInRange(0,-5,5)
+ *
+ * @example
+ * //returns false
+ * numberInRange(-1,0,5)
+ * numberInRange(10,0,5)
+ */
+const numberInRange = (val, min, max) => val >= min && val <= max;
+
+/**
+ * Return a random float number in the range
+ *
+ * @since 1.0.0
+ * @param {number} [min=0]
+ * @param {number} [max=1]
+ * @returns {number}
+ * @example
+ * numberRandomFloat(0,1) // 0.56832138
+ * numberRandomFloat(0,100) // 54.2135123
+ * numberRandomFloat(0.1,0.2) // 0.125323
+ */
+const numberRandomFloat = (min = 0, max = 1) => min + Math.random() * (max - min);
+
+/**
+ * Return a random integer number in the range
+ *
+ * @since 1.0.0
+ * @param {number} [min=0]
+ * @param {number} [max=100]
+ * @returns {number}
+ * @example
+ * numberRandomInt(0,1) // 1
+ * numberRandomInt(0,100) // 54
+ * numberRandomInt(-10,10) // 2
+ */
+const numberRandomInt = (min = 0, max = 1) => Math.floor(numberRandomFloat(min, max) /
+    (max - min) * (max - min + 1));
+
+export { isSame, isEqual, isInstanceOf, isTypeOf, isUndefined, isDefined, isNil, isObject, isObjectLike, isArray, isArrayLike, isMap, isSet, isEmpty, isPrimitive, isNumber, isString, isStringNumber, isBoolean, isSymbol, hasKey, hasPath, getPath, forTimes, forEach, forEachDeep, forEachEntry, forEachEntryDeep, arrClone, arrCloneDeep, arrMap, arrMapDeep, arrFlattenDeep, arrCompact, arrChunk, arrStep, arrCount, arrDifference, arrIntersection, arrUniq, objClone, objCloneDeep, objMap, objMapDeep, objKeys, objValues, objEntries, mapFromObject, numberInRange, numberClamp, numberRandomFloat, numberRandomInt };

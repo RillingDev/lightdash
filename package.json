@@ -12,7 +12,7 @@
         "js": {
             "input": "main",
             "namespace": {
-                "module": "lightdash",
+                "module": "_",
                 "file": "lightdash"
             },
             "targets": {
