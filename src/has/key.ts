@@ -9,15 +9,15 @@ import isDefined from "../is/defined";
  * @returns {boolean}
  * @example
  * //returns true
- * isArrayLike([1,2,3],"0")
- * isArrayLike({length:0},"length")
- * isArrayLike("foo","replace")
+ * hasKey([1,2,3],"0")
+ * hasKey({length:0},"length")
+ * hasKey("foo","replace")
  *
  * @example
  * //returns false
- * isArrayLike({},"foo")
- * isArrayLike(null,"foo")
- * isArrayLike(1,"foo")
+ * hasKey({},"foo")
+ * hasKey(null,"foo")
+ * hasKey(1,"foo")
  */
 const hasKey = (target: any, key: string): boolean => isDefined(target[key]);
 

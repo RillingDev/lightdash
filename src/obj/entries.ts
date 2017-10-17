@@ -8,6 +8,9 @@ import {
  * @since 1.0.0
  * @param {Object} obj
  * @returns {any[]} Array<[key: any, val: any]>]
+ * @example
+ * //returns [["a",1],["b",2],["c",3]]
+ * objEntries({a:1,b:2,c:3})
  */
 const objEntries = (obj: object): Entry[] => Object.entries(obj);
 

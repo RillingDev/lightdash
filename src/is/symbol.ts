@@ -12,7 +12,7 @@ import isTypeOf from "./typeOf";
  *
  * @example
  * //returns false
- * isStringNumber("foo")
+ * isSymbol("foo")
  */
 const isSymbol = (val: any): boolean => isTypeOf(val, "symbol");
 

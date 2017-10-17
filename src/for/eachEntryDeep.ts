@@ -3,11 +3,17 @@ import {
     ForEachEntryIterator,
 } from "../types";
 import forEachEntry from "./eachEntry";
+
 /**
  * Deeply iterate over each entry of an object
  *
  * @param {object} obj
  * @param {function} fn fn(val: any, key: any, index: number, arr: any[])
+ * @example
+ * //returns {a:0, b:{c: [0,2]}}
+ * const a = {a:1, b:{c: [1,2]}};
+ *
+ * forEachEntryDeep(a,(val,key,index,obj)=>obj[key]=index*val)
  */
 const forEachEntryDeep = (obj: object, fn: ForEachEntryIterator): void => forEachEntry(obj,
     (val, key, index) => isObject(val) ? forEachEntryDeep(val, fn) : fn(val, key, index, obj));

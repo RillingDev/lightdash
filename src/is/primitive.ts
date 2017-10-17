@@ -8,13 +8,13 @@ import isObjectLike from "./objectLike";
  * @returns {boolean}
  * @example
  * //returns true
- * isObjectLike(1)
- * isObjectLike(null)
+ * isPrimitive(1)
+ * isPrimitive(null)
  *
  * @example
  * //returns false
- * isObjectLike({})
- * isObjectLike([])
+ * isPrimitive({})
+ * isPrimitive([])
  */
 const isPrimitive = (val: any): boolean => !isObjectLike(val);
 

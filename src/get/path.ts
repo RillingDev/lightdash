@@ -10,15 +10,15 @@ import isDefined from "../is/defined";
  * @returns {boolean}
  * @example
  * // returns 1
- * getLength({a:1},["a"]);
+ * getPath({a:1},["a"]);
  *
  * @example
  * // returns 6
- * getLength([4,6,8],["1"]);
+ * getPath([4,6,8],["1"]);
  *
  * @example
  * // returns 10
- * getLength({a:{b:2,c:[10,20]}},["a","c","0"]);
+ * getPath({a:{b:2,c:[10,20]}},["a","c","0"]);
  */
 const getPath = (target: any, path: string[]): any | null => {
     let targetCurrent = target;

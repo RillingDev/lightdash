@@ -87,15 +87,15 @@ const isDefined = (val) => !isUndefined(val);
  * @returns {boolean}
  * @example
  * //returns true
- * isArrayLike([1,2,3],"0")
- * isArrayLike({length:0},"length")
- * isArrayLike("foo","replace")
+ * hasKey([1,2,3],"0")
+ * hasKey({length:0},"length")
+ * hasKey("foo","replace")
  *
  * @example
  * //returns false
- * isArrayLike({},"foo")
- * isArrayLike(null,"foo")
- * isArrayLike(1,"foo")
+ * hasKey({},"foo")
+ * hasKey(null,"foo")
+ * hasKey(1,"foo")
  */
 const hasKey = (target, key) => isDefined(target[key]);
 
@@ -180,6 +180,9 @@ const isBoolean = (val) => isTypeOf(val, "boolean");
  * @since 1.0.0
  * @param {Object} obj
  * @returns {any[]}
+ * @example
+ * //returns ["a","b","c"]
+ * objKeys({a:1,b:2,c:3})
  */
 const objKeys = (obj) => Object.keys(obj);
 
@@ -234,6 +237,9 @@ const isEmpty = (val) => {
  * @since 1.0.0
  * @param {Object} obj
  * @returns {any[]} Array<[key: any, val: any]>]
+ * @example
+ * //returns [["a",1],["b",2],["c",3]]
+ * objEntries({a:1,b:2,c:3})
  */
 const objEntries = (obj) => Object.entries(obj);
 
@@ -242,6 +248,11 @@ const objEntries = (obj) => Object.entries(obj);
  *
  * @param {any[]} arr
  * @param {function} fn fn(val: any, index: number, arr: any[])
+ * @example
+ * //returns a = [0,2,6]
+ * const a = [1,2,3];
+ *
+ * forEach(a,(val,index)=>a[index]=val*index)
  */
 const forEach = (arr, fn) => arr.forEach(fn);
 
@@ -250,6 +261,11 @@ const forEach = (arr, fn) => arr.forEach(fn);
  *
  * @param {object} obj
  * @param {function} fn fn(val: any, key: any, index: number, arr: any[])
+ * @example
+ * //returns a = {a:0, b: 2}
+ * const a = {a:1, b:2};
+ *
+ * forEachEntry(a,(val,key,index)=>a[key]=val*index)
  */
 const forEachEntry = (obj, fn) => {
     forEach(objEntries(obj), (entry, index) => {
@@ -379,13 +395,13 @@ const isNumber = (val) => isTypeOf(val, "number");
  * @returns {boolean}
  * @example
  * //returns true
- * isObjectLike(1)
- * isObjectLike(null)
+ * isPrimitive(1)
+ * isPrimitive(null)
  *
  * @example
  * //returns false
- * isObjectLike({})
- * isObjectLike([])
+ * isPrimitive({})
+ * isPrimitive([])
  */
 const isPrimitive = (val) => !isObjectLike(val);
 
@@ -456,7 +472,7 @@ const isStringNumber = (val) => !isNaN(Number(val));
  *
  * @example
  * //returns false
- * isStringNumber("foo")
+ * isSymbol("foo")
  */
 const isSymbol = (val) => isTypeOf(val, "symbol");
 
@@ -469,15 +485,15 @@ const isSymbol = (val) => isTypeOf(val, "symbol");
  * @returns {boolean}
  * @example
  * // returns 1
- * getLength({a:1},["a"]);
+ * getPath({a:1},["a"]);
  *
  * @example
  * // returns 6
- * getLength([4,6,8],["1"]);
+ * getPath([4,6,8],["1"]);
  *
  * @example
  * // returns 10
- * getLength({a:{b:2,c:[10,20]}},["a","c","0"]);
+ * getPath({a:{b:2,c:[10,20]}},["a","c","0"]);
  */
 const getPath = (target, path) => {
     let targetCurrent = target;
@@ -504,16 +520,16 @@ const getPath = (target, path) => {
  * @returns {boolean}
  * @example
  * // returns true
- * getLength({a:1},["a"]);
- * getLength([4,6,8],["1"]);
- * getLength({a:{b:2,c:[10,20]}},["a","c","0"]);
+ * hasPath({a:1},["a"]);
+ * hasPath([4,6,8],["1"]);
+ * hasPath({a:{b:2,c:[10,20]}},["a","c","0"]);
  *
  * @example
  * // returns false
- * getLength({a:1},["c"]);
- * getLength([4,6,8],["8"]);
- * getLength({a:{b:2,c:[10,20]}},["f","x","231","21"]);
- * getLength(1,["foo"]);
+ * hasPath({a:1},["c"]);
+ * hasPath([4,6,8],["8"]);
+ * hasPath({a:{b:2,c:[10,20]}},["f","x","231","21"]);
+ * hasPath(1,["foo"]);
  */
 const hasPath = (target, path) => isNil(getPath(target, path));
 
@@ -525,6 +541,17 @@ const hasPath = (target, path) => isNil(getPath(target, path));
  * @param {number} min
  * @param {number} max
  * @returns {number}
+ * @example
+ * //returns 5
+ * numberClamp(5,0,10)
+ *
+ * @example
+ * //returns 0
+ * numberClamp(-2,0,10)
+ *
+ * @example
+ * //returns 10
+ * numberClamp(99,0,10)
  */
 const numberClamp = (val, min, max) => {
     if (val < min) {
@@ -546,6 +573,16 @@ const numberClamp = (val, min, max) => {
  * @param {number} min
  * @param {number} max
  * @returns {boolean}
+ * @example
+ * //returns true
+ * numberInRange(0.5,0,1)
+ * numberInRange(1,0,1)
+ * numberInRange(0,-5,5)
+ *
+ * @example
+ * //returns false
+ * numberInRange(-1,0,5)
+ * numberInRange(10,0,5)
  */
 const numberInRange = (val, min, max) => val >= min && val <= max;
 
@@ -556,6 +593,10 @@ const numberInRange = (val, min, max) => val >= min && val <= max;
  * @param {number} [min=0]
  * @param {number} [max=1]
  * @returns {number}
+ * @example
+ * numberRandomFloat(0,1) // 0.56832138
+ * numberRandomFloat(0,100) // 54.2135123
+ * numberRandomFloat(0.1,0.2) // 0.125323
  */
 const numberRandomFloat = (min = 0, max = 1) => min + Math.random() * (max - min);
 
@@ -566,6 +607,10 @@ const numberRandomFloat = (min = 0, max = 1) => min + Math.random() * (max - min
  * @param {number} [min=0]
  * @param {number} [max=100]
  * @returns {number}
+ * @example
+ * numberRandomInt(0,1) // 1
+ * numberRandomInt(0,100) // 54
+ * numberRandomInt(-10,10) // 2
  */
 const numberRandomInt = (min = 0, max = 1) => Math.floor(numberRandomFloat(min, max) /
     (max - min) * (max - min + 1));
@@ -575,6 +620,11 @@ const numberRandomInt = (min = 0, max = 1) => Math.floor(numberRandomFloat(min, 
  *
  * @param {any[]} arr
  * @param {function} fn fn(val: any, index: number, arr: any[])
+ * @example
+ * //returns [0,4,[0,1,[0],12]]
+ * const a = [2,4,[1,1,[16],4]];
+ *
+ * forEachDeep(a,(val,index,arr)=>arr[index]=index*val)
  */
 const forEachDeep = (arr, fn) => forEach(arr, (val, index) => isArray(val) ? forEachDeep(val, fn) : fn(val, index, arr));
 
@@ -583,6 +633,11 @@ const forEachDeep = (arr, fn) => forEach(arr, (val, index) => isArray(val) ? for
  *
  * @param {object} obj
  * @param {function} fn fn(val: any, key: any, index: number, arr: any[])
+ * @example
+ * //returns {a:0, b:{c: [0,2]}}
+ * const a = {a:1, b:{c: [1,2]}};
+ *
+ * forEachEntryDeep(a,(val,key,index,obj)=>obj[key]=index*val)
  */
 const forEachEntryDeep = (obj, fn) => forEachEntry(obj, (val, key, index) => isObject(val) ? forEachEntryDeep(val, fn) : fn(val, key, index, obj));
 
@@ -593,9 +648,14 @@ const forEachEntryDeep = (obj, fn) => forEachEntry(obj, (val, key, index) => isO
  * @param {number} max
  * @param {number} increase
  * @param {function} fn fn(val: number)
+ * @example
+ * //returns [2,4,6,8,10]
+ * const a = [];
+ *
+ * forTimes(1,6,1,val=>a.push(val*2))
  */
 const forTimes = (start, max, increase, fn) => {
-    for (let index = start; index < max; index += increase) {
+    for (let index = start; index <= max; index += increase) {
         fn(index);
     }
 };
@@ -813,6 +873,12 @@ const arrUniq = (arr) => arrClone(new Set(arr));
  * @since 1.0.0
  * @param {object} obj
  * @returns {object}
+ * @example
+ * //returns a = {a:4, b:2}, b = {a:10, b:2}
+ * const a = {a:4, b:2};
+ * const b = objClone(a);
+ *
+ * b.a = 10;
  */
 const objClone = (obj) => Object.assign({}, obj);
 
@@ -823,6 +889,9 @@ const objClone = (obj) => Object.assign({}, obj);
  * @param {Object} obj
  * @param {function} fn fn(val: any, key: any, index: number, arr: any[])
  * @returns {Object}
+ * @example
+ * //returns a = {a:8, b:4}
+ * objMap({a:4, b:2},val=>val*2)
  */
 const objMap = (obj, fn) => {
     const objNew = objClone(obj);
@@ -839,6 +908,9 @@ const objMap = (obj, fn) => {
  * @param {Object} obj
  * @param {function} fn fn(val: any, key: any, index: number, arr: any[])
  * @returns {Object}
+ * @example
+ * //returns {a:{b:4,c:[20,40]}}
+ * arrMapDeep({a:{b:2,c:[10,20]}},val=>val*2)
  */
 const objMapDeep = (obj, fn) => objMap(obj, (val, key, index, objNew) => {
     if (isObject(val)) {
@@ -855,6 +927,12 @@ const objMapDeep = (obj, fn) => objMap(obj, (val, key, index, objNew) => {
  * @since 1.0.0
  * @param {Object} obj
  * @returns {Object}
+ * @example
+ * //returns a = {a:{b:2,c:[10,20]}}, b = {a:{b:2,c:[123,20]}}
+ * const a = {a:{b:2,c:[10,20]}};
+ * const b = objCloneDeep(a);
+ *
+ * b.b.c[0] = 123;
  */
 const objCloneDeep = (obj) => objMapDeep(objClone(obj), (val) => isObject(val) ? objClone(val) : val);
 
@@ -864,6 +942,9 @@ const objCloneDeep = (obj) => objMapDeep(objClone(obj), (val) => isObject(val) ?
  * @since 1.0.0
  * @param {Object} obj
  * @returns {any[]}
+ * @example
+ * //returns [1,2,3]
+ * objValues({a:1,b:2,c:3})
  */
 const objValues = (obj) => Object.values(obj);
 
