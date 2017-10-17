@@ -1,6 +1,6 @@
 {
     "name": "lightdash",
-    "version": "2.5.0",
+    "version": "2.5.1",
     "description": "An utility library designed to be lightweight",
     "main": "dist/lightdash.common.js",
     "module": "dist/lightdash.esm.js",
@@ -43,9 +43,9 @@
     },
     "homepage": "https://github.com/FelixRilling/lightdash#readme",
     "devDependencies": {
-        "babel-core": "^7.0.0-beta.2",
-        "babel-plugin-external-helpers": "^7.0.0-beta.2",
-        "babel-preset-env": "^1.6.0",
+        "babel-core": "^7.0.0-beta.3",
+        "babel-plugin-external-helpers": "^7.0.0-beta.3",
+        "babel-preset-env": "^1.6.1",
         "docdash": "^0.4.0",
         "jasmine": "^2.8.0",
         "jsdoc": "git+https://github.com/jsdoc3/jsdoc.git",
