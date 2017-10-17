@@ -1,7 +1,10 @@
 "use strict";
 
 const {
-    arrChunk
+    isEmpty
 } = require("./dist/lightdash.common");
 
-console.log(arrChunk([1, 2, 3, 4, 5], 2));
+console.log(isEmpty([1, 2, 3, 4, 5]));
+console.log(isEmpty({}));
+console.log(isEmpty([]));
+console.log(isEmpty(""));

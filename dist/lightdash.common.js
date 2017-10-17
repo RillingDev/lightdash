@@ -83,24 +83,25 @@ const isUndefined = (val) => isTypeOf(val, "undefined");
 const isDefined = (val) => !isUndefined(val);
 
 /**
- * Checks if a target has a length key
+ * Checks if a target has a certain key
  *
- * @since 2.0.0
+ * @since 1.0.0
  * @param {any} target
+ * @param {string} key
  * @returns {boolean}
  * @example
  * //returns true
- * isArrayLike([])
- * isArrayLike({length:0})
- * isArrayLike("foo")
+ * isArrayLike([1,2,3],"0")
+ * isArrayLike({length:0},"length")
+ * isArrayLike("foo","replace")
  *
  * @example
  * //returns false
- * isArrayLike({})
- * isArrayLike(null)
- * isArrayLike(1)
+ * isArrayLike({},"foo")
+ * isArrayLike(null,"foo")
+ * isArrayLike(1,"foo")
  */
-const hasLength = (target) => isDefined(target.length);
+const hasKey = (target, key) => isDefined(target[key]);
 
 /**
  * Checks if a value is either undefined or null
@@ -156,7 +157,7 @@ const isObjectLike = (val) => !isNil(val) && isTypeOf(val, "object");
  * isArrayLike("foo")
  * isArrayLike(1)
  */
-const isArrayLike = (val) => isObjectLike(val) && hasLength(val);
+const isArrayLike = (val) => isObjectLike(val) && hasKey(val, "length");
 
 /**
  * Checks if a value is a boolean
@@ -178,50 +179,28 @@ const isArrayLike = (val) => isObjectLike(val) && hasLength(val);
 const isBoolean = (val) => isTypeOf(val, "boolean");
 
 /**
- * Checks if the value is instanceof the target
- *
- * @since 1.0.0
- * @param {any} val
- * @param {Class} target
- * @returns {boolean}
- * @example
- * //returns true
- * isInstanceOf({},Object)
- * isInstanceOf([],Object)
- * isInstanceOf([],Array)
- *
- * @example
- * //returns false
- * isInstanceOf({},Array)
- * isInstanceOf([],Map)
- */
-const isInstanceOf = (val, target) => val instanceof target;
-
-/**
- * Checks if a value is an date object
- *
- * @since 1.0.0
- * @param {any} val
- * @returns {boolean}
- * @example
- * //returns true
- * isDate(new Date())
- * isDate(new Date("2017/1/1"))
- *
- * @example
- * //returns false
- * isDate(Date.now())
- * isDate("2017/1/1")
- */
-const isDate = (val) => isInstanceOf(val, Date);
-
-/**
  * Returns an array of the objects keys
  *
  * @param {Object} obj
  * @returns {string[]}
  */
 const objKeys = (obj) => Object.keys(obj);
+
+/**
+ * Checks if a value is a string
+ *
+ * @since 1.0.0
+ * @param {any} val
+ * @returns {boolean}
+ * @example
+ * //returns true
+ * isString("foo")
+ *
+ * @example
+ * //returns false
+ * isString(1)
+ */
+const isString = (val) => isTypeOf(val, "string");
 
 /**
  * Checks if an array has no items, or an object has no keys
@@ -241,7 +220,7 @@ const objKeys = (obj) => Object.keys(obj);
  * isEmpty([1,2])
  */
 const isEmpty = (val) => {
-    if (hasLength(val)) {
+    if (isArrayLike(val) || isString(val)) {
         return val.length === 0;
     }
     else if (isObjectLike(val)) {
@@ -281,25 +260,24 @@ const forEachEntry = (obj, fn) => {
 };
 
 /**
- * Checks if a target has a certain key
+ * Checks if the value is instanceof the target
  *
  * @since 1.0.0
- * @param {any} target
- * @param {string} key
+ * @param {any} val
+ * @param {Class} target
  * @returns {boolean}
  * @example
  * //returns true
- * isArrayLike([1,2,3],"0")
- * isArrayLike({length:0},"length")
- * isArrayLike("foo","replace")
+ * isInstanceOf({},Object)
+ * isInstanceOf([],Object)
+ * isInstanceOf([],Array)
  *
  * @example
  * //returns false
- * isArrayLike({},"foo")
- * isArrayLike(null,"foo")
- * isArrayLike(1,"foo")
+ * isInstanceOf({},Array)
+ * isInstanceOf([],Map)
  */
-const hasKey = (target, key) => isDefined(target[key]);
+const isInstanceOf = (val, target) => val instanceof target;
 
 /**
  * Checks if a value is an object
@@ -452,22 +430,6 @@ const isSame = (a, b) => a === b;
 const isSet = (val) => isInstanceOf(val, Set);
 
 /**
- * Checks if a value is a string
- *
- * @since 1.0.0
- * @param {any} val
- * @returns {boolean}
- * @example
- * //returns true
- * isString("foo")
- *
- * @example
- * //returns false
- * isString(1)
- */
-const isString = (val) => isTypeOf(val, "string");
-
-/**
  * Checks if a value is a number as a string
  *
  * @since 1.0.0
@@ -556,26 +518,6 @@ const getPath = (target, path) => {
  * getLength(1,["foo"]);
  */
 const hasPath = (target, path) => isNil(getPath(target, path));
-
-/**
- * Returns length property of target
- *
- * @since 1.0.0
- * @param {any} target
- * @returns {number}
- * @example
- * // returns 2
- * getLength([1,2]);
- *
- * @example
- * // returns 3
- * getLength("foo");
- *
- * @example
- * // returns 10
- * getLength({length:10});
- */
-const getLength = (target) => target.length;
 
 /**
  * Clamps a number in a range
@@ -866,7 +808,6 @@ exports.isArray = isArray;
 exports.isArrayLike = isArrayLike;
 exports.isMap = isMap;
 exports.isSet = isSet;
-exports.isDate = isDate;
 exports.isEmpty = isEmpty;
 exports.isPrimitive = isPrimitive;
 exports.isNumber = isNumber;
@@ -875,9 +816,7 @@ exports.isStringNumber = isStringNumber;
 exports.isBoolean = isBoolean;
 exports.isSymbol = isSymbol;
 exports.hasKey = hasKey;
-exports.hasLength = hasLength;
 exports.hasPath = hasPath;
-exports.getLength = getLength;
 exports.getPath = getPath;
 exports.numberInRange = numberInRange;
 exports.numberClamp = numberClamp;

@@ -1,6 +1,7 @@
-import hasLength from "../has/length";
 import objKeys from "../obj/keys";
+import isArrayLike from "./arrayLike";
 import isObjectLike from "./objectLike";
+import isString from "./string";
 
 /**
  * Checks if an array has no items, or an object has no keys
@@ -20,7 +21,7 @@ import isObjectLike from "./objectLike";
  * isEmpty([1,2])
  */
 const isEmpty = (val: any): boolean => {
-    if (hasLength(val)) {
+    if (isArrayLike(val) || isString(val)) {
         return val.length === 0;
     } else if (isObjectLike(val)) {
         return objKeys(val).length === 0;

@@ -1,7 +1,6 @@
 import isArray from "./is/array";
 import isArrayLike from "./is/arrayLike";
 import isBoolean from "./is/boolean";
-import isDate from "./is/date";
 import isDefined from "./is/defined";
 import isEmpty from "./is/empty";
 import isEqual from "./is/equal";
@@ -21,10 +20,8 @@ import isTypeOf from "./is/typeOf";
 import isUndefined from "./is/undefined";
 
 import hasKey from "./has/key";
-import hasLength from "./has/length";
 import hasPath from "./has/path";
 
-import getLength from "./get/length";
 import getPath from "./get/path";
 
 import numberClamp from "./number/clamp";
@@ -75,7 +72,6 @@ export {
     isArrayLike,
     isMap,
     isSet,
-    isDate,
     isEmpty,
     isPrimitive,
     isNumber,
@@ -85,10 +81,8 @@ export {
     isSymbol,
 
     hasKey,
-    hasLength,
     hasPath,
 
-    getLength,
     getPath,
 
     numberInRange,

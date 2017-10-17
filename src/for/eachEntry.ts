@@ -3,7 +3,6 @@ import {
     ForEachEntryIterator,
 } from "../types";
 import forEach from "./each";
-
 /**
  * Iterate over each entry of an object
  *
