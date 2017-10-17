@@ -694,13 +694,13 @@ const arrCloneDeep = (arr) => arrMapDeep(arrClone(arr), (val) => isArray(val) ? 
 const arrCompact = (arr) => arr.filter((val) => !isNil(val) && !isEmpty(val));
 
 /**
- * Counts how many times an element appears in an array and returns an array containing [value,count] pairs
+ * Counts how many times an element appears in an array and returns a map [element,count]
  *
  * @since 2.0.0
  * @param {any[]} arr
- * @returns {any[]} Array<[element: any, count: number]>
+ * @returns {Map<any, number>}
  * @example
- * //returns [[1,4],[2,2],[3,1],[4,1]]
+ * //returns Map{1:4, 2:2, 3:1, 4:1}
  * arrCount([1,1,2,2,1,3,4,1])
  */
 const arrCount = (arr) => {
@@ -708,27 +708,28 @@ const arrCount = (arr) => {
     forEach(arr, (val) => {
         result.set(val, result.has(val) ? result.get(val) + 1 : 1);
     });
-    // tslint:disable-next-line
-    return arrClone(result);
+    return result;
 };
 
 /**
- * Returns an array of all elements that only exist in one of every given arrays
+ * Returns an array of all elements that exist in the first array, but not any others
  *
  * @since 2.0.0
- * @param {...any[]} arrs
+ * @param {any[]} arr
+ * @param {...any[]} values
  * @returns {any[]}
  * @example
- * //returns [2,"foo"]
- * arrDifference([1,2,3],[1,"foo",3])
+ * //returns [2]
+ * arrDifference([1,2,3], [1,"foo",3])
  *
  * @example
- * //returns [2,"foo"]
- * arrDifference([1,2,3],[1,"foo",3], [0,0,0])
+ * //returns [1,3]
+ * arrDifference([1,2,3], ["foo"], [2,0,2])
  */
-const arrDifference = (...arrs) => arrCount([].concat(...arrs))
-    .filter((pair) => pair[1] === 1)
-    .map((pair) => pair[0]);
+const arrDifference = (arr, ...values) => {
+    const valuesCounted = arrCount([].concat(...values));
+    return arr.filter((item) => !valuesCounted.has(item));
+};
 
 /**
  * Recursively flattens an array
@@ -751,15 +752,24 @@ const arrFlattenDeep = (arr) => {
 };
 
 /**
- * Returns an array of all elements that exist in all given arrays
+ * RReturns an array of all elements that exist in the first array, and at least once in the other array
  *
  * @since 2.0.0
- * @param {...any[]} arrs
+ * @param {any[]} arr
+ * @param {...any[]} values
  * @returns {any[]}
+ * @example
+ * //returns [1,3]
+ * arrIntersection([1,2,3], [1,"foo",3])
+ *
+ * @example
+ * //returns [2]
+ * arrIntersection([1,2,3], ["foo"], [2,0,2])
  */
-const arrIntersection = (...arrs) => arrCount([].concat(...arrs))
-    .filter((pair) => pair[1] === arrs.length)
-    .map((pair) => pair[0]);
+const arrIntersection = (arr, ...values) => {
+    const valuesCounted = arrCount([].concat(...values));
+    return arr.filter((item) => valuesCounted.has(item));
+};
 
 /**
  * Returns a new array with every n-th item

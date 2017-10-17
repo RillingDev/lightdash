@@ -787,7 +787,7 @@ arrCompact([1,"","",2,3,null,4,undefined,5,""])</code></pre>
 
     
 
-    <h4 class="name" id="arrCount"><span class="type-signature"></span>arrCount<span class="signature">(arr)</span><span class="type-signature"> &rarr; {Array.&lt;any>}</span></h4>
+    <h4 class="name" id="arrCount"><span class="type-signature"></span>arrCount<span class="signature">(arr)</span><span class="type-signature"> &rarr; {Map.&lt;any, number>}</span></h4>
 
     
 
@@ -842,7 +842,7 @@ arrCompact([1,"","",2,3,null,4,undefined,5,""])</code></pre>
 
 
 <div class="description">
-    Counts how many times an element appears in an array and returns an array containing [value,count] pairs
+    Counts how many times an element appears in an array and returns a map [element,count]
 </div>
 
 
@@ -855,7 +855,7 @@ arrCompact([1,"","",2,3,null,4,undefined,5,""])</code></pre>
 
     <h5>Example</h5>
     
-    <pre class="prettyprint"><code>//returns [[1,4],[2,2],[3,1],[4,1]]
+    <pre class="prettyprint"><code>//returns Map{1:4, 2:2, 3:1, 4:1}
 arrCount([1,1,2,2,1,3,4,1])</code></pre>
 
 
@@ -925,10 +925,6 @@ arrCount([1,1,2,2,1,3,4,1])</code></pre>
 <h5>Returns:</h5>
 
         
-<div class="param-desc">
-    Array<[element: any, count: number]>
-</div>
-
 
 
 <dl class="param-type">
@@ -937,7 +933,7 @@ arrCount([1,1,2,2,1,3,4,1])</code></pre>
     </dt>
     <dd>
         
-<span class="param-type">Array.&lt;any></span>
+<span class="param-type">Map.&lt;any, number></span>
 
 
     </dd>
@@ -951,7 +947,7 @@ arrCount([1,1,2,2,1,3,4,1])</code></pre>
 
     
 
-    <h4 class="name" id="arrDifference"><span class="type-signature"></span>arrDifference<span class="signature">(&hellip;arrs)</span><span class="type-signature"> &rarr; {Array.&lt;any>}</span></h4>
+    <h4 class="name" id="arrDifference"><span class="type-signature"></span>arrDifference<span class="signature">(arr, &hellip;values)</span><span class="type-signature"> &rarr; {Array.&lt;any>}</span></h4>
 
     
 
@@ -963,7 +959,7 @@ arrCount([1,1,2,2,1,3,4,1])</code></pre>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="lightdash.esm.js.html">lightdash.esm.js</a>, <a href="lightdash.esm.js.html#line719">line 719</a>
+        <a href="lightdash.esm.js.html">lightdash.esm.js</a>, <a href="lightdash.esm.js.html#line726">line 726</a>
     </li></ul></dd>
     
 
@@ -1006,7 +1002,7 @@ arrCount([1,1,2,2,1,3,4,1])</code></pre>
 
 
 <div class="description">
-    Returns an array of all elements that only exist in one of every given arrays
+    Returns an array of all elements that exist in the first array, but not any others
 </div>
 
 
@@ -1015,6 +1011,15 @@ arrCount([1,1,2,2,1,3,4,1])</code></pre>
 
 
 
+
+
+    <h5>Examples</h5>
+    
+    <pre class="prettyprint"><code>//returns [2]
+arrDifference([1,2,3], [1,"foo",3])</code></pre>
+
+    <pre class="prettyprint"><code>//returns [1,3]
+arrDifference([1,2,3], ["foo"], [2,0,2])</code></pre>
 
 
 
@@ -1046,7 +1051,38 @@ arrCount([1,1,2,2,1,3,4,1])</code></pre>
 
         <tr>
             
-                <td class="name"><code>arrs</code></td>
+                <td class="name"><code>arr</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array.&lt;any></span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>values</code></td>
             
 
             <td class="type">
@@ -1129,7 +1165,7 @@ arrCount([1,1,2,2,1,3,4,1])</code></pre>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="lightdash.esm.js.html">lightdash.esm.js</a>, <a href="lightdash.esm.js.html#line730">line 730</a>
+        <a href="lightdash.esm.js.html">lightdash.esm.js</a>, <a href="lightdash.esm.js.html#line738">line 738</a>
     </li></ul></dd>
     
 
@@ -1271,7 +1307,7 @@ arrCount([1,1,2,2,1,3,4,1])</code></pre>
 
     
 
-    <h4 class="name" id="arrIntersection"><span class="type-signature"></span>arrIntersection<span class="signature">(&hellip;arrs)</span><span class="type-signature"> &rarr; {Array.&lt;any>}</span></h4>
+    <h4 class="name" id="arrIntersection"><span class="type-signature"></span>arrIntersection<span class="signature">(arr, &hellip;values)</span><span class="type-signature"> &rarr; {Array.&lt;any>}</span></h4>
 
     
 
@@ -1283,7 +1319,7 @@ arrCount([1,1,2,2,1,3,4,1])</code></pre>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="lightdash.esm.js.html">lightdash.esm.js</a>, <a href="lightdash.esm.js.html#line750">line 750</a>
+        <a href="lightdash.esm.js.html">lightdash.esm.js</a>, <a href="lightdash.esm.js.html#line766">line 766</a>
     </li></ul></dd>
     
 
@@ -1326,7 +1362,7 @@ arrCount([1,1,2,2,1,3,4,1])</code></pre>
 
 
 <div class="description">
-    Returns an array of all elements that exist in all given arrays
+    RReturns an array of all elements that exist in the first array, and at least once in the other array
 </div>
 
 
@@ -1335,6 +1371,15 @@ arrCount([1,1,2,2,1,3,4,1])</code></pre>
 
 
 
+
+
+    <h5>Examples</h5>
+    
+    <pre class="prettyprint"><code>//returns [1,3]
+arrIntersection([1,2,3], [1,"foo",3])</code></pre>
+
+    <pre class="prettyprint"><code>//returns [2]
+arrIntersection([1,2,3], ["foo"], [2,0,2])</code></pre>
 
 
 
@@ -1366,7 +1411,38 @@ arrCount([1,1,2,2,1,3,4,1])</code></pre>
 
         <tr>
             
-                <td class="name"><code>arrs</code></td>
+                <td class="name"><code>arr</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array.&lt;any></span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>values</code></td>
             
 
             <td class="type">
@@ -1803,7 +1879,7 @@ arrCount([1,1,2,2,1,3,4,1])</code></pre>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="lightdash.esm.js.html">lightdash.esm.js</a>, <a href="lightdash.esm.js.html#line762">line 762</a>
+        <a href="lightdash.esm.js.html">lightdash.esm.js</a>, <a href="lightdash.esm.js.html#line779">line 779</a>
     </li></ul></dd>
     
 
@@ -1980,7 +2056,7 @@ arrCount([1,1,2,2,1,3,4,1])</code></pre>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="lightdash.esm.js.html">lightdash.esm.js</a>, <a href="lightdash.esm.js.html#line772">line 772</a>
+        <a href="lightdash.esm.js.html">lightdash.esm.js</a>, <a href="lightdash.esm.js.html#line789">line 789</a>
     </li></ul></dd>
     
 
@@ -6928,7 +7004,7 @@ isUndefined(a)</code></pre>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="lightdash.esm.js.html">lightdash.esm.js</a>, <a href="lightdash.esm.js.html#line841">line 841</a>
+        <a href="lightdash.esm.js.html">lightdash.esm.js</a>, <a href="lightdash.esm.js.html#line858">line 858</a>
     </li></ul></dd>
     
 
@@ -7908,7 +7984,7 @@ isUndefined(a)</code></pre>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="lightdash.esm.js.html">lightdash.esm.js</a>, <a href="lightdash.esm.js.html#line781">line 781</a>
+        <a href="lightdash.esm.js.html">lightdash.esm.js</a>, <a href="lightdash.esm.js.html#line798">line 798</a>
     </li></ul></dd>
     
 
@@ -8062,7 +8138,7 @@ isUndefined(a)</code></pre>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="lightdash.esm.js.html">lightdash.esm.js</a>, <a href="lightdash.esm.js.html#line823">line 823</a>
+        <a href="lightdash.esm.js.html">lightdash.esm.js</a>, <a href="lightdash.esm.js.html#line840">line 840</a>
     </li></ul></dd>
     
 
@@ -8528,7 +8604,7 @@ isUndefined(a)</code></pre>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="lightdash.esm.js.html">lightdash.esm.js</a>, <a href="lightdash.esm.js.html#line791">line 791</a>
+        <a href="lightdash.esm.js.html">lightdash.esm.js</a>, <a href="lightdash.esm.js.html#line808">line 808</a>
     </li></ul></dd>
     
 
@@ -8705,7 +8781,7 @@ isUndefined(a)</code></pre>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="lightdash.esm.js.html">lightdash.esm.js</a>, <a href="lightdash.esm.js.html#line807">line 807</a>
+        <a href="lightdash.esm.js.html">lightdash.esm.js</a>, <a href="lightdash.esm.js.html#line824">line 824</a>
     </li></ul></dd>
     
 
@@ -8882,7 +8958,7 @@ isUndefined(a)</code></pre>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="lightdash.esm.js.html">lightdash.esm.js</a>, <a href="lightdash.esm.js.html#line832">line 832</a>
+        <a href="lightdash.esm.js.html">lightdash.esm.js</a>, <a href="lightdash.esm.js.html#line849">line 849</a>
     </li></ul></dd>
     
 
@@ -9037,7 +9113,7 @@ isUndefined(a)</code></pre>
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.0-dev</a> on Tue Oct 17 2017 14:47:05 GMT+0200 (CEST) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.0-dev</a> on Tue Oct 17 2017 15:04:29 GMT+0200 (CEST) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
 </footer>
 
 <script>prettyPrint();</script>

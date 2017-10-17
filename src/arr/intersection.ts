@@ -2,14 +2,24 @@ import forEach from "../for/each";
 import arrCount from "./count";
 
 /**
- * Returns an array of all elements that exist in all given arrays
+ * RReturns an array of all elements that exist in the first array, and at least once in the other array
  *
  * @since 2.0.0
- * @param {...any[]} arrs
+ * @param {any[]} arr
+ * @param {...any[]} values
  * @returns {any[]}
+ * @example
+ * //returns [1,3]
+ * arrIntersection([1,2,3], [1,"foo",3])
+ *
+ * @example
+ * //returns [2]
+ * arrIntersection([1,2,3], ["foo"], [2,0,2])
  */
-const arrIntersection = (...arrs: any[]): any[] => arrCount([].concat(...arrs))
-    .filter((pair) => pair[1] === arrs.length)
-    .map((pair) => pair[0]);
+const arrIntersection = (arr: any[], ...values: any[]): any[] => {
+    const valuesCounted = arrCount([].concat(...values));
+
+    return arr.filter((item) => valuesCounted.has(item));
+};
 
 export default arrIntersection;
