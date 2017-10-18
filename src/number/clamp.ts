@@ -18,7 +18,6 @@
  * //returns 10
  * numberClamp(99,0,10)
  */
-
 const numberClamp = (val: number, min: number, max: number): number => {
     if (val < min) {
         return min;

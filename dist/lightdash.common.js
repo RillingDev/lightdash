@@ -339,14 +339,12 @@ const isEqual = (a, b) => {
     }
     if (isObject(a) && isObject(b) && objKeys(a).length === objKeys(b).length) {
         let result = true;
-        // tslint:disable-next-line
-        forEachEntry(a, (val_a, key) => {
+        forEachEntry(a, (aVal, key) => {
             // Only Check if the comparison didnt fail already
             if (result === true) {
                 if (hasKey(b, key)) {
-                    // tslint:disable-next-line
-                    const val_b = b[key];
-                    result = isEqual(val_a, val_b);
+                    const bVal = b[key];
+                    result = isEqual(aVal, bVal);
                 }
                 else {
                     result = false;
@@ -611,10 +609,10 @@ const arrChunk = (arr, chunk) => {
 };
 
 /**
- * Creates a new array with the values of the input array
+ * Creates a new array with the values of the input iterable
  *
  * @since 1.0.0
- * @param {any[]} arr
+ * @param {any} arr
  * @returns {any[]}
  * @example
  * //returns a = [1,2,3], b = [1,10,3]
@@ -652,10 +650,10 @@ const arrMap = (arr, fn) => arr.map(fn);
 const arrMapDeep = (arr, fn) => arrMap(arr, (val, index) => isArray(val) ? arrMapDeep(val, fn) : fn(val, index, arr));
 
 /**
- * Deeply creates a new array with the values of the input array
+ * Deeply creates a new array with the values of the input iterable
  *
  * @since 2.0.0
- * @param {any[]} arr
+ * @param {any} arr
  * @returns {any[]}
  * @example
  * //returns a = [1,2,3,[5,[6]]], b = [1,2,3,[5,[10]]]
@@ -744,7 +742,7 @@ const arrFlattenDeep = (arr) => {
 };
 
 /**
- * RReturns an array of all elements that exist in the first array, and at least once in the other array
+ * Returns an array of all elements that exist in the first array, and at least once in the other array
  *
  * @since 2.0.0
  * @param {any[]} arr
@@ -776,7 +774,6 @@ const arrIntersection = (arr, ...values) => {
  */
 const arrStep = (arr, step) => arr.filter((val, index) => index % step === 0);
 
-// tslint:disable
 /**
  * Returns an array of all unique elements in an array
  *

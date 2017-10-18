@@ -1,7 +1,5 @@
 import arrClone from "./clone";
 
-// tslint:disable
-
 /**
  * Returns an array of all unique elements in an array
  *
@@ -13,6 +11,5 @@ import arrClone from "./clone";
  * arrUniq([1,1,1,2,3,1,2,1,4])
  */
 const arrUniq = (arr: any[]): any[] => arrClone(new Set(arr));
-
 
 export default arrUniq;

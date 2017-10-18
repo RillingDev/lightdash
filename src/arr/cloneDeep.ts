@@ -3,10 +3,10 @@ import arrClone from "./clone";
 import arrMapDeep from "./mapDeep";
 
 /**
- * Deeply creates a new array with the values of the input array
+ * Deeply creates a new array with the values of the input iterable
  *
  * @since 2.0.0
- * @param {any[]} arr
+ * @param {any} arr
  * @returns {any[]}
  * @example
  * //returns a = [1,2,3,[5,[6]]], b = [1,2,3,[5,[10]]]
@@ -15,7 +15,7 @@ import arrMapDeep from "./mapDeep";
  *
  * b[3][1][0] = 10;
  */
-const arrCloneDeep = (arr: any[]): any[] => arrMapDeep(
+const arrCloneDeep = (arr: any): any[] => arrMapDeep(
     arrClone(arr), (val) => isArray(val) ? arrClone(val) : val);
 
 export default arrCloneDeep;
