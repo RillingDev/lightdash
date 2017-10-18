@@ -1,6 +1,9 @@
 {
     "source": {
-        "include": "./dist/lightdash.esm.js"
+        "include": [
+            "./README.md",
+            "./dist/lightdash.esm.js"
+        ]
     },
     "plugins": [],
     "opts": {
