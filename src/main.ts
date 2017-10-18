@@ -45,10 +45,14 @@ import arrUniq from "./arr/uniq";
 
 import objClone from "./obj/clone";
 import objCloneDeep from "./obj/cloneDeep";
+import objDefaults from "./obj/defaults";
+import objDefaultsDeep from "./obj/defaultsDeep";
 import objEntries from "./obj/entries";
 import objKeys from "./obj/keys";
 import objMap from "./obj/map";
 import objMapDeep from "./obj/mapDeep";
+import objMerge from "./obj/merge";
+import objMergeDeep from "./obj/mergeDeep";
 import objValues from "./obj/values";
 
 import mapFromObject from "./map/fromObject";
@@ -108,6 +112,10 @@ export {
     objCloneDeep,
     objMap,
     objMapDeep,
+    // objMerge,
+    // objMergeDeep,
+    objDefaults,
+    // objDefaultsDeep,
     objKeys,
     objValues,
     objEntries,

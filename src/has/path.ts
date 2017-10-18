@@ -21,6 +21,6 @@ import isNil from "../is/nil";
  * hasPath({a:{b:2,c:[10,20]}},["f","x","231","21"]);
  * hasPath(1,["foo"]);
  */
-const hasPath = (target: any, path: string[]): boolean => isNil(getPath(target, path));
+const hasPath = (target: any, path: string[]): boolean => !isNil(getPath(target, path));
 
 export default hasPath;

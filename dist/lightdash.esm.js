@@ -531,7 +531,7 @@ const getPath = (target, path) => {
  * hasPath({a:{b:2,c:[10,20]}},["f","x","231","21"]);
  * hasPath(1,["foo"]);
  */
-const hasPath = (target, path) => isNil(getPath(target, path));
+const hasPath = (target, path) => !isNil(getPath(target, path));
 
 /**
  * Deeply iterate over each value of an array
@@ -855,6 +855,19 @@ const objMapDeep = (obj, fn) => objMap(obj, (val, key, index, objNew) => {
 const objCloneDeep = (obj) => objMapDeep(objClone(obj), (val) => isObject(val) ? objClone(val) : val);
 
 /**
+ * Sets every Nil property of object to the value in the default object
+ *
+ * @since 2.6.0
+ * @param {Object} obj
+ * @param {Object} objDefault
+ * @returns {Object}
+ * @example
+ * //returns a = {a:1,b:2,c:5}
+ * objDefaults({a:1,c:5},{a:1,b:2,c:3})
+ */
+const objDefaults = (obj, objDefault) => objMap(objDefault, (val, key) => isNil(obj[key]) ? val : obj[key]);
+
+/**
  * Returns an array of the objects values
  *
  * @since 1.0.0
@@ -960,4 +973,4 @@ const numberRandomFloat = (min = 0, max = 1) => min + Math.random() * (max - min
 const numberRandomInt = (min = 0, max = 1) => Math.floor(numberRandomFloat(min, max) /
     (max - min) * (max - min + 1));
 
-export { isSame, isEqual, isInstanceOf, isTypeOf, isUndefined, isDefined, isNil, isObject, isObjectLike, isArray, isArrayLike, isMap, isSet, isEmpty, isPrimitive, isNumber, isString, isStringNumber, isBoolean, isSymbol, hasKey, hasPath, getPath, forTimes, forEach, forEachDeep, forEachEntry, forEachEntryDeep, arrClone, arrCloneDeep, arrMap, arrMapDeep, arrFlattenDeep, arrCompact, arrChunk, arrStep, arrCount, arrDifference, arrIntersection, arrUniq, objClone, objCloneDeep, objMap, objMapDeep, objKeys, objValues, objEntries, mapFromObject, numberInRange, numberClamp, numberRandomFloat, numberRandomInt };
+export { isSame, isEqual, isInstanceOf, isTypeOf, isUndefined, isDefined, isNil, isObject, isObjectLike, isArray, isArrayLike, isMap, isSet, isEmpty, isPrimitive, isNumber, isString, isStringNumber, isBoolean, isSymbol, hasKey, hasPath, getPath, forTimes, forEach, forEachDeep, forEachEntry, forEachEntryDeep, arrClone, arrCloneDeep, arrMap, arrMapDeep, arrFlattenDeep, arrCompact, arrChunk, arrStep, arrCount, arrDifference, arrIntersection, arrUniq, objClone, objCloneDeep, objMap, objMapDeep, objDefaults, objKeys, objValues, objEntries, mapFromObject, numberInRange, numberClamp, numberRandomFloat, numberRandomInt };

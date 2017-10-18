@@ -534,7 +534,7 @@ const getPath = (target, path) => {
  * hasPath({a:{b:2,c:[10,20]}},["f","x","231","21"]);
  * hasPath(1,["foo"]);
  */
-const hasPath = (target, path) => isNil(getPath(target, path));
+const hasPath = (target, path) => !isNil(getPath(target, path));
 
 /**
  * Deeply iterate over each value of an array
@@ -858,6 +858,19 @@ const objMapDeep = (obj, fn) => objMap(obj, (val, key, index, objNew) => {
 const objCloneDeep = (obj) => objMapDeep(objClone(obj), (val) => isObject(val) ? objClone(val) : val);
 
 /**
+ * Sets every Nil property of object to the value in the default object
+ *
+ * @since 2.6.0
+ * @param {Object} obj
+ * @param {Object} objDefault
+ * @returns {Object}
+ * @example
+ * //returns a = {a:1,b:2,c:5}
+ * objDefaults({a:1,c:5},{a:1,b:2,c:3})
+ */
+const objDefaults = (obj, objDefault) => objMap(objDefault, (val, key) => isNil(obj[key]) ? val : obj[key]);
+
+/**
  * Returns an array of the objects values
  *
  * @since 1.0.0
@@ -1007,6 +1020,7 @@ exports.objClone = objClone;
 exports.objCloneDeep = objCloneDeep;
 exports.objMap = objMap;
 exports.objMapDeep = objMapDeep;
+exports.objDefaults = objDefaults;
 exports.objKeys = objKeys;
 exports.objValues = objValues;
 exports.objEntries = objEntries;

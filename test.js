@@ -1,12 +1,21 @@
 "use strict";
 
 const {
-    forTimes
+    objDefaultsDeep
 } = require("./dist/lightdash.common");
 
 
-const a = [];
+const objDefault = {
+    a: 1,
+    b: 2,
+    c: 3
+};
 
-forTimes(1, 6, 1, val => a.push(val * 2))
+const obj = {
+    a: 1,
+    c: 5
+};
 
-console.log(a);
+
+
+console.log(objDefaultsDeep(obj, objDefault));
