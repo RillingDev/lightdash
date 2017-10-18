@@ -5,7 +5,7 @@ import {
 import arrMap from "./map";
 
 /**
- * Deeply maps the values of the input array with the iterator function and return the result
+ * Recursively maps the values of the input array with the iterator function and return the result
  *
  * @since 1.0.0
  * @param {any[]} arr

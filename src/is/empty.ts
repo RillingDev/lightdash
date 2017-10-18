@@ -4,7 +4,7 @@ import isObjectLike from "./objectLike";
 import isString from "./string";
 
 /**
- * Checks if an array has no items, or an object has no keys
+ * Checks if an array has no items, a string no contents,  or an object no keys
  *
  * @since 1.0.0
  * @param {any} val

@@ -2,7 +2,7 @@ import isEmpty from "../is/empty";
 import isNil from "../is/nil";
 
 /**
- * Filters every empty, undefined or null value out
+ * Returns an array with every empty, undefined or null value filtered out
  *
  * @since 1.0.0
  * @param {any[]} arr

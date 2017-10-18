@@ -4,7 +4,7 @@ import objKeys from "../obj/keys";
 import isObject from "./object";
 
 /**
- * Deep checks if the contents of two values are the same
+ * Recursively checks if two items and their the contents are the same
  *
  * @since 1.0.0
  * @param {any} a

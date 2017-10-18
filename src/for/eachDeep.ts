@@ -5,7 +5,7 @@ import {
 import forEach from "./each";
 
 /**
- * Deeply iterate over each value of an array
+ * Recursively iterates over each element in an array
  *
  * @param {any[]} arr
  * @param {function} fn fn(val: any, index: number, arr: any[])

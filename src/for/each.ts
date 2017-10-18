@@ -3,7 +3,7 @@ import {
 } from "../types";
 
 /**
- * Iterate over each value of an array
+ * Iterates over each element in an array
  *
  * @param {any[]} arr
  * @param {function} fn fn(val: any, index: number, arr: any[])

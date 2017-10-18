@@ -3,7 +3,7 @@ import arrClone from "./clone";
 import arrMapDeep from "./mapDeep";
 
 /**
- * Deeply creates a new array with the values of the input iterable
+ * Recursively creates a new array with the values of the input iterable
  *
  * @since 2.0.0
  * @param {any} arr

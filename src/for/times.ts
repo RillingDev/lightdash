@@ -3,7 +3,7 @@ import {
 } from "../types";
 
 /**
- * wrapper around a simple for-loop
+ * Wrapper around a simple for-loop
  *
  * @param {number} start
  * @param {number} max

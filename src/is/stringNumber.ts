@@ -1,5 +1,5 @@
 /**
- * Checks if a value is a number as a string
+ * Checks if a value is a string containing a number
  *
  * @since 1.0.0
  * @param {string} val

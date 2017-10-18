@@ -1,7 +1,7 @@
 import objEntries from "../obj/entries";
 
 /**
- * Creates a Map from an Object
+ * Creates a map from an object
  *
  * @since 1.0.0
  * @param {Object} obj

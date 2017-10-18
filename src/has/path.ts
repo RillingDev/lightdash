@@ -2,7 +2,7 @@ import getPath from "../get/path";
 import isNil from "../is/nil";
 
 /**
- * Checks if a target has a path of keys
+ * Checks if a target has a path-array of key-strings
  *
  * @since 2.0.0
  * @param {any} target

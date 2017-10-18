@@ -19,7 +19,7 @@ var _ = (function (exports) {
 const isArray = (val) => Array.isArray(val);
 
 /**
- * Checks if the value has a certain typestring
+ * Checks if the value has a certain type-string
  *
  * @since 1.0.0
  * @param {any} val
@@ -103,7 +103,7 @@ const isDefined = (val) => !isUndefined(val);
 const hasKey = (target, key) => isDefined(target[key]);
 
 /**
- * Checks if a value is either undefined or null
+ * Checks if a value is undefined or null
  *
  * @since 1.0.0
  * @param {any} val
@@ -121,7 +121,7 @@ const hasKey = (target, key) => isDefined(target[key]);
 const isNil = (val) => isUndefined(val) || val === null;
 
 /**
- * Checks if a value is not nil and has a typeof object
+ * Checks if a value is not nil and has a type of object
  *
  * @since 1.0.0
  * @param {any} val
@@ -206,7 +206,7 @@ const objKeys = (obj) => Object.keys(obj);
 const isString = (val) => isTypeOf(val, "string");
 
 /**
- * Checks if an array has no items, or an object has no keys
+ * Checks if an array has no items, a string no contents,  or an object no keys
  *
  * @since 1.0.0
  * @param {any} val
@@ -247,7 +247,7 @@ const isEmpty = (val) => {
 const objEntries = (obj) => Object.entries(obj);
 
 /**
- * Iterate over each value of an array
+ * Iterates over each element in an array
  *
  * @param {any[]} arr
  * @param {function} fn fn(val: any, index: number, arr: any[])
@@ -260,7 +260,7 @@ const objEntries = (obj) => Object.entries(obj);
 const forEach = (arr, fn) => arr.forEach(fn);
 
 /**
- * Iterate over each entry of an object
+ * Iterates over each entry of an object
  *
  * @param {object} obj
  * @param {function} fn fn(val: any, key: any, index: number, arr: any[])
@@ -277,7 +277,7 @@ const forEachEntry = (obj, fn) => {
 };
 
 /**
- * Checks if the value is instanceof the target
+ * Checks if the value is an instance of a target constructor
  *
  * @since 1.0.0
  * @param {any} val
@@ -314,7 +314,7 @@ const isInstanceOf = (val, target) => val instanceof target;
 const isObject = (val) => isInstanceOf(val, Object);
 
 /**
- * Deep checks if the contents of two values are the same
+ * Recursively checks if two items and their the contents are the same
  *
  * @since 1.0.0
  * @param {any} a
@@ -445,7 +445,7 @@ const isSame = (a, b) => a === b;
 const isSet = (val) => isInstanceOf(val, Set);
 
 /**
- * Checks if a value is a number as a string
+ * Checks if a value is a string containing a number
  *
  * @since 1.0.0
  * @param {string} val
@@ -478,7 +478,8 @@ const isStringNumber = (val) => !isNaN(Number(val));
 const isSymbol = (val) => isTypeOf(val, "symbol");
 
 /**
- * Accesses a target by a path of keys. If the path doesn't exist, null is returned
+ * Accesses a target by a path-array of key-strings
+ * If the path doesn't exist, null is returned
  *
  * @since 2.0.0
  * @param {any} target
@@ -513,7 +514,7 @@ const getPath = (target, path) => {
 };
 
 /**
- * Checks if a target has a path of keys
+ * Checks if a target has a path-array of key-strings
  *
  * @since 2.0.0
  * @param {any} target
@@ -535,7 +536,7 @@ const getPath = (target, path) => {
 const hasPath = (target, path) => !isNil(getPath(target, path));
 
 /**
- * Deeply iterate over each value of an array
+ * Recursively iterates over each element in an array
  *
  * @param {any[]} arr
  * @param {function} fn fn(val: any, index: number, arr: any[])
@@ -548,7 +549,7 @@ const hasPath = (target, path) => !isNil(getPath(target, path));
 const forEachDeep = (arr, fn) => forEach(arr, (val, index) => isArray(val) ? forEachDeep(val, fn) : fn(val, index, arr));
 
 /**
- * Deeply iterate over each entry of an object
+ * Recursively iterates over each entry of an object
  *
  * @param {object} obj
  * @param {function} fn fn(val: any, key: any, index: number, arr: any[])
@@ -561,7 +562,7 @@ const forEachDeep = (arr, fn) => forEach(arr, (val, index) => isArray(val) ? for
 const forEachEntryDeep = (obj, fn) => forEachEntry(obj, (val, key, index) => isObject(val) ? forEachEntryDeep(val, fn) : fn(val, key, index, obj));
 
 /**
- * wrapper around a simple for-loop
+ * Wrapper around a simple for-loop
  *
  * @param {number} start
  * @param {number} max
@@ -580,7 +581,7 @@ const forTimes = (start, max, increase, fn) => {
 };
 
 /**
- * Chunks an array
+ * Creates an array of elements split into groups by size
  *
  * @since 2.0.0
  * @param {any[]} arr
@@ -636,7 +637,7 @@ const arrClone = (arr) => Array.from(arr);
 const arrMap = (arr, fn) => arr.map(fn);
 
 /**
- * Deeply maps the values of the input array with the iterator function and return the result
+ * Recursively maps the values of the input array with the iterator function and return the result
  *
  * @since 1.0.0
  * @param {any[]} arr
@@ -649,7 +650,7 @@ const arrMap = (arr, fn) => arr.map(fn);
 const arrMapDeep = (arr, fn) => arrMap(arr, (val, index) => isArray(val) ? arrMapDeep(val, fn) : fn(val, index, arr));
 
 /**
- * Deeply creates a new array with the values of the input iterable
+ * Recursively creates a new array with the values of the input iterable
  *
  * @since 2.0.0
  * @param {any} arr
@@ -664,7 +665,7 @@ const arrMapDeep = (arr, fn) => arrMap(arr, (val, index) => isArray(val) ? arrMa
 const arrCloneDeep = (arr) => arrMapDeep(arrClone(arr), (val) => isArray(val) ? arrClone(val) : val);
 
 /**
- * Filters every empty, undefined or null value out
+ * Returns an array with every empty, undefined or null value filtered out
  *
  * @since 1.0.0
  * @param {any[]} arr
@@ -676,7 +677,7 @@ const arrCloneDeep = (arr) => arrMapDeep(arrClone(arr), (val) => isArray(val) ? 
 const arrCompact = (arr) => arr.filter((val) => !isNil(val) && !isEmpty(val));
 
 /**
- * Counts how many times an element appears in an array and returns a map [element,count]
+ * Counts how many times an element appears in an array and returns a Map<element: any, count: number>
  *
  * @since 2.0.0
  * @param {any[]} arr
@@ -741,7 +742,7 @@ const arrFlattenDeep = (arr) => {
 };
 
 /**
- * Returns an array of all elements that exist in the first array, and at least once in the other array
+ * Returns an array of all elements that exist in the first array, and at least once in one of the other arrays
  *
  * @since 2.0.0
  * @param {any[]} arr
@@ -761,7 +762,7 @@ const arrIntersection = (arr, ...values) => {
 };
 
 /**
- * Returns a new array with every n-th item
+ * Returns a new array with every n-th item from the input array
  *
  * @since 1.0.0
  * @param {any[]} arr
@@ -820,7 +821,7 @@ const objMap = (obj, fn) => {
 };
 
 /**
- * Deeply maps each entry of an object and returns the result
+ * Recursively maps each entry of an object and returns the result
  *
  * @since 1.0.0
  * @param {Object} obj
@@ -855,7 +856,7 @@ const objMapDeep = (obj, fn) => objMap(obj, (val, key, index, objNew) => {
 const objCloneDeep = (obj) => objMapDeep(objClone(obj), (val) => isObject(val) ? objClone(val) : val);
 
 /**
- * Sets every Nil property of object to the value in the default object
+ * Sets every nil property of object to the value from the default object
  *
  * @since 2.6.0
  * @param {Object} obj
@@ -880,7 +881,7 @@ const objDefaults = (obj, objDefault) => objMap(objDefault, (val, key) => isNil(
 const objValues = (obj) => Object.values(obj);
 
 /**
- * Creates a Map from an Object
+ * Creates a map from an object
  *
  * @since 1.0.0
  * @param {Object} obj

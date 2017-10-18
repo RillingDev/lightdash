@@ -2,7 +2,8 @@ import hasKey from "../has/key";
 import isDefined from "../is/defined";
 
 /**
- * Accesses a target by a path of keys. If the path doesn't exist, null is returned
+ * Accesses a target by a path-array of key-strings
+ * If the path doesn't exist, null is returned
  *
  * @since 2.0.0
  * @param {any} target

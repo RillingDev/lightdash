@@ -1,5 +1,5 @@
 /**
- * Returns a new array with every n-th item
+ * Returns a new array with every n-th item from the input array
  *
  * @since 1.0.0
  * @param {any[]} arr

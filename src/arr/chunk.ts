@@ -1,7 +1,7 @@
 import forTimes from "../for/times";
 
 /**
- * Chunks an array
+ * Creates an array of elements split into groups by size
  *
  * @since 2.0.0
  * @param {any[]} arr

@@ -5,7 +5,7 @@ import {
 import objMap from "./map";
 
 /**
- * Sets every Nil property of object to the value in the default object
+ * Sets every nil property of object to the value from the default object
  *
  * @since 2.6.0
  * @param {Object} obj

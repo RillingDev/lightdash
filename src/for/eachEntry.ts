@@ -5,7 +5,7 @@ import {
 import forEach from "./each";
 
 /**
- * Iterate over each entry of an object
+ * Iterates over each entry of an object
  *
  * @param {object} obj
  * @param {function} fn fn(val: any, key: any, index: number, arr: any[])

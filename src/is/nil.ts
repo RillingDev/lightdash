@@ -1,7 +1,7 @@
 import isUndefined from "./undefined";
 
 /**
- * Checks if a value is either undefined or null
+ * Checks if a value is undefined or null
  *
  * @since 1.0.0
  * @param {any} val

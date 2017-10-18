@@ -3,7 +3,7 @@ import {
 } from "../types";
 
 /**
- * Checks if the value is instanceof the target
+ * Checks if the value is an instance of a target constructor
  *
  * @since 1.0.0
  * @param {any} val

@@ -1,7 +1,7 @@
 import forEach from "../for/each";
 
 /**
- * Counts how many times an element appears in an array and returns a map [element,count]
+ * Counts how many times an element appears in an array and returns a Map<element: any, count: number>
  *
  * @since 2.0.0
  * @param {any[]} arr

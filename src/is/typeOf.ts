@@ -1,5 +1,5 @@
 /**
- * Checks if the value has a certain typestring
+ * Checks if the value has a certain type-string
  *
  * @since 1.0.0
  * @param {any} val

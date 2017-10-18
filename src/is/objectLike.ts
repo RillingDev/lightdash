@@ -2,7 +2,7 @@ import isNil from "./nil";
 import isTypeOf from "./typeOf";
 
 /**
- * Checks if a value is not nil and has a typeof object
+ * Checks if a value is not nil and has a type of object
  *
  * @since 1.0.0
  * @param {any} val
