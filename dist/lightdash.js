@@ -601,7 +601,7 @@ const arrChunk = (arr, chunk) => {
     }
     else {
         const result = [];
-        forTimes(0, arr.length, chunk, (index) => {
+        forTimes(0, arr.length - 1, chunk, (index) => {
             result.push(arr.slice(index, index + chunk));
         });
         return result;
@@ -769,7 +769,7 @@ const arrIntersection = (arr, ...values) => {
  * @param {number} step
  * @returns {any[]}
  * @example
- * //returns [2,4,6]
+ * //returns [1,3,5]
  * arrStep([1,2,3,4,5,6],2)
  */
 const arrStep = (arr, step) => arr.filter((val, index) => index % step === 0);

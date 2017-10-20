@@ -1,7 +1,16 @@
-const {} = require("../../dist/lightdash.common");
+const {
+    arrFlattenDeep
+} = require("../../dist/lightdash.common");
 
-describe("", () => {
-    it("", () => {
-
+describe("arrFlattenDeep", () => {
+    it("Simple", () => {
+        expect(arrFlattenDeep([1, 2, [3]])).toEqual([1, 2, 3]);
+        expect(arrFlattenDeep([1, 2, [3, [
+                [
+                    [5]
+                ]
+            ],
+            [6, [6]]
+        ]])).toEqual([1, 2, 3, 5, 6, 6]);
     });
 });
