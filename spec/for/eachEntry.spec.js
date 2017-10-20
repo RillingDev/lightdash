@@ -1,5 +1,3 @@
-"use strict";
-
 const {
     forEachEntry,
 } = require("../../dist/lightdash.common");
