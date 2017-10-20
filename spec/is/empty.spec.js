@@ -2,7 +2,7 @@
 
 const {
     isEmpty
-} = require("../dist/lightdash.common");
+} = require("../../dist/lightdash.common");
 
 describe("isEmpty", () => {
     it("Simple", () => {

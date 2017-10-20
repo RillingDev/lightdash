@@ -4,7 +4,7 @@ const {
     isObject,
     forEach,
     forEachDeep,
-} = require("../dist/lightdash.common");
+} = require("../../dist/lightdash.common");
 
 describe("forEachDeep", () => {
     it("Simple", () => {
