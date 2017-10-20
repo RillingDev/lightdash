@@ -1,7 +1,13 @@
-const {} = require("../../dist/lightdash.common");
+const {
+    isObjectLike
+} = require("../../dist/lightdash.common");
 
-describe("", () => {
-    it("", () => {
+describe("isObjectLike", () => {
+    it("Simple", () => {
+        expect(isObjectLike({})).toBe(true);
+        expect(isObjectLike([])).toBe(true);
 
+        expect(isObjectLike(null)).toBe(false);
+        expect(isObjectLike(1)).toBe(false);
     });
 });
