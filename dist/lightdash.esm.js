@@ -336,7 +336,7 @@ const isEqual = (a, b) => {
     if (isObject(a) && isObject(b) && objKeys(a).length === objKeys(b).length) {
         let result = true;
         forEachEntry(a, (aVal, key) => {
-            // Only Check if the comparison didnt fail already
+            // Only check if the comparison didn't fail already
             if (result === true) {
                 if (hasKey(b, key)) {
                     const bVal = b[key];

@@ -9,11 +9,11 @@ import objMapDeep from "./mapDeep";
  * @param {Object} obj
  * @returns {Object}
  * @example
- * //returns a = {a:{b:2,c:[10,20]}}, b = {a:{b:2,c:[123,20]}}
- * const a = {a:{b:2,c:[10,20]}};
+ * //returns a = {a:{b:2,c:{a:10,b:20}}, b = {a:{b:2,c:{a:123,b:20}}}
+ * const a = {a:{b:2,c:{a:10,b:20}}};
  * const b = objCloneDeep(a);
  *
- * b.b.c[0] = 123;
+ * b.a.c.a = 123;
  */
 const objCloneDeep = (obj: object): object => objMapDeep(objClone(obj), (val) => isObject(val) ? objClone(val) : val);
 

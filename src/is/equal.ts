@@ -31,7 +31,7 @@ const isEqual = (a: any, b: any): boolean => {
         let result = true;
 
         forEachEntry(a, (aVal: any, key: string): void => {
-            // Only Check if the comparison didn't fail already
+            // Only check if the comparison didn't fail already
             if (result === true) {
                 if (hasKey(b, key)) {
                     const bVal = b[key];
