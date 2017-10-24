@@ -1,6 +1,8 @@
 /**
  * Returns an array of the objects keys
  *
+ * @function objKeys
+ * @memberof Object
  * @since 1.0.0
  * @param {Object} obj
  * @returns {any[]}

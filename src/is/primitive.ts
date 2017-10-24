@@ -3,6 +3,8 @@ import isObjectLike from "./objectLike";
 /**
  * Checks if a value is a primitive
  *
+ * @function isPrimitive
+ * @memberof Is
  * @since 1.0.0
  * @param {any} val
  * @returns {boolean}

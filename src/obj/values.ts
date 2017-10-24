@@ -1,6 +1,8 @@
 /**
  * Returns an array of the objects values
  *
+ * @function objValues
+ * @memberof Object
  * @since 1.0.0
  * @param {Object} obj
  * @returns {any[]}

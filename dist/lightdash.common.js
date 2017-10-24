@@ -5,6 +5,8 @@ Object.defineProperty(exports, '__esModule', { value: true });
 /**
  * Checks if a value is an array
  *
+ * @function isArray
+ * @memberof Is
  * @since 1.0.0
  * @param {any} val
  * @returns {boolean}
@@ -22,6 +24,8 @@ const isArray = (val) => Array.isArray(val);
 /**
  * Checks if the value has a certain type-string
  *
+ * @function isTypeOf
+ * @memberof Is
  * @since 1.0.0
  * @param {any} val
  * @param {string} type
@@ -41,6 +45,8 @@ const isTypeOf = (val, type) => typeof val === type;
 /**
  * Checks if a value is undefined
  *
+ * @function isUndefined
+ * @memberof Is
  * @since 1.0.0
  * @param {any} val
  * @returns {boolean}
@@ -63,6 +69,8 @@ const isUndefined = (val) => isTypeOf(val, "undefined");
 /**
  * Checks if a value is not undefined
  *
+ * @function isDefined
+ * @memberof Is
  * @since 1.0.0
  * @param {any} val
  * @returns {boolean}
@@ -85,6 +93,8 @@ const isDefined = (val) => !isUndefined(val);
 /**
  * Checks if a target has a certain key
  *
+ * @function hasKey
+ * @memberof Has
  * @since 1.0.0
  * @param {any} target
  * @param {string} key
@@ -106,6 +116,8 @@ const hasKey = (target, key) => isDefined(target[key]);
 /**
  * Checks if a value is undefined or null
  *
+ * @function isNil
+ * @memberof Is
  * @since 1.0.0
  * @param {any} val
  * @returns {boolean}
@@ -124,6 +136,8 @@ const isNil = (val) => isUndefined(val) || val === null;
 /**
  * Checks if a value is not nil and has a type of object
  *
+ * @function isObjectLike
+ * @memberof Is
  * @since 1.0.0
  * @param {any} val
  * @returns {boolean}
@@ -142,6 +156,8 @@ const isObjectLike = (val) => !isNil(val) && isTypeOf(val, "object");
 /**
  * Checks if a value is object-like and has a length property
  *
+ * @function isArrayLike
+ * @memberof Is
  * @since 1.0.0
  * @param {any} val
  * @returns {boolean}
@@ -162,6 +178,8 @@ const isArrayLike = (val) => isObjectLike(val) && hasKey(val, "length");
 /**
  * Checks if a value is a boolean
  *
+ * @function isBoolean
+ * @memberof Is
  * @since 1.0.0
  * @param {any} val
  * @returns {boolean}
@@ -181,6 +199,8 @@ const isBoolean = (val) => isTypeOf(val, "boolean");
 /**
  * Returns an array of the objects keys
  *
+ * @function objKeys
+ * @memberof Object
  * @since 1.0.0
  * @param {Object} obj
  * @returns {any[]}
@@ -193,6 +213,8 @@ const objKeys = (obj) => Object.keys(obj);
 /**
  * Checks if a value is a string
  *
+ * @function isString
+ * @memberof Is
  * @since 1.0.0
  * @param {any} val
  * @returns {boolean}
@@ -209,6 +231,8 @@ const isString = (val) => isTypeOf(val, "string");
 /**
  * Checks if an array has no items, a string no contents,  or an object no keys
  *
+ * @function isEmpty
+ * @memberof Is
  * @since 1.0.0
  * @param {any} val
  * @returns {boolean}
@@ -238,6 +262,8 @@ const isEmpty = (val) => {
 /**
  * Returns an array of the objects entries
  *
+ * @function objEntries
+ * @memberof Object
  * @since 1.0.0
  * @param {Object} obj
  * @returns {any[]} Array<[key: any, val: any]>]
@@ -250,6 +276,8 @@ const objEntries = (obj) => Object.entries(obj);
 /**
  * Iterates over each element in an array
  *
+ * @function forEach
+ * @memberof For
  * @param {any[]} arr
  * @param {function} fn fn(val: any, index: number, arr: any[])
  * @example
@@ -263,6 +291,8 @@ const forEach = (arr, fn) => arr.forEach(fn);
 /**
  * Iterates over each entry of an object
  *
+ * @function forEachEntry
+ * @memberof For
  * @param {object} obj
  * @param {function} fn fn(val: any, key: any, index: number, arr: any[])
  * @example
@@ -280,6 +310,8 @@ const forEachEntry = (obj, fn) => {
 /**
  * Checks if the value is an instance of a target constructor
  *
+ * @function isInstanceOf
+ * @memberof Is
  * @since 1.0.0
  * @param {any} val
  * @param {Class} target
@@ -300,6 +332,8 @@ const isInstanceOf = (val, target) => val instanceof target;
 /**
  * Checks if a value is an object
  *
+ * @function isObject
+ * @memberof Is
  * @since 1.0.0
  * @param {any} val
  * @returns {boolean}
@@ -317,6 +351,8 @@ const isObject = (val) => isInstanceOf(val, Object);
 /**
  * Recursively checks if two items and their the contents are the same
  *
+ * @function isEqual
+ * @memberof Is
  * @since 1.0.0
  * @param {any} a
  * @param {any} b
@@ -359,6 +395,8 @@ const isEqual = (a, b) => {
 /**
  * Checks if a value is a map
  *
+ * @function isMap
+ * @memberof Is
  * @since 1.0.0
  * @param {any} val
  * @returns {boolean}
@@ -375,6 +413,8 @@ const isMap = (val) => isInstanceOf(val, Map);
 /**
  * Checks if a value is a number
  *
+ * @function isNumber
+ * @memberof Is
  * @since 1.0.0
  * @param {any} val
  * @returns {boolean}
@@ -392,6 +432,8 @@ const isNumber = (val) => isTypeOf(val, "number");
 /**
  * Checks if a value is a primitive
  *
+ * @function isPrimitive
+ * @memberof Is
  * @since 1.0.0
  * @param {any} val
  * @returns {boolean}
@@ -410,6 +452,8 @@ const isPrimitive = (val) => !isObjectLike(val);
 /**
  * Checks if two values are the same
  *
+ * @function isSame
+ * @memberof Is
  * @since 1.0.0
  * @param {any} a
  * @param {any} b
@@ -432,6 +476,8 @@ const isSame = (a, b) => a === b;
 /**
  * Checks if a value is a set
  *
+ * @function isSet
+ * @memberof Is
  * @since 1.0.0
  * @param {any} val
  * @returns {boolean}
@@ -448,6 +494,8 @@ const isSet = (val) => isInstanceOf(val, Set);
 /**
  * Checks if a value is a string containing a number
  *
+ * @function isStringNumber
+ * @memberof Is
  * @since 1.0.0
  * @param {string} val
  * @returns {boolean}
@@ -465,6 +513,8 @@ const isStringNumber = (val) => !isNaN(Number(val));
 /**
  * Checks if a value is a symbol
  *
+ * @function isSymbol
+ * @memberof Is
  * @since 1.0.0
  * @param {any} val
  * @returns {boolean}
@@ -482,6 +532,8 @@ const isSymbol = (val) => isTypeOf(val, "symbol");
  * Accesses a target by a path-array of key-strings
  * If the path doesn't exist, null is returned
  *
+ * @function getPath
+ * @memberof Get
  * @since 2.0.0
  * @param {any} target
  * @param {string[]} path
@@ -517,6 +569,8 @@ const getPath = (target, path) => {
 /**
  * Checks if a target has a path-array of key-strings
  *
+ * @function hasPath
+ * @memberof Has
  * @since 2.0.0
  * @param {any} target
  * @param {string[]} path
@@ -539,6 +593,8 @@ const hasPath = (target, path) => !isNil(getPath(target, path));
 /**
  * Recursively iterates over each element in an array
  *
+ * @function forEachDeep
+ * @memberof For
  * @param {any[]} arr
  * @param {function} fn fn(val: any, index: number, arr: any[])
  * @example
@@ -552,6 +608,8 @@ const forEachDeep = (arr, fn) => forEach(arr, (val, index) => isArray(val) ? for
 /**
  * Recursively iterates over each entry of an object
  *
+ * @function forEachEntryDeep
+ * @memberof For
  * @param {object} obj
  * @param {function} fn fn(val: any, key: any, index: number, arr: any[])
  * @example
@@ -565,6 +623,8 @@ const forEachEntryDeep = (obj, fn) => forEachEntry(obj, (val, key, index) => isO
 /**
  * Wrapper around a simple for-loop
  *
+ * @function forTimes
+ * @memberof For
  * @param {number} start
  * @param {number} max
  * @param {number} increase
@@ -584,6 +644,8 @@ const forTimes = (start, max, increase, fn) => {
 /**
  * Creates an array of elements split into groups by size
  *
+ * @function arrChunk
+ * @memberof Array
  * @since 2.0.0
  * @param {any[]} arr
  * @param {number} chunk
@@ -612,6 +674,8 @@ const arrChunk = (arr, chunk) => {
 /**
  * Creates a new array with the values of the input iterable
  *
+ * @function arrClone
+ * @memberof Array
  * @since 1.0.0
  * @param {any} arr
  * @returns {any[]}
@@ -627,6 +691,8 @@ const arrClone = (arr) => Array.from(arr);
 /**
  * Maps the values of the input array with the iterator function and return the result
  *
+ * @function arrMap
+ * @memberof Array
  * @since 1.0.0
  * @param {any[]} arr
  * @param {function} fn fn(val: any, index: number, arr: any[])
@@ -640,6 +706,8 @@ const arrMap = (arr, fn) => arr.map(fn);
 /**
  * Recursively maps the values of the input array with the iterator function and return the result
  *
+ * @function arrMapDeep
+ * @memberof Array
  * @since 1.0.0
  * @param {any[]} arr
  * @param {function} fn fn(val: any, index: number, arr: any[])
@@ -653,6 +721,8 @@ const arrMapDeep = (arr, fn) => arrMap(arr, (val, index) => isArray(val) ? arrMa
 /**
  * Recursively creates a new array with the values of the input iterable
  *
+ * @function arrCloneDeep
+ * @memberof Array
  * @since 2.0.0
  * @param {any} arr
  * @returns {any[]}
@@ -668,6 +738,8 @@ const arrCloneDeep = (arr) => arrMapDeep(arrClone(arr), (val) => isArray(val) ? 
 /**
  * Returns an array with every empty, undefined or null value filtered out
  *
+ * @function arrCompact
+ * @memberof Array
  * @since 1.0.0
  * @param {any[]} arr
  * @returns {any[]}
@@ -680,6 +752,8 @@ const arrCompact = (arr) => arr.filter((val) => !isNil(val) && !isEmpty(val));
 /**
  * Counts how many times an element appears in an array and returns a Map<element: any, count: number>
  *
+ * @function arrCount
+ * @memberof Array
  * @since 2.0.0
  * @param {any[]} arr
  * @returns {Map<any, number>}
@@ -698,6 +772,8 @@ const arrCount = (arr) => {
 /**
  * Returns an array of all elements that exist in the first array, but not any others
  *
+ * @function arrDifference
+ * @memberof Array
  * @since 2.0.0
  * @param {any[]} arr
  * @param {...any[]} values
@@ -718,6 +794,8 @@ const arrDifference = (arr, ...values) => {
 /**
  * Recursively flattens an array
  *
+ * @function arrFlattenDeep
+ * @memberof Array
  * @since 1.0.0
  * @param {any[]} arr
  * @returns {any[]}
@@ -745,6 +823,8 @@ const arrFlattenDeep = (arr) => {
 /**
  * Returns an array of all elements that exist in the first array, and at least once in one of the other arrays
  *
+ * @function arrIntersection
+ * @memberof Array
  * @since 2.0.0
  * @param {any[]} arr
  * @param {...any[]} values
@@ -765,6 +845,8 @@ const arrIntersection = (arr, ...values) => {
 /**
  * Returns a new array with every n-th item from the input array
  *
+ * @function arrStep
+ * @memberof Array
  * @since 1.0.0
  * @param {any[]} arr
  * @param {number} step
@@ -778,6 +860,8 @@ const arrStep = (arr, step) => arr.filter((val, index) => index % step === 0);
 /**
  * Returns an array of all unique elements in an array
  *
+ * @function arrUniq
+ * @memberof Array
  * @since 1.0.0
  * @param {any[]} arr
  * @returns {any[]}
@@ -790,6 +874,8 @@ const arrUniq = (arr) => arrClone(new Set(arr));
 /**
  * Creates a new object with the entries of the input object
  *
+ * @function objClone
+ * @memberof Object
  * @since 1.0.0
  * @param {object} obj
  * @returns {object}
@@ -805,6 +891,8 @@ const objClone = (obj) => Object.assign({}, obj);
 /**
  * Maps each entry of an object and returns the result
  *
+ * @function objMap
+ * @memberof Object
  * @since 1.0.0
  * @param {Object} obj
  * @param {function} fn fn(val: any, key: any, index: number, arr: any[])
@@ -824,6 +912,8 @@ const objMap = (obj, fn) => {
 /**
  * Recursively maps each entry of an object and returns the result
  *
+ * @function objMapDeep
+ * @memberof Object
  * @since 1.0.0
  * @param {Object} obj
  * @param {function} fn fn(val: any, key: any, index: number, arr: any[])
@@ -844,21 +934,25 @@ const objMapDeep = (obj, fn) => objMap(obj, (val, key, index, objNew) => {
 /**
  * Deeply creates a new object with the entries of the input object
  *
+ * @function objCloneDeep
+ * @memberof Object
  * @since 1.0.0
  * @param {Object} obj
  * @returns {Object}
  * @example
- * //returns a = {a:{b:2,c:[10,20]}}, b = {a:{b:2,c:[123,20]}}
- * const a = {a:{b:2,c:[10,20]}};
+ * //returns a = {a:{b:2,c:{a:10,b:20}}, b = {a:{b:2,c:{a:123,b:20}}}
+ * const a = {a:{b:2,c:{a:10,b:20}}};
  * const b = objCloneDeep(a);
  *
- * b.b.c[0] = 123;
+ * b.a.c.a = 123;
  */
 const objCloneDeep = (obj) => objMapDeep(objClone(obj), (val) => isObject(val) ? objClone(val) : val);
 
 /**
  * Sets every nil property of object to the value from the default object
  *
+ * @function objDefaults
+ * @memberof Object
  * @since 2.6.0
  * @param {Object} obj
  * @param {Object} objDefault
@@ -872,6 +966,8 @@ const objDefaults = (obj, objDefault) => objMap(objDefault, (val, key) => isNil(
 /**
  * Returns an array of the objects values
  *
+ * @function objValues
+ * @memberof Object
  * @since 1.0.0
  * @param {Object} obj
  * @returns {any[]}
@@ -884,6 +980,8 @@ const objValues = (obj) => Object.values(obj);
 /**
  * Creates a map from an object
  *
+ * @function mapFromObject
+ * @memberof Map
  * @since 1.0.0
  * @param {Object} obj
  * @returns {Map}
@@ -896,6 +994,8 @@ const mapFromObject = (obj) => new Map(objEntries(obj));
 /**
  * Clamps a number in a range
  *
+ * @function numberClamp
+ * @memberof Number
  * @since 1.0.0
  * @param {number} val
  * @param {number} min
@@ -928,6 +1028,8 @@ const numberClamp = (val, min, max) => {
 /**
  * Checks if a number is in the given range
  *
+ * @function numberInRange
+ * @memberof Number
  * @since 1.0.0
  * @param {number} val
  * @param {number} min
@@ -949,6 +1051,8 @@ const numberInRange = (val, min, max) => val >= min && val <= max;
 /**
  * Return a random float number in the range
  *
+ * @function numberRandomFloat
+ * @memberof Number
  * @since 1.0.0
  * @param {number} [min=0]
  * @param {number} [max=1]
@@ -963,6 +1067,8 @@ const numberRandomFloat = (min = 0, max = 1) => min + Math.random() * (max - min
 /**
  * Return a random integer number in the range
  *
+ * @function numberRandomInt
+ * @memberof Number
  * @since 1.0.0
  * @param {number} [min=0]
  * @param {number} [max=100]
@@ -974,6 +1080,39 @@ const numberRandomFloat = (min = 0, max = 1) => min + Math.random() * (max - min
  */
 const numberRandomInt = (min = 0, max = 1) => Math.floor(numberRandomFloat(min, max) /
     (max - min) * (max - min + 1));
+
+/**
+ * Value and type checking
+ * @namespace Is
+ */
+/**
+ * Data checking
+ * @namespace Has
+ */
+/**
+ * Data access
+ * @namespace Get
+ */
+/**
+ * Iteration
+ * @namespace For
+ */
+/**
+ * Array manipulation an analysis
+ * @namespace Array
+ */
+/**
+ * Object manipulation an analysis
+ * @namespace Object
+ */
+/**
+ * Map manipulation an analysis
+ * @namespace Map
+ */
+/**
+ * Number generation an checking
+ * @namespace Number
+ */
 
 exports.isSame = isSame;
 exports.isEqual = isEqual;

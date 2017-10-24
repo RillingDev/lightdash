@@ -1,6 +1,8 @@
 /**
  * Clamps a number in a range
  *
+ * @function numberClamp
+ * @memberof Number
  * @since 1.0.0
  * @param {number} val
  * @param {number} min

@@ -4,6 +4,8 @@ import isNil from "../is/nil";
 /**
  * Checks if a target has a path-array of key-strings
  *
+ * @function hasPath
+ * @memberof Has
  * @since 2.0.0
  * @param {any} target
  * @param {string[]} path

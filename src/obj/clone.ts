@@ -1,6 +1,8 @@
 /**
  * Creates a new object with the entries of the input object
  *
+ * @function objClone
+ * @memberof Object
  * @since 1.0.0
  * @param {object} obj
  * @returns {object}

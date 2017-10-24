@@ -7,6 +7,8 @@ import objClone from "./clone";
 /**
  * Maps each entry of an object and returns the result
  *
+ * @function objMap
+ * @memberof Object
  * @since 1.0.0
  * @param {Object} obj
  * @param {function} fn fn(val: any, key: any, index: number, arr: any[])

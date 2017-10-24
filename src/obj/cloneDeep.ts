@@ -5,6 +5,8 @@ import objMapDeep from "./mapDeep";
 /**
  * Deeply creates a new object with the entries of the input object
  *
+ * @function objCloneDeep
+ * @memberof Object
  * @since 1.0.0
  * @param {Object} obj
  * @returns {Object}

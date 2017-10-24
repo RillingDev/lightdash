@@ -4,6 +4,8 @@ import isNil from "../is/nil";
 /**
  * Returns an array with every empty, undefined or null value filtered out
  *
+ * @function arrCompact
+ * @memberof Array
  * @since 1.0.0
  * @param {any[]} arr
  * @returns {any[]}

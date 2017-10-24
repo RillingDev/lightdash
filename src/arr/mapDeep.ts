@@ -7,6 +7,8 @@ import arrMap from "./map";
 /**
  * Recursively maps the values of the input array with the iterator function and return the result
  *
+ * @function arrMapDeep
+ * @memberof Array
  * @since 1.0.0
  * @param {any[]} arr
  * @param {function} fn fn(val: any, index: number, arr: any[])

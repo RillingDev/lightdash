@@ -1,6 +1,8 @@
 /**
  * Checks if a number is in the given range
  *
+ * @function numberInRange
+ * @memberof Number
  * @since 1.0.0
  * @param {number} val
  * @param {number} min

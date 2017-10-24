@@ -1,3 +1,7 @@
+/**
+ * Value and type checking
+ * @namespace Is
+ */
 import isArray from "./is/array";
 import isArrayLike from "./is/arrayLike";
 import isBoolean from "./is/boolean";
@@ -19,17 +23,33 @@ import isSymbol from "./is/symbol";
 import isTypeOf from "./is/typeOf";
 import isUndefined from "./is/undefined";
 
+/**
+ * Data checking
+ * @namespace Has
+ */
 import hasKey from "./has/key";
 import hasPath from "./has/path";
 
+/**
+ * Data access
+ * @namespace Get
+ */
 import getPath from "./get/path";
 
+/**
+ * Iteration
+ * @namespace For
+ */
 import forEach from "./for/each";
 import forEachDeep from "./for/eachDeep";
 import forEachEntry from "./for/eachEntry";
 import forEachEntryDeep from "./for/eachEntryDeep";
 import forTimes from "./for/times";
 
+/**
+ * Array manipulation an analysis
+ * @namespace Array
+ */
 import arrChunk from "./arr/chunk";
 import arrClone from "./arr/clone";
 import arrCloneDeep from "./arr/cloneDeep";
@@ -43,20 +63,29 @@ import arrMapDeep from "./arr/mapDeep";
 import arrStep from "./arr/step";
 import arrUniq from "./arr/uniq";
 
+/**
+ * Object manipulation an analysis
+ * @namespace Object
+ */
 import objClone from "./obj/clone";
 import objCloneDeep from "./obj/cloneDeep";
 import objDefaults from "./obj/defaults";
-import objDefaultsDeep from "./obj/defaultsDeep";
 import objEntries from "./obj/entries";
 import objKeys from "./obj/keys";
 import objMap from "./obj/map";
 import objMapDeep from "./obj/mapDeep";
-import objMerge from "./obj/merge";
-import objMergeDeep from "./obj/mergeDeep";
 import objValues from "./obj/values";
 
+/**
+ * Map manipulation an analysis
+ * @namespace Map
+ */
 import mapFromObject from "./map/fromObject";
 
+/**
+ * Number generation an checking
+ * @namespace Number
+ */
 import numberClamp from "./number/clamp";
 import numberInRange from "./number/inRange";
 import numberRandomFloat from "./number/randomFloat";
@@ -112,10 +141,7 @@ export {
     objCloneDeep,
     objMap,
     objMapDeep,
-    // objMerge,
-    // objMergeDeep,
     objDefaults,
-    // objDefaultsDeep,
     objKeys,
     objValues,
     objEntries,

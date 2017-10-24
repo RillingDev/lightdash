@@ -5,6 +5,8 @@ import {
 /**
  * Maps the values of the input array with the iterator function and return the result
  *
+ * @function arrMap
+ * @memberof Array
  * @since 1.0.0
  * @param {any[]} arr
  * @param {function} fn fn(val: any, index: number, arr: any[])

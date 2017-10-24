@@ -4,6 +4,8 @@ import isTypeOf from "./typeOf";
 /**
  * Checks if a value is not nil and has a type of object
  *
+ * @function isObjectLike
+ * @memberof Is
  * @since 1.0.0
  * @param {any} val
  * @returns {boolean}

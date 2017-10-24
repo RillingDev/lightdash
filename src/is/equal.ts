@@ -6,6 +6,8 @@ import isObject from "./object";
 /**
  * Recursively checks if two items and their the contents are the same
  *
+ * @function isEqual
+ * @memberof Is
  * @since 1.0.0
  * @param {any} a
  * @param {any} b

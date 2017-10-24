@@ -3,6 +3,8 @@ import arrClone from "./clone";
 /**
  * Returns an array of all unique elements in an array
  *
+ * @function arrUniq
+ * @memberof Array
  * @since 1.0.0
  * @param {any[]} arr
  * @returns {any[]}

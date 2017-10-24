@@ -4,6 +4,8 @@ import isObjectLike from "./objectLike";
 /**
  * Checks if a value is object-like and has a length property
  *
+ * @function isArrayLike
+ * @memberof Is
  * @since 1.0.0
  * @param {any} val
  * @returns {boolean}

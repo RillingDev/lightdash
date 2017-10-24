@@ -5,6 +5,8 @@ import {
 /**
  * Wrapper around a simple for-loop
  *
+ * @function forTimes
+ * @memberof For
  * @param {number} start
  * @param {number} max
  * @param {number} increase

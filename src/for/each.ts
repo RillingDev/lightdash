@@ -5,6 +5,8 @@ import {
 /**
  * Iterates over each element in an array
  *
+ * @function forEach
+ * @memberof For
  * @param {any[]} arr
  * @param {function} fn fn(val: any, index: number, arr: any[])
  * @example

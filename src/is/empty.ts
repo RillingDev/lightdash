@@ -6,6 +6,8 @@ import isString from "./string";
 /**
  * Checks if an array has no items, a string no contents,  or an object no keys
  *
+ * @function isEmpty
+ * @memberof Is
  * @since 1.0.0
  * @param {any} val
  * @returns {boolean}

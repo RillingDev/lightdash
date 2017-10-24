@@ -7,6 +7,8 @@ import forEach from "./each";
 /**
  * Iterates over each entry of an object
  *
+ * @function forEachEntry
+ * @memberof For
  * @param {object} obj
  * @param {function} fn fn(val: any, key: any, index: number, arr: any[])
  * @example

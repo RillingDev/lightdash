@@ -1,6 +1,8 @@
 /**
  * Returns a new array with every n-th item from the input array
  *
+ * @function arrStep
+ * @memberof Array
  * @since 1.0.0
  * @param {any[]} arr
  * @param {number} step

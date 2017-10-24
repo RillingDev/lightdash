@@ -1,6 +1,8 @@
 /**
  * Creates a new array with the values of the input iterable
  *
+ * @function arrClone
+ * @memberof Array
  * @since 1.0.0
  * @param {any} arr
  * @returns {any[]}

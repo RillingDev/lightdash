@@ -1,6 +1,8 @@
 /**
  * Checks if two values are the same
  *
+ * @function isSame
+ * @memberof Is
  * @since 1.0.0
  * @param {any} a
  * @param {any} b

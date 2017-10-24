@@ -3,6 +3,8 @@ import forTimes from "../for/times";
 /**
  * Creates an array of elements split into groups by size
  *
+ * @function arrChunk
+ * @memberof Array
  * @since 2.0.0
  * @param {any[]} arr
  * @param {number} chunk
