@@ -15,17 +15,21 @@ npm install -S lightdash
 When using ES Modules:
 
 ```js
-import { arrDifference } from "lightdash";
+import {
+    arrDifference
+} from "lightdash";
 
-arrDifference([1,2,3],[1,3])
+arrDifference([1,2,3], [1,3]);
 ```
 
 When using Node/CommonJS:
 
 ```js
-const { arrDifference } = require("lightdash");
+const {
+    arrDifference
+} = require("lightdash");
 
-arrDifference([1,2,3],[1,3])
+arrDifference([1,2,3], [1,3]);
 ```
 
 ## Contents

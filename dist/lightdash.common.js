@@ -1082,35 +1082,35 @@ const numberRandomInt = (min = 0, max = 1) => Math.floor(numberRandomFloat(min, 
     (max - min) * (max - min + 1));
 
 /**
- * Value and type checking
+ * Value, type checking and comparison
  * @namespace Is
  */
 /**
- * Data checking
+ * Checks if a target has something
  * @namespace Has
  */
 /**
- * Data access
+ * Gets target data
  * @namespace Get
  */
 /**
- * Iteration
+ * Looping through iterables
  * @namespace For
  */
 /**
- * Array manipulation an analysis
+ * Array manipulation and analysis
  * @namespace Array
  */
 /**
- * Object manipulation an analysis
+ * Object manipulation and analysis
  * @namespace Object
  */
 /**
- * Map manipulation an analysis
+ * Map manipulation and analysis
  * @namespace Map
  */
 /**
- * Number generation an checking
+ * Number generation and checking
  * @namespace Number
  */
 

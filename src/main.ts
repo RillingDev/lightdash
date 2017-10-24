@@ -1,5 +1,5 @@
 /**
- * Value and type checking
+ * Value, type checking and comparison
  * @namespace Is
  */
 import isArray from "./is/array";
@@ -24,20 +24,20 @@ import isTypeOf from "./is/typeOf";
 import isUndefined from "./is/undefined";
 
 /**
- * Data checking
+ * Checks if a target has something
  * @namespace Has
  */
 import hasKey from "./has/key";
 import hasPath from "./has/path";
 
 /**
- * Data access
+ * Gets target data
  * @namespace Get
  */
 import getPath from "./get/path";
 
 /**
- * Iteration
+ * Looping through iterables
  * @namespace For
  */
 import forEach from "./for/each";
@@ -47,7 +47,7 @@ import forEachEntryDeep from "./for/eachEntryDeep";
 import forTimes from "./for/times";
 
 /**
- * Array manipulation an analysis
+ * Array manipulation and analysis
  * @namespace Array
  */
 import arrChunk from "./arr/chunk";
@@ -64,7 +64,7 @@ import arrStep from "./arr/step";
 import arrUniq from "./arr/uniq";
 
 /**
- * Object manipulation an analysis
+ * Object manipulation and analysis
  * @namespace Object
  */
 import objClone from "./obj/clone";
@@ -77,13 +77,13 @@ import objMapDeep from "./obj/mapDeep";
 import objValues from "./obj/values";
 
 /**
- * Map manipulation an analysis
+ * Map manipulation and analysis
  * @namespace Map
  */
 import mapFromObject from "./map/fromObject";
 
 /**
- * Number generation an checking
+ * Number generation and checking
  * @namespace Number
  */
 import numberClamp from "./number/clamp";
@@ -152,5 +152,4 @@ export {
     numberClamp,
     numberRandomFloat,
     numberRandomInt,
-
 };
