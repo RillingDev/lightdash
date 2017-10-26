@@ -17,6 +17,8 @@ import objMapDeep from "./mapDeep";
  *
  * b.a.c.a = 123;
  */
-const objCloneDeep = (obj: object): object => objMapDeep(objClone(obj), (val) => isObject(val) ? objClone(val) : val);
+const objCloneDeep = (obj: object): object => objMapDeep(
+    objClone(obj),
+    (val) => isObject(val) ? objClone(val) : val);
 
 export default objCloneDeep;

@@ -17,7 +17,8 @@ import arrMap from "./map";
  * //returns [4,8,[2,2,[32],8]]
  * arrMapDeep([2,4,[1,1,[16],4]],val=>val*2)
  */
-const arrMapDeep = (arr: any[], fn: ForEachIterator): any[] => arrMap(arr,
+const arrMapDeep = (arr: any[], fn: ForEachIterator): any[] => arrMap(
+    arr,
     (val, index) => isArray(val) ? arrMapDeep(val, fn) : fn(val, index, arr));
 
 export default arrMapDeep;

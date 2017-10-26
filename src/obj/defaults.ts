@@ -17,7 +17,8 @@ import objMap from "./map";
  * //returns a = {a:1,b:2,c:5}
  * objDefaults({a:1,c:5},{a:1,b:2,c:3})
  */
-const objDefaults = (obj: IGenericObject, objDefault: object): object => objMap(objDefault,
+const objDefaults = (obj: IGenericObject, objDefault: object): object => objMap(
+    objDefault,
     (val, key) => isNil(obj[key]) ? val : obj[key]);
 
 export default objDefaults;
