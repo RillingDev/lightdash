@@ -992,6 +992,21 @@ const objDefaultsDeep = (obj, objDefault) => objMap(objDefault, (val, key) => {
 });
 
 /**
+ * Merges contents of two objects
+ *
+ * @function objMerge
+ * @memberof Object
+ * @since 2.7.0
+ * @param {Object} obj
+ * @param {Object} objSecondary
+ * @returns {Object}
+ * @example
+ * //returns {a:1,b:2}
+ * objMerge({a:1},{b:2})
+ */
+const objMerge = Object.assign;
+
+/**
  * Returns an array of the objects values
  *
  * @function objValues
@@ -1188,6 +1203,7 @@ exports.objMap = objMap;
 exports.objMapDeep = objMapDeep;
 exports.objDefaults = objDefaults;
 exports.objDefaultsDeep = objDefaultsDeep;
+exports.objMerge = objMerge;
 exports.objKeys = objKeys;
 exports.objValues = objValues;
 exports.objEntries = objEntries;

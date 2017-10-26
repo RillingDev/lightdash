@@ -75,6 +75,7 @@ import objEntries from "./obj/entries";
 import objKeys from "./obj/keys";
 import objMap from "./obj/map";
 import objMapDeep from "./obj/mapDeep";
+import objMerge from "./obj/merge";
 import objValues from "./obj/values";
 
 /**
@@ -144,6 +145,7 @@ export {
     objMapDeep,
     objDefaults,
     objDefaultsDeep,
+    objMerge,
     objKeys,
     objValues,
     objEntries,
