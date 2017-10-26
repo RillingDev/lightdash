@@ -13,6 +13,6 @@
  *
  * b[1] = 10;
  */
-const arrClone = (arr: any): any[] => Array.from(arr);
+const arrClone = Array.from;
 
 export default arrClone;

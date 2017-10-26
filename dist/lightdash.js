@@ -680,7 +680,7 @@ const arrChunk = (arr, chunk) => {
  *
  * b[1] = 10;
  */
-const arrClone = arr => Array.from(arr);
+const arrClone = Array.from;
 
 /**
  * Maps the values of the input array with the iterator function and return the result
