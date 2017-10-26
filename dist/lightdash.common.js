@@ -902,7 +902,7 @@ const objClone = (obj) => Object.assign({}, obj);
  * objMap({a:4, b:2},val=>val*2)
  */
 const objMap = (obj, fn) => {
-    const objNew = obj;
+    const objNew = objClone(obj);
     forEachEntry(objNew, (val, key, index) => {
         objNew[key] = fn(val, key, index, objNew);
     });
