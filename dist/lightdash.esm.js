@@ -898,7 +898,7 @@ const objClone = (obj) => Object.assign({}, obj);
  * objMap({a:4, b:2},val=>val*2)
  */
 const objMap = (obj, fn) => {
-    const objNew = objClone(obj);
+    const objNew = obj;
     forEachEntry(objNew, (val, key, index) => {
         objNew[key] = fn(val, key, index, objNew);
     });
@@ -958,6 +958,34 @@ const objCloneDeep = (obj) => objMapDeep(objClone(obj), (val) => isObject(val) ?
  * objDefaults({a:1,c:5},{a:1,b:2,c:3})
  */
 const objDefaults = (obj, objDefault) => objMap(objDefault, (val, key) => isNil(obj[key]) ? val : obj[key]);
+
+/**
+ * Recursively sets every nil property of object to the value from the default object
+ *
+ * @function objDefaultsDeep
+ * @memberof Object
+ * @since 2.7.0
+ * @param {Object} obj
+ * @param {Object} objDefault
+ * @returns {Object}
+ * @example
+ * //returns a = {a:[1,2,3],b:2,c:{f:'x'}}
+ * objDefaultsDeep({a:[1,2],c:{f:'x'}},{a:[1,2,3],b:2,c:{f:'y'}})
+ */
+const objDefaultsDeep = (obj, objDefault) => objMap(objDefault, (val, key) => {
+    const valGiven = obj[key];
+    if (isObject(val)) {
+        if (isObject(valGiven)) {
+            return objDefaultsDeep(valGiven, val);
+        }
+        else {
+            return val;
+        }
+    }
+    else {
+        return isNil(valGiven) ? val : valGiven;
+    }
+});
 
 /**
  * Returns an array of the objects values
@@ -1110,4 +1138,4 @@ const numberRandomInt = (min = 0, max = 1) => Math.floor(numberRandomFloat(min, 
  * @namespace Number
  */
 
-export { isSame, isEqual, isInstanceOf, isTypeOf, isUndefined, isDefined, isNil, isObject, isObjectLike, isArray, isArrayLike, isMap, isSet, isEmpty, isPrimitive, isNumber, isString, isStringNumber, isBoolean, isSymbol, hasKey, hasPath, getPath, forTimes, forEach, forEachDeep, forEachEntry, forEachEntryDeep, arrClone, arrCloneDeep, arrMap, arrMapDeep, arrFlattenDeep, arrCompact, arrChunk, arrStep, arrCount, arrDifference, arrIntersection, arrUniq, objClone, objCloneDeep, objMap, objMapDeep, objDefaults, objKeys, objValues, objEntries, mapFromObject, numberInRange, numberClamp, numberRandomFloat, numberRandomInt };
+export { isSame, isEqual, isInstanceOf, isTypeOf, isUndefined, isDefined, isNil, isObject, isObjectLike, isArray, isArrayLike, isMap, isSet, isEmpty, isPrimitive, isNumber, isString, isStringNumber, isBoolean, isSymbol, hasKey, hasPath, getPath, forTimes, forEach, forEachDeep, forEachEntry, forEachEntryDeep, arrClone, arrCloneDeep, arrMap, arrMapDeep, arrFlattenDeep, arrCompact, arrChunk, arrStep, arrCount, arrDifference, arrIntersection, arrUniq, objClone, objCloneDeep, objMap, objMapDeep, objDefaults, objDefaultsDeep, objKeys, objValues, objEntries, mapFromObject, numberInRange, numberClamp, numberRandomFloat, numberRandomInt };

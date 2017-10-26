@@ -895,7 +895,7 @@ const objClone = obj => Object.assign({}, obj);
  * objMap({a:4, b:2},val=>val*2)
  */
 const objMap = (obj, fn) => {
-    const objNew = objClone(obj);
+    const objNew = obj;
     forEachEntry(objNew, (val, key, index) => {
         objNew[key] = fn(val, key, index, objNew);
     });
@@ -954,6 +954,32 @@ const objCloneDeep = obj => objMapDeep(objClone(obj), val => isObject(val) ? obj
  * objDefaults({a:1,c:5},{a:1,b:2,c:3})
  */
 const objDefaults = (obj, objDefault) => objMap(objDefault, (val, key) => isNil(obj[key]) ? val : obj[key]);
+
+/**
+ * Recursively sets every nil property of object to the value from the default object
+ *
+ * @function objDefaultsDeep
+ * @memberof Object
+ * @since 2.7.0
+ * @param {Object} obj
+ * @param {Object} objDefault
+ * @returns {Object}
+ * @example
+ * //returns a = {a:[1,2,3],b:2,c:{f:'x'}}
+ * objDefaultsDeep({a:[1,2],c:{f:'x'}},{a:[1,2,3],b:2,c:{f:'y'}})
+ */
+const objDefaultsDeep = (obj, objDefault) => objMap(objDefault, (val, key) => {
+    const valGiven = obj[key];
+    if (isObject(val)) {
+        if (isObject(valGiven)) {
+            return objDefaultsDeep(valGiven, val);
+        } else {
+            return val;
+        }
+    } else {
+        return isNil(valGiven) ? val : valGiven;
+    }
+});
 
 /**
  * Returns an array of the objects values
@@ -1148,6 +1174,7 @@ exports.objCloneDeep = objCloneDeep;
 exports.objMap = objMap;
 exports.objMapDeep = objMapDeep;
 exports.objDefaults = objDefaults;
+exports.objDefaultsDeep = objDefaultsDeep;
 exports.objKeys = objKeys;
 exports.objValues = objValues;
 exports.objEntries = objEntries;

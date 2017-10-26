@@ -1,21 +1,18 @@
 "use strict";
 
 const {
-    arrChunk
+    objDefaultsDeep
 } = require("./dist/lightdash.common");
 
-
-const objDefault = {
-    a: 1,
+console.log(objDefaultsDeep({
+    a: [1, 2],
+    c: {
+        f: 'x'
+    }
+}, {
+    a: [1, 2, 3],
     b: 2,
-    c: 3
-};
-
-const obj = {
-    a: 1,
-    c: 5
-};
-
-
-
-console.log(arrChunk([1, 2, 3, 4, 5, 6], 2));
+    c: {
+        f: 'y'
+    }
+}));

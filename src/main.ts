@@ -70,6 +70,7 @@ import arrUniq from "./arr/uniq";
 import objClone from "./obj/clone";
 import objCloneDeep from "./obj/cloneDeep";
 import objDefaults from "./obj/defaults";
+import objDefaultsDeep from "./obj/defaultsDeep";
 import objEntries from "./obj/entries";
 import objKeys from "./obj/keys";
 import objMap from "./obj/map";
@@ -142,6 +143,7 @@ export {
     objMap,
     objMapDeep,
     objDefaults,
+    objDefaultsDeep,
     objKeys,
     objValues,
     objEntries,

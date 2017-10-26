@@ -18,7 +18,7 @@ import objClone from "./clone";
  * objMap({a:4, b:2},val=>val*2)
  */
 const objMap = (obj: object, fn: ForEachEntryIterator): object => {
-    const objNew: { [key: string]: any } = objClone(obj);
+    const objNew: { [key: string]: any } = obj;
 
     forEachEntry(objNew, (val, key, index) => {
         objNew[key] = fn(val, key, index, objNew);
