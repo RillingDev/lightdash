@@ -14,6 +14,6 @@ import {
  * //returns [["a",1],["b",2],["c",3]]
  * objEntries({a:1,b:2,c:3})
  */
-const objEntries = (obj: object): Entry[] => Object.entries(obj);
+const objEntries = Object.entries;
 
 export default objEntries;

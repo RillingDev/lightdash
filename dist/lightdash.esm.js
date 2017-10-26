@@ -15,7 +15,7 @@
  * // returns false
  * isArray({});
  */
-const isArray = (val) => Array.isArray(val);
+const isArray = Array.isArray;
 
 /**
  * Checks if the value has a certain type-string
@@ -204,7 +204,7 @@ const isBoolean = (val) => isTypeOf(val, "boolean");
  * //returns ["a","b","c"]
  * objKeys({a:1,b:2,c:3})
  */
-const objKeys = (obj) => Object.keys(obj);
+const objKeys = Object.keys;
 
 /**
  * Checks if a value is a string
@@ -267,7 +267,7 @@ const isEmpty = (val) => {
  * //returns [["a",1],["b",2],["c",3]]
  * objEntries({a:1,b:2,c:3})
  */
-const objEntries = (obj) => Object.entries(obj);
+const objEntries = Object.entries;
 
 /**
  * Iterates over each element in an array
@@ -971,7 +971,7 @@ const objDefaults = (obj, objDefault) => objMap(objDefault, (val, key) => isNil(
  * //returns [1,2,3]
  * objValues({a:1,b:2,c:3})
  */
-const objValues = (obj) => Object.values(obj);
+const objValues = Object.values;
 
 /**
  * Creates a map from an object

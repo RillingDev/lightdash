@@ -15,6 +15,6 @@
  * // returns false
  * isArray({});
  */
-const isArray = (val: any): boolean => Array.isArray(val);
+const isArray = Array.isArray;
 
 export default isArray;

@@ -10,6 +10,6 @@
  * //returns [1,2,3]
  * objValues({a:1,b:2,c:3})
  */
-const objValues = (obj: object): any[] => Object.values(obj);
+const objValues = Object.values;
 
 export default objValues;

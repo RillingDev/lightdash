@@ -10,6 +10,6 @@
  * //returns ["a","b","c"]
  * objKeys({a:1,b:2,c:3})
  */
-const objKeys = (obj: object): string[] => Object.keys(obj);
+const objKeys = Object.keys;
 
 export default objKeys;
