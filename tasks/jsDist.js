@@ -20,13 +20,11 @@ const options_babel = {
 };
 
 bundle([{
-    id: "es",
-    ext: ".esm",
-    name: "ES",
+    type: "es",
+    ext: ".esm"
 }, {
-    id: "cjs",
-    ext: ".common",
-    name: "CommonJS",
+    type: "cjs",
+    ext: ".common"
 }], [
     typescript({
         typescript: typescript_core
@@ -34,9 +32,8 @@ bundle([{
 ]);
 
 bundle([{
-    id: "iife",
-    ext: "",
-    name: "IIFE",
+    type: "iife",
+    ext: ""
 }], [
     typescript({
         typescript: typescript_core
@@ -45,9 +42,8 @@ bundle([{
 ]);
 
 bundle([{
-    id: "iife",
-    ext: ".min",
-    name: "IIFE:min",
+    type: "iife",
+    ext: ".min"
 }], [
     typescript({
         typescript: typescript_core
