@@ -18,6 +18,6 @@ import forEachEntry from "./eachEntry";
  * forEachEntryDeep(a,(val,key,index,obj)=>obj[key]=index*val)
  */
 const forEachEntryDeep = (obj: object, fn: forEachEntryIterator): void => forEachEntry(obj,
-    (val, key, index) => isObject(val) ? forEachEntryDeep(val, fn) : fn(val, key, index, obj));
+    (val: any, key: any, index: number) => isObject(val) ? forEachEntryDeep(val, fn) : fn(val, key, index, obj));
 
 export default forEachEntryDeep;

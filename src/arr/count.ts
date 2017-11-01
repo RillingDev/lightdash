@@ -13,9 +13,10 @@ import forEach from "../for/each";
  * arrCount([1,1,2,2,1,3,4,1])
  */
 const arrCount = (arr: any[]): Map<any, number> => {
-    const result: Map<any, number> = new Map();
+    const result: Map<any, number> = new Map<any, number>();
 
     forEach(arr, (val: any) => {
+        // @ts-ignore
         result.set(val, result.has(val) ? result.get(val) + 1 : 1);
     });
 

@@ -11,6 +11,6 @@
  * //returns [1,3,5]
  * arrStep([1,2,3,4,5,6],2)
  */
-const arrStep = (arr: any[], step: number): any[] => arr.filter((val, index) => index % step === 0);
+const arrStep = (arr: any[], step: number): any[] => arr.filter((val: any, index: number) => index % step === 0);
 
 export default arrStep;

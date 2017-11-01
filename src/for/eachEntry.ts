@@ -19,7 +19,8 @@ import forEach from "./each";
  * forEachEntry(a,(val,key,index)=>a[key]=val*index)
  */
 const forEachEntry = (obj: object, fn: forEachEntryIterator): void => {
-    forEach(objEntries(obj), (entry, index) => {
+    forEach(objEntries(obj), (entry: IEntry, index: number) => {
+        // @ts-ignore
         fn(entry[1], entry[0], index, obj);
     });
 };

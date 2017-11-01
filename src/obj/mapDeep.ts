@@ -17,12 +17,13 @@ import objMap from "./map";
  * //returns {a:{b:4,c:[20,40]}}
  * arrMapDeep({a:{b:2,c:[10,20]}},val=>val*2)
  */
-const objMapDeep = (obj: object, fn: forEachEntryIterator): object => objMap(obj, (val, key, index, objNew) => {
-    if (isObject(val)) {
-        return objMapDeep(val, fn);
-    } else {
-        return fn(val, key, index, objNew);
-    }
-});
+const objMapDeep = (obj: object, fn: forEachEntryIterator): object => objMap(obj,
+    (val: any, key: string, index: number, objNew: object) => {
+        if (isObject(val)) {
+            return objMapDeep(val, fn);
+        } else {
+            return fn(val, key, index, objNew);
+        }
+    });
 
 export default objMapDeep;

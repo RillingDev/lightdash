@@ -300,6 +300,7 @@ const forEach = (arr, fn) => arr.forEach(fn);
  */
 const forEachEntry = (obj, fn) => {
     forEach(objEntries(obj), (entry, index) => {
+        // @ts-ignore
         fn(entry[1], entry[0], index, obj);
     });
 };
@@ -758,6 +759,7 @@ const arrCompact = arr => arr.filter(val => !isNil(val) && !isEmpty(val));
 const arrCount = arr => {
     const result = new Map();
     forEach(arr, val => {
+        // @ts-ignore
         result.set(val, result.has(val) ? result.get(val) + 1 : 1);
     });
     return result;

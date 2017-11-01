@@ -13,6 +13,6 @@ import isNil from "../is/nil";
  * //returns [1,2,3,4,5]
  * arrCompact([1,"","",2,3,null,4,undefined,5,""])
  */
-const arrCompact = (arr: any[]): any[] => arr.filter((val) => !isNil(val) && !isEmpty(val));
+const arrCompact = (arr: any[]): any[] => arr.filter((val: any) => !isNil(val) && !isEmpty(val));
 
 export default arrCompact;

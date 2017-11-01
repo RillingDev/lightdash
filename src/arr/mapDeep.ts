@@ -19,6 +19,6 @@ import arrMap from "./map";
  */
 const arrMapDeep = (arr: any[], fn: forEachIterator): any[] => arrMap(
     arr,
-    (val, index) => isArray(val) ? arrMapDeep(val, fn) : fn(val, index, arr));
+    (val: any, index: number) => isArray(val) ? arrMapDeep(val, fn) : fn(val, index, arr));
 
 export default arrMapDeep;

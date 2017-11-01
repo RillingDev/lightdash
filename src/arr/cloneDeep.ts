@@ -19,6 +19,6 @@ import arrMapDeep from "./mapDeep";
  */
 const arrCloneDeep = (arr: any): any[] => arrMapDeep(
     arrClone(arr),
-    (val) => isArray(val) ? arrClone(val) : val);
+    (val: any) => isArray(val) ? arrClone(val) : val);
 
 export default arrCloneDeep;
