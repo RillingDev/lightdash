@@ -20,7 +20,7 @@ import isArray from "../is/array";
 const arrFlattenDeep = (arr: any[]) => {
     const result: any[] = [];
 
-    forEach(arr, (val) => {
+    forEach(arr, (val: any) => {
         if (isArray(val)) {
             result.push(...arrFlattenDeep(val));
         } else {

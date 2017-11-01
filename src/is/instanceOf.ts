@@ -1,6 +1,6 @@
 import {
-    Class,
-} from "../types";
+    IGenericClass,
+} from "../lightdash.d";
 
 /**
  * Checks if the value is an instance of a target constructor
@@ -22,6 +22,6 @@ import {
  * isInstanceOf({},Array)
  * isInstanceOf([],Map)
  */
-const isInstanceOf = (val: any, target: Class): boolean => val instanceof target;
+const isInstanceOf = (val: any, target: IGenericClass): boolean => val instanceof target;
 
 export default isInstanceOf;

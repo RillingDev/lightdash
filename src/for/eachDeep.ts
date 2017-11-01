@@ -1,7 +1,7 @@
 import isArray from "../is/array";
 import {
-    ForEachIterator,
-} from "../types";
+    forEachIterator,
+} from "../lightdash.d";
 import forEach from "./each";
 
 /**
@@ -17,7 +17,7 @@ import forEach from "./each";
  *
  * forEachDeep(a,(val,index,arr)=>arr[index]=index*val)
  */
-const forEachDeep = (arr: any[], fn: ForEachIterator): void => forEach(arr,
-    (val, index) => isArray(val) ? forEachDeep(val, fn) : fn(val, index, arr));
+const forEachDeep = (arr: any[], fn: forEachIterator): void => forEach(arr,
+    (val: any, index: number) => isArray(val) ? forEachDeep(val, fn) : fn(val, index, arr));
 
 export default forEachDeep;

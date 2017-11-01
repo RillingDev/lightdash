@@ -1,6 +1,6 @@
 import {
-    ForEachIterator,
-} from "../types";
+    forEachIterator,
+} from "../lightdash.d";
 
 /**
  * Maps the values of the input array with the iterator function and return the result
@@ -15,6 +15,6 @@ import {
  * //returns [4,8]
  * arrMap([2,4],val=>val*2)
  */
-const arrMap = (arr: any[], fn: ForEachIterator): any[] => arr.map(fn);
+const arrMap = (arr: any[], fn: forEachIterator): any[] => arr.map(fn);
 
 export default arrMap;

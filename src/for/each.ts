@@ -1,6 +1,6 @@
 import {
-    ForEachIterator,
-} from "../types";
+    forEachIterator,
+} from "../lightdash.d";
 
 /**
  * Iterates over each element in an array
@@ -15,6 +15,6 @@ import {
  *
  * forEach(a,(val,index)=>a[index]=val*index)
  */
-const forEach = (arr: any[], fn: ForEachIterator): void => arr.forEach(fn);
+const forEach = (arr: any[], fn: forEachIterator): void => arr.forEach(fn);
 
 export default forEach;

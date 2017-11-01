@@ -2,7 +2,7 @@ import isNil from "../is/nil";
 import isObject from "../is/object";
 import {
     IGenericObject,
-} from "../types";
+} from "../lightdash.d";
 import objMap from "./map";
 
 /**

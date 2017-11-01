@@ -1,7 +1,7 @@
 import isNil from "../is/nil";
 import {
     IGenericObject,
-} from "../types";
+} from "../lightdash.d";
 import objMap from "./map";
 
 /**

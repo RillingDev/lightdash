@@ -1,6 +1,6 @@
 import {
-    ForTimesIterator,
-} from "../types";
+    forTimesIterator,
+} from "../lightdash.d";
 
 /**
  * Wrapper around a simple for-loop
@@ -17,7 +17,7 @@ import {
  *
  * forTimes(1,6,1,val=>a.push(val*2))
  */
-const forTimes = (start: number, max: number, increase: number, fn: ForTimesIterator): void => {
+const forTimes = (start: number, max: number, increase: number, fn: forTimesIterator): void => {
     for (let index = start; index <= max; index += increase) {
         fn(index);
     }

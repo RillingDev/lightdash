@@ -3,6 +3,10 @@
         "strict": true,
         "module": "esnext",
         "target": "esnext",
-        "moduleResolution": "node"
+        "moduleResolution": "node",
+        "noImplicitAny": true,
+        "removeComments": false,
+        "preserveConstEnums": true,
+        "experimentalDecorators": true
     }
 }

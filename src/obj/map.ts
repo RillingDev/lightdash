@@ -1,7 +1,7 @@
 import forEachEntry from "../for/eachEntry";
 import {
-    ForEachEntryIterator,
-} from "../types";
+    forEachEntryIterator,
+} from "../lightdash.d";
 import objClone from "./clone";
 
 /**
@@ -17,7 +17,7 @@ import objClone from "./clone";
  * //returns a = {a:8, b:4}
  * objMap({a:4, b:2},val=>val*2)
  */
-const objMap = (obj: object, fn: ForEachEntryIterator): object => {
+const objMap = (obj: object, fn: forEachEntryIterator): object => {
     const objNew: { [key: string]: any } = objClone(obj);
 
     forEachEntry(objNew, (val, key, index) => {
