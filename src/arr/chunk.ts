@@ -23,7 +23,7 @@ const arrChunk = (arr: any[], chunk: number): any[] => {
     } else {
         const result: any[] = [];
 
-        forTimes(0, arr.length - 1, chunk, (index) => {
+        forTimes(0, arr.length - 1, chunk, (index: number) => {
             result.push(arr.slice(index, index + chunk));
         });
 

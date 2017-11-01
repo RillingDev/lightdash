@@ -19,6 +19,6 @@ import objMap from "./map";
  */
 const objDefaults = (obj: IGenericObject, objDefault: object): object => objMap(
     objDefault,
-    (val, key) => isNil(obj[key]) ? val : obj[key]);
+    (val: any, key: string) => isNil(obj[key]) ? val : obj[key]);
 
 export default objDefaults;

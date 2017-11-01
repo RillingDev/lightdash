@@ -20,7 +20,7 @@ import objMap from "./map";
  */
 const objDefaultsDeep = (obj: IGenericObject, objDefault: object): object => objMap(
     objDefault,
-    (val, key) => {
+    (val: any, key: string) => {
         const valGiven = obj[key];
 
         if (isObject(val)) {

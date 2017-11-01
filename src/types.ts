@@ -12,6 +12,7 @@ interface IGenericObject {
 export {
     Class,
     Entry,
+
     ForTimesIterator,
     ForEachEntryIterator,
     ForEachIterator,
