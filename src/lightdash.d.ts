@@ -1,4 +1,4 @@
-type forTimesIterator = (val?: number) => void;
+type forTimesIterator = (index?: number) => void;
 type forEachIterator = (val?: any, index?: number, arr?: any[]) => void;
 type forEachEntryIterator = (val?: any, key?: string, index?: number, obj?: object) => void;
 
