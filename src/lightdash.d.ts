@@ -1,6 +1,9 @@
-type forTimesIterator = (index?: number) => void;
-type forEachIterator = (val?: any, index?: number, arr?: any[]) => void;
-type forEachEntryIterator = (val?: any, key?: string, index?: number, obj?: object) => void;
+type forTimesIterator = (index?: any) => void;
+type forEachIterator = (val?: any, index?: any, arr?: any[]) => void;
+type forEachEntryIterator = (val?: any, key?: any, index?: any, obj?: object) => void;
+
+type entry = [string, any];
+type entries = entry[];
 
 interface IGenericObject {
     [key: string]: any;
@@ -8,16 +11,15 @@ interface IGenericObject {
 interface IGenericClass {
     new(): any
 }
-interface IEntry {
-    [index: number]: Array<[string, any]>;
-}
 
 export {
     forTimesIterator,
     forEachIterator,
     forEachEntryIterator,
 
+    entry,
+    entries,
+
     IGenericObject,
-    IGenericClass,
-    IEntry,
+    IGenericClass
 };

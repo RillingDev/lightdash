@@ -1,7 +1,3 @@
-import {
-    IEntry,
-} from "../lightdash.d";
-
 /**
  * Returns an array of the objects entries
  *

@@ -1,6 +1,6 @@
 import {
+    entries,
     forEachEntryIterator,
-    IEntry,
 } from "../lightdash.d";
 import objEntries from "../obj/entries";
 import forEach from "./each";
@@ -19,8 +19,7 @@ import forEach from "./each";
  * forEachEntry(a,(val,key,index)=>a[key]=val*index)
  */
 const forEachEntry = (obj: object, fn: forEachEntryIterator): void => {
-    forEach(objEntries(obj), (entry: IEntry, index: number) => {
-        // @ts-ignore
+    forEach(objEntries(obj), (entry: entries, index: number) => {
         fn(entry[1], entry[0], index, obj);
     });
 };
