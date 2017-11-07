@@ -1,6 +1,8 @@
 /**
  * Checks if a value is an array
  *
+ * Array.isArray shorthand
+ *
  * @function isArray
  * @memberof Is
  * @since 1.0.0

@@ -4,6 +4,8 @@ var _ = (function (exports) {
 /**
  * Checks if a value is an array
  *
+ * Array.isArray shorthand
+ *
  * @function isArray
  * @memberof Is
  * @since 1.0.0
@@ -198,6 +200,8 @@ const isBoolean = val => isTypeOf(val, "boolean");
 /**
  * Returns an array of the objects keys
  *
+ * Object.keys shorthand
+ *
  * @function objKeys
  * @memberof Object
  * @since 1.0.0
@@ -258,6 +262,8 @@ const isEmpty = val => {
 
 /**
  * Returns an array of the objects entries
+ *
+ * Object.entries shorthand
  *
  * @function objEntries
  * @memberof Object
@@ -389,8 +395,7 @@ const isEqual = (a, b) => {
 };
 
 /**
- * Checks if a value qequals false
- * val === false shorthand
+ * Checks if a value equals false
  *
  * @function isFalse
  * @memberof Is
@@ -547,7 +552,6 @@ const isSymbol = val => isTypeOf(val, "symbol");
 
 /**
  * Checks if a value qequals true
- * val === true shorthand
  *
  * @function isFalse
  * @memberof Is
@@ -568,6 +572,7 @@ const isTrue = val => val === true;
 
 /**
  * Checks if an object has a certain own key
+ *
  * obj.hasOwnProperty shorthand
  *
  * @function hasOwnProperty
@@ -590,6 +595,7 @@ const hasOwnProperty = (obj, key) => obj.hasOwnProperty(key);
 
 /**
  * Accesses a target by a path-array of key-strings
+ *
  * If the path doesn't exist, null is returned
  *
  * @function getPath
@@ -731,6 +737,7 @@ const arrChunk = (arr, chunk) => {
 
 /**
  * Creates a new array with the values of the input iterable
+ *
  * Array.from shorthand
  *
  * @function arrClone
@@ -1107,6 +1114,7 @@ const objDefaultsDeep = (obj, objDefault) => objMap(objDefault, (val, key) => {
 
 /**
  * Adds a property to an object with optional custom flags
+ *
  * Object.defineProperty shorthand
  *
  * @function objDefineProperty
@@ -1133,6 +1141,7 @@ const objDefineProperty = (obj, key, val, enumerable = true, writable = true, co
 
 /**
  * Merges contents of two objects
+ *
  * Object.assign shorthand
  *
  * @function objMerge
@@ -1149,6 +1158,8 @@ const objMerge = Object.assign;
 
 /**
  * Returns an array of the objects values
+ *
+ * Object.values shorthand
  *
  * @function objValues
  * @memberof Object

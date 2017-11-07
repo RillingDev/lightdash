@@ -1,6 +1,8 @@
 /**
  * Returns an array of the objects values
  *
+ * Object.values shorthand
+ *
  * @function objValues
  * @memberof Object
  * @since 1.0.0

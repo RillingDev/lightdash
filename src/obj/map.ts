@@ -1,7 +1,7 @@
 import forEachEntry from "../for/eachEntry";
 import {
     forEachEntryIterator,
-    IGenericObject
+    IGenericObject,
 } from "../lightdash.d";
 import objClone from "./clone";
 

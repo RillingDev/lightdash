@@ -1,6 +1,5 @@
 /**
- * Checks if a value qequals false
- * val === false shorthand
+ * Checks if a value equals false
  *
  * @function isFalse
  * @memberof Is
