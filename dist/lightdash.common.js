@@ -529,6 +529,27 @@ const isStringNumber = (val) => !isNaN(Number(val));
 const isSymbol = (val) => isTypeOf(val, "symbol");
 
 /**
+ * obj.hasOwnProperty shorthand
+ *
+ * @function hasOwnProperty
+ * @memberof Has
+ * @since 2.8.0
+ * @param {Object} obj
+ * @param {string} key
+ * @returns {boolean}
+ * @example
+ * //returns true
+ * hasOwnProperty([1,2,3],"0")
+ * hasOwnProperty({length:0},"length")
+ *
+ * @example
+ * //returns false
+ * hasOwnProperty([],"forEach")
+ * hasOwnProperty("foo","replace")
+ */
+const hasOwnProperty = (obj, key) => obj.hasOwnProperty(key);
+
+/**
  * Accesses a target by a path-array of key-strings
  * If the path doesn't exist, null is returned
  *
@@ -1204,6 +1225,7 @@ exports.isBoolean = isBoolean;
 exports.isSymbol = isSymbol;
 exports.hasKey = hasKey;
 exports.hasPath = hasPath;
+exports.hasOwnProperty = hasOwnProperty;
 exports.getPath = getPath;
 exports.forTimes = forTimes;
 exports.forEach = forEach;

@@ -28,6 +28,7 @@ import isUndefined from "./is/undefined";
  * @namespace Has
  */
 import hasKey from "./has/key";
+import hasOwnProperty from "./has/ownProperty";
 import hasPath from "./has/path";
 
 /**
@@ -118,6 +119,7 @@ export {
 
     hasKey,
     hasPath,
+    hasOwnProperty,
 
     getPath,
 
