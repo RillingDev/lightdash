@@ -10,8 +10,8 @@ import arrRemoveIndex from "./removeIndex";
  * @param {any} item
  * @returns {any[]}
  * @example
- * //returns [1,2,3,4,5,6]
- * arrRemoveItem([1,2,3,4,5,6],6)
+ * //returns ["foo","fizz"]
+ * arrRemoveItem(["foo","bar","fizz"],"bar")
  */
 const arrRemoveItem = (arr: any[], item: any): any[] =>
     arr.includes(item) ?

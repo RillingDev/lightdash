@@ -10,8 +10,8 @@ import numberInRange from "../number/inRange";
  * @param {number} index
  * @returns {any[]}
  * @example
- * //returns [1,2,4,5,6]
- * arrRemoveIndex([1,2,3,4,5,6],2)
+ * //returns ["foo","fizz"]
+ * arrRemoveIndex(["foo","bar","fizz"],1)
  */
 const arrRemoveIndex = (arr: any[], index: number): any[] => {
     if (numberInRange(index, 0, arr.length - 1)) {

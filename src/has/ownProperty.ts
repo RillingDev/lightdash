@@ -1,4 +1,5 @@
 /**
+ * Checks if an object has a certain own key
  * obj.hasOwnProperty shorthand
  *
  * @function hasOwnProperty

@@ -1,4 +1,5 @@
 /**
+ * Checks if a value qequals true
  * val === true shorthand
  *
  * @function isFalse

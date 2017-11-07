@@ -389,6 +389,7 @@ const isEqual = (a, b) => {
 };
 
 /**
+ * Checks if a value qequals false
  * val === false shorthand
  *
  * @function isFalse
@@ -545,6 +546,7 @@ const isStringNumber = val => !isNaN(Number(val));
 const isSymbol = val => isTypeOf(val, "symbol");
 
 /**
+ * Checks if a value qequals true
  * val === true shorthand
  *
  * @function isFalse
@@ -565,6 +567,7 @@ const isSymbol = val => isTypeOf(val, "symbol");
 const isTrue = val => val === true;
 
 /**
+ * Checks if an object has a certain own key
  * obj.hasOwnProperty shorthand
  *
  * @function hasOwnProperty
@@ -728,6 +731,7 @@ const arrChunk = (arr, chunk) => {
 
 /**
  * Creates a new array with the values of the input iterable
+ * Array.from shorthand
  *
  * @function arrClone
  * @memberof Array
@@ -929,8 +933,8 @@ const numberInRange = (val, min, max) => val >= min && val <= max;
  * @param {number} index
  * @returns {any[]}
  * @example
- * //returns [1,2,4,5,6]
- * arrRemoveIndex([1,2,3,4,5,6],2)
+ * //returns ["foo","fizz"]
+ * arrRemoveIndex(["foo","bar","fizz"],1)
  */
 const arrRemoveIndex = (arr, index) => {
     if (numberInRange(index, 0, arr.length - 1)) {
@@ -950,8 +954,8 @@ const arrRemoveIndex = (arr, index) => {
  * @param {any} item
  * @returns {any[]}
  * @example
- * //returns [1,2,3,4,5,6]
- * arrRemoveItem([1,2,3,4,5,6],6)
+ * //returns ["foo","fizz"]
+ * arrRemoveItem(["foo","bar","fizz"],"bar")
  */
 const arrRemoveItem = (arr, item) => arr.includes(item) ? arrRemoveIndex(arr, arr.indexOf(item)) : arr;
 
@@ -1102,7 +1106,8 @@ const objDefaultsDeep = (obj, objDefault) => objMap(objDefault, (val, key) => {
 });
 
 /**
- * Shorthand for Object.defineProperty
+ * Adds a property to an object with optional custom flags
+ * Object.defineProperty shorthand
  *
  * @function objDefineProperty
  * @memberof Object
@@ -1128,6 +1133,7 @@ const objDefineProperty = (obj, key, val, enumerable = true, writable = true, co
 
 /**
  * Merges contents of two objects
+ * Object.assign shorthand
  *
  * @function objMerge
  * @memberof Object

@@ -1,5 +1,6 @@
 /**
  * Merges contents of two objects
+ * Object.assign shorthand
  *
  * @function objMerge
  * @memberof Object
