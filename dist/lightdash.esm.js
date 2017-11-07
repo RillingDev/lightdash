@@ -900,6 +900,70 @@ const arrIntersection = (arr, ...values) => {
 };
 
 /**
+ * Checks if a number is in the given range
+ *
+ * @function numberInRange
+ * @memberof Number
+ * @since 1.0.0
+ * @param {number} val
+ * @param {number} min
+ * @param {number} max
+ * @returns {boolean}
+ * @example
+ * //returns true
+ * numberInRange(0.5,0,1)
+ * numberInRange(1,0,1)
+ * numberInRange(0,-5,5)
+ *
+ * @example
+ * //returns false
+ * numberInRange(-1,0,5)
+ * numberInRange(10,0,5)
+ */
+const numberInRange = (val, min, max) => val >= min && val <= max;
+
+/**
+ * Returns a new array with the item at the index removed
+ *
+ * @function arrRemoveIndex
+ * @memberof Array
+ * @since 2.8.0
+ * @param {any[]} arr
+ * @param {number} index
+ * @returns {any[]}
+ * @example
+ * //returns [1,2,4,5,6]
+ * arrRemoveIndex([1,2,3,4,5,6],2)
+ */
+const arrRemoveIndex = (arr, index) => {
+    if (numberInRange(index, 0, arr.length - 1)) {
+        return index === 0 ?
+            arr.slice(1) :
+            arr.slice(0, index).concat(arr.slice(index + 1));
+    }
+    else {
+        return arr;
+    }
+};
+
+/**
+ * Returns a new array with the first occurence of the item removed
+ *
+ * @function arrRemoveItem
+ * @memberof Array
+ * @since 2.8.0
+ * @param {any[]} arr
+ * @param {any} item
+ * @returns {any[]}
+ * @example
+ * //returns [1,2,3,4,5,6]
+ * arrRemoveItem([1,2,3,4,5,6],6)
+ */
+const arrRemoveItem = (arr, item) => arr.includes(item) ?
+    arrRemoveIndex(arr, arr.indexOf(item)) :
+    arr;
+
+/**
  * Returns a new array with every n-th item from the input array
  *
  * @function arrStep
@@ -1151,29 +1215,6 @@ const numberClamp = (val, min, max) => {
 };
 
 /**
- * Checks if a number is in the given range
- *
- * @function numberInRange
- * @memberof Number
- * @since 1.0.0
- * @param {number} val
- * @param {number} min
- * @param {number} max
- * @returns {boolean}
- * @example
- * //returns true
- * numberInRange(0.5,0,1)
- * numberInRange(1,0,1)
- * numberInRange(0,-5,5)
- *
- * @example
- * //returns false
- * numberInRange(-1,0,5)
- * numberInRange(10,0,5)
- */
-const numberInRange = (val, min, max) => val >= min && val <= max;
-
-/**
  * Return a random float number in the range
  *
  * @function numberRandomFloat
@@ -1239,4 +1280,4 @@ const numberRandomInt = (min = 0, max = 1) => Math.floor(numberRandomFloat(min, 
  * @namespace Number
  */
 
-export { isSame, isEqual, isInstanceOf, isTypeOf, isTrue, isFalse, isUndefined, isDefined, isNil, isObject, isObjectLike, isArray, isArrayLike, isMap, isSet, isEmpty, isPrimitive, isNumber, isString, isStringNumber, isBoolean, isSymbol, hasKey, hasPath, hasOwnProperty, getPath, forTimes, forEach, forEachDeep, forEachEntry, forEachEntryDeep, arrClone, arrCloneDeep, arrMap, arrMapDeep, arrFlattenDeep, arrCompact, arrChunk, arrStep, arrCount, arrDifference, arrIntersection, arrUniq, objClone, objCloneDeep, objMap, objMapDeep, objDefaults, objDefaultsDeep, objMerge, objDefineProperty, objKeys, objValues, objEntries, mapFromObject, numberInRange, numberClamp, numberRandomFloat, numberRandomInt };
+export { isSame, isEqual, isInstanceOf, isTypeOf, isTrue, isFalse, isUndefined, isDefined, isNil, isObject, isObjectLike, isArray, isArrayLike, isMap, isSet, isEmpty, isPrimitive, isNumber, isString, isStringNumber, isBoolean, isSymbol, hasKey, hasPath, hasOwnProperty, getPath, forTimes, forEach, forEachDeep, forEachEntry, forEachEntryDeep, arrClone, arrCloneDeep, arrMap, arrMapDeep, arrFlattenDeep, arrCompact, arrChunk, arrStep, arrRemoveIndex, arrRemoveItem, arrCount, arrDifference, arrIntersection, arrUniq, objClone, objCloneDeep, objMap, objMapDeep, objDefaults, objDefaultsDeep, objMerge, objDefineProperty, objKeys, objValues, objEntries, mapFromObject, numberInRange, numberClamp, numberRandomFloat, numberRandomInt };

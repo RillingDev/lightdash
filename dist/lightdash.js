@@ -63,7 +63,7 @@ const isTypeOf = (val, type) => typeof val === type;
  * isUndefined(1)
  * isUndefined(a)
  */
-const isUndefined = (val) => isTypeOf(val, "undefined");
+const isUndefined = val => isTypeOf(val, "undefined");
 
 /**
  * Checks if a value is not undefined
@@ -87,7 +87,7 @@ const isUndefined = (val) => isTypeOf(val, "undefined");
  * isDefined(a.b)
  * isDefined(undefined)
  */
-const isDefined = (val) => !isUndefined(val);
+const isDefined = val => !isUndefined(val);
 
 /**
  * Checks if a target has a certain key
@@ -130,7 +130,7 @@ const hasKey = (target, key) => isDefined(target[key]);
  * isNil(0)
  * isNil({})
  */
-const isNil = (val) => isUndefined(val) || val === null;
+const isNil = val => isUndefined(val) || val === null;
 
 /**
  * Checks if a value is not nil and has a type of object
@@ -150,7 +150,7 @@ const isNil = (val) => isUndefined(val) || val === null;
  * isObjectLike(null)
  * isObjectLike(1)
  */
-const isObjectLike = (val) => !isNil(val) && isTypeOf(val, "object");
+const isObjectLike = val => !isNil(val) && isTypeOf(val, "object");
 
 /**
  * Checks if a value is object-like and has a length property
@@ -172,7 +172,7 @@ const isObjectLike = (val) => !isNil(val) && isTypeOf(val, "object");
  * isArrayLike("foo")
  * isArrayLike(1)
  */
-const isArrayLike = (val) => isObjectLike(val) && hasKey(val, "length");
+const isArrayLike = val => isObjectLike(val) && hasKey(val, "length");
 
 /**
  * Checks if a value is a boolean
@@ -193,7 +193,7 @@ const isArrayLike = (val) => isObjectLike(val) && hasKey(val, "length");
  * isBoolean(null)
  * isBoolean("")
  */
-const isBoolean = (val) => isTypeOf(val, "boolean");
+const isBoolean = val => isTypeOf(val, "boolean");
 
 /**
  * Returns an array of the objects keys
@@ -225,7 +225,7 @@ const objKeys = Object.keys;
  * //returns false
  * isString(1)
  */
-const isString = (val) => isTypeOf(val, "string");
+const isString = val => isTypeOf(val, "string");
 
 /**
  * Checks if an array has no items, a string no contents,  or an object no keys
@@ -246,14 +246,12 @@ const isString = (val) => isTypeOf(val, "string");
  * isEmpty("foo")
  * isEmpty([1,2])
  */
-const isEmpty = (val) => {
+const isEmpty = val => {
     if (isArrayLike(val) || isString(val)) {
         return val.length === 0;
-    }
-    else if (isObjectLike(val)) {
+    } else if (isObjectLike(val)) {
         return objKeys(val).length === 0;
-    }
-    else {
+    } else {
         return false;
     }
 };
@@ -345,7 +343,7 @@ const isInstanceOf = (val, target) => val instanceof target;
  * //returns false
  * isObject(1)
  */
-const isObject = (val) => isInstanceOf(val, Object);
+const isObject = val => isInstanceOf(val, Object);
 
 /**
  * Recursively checks if two items and their the contents are the same
@@ -380,8 +378,7 @@ const isEqual = (a, b) => {
                 if (hasKey(b, key)) {
                     const bVal = b[key];
                     result = isEqual(aVal, bVal);
-                }
-                else {
+                } else {
                     result = false;
                 }
             }
@@ -409,7 +406,7 @@ const isEqual = (a, b) => {
  * isFalse(null)
  * isFalse(0)
  */
-const isFalse = (val) => val === false;
+const isFalse = val => val === false;
 
 /**
  * Checks if a value is a map
@@ -427,7 +424,7 @@ const isFalse = (val) => val === false;
  * //returns false
  * isMap([[1,2]])
  */
-const isMap = (val) => isInstanceOf(val, Map);
+const isMap = val => isInstanceOf(val, Map);
 
 /**
  * Checks if a value is a number
@@ -446,7 +443,7 @@ const isMap = (val) => isInstanceOf(val, Map);
  * //returns false
  * isNumber(null)
  */
-const isNumber = (val) => isTypeOf(val, "number");
+const isNumber = val => isTypeOf(val, "number");
 
 /**
  * Checks if a value is a primitive
@@ -466,7 +463,7 @@ const isNumber = (val) => isTypeOf(val, "number");
  * isPrimitive({})
  * isPrimitive([])
  */
-const isPrimitive = (val) => !isObjectLike(val);
+const isPrimitive = val => !isObjectLike(val);
 
 /**
  * Checks if two values are the same
@@ -508,7 +505,7 @@ const isSame = (a, b) => a === b;
  * //returns false
  * isSet([1,2])
  */
-const isSet = (val) => isInstanceOf(val, Set);
+const isSet = val => isInstanceOf(val, Set);
 
 /**
  * Checks if a value is a string containing a number
@@ -527,7 +524,7 @@ const isSet = (val) => isInstanceOf(val, Set);
  * //returns false
  * isStringNumber("foo")
  */
-const isStringNumber = (val) => !isNaN(Number(val));
+const isStringNumber = val => !isNaN(Number(val));
 
 /**
  * Checks if a value is a symbol
@@ -545,7 +542,7 @@ const isStringNumber = (val) => !isNaN(Number(val));
  * //returns false
  * isSymbol("foo")
  */
-const isSymbol = (val) => isTypeOf(val, "symbol");
+const isSymbol = val => isTypeOf(val, "symbol");
 
 /**
  * val === true shorthand
@@ -565,7 +562,7 @@ const isSymbol = (val) => isTypeOf(val, "symbol");
  * isTrue("foo")
  * isTrue(1)
  */
-const isTrue = (val) => val === true;
+const isTrue = val => val === true;
 
 /**
  * obj.hasOwnProperty shorthand
@@ -618,8 +615,7 @@ const getPath = (target, path) => {
         if (hasKey(targetCurrent, keyCurrent)) {
             targetCurrent = targetCurrent[keyCurrent];
             index++;
-        }
-        else {
+        } else {
             return null;
         }
     }
@@ -721,10 +717,9 @@ const forTimes = (start, max, increase, fn) => {
 const arrChunk = (arr, chunk) => {
     if (chunk < 1) {
         return [];
-    }
-    else {
+    } else {
         const result = [];
-        forTimes(0, arr.length - 1, chunk, (index) => {
+        forTimes(0, arr.length - 1, chunk, index => {
             result.push(arr.slice(index, index + chunk));
         });
         return result;
@@ -793,7 +788,7 @@ const arrMapDeep = (arr, fn) => arrMap(arr, (val, index) => isArray(val) ? arrMa
  *
  * b[3][1][0] = 10;
  */
-const arrCloneDeep = (arr) => arrMapDeep(arrClone(arr), (val) => isArray(val) ? arrClone(val) : val);
+const arrCloneDeep = arr => arrMapDeep(arrClone(arr), val => isArray(val) ? arrClone(val) : val);
 
 /**
  * Returns an array with every empty, undefined or null value filtered out
@@ -807,7 +802,7 @@ const arrCloneDeep = (arr) => arrMapDeep(arrClone(arr), (val) => isArray(val) ? 
  * //returns [1,2,3,4,5]
  * arrCompact([1,"","",2,3,null,4,undefined,5,""])
  */
-const arrCompact = (arr) => arr.filter((val) => !isNil(val) && !isEmpty(val));
+const arrCompact = arr => arr.filter(val => !isNil(val) && !isEmpty(val));
 
 /**
  * Counts how many times an element appears in an array and returns a Map<element: any, count: number>
@@ -821,9 +816,9 @@ const arrCompact = (arr) => arr.filter((val) => !isNil(val) && !isEmpty(val));
  * //returns Map{1:4, 2:2, 3:1, 4:1}
  * arrCount([1,1,2,2,1,3,4,1])
  */
-const arrCount = (arr) => {
+const arrCount = arr => {
     const result = new Map();
-    forEach(arr, (val) => {
+    forEach(arr, val => {
         result.set(val, result.has(val) ? result.get(val) + 1 : 1);
     });
     return result;
@@ -847,8 +842,8 @@ const arrCount = (arr) => {
  * arrDifference([1,2,3], ["foo"], [2,0,2])
  */
 const arrDifference = (arr, ...values) => {
-    const valuesCounted = arrCount([].concat(...values));
-    return arr.filter((item) => !valuesCounted.has(item));
+  const valuesCounted = arrCount([].concat(...values));
+  return arr.filter(item => !valuesCounted.has(item));
 };
 
 /**
@@ -867,13 +862,12 @@ const arrDifference = (arr, ...values) => {
  * //returns [1,2,3,5,6,6]
  * arrFlattenDeep([1,2,[3,[[[5]]],[6,[6]]])
  */
-const arrFlattenDeep = (arr) => {
+const arrFlattenDeep = arr => {
     const result = [];
-    forEach(arr, (val) => {
+    forEach(arr, val => {
         if (isArray(val)) {
             result.push(...arrFlattenDeep(val));
-        }
-        else {
+        } else {
             result.push(val);
         }
     });
@@ -898,9 +892,68 @@ const arrFlattenDeep = (arr) => {
  * arrIntersection([1,2,3], ["foo"], [2,0,2])
  */
 const arrIntersection = (arr, ...values) => {
-    const valuesCounted = arrCount([].concat(...values));
-    return arr.filter((item) => valuesCounted.has(item));
+  const valuesCounted = arrCount([].concat(...values));
+  return arr.filter(item => valuesCounted.has(item));
 };
+
+/**
+ * Checks if a number is in the given range
+ *
+ * @function numberInRange
+ * @memberof Number
+ * @since 1.0.0
+ * @param {number} val
+ * @param {number} min
+ * @param {number} max
+ * @returns {boolean}
+ * @example
+ * //returns true
+ * numberInRange(0.5,0,1)
+ * numberInRange(1,0,1)
+ * numberInRange(0,-5,5)
+ *
+ * @example
+ * //returns false
+ * numberInRange(-1,0,5)
+ * numberInRange(10,0,5)
+ */
+const numberInRange = (val, min, max) => val >= min && val <= max;
+
+/**
+ * Returns a new array with the item at the index removed
+ *
+ * @function arrRemoveIndex
+ * @memberof Array
+ * @since 2.8.0
+ * @param {any[]} arr
+ * @param {number} index
+ * @returns {any[]}
+ * @example
+ * //returns [1,2,4,5,6]
+ * arrRemoveIndex([1,2,3,4,5,6],2)
+ */
+const arrRemoveIndex = (arr, index) => {
+    if (numberInRange(index, 0, arr.length - 1)) {
+        return index === 0 ? arr.slice(1) : arr.slice(0, index).concat(arr.slice(index + 1));
+    } else {
+        return arr;
+    }
+};
+
+/**
+ * Returns a new array with the first occurence of the item removed
+ *
+ * @function arrRemoveItem
+ * @memberof Array
+ * @since 2.8.0
+ * @param {any[]} arr
+ * @param {any} item
+ * @returns {any[]}
+ * @example
+ * //returns [1,2,3,4,5,6]
+ * arrRemoveItem([1,2,3,4,5,6],6)
+ */
+const arrRemoveItem = (arr, item) => arr.includes(item) ? arrRemoveIndex(arr, arr.indexOf(item)) : arr;
 
 /**
  * Returns a new array with every n-th item from the input array
@@ -929,7 +982,7 @@ const arrStep = (arr, step) => arr.filter((val, index) => index % step === 0);
  * //returns [1,2,3,4]
  * arrUniq([1,1,1,2,3,1,2,1,4])
  */
-const arrUniq = (arr) => arrClone(new Set(arr));
+const arrUniq = arr => arrClone(new Set(arr));
 
 /**
  * Creates a new object with the entries of the input object
@@ -946,7 +999,7 @@ const arrUniq = (arr) => arrClone(new Set(arr));
  *
  * b.a = 10;
  */
-const objClone = (obj) => Object.assign({}, obj);
+const objClone = obj => Object.assign({}, obj);
 
 /**
  * Maps each entry of an object and returns the result
@@ -985,8 +1038,7 @@ const objMap = (obj, fn) => {
 const objMapDeep = (obj, fn) => objMap(obj, (val, key, index, objNew) => {
     if (isObject(val)) {
         return objMapDeep(val, fn);
-    }
-    else {
+    } else {
         return fn(val, key, index, objNew);
     }
 });
@@ -1006,7 +1058,7 @@ const objMapDeep = (obj, fn) => objMap(obj, (val, key, index, objNew) => {
  *
  * b.a.c.a = 123;
  */
-const objCloneDeep = (obj) => objMapDeep(objClone(obj), (val) => isObject(val) ? objClone(val) : val);
+const objCloneDeep = obj => objMapDeep(objClone(obj), val => isObject(val) ? objClone(val) : val);
 
 /**
  * Sets every nil property of object to the value from the default object
@@ -1041,12 +1093,10 @@ const objDefaultsDeep = (obj, objDefault) => objMap(objDefault, (val, key) => {
     if (isObject(val)) {
         if (isObject(valGiven)) {
             return objDefaultsDeep(valGiven, val);
-        }
-        else {
+        } else {
             return val;
         }
-    }
-    else {
+    } else {
         return isNil(valGiven) ? val : valGiven;
     }
 });
@@ -1070,10 +1120,10 @@ const objDefaultsDeep = (obj, objDefault) => objMap(objDefault, (val, key) => {
  * objDefineProperty(a,"foo",1)
  */
 const objDefineProperty = (obj, key, val, enumerable = true, writable = true, configurable = true) => Object.defineProperty(obj, key, {
-    value: val,
-    enumerable,
-    writable,
-    configurable,
+  value: val,
+  enumerable,
+  writable,
+  configurable
 });
 
 /**
@@ -1117,7 +1167,7 @@ const objValues = Object.values;
  * //returns Map{a:1, b:4, c:5}
  * mapFromObject({a:1,b:4,c:5})
  */
-const mapFromObject = (obj) => new Map(objEntries(obj));
+const mapFromObject = obj => new Map(objEntries(obj));
 
 /**
  * Clamps a number in a range
@@ -1144,37 +1194,12 @@ const mapFromObject = (obj) => new Map(objEntries(obj));
 const numberClamp = (val, min, max) => {
     if (val < min) {
         return min;
-    }
-    else if (val > max) {
+    } else if (val > max) {
         return max;
-    }
-    else {
+    } else {
         return val;
     }
 };
-
-/**
- * Checks if a number is in the given range
- *
- * @function numberInRange
- * @memberof Number
- * @since 1.0.0
- * @param {number} val
- * @param {number} min
- * @param {number} max
- * @returns {boolean}
- * @example
- * //returns true
- * numberInRange(0.5,0,1)
- * numberInRange(1,0,1)
- * numberInRange(0,-5,5)
- *
- * @example
- * //returns false
- * numberInRange(-1,0,5)
- * numberInRange(10,0,5)
- */
-const numberInRange = (val, min, max) => val >= min && val <= max;
 
 /**
  * Return a random float number in the range
@@ -1206,8 +1231,7 @@ const numberRandomFloat = (min = 0, max = 1) => min + Math.random() * (max - min
  * numberRandomInt(0,100) // 54
  * numberRandomInt(-10,10) // 2
  */
-const numberRandomInt = (min = 0, max = 1) => Math.floor(numberRandomFloat(min, max) /
-    (max - min) * (max - min + 1));
+const numberRandomInt = (min = 0, max = 1) => Math.floor(numberRandomFloat(min, max) / (max - min) * (max - min + 1));
 
 /**
  * Value, type checking and comparison
@@ -1281,6 +1305,8 @@ exports.arrFlattenDeep = arrFlattenDeep;
 exports.arrCompact = arrCompact;
 exports.arrChunk = arrChunk;
 exports.arrStep = arrStep;
+exports.arrRemoveIndex = arrRemoveIndex;
+exports.arrRemoveItem = arrRemoveItem;
 exports.arrCount = arrCount;
 exports.arrDifference = arrDifference;
 exports.arrIntersection = arrIntersection;

@@ -63,6 +63,8 @@ import arrFlattenDeep from "./arr/flattenDeep";
 import arrIntersection from "./arr/intersection";
 import arrMap from "./arr/map";
 import arrMapDeep from "./arr/mapDeep";
+import arrRemoveIndex from "./arr/removeIndex";
+import arrRemoveItem from "./arr/removeItem";
 import arrStep from "./arr/step";
 import arrUniq from "./arr/uniq";
 
@@ -141,6 +143,8 @@ export {
     arrCompact,
     arrChunk,
     arrStep,
+    arrRemoveIndex,
+    arrRemoveItem,
     arrCount,
     arrDifference,
     arrIntersection,

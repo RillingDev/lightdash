@@ -1,16 +1,26 @@
+import numberInRange from "../number/inRange";
+
 /**
- * Returns a new array with every n-th item from the input array
+ * Returns a new array with the item at the index removed
  *
  * @function arrRemoveIndex
  * @memberof Array
- * @since 1.0.0
+ * @since 2.8.0
  * @param {any[]} arr
- * @param {number} step
+ * @param {number} index
  * @returns {any[]}
  * @example
- * //returns [1,3,5]
- * arrStep([1,2,3,4,5,6],2)
+ * //returns [1,2,4,5,6]
+ * arrRemoveIndex([1,2,3,4,5,6],2)
  */
-const arrRemoveIndex = (arr: any[], index: number): any[] => arr.slice((val: any, index: number) => index % step === 0);
+const arrRemoveIndex = (arr: any[], index: number): any[] => {
+    if (numberInRange(index, 0, arr.length - 1)) {
+        return index === 0 ?
+            arr.slice(1) :
+            arr.slice(0, index).concat(arr.slice(index + 1));
+    } else {
+        return arr;
+    }
+};
 
 export default arrRemoveIndex;
