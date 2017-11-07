@@ -392,6 +392,26 @@ const isEqual = (a, b) => {
 };
 
 /**
+ * val === false shorthand
+ *
+ * @function isFalse
+ * @memberof Is
+ * @since 2.8.0
+ * @param {any} val
+ * @returns {boolean}
+ * @example
+ * //returns true
+ * isFalse(false)
+ *
+ * @example
+ * //returns false
+ * isFalse(true)
+ * isFalse(null)
+ * isFalse(0)
+ */
+const isFalse = (val) => val === false;
+
+/**
  * Checks if a value is a map
  *
  * @function isMap
@@ -526,6 +546,26 @@ const isStringNumber = (val) => !isNaN(Number(val));
  * isSymbol("foo")
  */
 const isSymbol = (val) => isTypeOf(val, "symbol");
+
+/**
+ * val === true shorthand
+ *
+ * @function isFalse
+ * @memberof Is
+ * @since 2.8.0
+ * @param {any} val
+ * @returns {boolean}
+ * @example
+ * //returns true
+ * isTrue(true)
+ *
+ * @example
+ * //returns false
+ * isTrue(false)
+ * isTrue("foo")
+ * isTrue(1)
+ */
+const isTrue = (val) => val === true;
 
 /**
  * obj.hasOwnProperty shorthand
@@ -1206,6 +1246,8 @@ exports.isSame = isSame;
 exports.isEqual = isEqual;
 exports.isInstanceOf = isInstanceOf;
 exports.isTypeOf = isTypeOf;
+exports.isTrue = isTrue;
+exports.isFalse = isFalse;
 exports.isUndefined = isUndefined;
 exports.isDefined = isDefined;
 exports.isNil = isNil;

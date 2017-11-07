@@ -389,6 +389,26 @@ const isEqual = (a, b) => {
 };
 
 /**
+ * val === false shorthand
+ *
+ * @function isFalse
+ * @memberof Is
+ * @since 2.8.0
+ * @param {any} val
+ * @returns {boolean}
+ * @example
+ * //returns true
+ * isFalse(false)
+ *
+ * @example
+ * //returns false
+ * isFalse(true)
+ * isFalse(null)
+ * isFalse(0)
+ */
+const isFalse = (val) => val === false;
+
+/**
  * Checks if a value is a map
  *
  * @function isMap
@@ -523,6 +543,26 @@ const isStringNumber = (val) => !isNaN(Number(val));
  * isSymbol("foo")
  */
 const isSymbol = (val) => isTypeOf(val, "symbol");
+
+/**
+ * val === true shorthand
+ *
+ * @function isFalse
+ * @memberof Is
+ * @since 2.8.0
+ * @param {any} val
+ * @returns {boolean}
+ * @example
+ * //returns true
+ * isTrue(true)
+ *
+ * @example
+ * //returns false
+ * isTrue(false)
+ * isTrue("foo")
+ * isTrue(1)
+ */
+const isTrue = (val) => val === true;
 
 /**
  * obj.hasOwnProperty shorthand
@@ -1199,4 +1239,4 @@ const numberRandomInt = (min = 0, max = 1) => Math.floor(numberRandomFloat(min, 
  * @namespace Number
  */
 
-export { isSame, isEqual, isInstanceOf, isTypeOf, isUndefined, isDefined, isNil, isObject, isObjectLike, isArray, isArrayLike, isMap, isSet, isEmpty, isPrimitive, isNumber, isString, isStringNumber, isBoolean, isSymbol, hasKey, hasPath, hasOwnProperty, getPath, forTimes, forEach, forEachDeep, forEachEntry, forEachEntryDeep, arrClone, arrCloneDeep, arrMap, arrMapDeep, arrFlattenDeep, arrCompact, arrChunk, arrStep, arrCount, arrDifference, arrIntersection, arrUniq, objClone, objCloneDeep, objMap, objMapDeep, objDefaults, objDefaultsDeep, objMerge, objDefineProperty, objKeys, objValues, objEntries, mapFromObject, numberInRange, numberClamp, numberRandomFloat, numberRandomInt };
+export { isSame, isEqual, isInstanceOf, isTypeOf, isTrue, isFalse, isUndefined, isDefined, isNil, isObject, isObjectLike, isArray, isArrayLike, isMap, isSet, isEmpty, isPrimitive, isNumber, isString, isStringNumber, isBoolean, isSymbol, hasKey, hasPath, hasOwnProperty, getPath, forTimes, forEach, forEachDeep, forEachEntry, forEachEntryDeep, arrClone, arrCloneDeep, arrMap, arrMapDeep, arrFlattenDeep, arrCompact, arrChunk, arrStep, arrCount, arrDifference, arrIntersection, arrUniq, objClone, objCloneDeep, objMap, objMapDeep, objDefaults, objDefaultsDeep, objMerge, objDefineProperty, objKeys, objValues, objEntries, mapFromObject, numberInRange, numberClamp, numberRandomFloat, numberRandomInt };

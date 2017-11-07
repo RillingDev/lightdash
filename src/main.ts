@@ -8,6 +8,7 @@ import isBoolean from "./is/boolean";
 import isDefined from "./is/defined";
 import isEmpty from "./is/empty";
 import isEqual from "./is/equal";
+import isFalse from "./is/false";
 import isInstanceOf from "./is/instanceOf";
 import isMap from "./is/map";
 import isNil from "./is/nil";
@@ -20,6 +21,7 @@ import isSet from "./is/set";
 import isString from "./is/string";
 import isStringNumber from "./is/stringNumber";
 import isSymbol from "./is/symbol";
+import isTrue from "./is/true";
 import isTypeOf from "./is/typeOf";
 import isUndefined from "./is/undefined";
 
@@ -100,6 +102,8 @@ export {
     isEqual,
     isInstanceOf,
     isTypeOf,
+    isTrue,
+    isFalse,
     isUndefined,
     isDefined,
     isNil,
