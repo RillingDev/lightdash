@@ -2,7 +2,7 @@
 
 const bundle = require("./lib/bundle");
 const typescript_core = require("typescript");
-const typescript = require("rollup-plugin-typescript");
+const typescript = require("rollup-plugin-typescript2");
 
 bundle([{
     type: "es",

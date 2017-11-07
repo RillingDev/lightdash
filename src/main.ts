@@ -71,6 +71,7 @@ import objClone from "./obj/clone";
 import objCloneDeep from "./obj/cloneDeep";
 import objDefaults from "./obj/defaults";
 import objDefaultsDeep from "./obj/defaultsDeep";
+import objDefineProperty from "./obj/defineProperty";
 import objEntries from "./obj/entries";
 import objKeys from "./obj/keys";
 import objMap from "./obj/map";
@@ -146,6 +147,7 @@ export {
     objDefaults,
     objDefaultsDeep,
     objMerge,
+    objDefineProperty,
     objKeys,
     objValues,
     objEntries,

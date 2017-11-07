@@ -988,6 +988,31 @@ const objDefaultsDeep = (obj, objDefault) => objMap(objDefault, (val, key) => {
 });
 
 /**
+ * Shorthand for Object.defineProperty
+ *
+ * @function objDefineProperty
+ * @memberof Object
+ * @since 2.8.0
+ * @param {Object} obj
+ * @param {string} key
+ * @param {any} val
+ * @param {boolean} [enumerable=true]
+ * @param {boolean} [writable=true]
+ * @param {boolean} [configurable=true]
+ * @returns {Object}
+ * @example
+ * //returns a = {"foo":1}
+ * const a={};
+ * objDefineProperty(a,"foo",1)
+ */
+const objDefineProperty = (obj, key, val, enumerable = true, writable = true, configurable = true) => Object.defineProperty(obj, key, {
+    value: val,
+    enumerable,
+    writable,
+    configurable,
+});
+
+/**
  * Merges contents of two objects
  *
  * @function objMerge
@@ -1153,4 +1178,4 @@ const numberRandomInt = (min = 0, max = 1) => Math.floor(numberRandomFloat(min, 
  * @namespace Number
  */
 
-export { isSame, isEqual, isInstanceOf, isTypeOf, isUndefined, isDefined, isNil, isObject, isObjectLike, isArray, isArrayLike, isMap, isSet, isEmpty, isPrimitive, isNumber, isString, isStringNumber, isBoolean, isSymbol, hasKey, hasPath, getPath, forTimes, forEach, forEachDeep, forEachEntry, forEachEntryDeep, arrClone, arrCloneDeep, arrMap, arrMapDeep, arrFlattenDeep, arrCompact, arrChunk, arrStep, arrCount, arrDifference, arrIntersection, arrUniq, objClone, objCloneDeep, objMap, objMapDeep, objDefaults, objDefaultsDeep, objMerge, objKeys, objValues, objEntries, mapFromObject, numberInRange, numberClamp, numberRandomFloat, numberRandomInt };
+export { isSame, isEqual, isInstanceOf, isTypeOf, isUndefined, isDefined, isNil, isObject, isObjectLike, isArray, isArrayLike, isMap, isSet, isEmpty, isPrimitive, isNumber, isString, isStringNumber, isBoolean, isSymbol, hasKey, hasPath, getPath, forTimes, forEach, forEachDeep, forEachEntry, forEachEntryDeep, arrClone, arrCloneDeep, arrMap, arrMapDeep, arrFlattenDeep, arrCompact, arrChunk, arrStep, arrCount, arrDifference, arrIntersection, arrUniq, objClone, objCloneDeep, objMap, objMapDeep, objDefaults, objDefaultsDeep, objMerge, objDefineProperty, objKeys, objValues, objEntries, mapFromObject, numberInRange, numberClamp, numberRandomFloat, numberRandomInt };

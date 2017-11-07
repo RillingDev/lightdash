@@ -992,6 +992,31 @@ const objDefaultsDeep = (obj, objDefault) => objMap(objDefault, (val, key) => {
 });
 
 /**
+ * Shorthand for Object.defineProperty
+ *
+ * @function objDefineProperty
+ * @memberof Object
+ * @since 2.8.0
+ * @param {Object} obj
+ * @param {string} key
+ * @param {any} val
+ * @param {boolean} [enumerable=true]
+ * @param {boolean} [writable=true]
+ * @param {boolean} [configurable=true]
+ * @returns {Object}
+ * @example
+ * //returns a = {"foo":1}
+ * const a={};
+ * objDefineProperty(a,"foo",1)
+ */
+const objDefineProperty = (obj, key, val, enumerable = true, writable = true, configurable = true) => Object.defineProperty(obj, key, {
+    value: val,
+    enumerable,
+    writable,
+    configurable,
+});
+
+/**
  * Merges contents of two objects
  *
  * @function objMerge
@@ -1204,6 +1229,7 @@ exports.objMapDeep = objMapDeep;
 exports.objDefaults = objDefaults;
 exports.objDefaultsDeep = objDefaultsDeep;
 exports.objMerge = objMerge;
+exports.objDefineProperty = objDefineProperty;
 exports.objKeys = objKeys;
 exports.objValues = objValues;
 exports.objEntries = objEntries;
