@@ -1,9 +1,9 @@
+import forEachEntry from "../for/eachEntry";
 import isNil from "../is/nil";
 import {
     IGenericObject,
 } from "../lightdash.d";
-import objMap from "./map";
-
+import objClone from "./cloneDeep";
 /**
  * Sets every nil property of object to the value from the default object
  *
@@ -17,8 +17,16 @@ import objMap from "./map";
  * //returns a = {a:1,b:2,c:5}
  * objDefaults({a:1,c:5},{a:1,b:2,c:3})
  */
-const objDefaults = (obj: IGenericObject, objDefault: object): object => objMap(
-    objDefault,
-    (val: any, key: string) => isNil(obj[key]) ? val : obj[key]);
+const objDefaults = (obj: IGenericObject, objDefault: object): object => {
+    const result: IGenericObject = objClone(obj);
+
+    forEachEntry(objDefault, (valDefault: any, keyDefault: string) => {
+        if (isNil(obj[keyDefault])) {
+            result[keyDefault] = valDefault;
+        }
+    });
+
+    return result;
+};
 
 export default objDefaults;

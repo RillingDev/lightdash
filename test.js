@@ -1,11 +1,21 @@
 "use strict";
 
 const {
-    arrRemoveIndex,
-    arrRemoveItem
+    objDefaults,
+    objDefaultsDeep
 } = require("./dist/lightdash.common");
 
-const a = [0, 1, 2, 3, 4, 5];
-const b = ["foo", "bar", "fizz"];
+const defaultVals = {
+    a: "foo",
+    b: "bar",
+    c: [1, 3, 4],
+    d: {
+        a: 12
+    }
+};
+const foo = {
+    a: "fizz",
+    c: 1
+};
 
-console.log(arrRemoveItem(b, "bar"));
+console.log(objDefaults(foo, defaultVals));

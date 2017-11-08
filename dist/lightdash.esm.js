@@ -1093,7 +1093,15 @@ const objCloneDeep = (obj) => objMapDeep(objClone(obj), (val) => isObject(val) ?
  * //returns a = {a:1,b:2,c:5}
  * objDefaults({a:1,c:5},{a:1,b:2,c:3})
  */
-const objDefaults = (obj, objDefault) => objMap(objDefault, (val, key) => isNil(obj[key]) ? val : obj[key]);
+const objDefaults = (obj, objDefault) => {
+    const result = objCloneDeep(obj);
+    forEachEntry(objDefault, (valDefault, keyDefault) => {
+        if (isNil(obj[keyDefault])) {
+            result[keyDefault] = valDefault;
+        }
+    });
+    return result;
+};
 
 /**
  * Recursively sets every nil property of object to the value from the default object
