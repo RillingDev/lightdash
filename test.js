@@ -10,12 +10,16 @@ const defaultVals = {
     b: "bar",
     c: [1, 3, 4],
     d: {
-        a: 12
+        a: 12,
+        b: 2
     }
 };
 const foo = {
     a: "fizz",
-    c: 1
+    c: 1,
+    d: {
+        a: 23123
+    }
 };
 
-console.log(objDefaults(foo, defaultVals));
+console.log(objDefaultsDeep(foo, defaultVals));

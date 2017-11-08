@@ -1116,20 +1116,19 @@ const objDefaults = (obj, objDefault) => {
  * //returns a = {a:[1,2,3],b:2,c:{f:'x'}}
  * objDefaultsDeep({a:[1,2],c:{f:'x'}},{a:[1,2,3],b:2,c:{f:'y'}})
  */
-const objDefaultsDeep = (obj, objDefault) => objMap(objDefault, (val, key) => {
-    const valGiven = obj[key];
-    if (isObject(val)) {
-        if (isObject(valGiven)) {
-            return objDefaultsDeep(valGiven, val);
+const objDefaultsDeep = (obj, objDefault) => {
+    const result = objCloneDeep(obj);
+    forEachEntry(objDefault, (valDefault, keyDefault) => {
+        const valGiven = obj[keyDefault];
+        if (isObject(valDefault)) {
+            result[keyDefault] = isObject(valGiven) ? objDefaultsDeep(valGiven, valDefault) : valDefault;
         }
         else {
-            return val;
+            result[keyDefault] = isNil(valGiven) ? valDefault : valGiven;
         }
-    }
-    else {
-        return isNil(valGiven) ? val : valGiven;
-    }
-});
+    });
+    return result;
+};
 
 /**
  * Adds a property to an object with optional custom flags

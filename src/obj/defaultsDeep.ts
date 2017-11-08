@@ -1,9 +1,10 @@
+import forEachEntry from "../for/eachEntry";
 import isNil from "../is/nil";
 import isObject from "../is/object";
 import {
     IGenericObject,
 } from "../lightdash.d";
-import objMap from "./map";
+import objClone from "./cloneDeep";
 
 /**
  * Recursively sets every nil property of object to the value from the default object
@@ -18,20 +19,20 @@ import objMap from "./map";
  * //returns a = {a:[1,2,3],b:2,c:{f:'x'}}
  * objDefaultsDeep({a:[1,2],c:{f:'x'}},{a:[1,2,3],b:2,c:{f:'y'}})
  */
-const objDefaultsDeep = (obj: IGenericObject, objDefault: object): object => objMap(
-    objDefault,
-    (val: any, key: string) => {
-        const valGiven = obj[key];
+const objDefaultsDeep = (obj: IGenericObject, objDefault: object): object => {
+    const result: IGenericObject = objClone(obj);
 
-        if (isObject(val)) {
-            if (isObject(valGiven)) {
-                return objDefaultsDeep(valGiven, val);
-            } else {
-                return val;
-            }
+    forEachEntry(objDefault, (valDefault: any, keyDefault: string) => {
+        const valGiven = obj[keyDefault];
+
+        if (isObject(valDefault)) {
+            result[keyDefault] = isObject(valGiven) ? objDefaultsDeep(valGiven, valDefault) : valDefault;
         } else {
-            return isNil(valGiven) ? val : valGiven;
+            result[keyDefault] = isNil(valGiven) ? valDefault : valGiven;
         }
     });
+
+    return result;
+};
 
 export default objDefaultsDeep;
