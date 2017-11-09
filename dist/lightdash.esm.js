@@ -1018,7 +1018,7 @@ const arrUniq = (arr) => arrClone(new Set(arr));
  *
  * b.a = 10;
  */
-const objClone = (obj) => Object.assign({}, obj);
+const objClone = (obj) => isArray(obj) ? arrClone(obj) : Object.assign({}, obj);
 
 /**
  * Maps each entry of an object and returns the result
@@ -1094,7 +1094,7 @@ const objCloneDeep = (obj) => objMapDeep(objClone(obj), (val) => isObject(val) ?
  * objDefaults({a:1,c:5},{a:1,b:2,c:3})
  */
 const objDefaults = (obj, objDefault) => {
-    const result = objCloneDeep(obj);
+    const result = objClone(obj);
     forEachEntry(objDefault, (valDefault, keyDefault) => {
         if (isNil(obj[keyDefault])) {
             result[keyDefault] = valDefault;

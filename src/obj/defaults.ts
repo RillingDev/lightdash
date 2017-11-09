@@ -3,7 +3,7 @@ import isNil from "../is/nil";
 import {
     IGenericObject,
 } from "../lightdash.d";
-import objClone from "./cloneDeep";
+import objClone from "./clone";
 /**
  * Sets every nil property of object to the value from the default object
  *

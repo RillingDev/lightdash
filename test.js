@@ -6,20 +6,15 @@ const {
 } = require("./dist/lightdash.common");
 
 const defaultVals = {
-    a: "foo",
-    b: "bar",
-    c: [1, 3, 4],
-    d: {
-        a: 12,
-        b: 2
-    }
+    name: `command${1}`,
+    fn: null,
+    alias: [],
+    args: [],
+    sub: null
 };
 const foo = {
-    a: "fizz",
-    c: 1,
-    d: {
-        a: 23123
-    }
+    fn: () => "bar",
+    alias: ["fizz"],
 };
 
 console.log(objDefaultsDeep(foo, defaultVals));
