@@ -56,7 +56,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="lightdash.esm.js.html">lightdash.esm.js</a>, <a href="lightdash.esm.js.html#line1274">line 1274</a>
+        <a href="lightdash.esm.js.html">lightdash.esm.js</a>, <a href="lightdash.esm.js.html#line1275">line 1275</a>
     </li></ul></dd>
     
 
@@ -191,9 +191,12 @@
 
     <h5>Examples</h5>
     
-    <pre class="prettyprint"><code>// returns trueisArray([]);isArray([1, 2, 3]);</code></pre>
+    <pre class="prettyprint"><code>// returns true
+isArray([]);
+isArray([1, 2, 3]);</code></pre>
 
-    <pre class="prettyprint"><code>// returns falseisArray({});</code></pre>
+    <pre class="prettyprint"><code>// returns false
+isArray({});</code></pre>
 
 
 
@@ -352,9 +355,15 @@
 
     <h5>Examples</h5>
     
-    <pre class="prettyprint"><code>//returns trueisArrayLike([])isArrayLike({length:0})</code></pre>
+    <pre class="prettyprint"><code>//returns true
+isArrayLike([])
+isArrayLike({length:0})</code></pre>
 
-    <pre class="prettyprint"><code>//returns falseisArrayLike({})isArrayLike(null)isArrayLike("foo")isArrayLike(1)</code></pre>
+    <pre class="prettyprint"><code>//returns false
+isArrayLike({})
+isArrayLike(null)
+isArrayLike("foo")
+isArrayLike(1)</code></pre>
 
 
 
@@ -513,9 +522,14 @@
 
     <h5>Examples</h5>
     
-    <pre class="prettyprint"><code>//returns trueisBoolean(true)isBoolean(false)</code></pre>
+    <pre class="prettyprint"><code>//returns true
+isBoolean(true)
+isBoolean(false)</code></pre>
 
-    <pre class="prettyprint"><code>//returns falseisBoolean(0)isBoolean(null)isBoolean("")</code></pre>
+    <pre class="prettyprint"><code>//returns false
+isBoolean(0)
+isBoolean(null)
+isBoolean("")</code></pre>
 
 
 
@@ -674,9 +688,17 @@
 
     <h5>Examples</h5>
     
-    <pre class="prettyprint"><code>//returns trueconst a = {};isDefined(1)isDefined(a)</code></pre>
+    <pre class="prettyprint"><code>//returns true
+const a = {};
 
-    <pre class="prettyprint"><code>//returns falseconst a = {};isDefined(a.b)isDefined(undefined)</code></pre>
+isDefined(1)
+isDefined(a)</code></pre>
+
+    <pre class="prettyprint"><code>//returns false
+const a = {};
+
+isDefined(a.b)
+isDefined(undefined)</code></pre>
 
 
 
@@ -835,9 +857,14 @@
 
     <h5>Examples</h5>
     
-    <pre class="prettyprint"><code>//returns trueisEmpty([])isEmpty({})isEmpty("")</code></pre>
+    <pre class="prettyprint"><code>//returns true
+isEmpty([])
+isEmpty({})
+isEmpty("")</code></pre>
 
-    <pre class="prettyprint"><code>//returns falseisEmpty("foo")isEmpty([1,2])</code></pre>
+    <pre class="prettyprint"><code>//returns false
+isEmpty("foo")
+isEmpty([1,2])</code></pre>
 
 
 
@@ -996,9 +1023,15 @@
 
     <h5>Examples</h5>
     
-    <pre class="prettyprint"><code>//returns trueisEqual(1,1)isEqual({},{})isEqual([1,2],[1,2])isEqual([1,2,[3,4]],[1,2,[3,4]])</code></pre>
+    <pre class="prettyprint"><code>//returns true
+isEqual(1,1)
+isEqual({},{})
+isEqual([1,2],[1,2])
+isEqual([1,2,[3,4]],[1,2,[3,4]])</code></pre>
 
-    <pre class="prettyprint"><code>//returns falseisEqual([1,2,3],[1])isEqual([1,2,[3]],[1,2,[4]])</code></pre>
+    <pre class="prettyprint"><code>//returns false
+isEqual([1,2,3],[1])
+isEqual([1,2,[3]],[1,2,[4]])</code></pre>
 
 
 
@@ -1180,9 +1213,13 @@
 
     <h5>Examples</h5>
     
-    <pre class="prettyprint"><code>//returns trueisFalse(false)</code></pre>
+    <pre class="prettyprint"><code>//returns true
+isFalse(false)</code></pre>
 
-    <pre class="prettyprint"><code>//returns falseisFalse(true)isFalse(null)isFalse(0)</code></pre>
+    <pre class="prettyprint"><code>//returns false
+isFalse(true)
+isFalse(null)
+isFalse(0)</code></pre>
 
 
 
@@ -1341,9 +1378,14 @@
 
     <h5>Examples</h5>
     
-    <pre class="prettyprint"><code>//returns trueisInstanceOf({},Object)isInstanceOf([],Object)isInstanceOf([],Array)</code></pre>
+    <pre class="prettyprint"><code>//returns true
+isInstanceOf({},Object)
+isInstanceOf([],Object)
+isInstanceOf([],Array)</code></pre>
 
-    <pre class="prettyprint"><code>//returns falseisInstanceOf({},Array)isInstanceOf([],Map)</code></pre>
+    <pre class="prettyprint"><code>//returns false
+isInstanceOf({},Array)
+isInstanceOf([],Map)</code></pre>
 
 
 
@@ -1525,9 +1567,11 @@
 
     <h5>Examples</h5>
     
-    <pre class="prettyprint"><code>//returns trueisMap(new Map())</code></pre>
+    <pre class="prettyprint"><code>//returns true
+isMap(new Map())</code></pre>
 
-    <pre class="prettyprint"><code>//returns falseisMap([[1,2]])</code></pre>
+    <pre class="prettyprint"><code>//returns false
+isMap([[1,2]])</code></pre>
 
 
 
@@ -1686,9 +1730,13 @@
 
     <h5>Examples</h5>
     
-    <pre class="prettyprint"><code>//returns trueisNil(null)isNil(undefined)</code></pre>
+    <pre class="prettyprint"><code>//returns true
+isNil(null)
+isNil(undefined)</code></pre>
 
-    <pre class="prettyprint"><code>//returns falseisNil(0)isNil({})</code></pre>
+    <pre class="prettyprint"><code>//returns false
+isNil(0)
+isNil({})</code></pre>
 
 
 
@@ -1847,9 +1895,12 @@
 
     <h5>Examples</h5>
     
-    <pre class="prettyprint"><code>//returns trueisNumber(1)isNumber(2.34)</code></pre>
+    <pre class="prettyprint"><code>//returns true
+isNumber(1)
+isNumber(2.34)</code></pre>
 
-    <pre class="prettyprint"><code>//returns falseisNumber(null)</code></pre>
+    <pre class="prettyprint"><code>//returns false
+isNumber(null)</code></pre>
 
 
 
@@ -2008,9 +2059,12 @@
 
     <h5>Examples</h5>
     
-    <pre class="prettyprint"><code>//returns trueisObject({})isObject([])</code></pre>
+    <pre class="prettyprint"><code>//returns true
+isObject({})
+isObject([])</code></pre>
 
-    <pre class="prettyprint"><code>//returns falseisObject(1)</code></pre>
+    <pre class="prettyprint"><code>//returns false
+isObject(1)</code></pre>
 
 
 
@@ -2169,9 +2223,13 @@
 
     <h5>Examples</h5>
     
-    <pre class="prettyprint"><code>//returns trueisObjectLike({})isObjectLike([])</code></pre>
+    <pre class="prettyprint"><code>//returns true
+isObjectLike({})
+isObjectLike([])</code></pre>
 
-    <pre class="prettyprint"><code>//returns falseisObjectLike(null)isObjectLike(1)</code></pre>
+    <pre class="prettyprint"><code>//returns false
+isObjectLike(null)
+isObjectLike(1)</code></pre>
 
 
 
@@ -2330,9 +2388,13 @@
 
     <h5>Examples</h5>
     
-    <pre class="prettyprint"><code>//returns trueisPrimitive(1)isPrimitive(null)</code></pre>
+    <pre class="prettyprint"><code>//returns true
+isPrimitive(1)
+isPrimitive(null)</code></pre>
 
-    <pre class="prettyprint"><code>//returns falseisPrimitive({})isPrimitive([])</code></pre>
+    <pre class="prettyprint"><code>//returns false
+isPrimitive({})
+isPrimitive([])</code></pre>
 
 
 
@@ -2491,9 +2553,16 @@
 
     <h5>Examples</h5>
     
-    <pre class="prettyprint"><code>//returns trueconst a = [];isSame(1,1)isSame("foo","foo")isSame(a,a)</code></pre>
+    <pre class="prettyprint"><code>//returns true
+const a = [];
 
-    <pre class="prettyprint"><code>//returns falseisSame({},{})isSame([],[])</code></pre>
+isSame(1,1)
+isSame("foo","foo")
+isSame(a,a)</code></pre>
+
+    <pre class="prettyprint"><code>//returns false
+isSame({},{})
+isSame([],[])</code></pre>
 
 
 
@@ -2675,9 +2744,11 @@
 
     <h5>Examples</h5>
     
-    <pre class="prettyprint"><code>//returns trueisSet(new Set())</code></pre>
+    <pre class="prettyprint"><code>//returns true
+isSet(new Set())</code></pre>
 
-    <pre class="prettyprint"><code>//returns falseisSet([1,2])</code></pre>
+    <pre class="prettyprint"><code>//returns false
+isSet([1,2])</code></pre>
 
 
 
@@ -2836,9 +2907,11 @@
 
     <h5>Examples</h5>
     
-    <pre class="prettyprint"><code>//returns trueisString("foo")</code></pre>
+    <pre class="prettyprint"><code>//returns true
+isString("foo")</code></pre>
 
-    <pre class="prettyprint"><code>//returns falseisString(1)</code></pre>
+    <pre class="prettyprint"><code>//returns false
+isString(1)</code></pre>
 
 
 
@@ -2997,9 +3070,12 @@
 
     <h5>Examples</h5>
     
-    <pre class="prettyprint"><code>//returns trueisStringNumber("123")isStringNumber("0b010")</code></pre>
+    <pre class="prettyprint"><code>//returns true
+isStringNumber("123")
+isStringNumber("0b010")</code></pre>
 
-    <pre class="prettyprint"><code>//returns falseisStringNumber("foo")</code></pre>
+    <pre class="prettyprint"><code>//returns false
+isStringNumber("foo")</code></pre>
 
 
 
@@ -3158,9 +3234,11 @@
 
     <h5>Examples</h5>
     
-    <pre class="prettyprint"><code>//returns trueisSymbol(Symbol())</code></pre>
+    <pre class="prettyprint"><code>//returns true
+isSymbol(Symbol())</code></pre>
 
-    <pre class="prettyprint"><code>//returns falseisSymbol("foo")</code></pre>
+    <pre class="prettyprint"><code>//returns false
+isSymbol("foo")</code></pre>
 
 
 
@@ -3319,9 +3397,13 @@
 
     <h5>Examples</h5>
     
-    <pre class="prettyprint"><code>//returns trueisTrue(true)</code></pre>
+    <pre class="prettyprint"><code>//returns true
+isTrue(true)</code></pre>
 
-    <pre class="prettyprint"><code>//returns falseisTrue(false)isTrue("foo")isTrue(1)</code></pre>
+    <pre class="prettyprint"><code>//returns false
+isTrue(false)
+isTrue("foo")
+isTrue(1)</code></pre>
 
 
 
@@ -3480,9 +3562,13 @@
 
     <h5>Examples</h5>
     
-    <pre class="prettyprint"><code>//returns trueisTypeOf({},"object")isTypeOf([],"object")isTypeOf("foo","string")</code></pre>
+    <pre class="prettyprint"><code>//returns true
+isTypeOf({},"object")
+isTypeOf([],"object")
+isTypeOf("foo","string")</code></pre>
 
-    <pre class="prettyprint"><code>//returns falseisTypeOf("foo","number")</code></pre>
+    <pre class="prettyprint"><code>//returns false
+isTypeOf("foo","number")</code></pre>
 
 
 
@@ -3664,9 +3750,17 @@
 
     <h5>Examples</h5>
     
-    <pre class="prettyprint"><code>//returns falseconst a = {};isUndefined(a.b)isUndefined(undefined)</code></pre>
+    <pre class="prettyprint"><code>//returns false
+const a = {};
 
-    <pre class="prettyprint"><code>//returns falseconst a = {};isUndefined(1)isUndefined(a)</code></pre>
+isUndefined(a.b)
+isUndefined(undefined)</code></pre>
+
+    <pre class="prettyprint"><code>//returns false
+const a = {};
+
+isUndefined(1)
+isUndefined(a)</code></pre>
 
 
 
@@ -3770,7 +3864,7 @@
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.0-dev</a> on Fri Nov 10 2017 16:41:24 GMT+0100 (CET) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.0-dev</a> on Fri Nov 10 2017 16:52:20 GMT+0100 (CET) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
 </footer>
 
 <script>prettyPrint();</script>

@@ -4,7 +4,6 @@
         "tslint:recommended"
     ],
     "rules": {
-        "object-literal-sort-keys": false,
-        "variable-name": false
+        "object-literal-sort-keys": false
     }
 }

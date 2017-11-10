@@ -6,6 +6,8 @@
         "noImplicitAny": true,
         "removeComments": false,
         "preserveConstEnums": true,
-        "experimentalDecorators": true
+        "experimentalDecorators": true,
+        "newLine": "LF",
+        "strict": true
     }
 }

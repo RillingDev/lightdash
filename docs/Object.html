@@ -56,7 +56,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="lightdash.esm.js.html">lightdash.esm.js</a>, <a href="lightdash.esm.js.html#line1294">line 1294</a>
+        <a href="lightdash.esm.js.html">lightdash.esm.js</a>, <a href="lightdash.esm.js.html#line1295">line 1295</a>
     </li></ul></dd>
     
 
@@ -134,7 +134,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="lightdash.esm.js.html">lightdash.esm.js</a>, <a href="lightdash.esm.js.html#line1006">line 1006</a>
+        <a href="lightdash.esm.js.html">lightdash.esm.js</a>, <a href="lightdash.esm.js.html#line1007">line 1007</a>
     </li></ul></dd>
     
 
@@ -190,7 +190,11 @@
 
     <h5>Example</h5>
     
-    <pre class="prettyprint"><code>//returns a = {a:4, b:2}, b = {a:10, b:2}const a = {a:4, b:2};const b = objClone(a);b.a = 10;</code></pre>
+    <pre class="prettyprint"><code>//returns a = {a:4, b:2}, b = {a:10, b:2}
+const a = {a:4, b:2};
+const b = objClone(a);
+
+b.a = 10;</code></pre>
 
 
 
@@ -293,7 +297,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="lightdash.esm.js.html">lightdash.esm.js</a>, <a href="lightdash.esm.js.html#line1066">line 1066</a>
+        <a href="lightdash.esm.js.html">lightdash.esm.js</a>, <a href="lightdash.esm.js.html#line1067">line 1067</a>
     </li></ul></dd>
     
 
@@ -349,7 +353,11 @@
 
     <h5>Example</h5>
     
-    <pre class="prettyprint"><code>//returns a = {a:{b:2,c:{a:10,b:20}}, b = {a:{b:2,c:{a:123,b:20}}}const a = {a:{b:2,c:{a:10,b:20}}};const b = objCloneDeep(a);b.a.c.a = 123;</code></pre>
+    <pre class="prettyprint"><code>//returns a = {a:{b:2,c:{a:10,b:20}}, b = {a:{b:2,c:{a:123,b:20}}}
+const a = {a:{b:2,c:{a:10,b:20}}};
+const b = objCloneDeep(a);
+
+b.a.c.a = 123;</code></pre>
 
 
 
@@ -452,7 +460,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="lightdash.esm.js.html">lightdash.esm.js</a>, <a href="lightdash.esm.js.html#line1083">line 1083</a>
+        <a href="lightdash.esm.js.html">lightdash.esm.js</a>, <a href="lightdash.esm.js.html#line1084">line 1084</a>
     </li></ul></dd>
     
 
@@ -508,7 +516,8 @@
 
     <h5>Example</h5>
     
-    <pre class="prettyprint"><code>//returns a = {a:1,b:2,c:5}objDefaults({a:1,c:5},{a:1,b:2,c:3})</code></pre>
+    <pre class="prettyprint"><code>//returns a = {a:1,b:2,c:5}
+objDefaults({a:1,c:5},{a:1,b:2,c:3})</code></pre>
 
 
 
@@ -634,7 +643,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="lightdash.esm.js.html">lightdash.esm.js</a>, <a href="lightdash.esm.js.html#line1106">line 1106</a>
+        <a href="lightdash.esm.js.html">lightdash.esm.js</a>, <a href="lightdash.esm.js.html#line1107">line 1107</a>
     </li></ul></dd>
     
 
@@ -690,7 +699,8 @@
 
     <h5>Example</h5>
     
-    <pre class="prettyprint"><code>//returns a = {a:[1,2,3],b:2,c:{f:'x'}}objDefaultsDeep({a:[1,2],c:{f:'x'}},{a:[1,2,3],b:2,c:{f:'y'}})</code></pre>
+    <pre class="prettyprint"><code>//returns a = {a:[1,2,3],b:2,c:{f:'x'}}
+objDefaultsDeep({a:[1,2],c:{f:'x'}},{a:[1,2,3],b:2,c:{f:'y'}})</code></pre>
 
 
 
@@ -816,7 +826,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="lightdash.esm.js.html">lightdash.esm.js</a>, <a href="lightdash.esm.js.html#line1133">line 1133</a>
+        <a href="lightdash.esm.js.html">lightdash.esm.js</a>, <a href="lightdash.esm.js.html#line1134">line 1134</a>
     </li></ul></dd>
     
 
@@ -873,7 +883,9 @@
 
     <h5>Example</h5>
     
-    <pre class="prettyprint"><code>//returns a = {"foo":1}const a={};objDefineProperty(a,"foo",1)</code></pre>
+    <pre class="prettyprint"><code>//returns a = {"foo":1}
+const a={};
+objDefineProperty(a,"foo",1)</code></pre>
 
 
 
@@ -1236,7 +1248,8 @@
 
     <h5>Example</h5>
     
-    <pre class="prettyprint"><code>//returns [["a",1],["b",2],["c",3]]objEntries({a:1,b:2,c:3})</code></pre>
+    <pre class="prettyprint"><code>//returns [["a",1],["b",2],["c",3]]
+objEntries({a:1,b:2,c:3})</code></pre>
 
 
 
@@ -1400,7 +1413,8 @@
 
     <h5>Example</h5>
     
-    <pre class="prettyprint"><code>//returns ["a","b","c"]objKeys({a:1,b:2,c:3})</code></pre>
+    <pre class="prettyprint"><code>//returns ["a","b","c"]
+objKeys({a:1,b:2,c:3})</code></pre>
 
 
 
@@ -1503,7 +1517,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="lightdash.esm.js.html">lightdash.esm.js</a>, <a href="lightdash.esm.js.html#line1023">line 1023</a>
+        <a href="lightdash.esm.js.html">lightdash.esm.js</a>, <a href="lightdash.esm.js.html#line1024">line 1024</a>
     </li></ul></dd>
     
 
@@ -1559,7 +1573,8 @@
 
     <h5>Example</h5>
     
-    <pre class="prettyprint"><code>//returns a = {a:8, b:4}objMap({a:4, b:2},val=>val*2)</code></pre>
+    <pre class="prettyprint"><code>//returns a = {a:8, b:4}
+objMap({a:4, b:2},val=>val*2)</code></pre>
 
 
 
@@ -1685,7 +1700,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="lightdash.esm.js.html">lightdash.esm.js</a>, <a href="lightdash.esm.js.html#line1044">line 1044</a>
+        <a href="lightdash.esm.js.html">lightdash.esm.js</a>, <a href="lightdash.esm.js.html#line1045">line 1045</a>
     </li></ul></dd>
     
 
@@ -1741,7 +1756,8 @@
 
     <h5>Example</h5>
     
-    <pre class="prettyprint"><code>//returns {a:{b:4,c:[20,40]}}arrMapDeep({a:{b:2,c:[10,20]}},val=>val*2)</code></pre>
+    <pre class="prettyprint"><code>//returns {a:{b:4,c:[20,40]}}
+arrMapDeep({a:{b:2,c:[10,20]}},val=>val*2)</code></pre>
 
 
 
@@ -1867,7 +1883,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="lightdash.esm.js.html">lightdash.esm.js</a>, <a href="lightdash.esm.js.html#line1160">line 1160</a>
+        <a href="lightdash.esm.js.html">lightdash.esm.js</a>, <a href="lightdash.esm.js.html#line1161">line 1161</a>
     </li></ul></dd>
     
 
@@ -1924,7 +1940,8 @@
 
     <h5>Example</h5>
     
-    <pre class="prettyprint"><code>//returns {a:1,b:2}objMerge({a:1},{b:2})</code></pre>
+    <pre class="prettyprint"><code>//returns {a:1,b:2}
+objMerge({a:1},{b:2})</code></pre>
 
 
 
@@ -2050,7 +2067,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="lightdash.esm.js.html">lightdash.esm.js</a>, <a href="lightdash.esm.js.html#line1177">line 1177</a>
+        <a href="lightdash.esm.js.html">lightdash.esm.js</a>, <a href="lightdash.esm.js.html#line1178">line 1178</a>
     </li></ul></dd>
     
 
@@ -2107,7 +2124,8 @@
 
     <h5>Example</h5>
     
-    <pre class="prettyprint"><code>//returns [1,2,3]objValues({a:1,b:2,c:3})</code></pre>
+    <pre class="prettyprint"><code>//returns [1,2,3]
+objValues({a:1,b:2,c:3})</code></pre>
 
 
 
@@ -2211,7 +2229,7 @@
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.0-dev</a> on Fri Nov 10 2017 16:41:24 GMT+0100 (CET) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.0-dev</a> on Fri Nov 10 2017 16:52:20 GMT+0100 (CET) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
 </footer>
 
 <script>prettyPrint();</script>

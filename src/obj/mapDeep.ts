@@ -18,7 +18,7 @@ import objMap from "./map";
  * arrMapDeep({a:{b:2,c:[10,20]}},val=>val*2)
  */
 const objMapDeep = (obj: object, fn: forEachEntryIterator): object => objMap(obj,
-    (val: any, key: string, index: number, objNew: object) => {
+    (val: any, key: string, index: number, objNew: object | undefined) => {
         if (isObject(val)) {
             return objMapDeep(val, fn);
         } else {

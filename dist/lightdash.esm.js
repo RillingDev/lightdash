@@ -832,6 +832,7 @@ const arrCompact = (arr) => arr.filter((val) => !isNil(val) && !isEmpty(val));
 const arrCount = (arr) => {
     const result = new Map();
     forEach(arr, (val) => {
+        // @ts-ignore: .get() value will always be defined, as we check with .has() beforehand
         result.set(val, result.has(val) ? result.get(val) + 1 : 1);
     });
     return result;
