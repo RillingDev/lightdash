@@ -557,7 +557,7 @@ const isSymbol = (val) => isTypeOf(val, "symbol");
 /**
  * Checks if a value qequals true
  *
- * @function isFalse
+ * @function isTrue
  * @memberof Is
  * @since 2.8.0
  * @param {any} val
