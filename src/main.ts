@@ -25,6 +25,7 @@ import isSymbol from "./is/symbol";
 import isTrue from "./is/true";
 import isTypeOf from "./is/typeOf";
 import isUndefined from "./is/undefined";
+import isFunction from "./is/function";
 
 /**
  * Checks if a target has something
@@ -124,6 +125,7 @@ export {
     isStringNumber,
     isBoolean,
     isSymbol,
+    isFunction,
 
     hasKey,
     hasPath,

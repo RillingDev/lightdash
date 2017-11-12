@@ -600,6 +600,25 @@ const isSymbol = (val) => isTypeOf(val, "symbol");
 const isTrue = (val) => val === true;
 
 /**
+ * Checks if a value is a function
+ *
+ * @function isFunction
+ * @memberof Is
+ * @since 1.0.0
+ * @param {any} val
+ * @returns {boolean}
+ * @example
+ * //returns true
+ * isFunction(function a(){})
+ * isFunction(()=>{})
+ *
+ * @example
+ * //returns false
+ * isFunction(null)
+ */
+const isFunction = (val) => isTypeOf(val, "function");
+
+/**
  * Checks if an object has a certain own key
  *
  * `obj.hasOwnProperty` shorthand
@@ -1357,6 +1376,7 @@ exports.isString = isString;
 exports.isStringNumber = isStringNumber;
 exports.isBoolean = isBoolean;
 exports.isSymbol = isSymbol;
+exports.isFunction = isFunction;
 exports.hasKey = hasKey;
 exports.hasPath = hasPath;
 exports.hasOwnProperty = hasOwnProperty;

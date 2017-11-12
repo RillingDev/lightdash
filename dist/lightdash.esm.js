@@ -596,6 +596,25 @@ const isSymbol = (val) => isTypeOf(val, "symbol");
 const isTrue = (val) => val === true;
 
 /**
+ * Checks if a value is a function
+ *
+ * @function isFunction
+ * @memberof Is
+ * @since 1.0.0
+ * @param {any} val
+ * @returns {boolean}
+ * @example
+ * //returns true
+ * isFunction(function a(){})
+ * isFunction(()=>{})
+ *
+ * @example
+ * //returns false
+ * isFunction(null)
+ */
+const isFunction = (val) => isTypeOf(val, "function");
+
+/**
  * Checks if an object has a certain own key
  *
  * `obj.hasOwnProperty` shorthand
@@ -1330,4 +1349,4 @@ const numberRandomInt = (min = 0, max = 1) => Math.floor(numberRandomFloat(min, 
  * @namespace Number
  */
 
-export { isSame, isEqual, isInstanceOf, isTypeOf, isTrue, isFalse, isUndefined, isDefined, isNil, isObject, isObjectLike, isObjectPlain, isArray, isArrayLike, isMap, isSet, isEmpty, isPrimitive, isNumber, isString, isStringNumber, isBoolean, isSymbol, hasKey, hasPath, hasOwnProperty, getPath, forTimes, forEach, forEachDeep, forEachEntry, forEachEntryDeep, arrClone, arrCloneDeep, arrMap, arrMapDeep, arrFlattenDeep, arrCompact, arrChunk, arrStep, arrRemoveIndex, arrRemoveItem, arrCount, arrDifference, arrIntersection, arrUniq, objClone, objCloneDeep, objMap, objMapDeep, objDefaults, objDefaultsDeep, objMerge, objDefineProperty, objKeys, objValues, objEntries, mapFromObject, numberInRange, numberClamp, numberRandomFloat, numberRandomInt };
+export { isSame, isEqual, isInstanceOf, isTypeOf, isTrue, isFalse, isUndefined, isDefined, isNil, isObject, isObjectLike, isObjectPlain, isArray, isArrayLike, isMap, isSet, isEmpty, isPrimitive, isNumber, isString, isStringNumber, isBoolean, isSymbol, isFunction, hasKey, hasPath, hasOwnProperty, getPath, forTimes, forEach, forEachDeep, forEachEntry, forEachEntryDeep, arrClone, arrCloneDeep, arrMap, arrMapDeep, arrFlattenDeep, arrCompact, arrChunk, arrStep, arrRemoveIndex, arrRemoveItem, arrCount, arrDifference, arrIntersection, arrUniq, objClone, objCloneDeep, objMap, objMapDeep, objDefaults, objDefaultsDeep, objMerge, objDefineProperty, objKeys, objValues, objEntries, mapFromObject, numberInRange, numberClamp, numberRandomFloat, numberRandomInt };
