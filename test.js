@@ -1,9 +1,8 @@
 "use strict";
 
 const {
-    isObjectPlain,
-    objClone,
-    objCloneDeep
+    objDefaults,
+    objDefaultsDeep
 } = require("./dist/lightdash.common");
 
 const defaultVals = {
@@ -11,13 +10,12 @@ const defaultVals = {
     fn: null,
     alias: [],
     args: [],
-    sub: null
+    sub: null,
+    check: () => 1
 };
 const foo = {
     fn: () => "bar",
     alias: ["fizz"],
 };
 
-console.log(isObjectPlain(foo));
-console.log(isObjectPlain([]));
-console.log(isObjectPlain(() => {}));
+console.log(objDefaultsDeep(foo, defaultVals));

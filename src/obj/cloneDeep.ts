@@ -1,4 +1,4 @@
-import isObject from "../is/object";
+import isObjectLike from "../is/objectLike";
 import objClone from "./clone";
 import objMapDeep from "./mapDeep";
 
@@ -19,6 +19,6 @@ import objMapDeep from "./mapDeep";
  */
 const objCloneDeep = (obj: object): object => objMapDeep(
     objClone(obj),
-    (val: any) => isObject(val) ? objClone(val) : val);
+    (val: any) => isObjectLike(val) ? objClone(val) : val);
 
 export default objCloneDeep;

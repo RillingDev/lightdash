@@ -4,6 +4,9 @@ import isTypeOf from "./typeOf";
 /**
  * Checks if a value is not nil and has a type of object
  *
+ * The main difference to isObject is that functions are not considered object-like,
+ * because `typeof function(){}` does not return "function"
+ *
  * @function isObjectLike
  * @memberof Is
  * @since 1.0.0
@@ -16,8 +19,8 @@ import isTypeOf from "./typeOf";
  *
  * @example
  * //returns false
- * isObjectLike(null)
  * isObjectLike(1)
+ * isObjectLike(()=>1))
  */
 const isObjectLike = (val: any): boolean => !isNil(val) && isTypeOf(val, "object");
 

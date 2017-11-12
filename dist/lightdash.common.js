@@ -5,7 +5,7 @@ Object.defineProperty(exports, '__esModule', { value: true });
 /**
  * Checks if a value is an array
  *
- * Array.isArray shorthand
+ * `Array.isArray` shorthand
  *
  * @function isArray
  * @memberof Is
@@ -138,6 +138,9 @@ const isNil = (val) => isUndefined(val) || val === null;
 /**
  * Checks if a value is not nil and has a type of object
  *
+ * The main difference to isObject is that functions are not considered object-like,
+ * because `typeof function(){}` does not return "function"
+ *
  * @function isObjectLike
  * @memberof Is
  * @since 1.0.0
@@ -150,8 +153,8 @@ const isNil = (val) => isUndefined(val) || val === null;
  *
  * @example
  * //returns false
- * isObjectLike(null)
  * isObjectLike(1)
+ * isObjectLike(()=>1))
  */
 const isObjectLike = (val) => !isNil(val) && isTypeOf(val, "object");
 
@@ -201,7 +204,7 @@ const isBoolean = (val) => isTypeOf(val, "boolean");
 /**
  * Returns an array of the objects keys
  *
- * Object.keys shorthand
+ * `Object.keys` shorthand
  *
  * @function objKeys
  * @memberof Object
@@ -266,7 +269,7 @@ const isEmpty = (val) => {
 /**
  * Returns an array of the objects entries
  *
- * Object.entries shorthand
+ * `Object.entries` shorthand
  *
  * @function objEntries
  * @memberof Object
@@ -314,28 +317,6 @@ const forEachEntry = (obj, fn) => {
 };
 
 /**
- * Checks if the value is an instance of a target constructor
- *
- * @function isInstanceOf
- * @memberof Is
- * @since 1.0.0
- * @param {any} val
- * @param {Class} target
- * @returns {boolean}
- * @example
- * //returns true
- * isInstanceOf({},Object)
- * isInstanceOf([],Object)
- * isInstanceOf([],Array)
- *
- * @example
- * //returns false
- * isInstanceOf({},Array)
- * isInstanceOf([],Map)
- */
-const isInstanceOf = (val, target) => val instanceof target;
-
-/**
  * Checks if a value is an object
  *
  * @function isObject
@@ -347,13 +328,13 @@ const isInstanceOf = (val, target) => val instanceof target;
  * //returns true
  * isObject({})
  * isObject([])
- * isObject(()=>{}))
+ * isObject(()=>1))
  *
  * @example
  * //returns false
  * isObject(1)
  */
-const isObject = (val) => isInstanceOf(val, Object);
+const isObject = (val) => !isNil(val) && (isTypeOf(val, "object") || isTypeOf(val, "function"));
 
 /**
  * Recursively checks if two items and their the contents are the same
@@ -418,6 +399,28 @@ const isEqual = (a, b) => {
  * isFalse(0)
  */
 const isFalse = (val) => val === false;
+
+/**
+ * Checks if the value is an instance of a target constructor
+ *
+ * @function isInstanceOf
+ * @memberof Is
+ * @since 1.0.0
+ * @param {any} val
+ * @param {Class} target
+ * @returns {boolean}
+ * @example
+ * //returns true
+ * isInstanceOf({},Object)
+ * isInstanceOf([],Object)
+ * isInstanceOf([],Array)
+ *
+ * @example
+ * //returns false
+ * isInstanceOf({},Array)
+ * isInstanceOf([],Map)
+ */
+const isInstanceOf = (val, target) => val instanceof target;
 
 /**
  * Checks if a value is a map
@@ -599,7 +602,7 @@ const isTrue = (val) => val === true;
 /**
  * Checks if an object has a certain own key
  *
- * obj.hasOwnProperty shorthand
+ * `obj.hasOwnProperty` shorthand
  *
  * @function hasOwnProperty
  * @memberof Has
@@ -710,7 +713,7 @@ const forEachDeep = (arr, fn) => forEach(arr, (val, index) => isArray(val) ? for
  *
  * forEachEntryDeep(a,(val,key,index,obj)=>obj[key]=index*val)
  */
-const forEachEntryDeep = (obj, fn) => forEachEntry(obj, (val, key, index) => isObject(val) ? forEachEntryDeep(val, fn) : fn(val, key, index, obj));
+const forEachEntryDeep = (obj, fn) => forEachEntry(obj, (val, key, index) => isObjectLike(val) ? forEachEntryDeep(val, fn) : fn(val, key, index, obj));
 
 /**
  * Wrapper around a simple for-loop
@@ -766,7 +769,7 @@ const arrChunk = (arr, chunk) => {
 /**
  * Creates a new array with the values of the input iterable
  *
- * Array.from shorthand
+ * `Array.from` shorthand
  *
  * @function arrClone
  * @memberof Array
@@ -1045,7 +1048,7 @@ const arrUniq = (arr) => arrClone(new Set(arr));
  *
  * b.a = 10;
  */
-const objClone = (obj) => Object.assign({}, obj);
+const objClone = (obj) => isArray(obj) ? arrClone(obj) : Object.assign({}, obj);
 
 /**
  * Maps each entry of an object and returns the result
@@ -1082,7 +1085,7 @@ const objMap = (obj, fn) => {
  * arrMapDeep({a:{b:2,c:[10,20]}},val=>val*2)
  */
 const objMapDeep = (obj, fn) => objMap(obj, (val, key, index, objNew) => {
-    if (isObject(val)) {
+    if (isObjectLike(val)) {
         return objMapDeep(val, fn);
     }
     else {
@@ -1105,7 +1108,7 @@ const objMapDeep = (obj, fn) => objMap(obj, (val, key, index, objNew) => {
  *
  * b.a.c.a = 123;
  */
-const objCloneDeep = (obj) => objMapDeep(objClone(obj), (val) => isObject(val) ? objClone(val) : val);
+const objCloneDeep = (obj) => objMapDeep(objClone(obj), (val) => isObjectLike(val) ? objClone(val) : val);
 
 /**
  * Sets every nil property of object to the value from the default object
@@ -1147,8 +1150,8 @@ const objDefaultsDeep = (obj, objDefault) => {
     const result = objCloneDeep(obj);
     forEachEntry(objDefault, (valDefault, keyDefault) => {
         const valGiven = obj[keyDefault];
-        if (isObject(valDefault)) {
-            result[keyDefault] = isObject(valGiven) ? objDefaultsDeep(valGiven, valDefault) : valDefault;
+        if (isObjectLike(valDefault)) {
+            result[keyDefault] = isObjectLike(valGiven) ? objDefaultsDeep(valGiven, valDefault) : valDefault;
         }
         else {
             result[keyDefault] = isNil(valGiven) ? valDefault : valGiven;
@@ -1160,7 +1163,7 @@ const objDefaultsDeep = (obj, objDefault) => {
 /**
  * Adds a property to an object with optional custom flags
  *
- * Object.defineProperty shorthand
+ * `Object.defineProperty` shorthand
  *
  * @function objDefineProperty
  * @memberof Object
@@ -1187,7 +1190,7 @@ const objDefineProperty = (obj, key, val, enumerable = true, writable = true, co
 /**
  * Merges contents of two objects
  *
- * Object.assign shorthand
+ * `Object.assign` shorthand
  *
  * @function objMerge
  * @memberof Object
@@ -1204,7 +1207,7 @@ const objMerge = Object.assign;
 /**
  * Returns an array of the objects values
  *
- * Object.values shorthand
+ * `Object.values` shorthand
  *
  * @function objValues
  * @memberof Object

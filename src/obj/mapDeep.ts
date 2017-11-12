@@ -1,4 +1,4 @@
-import isObject from "../is/object";
+import isObjectLike from "../is/objectLike";
 import {
     forEachEntryIterator,
 } from "../lightdash.d";
@@ -19,7 +19,7 @@ import objMap from "./map";
  */
 const objMapDeep = (obj: object, fn: forEachEntryIterator): object => objMap(obj,
     (val: any, key: string, index: number, objNew: object | undefined) => {
-        if (isObject(val)) {
+        if (isObjectLike(val)) {
             return objMapDeep(val, fn);
         } else {
             return fn(val, key, index, objNew);

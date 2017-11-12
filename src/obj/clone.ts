@@ -1,3 +1,6 @@
+import arrClone from "../arr/clone";
+import isArray from "../is/array";
+
 /**
  * Creates a new object with the entries of the input object
  *
@@ -13,6 +16,6 @@
  *
  * b.a = 10;
  */
-const objClone = (obj: object): object => Object.assign({}, obj);
+const objClone = (obj: object): object => isArray(obj) ? arrClone(obj) : Object.assign({}, obj);
 
 export default objClone;

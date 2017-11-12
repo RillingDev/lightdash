@@ -1,7 +1,7 @@
 /**
  * Returns an array of the objects entries
  *
- * Object.entries shorthand
+ * `Object.entries` shorthand
  *
  * @function objEntries
  * @memberof Object

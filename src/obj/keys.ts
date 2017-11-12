@@ -1,7 +1,7 @@
 /**
  * Returns an array of the objects keys
  *
- * Object.keys shorthand
+ * `Object.keys` shorthand
  *
  * @function objKeys
  * @memberof Object
