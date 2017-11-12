@@ -12,6 +12,7 @@ import isInstanceOf from "./instanceOf";
  * //returns true
  * isObject({})
  * isObject([])
+ * isObject(()=>{}))
  *
  * @example
  * //returns false

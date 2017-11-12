@@ -15,6 +15,7 @@ import isNil from "./is/nil";
 import isNumber from "./is/number";
 import isObject from "./is/object";
 import isObjectLike from "./is/objectLike";
+import isObjectPlain from "./is/objectPlain";
 import isPrimitive from "./is/primitive";
 import isSame from "./is/same";
 import isSet from "./is/set";
@@ -111,6 +112,7 @@ export {
     isNil,
     isObject,
     isObjectLike,
+    isObjectPlain,
     isArray,
     isArrayLike,
     isMap,

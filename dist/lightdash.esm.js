@@ -343,6 +343,7 @@ const isInstanceOf = (val, target) => val instanceof target;
  * //returns true
  * isObject({})
  * isObject([])
+ * isObject(()=>{}))
  *
  * @example
  * //returns false
@@ -450,6 +451,27 @@ const isMap = (val) => isInstanceOf(val, Map);
  * isNumber(null)
  */
 const isNumber = (val) => isTypeOf(val, "number");
+
+/**
+ * Checks if a value is a plain object
+ *
+ * An object is considered plain of its constructor is the built-in object constructor
+ *
+ * @function isObjectPlain
+ * @memberof Is
+ * @since 2.9.0
+ * @param {any} val
+ * @returns {boolean}
+ * @example
+ * //returns true
+ * isObjectPlain({})
+ *
+ * @example
+ * //returns false
+ * isObjectPlain([])
+ * isObjectPlain(()=>{})
+ */
+const isObjectPlain = (val) => isObject(val) && val.constructor === Object;
 
 /**
  * Checks if a value is a primitive
@@ -1019,7 +1041,7 @@ const arrUniq = (arr) => arrClone(new Set(arr));
  *
  * b.a = 10;
  */
-const objClone = (obj) => isArray(obj) ? arrClone(obj) : Object.assign({}, obj);
+const objClone = (obj) => Object.assign({}, obj);
 
 /**
  * Maps each entry of an object and returns the result
@@ -1305,4 +1327,4 @@ const numberRandomInt = (min = 0, max = 1) => Math.floor(numberRandomFloat(min, 
  * @namespace Number
  */
 
-export { isSame, isEqual, isInstanceOf, isTypeOf, isTrue, isFalse, isUndefined, isDefined, isNil, isObject, isObjectLike, isArray, isArrayLike, isMap, isSet, isEmpty, isPrimitive, isNumber, isString, isStringNumber, isBoolean, isSymbol, hasKey, hasPath, hasOwnProperty, getPath, forTimes, forEach, forEachDeep, forEachEntry, forEachEntryDeep, arrClone, arrCloneDeep, arrMap, arrMapDeep, arrFlattenDeep, arrCompact, arrChunk, arrStep, arrRemoveIndex, arrRemoveItem, arrCount, arrDifference, arrIntersection, arrUniq, objClone, objCloneDeep, objMap, objMapDeep, objDefaults, objDefaultsDeep, objMerge, objDefineProperty, objKeys, objValues, objEntries, mapFromObject, numberInRange, numberClamp, numberRandomFloat, numberRandomInt };
+export { isSame, isEqual, isInstanceOf, isTypeOf, isTrue, isFalse, isUndefined, isDefined, isNil, isObject, isObjectLike, isObjectPlain, isArray, isArrayLike, isMap, isSet, isEmpty, isPrimitive, isNumber, isString, isStringNumber, isBoolean, isSymbol, hasKey, hasPath, hasOwnProperty, getPath, forTimes, forEach, forEachDeep, forEachEntry, forEachEntryDeep, arrClone, arrCloneDeep, arrMap, arrMapDeep, arrFlattenDeep, arrCompact, arrChunk, arrStep, arrRemoveIndex, arrRemoveItem, arrCount, arrDifference, arrIntersection, arrUniq, objClone, objCloneDeep, objMap, objMapDeep, objDefaults, objDefaultsDeep, objMerge, objDefineProperty, objKeys, objValues, objEntries, mapFromObject, numberInRange, numberClamp, numberRandomFloat, numberRandomInt };
