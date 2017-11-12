@@ -555,7 +555,7 @@ const isStringNumber = (val) => !isNaN(Number(val));
 const isSymbol = (val) => isTypeOf(val, "symbol");
 
 /**
- * Checks if a value qequals true
+ * Checks if a value equals true
  *
  * @function isTrue
  * @memberof Is
@@ -963,7 +963,7 @@ const arrRemoveIndex = (arr, index) => {
 };
 
 /**
- * Returns a new array with the first occurence of the item removed
+ * Returns a new array with the first occurrence of the item removed
  *
  * @function arrRemoveItem
  * @memberof Array

@@ -1,5 +1,5 @@
 /**
- * Checks if a value qequals true
+ * Checks if a value equals true
  *
  * @function isTrue
  * @memberof Is
