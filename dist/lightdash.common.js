@@ -1378,8 +1378,13 @@ const numberClamp = (val, min, max) => {
  */
 const randomNumber = (min = 0, max = 1, floating = true) => {
     const diff = max - min;
-    const rand = min + Math.random() * diff;
-    return floating ? rand : Math.floor(rand / diff * (diff + 1));
+    if (diff !== 0) {
+        const rand = min + Math.random() * diff;
+        return floating ? rand : Math.floor(rand / diff * (diff + 1));
+    }
+    else {
+        return min;
+    }
 };
 
 /**

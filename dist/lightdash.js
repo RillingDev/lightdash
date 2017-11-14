@@ -1360,9 +1360,13 @@ const numberClamp = (val, min, max) => {
  * randomNumber(2,10,false) // 5
  */
 const randomNumber = (min = 0, max = 1, floating = true) => {
-  const diff = max - min;
-  const rand = min + Math.random() * diff;
-  return floating ? rand : Math.floor(rand / diff * (diff + 1));
+    const diff = max - min;
+    if (diff !== 0) {
+        const rand = min + Math.random() * diff;
+        return floating ? rand : Math.floor(rand / diff * (diff + 1));
+    } else {
+        return min;
+    }
 };
 
 /**

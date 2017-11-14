@@ -1,8 +1,14 @@
 "use strict";
 
 const {
-    arrCompact
+    randomNumber,
+    randomItem
 } = require("./dist/lightdash.common");
 
+const foo = () => randomItem([1]);
 
-console.log(arrCompact([1, "", "", 2, 3, null, 4, undefined, 5, ""]));
+console.log(foo());
+console.log(foo());
+console.log(foo());
+console.log(foo());
+console.log(foo());
