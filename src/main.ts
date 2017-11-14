@@ -4,8 +4,10 @@
  */
 import isArguments from "./is/arguments";
 import isArray from "./is/array";
+import isArrayBuffer from "./is/arrayBuffer";
 import isArrayLike from "./is/arrayLike";
 import isBoolean from "./is/boolean";
+import isDate from "./is/date";
 import isDefined from "./is/defined";
 import isEmpty from "./is/empty";
 import isEqual from "./is/equal";
@@ -123,8 +125,10 @@ export {
     isObjectPlain,
     isArray,
     isArrayLike,
+    isArrayBuffer,
     isMap,
     isSet,
+    isDate,
     isFunction,
     isArguments,
     isEmpty,

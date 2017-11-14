@@ -2,6 +2,66 @@ var _ = (function (exports) {
 'use strict';
 
 /**
+ * Checks if the value has a certain type-string
+ *
+ * @function isTypeOf
+ * @memberof Is
+ * @since 1.0.0
+ * @param {any} val
+ * @param {string} type
+ * @returns {boolean}
+ * @example
+ * //returns true
+ * isTypeOf({},"object")
+ * isTypeOf([],"object")
+ * isTypeOf("foo","string")
+ *
+ * @example
+ * //returns false
+ * isTypeOf("foo","number")
+ */
+const isTypeOf = (val, type) => typeof val === type;
+
+/**
+ * Checks if a value is a function
+ *
+ * @function isFunction
+ * @memberof Is
+ * @since 1.0.0
+ * @param {any} val
+ * @returns {boolean}
+ * @example
+ * //returns true
+ * isFunction(function a(){})
+ * isFunction(()=>{})
+ *
+ * @example
+ * //returns false
+ * isFunction(null)
+ */
+const isFunction = val => isTypeOf(val, "function");
+
+/**
+ * Checks if a value is an arguments array-like
+ *
+ * @function isArguments
+ * @memberof Is
+ * @since 2.10.0
+ * @param {any} val
+ * @returns {boolean}
+ * @example
+ * // returns true
+ * const foo=function(){return arguments;};
+ *
+ * isArguments(foo());
+ *
+ * @example
+ * // returns false
+ * isArray([]);
+ */
+const isArguments = val => isFunction(val.callee);
+
+/**
  * Checks if a value is an array
  *
  * `Array.isArray` shorthand
@@ -23,25 +83,45 @@ var _ = (function (exports) {
 const isArray = Array.isArray;
 
 /**
- * Checks if the value has a certain type-string
+ * Checks if the value is an instance of a target constructor
  *
- * @function isTypeOf
+ * @function isInstanceOf
  * @memberof Is
  * @since 1.0.0
  * @param {any} val
- * @param {string} type
+ * @param {Class} target
  * @returns {boolean}
  * @example
  * //returns true
- * isTypeOf({},"object")
- * isTypeOf([],"object")
- * isTypeOf("foo","string")
+ * isInstanceOf({},Object)
+ * isInstanceOf([],Object)
+ * isInstanceOf([],Array)
  *
  * @example
  * //returns false
- * isTypeOf("foo","number")
+ * isInstanceOf({},Array)
+ * isInstanceOf([],Map)
  */
-const isTypeOf = (val, type) => typeof val === type;
+const isInstanceOf = (val, target) => val instanceof target;
+
+/**
+ * Checks if a value is an array-buffer
+ *
+ * @function isArrayBuffer
+ * @memberof Is
+ * @since 2.10.0
+ * @param {any} val
+ * @returns {boolean}
+ * @example
+ * //returns true
+ * isArrayBuffer(new ArrayBuffer())
+ *
+ * @example
+ * //returns false
+ * isArrayBuffer([1,2])
+ */
+// @ts-ignore: ArrayBuffer declaration is outdated
+const isArrayBuffer = val => isInstanceOf(val, ArrayBuffer);
 
 /**
  * Checks if a value is undefined
@@ -199,6 +279,25 @@ const isArrayLike = val => isObjectLike(val) && hasKey(val, "length");
  * isBoolean("")
  */
 const isBoolean = val => isTypeOf(val, "boolean");
+
+/**
+ * Checks if a value is a date object
+ *
+ * @function isDate
+ * @memberof Is
+ * @since 2.10.0
+ * @param {any} val
+ * @returns {boolean}
+ * @example
+ * //returns true
+ * isDate(Date())
+ * isDate(new Date())
+ *
+ * @example
+ * //returns false
+ * isDate(123213)
+ */
+const isDate = val => isInstanceOf(val, Date);
 
 /**
  * Returns an array of the objects keys
@@ -397,28 +496,6 @@ const isEqual = (a, b) => {
 const isFalse = val => val === false;
 
 /**
- * Checks if the value is an instance of a target constructor
- *
- * @function isInstanceOf
- * @memberof Is
- * @since 1.0.0
- * @param {any} val
- * @param {Class} target
- * @returns {boolean}
- * @example
- * //returns true
- * isInstanceOf({},Object)
- * isInstanceOf([],Object)
- * isInstanceOf([],Array)
- *
- * @example
- * //returns false
- * isInstanceOf({},Array)
- * isInstanceOf([],Map)
- */
-const isInstanceOf = (val, target) => val instanceof target;
-
-/**
  * Checks if a value is a map
  *
  * @function isMap
@@ -594,45 +671,6 @@ const isSymbol = val => isTypeOf(val, "symbol");
  * isTrue(1)
  */
 const isTrue = val => val === true;
-
-/**
- * Checks if a value is a function
- *
- * @function isFunction
- * @memberof Is
- * @since 1.0.0
- * @param {any} val
- * @returns {boolean}
- * @example
- * //returns true
- * isFunction(function a(){})
- * isFunction(()=>{})
- *
- * @example
- * //returns false
- * isFunction(null)
- */
-const isFunction = val => isTypeOf(val, "function");
-
-/**
- * Checks if a value is an array
- *
- * @function isArguments
- * @memberof Is
- * @since 2.10.0
- * @param {any} val
- * @returns {boolean}
- * @example
- * // returns true
- * const foo=function(){return arguments;};
- *
- * isArguments(foo());
- *
- * @example
- * // returns false
- * isArray([]);
- */
-const isArguments = val => isFunction(val.callee);
 
 /**
  * Checks if an object has a certain own key
@@ -1376,8 +1414,10 @@ exports.isObjectLike = isObjectLike;
 exports.isObjectPlain = isObjectPlain;
 exports.isArray = isArray;
 exports.isArrayLike = isArrayLike;
+exports.isArrayBuffer = isArrayBuffer;
 exports.isMap = isMap;
 exports.isSet = isSet;
+exports.isDate = isDate;
 exports.isFunction = isFunction;
 exports.isArguments = isArguments;
 exports.isEmpty = isEmpty;

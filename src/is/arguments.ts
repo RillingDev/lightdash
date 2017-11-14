@@ -1,7 +1,7 @@
 import isFunction from "./function";
 
 /**
- * Checks if a value is an array
+ * Checks if a value is an arguments array-like
  *
  * @function isArguments
  * @memberof Is
