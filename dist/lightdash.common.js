@@ -365,7 +365,7 @@ const objKeys = Object.keys;
  * isEmpty({a:1})
  */
 const isEmpty = (val) => {
-    if (hasKey(val, "length")) {
+    if (isArrayLike(val)) {
         return val.length === 0;
     }
     else if (hasKey(val, "size")) {
@@ -1025,7 +1025,7 @@ const arrMapDeep = (arr, fn) => arrMap(arr, (val, index) => isArray(val) ? arrMa
 const arrCloneDeep = (arr) => arrMapDeep(arrClone(arr), (val) => isArray(val) ? arrClone(val) : val);
 
 /**
- * Returns an array with every empty, undefined or null value filtered out
+ * Returns an array with every empty string, undefined or null value filtered out
  *
  * @function arrCompact
  * @memberof Array
@@ -1036,7 +1036,7 @@ const arrCloneDeep = (arr) => arrMapDeep(arrClone(arr), (val) => isArray(val) ? 
  * //returns [1,2,3,4,5]
  * arrCompact([1,"","",2,3,null,4,undefined,5,""])
  */
-const arrCompact = (arr) => arr.filter((val) => !isNil(val) && !isEmpty(val));
+const arrCompact = (arr) => arr.filter((val) => !isNil(val) && val !== "");
 
 /**
  * Counts how many times an element appears in an array and returns a Map<element: any, count: number>

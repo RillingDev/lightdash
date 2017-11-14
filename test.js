@@ -1,21 +1,8 @@
 "use strict";
 
 const {
-    isInteger,
-    objDefaultsDeep
+    arrCompact
 } = require("./dist/lightdash.common");
 
-const defaultVals = {
-    name: `command${1}`,
-    fn: null,
-    alias: [],
-    args: [],
-    sub: null,
-    check: () => 1
-};
-const foo = {
-    fn: () => "bar",
-    alias: ["fizz"],
-};
 
-console.log(isInteger(2));
+console.log(arrCompact([1, "", "", 2, 3, null, 4, undefined, 5, ""]));

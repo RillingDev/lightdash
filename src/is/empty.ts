@@ -1,5 +1,6 @@
 import hasKey from "../has/key";
 import objKeys from "../obj/keys";
+import isArrayLike from "./arrayLike";
 import isObjectLike from "./objectLike";
 
 /**
@@ -32,7 +33,7 @@ import isObjectLike from "./objectLike";
  * isEmpty({a:1})
  */
 const isEmpty = (val: any): boolean => {
-    if (hasKey(val, "length")) {
+    if (isArrayLike(val)) {
         return val.length === 0;
     } else if (hasKey(val, "size")) {
         return val.size === 0;
