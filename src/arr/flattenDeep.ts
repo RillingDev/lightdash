@@ -17,8 +17,8 @@ import isArray from "../is/array";
  * //returns [1,2,3,5,6,6]
  * arrFlattenDeep([1,2,[3,[[[5]]],[6,[6]]])
  */
-const arrFlattenDeep = (arr: any[]) => {
-    const result: any[] = [];
+const arrFlattenDeep = <T>(arr: T[]): T[] => {
+    const result: T[] = [];
 
     forEach(arr, (val: any) => {
         if (isArray(val)) {

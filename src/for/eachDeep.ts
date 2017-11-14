@@ -17,7 +17,7 @@ import forEach from "./each";
  *
  * forEachDeep(a,(val,index,arr)=>arr[index]=index*val)
  */
-const forEachDeep = (arr: any[], fn: forEachIterator): void => forEach(arr,
-    (val: any, index: number) => isArray(val) ? forEachDeep(val, fn) : fn(val, index, arr));
+const forEachDeep = <T>(arr: T[], fn: forEachIterator): void => forEach(arr,
+    (val: T, index: number) => isArray(val) ? forEachDeep(val, fn) : fn(val, index, arr));
 
 export default forEachDeep;

@@ -17,7 +17,7 @@ import forTimes from "../for/times";
  * //returns [[1,2,3],[4,5]]
  * arrChunk([1,2,3,4,5],3)
  */
-const arrChunk = (arr: any[], chunk: number): any[] => {
+const arrChunk = <T>(arr: T[], chunk: number): Array<Array<T>> => {
     if (chunk < 1) {
         return [];
     } else {
