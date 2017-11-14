@@ -475,6 +475,25 @@ const isEqual = (a, b) => {
 };
 
 /**
+ * Checks if a value is an array-buffer
+ *
+ * @function isError
+ * @memberof Is
+ * @since 2.10.0
+ * @param {any} val
+ * @returns {boolean}
+ * @example
+ * //returns true
+ * isError(new Error())
+ * isError(new URIError())
+ *
+ * @example
+ * //returns false
+ * isError("foo")
+ */
+const isError = (val) => isInstanceOf(val, Error);
+
+/**
  * Checks if a value equals false
  *
  * @function isFalse
@@ -493,6 +512,50 @@ const isEqual = (a, b) => {
  * isFalse(0)
  */
 const isFalse = (val) => val === false;
+
+/**
+ * Checks if a value is finite
+ *
+ * `Number.isFinite` shorthand
+ *
+ * @function isFinite
+ * @memberof Is
+ * @since 2.10.0
+ * @param {any} val
+ * @returns {boolean}
+ * @example
+ * // returns true
+ * isFinite(1);
+ * isFinite(-2.123);
+ *
+ * @example
+ * // returns false
+ * isFinite(Infinity);
+ * isFinite("foo")
+ */
+const isFinite = Number.isFinite;
+
+/**
+ * Checks if a value is an integer
+ *
+ * `Number.isInteger` shorthand
+ *
+ * @function isInteger
+ * @memberof Is
+ * @since 2.10.0
+ * @param {any} val
+ * @returns {boolean}
+ * @example
+ * // returns true
+ * isInteger(1);
+ * isInteger(2000);
+ *
+ * @example
+ * // returns false
+ * isInteger(2.34);
+ * isInteger(Infinity)
+ */
+const isInteger = Number.isInteger;
 
 /**
  * Checks if a value is a map
@@ -1450,7 +1513,10 @@ exports.isSet = isSet;
 exports.isDate = isDate;
 exports.isFunction = isFunction;
 exports.isArguments = isArguments;
+exports.isError = isError;
 exports.isEmpty = isEmpty;
+exports.isFinite = isFinite;
+exports.isInteger = isInteger;
 exports.hasKey = hasKey;
 exports.hasPath = hasPath;
 exports.hasOwnProperty = hasOwnProperty;

@@ -471,6 +471,25 @@ const isEqual = (a, b) => {
 };
 
 /**
+ * Checks if a value is an array-buffer
+ *
+ * @function isError
+ * @memberof Is
+ * @since 2.10.0
+ * @param {any} val
+ * @returns {boolean}
+ * @example
+ * //returns true
+ * isError(new Error())
+ * isError(new URIError())
+ *
+ * @example
+ * //returns false
+ * isError("foo")
+ */
+const isError = (val) => isInstanceOf(val, Error);
+
+/**
  * Checks if a value equals false
  *
  * @function isFalse
@@ -489,6 +508,50 @@ const isEqual = (a, b) => {
  * isFalse(0)
  */
 const isFalse = (val) => val === false;
+
+/**
+ * Checks if a value is finite
+ *
+ * `Number.isFinite` shorthand
+ *
+ * @function isFinite
+ * @memberof Is
+ * @since 2.10.0
+ * @param {any} val
+ * @returns {boolean}
+ * @example
+ * // returns true
+ * isFinite(1);
+ * isFinite(-2.123);
+ *
+ * @example
+ * // returns false
+ * isFinite(Infinity);
+ * isFinite("foo")
+ */
+const isFinite = Number.isFinite;
+
+/**
+ * Checks if a value is an integer
+ *
+ * `Number.isInteger` shorthand
+ *
+ * @function isInteger
+ * @memberof Is
+ * @since 2.10.0
+ * @param {any} val
+ * @returns {boolean}
+ * @example
+ * // returns true
+ * isInteger(1);
+ * isInteger(2000);
+ *
+ * @example
+ * // returns false
+ * isInteger(2.34);
+ * isInteger(Infinity)
+ */
+const isInteger = Number.isInteger;
 
 /**
  * Checks if a value is a map
@@ -1420,4 +1483,4 @@ const numberRandomInt = (min = 0, max = 1) => Math.floor(numberRandomFloat(min, 
  * @namespace Number
  */
 
-export { isSame, isEqual, isInstanceOf, isTypeOf, isTrue, isFalse, isUndefined, isDefined, isNil, isPrimitive, isNumber, isString, isStringNumber, isBoolean, isSymbol, isObject, isObjectLike, isObjectPlain, isArray, isArrayLike, isArrayBuffer, isMap, isSet, isDate, isFunction, isArguments, isEmpty, hasKey, hasPath, hasOwnProperty, getPath, forTimes, forEach, forEachDeep, forEachEntry, forEachEntryDeep, arrClone, arrCloneDeep, arrMap, arrMapDeep, arrFlattenDeep, arrCompact, arrChunk, arrStep, arrRemoveIndex, arrRemoveItem, arrCount, arrDifference, arrIntersection, arrUniq, objClone, objCloneDeep, objMap, objMapDeep, objDefaults, objDefaultsDeep, objMerge, objDefineProperty, objKeys, objValues, objEntries, mapFromObject, numberInRange, numberClamp, numberRandomFloat, numberRandomInt };
+export { isSame, isEqual, isInstanceOf, isTypeOf, isTrue, isFalse, isUndefined, isDefined, isNil, isPrimitive, isNumber, isString, isStringNumber, isBoolean, isSymbol, isObject, isObjectLike, isObjectPlain, isArray, isArrayLike, isArrayBuffer, isMap, isSet, isDate, isFunction, isArguments, isError, isEmpty, isFinite, isInteger, hasKey, hasPath, hasOwnProperty, getPath, forTimes, forEach, forEachDeep, forEachEntry, forEachEntryDeep, arrClone, arrCloneDeep, arrMap, arrMapDeep, arrFlattenDeep, arrCompact, arrChunk, arrStep, arrRemoveIndex, arrRemoveItem, arrCount, arrDifference, arrIntersection, arrUniq, objClone, objCloneDeep, objMap, objMapDeep, objDefaults, objDefaultsDeep, objMerge, objDefineProperty, objKeys, objValues, objEntries, mapFromObject, numberInRange, numberClamp, numberRandomFloat, numberRandomInt };

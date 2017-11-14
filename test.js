@@ -1,7 +1,7 @@
 "use strict";
 
 const {
-    objDefaults,
+    isInteger,
     objDefaultsDeep
 } = require("./dist/lightdash.common");
 
@@ -18,4 +18,4 @@ const foo = {
     alias: ["fizz"],
 };
 
-console.log(objDefaultsDeep(foo, defaultVals));
+console.log(isInteger(2));
