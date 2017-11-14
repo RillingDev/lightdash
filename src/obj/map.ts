@@ -3,7 +3,7 @@ import {
     forEachEntryIterator,
     IGenericObject,
 } from "../lightdash.d";
-import objClone from "./clone";
+import objFrom from "./from";
 
 /**
  * Maps each entry of an object and returns the result
@@ -19,7 +19,7 @@ import objClone from "./clone";
  * objMap({a:4, b:2},val=>val*2)
  */
 const objMap = (obj: object, fn: forEachEntryIterator): object => {
-    const objNew: IGenericObject = objClone(obj);
+    const objNew: IGenericObject = objFrom(obj);
 
     forEachEntry(objNew, (val: any, key: string, index: number) => {
         objNew[key] = fn(val, key, index, objNew);

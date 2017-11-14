@@ -3,7 +3,8 @@ import isNil from "../is/nil";
 import {
     IGenericObject,
 } from "../lightdash.d";
-import objClone from "./clone";
+import objFrom from "./from";
+
 /**
  * Sets every nil property of object to the value from the default object
  *
@@ -18,7 +19,7 @@ import objClone from "./clone";
  * objDefaults({a:1,c:5},{a:1,b:2,c:3})
  */
 const objDefaults = (obj: IGenericObject, objDefault: object): object => {
-    const result: IGenericObject = objClone(obj);
+    const result: IGenericObject = objFrom(obj);
 
     forEachEntry(objDefault, (valDefault: any, keyDefault: string) => {
         if (isNil(obj[keyDefault])) {

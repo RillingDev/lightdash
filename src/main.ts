@@ -60,12 +60,12 @@ import forTimes from "./for/times";
  * @namespace Array
  */
 import arrChunk from "./arr/chunk";
-import arrClone from "./arr/clone";
-import arrCloneDeep from "./arr/cloneDeep";
 import arrCompact from "./arr/compact";
 import arrCount from "./arr/count";
 import arrDifference from "./arr/difference";
 import arrFlattenDeep from "./arr/flattenDeep";
+import arrFrom from "./arr/from";
+import arrFromDeep from "./arr/fromDeep";
 import arrIntersection from "./arr/intersection";
 import arrMapDeep from "./arr/mapDeep";
 import arrRemoveIndex from "./arr/removeIndex";
@@ -77,12 +77,12 @@ import arrUniq from "./arr/uniq";
  * Object manipulation and analysis
  * @namespace Object
  */
-import objClone from "./obj/clone";
-import objCloneDeep from "./obj/cloneDeep";
 import objDefaults from "./obj/defaults";
 import objDefaultsDeep from "./obj/defaultsDeep";
 import objDefineProperty from "./obj/defineProperty";
 import objEntries from "./obj/entries";
+import objFrom from "./obj/from";
+import objFromDeep from "./obj/fromDeep";
 import objKeys from "./obj/keys";
 import objMap from "./obj/map";
 import objMapDeep from "./obj/mapDeep";
@@ -146,8 +146,8 @@ export {
     forEachEntry,
     forEachEntryDeep,
 
-    arrClone,
-    arrCloneDeep,
+    arrFrom,
+    arrFromDeep,
     arrMapDeep,
     arrFlattenDeep,
     arrCompact,
@@ -160,8 +160,8 @@ export {
     arrIntersection,
     arrUniq,
 
-    objClone,
-    objCloneDeep,
+    objFrom,
+    objFromDeep,
     objMap,
     objMapDeep,
     objDefaults,

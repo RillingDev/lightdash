@@ -39,3 +39,7 @@ Most functions are very similar to their lodash counterparts, however some might
 **[Docs](https://felixrilling.github.io/lightdash/)**
 
 For detailed descriptions and type annotations check the source or run `npm run docs`
+
+### Changelog
+
+#### v3

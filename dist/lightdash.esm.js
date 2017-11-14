@@ -871,57 +871,6 @@ const arrChunk = (arr, chunk) => {
 };
 
 /**
- * Creates a new array with the values of the input iterable
- *
- * `Array.from` shorthand
- *
- * @function arrClone
- * @memberof Array
- * @since 1.0.0
- * @param {any} arr
- * @returns {any[]}
- * @example
- * //returns a = [1,2,3], b = [1,10,3]
- * const a = [1,2,3];
- * const b = arrClone(a);
- *
- * b[1] = 10;
- */
-const arrClone = Array.from;
-
-/**
- * Recursively maps the values of the input array with the iterator function and return the result
- *
- * @function arrMapDeep
- * @memberof Array
- * @since 1.0.0
- * @param {any[]} arr
- * @param {function} fn fn(val: any, index: number, arr: any[])
- * @returns {any[]}
- * @example
- * //returns [4,8,[2,2,[32],8]]
- * arrMapDeep([2,4,[1,1,[16],4]],val=>val*2)
- */
-const arrMapDeep = (arr, fn) => arr.map((val, index) => isArray(val) ? arrMapDeep(val, fn) : fn(val, index, arr));
-
-/**
- * Recursively creates a new array with the values of the input iterable
- *
- * @function arrCloneDeep
- * @memberof Array
- * @since 2.0.0
- * @param {any} arr
- * @returns {any[]}
- * @example
- * //returns a = [1,2,3,[5,[6]]], b = [1,2,3,[5,[10]]]
- * const a = [1,2,3,[5,[6]]];
- * const b = arrCloneDeep(a);
- *
- * b[3][1][0] = 10;
- */
-const arrCloneDeep = (arr) => arrMapDeep(arrClone(arr), (val) => isArray(val) ? arrClone(val) : val);
-
-/**
  * Returns an array with every falsey value removed out
  *
  * @function arrCompact
@@ -1006,6 +955,57 @@ const arrFlattenDeep = (arr) => {
     });
     return result;
 };
+
+/**
+ * Creates a new array with the values of the input iterable
+ *
+ * `Array.from` shorthand
+ *
+ * @function arrFrom
+ * @memberof Array
+ * @since 1.0.0
+ * @param {any} arr
+ * @returns {any[]}
+ * @example
+ * //returns a = [1,2,3], b = [1,10,3]
+ * const a = [1,2,3];
+ * const b = arrFrom(a);
+ *
+ * b[1] = 10;
+ */
+const arrFrom = Array.from;
+
+/**
+ * Recursively maps the values of the input array with the iterator function and return the result
+ *
+ * @function arrMapDeep
+ * @memberof Array
+ * @since 1.0.0
+ * @param {any[]} arr
+ * @param {function} fn fn(val: any, index: number, arr: any[])
+ * @returns {any[]}
+ * @example
+ * //returns [4,8,[2,2,[32],8]]
+ * arrMapDeep([2,4,[1,1,[16],4]],val=>val*2)
+ */
+const arrMapDeep = (arr, fn) => arr.map((val, index) => isArray(val) ? arrMapDeep(val, fn) : fn(val, index, arr));
+
+/**
+ * Recursively creates a new array with the values of the input iterable
+ *
+ * @function arrFromDeep
+ * @memberof Array
+ * @since 2.0.0
+ * @param {any} arr
+ * @returns {any[]}
+ * @example
+ * //returns a = [1,2,3,[5,[6]]], b = [1,2,3,[5,[10]]]
+ * const a = [1,2,3,[5,[6]]];
+ * const b = arrFromDeep(a);
+ *
+ * b[3][1][0] = 10;
+ */
+const arrFromDeep = (arr) => arrMapDeep(arrFrom(arr), (val) => isArray(val) ? arrFrom(val) : val);
 
 /**
  * Returns an array of all elements that exist in the first array, and at least once in one of the other arrays
@@ -1120,12 +1120,12 @@ const arrStep = (arr, step) => arr.filter((val, index) => index % step === 0);
  * //returns [1,2,3,4]
  * arrUniq([1,1,1,2,3,1,2,1,4])
  */
-const arrUniq = (arr) => arrClone(new Set(arr));
+const arrUniq = (arr) => arrFrom(new Set(arr));
 
 /**
  * Creates a new object with the entries of the input object
  *
- * @function objClone
+ * @function objFrom
  * @memberof Object
  * @since 1.0.0
  * @param {object} obj
@@ -1133,11 +1133,34 @@ const arrUniq = (arr) => arrClone(new Set(arr));
  * @example
  * //returns a = {a:4, b:2}, b = {a:10, b:2}
  * const a = {a:4, b:2};
- * const b = objClone(a);
+ * const b = objFrom(a);
  *
  * b.a = 10;
  */
-const objClone = (obj) => isArray(obj) ? arrClone(obj) : Object.assign({}, obj);
+const objFrom = (obj) => isArray(obj) ? arrFrom(obj) : Object.assign({}, obj);
+
+/**
+ * Sets every nil property of object to the value from the default object
+ *
+ * @function objDefaults
+ * @memberof Object
+ * @since 2.6.0
+ * @param {Object} obj
+ * @param {Object} objDefault
+ * @returns {Object}
+ * @example
+ * //returns a = {a:1,b:2,c:5}
+ * objDefaults({a:1,c:5},{a:1,b:2,c:3})
+ */
+const objDefaults = (obj, objDefault) => {
+    const result = objFrom(obj);
+    forEachEntry(objDefault, (valDefault, keyDefault) => {
+        if (isNil(obj[keyDefault])) {
+            result[keyDefault] = valDefault;
+        }
+    });
+    return result;
+};
 
 /**
  * Maps each entry of an object and returns the result
@@ -1153,7 +1176,7 @@ const objClone = (obj) => isArray(obj) ? arrClone(obj) : Object.assign({}, obj);
  * objMap({a:4, b:2},val=>val*2)
  */
 const objMap = (obj, fn) => {
-    const objNew = objClone(obj);
+    const objNew = objFrom(obj);
     forEachEntry(objNew, (val, key, index) => {
         objNew[key] = fn(val, key, index, objNew);
     });
@@ -1185,7 +1208,7 @@ const objMapDeep = (obj, fn) => objMap(obj, (val, key, index, objNew) => {
 /**
  * Deeply creates a new object with the entries of the input object
  *
- * @function objCloneDeep
+ * @function objFromDeep
  * @memberof Object
  * @since 1.0.0
  * @param {Object} obj
@@ -1193,34 +1216,11 @@ const objMapDeep = (obj, fn) => objMap(obj, (val, key, index, objNew) => {
  * @example
  * //returns a = {a:{b:2,c:{a:10,b:20}}, b = {a:{b:2,c:{a:123,b:20}}}
  * const a = {a:{b:2,c:{a:10,b:20}}};
- * const b = objCloneDeep(a);
+ * const b = objFromDeep(a);
  *
  * b.a.c.a = 123;
  */
-const objCloneDeep = (obj) => objMapDeep(objClone(obj), (val) => isObjectLike(val) ? objClone(val) : val);
-
-/**
- * Sets every nil property of object to the value from the default object
- *
- * @function objDefaults
- * @memberof Object
- * @since 2.6.0
- * @param {Object} obj
- * @param {Object} objDefault
- * @returns {Object}
- * @example
- * //returns a = {a:1,b:2,c:5}
- * objDefaults({a:1,c:5},{a:1,b:2,c:3})
- */
-const objDefaults = (obj, objDefault) => {
-    const result = objClone(obj);
-    forEachEntry(objDefault, (valDefault, keyDefault) => {
-        if (isNil(obj[keyDefault])) {
-            result[keyDefault] = valDefault;
-        }
-    });
-    return result;
-};
+const objFromDeep = (obj) => objMapDeep(objFrom(obj), (val) => isObjectLike(val) ? objFrom(val) : val);
 
 /**
  * Recursively sets every nil property of object to the value from the default object
@@ -1236,7 +1236,7 @@ const objDefaults = (obj, objDefault) => {
  * objDefaultsDeep({a:[1,2],c:{f:'x'}},{a:[1,2,3],b:2,c:{f:'y'}})
  */
 const objDefaultsDeep = (obj, objDefault) => {
-    const result = objCloneDeep(obj);
+    const result = objFromDeep(obj);
     forEachEntry(objDefault, (valDefault, keyDefault) => {
         const valGiven = obj[keyDefault];
         if (isObjectLike(valDefault)) {
@@ -1423,4 +1423,4 @@ const numberRandomInt = (min = 0, max = 1) => Math.floor(numberRandomFloat(min, 
  * @namespace Number
  */
 
-export { isEqual, isInstanceOf, isTypeOf, isUndefined, isDefined, isNil, isPrimitive, isNumber, isString, isBoolean, isSymbol, isObject, isObjectLike, isObjectPlain, isArray, isArrayLike, isArrayBuffer, isArrayTyped, isMap, isSet, isDate, isRegExp, isFunction, isArguments, isError, isEmpty, isFinite, isInteger, hasKey, hasPath, hasOwnProperty, getPath, forTimes, forEach, forEachDeep, forEachEntry, forEachEntryDeep, arrClone, arrCloneDeep, arrMapDeep, arrFlattenDeep, arrCompact, arrChunk, arrStep, arrRemoveIndex, arrRemoveItem, arrCount, arrDifference, arrIntersection, arrUniq, objClone, objCloneDeep, objMap, objMapDeep, objDefaults, objDefaultsDeep, objMerge, objDefineProperty, objKeys, objValues, objEntries, mapFromObject, numberInRange, numberClamp, numberRandomFloat, numberRandomInt };
+export { isEqual, isInstanceOf, isTypeOf, isUndefined, isDefined, isNil, isPrimitive, isNumber, isString, isBoolean, isSymbol, isObject, isObjectLike, isObjectPlain, isArray, isArrayLike, isArrayBuffer, isArrayTyped, isMap, isSet, isDate, isRegExp, isFunction, isArguments, isError, isEmpty, isFinite, isInteger, hasKey, hasPath, hasOwnProperty, getPath, forTimes, forEach, forEachDeep, forEachEntry, forEachEntryDeep, arrFrom, arrFromDeep, arrMapDeep, arrFlattenDeep, arrCompact, arrChunk, arrStep, arrRemoveIndex, arrRemoveItem, arrCount, arrDifference, arrIntersection, arrUniq, objFrom, objFromDeep, objMap, objMapDeep, objDefaults, objDefaultsDeep, objMerge, objDefineProperty, objKeys, objValues, objEntries, mapFromObject, numberInRange, numberClamp, numberRandomFloat, numberRandomInt };

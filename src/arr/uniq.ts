@@ -1,4 +1,4 @@
-import arrClone from "./clone";
+import arrFrom from "./from";
 
 /**
  * Returns an array of all unique elements in an array
@@ -12,6 +12,6 @@ import arrClone from "./clone";
  * //returns [1,2,3,4]
  * arrUniq([1,1,1,2,3,1,2,1,4])
  */
-const arrUniq = (arr: any[]): any[] => arrClone(new Set(arr));
+const arrUniq = (arr: any[]): any[] => arrFrom(new Set(arr));
 
 export default arrUniq;

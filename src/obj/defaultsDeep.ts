@@ -4,7 +4,7 @@ import isObjectLike from "../is/objectLike";
 import {
     IGenericObject,
 } from "../lightdash.d";
-import objClone from "./cloneDeep";
+import objFrom from "./fromDeep";
 
 /**
  * Recursively sets every nil property of object to the value from the default object
@@ -20,7 +20,7 @@ import objClone from "./cloneDeep";
  * objDefaultsDeep({a:[1,2],c:{f:'x'}},{a:[1,2,3],b:2,c:{f:'y'}})
  */
 const objDefaultsDeep = (obj: IGenericObject, objDefault: object): object => {
-    const result: IGenericObject = objClone(obj);
+    const result: IGenericObject = objFrom(obj);
 
     forEachEntry(objDefault, (valDefault: any, keyDefault: string) => {
         const valGiven = obj[keyDefault];

@@ -3,7 +3,7 @@
  *
  * `Array.from` shorthand
  *
- * @function arrClone
+ * @function arrFrom
  * @memberof Array
  * @since 1.0.0
  * @param {any} arr
@@ -11,10 +11,10 @@
  * @example
  * //returns a = [1,2,3], b = [1,10,3]
  * const a = [1,2,3];
- * const b = arrClone(a);
+ * const b = arrFrom(a);
  *
  * b[1] = 10;
  */
-const arrClone = Array.from;
+const arrFrom = Array.from;
 
-export default arrClone;
+export default arrFrom;
