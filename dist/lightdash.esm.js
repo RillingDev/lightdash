@@ -615,6 +615,26 @@ const isTrue = (val) => val === true;
 const isFunction = (val) => isTypeOf(val, "function");
 
 /**
+ * Checks if a value is an array
+ *
+ * @function isArguments
+ * @memberof Is
+ * @since 2.10.0
+ * @param {any} val
+ * @returns {boolean}
+ * @example
+ * // returns true
+ * const foo=function(){return arguments;};
+ *
+ * isArguments(foo());
+ *
+ * @example
+ * // returns false
+ * isArray([]);
+ */
+const isArguments = (val) => isFunction(val.callee);
+
+/**
  * Checks if an object has a certain own key
  *
  * `obj.hasOwnProperty` shorthand
@@ -1349,4 +1369,4 @@ const numberRandomInt = (min = 0, max = 1) => Math.floor(numberRandomFloat(min, 
  * @namespace Number
  */
 
-export { isSame, isEqual, isInstanceOf, isTypeOf, isTrue, isFalse, isUndefined, isDefined, isNil, isObject, isObjectLike, isObjectPlain, isArray, isArrayLike, isMap, isSet, isEmpty, isPrimitive, isNumber, isString, isStringNumber, isBoolean, isSymbol, isFunction, hasKey, hasPath, hasOwnProperty, getPath, forTimes, forEach, forEachDeep, forEachEntry, forEachEntryDeep, arrClone, arrCloneDeep, arrMap, arrMapDeep, arrFlattenDeep, arrCompact, arrChunk, arrStep, arrRemoveIndex, arrRemoveItem, arrCount, arrDifference, arrIntersection, arrUniq, objClone, objCloneDeep, objMap, objMapDeep, objDefaults, objDefaultsDeep, objMerge, objDefineProperty, objKeys, objValues, objEntries, mapFromObject, numberInRange, numberClamp, numberRandomFloat, numberRandomInt };
+export { isSame, isEqual, isInstanceOf, isTypeOf, isTrue, isFalse, isUndefined, isDefined, isNil, isPrimitive, isNumber, isString, isStringNumber, isBoolean, isSymbol, isObject, isObjectLike, isObjectPlain, isArray, isArrayLike, isMap, isSet, isFunction, isArguments, isEmpty, hasKey, hasPath, hasOwnProperty, getPath, forTimes, forEach, forEachDeep, forEachEntry, forEachEntryDeep, arrClone, arrCloneDeep, arrMap, arrMapDeep, arrFlattenDeep, arrCompact, arrChunk, arrStep, arrRemoveIndex, arrRemoveItem, arrCount, arrDifference, arrIntersection, arrUniq, objClone, objCloneDeep, objMap, objMapDeep, objDefaults, objDefaultsDeep, objMerge, objDefineProperty, objKeys, objValues, objEntries, mapFromObject, numberInRange, numberClamp, numberRandomFloat, numberRandomInt };

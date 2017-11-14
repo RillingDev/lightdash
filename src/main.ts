@@ -2,6 +2,7 @@
  * Value, type checking and comparison
  * @namespace Is
  */
+import isArguments from "./is/arguments";
 import isArray from "./is/array";
 import isArrayLike from "./is/arrayLike";
 import isBoolean from "./is/boolean";
@@ -9,6 +10,7 @@ import isDefined from "./is/defined";
 import isEmpty from "./is/empty";
 import isEqual from "./is/equal";
 import isFalse from "./is/false";
+import isFunction from "./is/function";
 import isInstanceOf from "./is/instanceOf";
 import isMap from "./is/map";
 import isNil from "./is/nil";
@@ -25,7 +27,6 @@ import isSymbol from "./is/symbol";
 import isTrue from "./is/true";
 import isTypeOf from "./is/typeOf";
 import isUndefined from "./is/undefined";
-import isFunction from "./is/function";
 
 /**
  * Checks if a target has something
@@ -111,6 +112,12 @@ export {
     isUndefined,
     isDefined,
     isNil,
+    isPrimitive,
+    isNumber,
+    isString,
+    isStringNumber,
+    isBoolean,
+    isSymbol,
     isObject,
     isObjectLike,
     isObjectPlain,
@@ -118,14 +125,9 @@ export {
     isArrayLike,
     isMap,
     isSet,
-    isEmpty,
-    isPrimitive,
-    isNumber,
-    isString,
-    isStringNumber,
-    isBoolean,
-    isSymbol,
     isFunction,
+    isArguments,
+    isEmpty,
 
     hasKey,
     hasPath,

@@ -9,7 +9,7 @@ When using this, importing the modules you want from the file fitting your envir
 ## Usage
 
 ```shell
-npm install -S lightdash
+npm install --save lightdash
 ```
 
 When using ES Modules:

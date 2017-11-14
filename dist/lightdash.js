@@ -615,6 +615,26 @@ const isTrue = val => val === true;
 const isFunction = val => isTypeOf(val, "function");
 
 /**
+ * Checks if a value is an array
+ *
+ * @function isArguments
+ * @memberof Is
+ * @since 2.10.0
+ * @param {any} val
+ * @returns {boolean}
+ * @example
+ * // returns true
+ * const foo=function(){return arguments;};
+ *
+ * isArguments(foo());
+ *
+ * @example
+ * // returns false
+ * isArray([]);
+ */
+const isArguments = val => isFunction(val.callee);
+
+/**
  * Checks if an object has a certain own key
  *
  * `obj.hasOwnProperty` shorthand
@@ -1345,6 +1365,12 @@ exports.isFalse = isFalse;
 exports.isUndefined = isUndefined;
 exports.isDefined = isDefined;
 exports.isNil = isNil;
+exports.isPrimitive = isPrimitive;
+exports.isNumber = isNumber;
+exports.isString = isString;
+exports.isStringNumber = isStringNumber;
+exports.isBoolean = isBoolean;
+exports.isSymbol = isSymbol;
 exports.isObject = isObject;
 exports.isObjectLike = isObjectLike;
 exports.isObjectPlain = isObjectPlain;
@@ -1352,14 +1378,9 @@ exports.isArray = isArray;
 exports.isArrayLike = isArrayLike;
 exports.isMap = isMap;
 exports.isSet = isSet;
-exports.isEmpty = isEmpty;
-exports.isPrimitive = isPrimitive;
-exports.isNumber = isNumber;
-exports.isString = isString;
-exports.isStringNumber = isStringNumber;
-exports.isBoolean = isBoolean;
-exports.isSymbol = isSymbol;
 exports.isFunction = isFunction;
+exports.isArguments = isArguments;
+exports.isEmpty = isEmpty;
 exports.hasKey = hasKey;
 exports.hasPath = hasPath;
 exports.hasOwnProperty = hasOwnProperty;
