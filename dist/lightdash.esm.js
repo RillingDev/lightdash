@@ -145,53 +145,6 @@ const isArrayBuffer = (val) => isInstanceOf(val, ArrayBuffer);
 const isUndefined = (val) => isTypeOf(val, "undefined");
 
 /**
- * Checks if a value is not undefined
- *
- * @function isDefined
- * @memberof Is
- * @since 1.0.0
- * @param {any} val
- * @returns {boolean}
- * @example
- * //returns true
- * const a = {};
- *
- * isDefined(1)
- * isDefined(a)
- *
- * @example
- * //returns false
- * const a = {};
- *
- * isDefined(a.b)
- * isDefined(undefined)
- */
-const isDefined = (val) => !isUndefined(val);
-
-/**
- * Checks if a target has a certain key
- *
- * @function hasKey
- * @memberof Has
- * @since 1.0.0
- * @param {any} target
- * @param {string} key
- * @returns {boolean}
- * @example
- * //returns true
- * hasKey([1,2,3],"0")
- * hasKey({length:0},"length")
- * hasKey("foo","replace")
- *
- * @example
- * //returns false
- * hasKey({},"foo")
- * hasKey(null,"foo")
- * hasKey(1,"foo")
- */
-const hasKey = (target, key) => isDefined(target[key]);
-
-/**
  * Checks if a value is undefined or null
  *
  * @function isNil
@@ -210,6 +163,48 @@ const hasKey = (target, key) => isDefined(target[key]);
  * isNil({})
  */
 const isNil = (val) => isUndefined(val) || val === null;
+
+/**
+ * Checks if a value is an object
+ *
+ * @function isObject
+ * @memberof Is
+ * @since 1.0.0
+ * @param {any} val
+ * @returns {boolean}
+ * @example
+ * //returns true
+ * isObject({})
+ * isObject([])
+ * isObject(()=>1))
+ *
+ * @example
+ * //returns false
+ * isObject(1)
+ */
+const isObject = (val) => !isNil(val) && (isTypeOf(val, "object") || isTypeOf(val, "function"));
+
+/**
+ * Checks if a target has a certain key
+ *
+ * @function hasKey
+ * @memberof Has
+ * @since 1.0.0
+ * @param {any} target
+ * @param {string} key
+ * @returns {boolean}
+ * @example
+ * //returns true
+ * hasKey([1,2,3],"0")
+ * hasKey({length:0},"length")
+ *
+ * @example
+ * //returns false
+ * hasKey({},"foo")
+ * hasKey(null,"foo")
+ * hasKey("foo","replace")
+ */
+const hasKey = (target, key) => isObject(target) && key in target;
 
 /**
  * Checks if a value is not nil and has a type of object
@@ -314,6 +309,30 @@ const isBoolean = (val) => isTypeOf(val, "boolean");
  * isDate(123213)
  */
 const isDate = (val) => isInstanceOf(val, Date);
+
+/**
+ * Checks if a value is not undefined
+ *
+ * @function isDefined
+ * @memberof Is
+ * @since 1.0.0
+ * @param {any} val
+ * @returns {boolean}
+ * @example
+ * //returns true
+ * const a = {};
+ *
+ * isDefined(1)
+ * isDefined(a)
+ *
+ * @example
+ * //returns false
+ * const a = {};
+ *
+ * isDefined(a.b)
+ * isDefined(undefined)
+ */
+const isDefined = (val) => !isUndefined(val);
 
 /**
  * Returns an array of the objects keys
@@ -424,26 +443,6 @@ const forEachEntry = (obj, fn) => {
         fn(entry[1], entry[0], index, obj);
     });
 };
-
-/**
- * Checks if a value is an object
- *
- * @function isObject
- * @memberof Is
- * @since 1.0.0
- * @param {any} val
- * @returns {boolean}
- * @example
- * //returns true
- * isObject({})
- * isObject([])
- * isObject(()=>1))
- *
- * @example
- * //returns false
- * isObject(1)
- */
-const isObject = (val) => !isNil(val) && (isTypeOf(val, "object") || isTypeOf(val, "function"));
 
 /**
  * Recursively checks if two items and their the contents are the same
@@ -628,7 +627,7 @@ const isObjectPlain = (val) => isObject(val) && val.constructor === Object;
  * isPrimitive({})
  * isPrimitive([])
  */
-const isPrimitive = (val) => !isObjectLike(val);
+const isPrimitive = (val) => !isObject(val);
 
 /**
  * Checks if a value is a regular expression

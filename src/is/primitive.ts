@@ -1,4 +1,4 @@
-import isObjectLike from "./objectLike";
+import isObject from "./object";
 
 /**
  * Checks if a value is a primitive
@@ -18,6 +18,6 @@ import isObjectLike from "./objectLike";
  * isPrimitive({})
  * isPrimitive([])
  */
-const isPrimitive = (val: any): boolean => !isObjectLike(val);
+const isPrimitive = (val: any): boolean => !isObject(val);
 
 export default isPrimitive;
