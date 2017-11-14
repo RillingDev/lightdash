@@ -1,8 +1,5 @@
-import isEmpty from "../is/empty";
-import isNil from "../is/nil";
-
 /**
- * Returns an array with every empty string, undefined or null value filtered out
+ * Returns an array with every falsey value removed out
  *
  * @function arrCompact
  * @memberof Array
@@ -13,6 +10,6 @@ import isNil from "../is/nil";
  * //returns [1,2,3,4,5]
  * arrCompact([1,"","",2,3,null,4,undefined,5,""])
  */
-const arrCompact = (arr: any[]): any[] => arr.filter((val: any) => !isNil(val) && val !== "");
+const arrCompact = (arr: any[]): any[] => arr.filter((val: any) => val);
 
 export default arrCompact;
