@@ -4,6 +4,7 @@
     "description": "An utility library designed to be lightweight",
     "main": "dist/lightdash.common.js",
     "module": "dist/lightdash.esm.js",
+    "types": "src/lightdash.d.ts",
     "constants": {
         "dirBase": {
             "input": "./src",
