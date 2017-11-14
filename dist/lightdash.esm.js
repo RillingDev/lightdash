@@ -54,7 +54,7 @@ const isFunction = (val) => isTypeOf(val, "function");
  *
  * @example
  * // returns false
- * isArray([]);
+ * isArguments([]);
  */
 const isArguments = (val) => isFunction(val.callee);
 
@@ -255,6 +255,25 @@ const isObjectLike = (val) => !isNil(val) && isTypeOf(val, "object");
  * isArrayLike(1)
  */
 const isArrayLike = (val) => isObjectLike(val) && hasKey(val, "length");
+
+/**
+ * Checks if a value is a typed array
+ *
+ * @function isArrayTyped
+ * @memberof Is
+ * @since 2.10.0
+ * @param {any} val
+ * @returns {boolean}
+ * @example
+ * // returns true
+ * isArrayTyped(new Int16Array());
+ * isArrayTyped(new Uint8Array());
+ *
+ * @example
+ * // returns false
+ * isArrayTyped([]);
+ */
+const isArrayTyped = (val) => hasKey(val, "BYTES_PER_ELEMENT");
 
 /**
  * Checks if a value is a boolean
@@ -630,6 +649,26 @@ const isObjectPlain = (val) => isObject(val) && val.constructor === Object;
  * isPrimitive([])
  */
 const isPrimitive = (val) => !isObjectLike(val);
+
+/**
+ * Checks if a value is a regular expression
+ *
+ * @function isRegExp
+ * @memberof Is
+ * @since 2.10.0
+ * @param {any} val
+ * @returns {boolean}
+ * @example
+ * //returns true
+ * isRegExp(new RegExp("foo"))
+ * isRegExp(/foo/)
+ *
+ * @example
+ * //returns false
+ * isRegExp("foo")
+ */
+// @ts-ignore: RegExp declaration is outdated
+const isRegExp = (val) => isInstanceOf(val, RegExp);
 
 /**
  * Checks if two values are the same
@@ -1483,4 +1522,4 @@ const numberRandomInt = (min = 0, max = 1) => Math.floor(numberRandomFloat(min, 
  * @namespace Number
  */
 
-export { isSame, isEqual, isInstanceOf, isTypeOf, isTrue, isFalse, isUndefined, isDefined, isNil, isPrimitive, isNumber, isString, isStringNumber, isBoolean, isSymbol, isObject, isObjectLike, isObjectPlain, isArray, isArrayLike, isArrayBuffer, isMap, isSet, isDate, isFunction, isArguments, isError, isEmpty, isFinite, isInteger, hasKey, hasPath, hasOwnProperty, getPath, forTimes, forEach, forEachDeep, forEachEntry, forEachEntryDeep, arrClone, arrCloneDeep, arrMap, arrMapDeep, arrFlattenDeep, arrCompact, arrChunk, arrStep, arrRemoveIndex, arrRemoveItem, arrCount, arrDifference, arrIntersection, arrUniq, objClone, objCloneDeep, objMap, objMapDeep, objDefaults, objDefaultsDeep, objMerge, objDefineProperty, objKeys, objValues, objEntries, mapFromObject, numberInRange, numberClamp, numberRandomFloat, numberRandomInt };
+export { isSame, isEqual, isInstanceOf, isTypeOf, isTrue, isFalse, isUndefined, isDefined, isNil, isPrimitive, isNumber, isString, isStringNumber, isBoolean, isSymbol, isObject, isObjectLike, isObjectPlain, isArray, isArrayLike, isArrayBuffer, isArrayTyped, isMap, isSet, isDate, isRegExp, isFunction, isArguments, isError, isEmpty, isFinite, isInteger, hasKey, hasPath, hasOwnProperty, getPath, forTimes, forEach, forEachDeep, forEachEntry, forEachEntryDeep, arrClone, arrCloneDeep, arrMap, arrMapDeep, arrFlattenDeep, arrCompact, arrChunk, arrStep, arrRemoveIndex, arrRemoveItem, arrCount, arrDifference, arrIntersection, arrUniq, objClone, objCloneDeep, objMap, objMapDeep, objDefaults, objDefaultsDeep, objMerge, objDefineProperty, objKeys, objValues, objEntries, mapFromObject, numberInRange, numberClamp, numberRandomFloat, numberRandomInt };

@@ -6,6 +6,7 @@ import isArguments from "./is/arguments";
 import isArray from "./is/array";
 import isArrayBuffer from "./is/arrayBuffer";
 import isArrayLike from "./is/arrayLike";
+import isArrayTyped from "./is/arrayTyped";
 import isBoolean from "./is/boolean";
 import isDate from "./is/date";
 import isDefined from "./is/defined";
@@ -24,6 +25,7 @@ import isObject from "./is/object";
 import isObjectLike from "./is/objectLike";
 import isObjectPlain from "./is/objectPlain";
 import isPrimitive from "./is/primitive";
+import isRegExp from "./is/regExp";
 import isSame from "./is/same";
 import isSet from "./is/set";
 import isString from "./is/string";
@@ -129,9 +131,11 @@ export {
     isArray,
     isArrayLike,
     isArrayBuffer,
+    isArrayTyped,
     isMap,
     isSet,
     isDate,
+    isRegExp,
     isFunction,
     isArguments,
     isError,

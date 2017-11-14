@@ -16,7 +16,7 @@ import isFunction from "./function";
  *
  * @example
  * // returns false
- * isArray([]);
+ * isArguments([]);
  */
 const isArguments = (val: any): boolean => isFunction(val.callee);
 

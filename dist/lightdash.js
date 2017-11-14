@@ -57,7 +57,7 @@ const isFunction = val => isTypeOf(val, "function");
  *
  * @example
  * // returns false
- * isArray([]);
+ * isArguments([]);
  */
 const isArguments = val => isFunction(val.callee);
 
@@ -258,6 +258,25 @@ const isObjectLike = val => !isNil(val) && isTypeOf(val, "object");
  * isArrayLike(1)
  */
 const isArrayLike = val => isObjectLike(val) && hasKey(val, "length");
+
+/**
+ * Checks if a value is a typed array
+ *
+ * @function isArrayTyped
+ * @memberof Is
+ * @since 2.10.0
+ * @param {any} val
+ * @returns {boolean}
+ * @example
+ * // returns true
+ * isArrayTyped(new Int16Array());
+ * isArrayTyped(new Uint8Array());
+ *
+ * @example
+ * // returns false
+ * isArrayTyped([]);
+ */
+const isArrayTyped = val => hasKey(val, "BYTES_PER_ELEMENT");
 
 /**
  * Checks if a value is a boolean
@@ -629,6 +648,26 @@ const isObjectPlain = val => isObject(val) && val.constructor === Object;
  * isPrimitive([])
  */
 const isPrimitive = val => !isObjectLike(val);
+
+/**
+ * Checks if a value is a regular expression
+ *
+ * @function isRegExp
+ * @memberof Is
+ * @since 2.10.0
+ * @param {any} val
+ * @returns {boolean}
+ * @example
+ * //returns true
+ * isRegExp(new RegExp("foo"))
+ * isRegExp(/foo/)
+ *
+ * @example
+ * //returns false
+ * isRegExp("foo")
+ */
+// @ts-ignore: RegExp declaration is outdated
+const isRegExp = val => isInstanceOf(val, RegExp);
 
 /**
  * Checks if two values are the same
@@ -1490,9 +1529,11 @@ exports.isObjectPlain = isObjectPlain;
 exports.isArray = isArray;
 exports.isArrayLike = isArrayLike;
 exports.isArrayBuffer = isArrayBuffer;
+exports.isArrayTyped = isArrayTyped;
 exports.isMap = isMap;
 exports.isSet = isSet;
 exports.isDate = isDate;
+exports.isRegExp = isRegExp;
 exports.isFunction = isFunction;
 exports.isArguments = isArguments;
 exports.isError = isError;
