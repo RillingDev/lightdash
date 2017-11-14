@@ -1,11 +1,11 @@
 const {
-    arrCloneDeep
+    arrFromDeep
 } = require("../../dist/lightdash.common");
 
-describe("arrCloneDeep", () => {
+describe("arrFromDeep", () => {
     it("Simple", () => {
         const a = [1, 2, 3, [5, [6]]];
-        const b = arrCloneDeep(a);
+        const b = arrFromDeep(a);
 
         b[3][1][0] = 10;
 

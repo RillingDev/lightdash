@@ -1,8 +1,8 @@
 const {
-    objCloneDeep
+    objFromDeep
 } = require("../../dist/lightdash.common");
 
-describe("objCloneDeep", () => {
+describe("objFromDeep", () => {
     it("Simple", () => {
         const a = {
             a: {
@@ -13,7 +13,7 @@ describe("objCloneDeep", () => {
                 }
             }
         };
-        const b = objCloneDeep(a);
+        const b = objFromDeep(a);
 
         b.a.c.a = 123;
 
