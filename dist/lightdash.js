@@ -508,26 +508,6 @@ const isEqual = (a, b) => {
 const isError = val => isInstanceOf(val, Error);
 
 /**
- * Checks if a value equals false
- *
- * @function isFalse
- * @memberof Is
- * @since 2.8.0
- * @param {any} val
- * @returns {boolean}
- * @example
- * //returns true
- * isFalse(false)
- *
- * @example
- * //returns false
- * isFalse(true)
- * isFalse(null)
- * isFalse(0)
- */
-const isFalse = val => val === false;
-
-/**
  * Checks if a value is finite
  *
  * `Number.isFinite` shorthand
@@ -670,30 +650,6 @@ const isPrimitive = val => !isObjectLike(val);
 const isRegExp = val => isInstanceOf(val, RegExp);
 
 /**
- * Checks if two values are the same
- *
- * @function isSame
- * @memberof Is
- * @since 1.0.0
- * @param {any} a
- * @param {any} b
- * @returns {boolean}
- * @example
- * //returns true
- * const a = [];
- *
- * isSame(1,1)
- * isSame("foo","foo")
- * isSame(a,a)
- *
- * @example
- * //returns false
- * isSame({},{})
- * isSame([],[])
- */
-const isSame = (a, b) => a === b;
-
-/**
  * Checks if a value is a set
  *
  * @function isSet
@@ -730,25 +686,6 @@ const isSet = val => isInstanceOf(val, Set);
 const isString = val => isTypeOf(val, "string");
 
 /**
- * Checks if a value is a string containing a number
- *
- * @function isStringNumber
- * @memberof Is
- * @since 1.0.0
- * @param {string} val
- * @returns {boolean}
- * @example
- * //returns true
- * isStringNumber("123")
- * isStringNumber("0b010")
- *
- * @example
- * //returns false
- * isStringNumber("foo")
- */
-const isStringNumber = val => !isNaN(Number(val));
-
-/**
  * Checks if a value is a symbol
  *
  * @function isSymbol
@@ -765,26 +702,6 @@ const isStringNumber = val => !isNaN(Number(val));
  * isSymbol("foo")
  */
 const isSymbol = val => isTypeOf(val, "symbol");
-
-/**
- * Checks if a value equals true
- *
- * @function isTrue
- * @memberof Is
- * @since 2.8.0
- * @param {any} val
- * @returns {boolean}
- * @example
- * //returns true
- * isTrue(true)
- *
- * @example
- * //returns false
- * isTrue(false)
- * isTrue("foo")
- * isTrue(1)
- */
-const isTrue = val => val === true;
 
 /**
  * Checks if an object has a certain own key
@@ -971,21 +888,6 @@ const arrChunk = (arr, chunk) => {
 const arrClone = Array.from;
 
 /**
- * Maps the values of the input array with the iterator function and return the result
- *
- * @function arrMap
- * @memberof Array
- * @since 1.0.0
- * @param {any[]} arr
- * @param {function} fn fn(val: any, index: number, arr: any[])
- * @returns {any[]}
- * @example
- * //returns [4,8]
- * arrMap([2,4],val=>val*2)
- */
-const arrMap = (arr, fn) => arr.map(fn);
-
-/**
  * Recursively maps the values of the input array with the iterator function and return the result
  *
  * @function arrMapDeep
@@ -998,7 +900,7 @@ const arrMap = (arr, fn) => arr.map(fn);
  * //returns [4,8,[2,2,[32],8]]
  * arrMapDeep([2,4,[1,1,[16],4]],val=>val*2)
  */
-const arrMapDeep = (arr, fn) => arrMap(arr, (val, index) => isArray(val) ? arrMapDeep(val, fn) : fn(val, index, arr));
+const arrMapDeep = (arr, fn) => arr.map((val, index) => isArray(val) ? arrMapDeep(val, fn) : fn(val, index, arr));
 
 /**
  * Recursively creates a new array with the values of the input iterable
@@ -1508,19 +1410,15 @@ const numberRandomInt = (min = 0, max = 1) => Math.floor(numberRandomFloat(min, 
  * @namespace Number
  */
 
-exports.isSame = isSame;
 exports.isEqual = isEqual;
 exports.isInstanceOf = isInstanceOf;
 exports.isTypeOf = isTypeOf;
-exports.isTrue = isTrue;
-exports.isFalse = isFalse;
 exports.isUndefined = isUndefined;
 exports.isDefined = isDefined;
 exports.isNil = isNil;
 exports.isPrimitive = isPrimitive;
 exports.isNumber = isNumber;
 exports.isString = isString;
-exports.isStringNumber = isStringNumber;
 exports.isBoolean = isBoolean;
 exports.isSymbol = isSymbol;
 exports.isObject = isObject;
@@ -1551,7 +1449,6 @@ exports.forEachEntry = forEachEntry;
 exports.forEachEntryDeep = forEachEntryDeep;
 exports.arrClone = arrClone;
 exports.arrCloneDeep = arrCloneDeep;
-exports.arrMap = arrMap;
 exports.arrMapDeep = arrMapDeep;
 exports.arrFlattenDeep = arrFlattenDeep;
 exports.arrCompact = arrCompact;

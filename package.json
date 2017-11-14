@@ -16,7 +16,7 @@
                 "file": "lightdash"
             },
             "targets": {
-                "browsers": "chrome >= 58"
+                "browsers": "chrome >= 60"
             }
         }
     },

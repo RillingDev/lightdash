@@ -2,7 +2,6 @@ import isArray from "../is/array";
 import {
     forEachIterator,
 } from "../lightdash.d";
-import arrMap from "./map";
 
 /**
  * Recursively maps the values of the input array with the iterator function and return the result
@@ -17,8 +16,7 @@ import arrMap from "./map";
  * //returns [4,8,[2,2,[32],8]]
  * arrMapDeep([2,4,[1,1,[16],4]],val=>val*2)
  */
-const arrMapDeep = (arr: any[], fn: forEachIterator): any[] => arrMap(
-    arr,
+const arrMapDeep = (arr: any[], fn: forEachIterator): any[] => arr.map(
     (val: any, index: number) => isArray(val) ? arrMapDeep(val, fn) : fn(val, index, arr));
 
 export default arrMapDeep;

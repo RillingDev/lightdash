@@ -13,7 +13,6 @@ import isDefined from "./is/defined";
 import isEmpty from "./is/empty";
 import isEqual from "./is/equal";
 import isError from "./is/error";
-import isFalse from "./is/false";
 import isFinite from "./is/finite";
 import isFunction from "./is/function";
 import isInstanceOf from "./is/instanceOf";
@@ -26,12 +25,9 @@ import isObjectLike from "./is/objectLike";
 import isObjectPlain from "./is/objectPlain";
 import isPrimitive from "./is/primitive";
 import isRegExp from "./is/regExp";
-import isSame from "./is/same";
 import isSet from "./is/set";
 import isString from "./is/string";
-import isStringNumber from "./is/stringNumber";
 import isSymbol from "./is/symbol";
-import isTrue from "./is/true";
 import isTypeOf from "./is/typeOf";
 import isUndefined from "./is/undefined";
 
@@ -71,7 +67,6 @@ import arrCount from "./arr/count";
 import arrDifference from "./arr/difference";
 import arrFlattenDeep from "./arr/flattenDeep";
 import arrIntersection from "./arr/intersection";
-import arrMap from "./arr/map";
 import arrMapDeep from "./arr/mapDeep";
 import arrRemoveIndex from "./arr/removeIndex";
 import arrRemoveItem from "./arr/removeItem";
@@ -110,19 +105,15 @@ import numberRandomFloat from "./number/randomFloat";
 import numberRandomInt from "./number/randomInt";
 
 export {
-    isSame,
     isEqual,
     isInstanceOf,
     isTypeOf,
-    isTrue,
-    isFalse,
     isUndefined,
     isDefined,
     isNil,
     isPrimitive,
     isNumber,
     isString,
-    isStringNumber,
     isBoolean,
     isSymbol,
     isObject,
@@ -157,7 +148,6 @@ export {
 
     arrClone,
     arrCloneDeep,
-    arrMap,
     arrMapDeep,
     arrFlattenDeep,
     arrCompact,
