@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Number - Documentation</title>
+    <title>Random - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -27,7 +27,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">Number</h1>
+    <h1 class="page-title">Random</h1>
     
 
     
@@ -40,7 +40,7 @@
 <header>
     
         <h2>
-        Number
+        Random
         </h2>
         
     
@@ -56,7 +56,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="lightdash.esm.js.html">lightdash.esm.js</a>, <a href="lightdash.esm.js.html#line1423">line 1423</a>
+        <a href="lightdash.esm.js.html">lightdash.esm.js</a>, <a href="lightdash.esm.js.html#line1427">line 1427</a>
     </li></ul></dd>
     
 
@@ -95,7 +95,7 @@
 
 
         
-            <div class="description"><p>Number generation and checking</p></div>
+            <div class="description"><p>Random number generation</p></div>
         
 
         
@@ -122,7 +122,7 @@
 
     
 
-    <h4 class="name" id=".numberClamp"><span class="type-signature">(static) </span>numberClamp<span class="signature">(val, min, max)</span><span class="type-signature"> &rarr; {number}</span></h4>
+    <h4 class="name" id=".randomItem"><span class="type-signature">(static) </span>randomItem<span class="signature">(arr)</span><span class="type-signature"> &rarr; {any}</span></h4>
 
     
 
@@ -134,7 +134,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="lightdash.esm.js.html">lightdash.esm.js</a>, <a href="lightdash.esm.js.html#line1326">line 1326</a>
+        <a href="lightdash.esm.js.html">lightdash.esm.js</a>, <a href="lightdash.esm.js.html#line1381">line 1381</a>
     </li></ul></dd>
     
 
@@ -142,7 +142,7 @@
 
     
     <dt class="tag-since">Since:</dt>
-    <dd class="tag-since"><ul class="dummy"><li>1.0.0</li></ul></dd>
+    <dd class="tag-since"><ul class="dummy"><li>3.0.0</li></ul></dd>
     
 
     
@@ -177,7 +177,7 @@
 
 
 <div class="description">
-    <p>Clamps a number in a range</p>
+    <p>Return a random item from an array</p>
 </div>
 
 
@@ -188,16 +188,10 @@
 
 
 
-    <h5>Examples</h5>
+    <h5>Example</h5>
     
-    <pre class="prettyprint"><code>//returns 5
-numberClamp(5,0,10)</code></pre>
-
-    <pre class="prettyprint"><code>//returns 0
-numberClamp(-2,0,10)</code></pre>
-
-    <pre class="prettyprint"><code>//returns 10
-numberClamp(99,0,10)</code></pre>
+    <pre class="prettyprint"><code>randomItem(["foo","bar"]) // "foo"
+randomNumber([1,2,3,4,5]) // 3</code></pre>
 
 
 
@@ -227,59 +221,13 @@ numberClamp(99,0,10)</code></pre>
 
         <tr>
             
-                <td class="name"><code>val</code></td>
+                <td class="name"><code>arr</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">number</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>min</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">number</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>max</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">number</span>
+<span class="param-type"><a href="Array.html">Array</a>.&lt;any></span>
 
 
             
@@ -320,7 +268,7 @@ numberClamp(99,0,10)</code></pre>
     </dt>
     <dd>
         
-<span class="param-type">number</span>
+<span class="param-type">any</span>
 
 
     </dd>
@@ -334,7 +282,7 @@ numberClamp(99,0,10)</code></pre>
 
     
 
-    <h4 class="name" id=".numberInRange"><span class="type-signature">(static) </span>numberInRange<span class="signature">(val, min, max)</span><span class="type-signature"> &rarr; {boolean}</span></h4>
+    <h4 class="name" id=".randomNumber"><span class="type-signature">(static) </span>randomNumber<span class="signature">(min<span class="signature-attributes">opt</span>, max<span class="signature-attributes">opt</span>, floating<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {number}</span></h4>
 
     
 
@@ -346,7 +294,7 @@ numberClamp(99,0,10)</code></pre>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="lightdash.esm.js.html">lightdash.esm.js</a>, <a href="lightdash.esm.js.html#line1032">line 1032</a>
+        <a href="lightdash.esm.js.html">lightdash.esm.js</a>, <a href="lightdash.esm.js.html#line1360">line 1360</a>
     </li></ul></dd>
     
 
@@ -354,7 +302,7 @@ numberClamp(99,0,10)</code></pre>
 
     
     <dt class="tag-since">Since:</dt>
-    <dd class="tag-since"><ul class="dummy"><li>1.0.0</li></ul></dd>
+    <dd class="tag-since"><ul class="dummy"><li>3.0.0</li></ul></dd>
     
 
     
@@ -389,7 +337,7 @@ numberClamp(99,0,10)</code></pre>
 
 
 <div class="description">
-    <p>Checks if a number is in the given range</p>
+    <p>Return a random float or integer number in the given range</p>
 </div>
 
 
@@ -400,16 +348,11 @@ numberClamp(99,0,10)</code></pre>
 
 
 
-    <h5>Examples</h5>
+    <h5>Example</h5>
     
-    <pre class="prettyprint"><code>//returns true
-numberInRange(0.5,0,1)
-numberInRange(1,0,1)
-numberInRange(0,-5,5)</code></pre>
-
-    <pre class="prettyprint"><code>//returns false
-numberInRange(-1,0,5)
-numberInRange(10,0,5)</code></pre>
+    <pre class="prettyprint"><code>randomNumber() // 0.56832138
+randomNumber(0,100) // 54.2135123
+randomNumber(2,10,false) // 5</code></pre>
 
 
 
@@ -427,7 +370,11 @@ numberInRange(10,0,5)</code></pre>
         <th>Type</th>
 
         
+        <th>Attributes</th>
+        
 
+        
+        <th>Default</th>
         
 
         <th class="last">Description</th>
@@ -435,29 +382,6 @@ numberInRange(10,0,5)</code></pre>
     </thead>
 
     <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>val</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">number</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"></td>
-        </tr>
-
     
 
         <tr>
@@ -475,7 +399,23 @@ numberInRange(10,0,5)</code></pre>
             </td>
 
             
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
 
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    <code>0</code>
+                
+                </td>
             
 
             <td class="description last"></td>
@@ -498,7 +438,62 @@ numberInRange(10,0,5)</code></pre>
             </td>
 
             
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
 
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    <code>1</code>
+                
+                </td>
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>floating</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    <code>true</code>
+                
+                </td>
             
 
             <td class="description last"></td>
@@ -532,7 +527,7 @@ numberInRange(10,0,5)</code></pre>
     </dt>
     <dd>
         
-<span class="param-type">boolean</span>
+<span class="param-type">number</span>
 
 
     </dd>

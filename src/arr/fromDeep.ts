@@ -17,8 +17,8 @@ import arrMapDeep from "./mapDeep";
  *
  * b[3][1][0] = 10;
  */
-const arrFromDeep = (arr: any): any[] => arrMapDeep(
+const arrFromDeep = <T>(arr: T[]): T[] => arrMapDeep(
     arrFrom(arr),
-    (val: any) => isArray(val) ? arrFrom(val) : val);
+    (val: T) => isArray(val) ? arrFrom(val) : val);
 
 export default arrFromDeep;

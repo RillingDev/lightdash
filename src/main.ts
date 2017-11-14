@@ -101,8 +101,13 @@ import mapFromObject from "./map/fromObject";
  */
 import numberClamp from "./number/clamp";
 import numberInRange from "./number/inRange";
-import numberRandomFloat from "./number/randomFloat";
-import numberRandomInt from "./number/randomInt";
+
+/**
+ * Random number generation
+ * @namespace Random
+ */
+import randomNumber from "./random/number";
+import randomItem from "./random/item";
 
 export {
     isEqual,
@@ -176,6 +181,7 @@ export {
 
     numberInRange,
     numberClamp,
-    numberRandomFloat,
-    numberRandomInt,
+
+    randomNumber,
+    randomItem,
 };

@@ -256,6 +256,25 @@ const isObjectLike = (val) => !isNil(val) && isTypeOf(val, "object");
 const isArrayLike = (val) => isObjectLike(val) && hasKey(val, "length");
 
 /**
+ * Checks if a value is a number
+ *
+ * @function isNumber
+ * @memberof Is
+ * @since 1.0.0
+ * @param {any} val
+ * @returns {boolean}
+ * @example
+ * //returns true
+ * isNumber(1)
+ * isNumber(2.34)
+ *
+ * @example
+ * //returns false
+ * isNumber(null)
+ */
+const isNumber = (val) => isTypeOf(val, "number");
+
+/**
  * Checks if a value is a typed array
  *
  * @function isArrayTyped
@@ -272,7 +291,7 @@ const isArrayLike = (val) => isObjectLike(val) && hasKey(val, "length");
  * // returns false
  * isArrayTyped([]);
  */
-const isArrayTyped = (val) => hasKey(val, "BYTES_PER_ELEMENT");
+const isArrayTyped = (val) => isNumber(val.BYTES_PER_ELEMENT);
 
 /**
  * Checks if a value is a boolean
@@ -572,25 +591,6 @@ const isInteger = Number.isInteger;
  * isMap([[1,2]])
  */
 const isMap = (val) => isInstanceOf(val, Map);
-
-/**
- * Checks if a value is a number
- *
- * @function isNumber
- * @memberof Is
- * @since 1.0.0
- * @param {any} val
- * @returns {boolean}
- * @example
- * //returns true
- * isNumber(1)
- * isNumber(2.34)
- *
- * @example
- * //returns false
- * isNumber(null)
- */
-const isNumber = (val) => isTypeOf(val, "number");
 
 /**
  * Checks if a value is a plain object
@@ -1362,37 +1362,39 @@ const numberClamp = (val, min, max) => {
 };
 
 /**
- * Return a random float number in the range
+ * Return a random float or integer number in the given range
  *
- * @function numberRandomFloat
- * @memberof Number
- * @since 1.0.0
+ * @function randomNumber
+ * @memberof Random
+ * @since 3.0.0
  * @param {number} [min=0]
  * @param {number} [max=1]
+ * @param {boolean} [floating=true]
  * @returns {number}
  * @example
- * numberRandomFloat(0,1) // 0.56832138
- * numberRandomFloat(0,100) // 54.2135123
- * numberRandomFloat(0.1,0.2) // 0.125323
+ * randomNumber() // 0.56832138
+ * randomNumber(0,100) // 54.2135123
+ * randomNumber(2,10,false) // 5
  */
-const numberRandomFloat = (min = 0, max = 1) => min + Math.random() * (max - min);
+const randomNumber = (min = 0, max = 1, floating = true) => {
+    const diff = max - min;
+    const rand = min + Math.random() * diff;
+    return floating ? rand : Math.floor(rand / diff * (diff + 1));
+};
 
 /**
- * Return a random integer number in the range
+ * Return a random item from an array
  *
- * @function numberRandomInt
- * @memberof Number
- * @since 1.0.0
- * @param {number} [min=0]
- * @param {number} [max=100]
- * @returns {number}
+ * @function randomItem
+ * @memberof Random
+ * @since 3.0.0
+ * @param {any[]} arr
+ * @returns {any}
  * @example
- * numberRandomInt(0,1) // 1
- * numberRandomInt(0,100) // 54
- * numberRandomInt(-10,10) // 2
+ * randomItem(["foo","bar"]) // "foo"
+ * randomNumber([1,2,3,4,5]) // 3
  */
-const numberRandomInt = (min = 0, max = 1) => Math.floor(numberRandomFloat(min, max) /
-    (max - min) * (max - min + 1));
+const randomItem = (arr) => arr[randomNumber(0, arr.length - 1, false)];
 
 /**
  * Value, type checking and comparison
@@ -1425,6 +1427,10 @@ const numberRandomInt = (min = 0, max = 1) => Math.floor(numberRandomFloat(min, 
 /**
  * Number generation and checking
  * @namespace Number
+ */
+/**
+ * Random number generation
+ * @namespace Random
  */
 
 exports.isEqual = isEqual;
@@ -1491,5 +1497,5 @@ exports.objEntries = objEntries;
 exports.mapFromObject = mapFromObject;
 exports.numberInRange = numberInRange;
 exports.numberClamp = numberClamp;
-exports.numberRandomFloat = numberRandomFloat;
-exports.numberRandomInt = numberRandomInt;
+exports.randomNumber = randomNumber;
+exports.randomItem = randomItem;

@@ -1,4 +1,4 @@
-import hasKey from "../has/key";
+import isNumber from "./number";
 
 /**
  * Checks if a value is a typed array
@@ -17,6 +17,6 @@ import hasKey from "../has/key";
  * // returns false
  * isArrayTyped([]);
  */
-const isArrayTyped = (val: any): boolean => hasKey(val, "BYTES_PER_ELEMENT");
+const isArrayTyped = (val: any): boolean => isNumber(val.BYTES_PER_ELEMENT);
 
 export default isArrayTyped;

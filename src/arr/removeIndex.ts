@@ -13,7 +13,7 @@ import numberInRange from "../number/inRange";
  * //returns ["foo","fizz"]
  * arrRemoveIndex(["foo","bar","fizz"],1)
  */
-const arrRemoveIndex = (arr: any[], index: number): any[] => {
+const arrRemoveIndex = <T>(arr: T[], index: number): T[] => {
     if (numberInRange(index, 0, arr.length - 1)) {
         return index === 0 ?
             arr.slice(1) :
