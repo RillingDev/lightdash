@@ -1,10 +1,15 @@
+import hasKey from "../has/key";
 import objKeys from "../obj/keys";
-import isArrayLike from "./arrayLike";
 import isObjectLike from "./objectLike";
-import isString from "./string";
 
 /**
- * Checks if an array has no items, a string no contents,  or an object no keys
+ * Checks if a value is empty
+ *
+ * A value is consider empty if it is either a primitive or an object-like without content
+ *
+ * Array-likes are considered empty if they have a length of zero,
+ * set/maps if they have a size of zero,
+ * and objects if their keys have a length of zero
  *
  * @function isEmpty
  * @memberof Is
@@ -16,19 +21,25 @@ import isString from "./string";
  * isEmpty([])
  * isEmpty({})
  * isEmpty("")
+ * isEmpty(true)
+ * isEmpty(1)
+ * isEmpty(null)
  *
  * @example
  * //returns false
  * isEmpty("foo")
  * isEmpty([1,2])
+ * isEmpty({a:1})
  */
 const isEmpty = (val: any): boolean => {
-    if (isArrayLike(val) || isString(val)) {
+    if (hasKey(val, "length")) {
         return val.length === 0;
+    } else if (hasKey(val, "size")) {
+        return val.size === 0;
     } else if (isObjectLike(val)) {
         return objKeys(val).length === 0;
     } else {
-        return false;
+        return true;
     }
 };
 

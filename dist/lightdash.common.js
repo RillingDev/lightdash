@@ -317,25 +317,13 @@ const isDate = (val) => isInstanceOf(val, Date);
 const objKeys = Object.keys;
 
 /**
- * Checks if a value is a string
+ * Checks if a value is empty
  *
- * @function isString
- * @memberof Is
- * @since 1.0.0
- * @param {any} val
- * @returns {boolean}
- * @example
- * //returns true
- * isString("foo")
+ * A value is consider empty if it is either a primitive or an object-like without content
  *
- * @example
- * //returns false
- * isString(1)
- */
-const isString = (val) => isTypeOf(val, "string");
-
-/**
- * Checks if an array has no items, a string no contents,  or an object no keys
+ * Array-likes are considered empty if they have a length of zero,
+ * set/maps if they have a size of zero,
+ * and objects if their keys have a length of zero
  *
  * @function isEmpty
  * @memberof Is
@@ -347,21 +335,28 @@ const isString = (val) => isTypeOf(val, "string");
  * isEmpty([])
  * isEmpty({})
  * isEmpty("")
+ * isEmpty(true)
+ * isEmpty(1)
+ * isEmpty(null)
  *
  * @example
  * //returns false
  * isEmpty("foo")
  * isEmpty([1,2])
+ * isEmpty({a:1})
  */
 const isEmpty = (val) => {
-    if (isArrayLike(val) || isString(val)) {
+    if (hasKey(val, "length")) {
         return val.length === 0;
+    }
+    else if (hasKey(val, "size")) {
+        return val.size === 0;
     }
     else if (isObjectLike(val)) {
         return objKeys(val).length === 0;
     }
     else {
-        return false;
+        return true;
     }
 };
 
@@ -618,6 +613,24 @@ const isSame = (a, b) => a === b;
  * isSet([1,2])
  */
 const isSet = (val) => isInstanceOf(val, Set);
+
+/**
+ * Checks if a value is a string
+ *
+ * @function isString
+ * @memberof Is
+ * @since 1.0.0
+ * @param {any} val
+ * @returns {boolean}
+ * @example
+ * //returns true
+ * isString("foo")
+ *
+ * @example
+ * //returns false
+ * isString(1)
+ */
+const isString = (val) => isTypeOf(val, "string");
 
 /**
  * Checks if a value is a string containing a number
