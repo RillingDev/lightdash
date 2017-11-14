@@ -43,3 +43,7 @@ For detailed descriptions and type annotations check the source or run `npm run 
 ### Changelog
 
 #### v3
+
+- Renamed methods: arrClone->arrFrom, objClone->objFrom
+- Added methods: randomNumber, randomItem, isPromise
+- Removed methods: isSame, isTrue, isFalse, isStringNumber, arrMap
