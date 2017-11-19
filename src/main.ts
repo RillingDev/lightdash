@@ -96,6 +96,12 @@ import objValues from "./obj/values";
 import mapFromObject from "./map/fromObject";
 
 /**
+ * Function manipulation
+ * @namespace Fn
+ */
+import fnThrottle from "./fn/throttle";
+
+/**
  * Number generation and checking
  * @namespace Number
  */
@@ -106,8 +112,8 @@ import numberInRange from "./number/inRange";
  * Random number generation
  * @namespace Random
  */
-import randomNumber from "./random/number";
 import randomItem from "./random/item";
+import randomNumber from "./random/number";
 
 export {
     isEqual,
@@ -178,6 +184,8 @@ export {
     objEntries,
 
     mapFromObject,
+
+    fnThrottle,
 
     numberInRange,
     numberClamp,

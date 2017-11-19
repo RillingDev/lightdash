@@ -1,14 +1,18 @@
-"use strict";
-
+/*
 const {
-    randomNumber,
-    randomItem
+    isEqual,
 } = require("./dist/lightdash.common");
 
-const foo = () => randomItem([1]);
+const fnCache = fn => {
+    const cache = new Map();
 
-console.log(foo());
-console.log(foo());
-console.log(foo());
-console.log(foo());
-console.log(foo());
+    return function () {
+        if(cache.has)
+    }
+};
+
+const foo = (a, b) => a + b;
+const fooCached = fnCache(foo);
+
+const interval = setInterval(() => fooCached(1, 2), 100);
+ */

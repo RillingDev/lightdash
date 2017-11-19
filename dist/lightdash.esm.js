@@ -466,7 +466,7 @@ const forEachEntry = (obj, fn) => {
 };
 
 /**
- * Recursively checks if two items and their the contents are the same
+ * Recursively checks if two items and their the contents are equal
  *
  * @function isEqual
  * @memberof Is
@@ -490,7 +490,8 @@ const isEqual = (a, b) => {
     if (a === b) {
         return true;
     }
-    if (isObject(a) && isObject(b) && objKeys(a).length === objKeys(b).length) {
+    if (isObject(a) && isObject(b) &&
+        objKeys(a).length === objKeys(b).length) {
         let result = true;
         forEachEntry(a, (aVal, key) => {
             // Only check if the comparison didn't fail already
@@ -1328,6 +1329,40 @@ const objValues = Object.values;
 const mapFromObject = (obj) => new Map(objEntries(obj));
 
 /**
+ * Throttles a function to only run every n ms
+ *
+ * Useful for event handlers that fire several times a second, such as scroll or resize
+ *
+ * @function fnThrottle
+ * @memberof Fn
+ * @since 3.1.0
+ * @param {Function} fn
+ * @param {number} timeout
+ * @param {boolean} [immediate=false]
+ * @returns {Function}
+ * @example
+ * // function that can only run every 500ms
+ * const foo=(a,b)=>console.log(a+b);
+ * const fooThrottled=fnThrottle(foo,500);
+ */
+const fnThrottle = (fn, timeout, immediate = false) => {
+    const getTimer = () => setTimeout(() => {
+        canRun = true;
+        clearTimeout(timer);
+    }, timeout);
+    let canRun = immediate;
+    let timer = immediate ? -1 : getTimer();
+    return function () {
+        if (canRun) {
+            canRun = false;
+            timer = getTimer();
+            // @ts-ignore
+            fn.apply(this, arguments);
+        }
+    };
+};
+
+/**
  * Clamps a number in a range
  *
  * @function numberClamp
@@ -1430,6 +1465,10 @@ const randomItem = (arr) => arr[randomNumber(0, arr.length - 1, false)];
  * @namespace Map
  */
 /**
+ * Function manipulation
+ * @namespace Fn
+ */
+/**
  * Number generation and checking
  * @namespace Number
  */
@@ -1438,4 +1477,4 @@ const randomItem = (arr) => arr[randomNumber(0, arr.length - 1, false)];
  * @namespace Random
  */
 
-export { isEqual, isInstanceOf, isTypeOf, isUndefined, isDefined, isNil, isPrimitive, isNumber, isString, isBoolean, isSymbol, isObject, isObjectLike, isObjectPlain, isArray, isArrayLike, isArrayBuffer, isArrayTyped, isMap, isSet, isDate, isRegExp, isFunction, isArguments, isError, isEmpty, isFinite, isInteger, hasKey, hasPath, hasOwnProperty, getPath, forTimes, forEach, forEachDeep, forEachEntry, forEachEntryDeep, arrFrom, arrFromDeep, arrMapDeep, arrFlattenDeep, arrCompact, arrChunk, arrStep, arrRemoveIndex, arrRemoveItem, arrCount, arrDifference, arrIntersection, arrUniq, objFrom, objFromDeep, objMap, objMapDeep, objDefaults, objDefaultsDeep, objMerge, objDefineProperty, objKeys, objValues, objEntries, mapFromObject, numberInRange, numberClamp, randomNumber, randomItem };
+export { isEqual, isInstanceOf, isTypeOf, isUndefined, isDefined, isNil, isPrimitive, isNumber, isString, isBoolean, isSymbol, isObject, isObjectLike, isObjectPlain, isArray, isArrayLike, isArrayBuffer, isArrayTyped, isMap, isSet, isDate, isRegExp, isFunction, isArguments, isError, isEmpty, isFinite, isInteger, hasKey, hasPath, hasOwnProperty, getPath, forTimes, forEach, forEachDeep, forEachEntry, forEachEntryDeep, arrFrom, arrFromDeep, arrMapDeep, arrFlattenDeep, arrCompact, arrChunk, arrStep, arrRemoveIndex, arrRemoveItem, arrCount, arrDifference, arrIntersection, arrUniq, objFrom, objFromDeep, objMap, objMapDeep, objDefaults, objDefaultsDeep, objMerge, objDefineProperty, objKeys, objValues, objEntries, mapFromObject, fnThrottle, numberInRange, numberClamp, randomNumber, randomItem };

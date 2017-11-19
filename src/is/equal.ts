@@ -4,7 +4,7 @@ import objKeys from "../obj/keys";
 import isObject from "./object";
 
 /**
- * Recursively checks if two items and their the contents are the same
+ * Recursively checks if two items and their the contents are equal
  *
  * @function isEqual
  * @memberof Is
@@ -29,7 +29,10 @@ const isEqual = (a: any, b: any): boolean => {
         return true;
     }
 
-    if (isObject(a) && isObject(b) && objKeys(a).length === objKeys(b).length) {
+    if (
+        isObject(a) && isObject(b) &&
+        objKeys(a).length === objKeys(b).length
+    ) {
         let result = true;
 
         forEachEntry(a, (aVal: any, key: string): void => {

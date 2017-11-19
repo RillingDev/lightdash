@@ -5,6 +5,7 @@
     ],
     "rules": {
         "object-literal-sort-keys": false,
-        "array-type": false
+        "array-type": false,
+        "space-before-function-parens": false
     }
 }
