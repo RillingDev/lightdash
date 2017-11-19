@@ -5,6 +5,8 @@ import {
 /**
  * Iterates over each element in an array
  *
+ * Wrapper around arr.forEach to have a cleaner API and better minified code
+ *
  * @function forEach
  * @memberof For
  * @param {any[]} arr

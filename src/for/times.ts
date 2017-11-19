@@ -3,7 +3,9 @@ import {
 } from "../lightdash.d";
 
 /**
- * Wrapper around a simple for-loop
+ * Execute a function n times
+ *
+ * Wrapper around a simple for-loop to have a cleaner API and better minified code
  *
  * @function forTimes
  * @memberof For

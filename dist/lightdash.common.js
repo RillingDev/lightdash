@@ -436,6 +436,8 @@ const objEntries = Object.entries;
 /**
  * Iterates over each element in an array
  *
+ * Wrapper around arr.forEach to have a cleaner API and better minified code
+ *
  * @function forEach
  * @memberof For
  * @param {any[]} arr
@@ -824,7 +826,9 @@ const forEachDeep = (arr, fn) => forEach(arr, (val, index) => isArray(val) ? for
 const forEachEntryDeep = (obj, fn) => forEachEntry(obj, (val, key, index) => isObjectLike(val) ? forEachEntryDeep(val, fn) : fn(val, key, index, obj));
 
 /**
- * Wrapper around a simple for-loop
+ * Execute a function n times
+ *
+ * Wrapper around a simple for-loop to have a cleaner API and better minified code
  *
  * @function forTimes
  * @memberof For
