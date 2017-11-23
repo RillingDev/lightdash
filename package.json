@@ -51,12 +51,12 @@
         "jasmine": "^2.8.0",
         "jsdoc": "git+https://github.com/jsdoc3/jsdoc.git",
         "npm-run-all": "^4.1.2",
-        "rollup": "^0.51.7",
+        "rollup": "^0.51.8",
         "rollup-plugin-babel": "^3.0.2",
         "rollup-plugin-typescript2": "^0.8.1",
         "rollup-plugin-uglify-es": "0.0.1",
         "tslint": "^5.8.0",
         "typescript": "^2.6.1",
-        "uglify-es": "^3.1.9"
+        "uglify-es": "^3.1.10"
     }
 }

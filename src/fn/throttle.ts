@@ -27,8 +27,9 @@ const fnThrottle = (fn: () => void, timeout: number, immediate: boolean = false)
         if (canRun) {
             canRun = false;
             timer = getTimer();
+
             // @ts-ignore
-            fn.apply(this, arguments);
+            return fn.apply(this, arguments);
         }
     };
 };

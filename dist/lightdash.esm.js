@@ -1357,7 +1357,7 @@ const fnThrottle = (fn, timeout, immediate = false) => {
             canRun = false;
             timer = getTimer();
             // @ts-ignore
-            fn.apply(this, arguments);
+            return fn.apply(this, arguments);
         }
     };
 };
