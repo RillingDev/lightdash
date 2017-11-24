@@ -750,9 +750,9 @@ const hasOwnProperty = (obj, key) => obj.hasOwnProperty(key);
  * @param {string[]} path
  * @returns {boolean}
  * @example
- * getPath({a: 1}, ["a"]); // returns 1
- * getPath([4, 6, 8], ["1"]); // returns 6
- * getPath({a: {b: 2, c: [10, 20]}}, ["a", "c", "0"]); // returns 10
+ * getPath({a: 1}, ["a"]);                              //=> 1
+ * getPath([4, 6, 8], ["1"]);                           //=> 6
+ * getPath({a: {b: 2, c: [10, 20]}}, ["a", "c", "0"]);  //=> 10
  */
 const getPath = (target, path) => {
     let targetCurrent = target;
@@ -1048,14 +1048,14 @@ const arrIntersection = (arr, ...values) => {
  * @returns {boolean}
  * @example
  * //returns true
- * numberInRange(0.5,0,1)
- * numberInRange(1,0,1)
- * numberInRange(0,-5,5)
+ * numberInRange(0.5, 0, 1)
+ * numberInRange(1, 0, 1)
+ * numberInRange(0, -5, 5)
  *
  * @example
  * //returns false
- * numberInRange(-1,0,5)
- * numberInRange(10,0,5)
+ * numberInRange(-1, 0, 5)
+ * numberInRange(10, 0, 5)
  */
 const numberInRange = (val, min, max) => val >= min && val <= max;
 
@@ -1350,7 +1350,7 @@ const mapFromObject = (obj) => new Map(objEntries(obj));
  *  return a + b;
  * };
  *
- * fnAttempt(foo, 2, 1)   //=>3
+ * fnAttempt(foo, 2, 1)   //=> 3
  * fnAttempt(foo, 2, 500) //=> RangeError
  */
 const fnAttempt = (fn, ...args) => {
@@ -1379,9 +1379,9 @@ const fnAttempt = (fn, ...args) => {
  * const foo = (a, b, c) => [];
  * const fooCurried = fnCurry(foo, 3);
  *
- * fooCurried(1)(2)(3) //=>[1, 2, 3]
- * fooCurried(1, 2)(3) //=>[1, 2, 3]
- * fooCurried(1, 2, 3) //=>[1, 2, 3]
+ * fooCurried(1)(2)(3) //=> [1, 2, 3]
+ * fooCurried(1, 2)(3) //=> [1, 2, 3]
+ * fooCurried(1, 2, 3) //=> [1, 2, 3]
  */
 const fnCurry = (fn, arity = fn.length) => {
     const resolver = function () {
@@ -1439,16 +1439,9 @@ const fnThrottle = (fn, timeout, immediate = false) => {
  * @param {number} max
  * @returns {number}
  * @example
- * //returns 5
- * numberClamp(5,0,10)
- *
- * @example
- * //returns 0
- * numberClamp(-2,0,10)
- *
- * @example
- * //returns 10
- * numberClamp(99,0,10)
+ * numberClamp(5, 0, 10)    //=> 5
+ * numberClamp(-2, 0, 10)   //=> 0
+ * numberClamp(99, 0, 10)   //=> 10
  */
 const numberClamp = (val, min, max) => {
     if (val < min) {
@@ -1473,9 +1466,9 @@ const numberClamp = (val, min, max) => {
  * @param {boolean} [floating=true]
  * @returns {number}
  * @example
- * randomNumber() // 0.56832138
- * randomNumber(0,100) // 54.2135123
- * randomNumber(2,10,false) // 5
+ * randomNumber()               //=> 0.56832138
+ * randomNumber(0, 100)         //=> 54.2135123
+ * randomNumber(2, 10, false)   //=> 5
  */
 const randomNumber = (min = 0, max = 1, floating = true) => {
     const diff = max - min;
@@ -1497,8 +1490,8 @@ const randomNumber = (min = 0, max = 1, floating = true) => {
  * @param {any[]} arr
  * @returns {any}
  * @example
- * randomItem(["foo","bar"]) // "foo"
- * randomNumber([1,2,3,4,5]) // 3
+ * randomItem(["foo", "bar"])      //=> "foo"
+ * randomNumber([1, 2, 3, 4, 5])   //=> 3
  */
 const randomItem = (arr) => arr[randomNumber(0, arr.length - 1, false)];
 

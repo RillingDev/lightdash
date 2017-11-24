@@ -18,7 +18,7 @@
  *  return a + b;
  * };
  *
- * fnAttempt(foo, 2, 1)   //=>3
+ * fnAttempt(foo, 2, 1)   //=> 3
  * fnAttempt(foo, 2, 500) //=> RangeError
  */
 const fnAttempt = (fn: () => void, ...args: any[]): any => {

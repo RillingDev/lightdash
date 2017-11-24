@@ -9,16 +9,9 @@
  * @param {number} max
  * @returns {number}
  * @example
- * //returns 5
- * numberClamp(5,0,10)
- *
- * @example
- * //returns 0
- * numberClamp(-2,0,10)
- *
- * @example
- * //returns 10
- * numberClamp(99,0,10)
+ * numberClamp(5, 0, 10)    //=> 5
+ * numberClamp(-2, 0, 10)   //=> 0
+ * numberClamp(99, 0, 10)   //=> 10
  */
 const numberClamp = (val: number, min: number, max: number): number => {
     if (val < min) {

@@ -15,9 +15,9 @@
  * const foo = (a, b, c) => [];
  * const fooCurried = fnCurry(foo, 3);
  *
- * fooCurried(1)(2)(3) //=>[1, 2, 3]
- * fooCurried(1, 2)(3) //=>[1, 2, 3]
- * fooCurried(1, 2, 3) //=>[1, 2, 3]
+ * fooCurried(1)(2)(3) //=> [1, 2, 3]
+ * fooCurried(1, 2)(3) //=> [1, 2, 3]
+ * fooCurried(1, 2, 3) //=> [1, 2, 3]
  */
 const fnCurry = (fn: () => void, arity: number = fn.length) => {
     const resolver: () => any = function () {
