@@ -100,6 +100,7 @@ import mapFromObject from "./map/fromObject";
  * @namespace Fn
  */
 import fnAttempt from "./fn/attempt";
+import fnCurry from "./fn/curry";
 import fnThrottle from "./fn/throttle";
 
 /**
@@ -188,6 +189,7 @@ export {
 
     fnThrottle,
     fnAttempt,
+    fnCurry,
 
     numberInRange,
     numberClamp,

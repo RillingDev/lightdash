@@ -1348,6 +1348,39 @@ const fnAttempt = (fn, ...args) => {
 };
 
 /**
+ * Returns a curried function
+ *
+ * A curried function can take between zero and n arguments,
+ * where n is either the functions argument length or the provided arity.
+ * As soon as n arguments are reached, the function is run with all arguments
+ *
+ * @function fnCurry
+ * @memberof Fn
+ * @since 3.2.0
+ * @param {Function} fn
+ * @param {number} [arity=fn.length]
+ * @returns {Function}
+ * @example
+ * const foo=(a,b,c)=>[];
+ * const fooCurried = fnCurry(foo, 3);
+ *
+ * fooCurried(1)(2)(3); //=>[1,2,3]
+ * fooCurried(1,2)(3);  //=>[1,2,3]
+ * fooCurried(1,2,3);   //=>[1,2,3]
+ */
+const fnCurry = (fn, arity = fn.length) => {
+    const resolver = function () {
+        const argsBase = arguments;
+        return function () {
+            const args = [...argsBase, ...arguments];
+            const result = args.length >= arity ? fn : resolver;
+            return result(...args);
+        };
+    };
+    return resolver();
+};
+
+/**
  * Throttles a function to only run every n ms
  *
  * Useful for event handlers that fire several times a second, such as scroll or resize
@@ -1557,6 +1590,7 @@ exports.objEntries = objEntries;
 exports.mapFromObject = mapFromObject;
 exports.fnThrottle = fnThrottle;
 exports.fnAttempt = fnAttempt;
+exports.fnCurry = fnCurry;
 exports.numberInRange = numberInRange;
 exports.numberClamp = numberClamp;
 exports.randomNumber = randomNumber;

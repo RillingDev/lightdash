@@ -1361,6 +1361,39 @@ const fnAttempt = (fn, ...args) => {
 };
 
 /**
+ * Returns a curried function
+ *
+ * A curried function can take between zero and n arguments,
+ * where n is either the functions argument length or the provided arity.
+ * As soon as n arguments are reached, the function is run with all arguments
+ *
+ * @function fnCurry
+ * @memberof Fn
+ * @since 3.2.0
+ * @param {Function} fn
+ * @param {number} [arity=fn.length]
+ * @returns {Function}
+ * @example
+ * const foo=(a,b,c)=>[];
+ * const fooCurried = fnCurry(foo, 3);
+ *
+ * fooCurried(1)(2)(3); //=>[1,2,3]
+ * fooCurried(1,2)(3);  //=>[1,2,3]
+ * fooCurried(1,2,3);   //=>[1,2,3]
+ */
+const fnCurry = (fn, arity = fn.length) => {
+    const resolver = function () {
+        const argsBase = arguments;
+        return function () {
+            const args = [...argsBase, ...arguments];
+            const result = args.length >= arity ? fn : resolver;
+            return result(...args);
+        };
+    };
+    return resolver();
+};
+
+/**
  * Throttles a function to only run every n ms
  *
  * Useful for event handlers that fire several times a second, such as scroll or resize
@@ -1509,4 +1542,4 @@ const randomItem = (arr) => arr[randomNumber(0, arr.length - 1, false)];
  * @namespace Random
  */
 
-export { isEqual, isInstanceOf, isTypeOf, isUndefined, isDefined, isNil, isPrimitive, isNumber, isString, isBoolean, isSymbol, isObject, isObjectLike, isObjectPlain, isArray, isArrayLike, isArrayBuffer, isArrayTyped, isMap, isSet, isDate, isRegExp, isFunction, isArguments, isError, isEmpty, isFinite, isInteger, hasKey, hasPath, hasOwnProperty, getPath, forTimes, forEach, forEachDeep, forEachEntry, forEachEntryDeep, arrFrom, arrFromDeep, arrMapDeep, arrFlattenDeep, arrCompact, arrChunk, arrStep, arrRemoveIndex, arrRemoveItem, arrCount, arrDifference, arrIntersection, arrUniq, objFrom, objFromDeep, objMap, objMapDeep, objDefaults, objDefaultsDeep, objMerge, objDefineProperty, objKeys, objValues, objEntries, mapFromObject, fnThrottle, fnAttempt, numberInRange, numberClamp, randomNumber, randomItem };
+export { isEqual, isInstanceOf, isTypeOf, isUndefined, isDefined, isNil, isPrimitive, isNumber, isString, isBoolean, isSymbol, isObject, isObjectLike, isObjectPlain, isArray, isArrayLike, isArrayBuffer, isArrayTyped, isMap, isSet, isDate, isRegExp, isFunction, isArguments, isError, isEmpty, isFinite, isInteger, hasKey, hasPath, hasOwnProperty, getPath, forTimes, forEach, forEachDeep, forEachEntry, forEachEntryDeep, arrFrom, arrFromDeep, arrMapDeep, arrFlattenDeep, arrCompact, arrChunk, arrStep, arrRemoveIndex, arrRemoveItem, arrCount, arrDifference, arrIntersection, arrUniq, objFrom, objFromDeep, objMap, objMapDeep, objDefaults, objDefaultsDeep, objMerge, objDefineProperty, objKeys, objValues, objEntries, mapFromObject, fnThrottle, fnAttempt, fnCurry, numberInRange, numberClamp, randomNumber, randomItem };

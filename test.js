@@ -1,14 +1,23 @@
- const {
+/*  const {
      fnAttempt
- } = require("./dist/lightdash.common");
+ } = require("./dist/lightdash.common"); */
 
- const foo = (a, b) => {
-     if (b > 10) {
-         throw new RangeError();
-     }
+const fnCurry = (fn, arity = fn.length) => {
+    const resolver = function () {
+        const argsBase = arguments;
 
-     return a + b;
- };
+        return function () {
+            const args = [...argsBase, ...arguments];
+            const result = args.length >= arity ? fn : resolver;
 
- console.log(fnAttempt(foo, 2, 1));
- console.log(fnAttempt(foo, 2, 500));
+            return result(...args);
+        };
+    };
+
+    return resolver();
+};
+
+const foo = (a, b, c) => [a, b, c];
+const fooCurried = fnCurry(foo);
+
+console.log(fooCurried(1, 1, 3));
