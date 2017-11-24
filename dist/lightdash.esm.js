@@ -1329,6 +1329,38 @@ const objValues = Object.values;
 const mapFromObject = (obj) => new Map(objEntries(obj));
 
 /**
+ * Wrapper around try/catch
+ *
+ * Returns the function result or, if an error is thrown, the error
+ *
+ * @function fnAttempt
+ * @memberof Fn
+ * @since 3.2.0
+ * @param {Function} fn
+ * @param {...any[]} args
+ * @returns {any|error}
+ * @example
+ * const foo=(a,b)=>{
+ *  if(b>10){
+ *    throw new RangeError();
+ *  }
+ *
+ *  return a+b;
+ * };
+ *
+ * fnAttempt(foo,2,1); //=>3
+ * fnAttempt(foo,2,500); //=> RangeError
+ */
+const fnAttempt = (fn, ...args) => {
+    try {
+        return fn(...args);
+    }
+    catch (err) {
+        return err;
+    }
+};
+
+/**
  * Throttles a function to only run every n ms
  *
  * Useful for event handlers that fire several times a second, such as scroll or resize
@@ -1477,4 +1509,4 @@ const randomItem = (arr) => arr[randomNumber(0, arr.length - 1, false)];
  * @namespace Random
  */
 
-export { isEqual, isInstanceOf, isTypeOf, isUndefined, isDefined, isNil, isPrimitive, isNumber, isString, isBoolean, isSymbol, isObject, isObjectLike, isObjectPlain, isArray, isArrayLike, isArrayBuffer, isArrayTyped, isMap, isSet, isDate, isRegExp, isFunction, isArguments, isError, isEmpty, isFinite, isInteger, hasKey, hasPath, hasOwnProperty, getPath, forTimes, forEach, forEachDeep, forEachEntry, forEachEntryDeep, arrFrom, arrFromDeep, arrMapDeep, arrFlattenDeep, arrCompact, arrChunk, arrStep, arrRemoveIndex, arrRemoveItem, arrCount, arrDifference, arrIntersection, arrUniq, objFrom, objFromDeep, objMap, objMapDeep, objDefaults, objDefaultsDeep, objMerge, objDefineProperty, objKeys, objValues, objEntries, mapFromObject, fnThrottle, numberInRange, numberClamp, randomNumber, randomItem };
+export { isEqual, isInstanceOf, isTypeOf, isUndefined, isDefined, isNil, isPrimitive, isNumber, isString, isBoolean, isSymbol, isObject, isObjectLike, isObjectPlain, isArray, isArrayLike, isArrayBuffer, isArrayTyped, isMap, isSet, isDate, isRegExp, isFunction, isArguments, isError, isEmpty, isFinite, isInteger, hasKey, hasPath, hasOwnProperty, getPath, forTimes, forEach, forEachDeep, forEachEntry, forEachEntryDeep, arrFrom, arrFromDeep, arrMapDeep, arrFlattenDeep, arrCompact, arrChunk, arrStep, arrRemoveIndex, arrRemoveItem, arrCount, arrDifference, arrIntersection, arrUniq, objFrom, objFromDeep, objMap, objMapDeep, objDefaults, objDefaultsDeep, objMerge, objDefineProperty, objKeys, objValues, objEntries, mapFromObject, fnThrottle, fnAttempt, numberInRange, numberClamp, randomNumber, randomItem };

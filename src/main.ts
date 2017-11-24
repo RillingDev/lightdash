@@ -99,6 +99,7 @@ import mapFromObject from "./map/fromObject";
  * Function manipulation
  * @namespace Fn
  */
+import fnAttempt from "./fn/attempt";
 import fnThrottle from "./fn/throttle";
 
 /**
@@ -186,6 +187,7 @@ export {
     mapFromObject,
 
     fnThrottle,
+    fnAttempt,
 
     numberInRange,
     numberClamp,
