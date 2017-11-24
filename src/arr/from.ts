@@ -9,7 +9,7 @@
  * @param {any} arr
  * @returns {any[]}
  * @example
- * //returns a = [1, 2, 3], b = [1, 10, 3]
+ * // returns a = [1, 2, 3], b = [1, 10, 3]
  * const a = [1, 2, 3];
  * const b = arrFrom(a);
  *

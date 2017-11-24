@@ -10,7 +10,7 @@ import numberInRange from "../number/inRange";
  * @param {number} index
  * @returns {any[]}
  * @example
- * //returns ["foo", "fizz"]
+ * // returns ["foo", "fizz"]
  * arrRemoveIndex(["foo", "bar", "fizz"], 1)
  */
 const arrRemoveIndex = <T>(arr: T[], index: number): T[] => {

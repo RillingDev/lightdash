@@ -12,7 +12,7 @@
  * @returns {Function}
  * @example
  * const foo = (a, b) => console.log(a + b);
- * const fooThrottled = fnThrottle(foo, 500); //function that can only run every 500ms
+ * const fooThrottled = fnThrottle(foo, 500); // function that can only run every 500ms
  */
 const fnThrottle = (fn: () => void, timeout: number, immediate: boolean = false) => {
     const getTimer = () => setTimeout(() => {

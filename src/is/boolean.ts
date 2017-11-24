@@ -9,12 +9,12 @@ import isTypeOf from "./typeOf";
  * @param {any} val
  * @returns {boolean}
  * @example
- * //returns true
+ * // returns true
  * isBoolean(true)
  * isBoolean(false)
  *
  * @example
- * //returns false
+ * // returns false
  * isBoolean(0)
  * isBoolean(null)
  * isBoolean("")

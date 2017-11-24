@@ -10,7 +10,7 @@ import arrRemoveIndex from "./removeIndex";
  * @param {any} item
  * @returns {any[]}
  * @example
- * //returns ["foo", "fizz"]
+ * // returns ["foo", "fizz"]
  * arrRemoveItem(["foo", "bar", "fizz"], "bar")
  */
 const arrRemoveItem = <T>(arr: T[], item: T): T[] =>

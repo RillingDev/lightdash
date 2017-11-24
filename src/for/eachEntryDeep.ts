@@ -12,7 +12,7 @@ import forEachEntry from "./eachEntry";
  * @param {object} obj
  * @param {function} fn fn(val: any, key: any, index: number, arr: any[])
  * @example
- * //returns {a: 0, b: {c: [0, 2]}}
+ * // returns {a: 0, b: {c: [0, 2]}}
  * const a = {a: 1, b: {c: [1, 2]}};
  *
  * forEachEntryDeep(a, (val, key, index, obj) => obj[key] = index * val)

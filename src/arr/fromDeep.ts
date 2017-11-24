@@ -11,7 +11,7 @@ import arrMapDeep from "./mapDeep";
  * @param {any} arr
  * @returns {any[]}
  * @example
- * //returns a = [1, 2, 3, [5, [6]]], b = [1, 2, 3, [5, [10]]]
+ * // returns a = [1, 2, 3, [5, [6]]], b = [1, 2, 3, [5, [10]]]
  * const a = [1, 2, 3, [5, [6]]];
  * const b = arrFromDeep(a);
  *

@@ -11,11 +11,11 @@ import arrCount from "./count";
  * @param {...any[]} values
  * @returns {any[]}
  * @example
- * //returns [1, 3]
+ * // returns [1, 3]
  * arrIntersection([1, 2, 3], [1, "foo", 3])
  *
  * @example
- * //returns [2]
+ * // returns [2]
  * arrIntersection([1, 2, 3], ["foo"], [2, 0, 2])
  */
 const arrIntersection = (arr: any[], ...values: any[]): any[] => {

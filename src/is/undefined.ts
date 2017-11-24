@@ -9,14 +9,14 @@ import isTypeOf from "./typeOf";
  * @param {any} val
  * @returns {boolean}
  * @example
- * //returns false
+ * // returns false
  * const a = {};
  *
  * isUndefined(a.b)
  * isUndefined(undefined)
  *
  * @example
- * //returns false
+ * // returns false
  * const a = {};
  *
  * isUndefined(1)

@@ -10,12 +10,12 @@ import isObject from "../is/object";
  * @param {string} key
  * @returns {boolean}
  * @example
- * //returns true
+ * // returns true
  * hasKey([1, 2, 3], "0")
  * hasKey({foo: 0}, "foo")
  *
  * @example
- * //returns false
+ * // returns false
  * hasKey({}, "foo")
  * hasKey("foo", "replace")
  */

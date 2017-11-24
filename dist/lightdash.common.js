@@ -12,13 +12,13 @@ Object.defineProperty(exports, '__esModule', { value: true });
  * @param {string} type
  * @returns {boolean}
  * @example
- * //returns true
+ * // returns true
  * isTypeOf({}, "object")
  * isTypeOf([], "object")
  * isTypeOf("foo", "string")
  *
  * @example
- * //returns false
+ * // returns false
  * isTypeOf("foo", "number")
  */
 const isTypeOf = (val, type) => typeof val === type;
@@ -32,12 +32,12 @@ const isTypeOf = (val, type) => typeof val === type;
  * @param {any} val
  * @returns {boolean}
  * @example
- * //returns true
+ * // returns true
  * isFunction(function a(){})
  * isFunction(() => 1)
  *
  * @example
- * //returns false
+ * // returns false
  * isFunction(null)
  */
 const isFunction = (val) => isTypeOf(val, "function");
@@ -95,13 +95,13 @@ const isArray = Array.isArray;
  * @param {Class} target
  * @returns {boolean}
  * @example
- * //returns true
+ * // returns true
  * isInstanceOf({}, Object)
  * isInstanceOf([], Object)
  * isInstanceOf([], Array)
  *
  * @example
- * //returns false
+ * // returns false
  * isInstanceOf({}, Array)
  * isInstanceOf([], Map)
  */
@@ -116,11 +116,11 @@ const isInstanceOf = (val, target) => val instanceof target;
  * @param {any} val
  * @returns {boolean}
  * @example
- * //returns true
+ * // returns true
  * isArrayBuffer(new ArrayBuffer())
  *
  * @example
- * //returns false
+ * // returns false
  * isArrayBuffer([1, 2])
  */
 // @ts-ignore: ArrayBuffer declaration is outdated
@@ -135,14 +135,14 @@ const isArrayBuffer = (val) => isInstanceOf(val, ArrayBuffer);
  * @param {any} val
  * @returns {boolean}
  * @example
- * //returns false
+ * // returns false
  * const a = {};
  *
  * isUndefined(a.b)
  * isUndefined(undefined)
  *
  * @example
- * //returns false
+ * // returns false
  * const a = {};
  *
  * isUndefined(1)
@@ -159,12 +159,12 @@ const isUndefined = (val) => isTypeOf(val, "undefined");
  * @param {any} val
  * @returns {boolean}
  * @example
- * //returns true
+ * // returns true
  * isNil(null)
  * isNil(undefined)
  *
  * @example
- * //returns false
+ * // returns false
  * isNil(0)
  * isNil({})
  */
@@ -179,13 +179,13 @@ const isNil = (val) => isUndefined(val) || val === null;
  * @param {any} val
  * @returns {boolean}
  * @example
- * //returns true
+ * // returns true
  * isObject({})
  * isObject([])
  * isObject(() => 1))
  *
  * @example
- * //returns false
+ * // returns false
  * isObject(1)
  */
 const isObject = (val) => !isNil(val) && (isTypeOf(val, "object") || isTypeOf(val, "function"));
@@ -200,12 +200,12 @@ const isObject = (val) => !isNil(val) && (isTypeOf(val, "object") || isTypeOf(va
  * @param {string} key
  * @returns {boolean}
  * @example
- * //returns true
+ * // returns true
  * hasKey([1, 2, 3], "0")
  * hasKey({foo: 0}, "foo")
  *
  * @example
- * //returns false
+ * // returns false
  * hasKey({}, "foo")
  * hasKey("foo", "replace")
  */
@@ -223,12 +223,12 @@ const hasKey = (target, key) => isObject(target) && key in target;
  * @param {any} val
  * @returns {boolean}
  * @example
- * //returns true
+ * // returns true
  * isObjectLike({})
  * isObjectLike([])
  *
  * @example
- * //returns false
+ * // returns false
  * isObjectLike(1)
  * isObjectLike(() => 1))
  */
@@ -243,12 +243,12 @@ const isObjectLike = (val) => !isNil(val) && isTypeOf(val, "object");
  * @param {any} val
  * @returns {boolean}
  * @example
- * //returns true
+ * // returns true
  * isArrayLike([])
  * isArrayLike({length: 0})
  *
  * @example
- * //returns false
+ * // returns false
  * isArrayLike({})
  * isArrayLike(null)
  * isArrayLike("foo")
@@ -265,14 +265,14 @@ const isArrayLike = (val) => isObjectLike(val) && hasKey(val, "length");
  * @param {any} val
  * @returns {boolean}
  * @example
- * //returns true
+ * // returns true
  * isNumber(1)
  * isNumber(2.34)
  * isNumber(Infinity)
  * isNumber(NaN)
  *
  * @example
- * //returns false
+ * // returns false
  * isNumber("2")
  * isNumber(null)
  */
@@ -306,12 +306,12 @@ const isArrayTyped = (val) => isNumber(val.BYTES_PER_ELEMENT);
  * @param {any} val
  * @returns {boolean}
  * @example
- * //returns true
+ * // returns true
  * isBoolean(true)
  * isBoolean(false)
  *
  * @example
- * //returns false
+ * // returns false
  * isBoolean(0)
  * isBoolean(null)
  * isBoolean("")
@@ -327,12 +327,12 @@ const isBoolean = (val) => isTypeOf(val, "boolean");
  * @param {any} val
  * @returns {boolean}
  * @example
- * //returns true
+ * // returns true
  * isDate(Date())
  * isDate(new Date())
  *
  * @example
- * //returns false
+ * // returns false
  * isDate(123213)
  */
 const isDate = (val) => isInstanceOf(val, Date);
@@ -346,14 +346,14 @@ const isDate = (val) => isInstanceOf(val, Date);
  * @param {any} val
  * @returns {boolean}
  * @example
- * //returns true
+ * // returns true
  * const a = {};
  *
  * isDefined(1)
  * isDefined(a)
  *
  * @example
- * //returns false
+ * // returns false
  * const a = {};
  *
  * isDefined(a.b)
@@ -372,8 +372,8 @@ const isDefined = (val) => !isUndefined(val);
  * @param {Object} obj
  * @returns {any[]}
  * @example
- * //returns ["a","b","c"]
- * objKeys({a:1,b:2,c:3})
+ * // returns ["a", "b", "c"]
+ * objKeys({a: 1, b: 2, c: 3})
  */
 const objKeys = Object.keys;
 
@@ -392,7 +392,7 @@ const objKeys = Object.keys;
  * @param {any} val
  * @returns {boolean}
  * @example
- * //returns true
+ * // returns true
  * isEmpty([])
  * isEmpty({})
  * isEmpty("")
@@ -401,7 +401,7 @@ const objKeys = Object.keys;
  * isEmpty(null)
  *
  * @example
- * //returns false
+ * // returns false
  * isEmpty("foo")
  * isEmpty([1, 2])
  * isEmpty({a: 1})
@@ -432,8 +432,8 @@ const isEmpty = (val) => {
  * @param {Object} obj
  * @returns {any[]} Array<[key: any, val: any]>]
  * @example
- * //returns [["a",1],["b",2],["c",3]]
- * objEntries({a:1,b:2,c:3})
+ * // returns [["a", 1], ["b", 2], ["c", 3]]
+ * objEntries({a: 1, b: 2, c: 3})
  */
 const objEntries = Object.entries;
 
@@ -447,7 +447,7 @@ const objEntries = Object.entries;
  * @param {any[]} arr
  * @param {function} fn fn(val: any, index: number, arr: any[])
  * @example
- * //returns a = [0, 2, 6]
+ * // returns a = [0, 2, 6]
  * const a = [1, 2, 3];
  *
  * forEach(a, (val, index)=>a[index] = val * index)
@@ -462,7 +462,7 @@ const forEach = (arr, fn) => arr.forEach(fn);
  * @param {object} obj
  * @param {function} fn fn(val: any, key: any, index: number, arr: any[])
  * @example
- * //returns a = {a: 0, b: 2}
+ * // returns a = {a: 0, b: 2}
  * const a = {a: 1, b: 2};
  *
  * forEachEntry(a, (val, key, index) => a[key] = val * index)
@@ -483,14 +483,14 @@ const forEachEntry = (obj, fn) => {
  * @param {any} b
  * @returns {boolean}
  * @example
- * //returns true
+ * // returns true
  * isEqual(1, 1)
  * isEqual({}, {})
  * isEqual([1, 2], [1, 2])
  * isEqual([1, 2, [3, 4]], [1, 2, [3, 4]])
  *
  * @example
- * //returns false
+ * // returns false
  * isEqual([1, 2, 3], [1])
  * isEqual([1, 2, [3]], [1, 2, [4]])
  */
@@ -527,12 +527,12 @@ const isEqual = (a, b) => {
  * @param {any} val
  * @returns {boolean}
  * @example
- * //returns true
+ * // returns true
  * isError(new Error())
  * isError(new URIError())
  *
  * @example
- * //returns false
+ * // returns false
  * isError("foo")
  */
 const isError = (val) => isInstanceOf(val, Error);
@@ -590,11 +590,11 @@ const isInteger = Number.isInteger;
  * @param {any} val
  * @returns {boolean}
  * @example
- * //returns true
+ * // returns true
  * isMap(new Map())
  *
  * @example
- * //returns false
+ * // returns false
  * isMap([[1, 2]])
  */
 const isMap = (val) => isInstanceOf(val, Map);
@@ -610,11 +610,11 @@ const isMap = (val) => isInstanceOf(val, Map);
  * @param {any} val
  * @returns {boolean}
  * @example
- * //returns true
+ * // returns true
  * isObjectPlain({})
  *
  * @example
- * //returns false
+ * // returns false
  * isObjectPlain([])
  * isObjectPlain(()=>{})
  */
@@ -629,12 +629,12 @@ const isObjectPlain = (val) => isObject(val) && val.constructor === Object;
  * @param {any} val
  * @returns {boolean}
  * @example
- * //returns true
+ * // returns true
  * isPrimitive(1)
  * isPrimitive(null)
  *
  * @example
- * //returns false
+ * // returns false
  * isPrimitive({})
  * isPrimitive([])
  */
@@ -649,7 +649,7 @@ const isPrimitive = (val) => !isObject(val);
  * @param {any} val
  * @returns {boolean}
  * @example
- * //returns true
+ * // returns true
  * isRegExp(new RegExp("foo"))
  * isRegExp(/foo/)
  *
@@ -669,11 +669,11 @@ const isRegExp = (val) => isInstanceOf(val, RegExp);
  * @param {any} val
  * @returns {boolean}
  * @example
- * //returns true
+ * // returns true
  * isSet(new Set())
  *
  * @example
- * //returns false
+ * // returns false
  * isSet([1, 2])
  */
 const isSet = (val) => isInstanceOf(val, Set);
@@ -687,11 +687,11 @@ const isSet = (val) => isInstanceOf(val, Set);
  * @param {any} val
  * @returns {boolean}
  * @example
- * //returns true
+ * // returns true
  * isString("foo")
  *
  * @example
- * //returns false
+ * // returns false
  * isString(1)
  */
 const isString = (val) => isTypeOf(val, "string");
@@ -705,12 +705,12 @@ const isString = (val) => isTypeOf(val, "string");
  * @param {any} val
  * @returns {boolean}
  * @example
- * //returns true
+ * // returns true
  * isSymbol(Symbol())
  * isSymbol(Symbol.split)
  *
  * @example
- * //returns false
+ * // returns false
  * isSymbol("foo")
  */
 const isSymbol = (val) => isTypeOf(val, "symbol");
@@ -727,12 +727,12 @@ const isSymbol = (val) => isTypeOf(val, "symbol");
  * @param {string} key
  * @returns {boolean}
  * @example
- * //returns true
+ * // returns true
  * hasOwnProperty([1, 2, 3], "0")
  * hasOwnProperty({foo: 0}, "foo")
  *
  * @example
- * //returns false
+ * // returns false
  * hasOwnProperty([], "forEach")
  * hasOwnProperty("foo", "replace")
  */
@@ -802,7 +802,7 @@ const hasPath = (target, path) => !isNil(getPath(target, path));
  * @param {any[]} arr
  * @param {function} fn fn(val: any, index: number, arr: any[])
  * @example
- * //returns a = [0, 4, [0, 1, [0], 12]]
+ * // returns a = [0, 4, [0, 1, [0], 12]]
  * const a = [2, 4, [1, 1, [16], 4]];
  *
  * forEachDeep(a, (val, index, arr) => arr[index] = index * val)
@@ -817,7 +817,7 @@ const forEachDeep = (arr, fn) => forEach(arr, (val, index) => isArray(val) ? for
  * @param {object} obj
  * @param {function} fn fn(val: any, key: any, index: number, arr: any[])
  * @example
- * //returns {a: 0, b: {c: [0, 2]}}
+ * // returns {a: 0, b: {c: [0, 2]}}
  * const a = {a: 1, b: {c: [1, 2]}};
  *
  * forEachEntryDeep(a, (val, key, index, obj) => obj[key] = index * val)
@@ -836,7 +836,7 @@ const forEachEntryDeep = (obj, fn) => forEachEntry(obj, (val, key, index) => isO
  * @param {number} increase
  * @param {function} fn fn(val: number)
  * @example
- * //returns a = [2, 4, 6, 8, 10]
+ * // returns a = [2, 4, 6, 8, 10]
  * const a = [];
  *
  * forTimes(1, 6, 1, val => a.push(val * 2))
@@ -857,11 +857,11 @@ const forTimes = (start, max, increase, fn) => {
  * @param {number} chunk
  * @returns {any[]}
  * @example
- * //returns [[1, 2], [3, 4], [5, 6]]
+ * // returns [[1, 2], [3, 4], [5, 6]]
  * arrChunk([1, 2, 3, 4, 5, 6], 2)
  *
  * @example
- * //returns [[1, 2, 3], [4, 5]]
+ * // returns [[1, 2, 3], [4, 5]]
  * arrChunk([1, 2, 3, 4, 5], 3)
  */
 const arrChunk = (arr, chunk) => {
@@ -886,7 +886,7 @@ const arrChunk = (arr, chunk) => {
  * @param {any[]} arr
  * @returns {any[]}
  * @example
- * //returns [1, 2, 3, 4, 5]
+ * // returns [1, 2, 3, 4, 5]
  * arrCompact([1, "", "", 2, 3, null, 4, undefined, 5, ""])
  */
 const arrCompact = (arr) => arr.filter((val) => val);
@@ -900,7 +900,7 @@ const arrCompact = (arr) => arr.filter((val) => val);
  * @param {any[]} arr
  * @returns {Map<any, number>} Map<element: any, count: number>
  * @example
- * //returns Map{1: 4, 2: 2, 3: 1, 4: 1}
+ * // returns Map{1: 4, 2: 2, 3: 1, 4: 1}
  * arrCount([1, 1, 2, 2, 1, 3, 4, 1])
  */
 const arrCount = (arr) => {
@@ -922,11 +922,11 @@ const arrCount = (arr) => {
  * @param {...any[]} values
  * @returns {any[]}
  * @example
- * //returns [2]
+ * // returns [2]
  * arrDifference([1, 2, 3], [1, "foo", 3])
  *
  * @example
- * //returns [1, 3]
+ * // returns [1, 3]
  * arrDifference([1, 2, 3], ["foo"], [2, 0, 2])
  */
 const arrDifference = (arr, ...values) => {
@@ -943,11 +943,11 @@ const arrDifference = (arr, ...values) => {
  * @param {any[]} arr
  * @returns {any[]}
  * @example
- * //returns [1, 2, 3]
+ * // returns [1, 2, 3]
  * arrFlattenDeep([1, 2, [3]])
  *
  * @example
- * //returns [1, 2, 3, 5, 6, 6]
+ * // returns [1, 2, 3, 5, 6, 6]
  * arrFlattenDeep([1, 2, [3, [[[5]]], [6, [6]]])
  */
 const arrFlattenDeep = (arr) => {
@@ -974,7 +974,7 @@ const arrFlattenDeep = (arr) => {
  * @param {any} arr
  * @returns {any[]}
  * @example
- * //returns a = [1, 2, 3], b = [1, 10, 3]
+ * // returns a = [1, 2, 3], b = [1, 10, 3]
  * const a = [1, 2, 3];
  * const b = arrFrom(a);
  *
@@ -992,7 +992,7 @@ const arrFrom = Array.from;
  * @param {function} fn fn(val: any, index: number, arr: any[])
  * @returns {any[]}
  * @example
- * //returns [4, 8, [2, 2, [32], 8]]
+ * // returns [4, 8, [2, 2, [32], 8]]
  * arrMapDeep([2, 4, [1, 1, [16], 4]], val => val * 2)
  */
 const arrMapDeep = (arr, fn) => arr.map((val, index) => isArray(val) ? arrMapDeep(val, fn) : fn(val, index, arr));
@@ -1006,7 +1006,7 @@ const arrMapDeep = (arr, fn) => arr.map((val, index) => isArray(val) ? arrMapDee
  * @param {any} arr
  * @returns {any[]}
  * @example
- * //returns a = [1, 2, 3, [5, [6]]], b = [1, 2, 3, [5, [10]]]
+ * // returns a = [1, 2, 3, [5, [6]]], b = [1, 2, 3, [5, [10]]]
  * const a = [1, 2, 3, [5, [6]]];
  * const b = arrFromDeep(a);
  *
@@ -1024,11 +1024,11 @@ const arrFromDeep = (arr) => arrMapDeep(arrFrom(arr), (val) => isArray(val) ? ar
  * @param {...any[]} values
  * @returns {any[]}
  * @example
- * //returns [1, 3]
+ * // returns [1, 3]
  * arrIntersection([1, 2, 3], [1, "foo", 3])
  *
  * @example
- * //returns [2]
+ * // returns [2]
  * arrIntersection([1, 2, 3], ["foo"], [2, 0, 2])
  */
 const arrIntersection = (arr, ...values) => {
@@ -1047,13 +1047,13 @@ const arrIntersection = (arr, ...values) => {
  * @param {number} max
  * @returns {boolean}
  * @example
- * //returns true
+ * // returns true
  * numberInRange(0.5, 0, 1)
  * numberInRange(1, 0, 1)
  * numberInRange(0, -5, 5)
  *
  * @example
- * //returns false
+ * // returns false
  * numberInRange(-1, 0, 5)
  * numberInRange(10, 0, 5)
  */
@@ -1069,7 +1069,7 @@ const numberInRange = (val, min, max) => val >= min && val <= max;
  * @param {number} index
  * @returns {any[]}
  * @example
- * //returns ["foo", "fizz"]
+ * // returns ["foo", "fizz"]
  * arrRemoveIndex(["foo", "bar", "fizz"], 1)
  */
 const arrRemoveIndex = (arr, index) => {
@@ -1093,7 +1093,7 @@ const arrRemoveIndex = (arr, index) => {
  * @param {any} item
  * @returns {any[]}
  * @example
- * //returns ["foo", "fizz"]
+ * // returns ["foo", "fizz"]
  * arrRemoveItem(["foo", "bar", "fizz"], "bar")
  */
 const arrRemoveItem = (arr, item) => arr.includes(item) ?
@@ -1110,7 +1110,7 @@ const arrRemoveItem = (arr, item) => arr.includes(item) ?
  * @param {number} step
  * @returns {any[]}
  * @example
- * //returns [1, 3, 5]
+ * // returns [1, 3, 5]
  * arrStep([1, 2, 3, 4, 5, 6], 2)
  */
 const arrStep = (arr, step) => arr.filter((val, index) => index % step === 0);
@@ -1124,7 +1124,7 @@ const arrStep = (arr, step) => arr.filter((val, index) => index % step === 0);
  * @param {any[]} arr
  * @returns {any[]}
  * @example
- * //returns [1, 2, 3, 4]
+ * // returns [1, 2, 3, 4]
  * arrUniq([1, 1, 1, 2, 3, 1, 2, 1, 4])
  */
 const arrUniq = (arr) => arrFrom(new Set(arr));
@@ -1138,8 +1138,8 @@ const arrUniq = (arr) => arrFrom(new Set(arr));
  * @param {object} obj
  * @returns {object}
  * @example
- * //returns a = {a:4, b:2}, b = {a:10, b:2}
- * const a = {a:4, b:2};
+ * // returns a = {a: 4, b: 2}, b = {a: 10, b: 2}
+ * const a = {a: 4, b: 2};
  * const b = objFrom(a);
  *
  * b.a = 10;
@@ -1156,8 +1156,8 @@ const objFrom = (obj) => isArray(obj) ? arrFrom(obj) : Object.assign({}, obj);
  * @param {Object} objDefault
  * @returns {Object}
  * @example
- * //returns a = {a:1,b:2,c:5}
- * objDefaults({a:1,c:5},{a:1,b:2,c:3})
+ * // returns a = {a: 1, b: 2, c: 5}
+ * objDefaults({a: 1, c: 5}, {a: 1, b: 2, c: 3})
  */
 const objDefaults = (obj, objDefault) => {
     const result = objFrom(obj);
@@ -1179,8 +1179,8 @@ const objDefaults = (obj, objDefault) => {
  * @param {function} fn fn(val: any, key: any, index: number, arr: any[])
  * @returns {Object}
  * @example
- * //returns a = {a:8, b:4}
- * objMap({a:4, b:2},val=>val*2)
+ * // returns a = {a: 8, b: 4}
+ * objMap({a: 4, b: 2}, val => val * 2)
  */
 const objMap = (obj, fn) => {
     const objNew = objFrom(obj);
@@ -1200,8 +1200,8 @@ const objMap = (obj, fn) => {
  * @param {function} fn fn(val: any, key: any, index: number, arr: any[])
  * @returns {Object}
  * @example
- * //returns {a:{b:4,c:[20,40]}}
- * arrMapDeep({a:{b:2,c:[10,20]}},val=>val*2)
+ * // returns {a: {b: 4, c: [20, 40]}}
+ * arrMapDeep({a: {b: 2, c: [10, 20]}}, val => val * 2)
  */
 const objMapDeep = (obj, fn) => objMap(obj, (val, key, index, objNew) => {
     if (isObjectLike(val)) {
@@ -1221,8 +1221,8 @@ const objMapDeep = (obj, fn) => objMap(obj, (val, key, index, objNew) => {
  * @param {Object} obj
  * @returns {Object}
  * @example
- * //returns a = {a:{b:2,c:{a:10,b:20}}, b = {a:{b:2,c:{a:123,b:20}}}
- * const a = {a:{b:2,c:{a:10,b:20}}};
+ * // returns a = {a: {b: 2, c: {a: 10, b: 20}}, b = {a: {b: 2, c: {a: 123, b: 20}}}
+ * const a = {a: {b: 2, c: {a: 10, b: 20}}};
  * const b = objFromDeep(a);
  *
  * b.a.c.a = 123;
@@ -1239,8 +1239,8 @@ const objFromDeep = (obj) => objMapDeep(objFrom(obj), (val) => isObjectLike(val)
  * @param {Object} objDefault
  * @returns {Object}
  * @example
- * //returns a = {a:[1,2,3],b:2,c:{f:'x'}}
- * objDefaultsDeep({a:[1,2],c:{f:'x'}},{a:[1,2,3],b:2,c:{f:'y'}})
+ * // returns a = {a: [1, 2, 3], b: 2, c: {f: "x"}}
+ * objDefaultsDeep({a: [1, 2], c: {f: "x"}}, {a: [1, 2, 3], b: 2, c: {f: "y"}})
  */
 const objDefaultsDeep = (obj, objDefault) => {
     const result = objFromDeep(obj);
@@ -1272,9 +1272,9 @@ const objDefaultsDeep = (obj, objDefault) => {
  * @param {boolean} [configurable=true]
  * @returns {Object}
  * @example
- * //returns a = {"foo":1}
+ * // returns a = {"foo": 1}
  * const a={};
- * objDefineProperty(a,"foo",1)
+ * objDefineProperty(a, "foo", 1)
  */
 const objDefineProperty = (obj, key, val, enumerable = true, writable = true, configurable = true) => Object.defineProperty(obj, key, {
     value: val,
@@ -1295,8 +1295,8 @@ const objDefineProperty = (obj, key, val, enumerable = true, writable = true, co
  * @param {Object} objSecondary
  * @returns {Object}
  * @example
- * //returns {a:1,b:2}
- * objMerge({a:1},{b:2})
+ * // returns {a: 1, b: 2}
+ * objMerge({a: 1}, {b: 2})
  */
 const objMerge = Object.assign;
 
@@ -1311,8 +1311,8 @@ const objMerge = Object.assign;
  * @param {Object} obj
  * @returns {any[]}
  * @example
- * //returns [1,2,3]
- * objValues({a:1,b:2,c:3})
+ * // returns [1, 2, 3]
+ * objValues({a: 1, b: 2, c: 3})
  */
 const objValues = Object.values;
 
@@ -1325,7 +1325,7 @@ const objValues = Object.values;
  * @param {Object} obj
  * @returns {Map}
  * @example
- * //returns Map{a: 1, b: 4, c: 5}
+ * // returns Map{a: 1, b: 4, c: 5}
  * mapFromObject({a: 1, b: 4, c: 5})
  */
 const mapFromObject = (obj) => new Map(objEntries(obj));
@@ -1409,7 +1409,7 @@ const fnCurry = (fn, arity = fn.length) => {
  * @returns {Function}
  * @example
  * const foo = (a, b) => console.log(a + b);
- * const fooThrottled = fnThrottle(foo, 500); //function that can only run every 500ms
+ * const fooThrottled = fnThrottle(foo, 500); // function that can only run every 500ms
  */
 const fnThrottle = (fn, timeout, immediate = false) => {
     const getTimer = () => setTimeout(() => {

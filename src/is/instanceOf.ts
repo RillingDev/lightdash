@@ -12,13 +12,13 @@ import {
  * @param {Class} target
  * @returns {boolean}
  * @example
- * //returns true
+ * // returns true
  * isInstanceOf({}, Object)
  * isInstanceOf([], Object)
  * isInstanceOf([], Array)
  *
  * @example
- * //returns false
+ * // returns false
  * isInstanceOf({}, Array)
  * isInstanceOf([], Map)
  */

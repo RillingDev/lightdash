@@ -18,7 +18,7 @@ import isObjectLike from "./objectLike";
  * @param {any} val
  * @returns {boolean}
  * @example
- * //returns true
+ * // returns true
  * isEmpty([])
  * isEmpty({})
  * isEmpty("")
@@ -27,7 +27,7 @@ import isObjectLike from "./objectLike";
  * isEmpty(null)
  *
  * @example
- * //returns false
+ * // returns false
  * isEmpty("foo")
  * isEmpty([1, 2])
  * isEmpty({a: 1})

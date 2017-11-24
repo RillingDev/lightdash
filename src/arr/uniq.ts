@@ -9,7 +9,7 @@ import arrFrom from "./from";
  * @param {any[]} arr
  * @returns {any[]}
  * @example
- * //returns [1, 2, 3, 4]
+ * // returns [1, 2, 3, 4]
  * arrUniq([1, 1, 1, 2, 3, 1, 2, 1, 4])
  */
 const arrUniq = <T>(arr: T[]): T[] => arrFrom(new Set(arr));

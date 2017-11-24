@@ -10,12 +10,12 @@
  * @param {string} key
  * @returns {boolean}
  * @example
- * //returns true
+ * // returns true
  * hasOwnProperty([1, 2, 3], "0")
  * hasOwnProperty({foo: 0}, "foo")
  *
  * @example
- * //returns false
+ * // returns false
  * hasOwnProperty([], "forEach")
  * hasOwnProperty("foo", "replace")
  */

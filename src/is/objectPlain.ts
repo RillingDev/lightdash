@@ -11,11 +11,11 @@ import isObject from "./object";
  * @param {any} val
  * @returns {boolean}
  * @example
- * //returns true
+ * // returns true
  * isObjectPlain({})
  *
  * @example
- * //returns false
+ * // returns false
  * isObjectPlain([])
  * isObjectPlain(()=>{})
  */

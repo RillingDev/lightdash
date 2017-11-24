@@ -9,14 +9,14 @@ import isTypeOf from "./typeOf";
  * @param {any} val
  * @returns {boolean}
  * @example
- * //returns true
+ * // returns true
  * isNumber(1)
  * isNumber(2.34)
  * isNumber(Infinity)
  * isNumber(NaN)
  *
  * @example
- * //returns false
+ * // returns false
  * isNumber("2")
  * isNumber(null)
  */

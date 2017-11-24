@@ -9,12 +9,12 @@ import isUndefined from "./undefined";
  * @param {any} val
  * @returns {boolean}
  * @example
- * //returns true
+ * // returns true
  * isNil(null)
  * isNil(undefined)
  *
  * @example
- * //returns false
+ * // returns false
  * isNil(0)
  * isNil({})
  */

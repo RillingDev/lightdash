@@ -9,12 +9,12 @@ import isTypeOf from "./typeOf";
  * @param {any} val
  * @returns {boolean}
  * @example
- * //returns true
+ * // returns true
  * isSymbol(Symbol())
  * isSymbol(Symbol.split)
  *
  * @example
- * //returns false
+ * // returns false
  * isSymbol("foo")
  */
 const isSymbol = (val: any): boolean => isTypeOf(val, "symbol");

@@ -9,14 +9,14 @@ import isUndefined from "./undefined";
  * @param {any} val
  * @returns {boolean}
  * @example
- * //returns true
+ * // returns true
  * const a = {};
  *
  * isDefined(1)
  * isDefined(a)
  *
  * @example
- * //returns false
+ * // returns false
  * const a = {};
  *
  * isDefined(a.b)

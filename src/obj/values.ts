@@ -9,8 +9,8 @@
  * @param {Object} obj
  * @returns {any[]}
  * @example
- * //returns [1,2,3]
- * objValues({a:1,b:2,c:3})
+ * // returns [1, 2, 3]
+ * objValues({a: 1, b: 2, c: 3})
  */
 const objValues = Object.values;
 

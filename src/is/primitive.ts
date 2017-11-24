@@ -9,12 +9,12 @@ import isObject from "./object";
  * @param {any} val
  * @returns {boolean}
  * @example
- * //returns true
+ * // returns true
  * isPrimitive(1)
  * isPrimitive(null)
  *
  * @example
- * //returns false
+ * // returns false
  * isPrimitive({})
  * isPrimitive([])
  */

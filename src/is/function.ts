@@ -9,12 +9,12 @@ import isTypeOf from "./typeOf";
  * @param {any} val
  * @returns {boolean}
  * @example
- * //returns true
+ * // returns true
  * isFunction(function a(){})
  * isFunction(() => 1)
  *
  * @example
- * //returns false
+ * // returns false
  * isFunction(null)
  */
 const isFunction = (val: any): boolean => isTypeOf(val, "function");

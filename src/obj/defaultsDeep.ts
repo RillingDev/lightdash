@@ -16,8 +16,8 @@ import objFrom from "./fromDeep";
  * @param {Object} objDefault
  * @returns {Object}
  * @example
- * //returns a = {a:[1,2,3],b:2,c:{f:'x'}}
- * objDefaultsDeep({a:[1,2],c:{f:'x'}},{a:[1,2,3],b:2,c:{f:'y'}})
+ * // returns a = {a: [1, 2, 3], b: 2, c: {f: "x"}}
+ * objDefaultsDeep({a: [1, 2], c: {f: "x"}}, {a: [1, 2, 3], b: 2, c: {f: "y"}})
  */
 const objDefaultsDeep = (obj: IGenericObject, objDefault: object): object => {
     const result: IGenericObject = objFrom(obj);

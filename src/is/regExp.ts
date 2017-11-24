@@ -9,7 +9,7 @@ import isInstanceOf from "./instanceOf";
  * @param {any} val
  * @returns {boolean}
  * @example
- * //returns true
+ * // returns true
  * isRegExp(new RegExp("foo"))
  * isRegExp(/foo/)
  *

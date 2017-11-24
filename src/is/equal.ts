@@ -13,14 +13,14 @@ import isObject from "./object";
  * @param {any} b
  * @returns {boolean}
  * @example
- * //returns true
+ * // returns true
  * isEqual(1, 1)
  * isEqual({}, {})
  * isEqual([1, 2], [1, 2])
  * isEqual([1, 2, [3, 4]], [1, 2, [3, 4]])
  *
  * @example
- * //returns false
+ * // returns false
  * isEqual([1, 2, 3], [1])
  * isEqual([1, 2, [3]], [1, 2, [4]])
  */

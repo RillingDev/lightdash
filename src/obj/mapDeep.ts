@@ -14,8 +14,8 @@ import objMap from "./map";
  * @param {function} fn fn(val: any, key: any, index: number, arr: any[])
  * @returns {Object}
  * @example
- * //returns {a:{b:4,c:[20,40]}}
- * arrMapDeep({a:{b:2,c:[10,20]}},val=>val*2)
+ * // returns {a: {b: 4, c: [20, 40]}}
+ * arrMapDeep({a: {b: 2, c: [10, 20]}}, val => val * 2)
  */
 const objMapDeep = (obj: object, fn: forEachEntryIterator): object => objMap(obj,
     (val: any, key: string, index: number, objNew: object | undefined) => {

@@ -9,13 +9,13 @@
  * @param {number} max
  * @returns {boolean}
  * @example
- * //returns true
+ * // returns true
  * numberInRange(0.5, 0, 1)
  * numberInRange(1, 0, 1)
  * numberInRange(0, -5, 5)
  *
  * @example
- * //returns false
+ * // returns false
  * numberInRange(-1, 0, 5)
  * numberInRange(10, 0, 5)
  */

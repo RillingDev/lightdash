@@ -15,8 +15,8 @@ import objFrom from "./from";
  * @param {Object} objDefault
  * @returns {Object}
  * @example
- * //returns a = {a:1,b:2,c:5}
- * objDefaults({a:1,c:5},{a:1,b:2,c:3})
+ * // returns a = {a: 1, b: 2, c: 5}
+ * objDefaults({a: 1, c: 5}, {a: 1, b: 2, c: 3})
  */
 const objDefaults = (obj: IGenericObject, objDefault: object): object => {
     const result: IGenericObject = objFrom(obj);

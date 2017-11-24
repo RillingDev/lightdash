@@ -13,12 +13,12 @@ import isTypeOf from "./typeOf";
  * @param {any} val
  * @returns {boolean}
  * @example
- * //returns true
+ * // returns true
  * isObjectLike({})
  * isObjectLike([])
  *
  * @example
- * //returns false
+ * // returns false
  * isObjectLike(1)
  * isObjectLike(() => 1))
  */

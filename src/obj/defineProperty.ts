@@ -14,9 +14,9 @@
  * @param {boolean} [configurable=true]
  * @returns {Object}
  * @example
- * //returns a = {"foo":1}
+ * // returns a = {"foo": 1}
  * const a={};
- * objDefineProperty(a,"foo",1)
+ * objDefineProperty(a, "foo", 1)
  */
 const objDefineProperty = (
     obj: object,

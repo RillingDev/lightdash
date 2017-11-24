@@ -9,11 +9,11 @@ import isTypeOf from "./typeOf";
  * @param {any} val
  * @returns {boolean}
  * @example
- * //returns true
+ * // returns true
  * isString("foo")
  *
  * @example
- * //returns false
+ * // returns false
  * isString(1)
  */
 const isString = (val: any): boolean => isTypeOf(val, "string");

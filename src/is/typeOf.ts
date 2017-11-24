@@ -8,13 +8,13 @@
  * @param {string} type
  * @returns {boolean}
  * @example
- * //returns true
+ * // returns true
  * isTypeOf({}, "object")
  * isTypeOf([], "object")
  * isTypeOf("foo", "string")
  *
  * @example
- * //returns false
+ * // returns false
  * isTypeOf("foo", "number")
  */
 const isTypeOf = (val: any, type: string): boolean => typeof val === type;

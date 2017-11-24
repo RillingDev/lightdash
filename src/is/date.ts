@@ -9,12 +9,12 @@ import isInstanceOf from "./instanceOf";
  * @param {any} val
  * @returns {boolean}
  * @example
- * //returns true
+ * // returns true
  * isDate(Date())
  * isDate(new Date())
  *
  * @example
- * //returns false
+ * // returns false
  * isDate(123213)
  */
 const isDate = (val: any): boolean => isInstanceOf(val, Date);

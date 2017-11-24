@@ -10,12 +10,12 @@ import isObjectLike from "./objectLike";
  * @param {any} val
  * @returns {boolean}
  * @example
- * //returns true
+ * // returns true
  * isArrayLike([])
  * isArrayLike({length: 0})
  *
  * @example
- * //returns false
+ * // returns false
  * isArrayLike({})
  * isArrayLike(null)
  * isArrayLike("foo")

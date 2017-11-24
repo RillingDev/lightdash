@@ -12,7 +12,7 @@ import forEach from "./each";
  * @param {any[]} arr
  * @param {function} fn fn(val: any, index: number, arr: any[])
  * @example
- * //returns a = [0, 4, [0, 1, [0], 12]]
+ * // returns a = [0, 4, [0, 1, [0], 12]]
  * const a = [2, 4, [1, 1, [16], 4]];
  *
  * forEachDeep(a, (val, index, arr) => arr[index] = index * val)

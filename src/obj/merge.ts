@@ -10,8 +10,8 @@
  * @param {Object} objSecondary
  * @returns {Object}
  * @example
- * //returns {a:1,b:2}
- * objMerge({a:1},{b:2})
+ * // returns {a: 1, b: 2}
+ * objMerge({a: 1}, {b: 2})
  */
 const objMerge = Object.assign;
 

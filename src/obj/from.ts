@@ -10,8 +10,8 @@ import isArray from "../is/array";
  * @param {object} obj
  * @returns {object}
  * @example
- * //returns a = {a:4, b:2}, b = {a:10, b:2}
- * const a = {a:4, b:2};
+ * // returns a = {a: 4, b: 2}, b = {a: 10, b: 2}
+ * const a = {a: 4, b: 2};
  * const b = objFrom(a);
  *
  * b.a = 10;

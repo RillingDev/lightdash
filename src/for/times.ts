@@ -14,7 +14,7 @@ import {
  * @param {number} increase
  * @param {function} fn fn(val: number)
  * @example
- * //returns a = [2, 4, 6, 8, 10]
+ * // returns a = [2, 4, 6, 8, 10]
  * const a = [];
  *
  * forTimes(1, 6, 1, val => a.push(val * 2))
