@@ -1348,8 +1348,8 @@ const mapFromObject = (obj) => new Map(objEntries(obj));
  *  return a + b;
  * };
  *
- * fnAttempt(foo, 2, 1); //=>3
- * fnAttempt(foo, 2, 500); //=> RangeError
+ * fnAttempt(foo, 2, 1)   //=>3
+ * fnAttempt(foo, 2, 500) //=> RangeError
  */
 const fnAttempt = (fn, ...args) => {
     try {
@@ -1377,9 +1377,9 @@ const fnAttempt = (fn, ...args) => {
  * const foo = (a, b, c) => [];
  * const fooCurried = fnCurry(foo, 3);
  *
- * fooCurried(1)(2)(3); //=>[1, 2, 3]
- * fooCurried(1, 2)(3);  //=>[1, 2, 3]
- * fooCurried(1, 2, 3);   //=>[1, 2, 3]
+ * fooCurried(1)(2)(3) //=>[1, 2, 3]
+ * fooCurried(1, 2)(3) //=>[1, 2, 3]
+ * fooCurried(1, 2, 3) //=>[1, 2, 3]
  */
 const fnCurry = (fn, arity = fn.length) => {
     const resolver = function () {

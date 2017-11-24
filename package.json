@@ -47,7 +47,7 @@
         "babel-core": "^6.26.0",
         "babel-plugin-external-helpers": "^6.22.0",
         "babel-preset-env": "^1.6.1",
-        "docdash": "^0.4.0",
+        "docdash": "git+https://github.com/clenemt/docdash.git",
         "jasmine": "^2.8.0",
         "jsdoc": "git+https://github.com/jsdoc3/jsdoc.git",
         "npm-run-all": "^4.1.2",
