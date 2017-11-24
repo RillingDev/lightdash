@@ -199,14 +199,13 @@ const isObject = (val) => !isNil(val) && (isTypeOf(val, "object") || isTypeOf(va
  * @returns {boolean}
  * @example
  * //returns true
- * hasKey([1,2,3],"0")
- * hasKey({length:0},"length")
+ * hasKey([1, 2, 3], "0")
+ * hasKey({foo: 0}, "foo")
  *
  * @example
  * //returns false
- * hasKey({},"foo")
- * hasKey(null,"foo")
- * hasKey("foo","replace")
+ * hasKey({}, "foo")
+ * hasKey("foo", "replace")
  */
 const hasKey = (target, key) => isObject(target) && key in target;
 
@@ -443,10 +442,10 @@ const objEntries = Object.entries;
  * @param {any[]} arr
  * @param {function} fn fn(val: any, index: number, arr: any[])
  * @example
- * //returns a = [0,2,6]
- * const a = [1,2,3];
+ * //returns a = [0, 2, 6]
+ * const a = [1, 2, 3];
  *
- * forEach(a,(val,index)=>a[index]=val*index)
+ * forEach(a, (val, index)=>a[index] = val * index)
  */
 const forEach = (arr, fn) => arr.forEach(fn);
 
@@ -458,10 +457,10 @@ const forEach = (arr, fn) => arr.forEach(fn);
  * @param {object} obj
  * @param {function} fn fn(val: any, key: any, index: number, arr: any[])
  * @example
- * //returns a = {a:0, b: 2}
- * const a = {a:1, b:2};
+ * //returns a = {a: 0, b: 2}
+ * const a = {a: 1, b: 2};
  *
- * forEachEntry(a,(val,key,index)=>a[key]=val*index)
+ * forEachEntry(a, (val, key, index) => a[key] = val * index)
  */
 const forEachEntry = (obj, fn) => {
     forEach(objEntries(obj), (entry, index) => {
@@ -723,13 +722,13 @@ const isSymbol = (val) => isTypeOf(val, "symbol");
  * @returns {boolean}
  * @example
  * //returns true
- * hasOwnProperty([1,2,3],"0")
- * hasOwnProperty({length:0},"length")
+ * hasOwnProperty([1, 2, 3], "0")
+ * hasOwnProperty({foo: 0}, "foo")
  *
  * @example
  * //returns false
- * hasOwnProperty([],"forEach")
- * hasOwnProperty("foo","replace")
+ * hasOwnProperty([], "forEach")
+ * hasOwnProperty("foo", "replace")
  */
 const hasOwnProperty = (obj, key) => obj.hasOwnProperty(key);
 
@@ -745,16 +744,9 @@ const hasOwnProperty = (obj, key) => obj.hasOwnProperty(key);
  * @param {string[]} path
  * @returns {boolean}
  * @example
- * // returns 1
- * getPath({a:1},["a"]);
- *
- * @example
- * // returns 6
- * getPath([4,6,8],["1"]);
- *
- * @example
- * // returns 10
- * getPath({a:{b:2,c:[10,20]}},["a","c","0"]);
+ * getPath({a: 1}, ["a"]); // returns 1
+ * getPath([4, 6, 8], ["1"]); // returns 6
+ * getPath({a: {b: 2, c: [10, 20]}}, ["a", "c", "0"]); // returns 10
  */
 const getPath = (target, path) => {
     let targetCurrent = target;
@@ -783,16 +775,16 @@ const getPath = (target, path) => {
  * @returns {boolean}
  * @example
  * // returns true
- * hasPath({a:1},["a"]);
- * hasPath([4,6,8],["1"]);
- * hasPath({a:{b:2,c:[10,20]}},["a","c","0"]);
+ * hasPath({a: 1}, ["a"]);
+ * hasPath([4, 6, 8], ["1"]);
+ * hasPath({a: {b: 2, c: [10, 20]}}, ["a", "c", "0"]);
  *
  * @example
  * // returns false
- * hasPath({a:1},["c"]);
- * hasPath([4,6,8],["8"]);
- * hasPath({a:{b:2,c:[10,20]}},["f","x","231","21"]);
- * hasPath(1,["foo"]);
+ * hasPath({a: 1}, ["c"]);
+ * hasPath([4, 6, 8], ["8"]);
+ * hasPath({a: {b: 2, c: [10, 20]}}, ["f", "x", "231", "21"]);
+ * hasPath(1, ["foo"]);
  */
 const hasPath = (target, path) => !isNil(getPath(target, path));
 
@@ -804,10 +796,10 @@ const hasPath = (target, path) => !isNil(getPath(target, path));
  * @param {any[]} arr
  * @param {function} fn fn(val: any, index: number, arr: any[])
  * @example
- * //returns [0,4,[0,1,[0],12]]
- * const a = [2,4,[1,1,[16],4]];
+ * //returns a = [0, 4, [0, 1, [0], 12]]
+ * const a = [2, 4, [1, 1, [16], 4]];
  *
- * forEachDeep(a,(val,index,arr)=>arr[index]=index*val)
+ * forEachDeep(a, (val, index, arr) => arr[index] = index * val)
  */
 const forEachDeep = (arr, fn) => forEach(arr, (val, index) => isArray(val) ? forEachDeep(val, fn) : fn(val, index, arr));
 
@@ -819,10 +811,10 @@ const forEachDeep = (arr, fn) => forEach(arr, (val, index) => isArray(val) ? for
  * @param {object} obj
  * @param {function} fn fn(val: any, key: any, index: number, arr: any[])
  * @example
- * //returns {a:0, b:{c: [0,2]}}
- * const a = {a:1, b:{c: [1,2]}};
+ * //returns {a: 0, b: {c: [0, 2]}}
+ * const a = {a: 1, b: {c: [1, 2]}};
  *
- * forEachEntryDeep(a,(val,key,index,obj)=>obj[key]=index*val)
+ * forEachEntryDeep(a, (val, key, index, obj) => obj[key] = index * val)
  */
 const forEachEntryDeep = (obj, fn) => forEachEntry(obj, (val, key, index) => isObjectLike(val) ? forEachEntryDeep(val, fn) : fn(val, key, index, obj));
 
@@ -838,10 +830,10 @@ const forEachEntryDeep = (obj, fn) => forEachEntry(obj, (val, key, index) => isO
  * @param {number} increase
  * @param {function} fn fn(val: number)
  * @example
- * //returns [2,4,6,8,10]
+ * //returns a = [2, 4, 6, 8, 10]
  * const a = [];
  *
- * forTimes(1,6,1,val=>a.push(val*2))
+ * forTimes(1, 6, 1, val => a.push(val * 2))
  */
 const forTimes = (start, max, increase, fn) => {
     for (let index = start; index <= max; index += increase) {

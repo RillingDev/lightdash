@@ -13,10 +13,10 @@ import forEach from "./each";
  * @param {object} obj
  * @param {function} fn fn(val: any, key: any, index: number, arr: any[])
  * @example
- * //returns a = {a:0, b: 2}
- * const a = {a:1, b:2};
+ * //returns a = {a: 0, b: 2}
+ * const a = {a: 1, b: 2};
  *
- * forEachEntry(a,(val,key,index)=>a[key]=val*index)
+ * forEachEntry(a, (val, key, index) => a[key] = val * index)
  */
 const forEachEntry = (obj: object, fn: forEachEntryIterator): void => {
     forEach(objEntries(obj), (entry: entries, index: number) => {

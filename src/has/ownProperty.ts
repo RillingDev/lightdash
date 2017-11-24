@@ -11,13 +11,13 @@
  * @returns {boolean}
  * @example
  * //returns true
- * hasOwnProperty([1,2,3],"0")
- * hasOwnProperty({length:0},"length")
+ * hasOwnProperty([1, 2, 3], "0")
+ * hasOwnProperty({foo: 0}, "foo")
  *
  * @example
  * //returns false
- * hasOwnProperty([],"forEach")
- * hasOwnProperty("foo","replace")
+ * hasOwnProperty([], "forEach")
+ * hasOwnProperty("foo", "replace")
  */
 const hasOwnProperty = (obj: object, key: string): boolean => obj.hasOwnProperty(key);
 

@@ -13,16 +13,9 @@ import isDefined from "../is/defined";
  * @param {string[]} path
  * @returns {boolean}
  * @example
- * // returns 1
- * getPath({a:1},["a"]);
- *
- * @example
- * // returns 6
- * getPath([4,6,8],["1"]);
- *
- * @example
- * // returns 10
- * getPath({a:{b:2,c:[10,20]}},["a","c","0"]);
+ * getPath({a: 1}, ["a"]); // returns 1
+ * getPath([4, 6, 8], ["1"]); // returns 6
+ * getPath({a: {b: 2, c: [10, 20]}}, ["a", "c", "0"]); // returns 10
  */
 const getPath = (target: any, path: string[]): any | null => {
     let targetCurrent = target;

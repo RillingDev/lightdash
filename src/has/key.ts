@@ -11,14 +11,13 @@ import isObject from "../is/object";
  * @returns {boolean}
  * @example
  * //returns true
- * hasKey([1,2,3],"0")
- * hasKey({length:0},"length")
+ * hasKey([1, 2, 3], "0")
+ * hasKey({foo: 0}, "foo")
  *
  * @example
  * //returns false
- * hasKey({},"foo")
- * hasKey(null,"foo")
- * hasKey("foo","replace")
+ * hasKey({}, "foo")
+ * hasKey("foo", "replace")
  */
 const hasKey = (target: any, key: string): boolean => isObject(target) && key in target;
 

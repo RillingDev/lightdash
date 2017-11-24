@@ -14,10 +14,10 @@ import {
  * @param {number} increase
  * @param {function} fn fn(val: number)
  * @example
- * //returns [2,4,6,8,10]
+ * //returns a = [2, 4, 6, 8, 10]
  * const a = [];
  *
- * forTimes(1,6,1,val=>a.push(val*2))
+ * forTimes(1, 6, 1, val => a.push(val * 2))
  */
 const forTimes = (start: number, max: number, increase: number, fn: forTimesIterator): void => {
     for (let index = start; index <= max; index += increase) {
