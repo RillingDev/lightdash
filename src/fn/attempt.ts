@@ -10,16 +10,16 @@
  * @param {...any[]} args
  * @returns {any|error}
  * @example
- * const foo=(a,b)=>{
- *  if(b>10){
+ * const foo = (a, b) => {
+ *  if(b > 10){
  *    throw new RangeError();
  *  }
  *
- *  return a+b;
+ *  return a + b;
  * };
  *
- * fnAttempt(foo,2,1); //=>3
- * fnAttempt(foo,2,500); //=> RangeError
+ * fnAttempt(foo, 2, 1); //=>3
+ * fnAttempt(foo, 2, 500); //=> RangeError
  */
 const fnAttempt = (fn: () => void, ...args: any[]): any => {
     try {

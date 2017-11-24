@@ -855,12 +855,12 @@ const forTimes = (start, max, increase, fn) => {
  * @param {number} chunk
  * @returns {any[]}
  * @example
- * //returns [[1,2],[3,4],[5,6]]
- * arrChunk([1,2,3,4,5,6],2)
+ * //returns [[1, 2], [3, 4], [5, 6]]
+ * arrChunk([1, 2, 3, 4, 5, 6], 2)
  *
  * @example
- * //returns [[1,2,3],[4,5]]
- * arrChunk([1,2,3,4,5],3)
+ * //returns [[1, 2, 3], [4, 5]]
+ * arrChunk([1, 2, 3, 4, 5], 3)
  */
 const arrChunk = (arr, chunk) => {
     if (chunk < 1) {
@@ -884,8 +884,8 @@ const arrChunk = (arr, chunk) => {
  * @param {any[]} arr
  * @returns {any[]}
  * @example
- * //returns [1,2,3,4,5]
- * arrCompact([1,"","",2,3,null,4,undefined,5,""])
+ * //returns [1, 2, 3, 4, 5]
+ * arrCompact([1, "", "", 2, 3, null, 4, undefined, 5, ""])
  */
 const arrCompact = (arr) => arr.filter((val) => val);
 
@@ -898,8 +898,8 @@ const arrCompact = (arr) => arr.filter((val) => val);
  * @param {any[]} arr
  * @returns {Map<any, number>} Map<element: any, count: number>
  * @example
- * //returns Map{1:4, 2:2, 3:1, 4:1}
- * arrCount([1,1,2,2,1,3,4,1])
+ * //returns Map{1: 4, 2: 2, 3: 1, 4: 1}
+ * arrCount([1, 1, 2, 2, 1, 3, 4, 1])
  */
 const arrCount = (arr) => {
     const result = new Map();
@@ -921,11 +921,11 @@ const arrCount = (arr) => {
  * @returns {any[]}
  * @example
  * //returns [2]
- * arrDifference([1,2,3], [1,"foo",3])
+ * arrDifference([1, 2, 3], [1, "foo", 3])
  *
  * @example
- * //returns [1,3]
- * arrDifference([1,2,3], ["foo"], [2,0,2])
+ * //returns [1, 3]
+ * arrDifference([1, 2, 3], ["foo"], [2, 0, 2])
  */
 const arrDifference = (arr, ...values) => {
     const valuesCounted = arrCount([].concat(...values));
@@ -941,12 +941,12 @@ const arrDifference = (arr, ...values) => {
  * @param {any[]} arr
  * @returns {any[]}
  * @example
- * //returns [1,2,3]
- * arrFlattenDeep([1,2,[3]])
+ * //returns [1, 2, 3]
+ * arrFlattenDeep([1, 2, [3]])
  *
  * @example
- * //returns [1,2,3,5,6,6]
- * arrFlattenDeep([1,2,[3,[[[5]]],[6,[6]]])
+ * //returns [1, 2, 3, 5, 6, 6]
+ * arrFlattenDeep([1, 2, [3, [[[5]]], [6, [6]]])
  */
 const arrFlattenDeep = (arr) => {
     const result = [];
@@ -972,8 +972,8 @@ const arrFlattenDeep = (arr) => {
  * @param {any} arr
  * @returns {any[]}
  * @example
- * //returns a = [1,2,3], b = [1,10,3]
- * const a = [1,2,3];
+ * //returns a = [1, 2, 3], b = [1, 10, 3]
+ * const a = [1, 2, 3];
  * const b = arrFrom(a);
  *
  * b[1] = 10;
@@ -990,8 +990,8 @@ const arrFrom = Array.from;
  * @param {function} fn fn(val: any, index: number, arr: any[])
  * @returns {any[]}
  * @example
- * //returns [4,8,[2,2,[32],8]]
- * arrMapDeep([2,4,[1,1,[16],4]],val=>val*2)
+ * //returns [4, 8, [2, 2, [32], 8]]
+ * arrMapDeep([2, 4, [1, 1, [16], 4]], val => val * 2)
  */
 const arrMapDeep = (arr, fn) => arr.map((val, index) => isArray(val) ? arrMapDeep(val, fn) : fn(val, index, arr));
 
@@ -1004,8 +1004,8 @@ const arrMapDeep = (arr, fn) => arr.map((val, index) => isArray(val) ? arrMapDee
  * @param {any} arr
  * @returns {any[]}
  * @example
- * //returns a = [1,2,3,[5,[6]]], b = [1,2,3,[5,[10]]]
- * const a = [1,2,3,[5,[6]]];
+ * //returns a = [1, 2, 3, [5, [6]]], b = [1, 2, 3, [5, [10]]]
+ * const a = [1, 2, 3, [5, [6]]];
  * const b = arrFromDeep(a);
  *
  * b[3][1][0] = 10;
@@ -1022,12 +1022,12 @@ const arrFromDeep = (arr) => arrMapDeep(arrFrom(arr), (val) => isArray(val) ? ar
  * @param {...any[]} values
  * @returns {any[]}
  * @example
- * //returns [1,3]
- * arrIntersection([1,2,3], [1,"foo",3])
+ * //returns [1, 3]
+ * arrIntersection([1, 2, 3], [1, "foo", 3])
  *
  * @example
  * //returns [2]
- * arrIntersection([1,2,3], ["foo"], [2,0,2])
+ * arrIntersection([1, 2, 3], ["foo"], [2, 0, 2])
  */
 const arrIntersection = (arr, ...values) => {
     const valuesCounted = arrCount([].concat(...values));
@@ -1067,8 +1067,8 @@ const numberInRange = (val, min, max) => val >= min && val <= max;
  * @param {number} index
  * @returns {any[]}
  * @example
- * //returns ["foo","fizz"]
- * arrRemoveIndex(["foo","bar","fizz"],1)
+ * //returns ["foo", "fizz"]
+ * arrRemoveIndex(["foo", "bar", "fizz"], 1)
  */
 const arrRemoveIndex = (arr, index) => {
     if (numberInRange(index, 0, arr.length - 1)) {
@@ -1091,8 +1091,8 @@ const arrRemoveIndex = (arr, index) => {
  * @param {any} item
  * @returns {any[]}
  * @example
- * //returns ["foo","fizz"]
- * arrRemoveItem(["foo","bar","fizz"],"bar")
+ * //returns ["foo", "fizz"]
+ * arrRemoveItem(["foo", "bar", "fizz"], "bar")
  */
 const arrRemoveItem = (arr, item) => arr.includes(item) ?
     arrRemoveIndex(arr, arr.indexOf(item)) :
@@ -1108,8 +1108,8 @@ const arrRemoveItem = (arr, item) => arr.includes(item) ?
  * @param {number} step
  * @returns {any[]}
  * @example
- * //returns [1,3,5]
- * arrStep([1,2,3,4,5,6],2)
+ * //returns [1, 3, 5]
+ * arrStep([1, 2, 3, 4, 5, 6], 2)
  */
 const arrStep = (arr, step) => arr.filter((val, index) => index % step === 0);
 
@@ -1122,8 +1122,8 @@ const arrStep = (arr, step) => arr.filter((val, index) => index % step === 0);
  * @param {any[]} arr
  * @returns {any[]}
  * @example
- * //returns [1,2,3,4]
- * arrUniq([1,1,1,2,3,1,2,1,4])
+ * //returns [1, 2, 3, 4]
+ * arrUniq([1, 1, 1, 2, 3, 1, 2, 1, 4])
  */
 const arrUniq = (arr) => arrFrom(new Set(arr));
 
@@ -1340,16 +1340,16 @@ const mapFromObject = (obj) => new Map(objEntries(obj));
  * @param {...any[]} args
  * @returns {any|error}
  * @example
- * const foo=(a,b)=>{
- *  if(b>10){
+ * const foo = (a, b) => {
+ *  if(b > 10){
  *    throw new RangeError();
  *  }
  *
- *  return a+b;
+ *  return a + b;
  * };
  *
- * fnAttempt(foo,2,1); //=>3
- * fnAttempt(foo,2,500); //=> RangeError
+ * fnAttempt(foo, 2, 1); //=>3
+ * fnAttempt(foo, 2, 500); //=> RangeError
  */
 const fnAttempt = (fn, ...args) => {
     try {
@@ -1374,12 +1374,12 @@ const fnAttempt = (fn, ...args) => {
  * @param {number} [arity=fn.length]
  * @returns {Function}
  * @example
- * const foo=(a,b,c)=>[];
+ * const foo = (a, b, c) => [];
  * const fooCurried = fnCurry(foo, 3);
  *
- * fooCurried(1)(2)(3); //=>[1,2,3]
- * fooCurried(1,2)(3);  //=>[1,2,3]
- * fooCurried(1,2,3);   //=>[1,2,3]
+ * fooCurried(1)(2)(3); //=>[1, 2, 3]
+ * fooCurried(1, 2)(3);  //=>[1, 2, 3]
+ * fooCurried(1, 2, 3);   //=>[1, 2, 3]
  */
 const fnCurry = (fn, arity = fn.length) => {
     const resolver = function () {
@@ -1406,9 +1406,8 @@ const fnCurry = (fn, arity = fn.length) => {
  * @param {boolean} [immediate=false]
  * @returns {Function}
  * @example
- * // function that can only run every 500ms
- * const foo=(a,b)=>console.log(a+b);
- * const fooThrottled=fnThrottle(foo,500);
+ * const foo = (a, b) => console.log(a + b);
+ * const fooThrottled = fnThrottle(foo, 500); //function that can only run every 500ms
  */
 const fnThrottle = (fn, timeout, immediate = false) => {
     const getTimer = () => setTimeout(() => {

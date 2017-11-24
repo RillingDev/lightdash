@@ -9,8 +9,8 @@ import forEach from "../for/each";
  * @param {any[]} arr
  * @returns {Map<any, number>} Map<element: any, count: number>
  * @example
- * //returns Map{1:4, 2:2, 3:1, 4:1}
- * arrCount([1,1,2,2,1,3,4,1])
+ * //returns Map{1: 4, 2: 2, 3: 1, 4: 1}
+ * arrCount([1, 1, 2, 2, 1, 3, 4, 1])
  */
 const arrCount = (arr: any[]): Map<any, number> => {
     const result: Map<any, number> = new Map<any, number>();

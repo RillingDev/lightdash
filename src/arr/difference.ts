@@ -12,11 +12,11 @@ import arrCount from "./count";
  * @returns {any[]}
  * @example
  * //returns [2]
- * arrDifference([1,2,3], [1,"foo",3])
+ * arrDifference([1, 2, 3], [1, "foo", 3])
  *
  * @example
- * //returns [1,3]
- * arrDifference([1,2,3], ["foo"], [2,0,2])
+ * //returns [1, 3]
+ * arrDifference([1, 2, 3], ["foo"], [2, 0, 2])
  */
 const arrDifference = (arr: any[], ...values: any[]): any[] => {
     const valuesCounted = arrCount([].concat(...values));

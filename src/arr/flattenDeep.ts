@@ -10,12 +10,12 @@ import isArray from "../is/array";
  * @param {any[]} arr
  * @returns {any[]}
  * @example
- * //returns [1,2,3]
- * arrFlattenDeep([1,2,[3]])
+ * //returns [1, 2, 3]
+ * arrFlattenDeep([1, 2, [3]])
  *
  * @example
- * //returns [1,2,3,5,6,6]
- * arrFlattenDeep([1,2,[3,[[[5]]],[6,[6]]])
+ * //returns [1, 2, 3, 5, 6, 6]
+ * arrFlattenDeep([1, 2, [3, [[[5]]], [6, [6]]])
  */
 const arrFlattenDeep = <T>(arr: T[]): T[] => {
     const result: T[] = [];

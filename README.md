@@ -19,7 +19,7 @@ import {
     arrDifference
 } from "lightdash";
 
-arrDifference([1,2,3], [1,3]);
+arrDifference([1, 2, 3], [1, 3]);
 ```
 
 When using Node/CommonJS:
@@ -29,7 +29,7 @@ const {
     arrDifference
 } = require("lightdash");
 
-arrDifference([1,2,3], [1,3]);
+arrDifference([1, 2, 3], [1, 3]);
 ```
 
 ## Contents
