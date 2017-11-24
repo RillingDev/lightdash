@@ -10,7 +10,9 @@ import isFunction from "./function";
  * @returns {boolean}
  * @example
  * // returns true
- * const foo=function(){return arguments;};
+ * const foo = function(){
+ *   return arguments;
+ * };
  *
  * isArguments(foo());
  *

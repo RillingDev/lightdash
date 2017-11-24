@@ -10,13 +10,13 @@ import isFunction from "./function";
  * @returns {boolean}
  * @example
  * // returns true
- * const foo=new Promise((resolve,reject)=>{resolve("foo")};
+ * const foo = new Promise((resolve, reject) => resolve("foo"));
  *
- * isPromise(foo());
+ * isPromise(foo);
  *
  * @example
  * // returns false
- * isPromise(()=>"foo");
+ * isPromise(() => "foo");
  */
 const isPromise = (val: any): boolean => isFunction(val.then) && isFunction(val.catch);
 

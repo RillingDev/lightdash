@@ -29,8 +29,8 @@ import isObjectLike from "./objectLike";
  * @example
  * //returns false
  * isEmpty("foo")
- * isEmpty([1,2])
- * isEmpty({a:1})
+ * isEmpty([1, 2])
+ * isEmpty({a: 1})
  */
 const isEmpty = (val: any): boolean => {
     if (isArrayLike(val)) {

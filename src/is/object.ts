@@ -13,7 +13,7 @@ import isTypeOf from "./typeOf";
  * //returns true
  * isObject({})
  * isObject([])
- * isObject(()=>1))
+ * isObject(() => 1))
  *
  * @example
  * //returns false

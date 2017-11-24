@@ -13,14 +13,14 @@ import {
  * @returns {boolean}
  * @example
  * //returns true
- * isInstanceOf({},Object)
- * isInstanceOf([],Object)
- * isInstanceOf([],Array)
+ * isInstanceOf({}, Object)
+ * isInstanceOf([], Object)
+ * isInstanceOf([], Array)
  *
  * @example
  * //returns false
- * isInstanceOf({},Array)
- * isInstanceOf([],Map)
+ * isInstanceOf({}, Array)
+ * isInstanceOf([], Map)
  */
 const isInstanceOf = (val: any, target: IGenericClass): boolean => val instanceof target;
 

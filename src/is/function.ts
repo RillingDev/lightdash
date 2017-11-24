@@ -11,7 +11,7 @@ import isTypeOf from "./typeOf";
  * @example
  * //returns true
  * isFunction(function a(){})
- * isFunction(()=>{})
+ * isFunction(() => 1)
  *
  * @example
  * //returns false

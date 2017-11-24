@@ -9,8 +9,8 @@ import objEntries from "../obj/entries";
  * @param {Object} obj
  * @returns {Map}
  * @example
- * //returns Map{a:1, b:4, c:5}
- * mapFromObject({a:1,b:4,c:5})
+ * //returns Map{a: 1, b: 4, c: 5}
+ * mapFromObject({a: 1, b: 4, c: 5})
  */
 const mapFromObject = (obj: object) => new Map(objEntries(obj));
 

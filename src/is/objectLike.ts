@@ -20,7 +20,7 @@ import isTypeOf from "./typeOf";
  * @example
  * //returns false
  * isObjectLike(1)
- * isObjectLike(()=>1))
+ * isObjectLike(() => 1))
  */
 const isObjectLike = (val: any): boolean => !isNil(val) && isTypeOf(val, "object");
 

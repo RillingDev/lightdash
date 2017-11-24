@@ -14,7 +14,7 @@ import isInstanceOf from "./instanceOf";
  *
  * @example
  * //returns false
- * isMap([[1,2]])
+ * isMap([[1, 2]])
  */
 const isMap = (val: any): boolean => isInstanceOf(val, Map);
 

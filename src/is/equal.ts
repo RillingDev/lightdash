@@ -14,15 +14,15 @@ import isObject from "./object";
  * @returns {boolean}
  * @example
  * //returns true
- * isEqual(1,1)
- * isEqual({},{})
- * isEqual([1,2],[1,2])
- * isEqual([1,2,[3,4]],[1,2,[3,4]])
+ * isEqual(1, 1)
+ * isEqual({}, {})
+ * isEqual([1, 2], [1, 2])
+ * isEqual([1, 2, [3, 4]], [1, 2, [3, 4]])
  *
  * @example
  * //returns false
- * isEqual([1,2,3],[1])
- * isEqual([1,2,[3]],[1,2,[4]])
+ * isEqual([1, 2, 3], [1])
+ * isEqual([1, 2, [3]], [1, 2, [4]])
  */
 const isEqual = (a: any, b: any): boolean => {
     if (a === b) {

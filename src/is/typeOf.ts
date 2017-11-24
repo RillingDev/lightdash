@@ -9,13 +9,13 @@
  * @returns {boolean}
  * @example
  * //returns true
- * isTypeOf({},"object")
- * isTypeOf([],"object")
- * isTypeOf("foo","string")
+ * isTypeOf({}, "object")
+ * isTypeOf([], "object")
+ * isTypeOf("foo", "string")
  *
  * @example
  * //returns false
- * isTypeOf("foo","number")
+ * isTypeOf("foo", "number")
  */
 const isTypeOf = (val: any, type: string): boolean => typeof val === type;
 

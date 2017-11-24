@@ -11,6 +11,7 @@ import isTypeOf from "./typeOf";
  * @example
  * //returns true
  * isSymbol(Symbol())
+ * isSymbol(Symbol.split)
  *
  * @example
  * //returns false

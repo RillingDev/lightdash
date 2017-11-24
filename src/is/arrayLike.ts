@@ -12,7 +12,7 @@ import isObjectLike from "./objectLike";
  * @example
  * //returns true
  * isArrayLike([])
- * isArrayLike({length:0})
+ * isArrayLike({length: 0})
  *
  * @example
  * //returns false

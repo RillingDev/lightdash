@@ -14,7 +14,7 @@ import isInstanceOf from "./instanceOf";
  *
  * @example
  * //returns false
- * isSet([1,2])
+ * isSet([1, 2])
  */
 const isSet = (val: any): boolean => isInstanceOf(val, Set);
 

@@ -12,13 +12,13 @@ var _ = (function (exports) {
  * @returns {boolean}
  * @example
  * //returns true
- * isTypeOf({},"object")
- * isTypeOf([],"object")
- * isTypeOf("foo","string")
+ * isTypeOf({}, "object")
+ * isTypeOf([], "object")
+ * isTypeOf("foo", "string")
  *
  * @example
  * //returns false
- * isTypeOf("foo","number")
+ * isTypeOf("foo", "number")
  */
 const isTypeOf = (val, type) => typeof val === type;
 
@@ -33,7 +33,7 @@ const isTypeOf = (val, type) => typeof val === type;
  * @example
  * //returns true
  * isFunction(function a(){})
- * isFunction(()=>{})
+ * isFunction(() => 1)
  *
  * @example
  * //returns false
@@ -51,7 +51,9 @@ const isFunction = val => isTypeOf(val, "function");
  * @returns {boolean}
  * @example
  * // returns true
- * const foo=function(){return arguments;};
+ * const foo = function(){
+ *   return arguments;
+ * };
  *
  * isArguments(foo());
  *
@@ -93,14 +95,14 @@ const isArray = Array.isArray;
  * @returns {boolean}
  * @example
  * //returns true
- * isInstanceOf({},Object)
- * isInstanceOf([],Object)
- * isInstanceOf([],Array)
+ * isInstanceOf({}, Object)
+ * isInstanceOf([], Object)
+ * isInstanceOf([], Array)
  *
  * @example
  * //returns false
- * isInstanceOf({},Array)
- * isInstanceOf([],Map)
+ * isInstanceOf({}, Array)
+ * isInstanceOf([], Map)
  */
 const isInstanceOf = (val, target) => val instanceof target;
 
@@ -118,7 +120,7 @@ const isInstanceOf = (val, target) => val instanceof target;
  *
  * @example
  * //returns false
- * isArrayBuffer([1,2])
+ * isArrayBuffer([1, 2])
  */
 // @ts-ignore: ArrayBuffer declaration is outdated
 const isArrayBuffer = val => isInstanceOf(val, ArrayBuffer);
@@ -179,7 +181,7 @@ const isNil = val => isUndefined(val) || val === null;
  * //returns true
  * isObject({})
  * isObject([])
- * isObject(()=>1))
+ * isObject(() => 1))
  *
  * @example
  * //returns false
@@ -227,7 +229,7 @@ const hasKey = (target, key) => isObject(target) && key in target;
  * @example
  * //returns false
  * isObjectLike(1)
- * isObjectLike(()=>1))
+ * isObjectLike(() => 1))
  */
 const isObjectLike = val => !isNil(val) && isTypeOf(val, "object");
 
@@ -242,7 +244,7 @@ const isObjectLike = val => !isNil(val) && isTypeOf(val, "object");
  * @example
  * //returns true
  * isArrayLike([])
- * isArrayLike({length:0})
+ * isArrayLike({length: 0})
  *
  * @example
  * //returns false
@@ -265,9 +267,12 @@ const isArrayLike = val => isObjectLike(val) && hasKey(val, "length");
  * //returns true
  * isNumber(1)
  * isNumber(2.34)
+ * isNumber(Infinity)
+ * isNumber(NaN)
  *
  * @example
  * //returns false
+ * isNumber("2")
  * isNumber(null)
  */
 const isNumber = val => isTypeOf(val, "number");
@@ -397,8 +402,8 @@ const objKeys = Object.keys;
  * @example
  * //returns false
  * isEmpty("foo")
- * isEmpty([1,2])
- * isEmpty({a:1})
+ * isEmpty([1, 2])
+ * isEmpty({a: 1})
  */
 const isEmpty = val => {
     if (isArrayLike(val)) {
@@ -475,15 +480,15 @@ const forEachEntry = (obj, fn) => {
  * @returns {boolean}
  * @example
  * //returns true
- * isEqual(1,1)
- * isEqual({},{})
- * isEqual([1,2],[1,2])
- * isEqual([1,2,[3,4]],[1,2,[3,4]])
+ * isEqual(1, 1)
+ * isEqual({}, {})
+ * isEqual([1, 2], [1, 2])
+ * isEqual([1, 2, [3, 4]], [1, 2, [3, 4]])
  *
  * @example
  * //returns false
- * isEqual([1,2,3],[1])
- * isEqual([1,2,[3]],[1,2,[4]])
+ * isEqual([1, 2, 3], [1])
+ * isEqual([1, 2, [3]], [1, 2, [4]])
  */
 const isEqual = (a, b) => {
     if (a === b) {
@@ -584,7 +589,7 @@ const isInteger = Number.isInteger;
  *
  * @example
  * //returns false
- * isMap([[1,2]])
+ * isMap([[1, 2]])
  */
 const isMap = val => isInstanceOf(val, Map);
 
@@ -663,7 +668,7 @@ const isRegExp = val => isInstanceOf(val, RegExp);
  *
  * @example
  * //returns false
- * isSet([1,2])
+ * isSet([1, 2])
  */
 const isSet = val => isInstanceOf(val, Set);
 
@@ -696,6 +701,7 @@ const isString = val => isTypeOf(val, "string");
  * @example
  * //returns true
  * isSymbol(Symbol())
+ * isSymbol(Symbol.split)
  *
  * @example
  * //returns false
@@ -1303,8 +1309,8 @@ const objValues = Object.values;
  * @param {Object} obj
  * @returns {Map}
  * @example
- * //returns Map{a:1, b:4, c:5}
- * mapFromObject({a:1,b:4,c:5})
+ * //returns Map{a: 1, b: 4, c: 5}
+ * mapFromObject({a: 1, b: 4, c: 5})
  */
 const mapFromObject = obj => new Map(objEntries(obj));
 
