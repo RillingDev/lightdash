@@ -635,6 +635,26 @@ const isObjectPlain = val => isObject(val) && val.constructor === Object;
 const isPrimitive = val => !isObject(val);
 
 /**
+ * Checks if a value is a promise
+ *
+ * @function isPromise
+ * @memberof Is
+ * @since 3.0.0
+ * @param {any} val
+ * @returns {boolean}
+ * @example
+ * // returns true
+ * const foo = new Promise((resolve, reject) => resolve("foo"));
+ *
+ * isPromise(foo);
+ *
+ * @example
+ * // returns false
+ * isPromise(() => "foo");
+ */
+const isPromise = val => isFunction(val.then) && isFunction(val.catch);
+
+/**
  * Checks if a value is a regular expression
  *
  * @function isRegExp
@@ -1534,6 +1554,7 @@ exports.isArray = isArray;
 exports.isArrayLike = isArrayLike;
 exports.isArrayBuffer = isArrayBuffer;
 exports.isArrayTyped = isArrayTyped;
+exports.isPromise = isPromise;
 exports.isMap = isMap;
 exports.isSet = isSet;
 exports.isDate = isDate;

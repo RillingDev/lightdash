@@ -637,6 +637,26 @@ const isObjectPlain = (val) => isObject(val) && val.constructor === Object;
 const isPrimitive = (val) => !isObject(val);
 
 /**
+ * Checks if a value is a promise
+ *
+ * @function isPromise
+ * @memberof Is
+ * @since 3.0.0
+ * @param {any} val
+ * @returns {boolean}
+ * @example
+ * // returns true
+ * const foo = new Promise((resolve, reject) => resolve("foo"));
+ *
+ * isPromise(foo);
+ *
+ * @example
+ * // returns false
+ * isPromise(() => "foo");
+ */
+const isPromise = (val) => isFunction(val.then) && isFunction(val.catch);
+
+/**
  * Checks if a value is a regular expression
  *
  * @function isRegExp
@@ -1532,4 +1552,4 @@ const randomItem = (arr) => arr[randomNumber(0, arr.length - 1, false)];
  * @namespace Random
  */
 
-export { isEqual, isInstanceOf, isTypeOf, isUndefined, isDefined, isNil, isPrimitive, isNumber, isString, isBoolean, isSymbol, isObject, isObjectLike, isObjectPlain, isArray, isArrayLike, isArrayBuffer, isArrayTyped, isMap, isSet, isDate, isRegExp, isFunction, isArguments, isError, isEmpty, isFinite, isInteger, hasKey, hasPath, hasOwnProperty, getPath, forTimes, forEach, forEachDeep, forEachEntry, forEachEntryDeep, arrFrom, arrFromDeep, arrMapDeep, arrFlattenDeep, arrCompact, arrChunk, arrStep, arrRemoveIndex, arrRemoveItem, arrCount, arrDifference, arrIntersection, arrUniq, objFrom, objFromDeep, objMap, objMapDeep, objDefaults, objDefaultsDeep, objMerge, objDefineProperty, objKeys, objValues, objEntries, mapFromObject, fnThrottle, fnAttempt, fnCurry, numberInRange, numberClamp, randomNumber, randomItem };
+export { isEqual, isInstanceOf, isTypeOf, isUndefined, isDefined, isNil, isPrimitive, isNumber, isString, isBoolean, isSymbol, isObject, isObjectLike, isObjectPlain, isArray, isArrayLike, isArrayBuffer, isArrayTyped, isPromise, isMap, isSet, isDate, isRegExp, isFunction, isArguments, isError, isEmpty, isFinite, isInteger, hasKey, hasPath, hasOwnProperty, getPath, forTimes, forEach, forEachDeep, forEachEntry, forEachEntryDeep, arrFrom, arrFromDeep, arrMapDeep, arrFlattenDeep, arrCompact, arrChunk, arrStep, arrRemoveIndex, arrRemoveItem, arrCount, arrDifference, arrIntersection, arrUniq, objFrom, objFromDeep, objMap, objMapDeep, objDefaults, objDefaultsDeep, objMerge, objDefineProperty, objKeys, objValues, objEntries, mapFromObject, fnThrottle, fnAttempt, fnCurry, numberInRange, numberClamp, randomNumber, randomItem };

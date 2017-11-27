@@ -24,6 +24,7 @@ import isObject from "./is/object";
 import isObjectLike from "./is/objectLike";
 import isObjectPlain from "./is/objectPlain";
 import isPrimitive from "./is/primitive";
+import isPromise from "./is/promise";
 import isRegExp from "./is/regExp";
 import isSet from "./is/set";
 import isString from "./is/string";
@@ -136,6 +137,7 @@ export {
     isArrayLike,
     isArrayBuffer,
     isArrayTyped,
+    isPromise,
     isMap,
     isSet,
     isDate,
