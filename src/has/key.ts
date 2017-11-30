@@ -1,4 +1,4 @@
-import isObject from "../is/object";
+import isDefined from "../is/defined";
 
 /**
  * Checks if a target has a certain key
@@ -13,12 +13,12 @@ import isObject from "../is/object";
  * // returns true
  * hasKey([1, 2, 3], "0")
  * hasKey({foo: 0}, "foo")
+ * hasKey("foo", "replace")
  *
  * @example
  * // returns false
  * hasKey({}, "foo")
- * hasKey("foo", "replace")
  */
-const hasKey = (target: any, key: string): boolean => isObject(target) && key in target;
+const hasKey = (target: any, key: string): boolean => isDefined(target[key]);
 
 export default hasKey;
