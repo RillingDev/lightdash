@@ -18,6 +18,7 @@ import isFunction from "./is/function";
 import isInstanceOf from "./is/instanceOf";
 import isInteger from "./is/integer";
 import isMap from "./is/map";
+import isNaN from "./is/nan";
 import isNil from "./is/nil";
 import isNumber from "./is/number";
 import isObject from "./is/object";
@@ -148,6 +149,7 @@ export {
     isEmpty,
     isFinite,
     isInteger,
+    isNaN,
 
     hasKey,
     hasPath,

@@ -594,6 +594,27 @@ const isInteger = Number.isInteger;
 const isMap = val => isInstanceOf(val, Map);
 
 /**
+ * Checks if a value is NaN. Unlike the global `isNaN()`, this function returns false for undefined
+ *
+ * `Number.isNaN` shorthand
+ *
+ * @function isNaN
+ * @memberof Is
+ * @since 3.3.0
+ * @param {any} val
+ * @returns {boolean}
+ * @example
+ * // returns true
+ * isNaN(NaN);
+ *
+ * @example
+ * // returns false
+ * isNaN(1);
+ * isNaN(undefined);
+ */
+const isNaN = Number.isNaN;
+
+/**
  * Checks if a value is a plain object
  *
  * An object is considered plain of its constructor is the built-in object constructor
@@ -1565,6 +1586,7 @@ exports.isError = isError;
 exports.isEmpty = isEmpty;
 exports.isFinite = isFinite;
 exports.isInteger = isInteger;
+exports.isNaN = isNaN;
 exports.hasKey = hasKey;
 exports.hasPath = hasPath;
 exports.hasOwnProperty = hasOwnProperty;
