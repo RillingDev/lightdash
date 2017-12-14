@@ -1,6 +1,4 @@
-const {
-    arrChunk
-} = require("../../dist/lightdash.common");
+const { arrChunk } = require("../../dist/lightdash.common");
 
 describe("arrChunk", () => {
     it("Simple", () => {

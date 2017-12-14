@@ -19,6 +19,7 @@
  * hasOwnProperty([], "forEach")
  * hasOwnProperty("foo", "replace")
  */
-const hasOwnProperty = (obj: object, key: string): boolean => obj.hasOwnProperty(key);
+const hasOwnProperty = (obj: object, key: string): boolean =>
+    obj.hasOwnProperty(key);
 
 export default hasOwnProperty;

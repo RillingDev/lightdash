@@ -13,7 +13,11 @@
  * randomNumber(0, 100)         //=> 54.2135123
  * randomNumber(2, 10, false)   //=> 5
  */
-const randomNumber = (min: number = 0, max: number = 1, floating: boolean = true): number => {
+const randomNumber = (
+    min: number = 0,
+    max: number = 1,
+    floating: boolean = true
+): number => {
     const diff = max - min;
 
     if (diff !== 0) {

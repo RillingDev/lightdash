@@ -150,19 +150,15 @@ export {
     isFinite,
     isInteger,
     isNaN,
-
     hasKey,
     hasPath,
     hasOwnProperty,
-
     getPath,
-
     forTimes,
     forEach,
     forEachDeep,
     forEachEntry,
     forEachEntryDeep,
-
     arrFrom,
     arrFromDeep,
     arrMapDeep,
@@ -176,7 +172,6 @@ export {
     arrDifference,
     arrIntersection,
     arrUniq,
-
     objFrom,
     objFromDeep,
     objMap,
@@ -188,16 +183,12 @@ export {
     objKeys,
     objValues,
     objEntries,
-
     mapFromObject,
-
     fnThrottle,
     fnAttempt,
     fnCurry,
-
     numberInRange,
     numberClamp,
-
     randomNumber,
-    randomItem,
+    randomItem
 };

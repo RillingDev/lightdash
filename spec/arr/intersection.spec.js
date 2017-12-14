@@ -1,6 +1,4 @@
-const {
-    arrIntersection
-} = require("../../dist/lightdash.common");
+const { arrIntersection } = require("../../dist/lightdash.common");
 
 describe("arrIntersection", () => {
     it("Simple", () => {

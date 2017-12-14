@@ -1,6 +1,4 @@
-const {
-    objMapDeep,
-} = require("../../dist/lightdash.common");
+const { objMapDeep } = require("../../dist/lightdash.common");
 
 describe("objMapDeep", () => {
     it("Simple", () => {

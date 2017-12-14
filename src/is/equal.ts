@@ -29,10 +29,7 @@ const isEqual = (a: any, b: any): boolean => {
         return true;
     }
 
-    if (
-        isObject(a) && isObject(b) &&
-        objKeys(a).length === objKeys(b).length
-    ) {
+    if (isObject(a) && isObject(b) && objKeys(a).length === objKeys(b).length) {
         let result = true;
 
         forEachEntry(a, (aVal: any, key: string): void => {

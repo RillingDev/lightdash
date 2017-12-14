@@ -18,6 +18,7 @@ import isFunction from "./function";
  * // returns false
  * isPromise(() => "foo");
  */
-const isPromise = (val: any): boolean => isFunction(val.then) && isFunction(val.catch);
+const isPromise = (val: any): boolean =>
+    isFunction(val.then) && isFunction(val.catch);
 
 export default isPromise;

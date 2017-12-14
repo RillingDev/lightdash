@@ -16,6 +16,7 @@ import isArray from "../is/array";
  *
  * b.a = 10;
  */
-const objFrom = (obj: object): object => isArray(obj) ? arrFrom(obj) : Object.assign({}, obj);
+const objFrom = (obj: object): object =>
+    isArray(obj) ? arrFrom(obj) : Object.assign({}, obj);
 
 export default objFrom;

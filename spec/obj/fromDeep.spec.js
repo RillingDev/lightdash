@@ -1,6 +1,4 @@
-const {
-    objFromDeep
-} = require("../../dist/lightdash.common");
+const { objFromDeep } = require("../../dist/lightdash.common");
 
 describe("objFromDeep", () => {
     it("Simple", () => {

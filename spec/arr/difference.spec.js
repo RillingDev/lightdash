@@ -1,6 +1,4 @@
-const {
-    arrDifference
-} = require("../../dist/lightdash.common");
+const { arrDifference } = require("../../dist/lightdash.common");
 
 describe("arrDifference", () => {
     it("Simple", () => {

@@ -21,6 +21,7 @@ import isObjectLike from "./objectLike";
  * isArrayLike("foo")
  * isArrayLike(1)
  */
-const isArrayLike = (val: any): boolean => isObjectLike(val) && hasKey(val, "length");
+const isArrayLike = (val: any): boolean =>
+    isObjectLike(val) && hasKey(val, "length");
 
 export default isArrayLike;

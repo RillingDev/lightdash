@@ -24,12 +24,13 @@ const objDefineProperty = (
     val: any,
     enumerable: boolean = true,
     writable: boolean = true,
-    configurable: boolean = true,
-): object => Object.defineProperty(obj, key, {
-    value: val,
-    enumerable,
-    writable,
-    configurable,
-});
+    configurable: boolean = true
+): object =>
+    Object.defineProperty(obj, key, {
+        value: val,
+        enumerable,
+        writable,
+        configurable
+    });
 
 export default objDefineProperty;

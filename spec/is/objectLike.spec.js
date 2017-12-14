@@ -1,6 +1,4 @@
-const {
-    isObjectLike
-} = require("../../dist/lightdash.common");
+const { isObjectLike } = require("../../dist/lightdash.common");
 
 describe("isObjectLike", () => {
     it("Simple", () => {

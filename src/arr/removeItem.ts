@@ -14,8 +14,6 @@ import arrRemoveIndex from "./removeIndex";
  * arrRemoveItem(["foo", "bar", "fizz"], "bar")
  */
 const arrRemoveItem = <T>(arr: T[], item: T): T[] =>
-    arr.includes(item) ?
-        arrRemoveIndex(arr, arr.indexOf(item)) :
-        arr;
+    arr.includes(item) ? arrRemoveIndex(arr, arr.indexOf(item)) : arr;
 
 export default arrRemoveItem;

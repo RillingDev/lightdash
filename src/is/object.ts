@@ -19,6 +19,7 @@ import isTypeOf from "./typeOf";
  * // returns false
  * isObject(1)
  */
-const isObject = (val: any): boolean => !isNil(val) && (isTypeOf(val, "object") || isTypeOf(val, "function"));
+const isObject = (val: any): boolean =>
+    !isNil(val) && (isTypeOf(val, "object") || isTypeOf(val, "function"));
 
 export default isObject;

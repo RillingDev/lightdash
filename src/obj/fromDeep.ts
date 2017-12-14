@@ -17,8 +17,10 @@ import objMapDeep from "./mapDeep";
  *
  * b.a.c.a = 123;
  */
-const objFromDeep = (obj: object): object => objMapDeep(
-    objFrom(obj),
-    (val: any) => isObjectLike(val) ? objFrom(val) : val);
+const objFromDeep = (obj: object): object =>
+    objMapDeep(
+        objFrom(obj),
+        (val: any) => (isObjectLike(val) ? objFrom(val) : val)
+    );
 
 export default objFromDeep;

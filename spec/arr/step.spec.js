@@ -1,6 +1,4 @@
-const {
-    arrStep
-} = require("../../dist/lightdash.common");
+const { arrStep } = require("../../dist/lightdash.common");
 
 describe("arrStep", () => {
     it("Simple", () => {

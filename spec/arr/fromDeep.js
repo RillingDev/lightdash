@@ -1,6 +1,4 @@
-const {
-    arrFromDeep
-} = require("../../dist/lightdash.common");
+const { arrFromDeep } = require("../../dist/lightdash.common");
 
 describe("arrFromDeep", () => {
     it("Simple", () => {

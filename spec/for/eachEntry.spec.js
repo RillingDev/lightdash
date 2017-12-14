@@ -1,6 +1,4 @@
-const {
-    forEachEntry,
-} = require("../../dist/lightdash.common");
+const { forEachEntry } = require("../../dist/lightdash.common");
 
 describe("forEachEntry", () => {
     it("Simple", () => {
@@ -20,8 +18,15 @@ describe("forEachEntry", () => {
             result.push(val);
         });
 
-        expect(result).toEqual([2, 3, 42, 2, 19, {
-            v: 1
-        }]);
+        expect(result).toEqual([
+            2,
+            3,
+            42,
+            2,
+            19,
+            {
+                v: 1
+            }
+        ]);
     });
 });

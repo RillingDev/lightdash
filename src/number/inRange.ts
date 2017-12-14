@@ -19,6 +19,7 @@
  * numberInRange(-1, 0, 5)
  * numberInRange(10, 0, 5)
  */
-const numberInRange = (val: number, min: number, max: number): boolean => val >= min && val <= max;
+const numberInRange = (val: number, min: number, max: number): boolean =>
+    val >= min && val <= max;
 
 export default numberInRange;

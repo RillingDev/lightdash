@@ -494,8 +494,7 @@ const isEqual = (a, b) => {
     if (a === b) {
         return true;
     }
-    if (isObject(a) && isObject(b) &&
-        objKeys(a).length === objKeys(b).length) {
+    if (isObject(a) && isObject(b) && objKeys(a).length === objKeys(b).length) {
         let result = true;
         forEachEntry(a, (aVal, key) => {
             // Only check if the comparison didn't fail already
@@ -1051,7 +1050,7 @@ const arrMapDeep = (arr, fn) => arr.map((val, index) => isArray(val) ? arrMapDee
  *
  * b[3][1][0] = 10;
  */
-const arrFromDeep = (arr) => arrMapDeep(arrFrom(arr), (val) => isArray(val) ? arrFrom(val) : val);
+const arrFromDeep = (arr) => arrMapDeep(arrFrom(arr), (val) => (isArray(val) ? arrFrom(val) : val));
 
 /**
  * Returns an array of all elements that exist in the first array, and at least once in one of the other arrays
@@ -1113,9 +1112,9 @@ const numberInRange = (val, min, max) => val >= min && val <= max;
  */
 const arrRemoveIndex = (arr, index) => {
     if (numberInRange(index, 0, arr.length - 1)) {
-        return index === 0 ?
-            arr.slice(1) :
-            arr.slice(0, index).concat(arr.slice(index + 1));
+        return index === 0
+            ? arr.slice(1)
+            : arr.slice(0, index).concat(arr.slice(index + 1));
     }
     else {
         return arr;
@@ -1135,9 +1134,7 @@ const arrRemoveIndex = (arr, index) => {
  * // returns ["foo", "fizz"]
  * arrRemoveItem(["foo", "bar", "fizz"], "bar")
  */
-const arrRemoveItem = (arr, item) => arr.includes(item) ?
-    arrRemoveIndex(arr, arr.indexOf(item)) :
-    arr;
+const arrRemoveItem = (arr, item) => arr.includes(item) ? arrRemoveIndex(arr, arr.indexOf(item)) : arr;
 
 /**
  * Returns a new array with every n-th item from the input array
@@ -1266,7 +1263,7 @@ const objMapDeep = (obj, fn) => objMap(obj, (val, key, index, objNew) => {
  *
  * b.a.c.a = 123;
  */
-const objFromDeep = (obj) => objMapDeep(objFrom(obj), (val) => isObjectLike(val) ? objFrom(val) : val);
+const objFromDeep = (obj) => objMapDeep(objFrom(obj), (val) => (isObjectLike(val) ? objFrom(val) : val));
 
 /**
  * Recursively sets every nil property of object to the value from the default object
@@ -1321,7 +1318,7 @@ const objDefineProperty = (obj, key, val, enumerable = true, writable = true, co
     value: val,
     enumerable,
     writable,
-    configurable,
+    configurable
 });
 
 /**

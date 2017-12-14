@@ -15,9 +15,9 @@ import numberInRange from "../number/inRange";
  */
 const arrRemoveIndex = <T>(arr: T[], index: number): T[] => {
     if (numberInRange(index, 0, arr.length - 1)) {
-        return index === 0 ?
-            arr.slice(1) :
-            arr.slice(0, index).concat(arr.slice(index + 1));
+        return index === 0
+            ? arr.slice(1)
+            : arr.slice(0, index).concat(arr.slice(index + 1));
     } else {
         return arr;
     }

@@ -22,6 +22,7 @@ import isTypeOf from "./typeOf";
  * isObjectLike(1)
  * isObjectLike(() => 1))
  */
-const isObjectLike = (val: any): boolean => !isNil(val) && isTypeOf(val, "object");
+const isObjectLike = (val: any): boolean =>
+    !isNil(val) && isTypeOf(val, "object");
 
 export default isObjectLike;

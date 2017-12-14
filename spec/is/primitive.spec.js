@@ -1,6 +1,4 @@
-const {
-    isPrimitive
-} = require("../../dist/lightdash.common");
+const { isPrimitive } = require("../../dist/lightdash.common");
 
 describe("isPrimitive", () => {
     it("Simple", () => {

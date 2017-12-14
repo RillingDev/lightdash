@@ -12,6 +12,7 @@ import randomNumber from "./number";
  * randomItem(["foo", "bar"])      //=> "foo"
  * randomNumber([1, 2, 3, 4, 5])   //=> 3
  */
-const randomItem = <T>(arr: T[]): T => arr[randomNumber(0, arr.length - 1, false)];
+const randomItem = <T>(arr: T[]): T =>
+    arr[randomNumber(0, arr.length - 1, false)];
 
 export default randomItem;

@@ -20,10 +20,10 @@
  * fooCurried(1, 2, 3) //=> [1, 2, 3]
  */
 const fnCurry = (fn: () => void, arity: number = fn.length) => {
-    const resolver: () => any = function () {
+    const resolver: () => any = function() {
         const argsBase: IArguments = arguments;
 
-        return function () {
+        return function() {
             const args: any[] = [...argsBase, ...arguments];
             const result: () => any = args.length >= arity ? fn : resolver;
 

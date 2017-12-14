@@ -1,7 +1,4 @@
-const {
-    isArray,
-    forEachEntryDeep,
-} = require("../../dist/lightdash.common");
+const { isArray, forEachEntryDeep } = require("../../dist/lightdash.common");
 
 describe("forEachEntryDeep", () => {
     it("Simple", () => {

@@ -1,6 +1,4 @@
-const {
-    arrUniq
-} = require("../../dist/lightdash.common");
+const { arrUniq } = require("../../dist/lightdash.common");
 
 describe("arrUniq", () => {
     it("Simple", () => {

@@ -3,10 +3,10 @@
  } = require("./dist/lightdash.common"); */
 
 const fnCurry = (fn, arity = fn.length) => {
-    const resolver = function () {
+    const resolver = function() {
         const argsBase = arguments;
 
-        return function () {
+        return function() {
             const args = [...argsBase, ...arguments];
             const result = args.length >= arity ? fn : resolver;
 

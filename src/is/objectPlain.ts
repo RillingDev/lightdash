@@ -19,6 +19,7 @@ import isObject from "./object";
  * isObjectPlain([])
  * isObjectPlain(()=>{})
  */
-const isObjectPlain = (val: any): boolean => isObject(val) && val.constructor === Object;
+const isObjectPlain = (val: any): boolean =>
+    isObject(val) && val.constructor === Object;
 
 export default isObjectPlain;

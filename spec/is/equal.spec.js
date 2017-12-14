@@ -1,6 +1,4 @@
-const {
-    isEqual
-} = require("../../dist/lightdash.common");
+const { isEqual } = require("../../dist/lightdash.common");
 
 describe("isEqual", () => {
     it("Simple", () => {

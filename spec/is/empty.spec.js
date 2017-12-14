@@ -1,8 +1,6 @@
 "use strict";
 
-const {
-    isEmpty
-} = require("../../dist/lightdash.common");
+const { isEmpty } = require("../../dist/lightdash.common");
 
 describe("isEmpty", () => {
     it("Simple", () => {
@@ -13,9 +11,11 @@ describe("isEmpty", () => {
         expect(isEmpty("foo")).toBe(true);
 
         expect(isEmpty([1, 2, 3])).toBe(false);
-        expect(isEmpty({
-            a: 1,
-            b: 2
-        })).toBe(false);
+        expect(
+            isEmpty({
+                a: 1,
+                b: 2
+            })
+        ).toBe(false);
     });
 });
