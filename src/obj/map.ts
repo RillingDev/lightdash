@@ -1,8 +1,5 @@
+import { forEachEntryIterator, IGenericObject } from "../../typings/index.d";
 import forEachEntry from "../for/eachEntry";
-import {
-    forEachEntryIterator,
-    IGenericObject,
-} from "../lightdash.d";
 import objFrom from "./from";
 
 /**

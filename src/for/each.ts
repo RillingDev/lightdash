@@ -1,6 +1,4 @@
-import {
-    forEachIterator,
-} from "../lightdash.d";
+import { forEachIterator } from "../../typings/index.d";
 
 /**
  * Iterates over each element in an array

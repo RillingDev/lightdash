@@ -863,7 +863,9 @@ const forEachDeep = (arr, fn) => forEach(arr, (val, index) => isArray(val) ? for
  *
  * forEachEntryDeep(a, (val, key, index, obj) => obj[key] = index * val)
  */
-const forEachEntryDeep = (obj, fn) => forEachEntry(obj, (val, key, index) => isObjectLike(val) ? forEachEntryDeep(val, fn) : fn(val, key, index, obj));
+const forEachEntryDeep = (obj, fn) => forEachEntry(obj, (val, key, index) => isObjectLike(val)
+    ? forEachEntryDeep(val, fn)
+    : fn(val, key, index, obj));
 
 /**
  * Execute a function n times
@@ -1288,7 +1290,9 @@ const objDefaultsDeep = (obj, objDefault) => {
     forEachEntry(objDefault, (valDefault, keyDefault) => {
         const valGiven = obj[keyDefault];
         if (isObjectLike(valDefault)) {
-            result[keyDefault] = isObjectLike(valGiven) ? objDefaultsDeep(valGiven, valDefault) : valDefault;
+            result[keyDefault] = isObjectLike(valGiven)
+                ? objDefaultsDeep(valGiven, valDefault)
+                : valDefault;
         }
         else {
             result[keyDefault] = isNil(valGiven) ? valDefault : valGiven;

@@ -1,6 +1,4 @@
-import {
-    forTimesIterator,
-} from "../lightdash.d";
+import { forTimesIterator } from "../../typings/index.d";
 
 /**
  * Execute a function n times
@@ -19,7 +17,12 @@ import {
  *
  * forTimes(1, 6, 1, val => a.push(val * 2))
  */
-const forTimes = (start: number, max: number, increase: number, fn: forTimesIterator): void => {
+const forTimes = (
+    start: number,
+    max: number,
+    increase: number,
+    fn: forTimesIterator
+): void => {
     for (let index = start; index <= max; index += increase) {
         fn(index);
     }

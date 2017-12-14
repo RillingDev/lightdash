@@ -1,7 +1,5 @@
+import { forEachEntryIterator } from "../../typings/index.d";
 import isObjectLike from "../is/objectLike";
-import {
-    forEachEntryIterator,
-} from "../lightdash.d";
 import forEachEntry from "./eachEntry";
 
 /**
@@ -17,7 +15,13 @@ import forEachEntry from "./eachEntry";
  *
  * forEachEntryDeep(a, (val, key, index, obj) => obj[key] = index * val)
  */
-const forEachEntryDeep = (obj: object, fn: forEachEntryIterator): void => forEachEntry(obj,
-    (val: any, key: any, index: number) => isObjectLike(val) ? forEachEntryDeep(val, fn) : fn(val, key, index, obj));
+const forEachEntryDeep = (obj: object, fn: forEachEntryIterator): void =>
+    forEachEntry(
+        obj,
+        (val: any, key: any, index: number) =>
+            isObjectLike(val)
+                ? forEachEntryDeep(val, fn)
+                : fn(val, key, index, obj)
+    );
 
 export default forEachEntryDeep;

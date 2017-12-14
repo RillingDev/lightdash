@@ -1,9 +1,7 @@
+import { IGenericObject } from "../../typings/index.d";
 import forEachEntry from "../for/eachEntry";
 import isNil from "../is/nil";
 import isObjectLike from "../is/objectLike";
-import {
-    IGenericObject,
-} from "../lightdash.d";
 import objFrom from "./fromDeep";
 
 /**
@@ -26,7 +24,9 @@ const objDefaultsDeep = (obj: IGenericObject, objDefault: object): object => {
         const valGiven = obj[keyDefault];
 
         if (isObjectLike(valDefault)) {
-            result[keyDefault] = isObjectLike(valGiven) ? objDefaultsDeep(valGiven, valDefault) : valDefault;
+            result[keyDefault] = isObjectLike(valGiven)
+                ? objDefaultsDeep(valGiven, valDefault)
+                : valDefault;
         } else {
             result[keyDefault] = isNil(valGiven) ? valDefault : valGiven;
         }

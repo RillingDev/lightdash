@@ -1,8 +1,6 @@
+import { IGenericObject } from "../../typings/index.d";
 import forEachEntry from "../for/eachEntry";
 import isNil from "../is/nil";
-import {
-    IGenericObject,
-} from "../lightdash.d";
 import objFrom from "./from";
 
 /**

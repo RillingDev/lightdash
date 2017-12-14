@@ -1,7 +1,4 @@
-import {
-    entries,
-    forEachEntryIterator,
-} from "../lightdash.d";
+import { entries, forEachEntryIterator } from "../../typings/index.d";
 import objEntries from "../obj/entries";
 import forEach from "./each";
 
