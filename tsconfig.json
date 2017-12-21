@@ -2,12 +2,9 @@
     "compilerOptions": {
         "module": "esnext",
         "target": "esnext",
-        "moduleResolution": "node",
-        "noImplicitAny": true,
-        "removeComments": false,
-        "preserveConstEnums": true,
-        "experimentalDecorators": true,
         "newLine": "LF",
-        "strict": true
+        "strict": true,
+        "noImplicitAny": true,
+        "removeComments": false
     }
 }
