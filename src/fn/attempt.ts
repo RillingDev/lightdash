@@ -21,7 +21,7 @@
  * fnAttempt(foo, 2, 1)   //=> 3
  * fnAttempt(foo, 2, 500) //=> RangeError
  */
-const fnAttempt = (fn: () => void, ...args: any[]): any => {
+const fnAttempt = (fn: () => any, ...args: any[]): any => {
     try {
         return fn(...args);
     } catch (err) {

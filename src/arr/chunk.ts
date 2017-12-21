@@ -21,7 +21,7 @@ const arrChunk = <T>(arr: T[], chunk: number): Array<Array<T>> => {
     if (chunk < 1) {
         return [];
     } else {
-        const result: any[] = [];
+        const result: Array<Array<T>> = [];
 
         forTimes(0, arr.length - 1, chunk, (index: number) => {
             result.push(arr.slice(index, index + chunk));

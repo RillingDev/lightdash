@@ -21,6 +21,7 @@ import arrCount from "./count";
 const arrDifference = (arr: any[], ...values: any[]): any[] => {
     const valuesCounted = arrCount([].concat(...values));
 
+    // @ts-ignore: ts seems to pull the wrong data for arrCount
     return arr.filter((item: any) => !valuesCounted.has(item));
 };
 

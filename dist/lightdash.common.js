@@ -973,6 +973,7 @@ const arrCount = (arr) => {
  */
 const arrDifference = (arr, ...values) => {
     const valuesCounted = arrCount([].concat(...values));
+    // @ts-ignore: ts seems to pull the wrong data for arrCount
     return arr.filter((item) => !valuesCounted.has(item));
 };
 
@@ -1075,6 +1076,7 @@ const arrFromDeep = (arr) => arrMapDeep(arrFrom(arr), (val) => (isArray(val) ? a
  */
 const arrIntersection = (arr, ...values) => {
     const valuesCounted = arrCount([].concat(...values));
+    // @ts-ignore: ts seems to pull the wrong data for arrCount
     return arr.filter((item) => valuesCounted.has(item));
 };
 
@@ -1418,8 +1420,8 @@ const fnAttempt = (fn, ...args) => {
  * @param {number} [arity=fn.length]
  * @returns {Function}
  * @example
- * const foo = (a, b, c) => [];
- * const fooCurried = fnCurry(foo, 3);
+ * const foo = (a, b, c) => [a, b, c];
+ * const fooCurried = fnCurry(foo);
  *
  * fooCurried(1)(2)(3) //=> [1, 2, 3]
  * fooCurried(1, 2)(3) //=> [1, 2, 3]
