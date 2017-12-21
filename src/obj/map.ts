@@ -1,4 +1,4 @@
-import { forEachEntryIterator, IGenericObject } from "../../typings/index.d";
+import { forEachEntryIterator, IGenericObject } from "../types";
 import forEachEntry from "../for/eachEntry";
 import objFrom from "./from";
 

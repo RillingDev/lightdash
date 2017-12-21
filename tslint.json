@@ -6,6 +6,7 @@
         "array-type": false,
         "space-before-function-paren": false,
         "only-arrow-functions": false,
-        "trailing-comma": false
+        "trailing-comma": false,
+        "ordered-imports": false
     }
 }

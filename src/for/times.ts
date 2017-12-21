@@ -1,4 +1,4 @@
-import { forTimesIterator } from "../../typings/index.d";
+import { forTimesIterator } from "../types";
 
 /**
  * Execute a function n times

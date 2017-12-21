@@ -1,4 +1,4 @@
-import { forEachEntryIterator } from "../../typings/index.d";
+import { forEachEntryIterator } from "../types";
 import isObjectLike from "../is/objectLike";
 import objMap from "./map";
 

@@ -1,4 +1,4 @@
-import { entries, forEachEntryIterator } from "../../typings/index.d";
+import { entries, forEachEntryIterator } from "../types";
 import objEntries from "../obj/entries";
 import forEach from "./each";
 

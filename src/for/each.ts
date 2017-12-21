@@ -1,4 +1,4 @@
-import { forEachIterator } from "../../typings/index.d";
+import { forEachIterator } from "../types";
 
 /**
  * Iterates over each element in an array

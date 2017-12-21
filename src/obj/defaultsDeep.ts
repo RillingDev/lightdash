@@ -1,4 +1,4 @@
-import { IGenericObject } from "../../typings/index.d";
+import { IGenericObject } from "../types";
 import forEachEntry from "../for/eachEntry";
 import isNil from "../is/nil";
 import isObjectLike from "../is/objectLike";
