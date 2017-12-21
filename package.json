@@ -4,7 +4,10 @@
     "description": "An utility library designed to be lightweight",
     "main": "dist/lightdash.common.js",
     "module": "dist/lightdash.esm.js",
-    "files": ["src/", "dist/"],
+    "files": [
+        "src/",
+        "dist/"
+    ],
     "constants": {
         "dirBase": {
             "input": "./src",
@@ -17,7 +20,9 @@
                 "file": "lightdash"
             },
             "targets": {
-                "browsers": ["Chrome >= 58"]
+                "browsers": [
+                    "Chrome >= 58"
+                ]
             }
         }
     },
@@ -33,7 +38,10 @@
         "type": "git",
         "url": "git+https://github.com/FelixRilling/lightdash.git"
     },
-    "keywords": ["lightdash", "utility"],
+    "keywords": [
+        "lightdash",
+        "utility"
+    ],
     "author": "Felix Rilling",
     "license": "MIT",
     "bugs": {

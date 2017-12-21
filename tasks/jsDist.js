@@ -9,41 +9,62 @@ const targets = require("../package.json").constants.js.targets;
 
 const options_babel = {
     presets: [
-        ["env", {
-            modules: false,
-            targets,
-        }]
+        [
+            "env",
+            {
+                modules: false,
+                targets
+            }
+        ]
     ],
-    plugins: [
-        "external-helpers"
-    ]
+    plugins: ["external-helpers"]
 };
 
-bundle([{
-    type: "es",
-    ext: ".esm"
-}, {
-    type: "cjs",
-    ext: ".common"
-}], [
-    typescript()
-]);
+bundle(
+    [
+        {
+            type: "es",
+            ext: ".esm"
+        },
+        {
+            type: "cjs",
+            ext: ".common"
+        }
+    ],
+    [
+        typescript({
+            typescript: typescript_core
+        })
+    ]
+);
 
-bundle([{
-    type: "iife",
-    ext: ""
-}], [
-    typescript({
-        typescript: typescript_core
-    }),
-    babel(options_babel),
-]);
+bundle(
+    [
+        {
+            type: "iife",
+            ext: ""
+        }
+    ],
+    [
+        typescript({
+            typescript: typescript_core
+        }),
+        babel(options_babel)
+    ]
+);
 
-bundle([{
-    type: "iife",
-    ext: ".min"
-}], [
-    typescript(),
-    babel(options_babel),
-    uglify()
-]);
+bundle(
+    [
+        {
+            type: "iife",
+            ext: ".min"
+        }
+    ],
+    [
+        typescript({
+            typescript: typescript_core
+        }),
+        babel(options_babel),
+        uglify()
+    ]
+);

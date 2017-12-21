@@ -96,7 +96,7 @@
 
 
         
-            <div class="description"><p>Value, type checking and comparison</p></div>
+            <div class="description">Value, type checking and comparison</div>
         
 
         
@@ -178,7 +178,7 @@
 
 
 <div class="description">
-    <p>Checks if a value is an arguments array-like</p>
+    Checks if a value is an arguments array-like
 </div>
 
 
@@ -345,8 +345,9 @@ isArguments([]);</code></pre>
 
 
 <div class="description">
-    <p>Checks if a value is an array</p>
-<p><code>Array.isArray</code> shorthand</p>
+    Checks if a value is an array
+
+`Array.isArray` shorthand
 </div>
 
 
@@ -510,7 +511,7 @@ isArray({});</code></pre>
 
 
 <div class="description">
-    <p>Checks if a value is an array-buffer</p>
+    Checks if a value is an array-buffer
 </div>
 
 
@@ -673,7 +674,7 @@ isArrayBuffer([1, 2])</code></pre>
 
 
 <div class="description">
-    <p>Checks if a value is object-like and has a length property</p>
+    Checks if a value is object-like and has a length property
 </div>
 
 
@@ -840,7 +841,7 @@ isArrayLike(1)</code></pre>
 
 
 <div class="description">
-    <p>Checks if a value is a typed array</p>
+    Checks if a value is a typed array
 </div>
 
 
@@ -1004,7 +1005,7 @@ isArrayTyped([]);</code></pre>
 
 
 <div class="description">
-    <p>Checks if a value is a boolean</p>
+    Checks if a value is a boolean
 </div>
 
 
@@ -1170,7 +1171,7 @@ isBoolean("")</code></pre>
 
 
 <div class="description">
-    <p>Checks if a value is a date object</p>
+    Checks if a value is a date object
 </div>
 
 
@@ -1334,7 +1335,7 @@ isDate(123213)</code></pre>
 
 
 <div class="description">
-    <p>Checks if a value is not undefined</p>
+    Checks if a value is not undefined
 </div>
 
 
@@ -1503,11 +1504,13 @@ isDefined(undefined)</code></pre>
 
 
 <div class="description">
-    <p>Checks if a value is empty</p>
-<p>A value is consider empty if it is either a primitive or an object-like without content</p>
-<p>Array-likes are considered empty if they have a length of zero,
+    Checks if a value is empty
+
+A value is consider empty if it is either a primitive or an object-like without content
+
+Array-likes are considered empty if they have a length of zero,
 set/maps if they have a size of zero,
-and objects if their keys have a length of zero</p>
+and objects if their keys have a length of zero
 </div>
 
 
@@ -1677,7 +1680,7 @@ isEmpty({a: 1})</code></pre>
 
 
 <div class="description">
-    <p>Recursively checks if two items and their the contents are equal</p>
+    Recursively checks if two items and their the contents are equal
 </div>
 
 
@@ -1867,7 +1870,7 @@ isEqual([1, 2, [3]], [1, 2, [4]])</code></pre>
 
 
 <div class="description">
-    <p>Checks if a value is an array-buffer</p>
+    Checks if a value is an array-buffer
 </div>
 
 
@@ -2031,8 +2034,9 @@ isError("foo")</code></pre>
 
 
 <div class="description">
-    <p>Checks if a value is finite</p>
-<p><code>Number.isFinite</code> shorthand</p>
+    Checks if a value is finite
+
+`Number.isFinite` shorthand
 </div>
 
 
@@ -2197,7 +2201,7 @@ isFinite("foo")</code></pre>
 
 
 <div class="description">
-    <p>Checks if a value is a function</p>
+    Checks if a value is a function
 </div>
 
 
@@ -2361,7 +2365,7 @@ isFunction(null)</code></pre>
 
 
 <div class="description">
-    <p>Checks if the value is an instance of a target constructor</p>
+    Checks if the value is an instance of a target constructor
 </div>
 
 
@@ -2550,8 +2554,9 @@ isInstanceOf([], Map)</code></pre>
 
 
 <div class="description">
-    <p>Checks if a value is an integer</p>
-<p><code>Number.isInteger</code> shorthand</p>
+    Checks if a value is an integer
+
+`Number.isInteger` shorthand
 </div>
 
 
@@ -2716,7 +2721,7 @@ isInteger(Infinity)</code></pre>
 
 
 <div class="description">
-    <p>Checks if a value is a map</p>
+    Checks if a value is a map
 </div>
 
 
@@ -2879,8 +2884,9 @@ isMap([[1, 2]])</code></pre>
 
 
 <div class="description">
-    <p>Checks if a value is NaN. Unlike the global <code>isNaN()</code>, this function returns false for undefined</p>
-<p><code>Number.isNaN</code> shorthand</p>
+    Checks if a value is NaN. Unlike the global `isNaN()`, this function returns false for undefined
+
+`Number.isNaN` shorthand
 </div>
 
 
@@ -3044,7 +3050,7 @@ isNaN(undefined);</code></pre>
 
 
 <div class="description">
-    <p>Checks if a value is undefined or null</p>
+    Checks if a value is undefined or null
 </div>
 
 
@@ -3209,7 +3215,7 @@ isNil({})</code></pre>
 
 
 <div class="description">
-    <p>Checks if a value is a number</p>
+    Checks if a value is a number
 </div>
 
 
@@ -3376,7 +3382,7 @@ isNumber(null)</code></pre>
 
 
 <div class="description">
-    <p>Checks if a value is an object</p>
+    Checks if a value is an object
 </div>
 
 
@@ -3541,9 +3547,10 @@ isObject(1)</code></pre>
 
 
 <div class="description">
-    <p>Checks if a value is not nil and has a type of object</p>
-<p>The main difference to isObject is that functions are not considered object-like,
-because <code>typeof function(){}</code> does not return &quot;function&quot;</p>
+    Checks if a value is not nil and has a type of object
+
+The main difference to isObject is that functions are not considered object-like,
+because `typeof function(){}` does not return "function"
 </div>
 
 
@@ -3708,8 +3715,9 @@ isObjectLike(() => 1))</code></pre>
 
 
 <div class="description">
-    <p>Checks if a value is a plain object</p>
-<p>An object is considered plain of its constructor is the built-in object constructor</p>
+    Checks if a value is a plain object
+
+An object is considered plain of its constructor is the built-in object constructor
 </div>
 
 
@@ -3873,7 +3881,7 @@ isObjectPlain(()=>{})</code></pre>
 
 
 <div class="description">
-    <p>Checks if a value is a primitive</p>
+    Checks if a value is a primitive
 </div>
 
 
@@ -4038,7 +4046,7 @@ isPrimitive([])</code></pre>
 
 
 <div class="description">
-    <p>Checks if a value is a promise</p>
+    Checks if a value is a promise
 </div>
 
 
@@ -4203,7 +4211,7 @@ isPromise(() => "foo");</code></pre>
 
 
 <div class="description">
-    <p>Checks if a value is a regular expression</p>
+    Checks if a value is a regular expression
 </div>
 
 
@@ -4367,7 +4375,7 @@ isRegExp("foo")</code></pre>
 
 
 <div class="description">
-    <p>Checks if a value is a set</p>
+    Checks if a value is a set
 </div>
 
 
@@ -4530,7 +4538,7 @@ isSet([1, 2])</code></pre>
 
 
 <div class="description">
-    <p>Checks if a value is a string</p>
+    Checks if a value is a string
 </div>
 
 
@@ -4693,7 +4701,7 @@ isString(1)</code></pre>
 
 
 <div class="description">
-    <p>Checks if a value is a symbol</p>
+    Checks if a value is a symbol
 </div>
 
 
@@ -4857,7 +4865,7 @@ isSymbol("foo")</code></pre>
 
 
 <div class="description">
-    <p>Checks if the value has a certain type-string</p>
+    Checks if the value has a certain type-string
 </div>
 
 
@@ -5045,7 +5053,7 @@ isTypeOf("foo", "number")</code></pre>
 
 
 <div class="description">
-    <p>Checks if a value is undefined</p>
+    Checks if a value is undefined
 </div>
 
 
@@ -5172,7 +5180,7 @@ isUndefined(a)</code></pre>
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.0-dev</a> on Thu Dec 21 2017 15:13:14 GMT-0500 (Eastern Standard Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.0-dev</a> on Thu Dec 21 2017 15:42:40 GMT-0500 (Eastern Standard Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
 </footer>
 
 <script>prettyPrint();</script>

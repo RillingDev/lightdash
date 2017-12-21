@@ -2,9 +2,9 @@
 
 ## Introduction
 
-An utility library designed to be lightweight and modern. It's heavily inspired by lodash and underscore, but with the goal to be as lightweight as possible, both in file size as in performance. It is completely written from scratch with the latest ES features.
+An utility library written in TypeScript designed to be lightweight and modern. It's heavily inspired by lodash and underscore, but with the goal to be as small and fast as possible, both in file size as in performance. It is completely written from scratch with the latest ES7 features.
 
-When using this, importing the modules you want from the file fitting your environment (`lightdash.common.js` for commonjs/node or `lightdash.esm.js` for ES modules) is recommended to drastically reduce file size by only using functions actually needed.
+Importing the modules you want from the file fitting your environment (`lightdash.common.js` for commonjs/node or `lightdash.esm.js` for ES modules) is recommended to drastically reduce file size by only using functions actually needed.
 
 ## Usage
 
@@ -15,9 +15,7 @@ npm install --save lightdash
 When using ES Modules:
 
 ```js
-import {
-    arrDifference
-} from "lightdash";
+import { arrDifference } from "lightdash";
 
 arrDifference([1, 2, 3], [1, 3]);
 ```
@@ -25,9 +23,7 @@ arrDifference([1, 2, 3], [1, 3]);
 When using Node/CommonJS:
 
 ```js
-const {
-    arrDifference
-} = require("lightdash");
+const { arrDifference } = require("lightdash");
 
 arrDifference([1, 2, 3], [1, 3]);
 ```
@@ -40,10 +36,13 @@ Most functions are very similar to their lodash counterparts, however some might
 
 For detailed descriptions and type annotations check the source or run `npm run docs`
 
-### Changelog
+## Contributing
 
-#### v3
+Contributions are always welcome, no matter if you have a requests, an idea, found a bug, or spotted a typo: Feel free to create a PR or open an issue.
 
-- Renamed methods: arrClone -> arrFrom, objClone -> objFrom
-- Added methods: randomNumber, randomItem, isPromise
-- Removed methods: isSame, isTrue, isFalse, isStringNumber, arrMap
+## Breaking Changes
+
+### v3
+
+* Renamed methods: arrClone -> arrFrom, objClone -> objFrom
+* Removed methods: isSame, isTrue, isFalse, isStringNumber, arrMap

@@ -5,9 +5,9 @@
     },
     "source": {
         "include": ["./README.md", "./dist/lightdash.esm.js"],
-        "excludePattern": "(node_modules/|docs)"
+        "excludePattern": "(node_modules/|docs/)"
     },
-    "plugins": ["plugins/markdown"],
+    "plugins": [],
     "opts": {
         "template": "./node_modules/docdash",
         "encoding": "utf8",
