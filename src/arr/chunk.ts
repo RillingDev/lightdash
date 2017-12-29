@@ -1,7 +1,7 @@
 import forTimes from "../for/times";
 
 /**
- * Creates an array of elements split into groups by size
+ * Creates an array of elements split into groups by size.
  *
  * @function arrChunk
  * @memberof Array

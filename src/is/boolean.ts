@@ -1,7 +1,7 @@
 import isTypeOf from "./typeOf";
 
 /**
- * Checks if a value is a boolean
+ * Checks if a value is a boolean.
  *
  * @function isBoolean
  * @memberof Is

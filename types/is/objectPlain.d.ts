@@ -1,7 +1,7 @@
 /**
- * Checks if a value is a plain object
+ * Checks if a value is a plain object.
  *
- * An object is considered plain of its constructor is the built-in object constructor
+ * An object is considered plain of its direct constructor is the built-in object constructor.
  *
  * @function isObjectPlain
  * @memberof Is

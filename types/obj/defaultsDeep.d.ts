@@ -1,6 +1,6 @@
 import { IGenericObject } from "../types";
 /**
- * Recursively sets every nil property of object to the value from the default object
+ * Recursively sets every nil property of object to the value from the default object.
  *
  * @function objDefaultsDeep
  * @memberof Object

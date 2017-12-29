@@ -1,7 +1,7 @@
 import isInstanceOf from "./instanceOf";
 
 /**
- * Checks if a value is an array-buffer
+ * Checks if a value is an array-buffer.
  *
  * @function isArrayBuffer
  * @memberof Is

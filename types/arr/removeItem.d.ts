@@ -1,5 +1,5 @@
 /**
- * Returns a new array with the first occurrence of the item removed
+ * Returns a new array with the first occurrence of the item removed.
  *
  * @function arrRemoveItem
  * @memberof Array

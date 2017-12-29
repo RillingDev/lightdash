@@ -4,7 +4,7 @@ import isNil from "../is/nil";
 import objFrom from "./from";
 
 /**
- * Sets every nil property of object to the value from the default object
+ * Sets every nil property of object to the value from the default object.
  *
  * @function objDefaults
  * @memberof Object

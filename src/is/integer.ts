@@ -1,7 +1,7 @@
 /**
- * Checks if a value is an integer
+ * Checks if a value is an integer.
  *
- * `Number.isInteger` shorthand
+ * `Number.isInteger` shorthand.
  *
  * @function isInteger
  * @memberof Is

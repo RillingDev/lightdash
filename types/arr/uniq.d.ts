@@ -1,5 +1,5 @@
 /**
- * Returns an array of all unique elements in an array
+ * Returns an array of all unique elements in an array.
  *
  * @function arrUniq
  * @memberof Array

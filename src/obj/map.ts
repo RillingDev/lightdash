@@ -3,7 +3,7 @@ import forEachEntry from "../for/eachEntry";
 import objFrom from "./from";
 
 /**
- * Maps each entry of an object and returns the result
+ * Maps each entry of an object and returns the result.
  *
  * @function objMap
  * @memberof Object

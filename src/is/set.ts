@@ -1,7 +1,7 @@
 import isInstanceOf from "./instanceOf";
 
 /**
- * Checks if a value is a set
+ * Checks if a value is a set.
  *
  * @function isSet
  * @memberof Is

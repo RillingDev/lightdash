@@ -1,6 +1,6 @@
 import { forEachEntryIterator } from "../types";
 /**
- * Recursively maps each entry of an object and returns the result
+ * Recursively maps each entry of an object and returns the result.
  *
  * @function objMapDeep
  * @memberof Object

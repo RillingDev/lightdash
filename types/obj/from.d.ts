@@ -1,5 +1,5 @@
 /**
- * Creates a new object with the entries of the input object
+ * Creates a new object with the entries of the input object.
  *
  * @function objFrom
  * @memberof Object

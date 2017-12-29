@@ -1,5 +1,5 @@
 /**
- * Checks if a number is in the given range
+ * Checks if a number is in the given range.
  *
  * @function numberInRange
  * @memberof Number

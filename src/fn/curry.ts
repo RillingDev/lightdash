@@ -1,5 +1,5 @@
 /**
- * Returns a curried function
+ * Returns a curried function.
  *
  * A curried function can take between zero and n arguments,
  * where n is either the functions argument length or the provided arity.
@@ -20,10 +20,10 @@
  * fooCurried(1, 2, 3) //=> [1, 2, 3]
  */
 const fnCurry = (fn: () => any, arity: number = fn.length) => {
-    const resolver: () => any = function() {
+    const resolver: () => any = function () {
         const argsBase: IArguments = arguments;
 
-        return function() {
+        return function () {
             const args: any[] = [...argsBase, ...arguments];
             const result: () => any = args.length >= arity ? fn : resolver;
 

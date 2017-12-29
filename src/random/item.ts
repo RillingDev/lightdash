@@ -1,7 +1,7 @@
 import randomNumber from "./number";
 
 /**
- * Return a random item from an array
+ * Return a random item from an array.
  *
  * @function randomItem
  * @memberof Random

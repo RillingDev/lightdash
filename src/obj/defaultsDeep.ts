@@ -5,7 +5,7 @@ import isObjectLike from "../is/objectLike";
 import objFrom from "./fromDeep";
 
 /**
- * Recursively sets every nil property of object to the value from the default object
+ * Recursively sets every nil property of object to the value from the default object.
  *
  * @function objDefaultsDeep
  * @memberof Object

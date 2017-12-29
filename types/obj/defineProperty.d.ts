@@ -1,7 +1,7 @@
 /**
- * Adds a property to an object with optional custom flags
+ * Adds a property to an object with optional custom flags.
  *
- * `Object.defineProperty` shorthand
+ * `Object.defineProperty` shorthand.
  *
  * @function objDefineProperty
  * @memberof Object

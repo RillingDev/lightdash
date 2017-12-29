@@ -1,7 +1,7 @@
 import isTypeOf from "./typeOf";
 
 /**
- * Checks if a value is undefined
+ * Checks if a value is undefined.
  *
  * @function isUndefined
  * @memberof Is

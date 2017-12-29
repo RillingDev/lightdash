@@ -1,7 +1,7 @@
 import isObject from "./object";
 
 /**
- * Checks if a value is a primitive
+ * Checks if a value is primitive.
  *
  * @function isPrimitive
  * @memberof Is

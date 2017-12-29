@@ -1,7 +1,7 @@
 /**
- * Checks if a value is finite
+ * Checks if a value is finite.
  *
- * `Number.isFinite` shorthand
+ * `Number.isFinite` shorthand.
  *
  * @function isFinite
  * @memberof Is

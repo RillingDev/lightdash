@@ -1,5 +1,5 @@
 /**
- * Counts how many times an element appears in an array and returns a Map<element: any, count: number>
+ * Counts how many times an element appears in an array.
  *
  * @function arrCount
  * @memberof Array

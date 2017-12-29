@@ -4,7 +4,7 @@ import objKeys from "../obj/keys";
 import isObject from "./object";
 
 /**
- * Recursively checks if two items and their the contents are equal
+ * Recursively checks if two items and their the contents are equal.
  *
  * @function isEqual
  * @memberof Is

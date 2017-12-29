@@ -1,7 +1,7 @@
 import isFunction from "./function";
 
 /**
- * Checks if a value is a promise
+ * Checks if a value is a promise.
  *
  * @function isPromise
  * @memberof Is

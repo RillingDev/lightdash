@@ -1,5 +1,5 @@
 /**
- * Checks if a value is a regular expression
+ * Checks if a value is a regular expression.
  *
  * @function isRegExp
  * @memberof Is

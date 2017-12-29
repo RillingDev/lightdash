@@ -1,7 +1,8 @@
 /**
- * Checks if a value is NaN. Unlike the global `isNaN()`, this function returns false for undefined
+ * Checks if a value is NaN.
  *
- * `Number.isNaN` shorthand
+ * Unlike the global `isNaN()`, this function returns false for `undefined`.
+ * `Number.isNaN` shorthand.
  *
  * @function isNaN
  * @memberof Is

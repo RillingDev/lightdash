@@ -1,5 +1,5 @@
 /**
- * Checks if a value is a function
+ * Checks if a value is a function.
  *
  * @function isFunction
  * @memberof Is

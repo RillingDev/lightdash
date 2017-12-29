@@ -1,5 +1,5 @@
 /**
- * Checks if a value is a string
+ * Checks if a value is a string.
  *
  * @function isString
  * @memberof Is

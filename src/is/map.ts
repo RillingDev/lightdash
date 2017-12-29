@@ -1,7 +1,7 @@
 import isInstanceOf from "./instanceOf";
 
 /**
- * Checks if a value is a map
+ * Checks if a value is a map.
  *
  * @function isMap
  * @memberof Is

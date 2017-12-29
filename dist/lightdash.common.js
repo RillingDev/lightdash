@@ -3,7 +3,7 @@
 Object.defineProperty(exports, '__esModule', { value: true });
 
 /**
- * Checks if the value has a certain type-string
+ * Checks if the value has a certain type-string.
  *
  * @function isTypeOf
  * @memberof Is
@@ -24,7 +24,7 @@ Object.defineProperty(exports, '__esModule', { value: true });
 const isTypeOf = (val, type) => typeof val === type;
 
 /**
- * Checks if a value is a function
+ * Checks if a value is a function.
  *
  * @function isFunction
  * @memberof Is
@@ -43,7 +43,7 @@ const isTypeOf = (val, type) => typeof val === type;
 const isFunction = (val) => isTypeOf(val, "function");
 
 /**
- * Checks if a value is an arguments array-like
+ * Checks if a value is an arguments array-like.
  *
  * @function isArguments
  * @memberof Is
@@ -65,9 +65,9 @@ const isFunction = (val) => isTypeOf(val, "function");
 const isArguments = (val) => isFunction(val.callee);
 
 /**
- * Checks if a value is an array
+ * Checks if a value is an array.
  *
- * `Array.isArray` shorthand
+ * `Array.isArray` shorthand.
  *
  * @function isArray
  * @memberof Is
@@ -86,7 +86,7 @@ const isArguments = (val) => isFunction(val.callee);
 const isArray = Array.isArray;
 
 /**
- * Checks if the value is an instance of a target constructor
+ * Checks if the value is an instance of a target constructor.
  *
  * @function isInstanceOf
  * @memberof Is
@@ -108,7 +108,7 @@ const isArray = Array.isArray;
 const isInstanceOf = (val, target) => val instanceof target;
 
 /**
- * Checks if a value is an array-buffer
+ * Checks if a value is an array-buffer.
  *
  * @function isArrayBuffer
  * @memberof Is
@@ -127,7 +127,7 @@ const isInstanceOf = (val, target) => val instanceof target;
 const isArrayBuffer = (val) => isInstanceOf(val, ArrayBuffer);
 
 /**
- * Checks if a value is undefined
+ * Checks if a value is undefined.
  *
  * @function isUndefined
  * @memberof Is
@@ -151,7 +151,7 @@ const isArrayBuffer = (val) => isInstanceOf(val, ArrayBuffer);
 const isUndefined = (val) => isTypeOf(val, "undefined");
 
 /**
- * Checks if a value is not undefined
+ * Checks if a value is defined.
  *
  * @function isDefined
  * @memberof Is
@@ -175,7 +175,7 @@ const isUndefined = (val) => isTypeOf(val, "undefined");
 const isDefined = (val) => !isUndefined(val);
 
 /**
- * Checks if a target has a certain key
+ * Checks if a target has a certain key.
  *
  * @function hasKey
  * @memberof Has
@@ -196,7 +196,7 @@ const isDefined = (val) => !isUndefined(val);
 const hasKey = (target, key) => isDefined(target[key]);
 
 /**
- * Checks if a value is undefined or null
+ * Checks if a value is undefined or null.
  *
  * @function isNil
  * @memberof Is
@@ -216,10 +216,10 @@ const hasKey = (target, key) => isDefined(target[key]);
 const isNil = (val) => isUndefined(val) || val === null;
 
 /**
- * Checks if a value is not nil and has a type of object
+ * Checks if a value is not nil and has a type of object.
  *
  * The main difference to isObject is that functions are not considered object-like,
- * because `typeof function(){}` does not return "function"
+ * because `typeof function(){}` returns "function".
  *
  * @function isObjectLike
  * @memberof Is
@@ -239,7 +239,7 @@ const isNil = (val) => isUndefined(val) || val === null;
 const isObjectLike = (val) => !isNil(val) && isTypeOf(val, "object");
 
 /**
- * Checks if a value is object-like and has a length property
+ * Checks if a value is object-like and has a length property.
  *
  * @function isArrayLike
  * @memberof Is
@@ -261,7 +261,7 @@ const isObjectLike = (val) => !isNil(val) && isTypeOf(val, "object");
 const isArrayLike = (val) => isObjectLike(val) && hasKey(val, "length");
 
 /**
- * Checks if a value is a number
+ * Checks if a value is a number.
  *
  * @function isNumber
  * @memberof Is
@@ -283,7 +283,7 @@ const isArrayLike = (val) => isObjectLike(val) && hasKey(val, "length");
 const isNumber = (val) => isTypeOf(val, "number");
 
 /**
- * Checks if a value is a typed array
+ * Checks if a value is a typed array.
  *
  * @function isArrayTyped
  * @memberof Is
@@ -302,7 +302,7 @@ const isNumber = (val) => isTypeOf(val, "number");
 const isArrayTyped = (val) => isNumber(val.BYTES_PER_ELEMENT);
 
 /**
- * Checks if a value is a boolean
+ * Checks if a value is a boolean.
  *
  * @function isBoolean
  * @memberof Is
@@ -323,7 +323,7 @@ const isArrayTyped = (val) => isNumber(val.BYTES_PER_ELEMENT);
 const isBoolean = (val) => isTypeOf(val, "boolean");
 
 /**
- * Checks if a value is a date object
+ * Checks if a value is a date object.
  *
  * @function isDate
  * @memberof Is
@@ -342,9 +342,9 @@ const isBoolean = (val) => isTypeOf(val, "boolean");
 const isDate = (val) => isInstanceOf(val, Date);
 
 /**
- * Returns an array of the objects keys
+ * Returns an array of the objects keys.
  *
- * `Object.keys` shorthand
+ * `Object.keys` shorthand.
  *
  * @function objKeys
  * @memberof Object
@@ -358,13 +358,12 @@ const isDate = (val) => isInstanceOf(val, Date);
 const objKeys = Object.keys;
 
 /**
- * Checks if a value is empty
+ * Checks if a value is empty.
  *
- * A value is consider empty if it is either a primitive or an object-like without content
- *
+ * A value is consider empty if it is either a primitive or an object-like without content.
  * Array-likes are considered empty if they have a length of zero,
- * set/maps if they have a size of zero,
- * and objects if their keys have a length of zero
+ * Sets/Maps if they have a size of zero,
+ * and Objects if their keys have a length of zero.
  *
  * @function isEmpty
  * @memberof Is
@@ -402,9 +401,9 @@ const isEmpty = (val) => {
 };
 
 /**
- * Returns an array of the objects entries
+ * Returns an array of the objects entries.
  *
- * `Object.entries` shorthand
+ * `Object.entries` shorthand.
  *
  * @function objEntries
  * @memberof Object
@@ -454,7 +453,7 @@ const forEachEntry = (obj, fn) => {
 };
 
 /**
- * Checks if a value is an object
+ * Checks if a value is an object.
  *
  * @function isObject
  * @memberof Is
@@ -474,7 +473,7 @@ const forEachEntry = (obj, fn) => {
 const isObject = (val) => !isNil(val) && (isTypeOf(val, "object") || isTypeOf(val, "function"));
 
 /**
- * Recursively checks if two items and their the contents are equal
+ * Recursively checks if two items and their the contents are equal.
  *
  * @function isEqual
  * @memberof Is
@@ -518,7 +517,7 @@ const isEqual = (a, b) => {
 };
 
 /**
- * Checks if a value is an array-buffer
+ * Checks if a value is an error.
  *
  * @function isError
  * @memberof Is
@@ -537,9 +536,9 @@ const isEqual = (a, b) => {
 const isError = (val) => isInstanceOf(val, Error);
 
 /**
- * Checks if a value is finite
+ * Checks if a value is finite.
  *
- * `Number.isFinite` shorthand
+ * `Number.isFinite` shorthand.
  *
  * @function isFinite
  * @memberof Is
@@ -559,9 +558,9 @@ const isError = (val) => isInstanceOf(val, Error);
 const isFinite = Number.isFinite;
 
 /**
- * Checks if a value is an integer
+ * Checks if a value is an integer.
  *
- * `Number.isInteger` shorthand
+ * `Number.isInteger` shorthand.
  *
  * @function isInteger
  * @memberof Is
@@ -581,7 +580,7 @@ const isFinite = Number.isFinite;
 const isInteger = Number.isInteger;
 
 /**
- * Checks if a value is a map
+ * Checks if a value is a map.
  *
  * @function isMap
  * @memberof Is
@@ -599,9 +598,10 @@ const isInteger = Number.isInteger;
 const isMap = (val) => isInstanceOf(val, Map);
 
 /**
- * Checks if a value is NaN. Unlike the global `isNaN()`, this function returns false for undefined
+ * Checks if a value is NaN.
  *
- * `Number.isNaN` shorthand
+ * Unlike the global `isNaN()`, this function returns false for `undefined`.
+ * `Number.isNaN` shorthand.
  *
  * @function isNaN
  * @memberof Is
@@ -620,9 +620,9 @@ const isMap = (val) => isInstanceOf(val, Map);
 const isNaN = Number.isNaN;
 
 /**
- * Checks if a value is a plain object
+ * Checks if a value is a plain object.
  *
- * An object is considered plain of its constructor is the built-in object constructor
+ * An object is considered plain of its direct constructor is the built-in object constructor.
  *
  * @function isObjectPlain
  * @memberof Is
@@ -641,7 +641,7 @@ const isNaN = Number.isNaN;
 const isObjectPlain = (val) => isObject(val) && val.constructor === Object;
 
 /**
- * Checks if a value is a primitive
+ * Checks if a value is primitive.
  *
  * @function isPrimitive
  * @memberof Is
@@ -661,7 +661,7 @@ const isObjectPlain = (val) => isObject(val) && val.constructor === Object;
 const isPrimitive = (val) => !isObject(val);
 
 /**
- * Checks if a value is a promise
+ * Checks if a value is a promise.
  *
  * @function isPromise
  * @memberof Is
@@ -681,7 +681,7 @@ const isPrimitive = (val) => !isObject(val);
 const isPromise = (val) => isFunction(val.then) && isFunction(val.catch);
 
 /**
- * Checks if a value is a regular expression
+ * Checks if a value is a regular expression.
  *
  * @function isRegExp
  * @memberof Is
@@ -701,7 +701,7 @@ const isPromise = (val) => isFunction(val.then) && isFunction(val.catch);
 const isRegExp = (val) => isInstanceOf(val, RegExp);
 
 /**
- * Checks if a value is a set
+ * Checks if a value is a set.
  *
  * @function isSet
  * @memberof Is
@@ -719,7 +719,7 @@ const isRegExp = (val) => isInstanceOf(val, RegExp);
 const isSet = (val) => isInstanceOf(val, Set);
 
 /**
- * Checks if a value is a string
+ * Checks if a value is a string.
  *
  * @function isString
  * @memberof Is
@@ -737,7 +737,7 @@ const isSet = (val) => isInstanceOf(val, Set);
 const isString = (val) => isTypeOf(val, "string");
 
 /**
- * Checks if a value is a symbol
+ * Checks if a value is a symbol.
  *
  * @function isSymbol
  * @memberof Is
@@ -756,9 +756,9 @@ const isString = (val) => isTypeOf(val, "string");
 const isSymbol = (val) => isTypeOf(val, "symbol");
 
 /**
- * Checks if an object has a certain own key
+ * Checks if an object has a certain own key.
  *
- * `obj.hasOwnProperty` shorthand
+ * `obj.hasOwnProperty` shorthand.
  *
  * @function hasOwnProperty
  * @memberof Has
@@ -779,9 +779,9 @@ const isSymbol = (val) => isTypeOf(val, "symbol");
 const hasOwnProperty = (obj, key) => obj.hasOwnProperty(key);
 
 /**
- * Accesses a target by a path-array of key-strings
+ * Accesses a target by a path-array of key-strings.
  *
- * If the path doesn't exist, null is returned
+ * If the path doesn't exist, null is returned.
  *
  * @function getPath
  * @memberof Get
@@ -811,7 +811,7 @@ const getPath = (target, path) => {
 };
 
 /**
- * Checks if a target has a path-array of key-strings
+ * Checks if a target has a path-array of key-strings.
  *
  * @function hasPath
  * @memberof Has
@@ -890,7 +890,7 @@ const forTimes = (start, max, increase, fn) => {
 };
 
 /**
- * Creates an array of elements split into groups by size
+ * Creates an array of elements split into groups by size.
  *
  * @function arrChunk
  * @memberof Array
@@ -920,7 +920,7 @@ const arrChunk = (arr, chunk) => {
 };
 
 /**
- * Returns an array with every falsey value removed out
+ * Returns an array with every falsey value removed out.
  *
  * @function arrCompact
  * @memberof Array
@@ -934,7 +934,7 @@ const arrChunk = (arr, chunk) => {
 const arrCompact = (arr) => arr.filter((val) => val);
 
 /**
- * Counts how many times an element appears in an array and returns a Map<element: any, count: number>
+ * Counts how many times an element appears in an array.
  *
  * @function arrCount
  * @memberof Array
@@ -947,15 +947,14 @@ const arrCompact = (arr) => arr.filter((val) => val);
  */
 const arrCount = (arr) => {
     const result = new Map();
-    forEach(arr, (val) => {
-        // @ts-ignore: .get() value will always be defined, as we check with .has() beforehand
-        result.set(val, result.has(val) ? result.get(val) + 1 : 1);
-    });
+    forEach(arr, (val) => 
+    // @ts-ignore: .get() value will always be defined, as we check with .has() beforehand
+    result.set(val, result.has(val) ? result.get(val) + 1 : 1));
     return result;
 };
 
 /**
- * Returns an array of all elements that exist in the first array, but not any others
+ * Returns an array of all elements that exist in the first array, but not any others.
  *
  * @function arrDifference
  * @memberof Array
@@ -978,7 +977,7 @@ const arrDifference = (arr, ...values) => {
 };
 
 /**
- * Recursively flattens an array
+ * Recursively flattens an array.
  *
  * @function arrFlattenDeep
  * @memberof Array
@@ -1007,9 +1006,9 @@ const arrFlattenDeep = (arr) => {
 };
 
 /**
- * Creates a new array with the values of the input iterable
+ * Creates a new array with the values of the input iterable.
  *
- * `Array.from` shorthand
+ * `Array.from` shorthand.
  *
  * @function arrFrom
  * @memberof Array
@@ -1026,7 +1025,7 @@ const arrFlattenDeep = (arr) => {
 const arrFrom = Array.from;
 
 /**
- * Recursively maps the values of the input array with the iterator function and return the result
+ * Recursively maps the values of the input array with the iterator function and return the result.
  *
  * @function arrMapDeep
  * @memberof Array
@@ -1041,7 +1040,7 @@ const arrFrom = Array.from;
 const arrMapDeep = (arr, fn) => arr.map((val, index) => isArray(val) ? arrMapDeep(val, fn) : fn(val, index, arr));
 
 /**
- * Recursively creates a new array with the values of the input iterable
+ * Recursively creates a new array with the values of the input iterable.
  *
  * @function arrFromDeep
  * @memberof Array
@@ -1058,7 +1057,7 @@ const arrMapDeep = (arr, fn) => arr.map((val, index) => isArray(val) ? arrMapDee
 const arrFromDeep = (arr) => arrMapDeep(arrFrom(arr), (val) => (isArray(val) ? arrFrom(val) : val));
 
 /**
- * Returns an array of all elements that exist in the first array, and at least once in one of the other arrays
+ * Returns an array of all elements that exist in the first array and at least once in one of the other arrays.
  *
  * @function arrIntersection
  * @memberof Array
@@ -1081,7 +1080,7 @@ const arrIntersection = (arr, ...values) => {
 };
 
 /**
- * Checks if a number is in the given range
+ * Checks if a number is in the given range.
  *
  * @function numberInRange
  * @memberof Number
@@ -1104,7 +1103,7 @@ const arrIntersection = (arr, ...values) => {
 const numberInRange = (val, min, max) => val >= min && val <= max;
 
 /**
- * Returns a new array with the item at the index removed
+ * Returns a new array with the item at the index removed.
  *
  * @function arrRemoveIndex
  * @memberof Array
@@ -1128,7 +1127,7 @@ const arrRemoveIndex = (arr, index) => {
 };
 
 /**
- * Returns a new array with the first occurrence of the item removed
+ * Returns a new array with the first occurrence of the item removed.
  *
  * @function arrRemoveItem
  * @memberof Array
@@ -1143,7 +1142,7 @@ const arrRemoveIndex = (arr, index) => {
 const arrRemoveItem = (arr, item) => arr.includes(item) ? arrRemoveIndex(arr, arr.indexOf(item)) : arr;
 
 /**
- * Returns a new array with every n-th item from the input array
+ * Returns a new array with every n-th item from the input array.
  *
  * @function arrStep
  * @memberof Array
@@ -1158,7 +1157,7 @@ const arrRemoveItem = (arr, item) => arr.includes(item) ? arrRemoveIndex(arr, ar
 const arrStep = (arr, step) => arr.filter((val, index) => index % step === 0);
 
 /**
- * Returns an array of all unique elements in an array
+ * Returns an array of all unique elements in an array.
  *
  * @function arrUniq
  * @memberof Array
@@ -1172,7 +1171,7 @@ const arrStep = (arr, step) => arr.filter((val, index) => index % step === 0);
 const arrUniq = (arr) => arrFrom(new Set(arr));
 
 /**
- * Creates a new object with the entries of the input object
+ * Creates a new object with the entries of the input object.
  *
  * @function objFrom
  * @memberof Object
@@ -1189,7 +1188,7 @@ const arrUniq = (arr) => arrFrom(new Set(arr));
 const objFrom = (obj) => isArray(obj) ? arrFrom(obj) : Object.assign({}, obj);
 
 /**
- * Sets every nil property of object to the value from the default object
+ * Sets every nil property of object to the value from the default object.
  *
  * @function objDefaults
  * @memberof Object
@@ -1212,7 +1211,7 @@ const objDefaults = (obj, objDefault) => {
 };
 
 /**
- * Maps each entry of an object and returns the result
+ * Maps each entry of an object and returns the result.
  *
  * @function objMap
  * @memberof Object
@@ -1233,7 +1232,7 @@ const objMap = (obj, fn) => {
 };
 
 /**
- * Recursively maps each entry of an object and returns the result
+ * Recursively maps each entry of an object and returns the result.
  *
  * @function objMapDeep
  * @memberof Object
@@ -1255,7 +1254,7 @@ const objMapDeep = (obj, fn) => objMap(obj, (val, key, index, objNew) => {
 });
 
 /**
- * Deeply creates a new object with the entries of the input object
+ * Deeply creates a new object with the entries of the input object.
  *
  * @function objFromDeep
  * @memberof Object
@@ -1272,7 +1271,7 @@ const objMapDeep = (obj, fn) => objMap(obj, (val, key, index, objNew) => {
 const objFromDeep = (obj) => objMapDeep(objFrom(obj), (val) => (isObjectLike(val) ? objFrom(val) : val));
 
 /**
- * Recursively sets every nil property of object to the value from the default object
+ * Recursively sets every nil property of object to the value from the default object.
  *
  * @function objDefaultsDeep
  * @memberof Object
@@ -1301,9 +1300,9 @@ const objDefaultsDeep = (obj, objDefault) => {
 };
 
 /**
- * Adds a property to an object with optional custom flags
+ * Adds a property to an object with optional custom flags.
  *
- * `Object.defineProperty` shorthand
+ * `Object.defineProperty` shorthand.
  *
  * @function objDefineProperty
  * @memberof Object
@@ -1328,9 +1327,9 @@ const objDefineProperty = (obj, key, val, enumerable = true, writable = true, co
 });
 
 /**
- * Merges contents of two objects
+ * Merges contents of two objects.
  *
- * `Object.assign` shorthand
+ * `Object.assign` shorthand.
  *
  * @function objMerge
  * @memberof Object
@@ -1345,9 +1344,9 @@ const objDefineProperty = (obj, key, val, enumerable = true, writable = true, co
 const objMerge = Object.assign;
 
 /**
- * Returns an array of the objects values
+ * Returns an array of the objects values.
  *
- * `Object.values` shorthand
+ * `Object.values` shorthand.
  *
  * @function objValues
  * @memberof Object
@@ -1361,7 +1360,7 @@ const objMerge = Object.assign;
 const objValues = Object.values;
 
 /**
- * Creates a map from an object
+ * Creates a map from an object.
  *
  * @function mapFromObject
  * @memberof Map
@@ -1375,9 +1374,9 @@ const objValues = Object.values;
 const mapFromObject = (obj) => new Map(objEntries(obj));
 
 /**
- * Wrapper around try/catch
+ * Wrapper around try/catch.
  *
- * Returns the function result or, if an error is thrown, the error
+ * Returns the function result or, if an error is thrown, the error.
  *
  * @function fnAttempt
  * @memberof Fn
@@ -1407,7 +1406,7 @@ const fnAttempt = (fn, ...args) => {
 };
 
 /**
- * Returns a curried function
+ * Returns a curried function.
  *
  * A curried function can take between zero and n arguments,
  * where n is either the functions argument length or the provided arity.
@@ -1440,7 +1439,7 @@ const fnCurry = (fn, arity = fn.length) => {
 };
 
 /**
- * Throttles a function to only run every n ms
+ * Throttles a function to only run every n ms.
  *
  * Useful for event handlers that fire several times a second, such as scroll or resize
  *
@@ -1473,7 +1472,7 @@ const fnThrottle = (fn, timeout, immediate = false) => {
 };
 
 /**
- * Clamps a number in a range
+ * Clamps a number in a given range.
  *
  * @function numberClamp
  * @memberof Number
@@ -1500,7 +1499,7 @@ const numberClamp = (val, min, max) => {
 };
 
 /**
- * Return a random float or integer number in the given range
+ * Return a random float or integer number in the given range.
  *
  * @function randomNumber
  * @memberof Random
@@ -1526,7 +1525,7 @@ const randomNumber = (min = 0, max = 1, floating = true) => {
 };
 
 /**
- * Return a random item from an array
+ * Return a random item from an array.
  *
  * @function randomItem
  * @memberof Random

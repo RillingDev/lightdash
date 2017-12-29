@@ -2,9 +2,9 @@ import hasKey from "../has/key";
 import isDefined from "../is/defined";
 
 /**
- * Accesses a target by a path-array of key-strings
+ * Accesses a target by a path-array of key-strings.
  *
- * If the path doesn't exist, null is returned
+ * If the path doesn't exist, null is returned.
  *
  * @function getPath
  * @memberof Get

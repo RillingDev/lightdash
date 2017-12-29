@@ -1,5 +1,5 @@
 /**
- * Returns an array of all elements that exist in the first array, and at least once in one of the other arrays
+ * Returns an array of all elements that exist in the first array and at least once in one of the other arrays.
  *
  * @function arrIntersection
  * @memberof Array

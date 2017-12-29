@@ -1,5 +1,5 @@
 /**
- * Checks if a value is undefined or null
+ * Checks if a value is undefined or null.
  *
  * @function isNil
  * @memberof Is

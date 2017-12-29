@@ -1,5 +1,5 @@
 /**
- * Checks if a value is an arguments array-like
+ * Checks if a value is an arguments array-like.
  *
  * @function isArguments
  * @memberof Is

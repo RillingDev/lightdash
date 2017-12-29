@@ -1,5 +1,5 @@
 /**
- * Returns an array with every falsey value removed out
+ * Returns an array with every falsey value removed out.
  *
  * @function arrCompact
  * @memberof Array

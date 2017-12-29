@@ -1,5 +1,5 @@
 /**
- * Returns a new array with every n-th item from the input array
+ * Returns a new array with every n-th item from the input array.
  *
  * @function arrStep
  * @memberof Array

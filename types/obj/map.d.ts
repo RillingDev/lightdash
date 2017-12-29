@@ -1,6 +1,6 @@
 import { forEachEntryIterator } from "../types";
 /**
- * Maps each entry of an object and returns the result
+ * Maps each entry of an object and returns the result.
  *
  * @function objMap
  * @memberof Object

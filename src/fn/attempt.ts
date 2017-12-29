@@ -1,7 +1,7 @@
 /**
- * Wrapper around try/catch
+ * Wrapper around try/catch.
  *
- * Returns the function result or, if an error is thrown, the error
+ * Returns the function result or, if an error is thrown, the error.
  *
  * @function fnAttempt
  * @memberof Fn

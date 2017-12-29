@@ -1,7 +1,7 @@
 import { IGenericClass } from "../types";
 
 /**
- * Checks if the value is an instance of a target constructor
+ * Checks if the value is an instance of a target constructor.
  *
  * @function isInstanceOf
  * @memberof Is

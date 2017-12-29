@@ -1,5 +1,5 @@
 /**
- * Returns a curried function
+ * Returns a curried function.
  *
  * A curried function can take between zero and n arguments,
  * where n is either the functions argument length or the provided arity.

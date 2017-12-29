@@ -1,6 +1,6 @@
 import { forEachIterator } from "../types";
 /**
- * Recursively maps the values of the input array with the iterator function and return the result
+ * Recursively maps the values of the input array with the iterator function and return the result.
  *
  * @function arrMapDeep
  * @memberof Array

@@ -1,5 +1,5 @@
 /**
- * Throttles a function to only run every n ms
+ * Throttles a function to only run every n ms.
  *
  * Useful for event handlers that fire several times a second, such as scroll or resize
  *
@@ -27,7 +27,7 @@ const fnThrottle = (
     let canRun: boolean = immediate;
     let timer: number = immediate ? -1 : getTimer();
 
-    return function() {
+    return function () {
         if (canRun) {
             canRun = false;
             timer = getTimer();

@@ -1,7 +1,7 @@
 import isUndefined from "./undefined";
 
 /**
- * Checks if a value is not undefined
+ * Checks if a value is defined.
  *
  * @function isDefined
  * @memberof Is

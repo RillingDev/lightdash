@@ -1,5 +1,5 @@
 /**
- * Checks if the value has a certain type-string
+ * Checks if the value has a certain type-string.
  *
  * @function isTypeOf
  * @memberof Is

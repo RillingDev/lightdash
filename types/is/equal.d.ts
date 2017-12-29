@@ -1,5 +1,5 @@
 /**
- * Recursively checks if two items and their the contents are equal
+ * Recursively checks if two items and their the contents are equal.
  *
  * @function isEqual
  * @memberof Is

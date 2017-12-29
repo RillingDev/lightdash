@@ -1,5 +1,5 @@
 /**
- * Recursively flattens an array
+ * Recursively flattens an array.
  *
  * @function arrFlattenDeep
  * @memberof Array

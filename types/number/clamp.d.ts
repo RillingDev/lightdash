@@ -1,5 +1,5 @@
 /**
- * Clamps a number in a range
+ * Clamps a number in a given range.
  *
  * @function numberClamp
  * @memberof Number

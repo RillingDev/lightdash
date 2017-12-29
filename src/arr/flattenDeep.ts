@@ -2,7 +2,7 @@ import forEach from "../for/each";
 import isArray from "../is/array";
 
 /**
- * Recursively flattens an array
+ * Recursively flattens an array.
  *
  * @function arrFlattenDeep
  * @memberof Array

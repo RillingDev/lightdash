@@ -1,5 +1,5 @@
 /**
- * Checks if a value is a number
+ * Checks if a value is a number.
  *
  * @function isNumber
  * @memberof Is

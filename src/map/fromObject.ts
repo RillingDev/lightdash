@@ -1,7 +1,7 @@
 import objEntries from "../obj/entries";
 
 /**
- * Creates a map from an object
+ * Creates a map from an object.
  *
  * @function mapFromObject
  * @memberof Map

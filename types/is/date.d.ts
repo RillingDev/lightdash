@@ -1,5 +1,5 @@
 /**
- * Checks if a value is a date object
+ * Checks if a value is a date object.
  *
  * @function isDate
  * @memberof Is

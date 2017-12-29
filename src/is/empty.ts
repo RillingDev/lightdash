@@ -4,13 +4,12 @@ import isArrayLike from "./arrayLike";
 import isObjectLike from "./objectLike";
 
 /**
- * Checks if a value is empty
+ * Checks if a value is empty.
  *
- * A value is consider empty if it is either a primitive or an object-like without content
- *
+ * A value is consider empty if it is either a primitive or an object-like without content.
  * Array-likes are considered empty if they have a length of zero,
- * set/maps if they have a size of zero,
- * and objects if their keys have a length of zero
+ * Sets/Maps if they have a size of zero,
+ * and Objects if their keys have a length of zero.
  *
  * @function isEmpty
  * @memberof Is

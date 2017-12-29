@@ -1,5 +1,5 @@
 /**
- * Return a random float or integer number in the given range
+ * Return a random float or integer number in the given range.
  *
  * @function randomNumber
  * @memberof Random

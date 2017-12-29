@@ -1,5 +1,5 @@
 /**
- * Recursively creates a new array with the values of the input iterable
+ * Recursively creates a new array with the values of the input iterable.
  *
  * @function arrFromDeep
  * @memberof Array

@@ -1,7 +1,7 @@
 /**
- * Creates a new array with the values of the input iterable
+ * Creates a new array with the values of the input iterable.
  *
- * `Array.from` shorthand
+ * `Array.from` shorthand.
  *
  * @function arrFrom
  * @memberof Array

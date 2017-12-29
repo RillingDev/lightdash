@@ -1,5 +1,5 @@
 /**
- * Checks if a value is a symbol
+ * Checks if a value is a symbol.
  *
  * @function isSymbol
  * @memberof Is

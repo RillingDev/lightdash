@@ -1,5 +1,5 @@
 /**
- * Checks if a value is an object
+ * Checks if a value is an object.
  *
  * @function isObject
  * @memberof Is

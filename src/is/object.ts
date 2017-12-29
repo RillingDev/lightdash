@@ -2,7 +2,7 @@ import isNil from "./nil";
 import isTypeOf from "./typeOf";
 
 /**
- * Checks if a value is an object
+ * Checks if a value is an object.
  *
  * @function isObject
  * @memberof Is

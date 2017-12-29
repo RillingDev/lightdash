@@ -1,7 +1,7 @@
 /**
- * Checks if a value is an array
+ * Checks if a value is an array.
  *
- * `Array.isArray` shorthand
+ * `Array.isArray` shorthand.
  *
  * @function isArray
  * @memberof Is

@@ -1,7 +1,7 @@
 import isNumber from "./number";
 
 /**
- * Checks if a value is a typed array
+ * Checks if a value is a typed array.
  *
  * @function isArrayTyped
  * @memberof Is
