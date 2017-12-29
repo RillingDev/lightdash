@@ -3,9 +3,11 @@
         "module": "esnext",
         "target": "esnext",
         "newLine": "LF",
-        "declaration": true,
         "strict": true,
         "noImplicitAny": true,
         "removeComments": false
-    }
+    },
+    "include": [
+        "src/**/*"
+    ]
 }

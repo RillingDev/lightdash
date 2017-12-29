@@ -32,4 +32,5 @@ bower_components/
 
 # Debug Files
 .tmp/
-.rpt2_cache/
+npm-debug.*
+

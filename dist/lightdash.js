@@ -39,7 +39,7 @@ const isTypeOf = (val, type) => typeof val === type;
  * // returns false
  * isFunction(null)
  */
-const isFunction = val => isTypeOf(val, "function");
+const isFunction = (val) => isTypeOf(val, "function");
 
 /**
  * Checks if a value is an arguments array-like
@@ -61,7 +61,7 @@ const isFunction = val => isTypeOf(val, "function");
  * // returns false
  * isArguments([]);
  */
-const isArguments = val => isFunction(val.callee);
+const isArguments = (val) => isFunction(val.callee);
 
 /**
  * Checks if a value is an array
@@ -123,7 +123,7 @@ const isInstanceOf = (val, target) => val instanceof target;
  * isArrayBuffer([1, 2])
  */
 // @ts-ignore: ArrayBuffer declaration is outdated
-const isArrayBuffer = val => isInstanceOf(val, ArrayBuffer);
+const isArrayBuffer = (val) => isInstanceOf(val, ArrayBuffer);
 
 /**
  * Checks if a value is undefined
@@ -147,7 +147,7 @@ const isArrayBuffer = val => isInstanceOf(val, ArrayBuffer);
  * isUndefined(1)
  * isUndefined(a)
  */
-const isUndefined = val => isTypeOf(val, "undefined");
+const isUndefined = (val) => isTypeOf(val, "undefined");
 
 /**
  * Checks if a value is not undefined
@@ -171,7 +171,7 @@ const isUndefined = val => isTypeOf(val, "undefined");
  * isDefined(a.b)
  * isDefined(undefined)
  */
-const isDefined = val => !isUndefined(val);
+const isDefined = (val) => !isUndefined(val);
 
 /**
  * Checks if a target has a certain key
@@ -212,7 +212,7 @@ const hasKey = (target, key) => isDefined(target[key]);
  * isNil(0)
  * isNil({})
  */
-const isNil = val => isUndefined(val) || val === null;
+const isNil = (val) => isUndefined(val) || val === null;
 
 /**
  * Checks if a value is not nil and has a type of object
@@ -235,7 +235,7 @@ const isNil = val => isUndefined(val) || val === null;
  * isObjectLike(1)
  * isObjectLike(() => 1))
  */
-const isObjectLike = val => !isNil(val) && isTypeOf(val, "object");
+const isObjectLike = (val) => !isNil(val) && isTypeOf(val, "object");
 
 /**
  * Checks if a value is object-like and has a length property
@@ -257,7 +257,7 @@ const isObjectLike = val => !isNil(val) && isTypeOf(val, "object");
  * isArrayLike("foo")
  * isArrayLike(1)
  */
-const isArrayLike = val => isObjectLike(val) && hasKey(val, "length");
+const isArrayLike = (val) => isObjectLike(val) && hasKey(val, "length");
 
 /**
  * Checks if a value is a number
@@ -279,7 +279,7 @@ const isArrayLike = val => isObjectLike(val) && hasKey(val, "length");
  * isNumber("2")
  * isNumber(null)
  */
-const isNumber = val => isTypeOf(val, "number");
+const isNumber = (val) => isTypeOf(val, "number");
 
 /**
  * Checks if a value is a typed array
@@ -298,7 +298,7 @@ const isNumber = val => isTypeOf(val, "number");
  * // returns false
  * isArrayTyped([]);
  */
-const isArrayTyped = val => isNumber(val.BYTES_PER_ELEMENT);
+const isArrayTyped = (val) => isNumber(val.BYTES_PER_ELEMENT);
 
 /**
  * Checks if a value is a boolean
@@ -319,7 +319,7 @@ const isArrayTyped = val => isNumber(val.BYTES_PER_ELEMENT);
  * isBoolean(null)
  * isBoolean("")
  */
-const isBoolean = val => isTypeOf(val, "boolean");
+const isBoolean = (val) => isTypeOf(val, "boolean");
 
 /**
  * Checks if a value is a date object
@@ -338,7 +338,7 @@ const isBoolean = val => isTypeOf(val, "boolean");
  * // returns false
  * isDate(123213)
  */
-const isDate = val => isInstanceOf(val, Date);
+const isDate = (val) => isInstanceOf(val, Date);
 
 /**
  * Returns an array of the objects keys
@@ -385,14 +385,17 @@ const objKeys = Object.keys;
  * isEmpty([1, 2])
  * isEmpty({a: 1})
  */
-const isEmpty = val => {
+const isEmpty = (val) => {
     if (isArrayLike(val)) {
         return val.length === 0;
-    } else if (hasKey(val, "size")) {
+    }
+    else if (hasKey(val, "size")) {
         return val.size === 0;
-    } else if (isObjectLike(val)) {
+    }
+    else if (isObjectLike(val)) {
         return objKeys(val).length === 0;
-    } else {
+    }
+    else {
         return true;
     }
 };
@@ -467,7 +470,7 @@ const forEachEntry = (obj, fn) => {
  * // returns false
  * isObject(1)
  */
-const isObject = val => !isNil(val) && (isTypeOf(val, "object") || isTypeOf(val, "function"));
+const isObject = (val) => !isNil(val) && (isTypeOf(val, "object") || isTypeOf(val, "function"));
 
 /**
  * Recursively checks if two items and their the contents are equal
@@ -502,7 +505,8 @@ const isEqual = (a, b) => {
                 if (hasKey(b, key)) {
                     const bVal = b[key];
                     result = isEqual(aVal, bVal);
-                } else {
+                }
+                else {
                     result = false;
                 }
             }
@@ -529,7 +533,7 @@ const isEqual = (a, b) => {
  * // returns false
  * isError("foo")
  */
-const isError = val => isInstanceOf(val, Error);
+const isError = (val) => isInstanceOf(val, Error);
 
 /**
  * Checks if a value is finite
@@ -591,7 +595,7 @@ const isInteger = Number.isInteger;
  * // returns false
  * isMap([[1, 2]])
  */
-const isMap = val => isInstanceOf(val, Map);
+const isMap = (val) => isInstanceOf(val, Map);
 
 /**
  * Checks if a value is NaN. Unlike the global `isNaN()`, this function returns false for undefined
@@ -633,7 +637,7 @@ const isNaN = Number.isNaN;
  * isObjectPlain([])
  * isObjectPlain(()=>{})
  */
-const isObjectPlain = val => isObject(val) && val.constructor === Object;
+const isObjectPlain = (val) => isObject(val) && val.constructor === Object;
 
 /**
  * Checks if a value is a primitive
@@ -653,7 +657,7 @@ const isObjectPlain = val => isObject(val) && val.constructor === Object;
  * isPrimitive({})
  * isPrimitive([])
  */
-const isPrimitive = val => !isObject(val);
+const isPrimitive = (val) => !isObject(val);
 
 /**
  * Checks if a value is a promise
@@ -673,7 +677,7 @@ const isPrimitive = val => !isObject(val);
  * // returns false
  * isPromise(() => "foo");
  */
-const isPromise = val => isFunction(val.then) && isFunction(val.catch);
+const isPromise = (val) => isFunction(val.then) && isFunction(val.catch);
 
 /**
  * Checks if a value is a regular expression
@@ -693,7 +697,7 @@ const isPromise = val => isFunction(val.then) && isFunction(val.catch);
  * isRegExp("foo")
  */
 // @ts-ignore: RegExp declaration is outdated
-const isRegExp = val => isInstanceOf(val, RegExp);
+const isRegExp = (val) => isInstanceOf(val, RegExp);
 
 /**
  * Checks if a value is a set
@@ -711,7 +715,7 @@ const isRegExp = val => isInstanceOf(val, RegExp);
  * // returns false
  * isSet([1, 2])
  */
-const isSet = val => isInstanceOf(val, Set);
+const isSet = (val) => isInstanceOf(val, Set);
 
 /**
  * Checks if a value is a string
@@ -729,7 +733,7 @@ const isSet = val => isInstanceOf(val, Set);
  * // returns false
  * isString(1)
  */
-const isString = val => isTypeOf(val, "string");
+const isString = (val) => isTypeOf(val, "string");
 
 /**
  * Checks if a value is a symbol
@@ -748,7 +752,7 @@ const isString = val => isTypeOf(val, "string");
  * // returns false
  * isSymbol("foo")
  */
-const isSymbol = val => isTypeOf(val, "symbol");
+const isSymbol = (val) => isTypeOf(val, "symbol");
 
 /**
  * Checks if an object has a certain own key
@@ -797,7 +801,8 @@ const getPath = (target, path) => {
         if (hasKey(targetCurrent, keyCurrent)) {
             targetCurrent = targetCurrent[keyCurrent];
             index++;
-        } else {
+        }
+        else {
             return null;
         }
     }
@@ -856,7 +861,9 @@ const forEachDeep = (arr, fn) => forEach(arr, (val, index) => isArray(val) ? for
  *
  * forEachEntryDeep(a, (val, key, index, obj) => obj[key] = index * val)
  */
-const forEachEntryDeep = (obj, fn) => forEachEntry(obj, (val, key, index) => isObjectLike(val) ? forEachEntryDeep(val, fn) : fn(val, key, index, obj));
+const forEachEntryDeep = (obj, fn) => forEachEntry(obj, (val, key, index) => isObjectLike(val)
+    ? forEachEntryDeep(val, fn)
+    : fn(val, key, index, obj));
 
 /**
  * Execute a function n times
@@ -901,9 +908,10 @@ const forTimes = (start, max, increase, fn) => {
 const arrChunk = (arr, chunk) => {
     if (chunk < 1) {
         return [];
-    } else {
+    }
+    else {
         const result = [];
-        forTimes(0, arr.length - 1, chunk, index => {
+        forTimes(0, arr.length - 1, chunk, (index) => {
             result.push(arr.slice(index, index + chunk));
         });
         return result;
@@ -922,7 +930,7 @@ const arrChunk = (arr, chunk) => {
  * // returns [1, 2, 3, 4, 5]
  * arrCompact([1, "", "", 2, 3, null, 4, undefined, 5, ""])
  */
-const arrCompact = arr => arr.filter(val => val);
+const arrCompact = (arr) => arr.filter((val) => val);
 
 /**
  * Counts how many times an element appears in an array and returns a Map<element: any, count: number>
@@ -936,9 +944,9 @@ const arrCompact = arr => arr.filter(val => val);
  * // returns Map{1: 4, 2: 2, 3: 1, 4: 1}
  * arrCount([1, 1, 2, 2, 1, 3, 4, 1])
  */
-const arrCount = arr => {
+const arrCount = (arr) => {
     const result = new Map();
-    forEach(arr, val => {
+    forEach(arr, (val) => {
         // @ts-ignore: .get() value will always be defined, as we check with .has() beforehand
         result.set(val, result.has(val) ? result.get(val) + 1 : 1);
     });
@@ -963,9 +971,9 @@ const arrCount = arr => {
  * arrDifference([1, 2, 3], ["foo"], [2, 0, 2])
  */
 const arrDifference = (arr, ...values) => {
-  const valuesCounted = arrCount([].concat(...values));
-  // @ts-ignore: ts seems to pull the wrong data for arrCount
-  return arr.filter(item => !valuesCounted.has(item));
+    const valuesCounted = arrCount([].concat(...values));
+    // @ts-ignore: ts seems to pull the wrong data for arrCount
+    return arr.filter((item) => !valuesCounted.has(item));
 };
 
 /**
@@ -984,12 +992,13 @@ const arrDifference = (arr, ...values) => {
  * // returns [1, 2, 3, 5, 6, 6]
  * arrFlattenDeep([1, 2, [3, [[[5]]], [6, [6]]])
  */
-const arrFlattenDeep = arr => {
+const arrFlattenDeep = (arr) => {
     const result = [];
-    forEach(arr, val => {
+    forEach(arr, (val) => {
         if (isArray(val)) {
             result.push(...arrFlattenDeep(val));
-        } else {
+        }
+        else {
             result.push(val);
         }
     });
@@ -1045,7 +1054,7 @@ const arrMapDeep = (arr, fn) => arr.map((val, index) => isArray(val) ? arrMapDee
  *
  * b[3][1][0] = 10;
  */
-const arrFromDeep = arr => arrMapDeep(arrFrom(arr), val => isArray(val) ? arrFrom(val) : val);
+const arrFromDeep = (arr) => arrMapDeep(arrFrom(arr), (val) => (isArray(val) ? arrFrom(val) : val));
 
 /**
  * Returns an array of all elements that exist in the first array, and at least once in one of the other arrays
@@ -1065,9 +1074,9 @@ const arrFromDeep = arr => arrMapDeep(arrFrom(arr), val => isArray(val) ? arrFro
  * arrIntersection([1, 2, 3], ["foo"], [2, 0, 2])
  */
 const arrIntersection = (arr, ...values) => {
-  const valuesCounted = arrCount([].concat(...values));
-  // @ts-ignore: ts seems to pull the wrong data for arrCount
-  return arr.filter(item => valuesCounted.has(item));
+    const valuesCounted = arrCount([].concat(...values));
+    // @ts-ignore: ts seems to pull the wrong data for arrCount
+    return arr.filter((item) => valuesCounted.has(item));
 };
 
 /**
@@ -1108,8 +1117,11 @@ const numberInRange = (val, min, max) => val >= min && val <= max;
  */
 const arrRemoveIndex = (arr, index) => {
     if (numberInRange(index, 0, arr.length - 1)) {
-        return index === 0 ? arr.slice(1) : arr.slice(0, index).concat(arr.slice(index + 1));
-    } else {
+        return index === 0
+            ? arr.slice(1)
+            : arr.slice(0, index).concat(arr.slice(index + 1));
+    }
+    else {
         return arr;
     }
 };
@@ -1156,7 +1168,7 @@ const arrStep = (arr, step) => arr.filter((val, index) => index % step === 0);
  * // returns [1, 2, 3, 4]
  * arrUniq([1, 1, 1, 2, 3, 1, 2, 1, 4])
  */
-const arrUniq = arr => arrFrom(new Set(arr));
+const arrUniq = (arr) => arrFrom(new Set(arr));
 
 /**
  * Creates a new object with the entries of the input object
@@ -1173,7 +1185,7 @@ const arrUniq = arr => arrFrom(new Set(arr));
  *
  * b.a = 10;
  */
-const objFrom = obj => isArray(obj) ? arrFrom(obj) : Object.assign({}, obj);
+const objFrom = (obj) => isArray(obj) ? arrFrom(obj) : Object.assign({}, obj);
 
 /**
  * Sets every nil property of object to the value from the default object
@@ -1235,7 +1247,8 @@ const objMap = (obj, fn) => {
 const objMapDeep = (obj, fn) => objMap(obj, (val, key, index, objNew) => {
     if (isObjectLike(val)) {
         return objMapDeep(val, fn);
-    } else {
+    }
+    else {
         return fn(val, key, index, objNew);
     }
 });
@@ -1255,7 +1268,7 @@ const objMapDeep = (obj, fn) => objMap(obj, (val, key, index, objNew) => {
  *
  * b.a.c.a = 123;
  */
-const objFromDeep = obj => objMapDeep(objFrom(obj), val => isObjectLike(val) ? objFrom(val) : val);
+const objFromDeep = (obj) => objMapDeep(objFrom(obj), (val) => (isObjectLike(val) ? objFrom(val) : val));
 
 /**
  * Recursively sets every nil property of object to the value from the default object
@@ -1275,8 +1288,11 @@ const objDefaultsDeep = (obj, objDefault) => {
     forEachEntry(objDefault, (valDefault, keyDefault) => {
         const valGiven = obj[keyDefault];
         if (isObjectLike(valDefault)) {
-            result[keyDefault] = isObjectLike(valGiven) ? objDefaultsDeep(valGiven, valDefault) : valDefault;
-        } else {
+            result[keyDefault] = isObjectLike(valGiven)
+                ? objDefaultsDeep(valGiven, valDefault)
+                : valDefault;
+        }
+        else {
             result[keyDefault] = isNil(valGiven) ? valDefault : valGiven;
         }
     });
@@ -1304,10 +1320,10 @@ const objDefaultsDeep = (obj, objDefault) => {
  * objDefineProperty(a, "foo", 1)
  */
 const objDefineProperty = (obj, key, val, enumerable = true, writable = true, configurable = true) => Object.defineProperty(obj, key, {
-  value: val,
-  enumerable,
-  writable,
-  configurable
+    value: val,
+    enumerable,
+    writable,
+    configurable
 });
 
 /**
@@ -1355,7 +1371,7 @@ const objValues = Object.values;
  * // returns Map{a: 1, b: 4, c: 5}
  * mapFromObject({a: 1, b: 4, c: 5})
  */
-const mapFromObject = obj => new Map(objEntries(obj));
+const mapFromObject = (obj) => new Map(objEntries(obj));
 
 /**
  * Wrapper around try/catch
@@ -1383,7 +1399,8 @@ const mapFromObject = obj => new Map(objEntries(obj));
 const fnAttempt = (fn, ...args) => {
     try {
         return fn(...args);
-    } catch (err) {
+    }
+    catch (err) {
         return err;
     }
 };
@@ -1472,9 +1489,11 @@ const fnThrottle = (fn, timeout, immediate = false) => {
 const numberClamp = (val, min, max) => {
     if (val < min) {
         return min;
-    } else if (val > max) {
+    }
+    else if (val > max) {
         return max;
-    } else {
+    }
+    else {
         return val;
     }
 };
@@ -1499,7 +1518,8 @@ const randomNumber = (min = 0, max = 1, floating = true) => {
     if (diff !== 0) {
         const rand = min + Math.random() * diff;
         return floating ? rand : Math.floor(rand / diff * (diff + 1));
-    } else {
+    }
+    else {
         return min;
     }
 };
@@ -1516,7 +1536,7 @@ const randomNumber = (min = 0, max = 1, floating = true) => {
  * randomItem(["foo", "bar"])      //=> "foo"
  * randomNumber([1, 2, 3, 4, 5])   //=> 3
  */
-const randomItem = arr => arr[randomNumber(0, arr.length - 1, false)];
+const randomItem = (arr) => arr[randomNumber(0, arr.length - 1, false)];
 
 /**
  * Value, type checking and comparison
@@ -1634,3 +1654,4 @@ exports.randomItem = randomItem;
 return exports;
 
 }({}));
+//# sourceMappingURL=lightdash.js.map

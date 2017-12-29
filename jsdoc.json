@@ -1,10 +1,15 @@
 {
     "tags": {
         "allowUnknownTags": false,
-        "dictionaries": ["jsdoc"]
+        "dictionaries": [
+            "jsdoc"
+        ]
     },
     "source": {
-        "include": ["./README.md", "./dist/lightdash.esm.js"],
+        "include": [
+            "./README.md",
+            "./dist/lightdash.esm.js"
+        ],
         "excludePattern": "(node_modules/|docs/)"
     },
     "plugins": [],

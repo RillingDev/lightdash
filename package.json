@@ -4,34 +4,28 @@
     "description": "An utility library designed to be lightweight",
     "main": "dist/lightdash.common.js",
     "module": "dist/lightdash.esm.js",
+    "types": "types/main.d.ts",
     "files": [
         "src/",
-        "dist/"
+        "dist/",
+        "types/"
     ],
-    "constants": {
-        "dirBase": {
-            "input": "./src",
-            "output": "./dist"
-        },
-        "js": {
-            "input": "main.ts",
-            "namespace": {
-                "module": "_",
-                "file": "lightdash"
-            },
-            "targets": {
-                "browsers": [
-                    "Chrome >= 58"
-                ]
-            }
+    "settings": {
+        "input": "main.ts",
+        "namespace": {
+            "module": "_",
+            "file": "lightdash"
         }
     },
     "scripts": {
         "start": "npm-run-all lint build test docs",
-        "build": "node tasks/jsDev.js",
-        "dist": "node tasks/jsDist.js",
+        "build": "rollup -c ./tasks/rollup.config.js",
+        "build:iife": "rollup -c ./tasks/rollup.config.iife.js",
+        "build:iife-min": "rollup -c ./tasks/rollup.config.iife-min.js",
+        "watch": "rollup -c ./tasks/rollup.config.js --watch",
+        "dist": "npm-run-all --parallel build build:iife build:iife-min",
+        "lint": "eslint src/",
         "test": "jasmine",
-        "lint": "tslint src/",
         "docs": "jsdoc -c jsdoc.json"
     },
     "repository": {
@@ -48,20 +42,23 @@
         "url": "https://github.com/FelixRilling/lightdash/issues"
     },
     "homepage": "https://github.com/FelixRilling/lightdash#readme",
+    "dependencies": {},
     "devDependencies": {
-        "babel-core": "^6.26.0",
-        "babel-plugin-external-helpers": "^6.22.0",
-        "babel-preset-env": "^1.6.1",
+        "@babel/core": "^7.0.0-beta.36",
+        "@babel/plugin-external-helpers": "^7.0.0-beta.36",
+        "@babel/preset-env": "^7.0.0-beta.36",
         "docdash": "git+https://github.com/clenemt/docdash.git",
         "jasmine": "^2.8.0",
         "jsdoc": "git+https://github.com/jsdoc3/jsdoc.git",
         "npm-run-all": "^4.1.2",
-        "rollup": "^0.52.3",
-        "rollup-plugin-babel": "^3.0.3",
+        "rollup": "^0.53.1",
+        "rollup-plugin-babel": "^4.0.0-beta.0",
+        "rollup-plugin-json": "^2.3.0",
+        "rollup-plugin-node-resolve": "^3.0.0",
         "rollup-plugin-typescript2": "^0.9.0",
         "rollup-plugin-uglify-es": "0.0.1",
         "tslint": "^5.8.0",
         "typescript": "^2.6.2",
-        "uglify-es": "^3.3.2"
+        "uglify-es": "^3.3.3"
     }
 }
