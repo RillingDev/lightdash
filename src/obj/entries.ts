@@ -1,3 +1,5 @@
+import { _Object } from "../constants";
+
 /**
  * Returns an array of the objects entries.
  *
@@ -12,6 +14,6 @@
  * // returns [["a", 1], ["b", 2], ["c", 3]]
  * objEntries({a: 1, b: 2, c: 3})
  */
-const objEntries = Object.entries;
+const objEntries = _Object.entries;
 
 export default objEntries;

@@ -1,4 +1,5 @@
 import isInstanceOf from "./instanceOf";
+import { _Set } from "../constants";
 
 /**
  * Checks if a value is a set.
@@ -16,6 +17,6 @@ import isInstanceOf from "./instanceOf";
  * // returns false
  * isSet([1, 2])
  */
-const isSet = (val: any): boolean => isInstanceOf(val, Set);
+const isSet = (val: any): boolean => isInstanceOf(val, _Set);
 
 export default isSet;

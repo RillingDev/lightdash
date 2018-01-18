@@ -1,3 +1,5 @@
+import { _Number } from "../constants";
+
 /**
  * Checks if a value is an integer.
  *
@@ -18,6 +20,6 @@
  * isInteger(2.34);
  * isInteger(Infinity)
  */
-const isInteger = Number.isInteger;
+const isInteger = _Number.isInteger;
 
 export default isInteger;

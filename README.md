@@ -42,6 +42,11 @@ Contributions are always welcome, no matter if you have a requests, an idea, fou
 
 ## Breaking Changes
 
+### v4
+
+* Changed argument order in forEachEntry fn from (val, key, index) to (key, val, index)
+* Removed methods: isFinite, isNaN
+
 ### v3
 
 * Renamed methods: arrClone -> arrFrom, objClone -> objFrom

@@ -1,4 +1,5 @@
 import isObject from "./object";
+import { _Object } from "../constants";
 
 /**
  * Checks if a value is a plain object.
@@ -20,6 +21,6 @@ import isObject from "./object";
  * isObjectPlain(()=>{})
  */
 const isObjectPlain = (val: any): boolean =>
-    isObject(val) && val.constructor === Object;
+    isObject(val) && val.constructor === _Object;
 
 export default isObjectPlain;

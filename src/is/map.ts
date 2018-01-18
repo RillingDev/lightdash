@@ -1,4 +1,5 @@
 import isInstanceOf from "./instanceOf";
+import { _Map } from "../constants";
 
 /**
  * Checks if a value is a map.
@@ -16,6 +17,6 @@ import isInstanceOf from "./instanceOf";
  * // returns false
  * isMap([[1, 2]])
  */
-const isMap = (val: any): boolean => isInstanceOf(val, Map);
+const isMap = (val: any): boolean => isInstanceOf(val, _Map);
 
 export default isMap;

@@ -64,6 +64,16 @@ const isFunction = (val) => isTypeOf(val, "function");
  */
 const isArguments = (val) => isFunction(val.callee);
 
+/*
+ * Using this can really reduce the minified output but can have performance and optimization issues
+ */
+const _Number = Number;
+const _Object = Object;
+const _Array = Array;
+const _Set = Set;
+const _Map = Map;
+const _Math = Math;
+
 /**
  * Checks if a value is an array.
  *
@@ -83,7 +93,7 @@ const isArguments = (val) => isFunction(val.callee);
  * // returns false
  * isArray({});
  */
-const isArray = Array.isArray;
+const isArray = _Array.isArray;
 
 /**
  * Checks if the value is an instance of a target constructor.
@@ -355,7 +365,7 @@ const isDate = (val) => isInstanceOf(val, Date);
  * // returns ["a", "b", "c"]
  * objKeys({a: 1, b: 2, c: 3})
  */
-const objKeys = Object.keys;
+const objKeys = _Object.keys;
 
 /**
  * Checks if a value is empty.
@@ -414,7 +424,7 @@ const isEmpty = (val) => {
  * // returns [["a", 1], ["b", 2], ["c", 3]]
  * objEntries({a: 1, b: 2, c: 3})
  */
-const objEntries = Object.entries;
+const objEntries = _Object.entries;
 
 /**
  * Iterates over each element in an array
@@ -555,7 +565,7 @@ const isError = (val) => isInstanceOf(val, Error);
  * isInteger(2.34);
  * isInteger(Infinity)
  */
-const isInteger = Number.isInteger;
+const isInteger = _Number.isInteger;
 
 /**
  * Checks if a value is a map.
@@ -573,7 +583,7 @@ const isInteger = Number.isInteger;
  * // returns false
  * isMap([[1, 2]])
  */
-const isMap = (val) => isInstanceOf(val, Map);
+const isMap = (val) => isInstanceOf(val, _Map);
 
 /**
  * Checks if a value is a plain object.
@@ -594,7 +604,7 @@ const isMap = (val) => isInstanceOf(val, Map);
  * isObjectPlain([])
  * isObjectPlain(()=>{})
  */
-const isObjectPlain = (val) => isObject(val) && val.constructor === Object;
+const isObjectPlain = (val) => isObject(val) && val.constructor === _Object;
 
 /**
  * Checks if a value is primitive.
@@ -672,7 +682,7 @@ const isRegExp = (val) => isInstanceOf(val, RegExp);
  * // returns false
  * isSet([1, 2])
  */
-const isSet = (val) => isInstanceOf(val, Set);
+const isSet = (val) => isInstanceOf(val, _Set);
 
 /**
  * Checks if a value is a string.
@@ -902,7 +912,7 @@ const arrCompact = (arr) => arr.filter((val) => val);
  * arrCount([1, 1, 2, 2, 1, 3, 4, 1])
  */
 const arrCount = (arr) => {
-    const result = new Map();
+    const result = new _Map();
     forEach(arr, val => 
     // @ts-ignore: .get() value will always be defined, as we check with .has() beforehand
     result.set(val, result.has(val) ? result.get(val) + 1 : 1));
@@ -978,7 +988,7 @@ const arrFlattenDeep = (arr) => {
  *
  * b[1] = 10;
  */
-const arrFrom = Array.from;
+const arrFrom = _Array.from;
 
 /**
  * Recursively maps the values of the input array with the iterator function and return the result.
@@ -1124,7 +1134,24 @@ const arrStep = (arr, step) => arr.filter((val, index) => index % step === 0);
  * // returns [1, 2, 3, 4]
  * arrUniq([1, 1, 1, 2, 3, 1, 2, 1, 4])
  */
-const arrUniq = (arr) => arrFrom(new Set(arr));
+const arrUniq = (arr) => arrFrom(new _Set(arr));
+
+/**
+ * Merges contents of two objects.
+ *
+ * `Object.assign` shorthand.
+ *
+ * @function objMerge
+ * @memberof Object
+ * @since 2.7.0
+ * @param {Object} obj
+ * @param {Object} objSecondary
+ * @returns {Object}
+ * @example
+ * // returns {a: 1, b: 2}
+ * objMerge({a: 1}, {b: 2})
+ */
+const objMerge = _Object.assign;
 
 /**
  * Creates a new object with the entries of the input object.
@@ -1141,7 +1168,7 @@ const arrUniq = (arr) => arrFrom(new Set(arr));
  *
  * b.a = 10;
  */
-const objFrom = (obj) => isArray(obj) ? arrFrom(obj) : Object.assign({}, obj);
+const objFrom = (obj) => isArray(obj) ? arrFrom(obj) : objMerge({}, obj);
 
 /**
  * Sets every nil property of object to the value from the default object.
@@ -1275,29 +1302,12 @@ const objDefaultsDeep = (obj, objDefault) => {
  * const a={};
  * objDefineProperty(a, "foo", 1)
  */
-const objDefineProperty = (obj, key, val, enumerable = true, writable = true, configurable = true) => Object.defineProperty(obj, key, {
+const objDefineProperty = (obj, key, val, enumerable = true, writable = true, configurable = true) => _Object.defineProperty(obj, key, {
     value: val,
     enumerable,
     writable,
     configurable
 });
-
-/**
- * Merges contents of two objects.
- *
- * `Object.assign` shorthand.
- *
- * @function objMerge
- * @memberof Object
- * @since 2.7.0
- * @param {Object} obj
- * @param {Object} objSecondary
- * @returns {Object}
- * @example
- * // returns {a: 1, b: 2}
- * objMerge({a: 1}, {b: 2})
- */
-const objMerge = Object.assign;
 
 /**
  * Returns an array of the objects values.
@@ -1313,7 +1323,7 @@ const objMerge = Object.assign;
  * // returns [1, 2, 3]
  * objValues({a: 1, b: 2, c: 3})
  */
-const objValues = Object.values;
+const objValues = _Object.values;
 
 /**
  * Creates a map from an object.
@@ -1327,7 +1337,7 @@ const objValues = Object.values;
  * // returns Map{a: 1, b: 4, c: 5}
  * mapFromObject({a: 1, b: 4, c: 5})
  */
-const mapFromObject = (obj) => new Map(objEntries(obj));
+const mapFromObject = (obj) => new _Map(objEntries(obj));
 
 /**
  * Wrapper around try/catch.
@@ -1472,8 +1482,8 @@ const numberClamp = (val, min, max) => {
 const randomNumber = (min = 0, max = 1, floating = true) => {
     const diff = max - min;
     if (diff !== 0) {
-        const rand = min + Math.random() * diff;
-        return floating ? rand : Math.floor(rand / diff * (diff + 1));
+        const rand = min + _Math.random() * diff;
+        return floating ? rand : _Math.floor(rand / diff * (diff + 1));
     }
     else {
         return min;

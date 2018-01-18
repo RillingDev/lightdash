@@ -1,3 +1,4 @@
+import { _Object } from "../constants";
 /**
  * Returns an array of the objects values.
  *
@@ -12,6 +13,6 @@
  * // returns [1, 2, 3]
  * objValues({a: 1, b: 2, c: 3})
  */
-const objValues = Object.values;
+const objValues = _Object.values;
 
 export default objValues;

@@ -1,3 +1,5 @@
+import { _Object } from "../constants";
+
 /**
  * Returns an array of the objects keys.
  *
@@ -12,6 +14,6 @@
  * // returns ["a", "b", "c"]
  * objKeys({a: 1, b: 2, c: 3})
  */
-const objKeys = Object.keys;
+const objKeys = _Object.keys;
 
 export default objKeys;

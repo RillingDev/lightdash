@@ -1,4 +1,5 @@
 import objEntries from "../obj/entries";
+import { _Map } from "../constants";
 
 /**
  * Creates a map from an object.
@@ -13,6 +14,6 @@ import objEntries from "../obj/entries";
  * mapFromObject({a: 1, b: 4, c: 5})
  */
 const mapFromObject = (obj: object): Map<PropertyKey, any> =>
-    new Map(objEntries(obj));
+    new _Map(objEntries(obj));
 
 export default mapFromObject;

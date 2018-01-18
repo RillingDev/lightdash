@@ -1,3 +1,5 @@
+import { _Object } from "../constants";
+
 /**
  * Adds a property to an object with optional custom flags.
  *
@@ -26,7 +28,7 @@ const objDefineProperty = (
     writable: boolean = true,
     configurable: boolean = true
 ): object =>
-    Object.defineProperty(obj, key, {
+    _Object.defineProperty(obj, key, {
         value: val,
         enumerable,
         writable,

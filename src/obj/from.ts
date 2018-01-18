@@ -1,5 +1,6 @@
 import arrFrom from "../arr/from";
 import isArray from "../is/array";
+import objMerge from "../obj/merge";
 
 /**
  * Creates a new object with the entries of the input object.
@@ -17,6 +18,6 @@ import isArray from "../is/array";
  * b.a = 10;
  */
 const objFrom = (obj: object): object =>
-    isArray(obj) ? arrFrom(obj) : Object.assign({}, obj);
+    isArray(obj) ? arrFrom(obj) : objMerge({}, obj);
 
 export default objFrom;

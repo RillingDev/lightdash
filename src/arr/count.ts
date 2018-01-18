@@ -1,4 +1,5 @@
 import forEach from "../for/each";
+import { _Map } from "../constants";
 
 /**
  * Counts how many times an element appears in an array.
@@ -13,7 +14,7 @@ import forEach from "../for/each";
  * arrCount([1, 1, 2, 2, 1, 3, 4, 1])
  */
 const arrCount = <T>(arr: T[]): Map<T, number> => {
-    const result: Map<T, number> = new Map();
+    const result: Map<T, number> = new _Map();
 
     forEach(arr, val =>
         // @ts-ignore: .get() value will always be defined, as we check with .has() beforehand

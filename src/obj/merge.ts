@@ -1,3 +1,5 @@
+import { _Object } from "../constants";
+
 /**
  * Merges contents of two objects.
  *
@@ -13,6 +15,6 @@
  * // returns {a: 1, b: 2}
  * objMerge({a: 1}, {b: 2})
  */
-const objMerge = Object.assign;
+const objMerge = _Object.assign;
 
 export default objMerge;

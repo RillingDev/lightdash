@@ -1,3 +1,5 @@
+import { _Math } from "../constants";
+
 /**
  * Return a random float or integer number in the given range.
  *
@@ -21,9 +23,9 @@ const randomNumber = (
     const diff = max - min;
 
     if (diff !== 0) {
-        const rand = min + Math.random() * diff;
+        const rand = min + _Math.random() * diff;
 
-        return floating ? rand : Math.floor(rand / diff * (diff + 1));
+        return floating ? rand : _Math.floor(rand / diff * (diff + 1));
     } else {
         return min;
     }
