@@ -18,7 +18,7 @@ export default {
         json(),
         resolve(),
         typescript({
-            cacheRoot: "./.cache/ts"
+            cacheRoot: "./.cache/ts/iife"
         }),
         /* babel() */
     ]
