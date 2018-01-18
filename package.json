@@ -1,6 +1,6 @@
 {
     "name": "lightdash",
-    "version": "3.4.2",
+    "version": "3.4.3",
     "description": "An utility library designed to be lightweight",
     "main": "dist/lightdash.common.js",
     "module": "dist/lightdash.esm.js",
