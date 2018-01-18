@@ -13,12 +13,10 @@ import isDefined from "./is/defined";
 import isEmpty from "./is/empty";
 import isEqual from "./is/equal";
 import isError from "./is/error";
-import isFinite from "./is/finite";
 import isFunction from "./is/function";
 import isInstanceOf from "./is/instanceOf";
 import isInteger from "./is/integer";
 import isMap from "./is/map";
-import isNaN from "./is/nan";
 import isNil from "./is/nil";
 import isNumber from "./is/number";
 import isObject from "./is/object";
@@ -147,9 +145,7 @@ export {
     isArguments,
     isError,
     isEmpty,
-    isFinite,
     isInteger,
-    isNaN,
     hasKey,
     hasPath,
     hasOwnProperty,

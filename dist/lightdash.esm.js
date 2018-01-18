@@ -532,28 +532,6 @@ const isEqual = (a, b) => {
 const isError = (val) => isInstanceOf(val, Error);
 
 /**
- * Checks if a value is finite.
- *
- * `Number.isFinite` shorthand.
- *
- * @function isFinite
- * @memberof Is
- * @since 2.10.0
- * @param {any} val
- * @returns {boolean}
- * @example
- * // returns true
- * isFinite(1);
- * isFinite(-2.123);
- *
- * @example
- * // returns false
- * isFinite(Infinity);
- * isFinite("foo")
- */
-const isFinite = Number.isFinite;
-
-/**
  * Checks if a value is an integer.
  *
  * `Number.isInteger` shorthand.
@@ -592,28 +570,6 @@ const isInteger = Number.isInteger;
  * isMap([[1, 2]])
  */
 const isMap = (val) => isInstanceOf(val, Map);
-
-/**
- * Checks if a value is NaN.
- *
- * Unlike the global `isNaN()`, this function returns false for `undefined`.
- * `Number.isNaN` shorthand.
- *
- * @function isNaN
- * @memberof Is
- * @since 3.3.0
- * @param {any} val
- * @returns {boolean}
- * @example
- * // returns true
- * isNaN(NaN);
- *
- * @example
- * // returns false
- * isNaN(1);
- * isNaN(undefined);
- */
-const isNaN = Number.isNaN;
 
 /**
  * Checks if a value is a plain object.
@@ -1575,4 +1531,4 @@ const randomItem = (arr) => arr[randomNumber(0, arr.length - 1, false)];
  * @namespace Random
  */
 
-export { isEqual, isInstanceOf, isTypeOf, isUndefined, isDefined, isNil, isPrimitive, isNumber, isString, isBoolean, isSymbol, isObject, isObjectLike, isObjectPlain, isArray, isArrayLike, isArrayBuffer, isArrayTyped, isPromise, isMap, isSet, isDate, isRegExp, isFunction, isArguments, isError, isEmpty, isFinite, isInteger, isNaN, hasKey, hasPath, hasOwnProperty, getPath, forTimes, forEach, forEachDeep, forEachEntry, forEachEntryDeep, arrFrom, arrFromDeep, arrMapDeep, arrFlattenDeep, arrCompact, arrChunk, arrStep, arrRemoveIndex, arrRemoveItem, arrCount, arrDifference, arrIntersection, arrUniq, objFrom, objFromDeep, objMap, objMapDeep, objDefaults, objDefaultsDeep, objMerge, objDefineProperty, objKeys, objValues, objEntries, mapFromObject, fnThrottle, fnAttempt, fnCurry, numberInRange, numberClamp, randomNumber, randomItem };
+export { isEqual, isInstanceOf, isTypeOf, isUndefined, isDefined, isNil, isPrimitive, isNumber, isString, isBoolean, isSymbol, isObject, isObjectLike, isObjectPlain, isArray, isArrayLike, isArrayBuffer, isArrayTyped, isPromise, isMap, isSet, isDate, isRegExp, isFunction, isArguments, isError, isEmpty, isInteger, hasKey, hasPath, hasOwnProperty, getPath, forTimes, forEach, forEachDeep, forEachEntry, forEachEntryDeep, arrFrom, arrFromDeep, arrMapDeep, arrFlattenDeep, arrCompact, arrChunk, arrStep, arrRemoveIndex, arrRemoveItem, arrCount, arrDifference, arrIntersection, arrUniq, objFrom, objFromDeep, objMap, objMapDeep, objDefaults, objDefaultsDeep, objMerge, objDefineProperty, objKeys, objValues, objEntries, mapFromObject, fnThrottle, fnAttempt, fnCurry, numberInRange, numberClamp, randomNumber, randomItem };

@@ -536,28 +536,6 @@ const isEqual = (a, b) => {
 const isError = (val) => isInstanceOf(val, Error);
 
 /**
- * Checks if a value is finite.
- *
- * `Number.isFinite` shorthand.
- *
- * @function isFinite
- * @memberof Is
- * @since 2.10.0
- * @param {any} val
- * @returns {boolean}
- * @example
- * // returns true
- * isFinite(1);
- * isFinite(-2.123);
- *
- * @example
- * // returns false
- * isFinite(Infinity);
- * isFinite("foo")
- */
-const isFinite = Number.isFinite;
-
-/**
  * Checks if a value is an integer.
  *
  * `Number.isInteger` shorthand.
@@ -596,28 +574,6 @@ const isInteger = Number.isInteger;
  * isMap([[1, 2]])
  */
 const isMap = (val) => isInstanceOf(val, Map);
-
-/**
- * Checks if a value is NaN.
- *
- * Unlike the global `isNaN()`, this function returns false for `undefined`.
- * `Number.isNaN` shorthand.
- *
- * @function isNaN
- * @memberof Is
- * @since 3.3.0
- * @param {any} val
- * @returns {boolean}
- * @example
- * // returns true
- * isNaN(NaN);
- *
- * @example
- * // returns false
- * isNaN(1);
- * isNaN(undefined);
- */
-const isNaN = Number.isNaN;
 
 /**
  * Checks if a value is a plain object.
@@ -1606,9 +1562,7 @@ exports.isFunction = isFunction;
 exports.isArguments = isArguments;
 exports.isError = isError;
 exports.isEmpty = isEmpty;
-exports.isFinite = isFinite;
 exports.isInteger = isInteger;
-exports.isNaN = isNaN;
 exports.hasKey = hasKey;
 exports.hasPath = hasPath;
 exports.hasOwnProperty = hasOwnProperty;
