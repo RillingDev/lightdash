@@ -15,7 +15,7 @@
  * const fooThrottled = fnThrottle(foo, 500); // function that can only run every 500ms
  */
 const fnThrottle = (
-    fn: () => void,
+    fn: (...args: any[]) => any,
     timeout: number,
     immediate: boolean = false
 ) => {
@@ -27,7 +27,7 @@ const fnThrottle = (
     let canRun: boolean = immediate;
     let timer: number = immediate ? -1 : getTimer();
 
-    return function () {
+    return function() {
         if (canRun) {
             canRun = false;
             timer = getTimer();

@@ -19,5 +19,5 @@
  * fooCurried(1, 2)(3) //=> [1, 2, 3]
  * fooCurried(1, 2, 3) //=> [1, 2, 3]
  */
-declare const fnCurry: (fn: () => any, arity?: number) => any;
+declare const fnCurry: (fn: (...args: any[]) => any, arity?: number) => any;
 export default fnCurry;
