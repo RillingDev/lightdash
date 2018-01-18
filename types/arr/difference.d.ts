@@ -15,5 +15,5 @@
  * // returns [1, 3]
  * arrDifference([1, 2, 3], ["foo"], [2, 0, 2])
  */
-declare const arrDifference: (arr: any[], ...values: any[]) => any[];
+declare const arrDifference: <T>(arr: T[], ...values: any[]) => T[];
 export default arrDifference;

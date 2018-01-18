@@ -13,19 +13,10 @@
         "ecmaVersion": 8
     },
     "rules": {
-        "linebreak-style": [
-            "warn",
-            "unix"
-        ],
-        "quotes": [
-            "warn",
-            "double"
-        ],
-        "semi": [
-            "warn",
-            "always"
-        ],
+        "linebreak-style": ["warn", "unix"],
+        "quotes": ["warn", "double"],
+        "semi": ["warn", "always"],
         "no-console": "warn",
-        "indent": "warn"
+        "indent": "off"
     }
 }

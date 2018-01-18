@@ -15,5 +15,5 @@
  * // returns [2]
  * arrIntersection([1, 2, 3], ["foo"], [2, 0, 2])
  */
-declare const arrIntersection: (arr: any[], ...values: any[]) => any[];
+declare const arrIntersection: <T>(arr: T[], ...values: any[]) => T[];
 export default arrIntersection;
