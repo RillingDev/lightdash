@@ -15,7 +15,7 @@ import forEach from "../for/each";
 const arrCount = <T>(arr: T[]): Map<T, number> => {
     const result: Map<T, number> = new Map();
 
-    forEach(arr, (val: any) =>
+    forEach(arr, val =>
         // @ts-ignore: .get() value will always be defined, as we check with .has() beforehand
         result.set(val, result.has(val) ? result.get(val) + 1 : 1)
     );

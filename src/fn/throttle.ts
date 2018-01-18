@@ -24,8 +24,8 @@ const fnThrottle = (
             canRun = true;
             clearTimeout(timer);
         }, timeout);
-    let canRun: boolean = immediate;
-    let timer: number = immediate ? -1 : getTimer();
+    let canRun = immediate;
+    let timer = immediate ? -1 : getTimer();
 
     return function() {
         if (canRun) {

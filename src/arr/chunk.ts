@@ -17,11 +17,11 @@ import forTimes from "../for/times";
  * // returns [[1, 2, 3], [4, 5]]
  * arrChunk([1, 2, 3, 4, 5], 3)
  */
-const arrChunk = <T>(arr: T[], chunk: number): Array<Array<T>> => {
+const arrChunk = <T>(arr: T[], chunk: number): T[][] => {
     if (chunk < 1) {
         return [];
     } else {
-        const result: Array<Array<T>> = [];
+        const result: T[][] = [];
 
         forTimes(0, arr.length - 1, chunk, (index: number) => {
             result.push(arr.slice(index, index + chunk));

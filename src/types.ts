@@ -5,8 +5,8 @@ type forEachIterator = (
     arr: any[] | undefined
 ) => void;
 type forEachEntryIterator = (
-    val: any,
     key: any,
+    val: any,
     index: number,
     obj: object | undefined
 ) => void;

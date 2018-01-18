@@ -10,7 +10,7 @@ describe("objMapDeep", () => {
                 f: 1
             }
         };
-        const mapped = objMapDeep(input, val => val * 2);
+        const mapped = objMapDeep(input, (key, val) => val * 2);
 
         expect(mapped.a).toBe(2);
         expect(mapped.c[0]).toBe(2);

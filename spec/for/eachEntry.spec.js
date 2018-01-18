@@ -14,7 +14,7 @@ describe("forEachEntry", () => {
         };
         const result = [];
 
-        forEachEntry(input, (val, key, index, arr) => {
+        forEachEntry(input, (key, val) => {
             result.push(val);
         });
 

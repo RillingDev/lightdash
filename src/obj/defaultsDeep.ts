@@ -20,7 +20,7 @@ import objFrom from "./fromDeep";
 const objDefaultsDeep = (obj: IGenericObject, objDefault: object): object => {
     const result: IGenericObject = objFrom(obj);
 
-    forEachEntry(objDefault, (valDefault: any, keyDefault: string) => {
+    forEachEntry(objDefault, (keyDefault, valDefault) => {
         const valGiven = obj[keyDefault];
 
         if (isObjectLike(valDefault)) {

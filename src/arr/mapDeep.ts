@@ -16,7 +16,7 @@ import isArray from "../is/array";
  */
 const arrMapDeep = (arr: any[], fn: forEachIterator): any[] =>
     arr.map(
-        (val: any, index: number) =>
+        (val, index) =>
             isArray(val) ? arrMapDeep(val, fn) : fn(val, index, arr)
     );
 

@@ -25,7 +25,8 @@ const fnCurry = (fn: (...args: any[]) => any, arity: number = fn.length) => {
 
         return function() {
             const args: any[] = [...argsBase, ...arguments];
-            const result: () => any = args.length >= arity ? fn : resolver;
+            const result: (...args: any[]) => any =
+                args.length >= arity ? fn : resolver;
 
             return result(...args);
         };

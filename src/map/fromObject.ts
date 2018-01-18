@@ -12,6 +12,7 @@ import objEntries from "../obj/entries";
  * // returns Map{a: 1, b: 4, c: 5}
  * mapFromObject({a: 1, b: 4, c: 5})
  */
-const mapFromObject = (obj: object): Map<any, any> => new Map(objEntries(obj));
+const mapFromObject = (obj: object): Map<PropertyKey, any> =>
+    new Map(objEntries(obj));
 
 export default mapFromObject;

@@ -32,7 +32,7 @@ const isEqual = (a: any, b: any): boolean => {
     if (isObject(a) && isObject(b) && objKeys(a).length === objKeys(b).length) {
         let result = true;
 
-        forEachEntry(a, (aVal: any, key: string): void => {
+        forEachEntry(a, (key, aVal) => {
             // Only check if the comparison didn't fail already
             if (result === true) {
                 if (hasKey(b, key)) {

@@ -18,7 +18,7 @@ import forEach from "./each";
 const forEachDeep = <T>(arr: T[], fn: forEachIterator): void =>
     forEach(
         arr,
-        (val: T, index: number) =>
+        (val: T, index) =>
             isArray(val) ? forEachDeep(val, fn) : fn(val, index, arr)
     );
 

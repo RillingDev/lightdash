@@ -6,13 +6,15 @@ import { forTimesIterator } from "../types";
  *
  * @function forTimes
  * @memberof For
- * @param {number} n
+ * @param {number} start
+ * @param {number} max
+ * @param {number} increase
  * @param {function} fn fn(index: number)
  * @example
  * // returns a = [2, 4, 6, 8, 10]
  * const a = [];
  *
- * forTimes(1, index => a.push(index * 2))
+ * forTimes(1, 6, 1, index => a.push(index * 2))
  */
-declare const forTimes: (n: number, fn: forTimesIterator) => void;
+declare const forTimes: (start: number, max: number, increase: number, fn: forTimesIterator) => void;
 export default forTimes;

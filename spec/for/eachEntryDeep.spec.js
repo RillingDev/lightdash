@@ -16,7 +16,7 @@ describe("forEachEntryDeep", () => {
         };
         const result = [];
 
-        forEachEntryDeep(input, (val, index, arr) => {
+        forEachEntryDeep(input, (key, val) => {
             if (!isArray(val)) {
                 result.push(val);
             }

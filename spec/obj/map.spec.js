@@ -8,7 +8,7 @@ describe("objMap", () => {
                     a: 4,
                     b: 2
                 },
-                val => val * 2
+                (key, val) => val * 2
             )
         ).toEqual({
             a: 8,

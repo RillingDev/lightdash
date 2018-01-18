@@ -19,7 +19,7 @@ import objFrom from "./from";
 const objDefaults = (obj: IGenericObject, objDefault: object): object => {
     const result: IGenericObject = objFrom(obj);
 
-    forEachEntry(objDefault, (valDefault: any, keyDefault: string) => {
+    forEachEntry(objDefault, (keyDefault, valDefault) => {
         if (isNil(obj[keyDefault])) {
             result[keyDefault] = valDefault;
         }

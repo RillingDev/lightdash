@@ -439,16 +439,16 @@ const forEach = (arr, fn) => arr.forEach(fn);
  * @function forEachEntry
  * @memberof For
  * @param {object} obj
- * @param {function} fn fn(val: any, key: any, index: number, arr: any[])
+ * @param {function} fn fn(key: any, val: any, index: number, arr: any[])
  * @example
  * // returns a = {a: 0, b: 2}
  * const a = {a: 1, b: 2};
  *
- * forEachEntry(a, (val, key, index) => a[key] = val * index)
+ * forEachEntry(a, (key, val, index) => a[key] = val * index)
  */
 const forEachEntry = (obj, fn) => {
     forEach(objEntries(obj), (entry, index) => {
-        fn(entry[1], entry[0], index, obj);
+        fn(entry[0], entry[1], index, obj);
     });
 };
 
@@ -499,7 +499,7 @@ const isEqual = (a, b) => {
     }
     if (isObject(a) && isObject(b) && objKeys(a).length === objKeys(b).length) {
         let result = true;
-        forEachEntry(a, (aVal, key) => {
+        forEachEntry(a, (key, aVal) => {
             // Only check if the comparison didn't fail already
             if (result === true) {
                 if (hasKey(b, key)) {
@@ -855,16 +855,16 @@ const forEachDeep = (arr, fn) => forEach(arr, (val, index) => isArray(val) ? for
  * @function forEachEntryDeep
  * @memberof For
  * @param {object} obj
- * @param {function} fn fn(val: any, key: any, index: number, arr: any[])
+ * @param {function} fn fn(key: any, val: any, index: number, arr: any[])
  * @example
  * // returns {a: 0, b: {c: [0, 2]}}
  * const a = {a: 1, b: {c: [1, 2]}};
  *
- * forEachEntryDeep(a, (val, key, index, obj) => obj[key] = index * val)
+ * forEachEntryDeep(a, (key, val, index, obj) => obj[key] = index * val)
  */
-const forEachEntryDeep = (obj, fn) => forEachEntry(obj, (val, key, index) => isObjectLike(val)
+const forEachEntryDeep = (obj, fn) => forEachEntry(obj, (key, val, index) => isObjectLike(val)
     ? forEachEntryDeep(val, fn)
-    : fn(val, key, index, obj));
+    : fn(key, val, index, obj));
 
 /**
  * Execute a function n times
@@ -873,16 +873,18 @@ const forEachEntryDeep = (obj, fn) => forEachEntry(obj, (val, key, index) => isO
  *
  * @function forTimes
  * @memberof For
- * @param {number} n
+ * @param {number} start
+ * @param {number} max
+ * @param {number} increase
  * @param {function} fn fn(index: number)
  * @example
  * // returns a = [2, 4, 6, 8, 10]
  * const a = [];
  *
- * forTimes(1, index => a.push(index * 2))
+ * forTimes(1, 6, 1, index => a.push(index * 2))
  */
-const forTimes = (n, fn) => {
-    for (let index = 0; index <= n; index++) {
+const forTimes = (start, max, increase, fn) => {
+    for (let index = start; index <= max; index += increase) {
         fn(index);
     }
 };
@@ -945,7 +947,7 @@ const arrCompact = (arr) => arr.filter((val) => val);
  */
 const arrCount = (arr) => {
     const result = new Map();
-    forEach(arr, (val) => 
+    forEach(arr, val => 
     // @ts-ignore: .get() value will always be defined, as we check with .has() beforehand
     result.set(val, result.has(val) ? result.get(val) + 1 : 1));
     return result;
@@ -971,7 +973,7 @@ const arrCount = (arr) => {
 const arrDifference = (arr, ...values) => {
     const valuesCounted = arrCount([].concat(...values));
     // @ts-ignore: ts seems to pull the wrong data for arrCount
-    return arr.filter((item) => !valuesCounted.has(item));
+    return arr.filter(item => !valuesCounted.has(item));
 };
 
 /**
@@ -992,7 +994,7 @@ const arrDifference = (arr, ...values) => {
  */
 const arrFlattenDeep = (arr) => {
     const result = [];
-    forEach(arr, (val) => {
+    forEach(arr, val => {
         if (isArray(val)) {
             result.push(...arrFlattenDeep(val));
         }
@@ -1052,7 +1054,7 @@ const arrMapDeep = (arr, fn) => arr.map((val, index) => isArray(val) ? arrMapDee
  *
  * b[3][1][0] = 10;
  */
-const arrFromDeep = (arr) => arrMapDeep(arrFrom(arr), (val) => (isArray(val) ? arrFrom(val) : val));
+const arrFromDeep = (arr) => arrMapDeep(arrFrom(arr), val => (isArray(val) ? arrFrom(val) : val));
 
 /**
  * Returns an array of all elements that exist in the first array and at least once in one of the other arrays.
@@ -1074,7 +1076,7 @@ const arrFromDeep = (arr) => arrMapDeep(arrFrom(arr), (val) => (isArray(val) ? a
 const arrIntersection = (arr, ...values) => {
     const valuesCounted = arrCount([].concat(...values));
     // @ts-ignore: ts seems to pull the wrong data for arrCount
-    return arr.filter((item) => valuesCounted.has(item));
+    return arr.filter(item => valuesCounted.has(item));
 };
 
 /**
@@ -1200,7 +1202,7 @@ const objFrom = (obj) => isArray(obj) ? arrFrom(obj) : Object.assign({}, obj);
  */
 const objDefaults = (obj, objDefault) => {
     const result = objFrom(obj);
-    forEachEntry(objDefault, (valDefault, keyDefault) => {
+    forEachEntry(objDefault, (keyDefault, valDefault) => {
         if (isNil(obj[keyDefault])) {
             result[keyDefault] = valDefault;
         }
@@ -1215,16 +1217,16 @@ const objDefaults = (obj, objDefault) => {
  * @memberof Object
  * @since 1.0.0
  * @param {Object} obj
- * @param {function} fn fn(val: any, key: any, index: number, arr: any[])
+ * @param {function} fn fn(key: any, val: any, index: number, arr: any[])
  * @returns {Object}
  * @example
  * // returns a = {a: 8, b: 4}
- * objMap({a: 4, b: 2}, val => val * 2)
+ * objMap({a: 4, b: 2}, (key, val) => val * 2)
  */
 const objMap = (obj, fn) => {
     const objNew = objFrom(obj);
-    forEachEntry(objNew, (val, key, index) => {
-        objNew[key] = fn(val, key, index, objNew);
+    forEachEntry(objNew, (key, val, index) => {
+        objNew[key] = fn(key, val, index, objNew);
     });
     return objNew;
 };
@@ -1236,18 +1238,18 @@ const objMap = (obj, fn) => {
  * @memberof Object
  * @since 1.0.0
  * @param {Object} obj
- * @param {function} fn fn(val: any, key: any, index: number, arr: any[])
+ * @param {function} fn fn(key: any, val: any, index: number, arr: any[])
  * @returns {Object}
  * @example
  * // returns {a: {b: 4, c: [20, 40]}}
- * arrMapDeep({a: {b: 2, c: [10, 20]}}, val => val * 2)
+ * arrMapDeep({a: {b: 2, c: [10, 20]}}, (key, val) => val * 2)
  */
-const objMapDeep = (obj, fn) => objMap(obj, (val, key, index, objNew) => {
+const objMapDeep = (obj, fn) => objMap(obj, (key, val, index, objNew) => {
     if (isObjectLike(val)) {
         return objMapDeep(val, fn);
     }
     else {
-        return fn(val, key, index, objNew);
+        return fn(key, val, index, objNew);
     }
 });
 
@@ -1266,7 +1268,7 @@ const objMapDeep = (obj, fn) => objMap(obj, (val, key, index, objNew) => {
  *
  * b.a.c.a = 123;
  */
-const objFromDeep = (obj) => objMapDeep(objFrom(obj), (val) => (isObjectLike(val) ? objFrom(val) : val));
+const objFromDeep = (obj) => objMapDeep(objFrom(obj), (key, val) => (isObjectLike(val) ? objFrom(val) : val));
 
 /**
  * Recursively sets every nil property of object to the value from the default object.
@@ -1283,7 +1285,7 @@ const objFromDeep = (obj) => objMapDeep(objFrom(obj), (val) => (isObjectLike(val
  */
 const objDefaultsDeep = (obj, objDefault) => {
     const result = objFromDeep(obj);
-    forEachEntry(objDefault, (valDefault, keyDefault) => {
+    forEachEntry(objDefault, (keyDefault, valDefault) => {
         const valGiven = obj[keyDefault];
         if (isObjectLike(valDefault)) {
             result[keyDefault] = isObjectLike(valGiven)

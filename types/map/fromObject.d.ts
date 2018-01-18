@@ -10,5 +10,5 @@
  * // returns Map{a: 1, b: 4, c: 5}
  * mapFromObject({a: 1, b: 4, c: 5})
  */
-declare const mapFromObject: (obj: object) => Map<any, any>;
+declare const mapFromObject: (obj: object) => Map<PropertyKey, any>;
 export default mapFromObject;
