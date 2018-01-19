@@ -909,9 +909,7 @@ const arrCompact = (arr) => arr.filter((val) => val);
  */
 const arrCount = (arr) => {
     const result = new _Map();
-    forEach(arr, val => 
-    // @ts-ignore: .get() value will always be defined, as we check with .has() beforehand
-    result.set(val, result.has(val) ? result.get(val) + 1 : 1));
+    forEach(arr, val => result.set(val, result.has(val) ? result.get(val) + 1 : 1));
     return result;
 };
 

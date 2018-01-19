@@ -17,8 +17,7 @@ const arrCount = <T>(arr: T[]): Map<T, number> => {
     const result: Map<T, number> = new _Map();
 
     forEach(arr, val =>
-        // @ts-ignore: .get() value will always be defined, as we check with .has() beforehand
-        result.set(val, result.has(val) ? result.get(val) + 1 : 1)
+        result.set(val, result.has(val) ? <number>result.get(val) + 1 : 1)
     );
 
     return result;
