@@ -1,6 +1,6 @@
 {
     "name": "lightdash",
-    "version": "4.0.0",
+    "version": "v4.0.0",
     "description": "An utility library designed to be lightweight",
     "main": "dist/lightdash.common.js",
     "module": "dist/lightdash.esm.js",
@@ -48,7 +48,7 @@
         "@babel/plugin-external-helpers": "^7.0.0-beta.38",
         "@babel/preset-env": "^7.0.0-beta.38",
         "docdash": "git+https://github.com/clenemt/docdash.git",
-        "eslint": "^4.15.0",
+        "eslint": "^4.16.0",
         "jasmine": "^2.8.0",
         "jsdoc": "git+https://github.com/jsdoc3/jsdoc.git",
         "npm-run-all": "^4.1.2",
