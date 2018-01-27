@@ -15,11 +15,11 @@ import forEach from "./each";
  *
  * forEachDeep(a, (val, index, arr) => arr[index] = index * val)
  */
-const forEachDeep = <T>(arr: T[], fn: forEachIterator): void =>
+const forEachDeep = <T>(arr: T[], fn: forEachIterator<T>): void =>
     forEach(
         arr,
-        (val: T, index) =>
-            isArray(val) ? forEachDeep(val, fn) : fn(val, index, arr)
+        (val, index) =>
+            isArray(val) ? forEachDeep(<T[]>val, fn) : fn(<T>val, index, arr)
     );
 
 export default forEachDeep;

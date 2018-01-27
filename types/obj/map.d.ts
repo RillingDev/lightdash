@@ -1,4 +1,4 @@
-import { forEachEntryIterator } from "../types";
+import { forEachEntryMapper, IGenericObject } from "../types";
 /**
  * Maps each entry of an object and returns the result.
  *
@@ -12,5 +12,5 @@ import { forEachEntryIterator } from "../types";
  * // returns a = {a: 8, b: 4}
  * objMap({a: 4, b: 2}, (key, val) => val * 2)
  */
-declare const objMap: (obj: object, fn: forEachEntryIterator) => object;
+declare const objMap: <T>(obj: IGenericObject<T>, fn: forEachEntryMapper<T>) => IGenericObject<any>;
 export default objMap;

@@ -872,13 +872,11 @@ const arrChunk = (arr, chunk) => {
     if (chunk < 1) {
         return [];
     }
-    else {
-        const result = [];
-        forTimes(0, arr.length - 1, chunk, (index) => {
-            result.push(arr.slice(index, index + chunk));
-        });
-        return result;
-    }
+    const result = [];
+    forTimes(0, arr.length - 1, chunk, (index) => {
+        result.push(arr.slice(index, index + chunk));
+    });
+    return result;
 };
 
 /**

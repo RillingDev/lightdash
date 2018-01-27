@@ -1,4 +1,4 @@
-import { forEachEntryIterator } from "../types";
+import { forEachEntryIterator, IGenericObject } from "../types";
 import isObjectLike from "../is/objectLike";
 import forEachEntry from "./eachEntry";
 
@@ -15,12 +15,12 @@ import forEachEntry from "./eachEntry";
  *
  * forEachEntryDeep(a, (key, val, index, obj) => obj[key] = index * val)
  */
-const forEachEntryDeep = (obj: object, fn: forEachEntryIterator): void =>
+const forEachEntryDeep = <T>(obj: IGenericObject<T>, fn: forEachEntryIterator<T>): void =>
     forEachEntry(
         obj,
         (key, val, index) =>
             isObjectLike(val)
-                ? forEachEntryDeep(val, fn)
+                ? forEachEntryDeep(<IGenericObject<T>>val, fn)
                 : fn(key, val, index, obj)
     );
 

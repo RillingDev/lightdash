@@ -1,4 +1,4 @@
-import { forEachEntryIterator, IGenericObject } from "../types";
+import { forEachEntryMapper, IGenericObject } from "../types";
 import forEachEntry from "../for/eachEntry";
 import objFrom from "./from";
 
@@ -15,8 +15,8 @@ import objFrom from "./from";
  * // returns a = {a: 8, b: 4}
  * objMap({a: 4, b: 2}, (key, val) => val * 2)
  */
-const objMap = (obj: object, fn: forEachEntryIterator): object => {
-    const objNew: IGenericObject = objFrom(obj);
+const objMap = <T>(obj: IGenericObject<T>, fn: forEachEntryMapper<T>): IGenericObject<any> => {
+    const objNew = <IGenericObject<T>>objFrom(obj);
 
     forEachEntry(objNew, (key, val, index) => {
         objNew[key] = fn(key, val, index, objNew);

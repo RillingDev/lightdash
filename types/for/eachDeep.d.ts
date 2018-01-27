@@ -12,5 +12,5 @@ import { forEachIterator } from "../types";
  *
  * forEachDeep(a, (val, index, arr) => arr[index] = index * val)
  */
-declare const forEachDeep: <T>(arr: T[], fn: forEachIterator) => void;
+declare const forEachDeep: <T>(arr: T[], fn: forEachIterator<T>) => void;
 export default forEachDeep;

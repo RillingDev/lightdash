@@ -1,4 +1,4 @@
-import { forEachEntryIterator } from "../types";
+import { forEachEntryIterator, IGenericObject } from "../types";
 import isObjectLike from "../is/objectLike";
 import objMap from "./map";
 
@@ -15,10 +15,10 @@ import objMap from "./map";
  * // returns {a: {b: 4, c: [20, 40]}}
  * arrMapDeep({a: {b: 2, c: [10, 20]}}, (key, val) => val * 2)
  */
-const objMapDeep = (obj: object, fn: forEachEntryIterator): object =>
+const objMapDeep = <T>(obj: IGenericObject<T>, fn: forEachEntryIterator<T>): IGenericObject<any> =>
     objMap(obj, (key, val, index, objNew) => {
         if (isObjectLike(val)) {
-            return objMapDeep(val, fn);
+            return objMapDeep(<IGenericObject<T>>val, fn);
         } else {
             return fn(key, val, index, objNew);
         }

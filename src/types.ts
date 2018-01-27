@@ -1,30 +1,49 @@
 type forTimesIterator = (index: number) => void;
-type forEachIterator = (
-    val: any,
+
+
+type forEachIterator<T> = (
+    val: T | T[],
     index: number,
-    arr: any[] | undefined
-) => void;
-type forEachEntryIterator = (
-    key: any,
-    val: any,
-    index: number,
-    obj: object | undefined
+    arr: T[] | undefined
 ) => void;
 
-type entry = [string, any];
-type entries = entry[];
+type forEachMapper<T> = (
+    val: T | T[],
+    index: number,
+    arr: T[] | undefined
+) => any;
 
-interface IGenericObject {
-    [key: string]: any;
+type forEachEntryIterator<T> = (
+    key: PropertyKey,
+    val: T | IGenericObject<T>,
+    index: number,
+    obj: IGenericObject<T> | undefined
+) => void;
+
+type forEachEntryMapper<T> = (
+    key: PropertyKey,
+    val: T | IGenericObject<T>,
+    index: number,
+    obj: IGenericObject<T> | undefined
+) => any;
+
+type entry<T> = [PropertyKey, T | IGenericObject<T>];
+
+type entries<T> = entry<T>[];
+
+interface IGenericObject<T> {
+    [key: string]: T;
 }
 interface IGenericClass {
-    new (): any;
+    new(): any;
 }
 
 export {
     forTimesIterator,
     forEachIterator,
+    forEachMapper,
     forEachEntryIterator,
+    forEachEntryMapper,
     entry,
     entries,
     IGenericObject,

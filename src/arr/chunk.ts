@@ -20,15 +20,16 @@ import forTimes from "../for/times";
 const arrChunk = <T>(arr: T[], chunk: number): T[][] => {
     if (chunk < 1) {
         return [];
-    } else {
-        const result: T[][] = [];
-
-        forTimes(0, arr.length - 1, chunk, (index: number) => {
-            result.push(arr.slice(index, index + chunk));
-        });
-
-        return result;
     }
+
+    const result: T[][] = [];
+
+    forTimes(0, arr.length - 1, chunk, (index: number) => {
+        result.push(arr.slice(index, index + chunk));
+    });
+
+    return result;
+
 };
 
 export default arrChunk;
