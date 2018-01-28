@@ -1,6 +1,7 @@
 import arrFrom from "../arr/from";
 import isArray from "../is/array";
 import objMerge from "../obj/merge";
+import { IGenericObject } from "../interfaces";
 
 /**
  * Creates a new object with the entries of the input object.
@@ -17,7 +18,9 @@ import objMerge from "../obj/merge";
  *
  * b.a = 10;
  */
-const objFrom = (obj: object): object =>
-    isArray(obj) ? arrFrom(obj) : objMerge({}, obj);
+const objFrom = <T>(obj: IGenericObject<T> | T[]): IGenericObject<T> | T[] =>
+    isArray(obj) ?
+        arrFrom(obj) :
+        objMerge({}, obj);
 
 export default objFrom;

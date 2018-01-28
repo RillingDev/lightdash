@@ -1,4 +1,4 @@
-import { forEachEntryIterator } from "../types";
+import { forEachEntryMapper, nestedObj, nestedObjItem } from "../types";
 import { IGenericObject } from "../interfaces";
 import isObjectLike from "../is/objectLike";
 import objMap from "./map";
@@ -16,13 +16,12 @@ import objMap from "./map";
  * // returns {a: {b: 4, c: [20, 40]}}
  * arrMapDeep({a: {b: 2, c: [10, 20]}}, (key, val) => val * 2)
  */
-const objMapDeep = <T>(obj: IGenericObject<T>, fn: forEachEntryIterator<T>): IGenericObject<any> =>
-    objMap(obj, (key, val, index, objNew) => {
-        if (isObjectLike(val)) {
-            return objMapDeep(<IGenericObject<T>>val, fn);
-        } else {
-            return fn(key, val, index, objNew);
-        }
-    });
+const objMapDeep = <T, U>(obj: nestedObj<T>, fn: forEachEntryMapper<nestedObjItem<T>, nestedObjItem<U>>): nestedObj<U> =>
+    objMap(obj,
+        (key, val, index) =>
+            isObjectLike(val) ?
+                <IGenericObject<U>>objMapDeep(<IGenericObject<T>>val, fn) :
+                <U>fn(key, <T>val, index, obj)
+    );
 
 export default objMapDeep;

@@ -72,6 +72,17 @@ import arrUniq from "./arr/uniq";
  * Object manipulation and analysis
  * @namespace Object
  */
+import objKeys from "./obj/keys";
+import objValues from "./obj/values";
+import objEntries from "./obj/entries";
+import objMap from "./obj/map";
+import objMapDeep from "./obj/mapDeep";
+import objFrom from "./obj/from";
+import objFromDeep from "./obj/fromDeep";
+import objMerge from "./obj/merge";
+import objDefaults from "./obj/defaults";
+import objDefaultsDeep from "./obj/defaultsDeep";
+import objDefineProperty from "./obj/defineProperty";
 /**
  * Map manipulation and analysis
  * @namespace Map
@@ -96,4 +107,4 @@ import numberInRange from "./number/inRange";
  */
 import randomItem from "./random/item";
 import randomNumber from "./random/number";
-export { isEqual, isInstanceOf, isTypeOf, isUndefined, isDefined, isNil, isPrimitive, isNumber, isString, isBoolean, isSymbol, isObject, isObjectLike, isObjectPlain, isArray, isArrayLike, isArrayBuffer, isArrayTyped, isPromise, isMap, isSet, isDate, isRegExp, isFunction, isArguments, isError, isEmpty, isInteger, hasKey, hasPath, hasOwnProperty, getPath, forTimes, forEach, forEachDeep, forEachEntry, forEachEntryDeep, arrFrom, arrFromDeep, arrMapDeep, arrFlattenDeep, arrCompact, arrChunk, arrStep, arrRemoveIndex, arrRemoveItem, arrCount, arrDifference, arrIntersection, arrUniq, mapFromObject, fnThrottle, fnAttempt, fnCurry, numberInRange, numberClamp, randomNumber, randomItem };
+export { isEqual, isInstanceOf, isTypeOf, isUndefined, isDefined, isNil, isPrimitive, isNumber, isString, isBoolean, isSymbol, isObject, isObjectLike, isObjectPlain, isArray, isArrayLike, isArrayBuffer, isArrayTyped, isPromise, isMap, isSet, isDate, isRegExp, isFunction, isArguments, isError, isEmpty, isInteger, hasKey, hasPath, hasOwnProperty, getPath, forTimes, forEach, forEachDeep, forEachEntry, forEachEntryDeep, arrFrom, arrFromDeep, arrMapDeep, arrFlattenDeep, arrCompact, arrChunk, arrStep, arrRemoveIndex, arrRemoveItem, arrCount, arrDifference, arrIntersection, arrUniq, objFrom, objFromDeep, objMap, objMapDeep, objDefaults, objDefaultsDeep, objMerge, objDefineProperty, objKeys, objValues, objEntries, mapFromObject, fnThrottle, fnAttempt, fnCurry, numberInRange, numberClamp, randomNumber, randomItem };

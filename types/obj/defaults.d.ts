@@ -1,3 +1,4 @@
+import { IGenericObject } from "../interfaces";
 /**
  * Sets every nil property of object to the value from the default object.
  *
@@ -11,5 +12,5 @@
  * // returns a = {a: 1, b: 2, c: 5}
  * objDefaults({a: 1, c: 5}, {a: 1, b: 2, c: 3})
  */
-declare const objDefaults: (obj: any, objDefault: object) => object;
+declare const objDefaults: <T>(obj: IGenericObject<T>, objDefault: IGenericObject<T>) => IGenericObject<T>;
 export default objDefaults;

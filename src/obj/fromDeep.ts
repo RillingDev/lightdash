@@ -1,6 +1,8 @@
 import isObjectLike from "../is/objectLike";
 import objFrom from "./from";
 import objMapDeep from "./mapDeep";
+import { IGenericObject } from "../interfaces";
+import { nestedObj } from "../types";
 
 /**
  * Deeply creates a new object with the entries of the input object.
@@ -17,10 +19,13 @@ import objMapDeep from "./mapDeep";
  *
  * b.a.c.a = 123;
  */
-const objFromDeep = (obj: object): object =>
+const objFromDeep = <T>(obj: nestedObj<T>): nestedObj<T> =>
     objMapDeep(
-        objFrom(obj),
-        (key, val) => (isObjectLike(val) ? objFrom(val) : val)
+        <IGenericObject<T>>objFrom(obj),
+        (key, val) =>
+            isObjectLike(val) ?
+                <IGenericObject<T>>objFrom(<IGenericObject<T>>val) :
+                <T>val
     );
 
 export default objFromDeep;

@@ -1,4 +1,4 @@
-import { forEachMapper } from "../types";
+import { forEachMapper, nestedArr, nestedArrItem } from "../types";
 import isArray from "../is/array";
 
 /**
@@ -14,10 +14,12 @@ import isArray from "../is/array";
  * // returns [4, 8, [2, 2, [32], 8]]
  * arrMapDeep([2, 4, [1, 1, [16], 4]], val => val * 2)
  */
-const arrMapDeep = <T>(arr: T[], fn: forEachMapper<T>): any[] =>
+const arrMapDeep = <T, U>(arr: nestedArr<T>, fn: forEachMapper<nestedArrItem<T>, nestedArrItem<U>>): nestedArr<U> =>
     arr.map(
         (val, index) =>
-            isArray(val) ? arrMapDeep(val, fn) : fn(val, index, arr)
+            isArray(val) ?
+                <U[]>arrMapDeep(val, fn) :
+                <U>fn(val, index, arr)
     );
 
 export default arrMapDeep;

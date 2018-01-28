@@ -1,3 +1,4 @@
+import { IGenericObject } from "../interfaces";
 /**
  * Creates a new object with the entries of the input object.
  *
@@ -13,5 +14,5 @@
  *
  * b.a = 10;
  */
-declare const objFrom: (obj: object) => object;
+declare const objFrom: <T>(obj: IGenericObject<T> | T[]) => IGenericObject<T> | T[];
 export default objFrom;

@@ -45,6 +45,11 @@ type nestedObjItem<T> = T | IGenericObject<T>
 
 type nestedObj<T> = IGenericObject<nestedObjItem<T>>;
 
+
+type nestedMixedItem<T> = T | IGenericObject<T> | T[];
+
+type nestedMixed<T> = IGenericObject<nestedMixedItem<T>> | nestedMixedItem<T>[];
+
 export {
     forTimesIterator,
     forEachIterator,
@@ -56,5 +61,7 @@ export {
     nestedArrItem,
     nestedArr,
     nestedObjItem,
-    nestedObj
+    nestedObj,
+    nestedMixedItem,
+    nestedMixed
 };

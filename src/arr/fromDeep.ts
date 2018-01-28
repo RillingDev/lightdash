@@ -1,6 +1,7 @@
 import isArray from "../is/array";
 import arrFrom from "./from";
 import arrMapDeep from "./mapDeep";
+import { nestedArr } from "../types";
 
 /**
  * Recursively creates a new array with the values of the input iterable.
@@ -17,7 +18,7 @@ import arrMapDeep from "./mapDeep";
  *
  * b[3][1][0] = 10;
  */
-const arrFromDeep = <T>(arr: T[]): T[] =>
-    arrMapDeep(arrFrom(arr), val => (isArray(val) ? arrFrom(val) : val));
+const arrFromDeep = <T>(arr: nestedArr<T>): nestedArr<T> =>
+    arrMapDeep(arrFrom(arr), val => isArray(val) ? arrFrom(val) : val);
 
 export default arrFromDeep;
