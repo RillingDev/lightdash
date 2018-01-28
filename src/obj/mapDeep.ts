@@ -16,12 +16,12 @@ import objMap from "./map";
  * // returns {a: {b: 4, c: [20, 40]}}
  * arrMapDeep({a: {b: 2, c: [10, 20]}}, (key, val) => val * 2)
  */
-const objMapDeep = <T, U>(obj: nestedObj<T>, fn: forEachEntryMapper<nestedObjItem<T>, nestedObjItem<U>>): nestedObj<U> =>
+const objMapDeep = (obj: IGenericObject<any>, fn: forEachEntryMapper<any, any>): IGenericObject<any> =>
     objMap(obj,
-        (key, val, index) =>
+        (key, val, index, objNew) =>
             isObjectLike(val) ?
-                <IGenericObject<U>>objMapDeep(<IGenericObject<T>>val, fn) :
-                <U>fn(key, <T>val, index, obj)
+                objMapDeep(val, fn) :
+                fn(key, val, index, objNew)
     );
 
 export default objMapDeep;

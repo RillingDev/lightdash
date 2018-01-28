@@ -18,9 +18,6 @@ import isArray from "../is/array";
  *
  * b.a = 10;
  */
-const objFrom = (obj: IGenericObject<any>): IGenericObject<any> =>
-    isArray(obj) ?
-        arrFrom(obj) :
-        objMerge({}, obj);
+const objFrom = <T>(obj: IGenericObject<T>): IGenericObject<T> => objMerge({}, obj);
 
 export default objFrom;

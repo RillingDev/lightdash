@@ -21,7 +21,10 @@ import { IGenericObject } from "../interfaces";
 const objFromDeep = (obj: IGenericObject<any>): IGenericObject<any> =>
     objMapDeep(
         objFrom(obj),
-        (key, val) => (isObjectLike(val) ? objFrom(val) : val)
+        (key, val) =>
+            isObjectLike(val) ?
+                objFrom(val) :
+                val
     );
 
 export default objFromDeep;

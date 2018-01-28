@@ -1,6 +1,7 @@
 import { forEachEntryMapper, nestedObj, nestedObjItem } from "../types";
 import { IGenericObject } from "../interfaces";
 import forEachEntry from "../for/eachEntry";
+import objFrom from "./from";
 
 /**
  * Maps each entry of an object and returns the result.

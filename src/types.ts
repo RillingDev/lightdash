@@ -31,11 +31,6 @@ type forEachEntryMapper<T, U> = (
 ) => U;
 
 
-type entry<T> = [string, nestedObjItem<T>];
-
-type entries<T> = entry<T>[];
-
-
 type nestedArrItem<T> = T | T[];
 
 type nestedArr<T> = nestedArrItem<T>[];
@@ -46,22 +41,14 @@ type nestedObjItem<T> = T | IGenericObject<T>
 type nestedObj<T> = IGenericObject<nestedObjItem<T>>;
 
 
-type nestedMixedItem<T> = T | IGenericObject<T> | T[];
-
-type nestedMixed<T> = IGenericObject<nestedMixedItem<T>> | nestedMixedItem<T>[];
-
 export {
     forTimesIterator,
     forEachIterator,
     forEachMapper,
     forEachEntryIterator,
     forEachEntryMapper,
-    entry,
-    entries,
     nestedArrItem,
     nestedArr,
-    nestedObjItem,
     nestedObj,
-    nestedMixedItem,
-    nestedMixed
+    nestedObjItem
 };

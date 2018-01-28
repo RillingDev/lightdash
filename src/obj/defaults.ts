@@ -2,6 +2,8 @@ import { IGenericObject } from "../interfaces";
 import forEachEntry from "../for/eachEntry";
 import hasKey from "../has/key";
 import objFrom from "./from";
+import isArray from "../is/array";
+import arrFrom from "../arr/from";
 
 /**
  * Sets every nil property of object to the value from the default object.
@@ -17,10 +19,10 @@ import objFrom from "./from";
  * objDefaults({a: 1, c: 5}, {a: 1, b: 2, c: 3})
  */
 const objDefaults = (obj: IGenericObject<any>, objDefault: IGenericObject<any>): IGenericObject<any> => {
-    const result = objFrom(obj);
+    const result = isArray(obj) ? arrFrom(obj) : objFrom(obj);
 
     forEachEntry(objDefault, (keyDefault, valDefault) => {
-        if (hasKey(obj, keyDefault)) {
+        if (!hasKey(obj, keyDefault)) {
             result[keyDefault] = valDefault;
         }
     });
