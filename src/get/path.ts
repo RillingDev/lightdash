@@ -24,12 +24,12 @@ const getPath = (target: any, path: string[]): any | null => {
     while (isDefined(targetCurrent) && index < path.length) {
         const keyCurrent = path[index];
 
-        if (hasKey(targetCurrent, keyCurrent)) {
-            targetCurrent = targetCurrent[keyCurrent];
-            index++;
-        } else {
+        if (!hasKey(targetCurrent, keyCurrent)) {
             return null;
         }
+
+        targetCurrent = targetCurrent[keyCurrent];
+        index++;
     }
 
     return targetCurrent;

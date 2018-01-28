@@ -18,9 +18,9 @@ const numberClamp = (val: number, min: number, max: number): number => {
         return min;
     } else if (val > max) {
         return max;
-    } else {
-        return val;
     }
+
+    return val;
 };
 
 export default numberClamp;

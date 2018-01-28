@@ -764,13 +764,11 @@ const getPath = (target, path) => {
     let index = 0;
     while (isDefined(targetCurrent) && index < path.length) {
         const keyCurrent = path[index];
-        if (hasKey(targetCurrent, keyCurrent)) {
-            targetCurrent = targetCurrent[keyCurrent];
-            index++;
-        }
-        else {
+        if (!hasKey(targetCurrent, keyCurrent)) {
             return null;
         }
+        targetCurrent = targetCurrent[keyCurrent];
+        index++;
     }
     return targetCurrent;
 };
@@ -812,7 +810,9 @@ const hasPath = (target, path) => !isNil(getPath(target, path));
  *
  * forEachDeep(a, (val, index, arr) => arr[index] = index * val)
  */
-const forEachDeep = (arr, fn) => forEach(arr, (val, index) => isArray(val) ? forEachDeep(val, fn) : fn(val, index, arr));
+const forEachDeep = (arr, fn) => forEach(arr, (val, index) => isArray(val) ?
+    forEachDeep(val, fn) :
+    fn(val, index, arr));
 
 /**
  * Recursively iterates over each entry of an object
@@ -1081,14 +1081,12 @@ const numberInRange = (val, min, max) => val >= min && val <= max;
  * arrRemoveIndex(["foo", "bar", "fizz"], 1)
  */
 const arrRemoveIndex = (arr, index) => {
-    if (numberInRange(index, 0, arr.length - 1)) {
-        return index === 0
-            ? arr.slice(1)
-            : arr.slice(0, index).concat(arr.slice(index + 1));
-    }
-    else {
+    if (!numberInRange(index, 0, arr.length - 1)) {
         return arr;
     }
+    return index === 0
+        ? arr.slice(1)
+        : arr.slice(0, index).concat(arr.slice(index + 1));
 };
 
 /**
@@ -1104,7 +1102,9 @@ const arrRemoveIndex = (arr, index) => {
  * // returns ["foo", "fizz"]
  * arrRemoveItem(["foo", "bar", "fizz"], "bar")
  */
-const arrRemoveItem = (arr, item) => arr.includes(item) ? arrRemoveIndex(arr, arr.indexOf(item)) : arr;
+const arrRemoveItem = (arr, item) => arr.includes(item) ?
+    arrRemoveIndex(arr, arr.indexOf(item)) :
+    arr;
 
 /**
  * Returns a new array with every n-th item from the input array.
@@ -1394,7 +1394,9 @@ const fnCurry = (fn, arity = fn.length) => {
         const argsBase = arguments;
         return function () {
             const args = [...argsBase, ...arguments];
-            const result = args.length >= arity ? fn : resolver;
+            const result = args.length >= arity ?
+                fn :
+                resolver;
             return result(...args);
         };
     };
@@ -1456,9 +1458,7 @@ const numberClamp = (val, min, max) => {
     else if (val > max) {
         return max;
     }
-    else {
-        return val;
-    }
+    return val;
 };
 
 /**
@@ -1478,13 +1478,11 @@ const numberClamp = (val, min, max) => {
  */
 const randomNumber = (min = 0, max = 1, floating = true) => {
     const diff = max - min;
-    if (diff !== 0) {
-        const rand = min + _Math.random() * diff;
-        return floating ? rand : _Math.floor(rand / diff * (diff + 1));
-    }
-    else {
+    if (diff === 0) {
         return min;
     }
+    const rand = min + _Math.random() * diff;
+    return floating ? rand : _Math.floor(rand / diff * (diff + 1));
 };
 
 /**

@@ -14,13 +14,13 @@ import numberInRange from "../number/inRange";
  * arrRemoveIndex(["foo", "bar", "fizz"], 1)
  */
 const arrRemoveIndex = <T>(arr: T[], index: number): T[] => {
-    if (numberInRange(index, 0, arr.length - 1)) {
-        return index === 0
-            ? arr.slice(1)
-            : arr.slice(0, index).concat(arr.slice(index + 1));
-    } else {
+    if (!numberInRange(index, 0, arr.length - 1)) {
         return arr;
     }
+
+    return index === 0
+        ? arr.slice(1)
+        : arr.slice(0, index).concat(arr.slice(index + 1));
 };
 
 export default arrRemoveIndex;

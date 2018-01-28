@@ -22,13 +22,13 @@ const randomNumber = (
 ): number => {
     const diff = max - min;
 
-    if (diff !== 0) {
-        const rand = min + _Math.random() * diff;
-
-        return floating ? rand : _Math.floor(rand / diff * (diff + 1));
-    } else {
+    if (diff === 0) {
         return min;
     }
+
+    const rand = min + _Math.random() * diff;
+
+    return floating ? rand : _Math.floor(rand / diff * (diff + 1));
 };
 
 export default randomNumber;

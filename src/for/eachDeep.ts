@@ -19,7 +19,9 @@ const forEachDeep = <T>(arr: nestedArr<T>, fn: forEachIterator<nestedArrItem<T>>
     forEach(
         arr,
         (val, index) =>
-            isArray(val) ? forEachDeep(<T[]>val, fn) : fn(<T>val, index, arr)
+            isArray(val) ?
+                forEachDeep(<T[]>val, fn) :
+                fn(<T>val, index, arr)
     );
 
 export default forEachDeep;
