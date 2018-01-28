@@ -1017,7 +1017,9 @@ const arrMapDeep = (arr, fn) => arr.map((val, index) => isArray(val) ?
  *
  * b[3][1][0] = 10;
  */
-const arrFromDeep = (arr) => arrMapDeep(arrFrom(arr), val => isArray(val) ? arrFrom(val) : val);
+const arrFromDeep = (arr) => arrMapDeep(arrFrom(arr), val => isArray(val) ?
+    arrFrom(val) :
+    val);
 
 /**
  * Returns an array of all elements that exist in the first array and at least once in one of the other arrays.
@@ -1238,9 +1240,7 @@ const objFrom = (obj) => isArray(obj) ?
  *
  * b.a.c.a = 123;
  */
-const objFromDeep = (obj) => objMapDeep(objFrom(obj), (key, val) => isObjectLike(val) ?
-    objFrom(val) :
-    val);
+const objFromDeep = (obj) => objMapDeep(objFrom(obj), (key, val) => (isObjectLike(val) ? objFrom(val) : val));
 
 /**
  * Sets every nil property of object to the value from the default object.
@@ -1258,7 +1258,7 @@ const objFromDeep = (obj) => objMapDeep(objFrom(obj), (key, val) => isObjectLike
 const objDefaults = (obj, objDefault) => {
     const result = objFrom(obj);
     forEachEntry(objDefault, (keyDefault, valDefault) => {
-        if (!hasKey(obj, keyDefault)) {
+        if (hasKey(obj, keyDefault)) {
             result[keyDefault] = valDefault;
         }
     });
@@ -1283,10 +1283,9 @@ const objDefaultsDeep = (obj, objDefault) => {
     forEachEntry(objDefault, (keyDefault, valDefault) => {
         const valGiven = obj[keyDefault];
         if (isObjectLike(valDefault)) {
-            // @ts-ignore: @todo
-            result[keyDefault] = isObjectLike(valGiven) ?
-                objDefaultsDeep(valGiven, valDefault) :
-                valDefault;
+            result[keyDefault] = isObjectLike(valGiven)
+                ? objDefaultsDeep(valGiven, valDefault)
+                : valDefault;
         }
         else {
             result[keyDefault] = isUndefined(valGiven) ? valDefault : valGiven;

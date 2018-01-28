@@ -1,5 +1,4 @@
 import { IGenericObject } from "../interfaces";
-import { nestedObj } from "../types";
 import forEachEntry from "../for/eachEntry";
 import hasKey from "../has/key";
 import objFrom from "./from";
@@ -17,11 +16,11 @@ import objFrom from "./from";
  * // returns a = {a: 1, b: 2, c: 5}
  * objDefaults({a: 1, c: 5}, {a: 1, b: 2, c: 3})
  */
-const objDefaults = <T>(obj: IGenericObject<T>, objDefault: IGenericObject<T>): IGenericObject<T> => {
-    const result = <IGenericObject<T>>objFrom(obj);
+const objDefaults = (obj: IGenericObject<any>, objDefault: IGenericObject<any>): IGenericObject<any> => {
+    const result = objFrom(obj);
 
     forEachEntry(objDefault, (keyDefault, valDefault) => {
-        if (!hasKey(obj, keyDefault)) {
+        if (hasKey(obj, keyDefault)) {
             result[keyDefault] = valDefault;
         }
     });

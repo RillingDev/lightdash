@@ -14,5 +14,5 @@ import { IGenericObject } from "../interfaces";
  *
  * b.a.c.a = 123;
  */
-declare const objFromDeep: <T>(obj: IGenericObject<T | IGenericObject<T>>) => IGenericObject<T | IGenericObject<T>>;
+declare const objFromDeep: (obj: IGenericObject<any>) => IGenericObject<any>;
 export default objFromDeep;

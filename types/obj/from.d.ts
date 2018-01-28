@@ -14,5 +14,5 @@ import { IGenericObject } from "../interfaces";
  *
  * b.a = 10;
  */
-declare const objFrom: <T>(obj: IGenericObject<T> | T[]) => IGenericObject<T> | T[];
+declare const objFrom: (obj: IGenericObject<any>) => IGenericObject<any>;
 export default objFrom;

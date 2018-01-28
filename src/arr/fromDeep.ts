@@ -19,6 +19,12 @@ import { nestedArr } from "../types";
  * b[3][1][0] = 10;
  */
 const arrFromDeep = <T>(arr: nestedArr<T>): nestedArr<T> =>
-    arrMapDeep(arrFrom(arr), val => isArray(val) ? arrFrom(val) : val);
+    arrMapDeep(
+        arrFrom(arr),
+        val =>
+            isArray(val) ?
+                arrFrom(val) :
+                val
+    );
 
 export default arrFromDeep;
