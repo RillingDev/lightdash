@@ -453,7 +453,7 @@ const forEach = (arr, fn) => arr.forEach(fn);
  * forEachEntry(a, (key, val, index) => a[key] = val * index)
  */
 const forEachEntry = (obj, fn) => {
-    forEach(objEntries(obj), (entry, index) => {
+    forEach((objEntries(obj)), (entry, index) => {
         fn(entry[0], entry[1], index, obj);
     });
 };
@@ -1129,195 +1129,6 @@ const arrStep = (arr, step) => arr.filter((val, index) => index % step === 0);
 const arrUniq = (arr) => arrFrom(new _Set(arr));
 
 /**
- * Merges contents of two objects.
- *
- * `Object.assign` shorthand.
- *
- * @function objMerge
- * @memberof Object
- * @since 2.7.0
- * @param {Object} obj
- * @param {Object} objSecondary
- * @returns {Object}
- * @example
- * // returns {a: 1, b: 2}
- * objMerge({a: 1}, {b: 2})
- */
-const objMerge = _Object.assign;
-
-/**
- * Creates a new object with the entries of the input object.
- *
- * @function objFrom
- * @memberof Object
- * @since 1.0.0
- * @param {object} obj
- * @returns {object}
- * @example
- * // returns a = {a: 4, b: 2}, b = {a: 10, b: 2}
- * const a = {a: 4, b: 2};
- * const b = objFrom(a);
- *
- * b.a = 10;
- */
-const objFrom = (obj) => isArray(obj) ? arrFrom(obj) : objMerge({}, obj);
-
-/**
- * Sets every nil property of object to the value from the default object.
- *
- * @function objDefaults
- * @memberof Object
- * @since 2.6.0
- * @param {Object} obj
- * @param {Object} objDefault
- * @returns {Object}
- * @example
- * // returns a = {a: 1, b: 2, c: 5}
- * objDefaults({a: 1, c: 5}, {a: 1, b: 2, c: 3})
- */
-const objDefaults = (obj, objDefault) => {
-    const result = objFrom(obj);
-    forEachEntry(objDefault, (keyDefault, valDefault) => {
-        if (isNil(obj[keyDefault])) {
-            result[keyDefault] = valDefault;
-        }
-    });
-    return result;
-};
-
-/**
- * Maps each entry of an object and returns the result.
- *
- * @function objMap
- * @memberof Object
- * @since 1.0.0
- * @param {Object} obj
- * @param {function} fn fn(key: any, val: any, index: number, arr: any[])
- * @returns {Object}
- * @example
- * // returns a = {a: 8, b: 4}
- * objMap({a: 4, b: 2}, (key, val) => val * 2)
- */
-const objMap = (obj, fn) => {
-    const objNew = objFrom(obj);
-    forEachEntry(objNew, (key, val, index) => {
-        objNew[key] = fn(key, val, index, objNew);
-    });
-    return objNew;
-};
-
-/**
- * Recursively maps each entry of an object and returns the result.
- *
- * @function objMapDeep
- * @memberof Object
- * @since 1.0.0
- * @param {Object} obj
- * @param {function} fn fn(key: any, val: any, index: number, arr: any[])
- * @returns {Object}
- * @example
- * // returns {a: {b: 4, c: [20, 40]}}
- * arrMapDeep({a: {b: 2, c: [10, 20]}}, (key, val) => val * 2)
- */
-const objMapDeep = (obj, fn) => objMap(obj, (key, val, index, objNew) => {
-    if (isObjectLike(val)) {
-        return objMapDeep(val, fn);
-    }
-    else {
-        return fn(key, val, index, objNew);
-    }
-});
-
-/**
- * Deeply creates a new object with the entries of the input object.
- *
- * @function objFromDeep
- * @memberof Object
- * @since 1.0.0
- * @param {Object} obj
- * @returns {Object}
- * @example
- * // returns a = {a: {b: 2, c: {a: 10, b: 20}}, b = {a: {b: 2, c: {a: 123, b: 20}}}
- * const a = {a: {b: 2, c: {a: 10, b: 20}}};
- * const b = objFromDeep(a);
- *
- * b.a.c.a = 123;
- */
-const objFromDeep = (obj) => objMapDeep(objFrom(obj), (key, val) => (isObjectLike(val) ? objFrom(val) : val));
-
-/**
- * Recursively sets every nil property of object to the value from the default object.
- *
- * @function objDefaultsDeep
- * @memberof Object
- * @since 2.7.0
- * @param {Object} obj
- * @param {Object} objDefault
- * @returns {Object}
- * @example
- * // returns a = {a: [1, 2, 3], b: 2, c: {f: "x"}}
- * objDefaultsDeep({a: [1, 2], c: {f: "x"}}, {a: [1, 2, 3], b: 2, c: {f: "y"}})
- */
-const objDefaultsDeep = (obj, objDefault) => {
-    const result = objFromDeep(obj);
-    forEachEntry(objDefault, (keyDefault, valDefault) => {
-        const valGiven = obj[keyDefault];
-        if (isObjectLike(valDefault)) {
-            result[keyDefault] = isObjectLike(valGiven)
-                ? objDefaultsDeep(valGiven, valDefault)
-                : valDefault;
-        }
-        else {
-            result[keyDefault] = isNil(valGiven) ? valDefault : valGiven;
-        }
-    });
-    return result;
-};
-
-/**
- * Adds a property to an object with optional custom flags.
- *
- * `Object.defineProperty` shorthand.
- *
- * @function objDefineProperty
- * @memberof Object
- * @since 2.8.0
- * @param {Object} obj
- * @param {string} key
- * @param {any} val
- * @param {boolean} [enumerable=true]
- * @param {boolean} [writable=true]
- * @param {boolean} [configurable=true]
- * @returns {Object}
- * @example
- * // returns a = {"foo": 1}
- * const a={};
- * objDefineProperty(a, "foo", 1)
- */
-const objDefineProperty = (obj, key, val, enumerable = true, writable = true, configurable = true) => _Object.defineProperty(obj, key, {
-    value: val,
-    enumerable,
-    writable,
-    configurable
-});
-
-/**
- * Returns an array of the objects values.
- *
- * `Object.values` shorthand.
- *
- * @function objValues
- * @memberof Object
- * @since 1.0.0
- * @param {Object} obj
- * @returns {any[]}
- * @example
- * // returns [1, 2, 3]
- * objValues({a: 1, b: 2, c: 3})
- */
-const objValues = _Object.values;
-
-/**
  * Creates a map from an object.
  *
  * @function mapFromObject
@@ -1520,6 +1331,17 @@ const randomItem = (arr) => arr[randomNumber(0, arr.length - 1, false)];
  * Object manipulation and analysis
  * @namespace Object
  */
+/* import objDefaults from "./obj/defaults";
+import objDefaultsDeep from "./obj/defaultsDeep";
+import objDefineProperty from "./obj/defineProperty";
+import objEntries from "./obj/entries";
+import objFrom from "./obj/from";
+import objFromDeep from "./obj/fromDeep";
+import objKeys from "./obj/keys";
+import objMap from "./obj/map";
+import objMapDeep from "./obj/mapDeep";
+import objMerge from "./obj/merge";
+import objValues from "./obj/values"; */
 /**
  * Map manipulation and analysis
  * @namespace Map
@@ -1537,4 +1359,4 @@ const randomItem = (arr) => arr[randomNumber(0, arr.length - 1, false)];
  * @namespace Random
  */
 
-export { isEqual, isInstanceOf, isTypeOf, isUndefined, isDefined, isNil, isPrimitive, isNumber, isString, isBoolean, isSymbol, isObject, isObjectLike, isObjectPlain, isArray, isArrayLike, isArrayBuffer, isArrayTyped, isPromise, isMap, isSet, isDate, isRegExp, isFunction, isArguments, isError, isEmpty, isInteger, hasKey, hasPath, hasOwnProperty, getPath, forTimes, forEach, forEachDeep, forEachEntry, forEachEntryDeep, arrFrom, arrFromDeep, arrMapDeep, arrFlattenDeep, arrCompact, arrChunk, arrStep, arrRemoveIndex, arrRemoveItem, arrCount, arrDifference, arrIntersection, arrUniq, objFrom, objFromDeep, objMap, objMapDeep, objDefaults, objDefaultsDeep, objMerge, objDefineProperty, objKeys, objValues, objEntries, mapFromObject, fnThrottle, fnAttempt, fnCurry, numberInRange, numberClamp, randomNumber, randomItem };
+export { isEqual, isInstanceOf, isTypeOf, isUndefined, isDefined, isNil, isPrimitive, isNumber, isString, isBoolean, isSymbol, isObject, isObjectLike, isObjectPlain, isArray, isArrayLike, isArrayBuffer, isArrayTyped, isPromise, isMap, isSet, isDate, isRegExp, isFunction, isArguments, isError, isEmpty, isInteger, hasKey, hasPath, hasOwnProperty, getPath, forTimes, forEach, forEachDeep, forEachEntry, forEachEntryDeep, arrFrom, arrFromDeep, arrMapDeep, arrFlattenDeep, arrCompact, arrChunk, arrStep, arrRemoveIndex, arrRemoveItem, arrCount, arrDifference, arrIntersection, arrUniq, mapFromObject, fnThrottle, fnAttempt, fnCurry, numberInRange, numberClamp, randomNumber, randomItem };

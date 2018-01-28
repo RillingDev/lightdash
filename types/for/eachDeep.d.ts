@@ -1,4 +1,4 @@
-import { forEachIterator } from "../types";
+import { forEachIterator, nestedArrItem } from "../types";
 /**
  * Recursively iterates over each element in an array
  *
@@ -12,5 +12,5 @@ import { forEachIterator } from "../types";
  *
  * forEachDeep(a, (val, index, arr) => arr[index] = index * val)
  */
-declare const forEachDeep: <T>(arr: T[], fn: forEachIterator<T>) => void;
+declare const forEachDeep: <T>(arr: nestedArrItem<T>[], fn: forEachIterator<nestedArrItem<T>>) => void;
 export default forEachDeep;

@@ -1,4 +1,4 @@
-import { IGenericClass } from "../types";
+import { IGenericClass } from "../interfaces";
 /**
  * Checks if the value is an instance of a target constructor.
  *

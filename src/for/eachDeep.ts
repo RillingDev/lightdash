@@ -1,4 +1,4 @@
-import { forEachIterator } from "../types";
+import { forEachIterator, nestedArr, nestedArrItem } from "../types";
 import isArray from "../is/array";
 import forEach from "./each";
 
@@ -15,7 +15,7 @@ import forEach from "./each";
  *
  * forEachDeep(a, (val, index, arr) => arr[index] = index * val)
  */
-const forEachDeep = <T>(arr: T[], fn: forEachIterator<T>): void =>
+const forEachDeep = <T>(arr: nestedArr<T>, fn: forEachIterator<nestedArrItem<T>>): void =>
     forEach(
         arr,
         (val, index) =>

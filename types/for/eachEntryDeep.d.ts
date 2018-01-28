@@ -1,4 +1,5 @@
-import { forEachEntryIterator, IGenericObject } from "../types";
+import { forEachEntryIterator, nestedObjItem } from "../types";
+import { IGenericObject } from "../interfaces";
 /**
  * Recursively iterates over each entry of an object
  *
@@ -12,5 +13,5 @@ import { forEachEntryIterator, IGenericObject } from "../types";
  *
  * forEachEntryDeep(a, (key, val, index, obj) => obj[key] = index * val)
  */
-declare const forEachEntryDeep: <T>(obj: IGenericObject<T>, fn: forEachEntryIterator<T>) => void;
+declare const forEachEntryDeep: <T>(obj: IGenericObject<nestedObjItem<T>>, fn: forEachEntryIterator<nestedObjItem<T>>) => void;
 export default forEachEntryDeep;

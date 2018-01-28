@@ -1,42 +1,49 @@
+import { IGenericObject } from "./interfaces";
+
 type forTimesIterator = (index: number) => void;
 
 
 type forEachIterator<T> = (
-    val: T | T[],
+    val: T,
     index: number,
-    arr: T[] | undefined
+    arr: T[]
 ) => void;
 
-type forEachMapper<T> = (
-    val: T | T[],
+type forEachMapper<T, U> = (
+    val: T,
     index: number,
-    arr: T[] | undefined
-) => any;
+    arr: T[]
+) => U;
+
 
 type forEachEntryIterator<T> = (
-    key: PropertyKey,
-    val: T | IGenericObject<T>,
+    key: string,
+    val: T,
     index: number,
-    obj: IGenericObject<T> | undefined
+    obj: IGenericObject<T>
 ) => void;
 
-type forEachEntryMapper<T> = (
-    key: PropertyKey,
-    val: T | IGenericObject<T>,
+type forEachEntryMapper<T, U> = (
+    key: string,
+    val: T,
     index: number,
-    obj: IGenericObject<T> | undefined
-) => any;
+    obj: IGenericObject<T>
+) => U;
 
-type entry<T> = [PropertyKey, T | IGenericObject<T>];
+
+type entry<T> = [string, nestedObjItem<T>];
 
 type entries<T> = entry<T>[];
 
-interface IGenericObject<T> {
-    [key: string]: T;
-}
-interface IGenericClass {
-    new(): any;
-}
+
+type nestedArrItem<T> = T | T[];
+
+type nestedArr<T> = nestedArrItem<T>[];
+
+
+type nestedObjItem<T> = T | IGenericObject<T>
+
+type nestedObj<T> = IGenericObject<nestedObjItem<T>>;
 
 export {
     forTimesIterator,
@@ -46,6 +53,8 @@ export {
     forEachEntryMapper,
     entry,
     entries,
-    IGenericObject,
-    IGenericClass
+    nestedArrItem,
+    nestedArr,
+    nestedObjItem,
+    nestedObj
 };

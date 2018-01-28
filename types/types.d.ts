@@ -1,12 +1,11 @@
+import { IGenericObject } from "./interfaces";
 declare type forTimesIterator = (index: number) => void;
-declare type forEachIterator = (val: any, index: number, arr: any[] | undefined) => void;
-declare type forEachEntryIterator = (key: any, val: any, index: number, obj: object | undefined) => void;
-declare type entry = [string, any];
-declare type entries = entry[];
-interface IGenericObject {
-    [key: string]: any;
-}
-interface IGenericClass {
-    new (): any;
-}
-export { forTimesIterator, forEachIterator, forEachEntryIterator, entry, entries, IGenericObject, IGenericClass };
+declare type forEachIterator<T> = (val: T, index: number, arr: T[]) => void;
+declare type forEachMapper<T, U> = (val: T, index: number, arr: T[]) => U;
+declare type forEachEntryIterator<T> = (key: string, val: T, index: number, obj: IGenericObject<T>) => void;
+declare type forEachEntryMapper<T, U> = (key: string, val: T, index: number, obj: IGenericObject<T>) => U;
+declare type entry<T> = [string, T];
+declare type entries<T> = entry<T>[];
+declare type nestedArr<T> = T | T[];
+declare type nestedObj<T> = T | IGenericObject<T>;
+export { forTimesIterator, forEachIterator, forEachMapper, forEachEntryIterator, forEachEntryMapper, entry, entries, nestedArr, nestedObj };

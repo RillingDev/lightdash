@@ -1,4 +1,5 @@
-import { forEachEntryIterator, IGenericObject } from "../types";
+import { forEachEntryIterator } from "../types";
+import { IGenericObject } from "../interfaces";
 import isObjectLike from "../is/objectLike";
 import objMap from "./map";
 

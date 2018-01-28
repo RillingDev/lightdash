@@ -1,4 +1,5 @@
-import { entries, forEachEntryIterator, IGenericObject } from "../types";
+import { forEachEntryIterator } from "../types";
+import { IGenericObject } from "../interfaces";
 import objEntries from "../obj/entries";
 import forEach from "./each";
 
@@ -16,8 +17,8 @@ import forEach from "./each";
  * forEachEntry(a, (key, val, index) => a[key] = val * index)
  */
 const forEachEntry = <T>(obj: IGenericObject<T>, fn: forEachEntryIterator<T>): void => {
-    forEach((<entries<T>>objEntries(obj)), (entry, index) => {
-        fn(<string>entry[0], <T>entry[1], index, obj);
+    forEach((objEntries(obj)), (entry, index) => {
+        fn(entry[0], entry[1], index, obj);
     });
 };
 

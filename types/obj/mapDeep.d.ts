@@ -1,4 +1,5 @@
-import { forEachEntryIterator, IGenericObject } from "../types";
+import { forEachEntryIterator } from "../types";
+import { IGenericObject } from "../interfaces";
 /**
  * Recursively maps each entry of an object and returns the result.
  *
