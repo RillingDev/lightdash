@@ -17,7 +17,7 @@ import isDefined from "../is/defined";
  * getPath([4, 6, 8], ["1"]);                           //=> 6
  * getPath({a: {b: 2, c: [10, 20]}}, ["a", "c", "0"]);  //=> 10
  */
-const getPath = (target: any, path: string[]): any | null => {
+const getPath = (target: any, path: string[]): any => {
     let targetCurrent = target;
     let index = 0;
 

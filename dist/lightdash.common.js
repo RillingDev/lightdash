@@ -405,9 +405,7 @@ const isEmpty = (val) => {
     else if (isObjectLike(val)) {
         return objKeys(val).length === 0;
     }
-    else {
-        return true;
-    }
+    return true;
 };
 
 /**

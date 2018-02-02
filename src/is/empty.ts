@@ -38,9 +38,9 @@ const isEmpty = (val: any): boolean => {
         return val.size === 0;
     } else if (isObjectLike(val)) {
         return objKeys(val).length === 0;
-    } else {
-        return true;
     }
+
+    return true;
 };
 
 export default isEmpty;
