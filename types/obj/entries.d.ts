@@ -15,9 +15,7 @@
 declare const objEntries: {
     <T>(o: {
         [s: string]: T;
-    } | {
-        [n: number]: T;
-    }): [string, T][];
-    (o: any): [string, any][];
+    } | ArrayLike<T>): [string, T][];
+    (o: {}): [string, any][];
 };
 export default objEntries;

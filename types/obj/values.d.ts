@@ -15,9 +15,7 @@
 declare const objValues: {
     <T>(o: {
         [s: string]: T;
-    } | {
-        [n: number]: T;
-    }): T[];
-    (o: any): any[];
+    } | ArrayLike<T>): T[];
+    (o: {}): any[];
 };
 export default objValues;

@@ -44,22 +44,22 @@
     "homepage": "https://github.com/FelixRilling/lightdash#readme",
     "dependencies": {},
     "devDependencies": {
-        "@babel/core": "^7.0.0-beta.38",
-        "@babel/plugin-external-helpers": "^7.0.0-beta.38",
-        "@babel/preset-env": "^7.0.0-beta.38",
+        "@babel/core": "^7.0.0-beta.39",
+        "@babel/plugin-external-helpers": "^7.0.0-beta.39",
+        "@babel/preset-env": "^7.0.0-beta.39",
         "docdash": "git+https://github.com/clenemt/docdash.git",
         "eslint": "^4.16.0",
         "jasmine": "^2.9.0",
         "jsdoc": "git+https://github.com/jsdoc3/jsdoc.git",
         "npm-run-all": "^4.1.2",
-        "rollup": "^0.55.1",
-        "rollup-plugin-babel": "^4.0.0-beta.0",
+        "rollup": "^0.55.3",
+        "rollup-plugin-babel": "^4.0.0-beta.1",
         "rollup-plugin-json": "^2.3.0",
         "rollup-plugin-node-resolve": "^3.0.2",
-        "rollup-plugin-typescript2": "^0.10.0",
+        "rollup-plugin-typescript2": "^0.11.0",
         "rollup-plugin-uglify-es": "0.0.1",
-        "typescript": "^2.6.2",
+        "typescript": "^2.7.1",
         "typescript-eslint-parser": "^12.0.0",
-        "uglify-es": "^3.3.8"
+        "uglify-es": "^3.3.9"
     }
 }
