@@ -15,6 +15,6 @@ import { forEachIterator } from "../types";
  *
  * forEach(a, (val, index)=>a[index] = val * index)
  */
-const forEach = <T>(arr: T[], fn: forEachIterator<T>): void => arr.forEach(fn);
+const forEach = (arr: any[], fn: forEachIterator<any>): void => arr.forEach(fn);
 
 export default forEach;

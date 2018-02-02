@@ -1,7 +1,6 @@
 import isObjectLike from "../is/objectLike";
 import objFrom from "./from";
 import objMapDeep from "./mapDeep";
-import { IGenericObject } from "../interfaces";
 
 /**
  * Deeply creates a new object with the entries of the input object.
@@ -18,7 +17,7 @@ import { IGenericObject } from "../interfaces";
  *
  * b.a.c.a = 123;
  */
-const objFromDeep = (obj: IGenericObject<any>): IGenericObject<any> =>
+const objFromDeep = (obj: object): object =>
     objMapDeep(
         objFrom(obj),
         (key, val) =>

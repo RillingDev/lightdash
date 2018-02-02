@@ -1,5 +1,4 @@
 import { forEachEntryMapper } from "../types";
-import { IGenericObject } from "../interfaces";
 /**
  * Recursively maps each entry of an object and returns the result.
  *
@@ -13,5 +12,5 @@ import { IGenericObject } from "../interfaces";
  * // returns {a: {b: 4, c: [20, 40]}}
  * arrMapDeep({a: {b: 2, c: [10, 20]}}, (key, val) => val * 2)
  */
-declare const objMapDeep: (obj: IGenericObject<any>, fn: forEachEntryMapper<any, any>) => IGenericObject<any>;
+declare const objMapDeep: (obj: object, fn: forEachEntryMapper<any, any>) => object;
 export default objMapDeep;

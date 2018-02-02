@@ -1,4 +1,3 @@
-import { IGenericObject } from "../interfaces";
 /**
  * Deeply creates a new object with the entries of the input object.
  *
@@ -14,5 +13,5 @@ import { IGenericObject } from "../interfaces";
  *
  * b.a.c.a = 123;
  */
-declare const objFromDeep: (obj: IGenericObject<any>) => IGenericObject<any>;
+declare const objFromDeep: (obj: object) => object;
 export default objFromDeep;

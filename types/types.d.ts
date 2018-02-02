@@ -1,11 +1,13 @@
-import { IGenericObject } from "./interfaces";
 declare type forTimesIterator = (index: number) => void;
 declare type forEachIterator<T> = (val: T, index: number, arr: T[]) => void;
 declare type forEachMapper<T, U> = (val: T, index: number, arr: T[]) => U;
-declare type forEachEntryIterator<T> = (key: string, val: T, index: number, obj: IGenericObject<T>) => void;
-declare type forEachEntryMapper<T, U> = (key: string, val: T, index: number, obj: IGenericObject<T>) => U;
-declare type nestedArrItem<T> = T | T[];
-declare type nestedArr<T> = nestedArrItem<T>[];
-declare type nestedObjItem<T> = T | IGenericObject<T>;
-declare type nestedObj<T> = IGenericObject<nestedObjItem<T>>;
-export { forTimesIterator, forEachIterator, forEachMapper, forEachEntryIterator, forEachEntryMapper, nestedArrItem, nestedArr, nestedObj, nestedObjItem };
+declare type forEachEntryIterator<T> = (key: string, val: T, index: number, obj: {
+    [key: PropertyKey]: T;
+}) => void;
+declare type forEachEntryMapper<T, U> = (key: string, val: T, index: number, obj: {
+    [key: PropertyKey]: T;
+}) => U;
+declare type objectStringKeyed = {
+    [key: string]: any;
+};
+export { forTimesIterator, forEachIterator, forEachMapper, forEachEntryIterator, forEachEntryMapper, objectStringKeyed };

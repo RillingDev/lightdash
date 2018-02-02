@@ -1,5 +1,3 @@
-import { IGenericObject } from "./interfaces";
-
 type forTimesIterator = (index: number) => void;
 
 
@@ -20,26 +18,18 @@ type forEachEntryIterator<T> = (
     key: string,
     val: T,
     index: number,
-    obj: IGenericObject<T>
+    obj: { [key: PropertyKey]: T }
 ) => void;
 
 type forEachEntryMapper<T, U> = (
     key: string,
     val: T,
     index: number,
-    obj: IGenericObject<T>
+    obj: { [key: PropertyKey]: T }
 ) => U;
 
 
-type nestedArrItem<T> = T | T[];
-
-type nestedArr<T> = nestedArrItem<T>[];
-
-
-type nestedObjItem<T> = T | IGenericObject<T>
-
-type nestedObj<T> = IGenericObject<nestedObjItem<T>>;
-
+type objectStringKeyed = { [key: string]: any };
 
 export {
     forTimesIterator,
@@ -47,8 +37,5 @@ export {
     forEachMapper,
     forEachEntryIterator,
     forEachEntryMapper,
-    nestedArrItem,
-    nestedArr,
-    nestedObj,
-    nestedObjItem
+    objectStringKeyed
 };

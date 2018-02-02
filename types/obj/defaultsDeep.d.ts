@@ -1,4 +1,3 @@
-import { IGenericObject } from "../interfaces";
 /**
  * Recursively sets every nil property of object to the value from the default object.
  *
@@ -12,5 +11,5 @@ import { IGenericObject } from "../interfaces";
  * // returns a = {a: [1, 2, 3], b: 2, c: {f: "x"}}
  * objDefaultsDeep({a: [1, 2], c: {f: "x"}}, {a: [1, 2, 3], b: 2, c: {f: "y"}})
  */
-declare const objDefaultsDeep: (obj: IGenericObject<any>, objDefault: IGenericObject<any>) => IGenericObject<any>;
+declare const objDefaultsDeep: (obj: object, objDefault: object) => object;
 export default objDefaultsDeep;

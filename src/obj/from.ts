@@ -1,5 +1,4 @@
 import objMerge from "../obj/merge";
-import { IGenericObject } from "../interfaces";
 import arrFrom from "../arr/from";
 import isArray from "../is/array";
 
@@ -18,6 +17,6 @@ import isArray from "../is/array";
  *
  * b.a = 10;
  */
-const objFrom = <T>(obj: IGenericObject<T>): IGenericObject<T> => objMerge({}, obj);
+const objFrom = (obj: object): object => objMerge({}, obj);
 
 export default objFrom;

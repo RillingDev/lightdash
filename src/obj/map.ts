@@ -1,5 +1,4 @@
-import { forEachEntryMapper, nestedObj, nestedObjItem } from "../types";
-import { IGenericObject } from "../interfaces";
+import { forEachEntryMapper, objectStringKeyed } from "../types";
 import forEachEntry from "../for/eachEntry";
 import objFrom from "./from";
 
@@ -16,8 +15,8 @@ import objFrom from "./from";
  * // returns a = {a: 8, b: 4}
  * objMap({a: 4, b: 2}, (key, val) => val * 2)
  */
-const objMap = <T, U>(obj: IGenericObject<T>, fn: forEachEntryMapper<T, U>): IGenericObject<U> => {
-    const objNew: IGenericObject<U> = {};
+const objMap = (obj: object, fn: forEachEntryMapper<any, any>): object => {
+    const objNew: objectStringKeyed = {};
 
     forEachEntry(obj, (key, val, index) => {
         objNew[key] = fn(key, val, index, obj);

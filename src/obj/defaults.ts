@@ -1,9 +1,9 @@
-import { IGenericObject } from "../interfaces";
 import forEachEntry from "../for/eachEntry";
 import hasKey from "../has/key";
 import objFrom from "./from";
 import isArray from "../is/array";
 import arrFrom from "../arr/from";
+import { objectStringKeyed } from "../types"
 
 /**
  * Sets every nil property of object to the value from the default object.
@@ -18,8 +18,8 @@ import arrFrom from "../arr/from";
  * // returns a = {a: 1, b: 2, c: 5}
  * objDefaults({a: 1, c: 5}, {a: 1, b: 2, c: 3})
  */
-const objDefaults = (obj: IGenericObject<any>, objDefault: IGenericObject<any>): IGenericObject<any> => {
-    const result = isArray(obj) ? arrFrom(obj) : objFrom(obj);
+const objDefaults = (obj: object, objDefault: object): object => {
+    const result: objectStringKeyed = isArray(obj) ? arrFrom(obj) : objFrom(obj);
 
     forEachEntry(objDefault, (keyDefault, valDefault) => {
         if (!hasKey(obj, keyDefault)) {

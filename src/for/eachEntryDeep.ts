@@ -1,5 +1,4 @@
-import { forEachEntryIterator, nestedObj, nestedObjItem } from "../types";
-import { IGenericObject } from "../interfaces";
+import { forEachEntryIterator } from "../types";
 import isObjectLike from "../is/objectLike";
 import forEachEntry from "./eachEntry";
 
@@ -16,13 +15,13 @@ import forEachEntry from "./eachEntry";
  *
  * forEachEntryDeep(a, (key, val, index, obj) => obj[key] = index * val)
  */
-const forEachEntryDeep = <T>(obj: nestedObj<T>, fn: forEachEntryIterator<nestedObjItem<T>>): void =>
+const forEachEntryDeep = (obj: object, fn: forEachEntryIterator<any>): void =>
     forEachEntry(
         obj,
         (key, val, index) =>
             isObjectLike(val)
-                ? forEachEntryDeep(<nestedObj<T>>val, fn)
-                : fn(key, <T>val, index, obj)
+                ? forEachEntryDeep(val, fn)
+                : fn(key, val, index, obj)
     );
 
 export default forEachEntryDeep;

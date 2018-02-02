@@ -1,4 +1,4 @@
-import { forEachMapper, nestedArrItem } from "../types";
+import { forEachMapper } from "../types";
 /**
  * Recursively maps the values of the input array with the iterator function and return the result.
  *
@@ -12,5 +12,5 @@ import { forEachMapper, nestedArrItem } from "../types";
  * // returns [4, 8, [2, 2, [32], 8]]
  * arrMapDeep([2, 4, [1, 1, [16], 4]], val => val * 2)
  */
-declare const arrMapDeep: <T, U>(arr: nestedArrItem<T>[], fn: forEachMapper<nestedArrItem<T>, nestedArrItem<U>>) => nestedArrItem<U>[];
+declare const arrMapDeep: (arr: any[], fn: forEachMapper<any, any>) => any[];
 export default arrMapDeep;
