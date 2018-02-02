@@ -14,5 +14,5 @@
  * // returns [1, 2, 3, 5, 6, 6]
  * arrFlattenDeep([1, 2, [3, [[[5]]], [6, [6]]])
  */
-declare const arrFlattenDeep: <T>(arr: T[]) => T[];
+declare const arrFlattenDeep: (arr: any[]) => any[];
 export default arrFlattenDeep;

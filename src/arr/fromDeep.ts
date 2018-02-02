@@ -18,7 +18,7 @@ import { nestedArr } from "../types";
  *
  * b[3][1][0] = 10;
  */
-const arrFromDeep = <T>(arr: nestedArr<T>): nestedArr<T> =>
+const arrFromDeep = (arr: any[]): any[] =>
     arrMapDeep(
         arrFrom(arr),
         val =>
