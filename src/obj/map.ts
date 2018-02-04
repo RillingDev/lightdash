@@ -1,5 +1,5 @@
-import { forEachEntryMapper, objectStringKeyed } from "../types";
 import forEachEntry from "../for/eachEntry";
+import { forEachEntryMapper, objectStringKeyed } from "../types";
 import objFrom from "./from";
 
 /**

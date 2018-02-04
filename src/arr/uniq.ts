@@ -1,5 +1,5 @@
-import arrFrom from "./from";
 import { _Set } from "../constants";
+import arrFrom from "./from";
 
 /**
  * Returns an array of all unique elements in an array.

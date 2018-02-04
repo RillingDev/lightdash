@@ -1,9 +1,5 @@
 {
     "editor.formatOnSave": true,
-    "eslint.autoFixOnSave": true,
-    "eslint.validate": [
-        "javascript",
-        "javascriptreact",
-        "typescript"
-    ]
+    "tslint.autoFixOnSave": true,
+    "eslint.autoFixOnSave": true
 }

@@ -1,5 +1,4 @@
 {
-    "parser": "typescript-eslint-parser",
     "extends": "eslint:recommended",
     "plugins": [],
     "env": {
@@ -13,10 +12,23 @@
         "ecmaVersion": 8
     },
     "rules": {
-        "linebreak-style": ["warn", "unix"],
-        "quotes": ["warn", "double"],
-        "semi": ["warn", "always"],
-        "no-console": "warn",
-        "indent": "off"
+        "getter-return": 2,
+        "no-prototype-builtins": 2,
+        "no-template-curly-in-string": 2,
+        "no-console": 1,
+
+        "block-scoped-var": 2,
+        "eqeqeq": 2,
+        "no-alert": 1,
+        "no-else-return": 2,
+        "no-eval": 1,
+        "no-extend-native": 2,
+        "no-extra-bind": 2,
+        "no-extra-label": 2,
+        "no-param-reassign": 2,
+        "no-proto": 2,
+        "no-unused-expressions": 2,
+        "no-with": 2,
+        "prefer-promise-reject-errors": 2
     }
 }

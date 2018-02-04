@@ -1,5 +1,5 @@
-import { forEachEntryIterator } from "../types";
 import isObjectLike from "../is/objectLike";
+import { forEachEntryIterator } from "../types";
 import forEachEntry from "./eachEntry";
 
 /**

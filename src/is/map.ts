@@ -1,5 +1,5 @@
-import isInstanceOf from "./instanceOf";
 import { _Map } from "../constants";
+import isInstanceOf from "./instanceOf";
 
 /**
  * Checks if a value is a map.

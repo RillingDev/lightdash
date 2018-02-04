@@ -20,15 +20,15 @@
  * fooCurried(1, 2, 3) //=> [1, 2, 3]
  */
 const fnCurry = (fn: (...args: any[]) => any, arity: number = fn.length) => {
-    const resolver: (...args: any[]) => any = function () {
+    // tslint:disable-next-line
+    const resolver: (...args: any[]) => any = function() {
         const argsBase: IArguments = arguments;
 
-        return function () {
+        // tslint:disable-next-line
+        return function() {
             const args: any[] = [...argsBase, ...arguments];
             const result: (...args: any[]) => any =
-                args.length >= arity ?
-                    fn :
-                    resolver;
+                args.length >= arity ? fn : resolver;
 
             return result(...args);
         };

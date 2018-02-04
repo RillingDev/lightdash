@@ -1,5 +1,5 @@
-import objEntries from "../obj/entries";
 import { _Map } from "../constants";
+import objEntries from "../obj/entries";
 
 /**
  * Creates a map from an object.

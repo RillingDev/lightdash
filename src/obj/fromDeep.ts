@@ -20,10 +20,7 @@ import objMapDeep from "./mapDeep";
 const objFromDeep = (obj: object): object =>
     objMapDeep(
         objFrom(obj),
-        (key, val) =>
-            isObjectLike(val) ?
-                objFrom(val) :
-                val
+        (key, val) => (isObjectLike(val) ? objFrom(val) : val)
     );
 
 export default objFromDeep;

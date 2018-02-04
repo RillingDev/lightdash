@@ -1,6 +1,6 @@
-import objMerge from "../obj/merge";
 import arrFrom from "../arr/from";
 import isArray from "../is/array";
+import objMerge from "../obj/merge";
 
 /**
  * Creates a new object with the entries of the input object.

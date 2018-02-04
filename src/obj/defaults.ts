@@ -1,9 +1,9 @@
+import arrFrom from "../arr/from";
 import forEachEntry from "../for/eachEntry";
 import hasKey from "../has/key";
-import objFrom from "./from";
 import isArray from "../is/array";
-import arrFrom from "../arr/from";
-import { objectStringKeyed } from "../types"
+import { objectStringKeyed } from "../types";
+import objFrom from "./from";
 
 /**
  * Sets every nil property of object to the value from the default object.
@@ -19,7 +19,9 @@ import { objectStringKeyed } from "../types"
  * objDefaults({a: 1, c: 5}, {a: 1, b: 2, c: 3})
  */
 const objDefaults = (obj: object, objDefault: object): object => {
-    const result: objectStringKeyed = isArray(obj) ? arrFrom(obj) : objFrom(obj);
+    const result: objectStringKeyed = isArray(obj)
+        ? arrFrom(obj)
+        : objFrom(obj);
 
     forEachEntry(objDefault, (keyDefault, valDefault) => {
         if (!hasKey(obj, keyDefault)) {

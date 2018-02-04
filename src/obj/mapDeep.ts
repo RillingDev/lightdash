@@ -1,5 +1,5 @@
-import { forEachEntryMapper } from "../types";
 import isObjectLike from "../is/objectLike";
+import { forEachEntryMapper } from "../types";
 import objMap from "./map";
 
 /**
@@ -16,11 +16,12 @@ import objMap from "./map";
  * arrMapDeep({a: {b: 2, c: [10, 20]}}, (key, val) => val * 2)
  */
 const objMapDeep = (obj: object, fn: forEachEntryMapper<any, any>): object =>
-    objMap(obj,
+    objMap(
+        obj,
         (key, val, index, objNew) =>
-            isObjectLike(val) ?
-                objMapDeep(val, fn) :
-                fn(key, val, index, objNew)
+            isObjectLike(val)
+                ? objMapDeep(val, fn)
+                : fn(key, val, index, objNew)
     );
 
 export default objMapDeep;

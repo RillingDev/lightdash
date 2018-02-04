@@ -1,5 +1,5 @@
-import isInstanceOf from "./instanceOf";
 import { _Set } from "../constants";
+import isInstanceOf from "./instanceOf";
 
 /**
  * Checks if a value is a set.

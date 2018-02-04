@@ -1,5 +1,5 @@
-import { forEachMapper } from "../types";
 import isArray from "../is/array";
+import { forEachMapper } from "../types";
 
 /**
  * Recursively maps the values of the input array with the iterator function and return the result.
@@ -17,9 +17,7 @@ import isArray from "../is/array";
 const arrMapDeep = (arr: any[], fn: forEachMapper<any, any>): any[] =>
     arr.map(
         (val, index) =>
-            isArray(val) ?
-                arrMapDeep(val, fn) :
-                fn(val, index, arr)
+            isArray(val) ? arrMapDeep(val, fn) : fn(val, index, arr)
     );
 
 export default arrMapDeep;

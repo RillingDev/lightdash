@@ -451,7 +451,7 @@ const forEach = (arr, fn) => arr.forEach(fn);
  * forEachEntry(a, (key, val, index) => a[key] = val * index)
  */
 const forEachEntry = (obj, fn) => {
-    forEach((objEntries(obj)), (entry, index) => {
+    forEach(objEntries(obj), (entry, index) => {
         fn(entry[0], entry[1], index, obj);
     });
 };
@@ -805,9 +805,7 @@ const hasPath = (target, path) => !isNil(getPath(target, path));
  *
  * forEachDeep(a, (val, index, arr) => arr[index] = index * val)
  */
-const forEachDeep = (arr, fn) => forEach(arr, (val, index) => isArray(val) ?
-    forEachDeep(val, fn) :
-    fn(val, index, arr));
+const forEachDeep = (arr, fn) => forEach(arr, (val, index) => isArray(val) ? forEachDeep(val, fn) : fn(val, index, arr));
 
 /**
  * Recursively iterates over each entry of an object
@@ -905,7 +903,7 @@ const arrCompact = (arr) => arr.filter((val) => val);
  */
 const arrCount = (arr) => {
     const result = new _Map();
-    forEach(arr, val => result.set(val, result.has(val) ? result.get(val) + 1 : 1));
+    forEach(arr, (val) => result.set(val, result.has(val) ? result.get(val) + 1 : 1));
     return result;
 };
 
@@ -929,7 +927,7 @@ const arrCount = (arr) => {
 const arrDifference = (arr, ...values) => {
     const valuesCounted = arrCount([].concat(...values));
     // @ts-ignore: ts seems to pull the wrong data for arrCount
-    return arr.filter(item => !valuesCounted.has(item));
+    return arr.filter((item) => !valuesCounted.has(item));
 };
 
 /**
@@ -950,7 +948,7 @@ const arrDifference = (arr, ...values) => {
  */
 const arrFlattenDeep = (arr) => {
     const result = [];
-    forEach(arr, val => {
+    forEach(arr, (val) => {
         if (isArray(val)) {
             result.push(...arrFlattenDeep(val));
         }
@@ -993,9 +991,7 @@ const arrFrom = _Array.from;
  * // returns [4, 8, [2, 2, [32], 8]]
  * arrMapDeep([2, 4, [1, 1, [16], 4]], val => val * 2)
  */
-const arrMapDeep = (arr, fn) => arr.map((val, index) => isArray(val) ?
-    arrMapDeep(val, fn) :
-    fn(val, index, arr));
+const arrMapDeep = (arr, fn) => arr.map((val, index) => isArray(val) ? arrMapDeep(val, fn) : fn(val, index, arr));
 
 /**
  * Recursively creates a new array with the values of the input iterable.
@@ -1012,9 +1008,7 @@ const arrMapDeep = (arr, fn) => arr.map((val, index) => isArray(val) ?
  *
  * b[3][1][0] = 10;
  */
-const arrFromDeep = (arr) => arrMapDeep(arrFrom(arr), val => isArray(val) ?
-    arrFrom(val) :
-    val);
+const arrFromDeep = (arr) => arrMapDeep(arrFrom(arr), val => (isArray(val) ? arrFrom(val) : val));
 
 /**
  * Returns an array of all elements that exist in the first array and at least once in one of the other arrays.
@@ -1036,7 +1030,7 @@ const arrFromDeep = (arr) => arrMapDeep(arrFrom(arr), val => isArray(val) ?
 const arrIntersection = (arr, ...values) => {
     const valuesCounted = arrCount([].concat(...values));
     // @ts-ignore: ts seems to pull the wrong data for arrCount
-    return arr.filter(item => valuesCounted.has(item));
+    return arr.filter((item) => valuesCounted.has(item));
 };
 
 /**
@@ -1097,9 +1091,7 @@ const arrRemoveIndex = (arr, index) => {
  * // returns ["foo", "fizz"]
  * arrRemoveItem(["foo", "bar", "fizz"], "bar")
  */
-const arrRemoveItem = (arr, item) => arr.includes(item) ?
-    arrRemoveIndex(arr, arr.indexOf(item)) :
-    arr;
+const arrRemoveItem = (arr, item) => arr.includes(item) ? arrRemoveIndex(arr, arr.indexOf(item)) : arr;
 
 /**
  * Returns a new array with every n-th item from the input array.
@@ -1180,9 +1172,9 @@ const objMap = (obj, fn) => {
  * // returns {a: {b: 4, c: [20, 40]}}
  * arrMapDeep({a: {b: 2, c: [10, 20]}}, (key, val) => val * 2)
  */
-const objMapDeep = (obj, fn) => objMap(obj, (key, val, index, objNew) => isObjectLike(val) ?
-    objMapDeep(val, fn) :
-    fn(key, val, index, objNew));
+const objMapDeep = (obj, fn) => objMap(obj, (key, val, index, objNew) => isObjectLike(val)
+    ? objMapDeep(val, fn)
+    : fn(key, val, index, objNew));
 
 /**
  * Merges contents of two objects.
@@ -1233,9 +1225,7 @@ const objFrom = (obj) => objMerge({}, obj);
  *
  * b.a.c.a = 123;
  */
-const objFromDeep = (obj) => objMapDeep(objFrom(obj), (key, val) => isObjectLike(val) ?
-    objFrom(val) :
-    val);
+const objFromDeep = (obj) => objMapDeep(objFrom(obj), (key, val) => (isObjectLike(val) ? objFrom(val) : val));
 
 /**
  * Sets every nil property of object to the value from the default object.
@@ -1251,7 +1241,9 @@ const objFromDeep = (obj) => objMapDeep(objFrom(obj), (key, val) => isObjectLike
  * objDefaults({a: 1, c: 5}, {a: 1, b: 2, c: 3})
  */
 const objDefaults = (obj, objDefault) => {
-    const result = isArray(obj) ? arrFrom(obj) : objFrom(obj);
+    const result = isArray(obj)
+        ? arrFrom(obj)
+        : objFrom(obj);
     forEachEntry(objDefault, (keyDefault, valDefault) => {
         if (!hasKey(obj, keyDefault)) {
             result[keyDefault] = valDefault;
@@ -1274,14 +1266,15 @@ const objDefaults = (obj, objDefault) => {
  * objDefaultsDeep({a: [1, 2], c: {f: "x"}}, {a: [1, 2, 3], b: 2, c: {f: "y"}})
  */
 const objDefaultsDeep = (obj, objDefault) => {
-    const result = isArray(obj) ? arrFrom(obj) : objFromDeep(obj);
+    const result = isArray(obj)
+        ? arrFrom(obj)
+        : objFromDeep(obj);
     forEachEntry(objDefault, (keyDefault, valDefault) => {
         const valGiven = obj[keyDefault];
         if (isObjectLike(valDefault)) {
-            result[keyDefault] =
-                isObjectLike(valGiven)
-                    ? objDefaultsDeep(valGiven, valDefault)
-                    : valDefault;
+            result[keyDefault] = isObjectLike(valGiven)
+                ? objDefaultsDeep(valGiven, valDefault)
+                : valDefault;
         }
         else {
             result[keyDefault] = isUndefined(valGiven) ? valDefault : valGiven;
@@ -1314,7 +1307,7 @@ const objDefineProperty = (obj, key, val, enumerable = true, writable = true, co
     value: val,
     enumerable,
     writable,
-    configurable
+    configurable,
 });
 
 /**
@@ -1385,13 +1378,13 @@ const fnAttempt = (fn, ...args) => {
  * fooCurried(1, 2, 3) //=> [1, 2, 3]
  */
 const fnCurry = (fn, arity = fn.length) => {
+    // tslint:disable-next-line
     const resolver = function () {
         const argsBase = arguments;
+        // tslint:disable-next-line
         return function () {
             const args = [...argsBase, ...arguments];
-            const result = args.length >= arity ?
-                fn :
-                resolver;
+            const result = args.length >= arity ? fn : resolver;
             return result(...args);
         };
     };

@@ -29,7 +29,6 @@ const arrChunk = <T>(arr: T[], chunk: number): T[][] => {
     });
 
     return result;
-
 };
 
 export default arrChunk;

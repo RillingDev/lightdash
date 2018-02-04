@@ -1,5 +1,5 @@
-import isObject from "./object";
 import { _Object } from "../constants";
+import isObject from "./object";
 
 /**
  * Checks if a value is a plain object.

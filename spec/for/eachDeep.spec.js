@@ -1,15 +1,11 @@
-const {
-    isObject,
-    forEach,
-    forEachDeep
-} = require("../../dist/lightdash.common");
+const { isObject, forEachDeep } = require("../../dist/lightdash.common");
 
 describe("forEachDeep", () => {
     it("Simple", () => {
         const input = [1, 2, {}, 3, 4, [5, {}, 6, [7, 8, {}], 9]];
         const result = [];
 
-        forEachDeep(input, (val, index, arr) => {
+        forEachDeep(input, val => {
             if (!isObject(val)) {
                 result.push(val);
             }

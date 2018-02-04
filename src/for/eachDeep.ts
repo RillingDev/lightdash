@@ -1,5 +1,5 @@
-import { forEachIterator } from "../types";
 import isArray from "../is/array";
+import { forEachIterator } from "../types";
 import forEach from "./each";
 
 /**
@@ -19,9 +19,7 @@ const forEachDeep = (arr: any[], fn: forEachIterator<any>): void =>
     forEach(
         arr,
         (val, index) =>
-            isArray(val) ?
-                forEachDeep(val, fn) :
-                fn(val, index, arr)
+            isArray(val) ? forEachDeep(val, fn) : fn(val, index, arr)
     );
 
 export default forEachDeep;
