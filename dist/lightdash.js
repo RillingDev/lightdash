@@ -906,7 +906,7 @@ const arrCompact = (arr) => arr.filter((val) => val);
  */
 const arrCount = (arr) => {
     const result = new _Map();
-    forEach(arr, (val) => result.set(val, result.has(val) ? result.get(val) + 1 : 1));
+    forEach(arr, val => result.set(val, result.has(val) ? result.get(val) + 1 : 1));
     return result;
 };
 
@@ -930,7 +930,7 @@ const arrCount = (arr) => {
 const arrDifference = (arr, ...values) => {
     const valuesCounted = arrCount([].concat(...values));
     // @ts-ignore: ts seems to pull the wrong data for arrCount
-    return arr.filter((item) => !valuesCounted.has(item));
+    return arr.filter(item => !valuesCounted.has(item));
 };
 
 /**
@@ -951,7 +951,7 @@ const arrDifference = (arr, ...values) => {
  */
 const arrFlattenDeep = (arr) => {
     const result = [];
-    forEach(arr, (val) => {
+    forEach(arr, val => {
         if (isArray(val)) {
             result.push(...arrFlattenDeep(val));
         }
@@ -1033,7 +1033,7 @@ const arrFromDeep = (arr) => arrMapDeep(arrFrom(arr), val => (isArray(val) ? arr
 const arrIntersection = (arr, ...values) => {
     const valuesCounted = arrCount([].concat(...values));
     // @ts-ignore: ts seems to pull the wrong data for arrCount
-    return arr.filter((item) => valuesCounted.has(item));
+    return arr.filter(item => valuesCounted.has(item));
 };
 
 /**
@@ -1310,7 +1310,7 @@ const objDefineProperty = (obj, key, val, enumerable = true, writable = true, co
     value: val,
     enumerable,
     writable,
-    configurable,
+    configurable
 });
 
 /**

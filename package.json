@@ -5,11 +5,6 @@
     "main": "./dist/lightdash.common.js",
     "module": "./dist/lightdash.esm.js",
     "types": "./types/main.d.ts",
-    "files": [
-        "./src/",
-        "./dist/",
-        "./types/"
-    ],
     "settings": {
         "input": "main.ts",
         "namespace": {
