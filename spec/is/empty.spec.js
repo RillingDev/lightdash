@@ -1,5 +1,3 @@
-"use strict";
-
 const { isEmpty } = require("../../dist/lightdash.common");
 
 describe("isEmpty", () => {
