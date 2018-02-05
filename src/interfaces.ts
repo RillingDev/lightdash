@@ -1,7 +1,9 @@
 interface IGenericClass {
-    new(): any;
+    new (): any;
 }
 
-export {
-    IGenericClass
-};
+interface IGenericObject<T> {
+    [key: string]: T;
+}
+
+export { IGenericClass, IGenericObject };

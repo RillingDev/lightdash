@@ -1,8 +1,8 @@
 import arrFrom from "../arr/from";
 import forEachEntry from "../for/eachEntry";
 import hasKey from "../has/key";
+import { IGenericObject } from "../interfaces";
 import isArray from "../is/array";
-import { objectStringKeyed } from "../types";
 import objFrom from "./from";
 
 /**
@@ -19,9 +19,7 @@ import objFrom from "./from";
  * objDefaults({a: 1, c: 5}, {a: 1, b: 2, c: 3})
  */
 const objDefaults = (obj: object, objDefault: object): object => {
-    const result: objectStringKeyed = isArray(obj)
-        ? arrFrom(obj)
-        : objFrom(obj);
+    const result = isArray(obj) ? arrFrom(obj) : objFrom(obj);
 
     forEachEntry(objDefault, (keyDefault, valDefault) => {
         if (!hasKey(obj, keyDefault)) {

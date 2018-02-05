@@ -13,7 +13,6 @@
     },
     "rules": {
         "getter-return": 2,
-        "no-prototype-builtins": 2,
         "no-template-curly-in-string": 2,
         "no-console": 1,
 

@@ -63,8 +63,9 @@ const isFunction = (val) => isTypeOf(val, "function");
  */
 const isArguments = (val) => isFunction(val.callee);
 
+// tslint:disable
 /*
- * Using this can really reduce the minified output but can have performance and optimization issues
+ * Using this can really reduce the minified output but can have optimization issues
  */
 const _Number = Number;
 const _Object = Object;
@@ -460,26 +461,6 @@ const forEachEntry = (obj, fn) => {
 };
 
 /**
- * Checks if a value is an object.
- *
- * @function isObject
- * @memberof Is
- * @since 1.0.0
- * @param {any} val
- * @returns {boolean}
- * @example
- * // returns true
- * isObject({})
- * isObject([])
- * isObject(() => 1))
- *
- * @example
- * // returns false
- * isObject(1)
- */
-const isObject = (val) => !isNil(val) && (isTypeOf(val, "object") || isTypeOf(val, "function"));
-
-/**
  * Recursively checks if two items and their the contents are equal.
  *
  * @function isEqual
@@ -504,7 +485,9 @@ const isEqual = (a, b) => {
     if (a === b) {
         return true;
     }
-    if (isObject(a) && isObject(b) && objKeys(a).length === objKeys(b).length) {
+    if (isObjectLike(a) &&
+        isObjectLike(b) &&
+        objKeys(a).length === objKeys(b).length) {
         let result = true;
         forEachEntry(a, (key, aVal) => {
             // Only check if the comparison didn't fail already
@@ -581,6 +564,26 @@ const isInteger = _Number.isInteger;
  * isMap([[1, 2]])
  */
 const isMap = (val) => isInstanceOf(val, _Map);
+
+/**
+ * Checks if a value is an object.
+ *
+ * @function isObject
+ * @memberof Is
+ * @since 1.0.0
+ * @param {any} val
+ * @returns {boolean}
+ * @example
+ * // returns true
+ * isObject({})
+ * isObject([])
+ * isObject(() => 1))
+ *
+ * @example
+ * // returns false
+ * isObject(1)
+ */
+const isObject = (val) => !isNil(val) && (isTypeOf(val, "object") || isTypeOf(val, "function"));
 
 /**
  * Checks if a value is a plain object.
@@ -1126,20 +1129,61 @@ const arrStep = (arr, step) => arr.filter((val, index) => index % step === 0);
 const arrUniq = (arr) => arrFrom(new _Set(arr));
 
 /**
- * Returns an array of the objects values.
+ * Merges contents of two objects.
  *
- * `Object.values` shorthand.
+ * `Object.assign` shorthand.
  *
- * @function objValues
+ * @function objMerge
+ * @memberof Object
+ * @since 2.7.0
+ * @param {Object} obj
+ * @param {Object} objSecondary
+ * @returns {Object}
+ * @example
+ * // returns {a: 1, b: 2}
+ * objMerge({a: 1}, {b: 2})
+ */
+const objMerge = _Object.assign;
+
+/**
+ * Creates a new object with the entries of the input object.
+ *
+ * @function objFrom
  * @memberof Object
  * @since 1.0.0
  * @param {Object} obj
- * @returns {any[]}
+ * @returns {Object}
  * @example
- * // returns [1, 2, 3]
- * objValues({a: 1, b: 2, c: 3})
+ * // returns a = {a: 4, b: 2}, b = {a: 10, b: 2}
+ * const a = {a: 4, b: 2};
+ * const b = objFrom(a);
+ *
+ * b.a = 10;
  */
-const objValues = _Object.values;
+const objFrom = (obj) => objMerge({}, obj);
+
+/**
+ * Sets every nil property of object to the value from the default object.
+ *
+ * @function objDefaults
+ * @memberof Object
+ * @since 2.6.0
+ * @param {Object} obj
+ * @param {Object} objDefault
+ * @returns {Object}
+ * @example
+ * // returns a = {a: 1, b: 2, c: 5}
+ * objDefaults({a: 1, c: 5}, {a: 1, b: 2, c: 3})
+ */
+const objDefaults = (obj, objDefault) => {
+    const result = isArray(obj) ? arrFrom(obj) : objFrom(obj);
+    forEachEntry(objDefault, (keyDefault, valDefault) => {
+        if (!hasKey(obj, keyDefault)) {
+            result[keyDefault] = valDefault;
+        }
+    });
+    return result;
+};
 
 /**
  * Maps each entry of an object and returns the result.
@@ -1180,40 +1224,6 @@ const objMapDeep = (obj, fn) => objMap(obj, (key, val, index, objNew) => isObjec
     : fn(key, val, index, objNew));
 
 /**
- * Merges contents of two objects.
- *
- * `Object.assign` shorthand.
- *
- * @function objMerge
- * @memberof Object
- * @since 2.7.0
- * @param {Object} obj
- * @param {Object} objSecondary
- * @returns {Object}
- * @example
- * // returns {a: 1, b: 2}
- * objMerge({a: 1}, {b: 2})
- */
-const objMerge = _Object.assign;
-
-/**
- * Creates a new object with the entries of the input object.
- *
- * @function objFrom
- * @memberof Object
- * @since 1.0.0
- * @param {object} obj
- * @returns {object}
- * @example
- * // returns a = {a: 4, b: 2}, b = {a: 10, b: 2}
- * const a = {a: 4, b: 2};
- * const b = objFrom(a);
- *
- * b.a = 10;
- */
-const objFrom = (obj) => objMerge({}, obj);
-
-/**
  * Deeply creates a new object with the entries of the input object.
  *
  * @function objFromDeep
@@ -1231,31 +1241,6 @@ const objFrom = (obj) => objMerge({}, obj);
 const objFromDeep = (obj) => objMapDeep(objFrom(obj), (key, val) => (isObjectLike(val) ? objFrom(val) : val));
 
 /**
- * Sets every nil property of object to the value from the default object.
- *
- * @function objDefaults
- * @memberof Object
- * @since 2.6.0
- * @param {Object} obj
- * @param {Object} objDefault
- * @returns {Object}
- * @example
- * // returns a = {a: 1, b: 2, c: 5}
- * objDefaults({a: 1, c: 5}, {a: 1, b: 2, c: 3})
- */
-const objDefaults = (obj, objDefault) => {
-    const result = isArray(obj)
-        ? arrFrom(obj)
-        : objFrom(obj);
-    forEachEntry(objDefault, (keyDefault, valDefault) => {
-        if (!hasKey(obj, keyDefault)) {
-            result[keyDefault] = valDefault;
-        }
-    });
-    return result;
-};
-
-/**
  * Recursively sets every nil property of object to the value from the default object.
  *
  * @function objDefaultsDeep
@@ -1269,9 +1254,7 @@ const objDefaults = (obj, objDefault) => {
  * objDefaultsDeep({a: [1, 2], c: {f: "x"}}, {a: [1, 2, 3], b: 2, c: {f: "y"}})
  */
 const objDefaultsDeep = (obj, objDefault) => {
-    const result = isArray(obj)
-        ? arrFrom(obj)
-        : objFromDeep(obj);
+    const result = isArray(obj) ? arrFrom(obj) : objFromDeep(obj);
     forEachEntry(objDefault, (keyDefault, valDefault) => {
         const valGiven = obj[keyDefault];
         if (isObjectLike(valDefault)) {
@@ -1312,6 +1295,22 @@ const objDefineProperty = (obj, key, val, enumerable = true, writable = true, co
     writable,
     configurable
 });
+
+/**
+ * Returns an array of the objects values.
+ *
+ * `Object.values` shorthand.
+ *
+ * @function objValues
+ * @memberof Object
+ * @since 1.0.0
+ * @param {Object} obj
+ * @returns {any[]}
+ * @example
+ * // returns [1, 2, 3]
+ * objValues({a: 1, b: 2, c: 3})
+ */
+const objValues = _Object.values;
 
 /**
  * Creates a map from an object.

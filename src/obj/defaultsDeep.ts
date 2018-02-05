@@ -1,9 +1,9 @@
 import arrFrom from "../arr/from";
 import forEachEntry from "../for/eachEntry";
+import { IGenericObject } from "../interfaces";
 import isArray from "../is/array";
 import isObjectLike from "../is/objectLike";
 import isUndefined from "../is/undefined";
-import { objectStringKeyed } from "../types";
 import objFrom from "./fromDeep";
 
 /**
@@ -20,12 +20,10 @@ import objFrom from "./fromDeep";
  * objDefaultsDeep({a: [1, 2], c: {f: "x"}}, {a: [1, 2, 3], b: 2, c: {f: "y"}})
  */
 const objDefaultsDeep = (obj: object, objDefault: object): object => {
-    const result: objectStringKeyed = isArray(obj)
-        ? arrFrom(obj)
-        : objFrom(obj);
+    const result = isArray(obj) ? arrFrom(obj) : objFrom(obj);
 
     forEachEntry(objDefault, (keyDefault, valDefault) => {
-        const valGiven = (obj as objectStringKeyed)[keyDefault];
+        const valGiven = obj[keyDefault];
 
         if (isObjectLike(valDefault)) {
             result[keyDefault] = isObjectLike(valGiven)

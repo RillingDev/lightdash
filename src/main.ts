@@ -77,17 +77,17 @@ import arrUniq from "./arr/uniq";
  * Object manipulation and analysis
  * @namespace Object
  */
-import objKeys from "./obj/keys";
-import objValues from "./obj/values";
-import objEntries from "./obj/entries";
-import objMap from "./obj/map";
-import objMapDeep from "./obj/mapDeep";
-import objFrom from "./obj/from";
-import objFromDeep from "./obj/fromDeep";
-import objMerge from "./obj/merge";
 import objDefaults from "./obj/defaults";
 import objDefaultsDeep from "./obj/defaultsDeep";
 import objDefineProperty from "./obj/defineProperty";
+import objEntries from "./obj/entries";
+import objFrom from "./obj/from";
+import objFromDeep from "./obj/fromDeep";
+import objKeys from "./obj/keys";
+import objMap from "./obj/map";
+import objMapDeep from "./obj/mapDeep";
+import objMerge from "./obj/merge";
+import objValues from "./obj/values";
 
 /**
  * Map manipulation and analysis

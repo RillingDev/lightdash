@@ -1,5 +1,6 @@
+// tslint:disable
 /*
- * Using this can really reduce the minified output but can have performance and optimization issues
+ * Using this can really reduce the minified output but can have optimization issues
  */
 const _Number = Number;
 const _Boolean = Boolean;
@@ -13,19 +14,6 @@ const _Map = Map;
 
 const _Math = Math;
 
-/* const _null = null;
-
-const _str_undefined = "undefined";
-const _str_string = "string";
-const _str_number = "number";
-const _str_boolean = "boolean";
-const _str_symbol = "symbol";
-const _str_object = "object";
-const _str_function = "function";
-
-const _str_length = "length";
-const _str_size = "size"; */
-
 export {
     _Number,
     _Boolean,
@@ -36,14 +24,4 @@ export {
     _Set,
     _Map,
     _Math
-    /*     _null,
-    _str_undefined,
-    _str_string,
-    _str_number,
-    _str_boolean,
-    _str_symbol,
-    _str_object,
-    _str_function,
-    _str_length,
-    _str_size */
 };

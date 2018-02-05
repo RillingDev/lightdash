@@ -1,5 +1,5 @@
 import forEachEntry from "../for/eachEntry";
-import { forEachEntryMapper, objectStringKeyed } from "../types";
+import { forEachEntryMapper } from "../types";
 import objFrom from "./from";
 
 /**
@@ -16,7 +16,7 @@ import objFrom from "./from";
  * objMap({a: 4, b: 2}, (key, val) => val * 2)
  */
 const objMap = (obj: object, fn: forEachEntryMapper<any, any>): object => {
-    const objNew: objectStringKeyed = {};
+    const objNew = {};
 
     forEachEntry(obj, (key, val, index) => {
         objNew[key] = fn(key, val, index, obj);
