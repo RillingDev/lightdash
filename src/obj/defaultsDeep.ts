@@ -1,6 +1,5 @@
 import arrFrom from "../arr/from";
 import forEachEntry from "../for/eachEntry";
-import { IGenericObject } from "../interfaces";
 import isArray from "../is/array";
 import isObjectLike from "../is/objectLike";
 import isUndefined from "../is/undefined";

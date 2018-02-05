@@ -40,9 +40,7 @@ const isEqual = (a: any, b: any): boolean => {
             // Only check if the comparison didn't fail already
             if (result === true) {
                 if (hasKey(b, key)) {
-                    const bVal = b[key];
-
-                    result = isEqual(aVal, bVal);
+                    result = isEqual(aVal, b[key]);
                 } else {
                     result = false;
                 }

@@ -1,7 +1,6 @@
 import arrFrom from "../arr/from";
 import forEachEntry from "../for/eachEntry";
 import hasKey from "../has/key";
-import { IGenericObject } from "../interfaces";
 import isArray from "../is/array";
 import objFrom from "./from";
 
