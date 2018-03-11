@@ -21,7 +21,7 @@ const objDefaults = (obj: any, objDefault: any): object => {
     const result = isArray(obj) ? arrFrom(obj) : objFrom(obj);
 
     forEachEntry(objDefault, (keyDefault, valDefault) => {
-        if (isUndefined(obj.keyDefault)) {
+        if (isUndefined(obj[keyDefault])) {
             result[keyDefault] = valDefault;
         }
     });

@@ -38,16 +38,4 @@ For detailed descriptions and type annotations check the source or run `npm run 
 
 ## Contributing
 
-Contributions are always welcome, no matter if you have a requests, an idea, found a bug, or spotted a typo: Feel free to create a PR or open an issue.
-
-## Breaking Changes
-
-### v4
-
-* Changed argument order in forEachEntry fn from (val, key, index) to (key, val, index)
-* Removed methods: isFinite, isNaN
-
-### v3
-
-* Renamed methods: arrClone -> arrFrom, objClone -> objFrom
-* Removed methods: isSame, isTrue, isFalse, isStringNumber, arrMap
+Contributions are always welcome, no matter if you have a requests, an idea, found a bug, or spotted a typo: Feel free to create a PR or open an issue!

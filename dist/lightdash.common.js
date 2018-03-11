@@ -1030,7 +1030,7 @@ const objFrom = (obj) => Object.assign({}, obj);
 const objDefaults = (obj, objDefault) => {
     const result = isArray(obj) ? arrFrom(obj) : objFrom(obj);
     forEachEntry(objDefault, (keyDefault, valDefault) => {
-        if (isUndefined(obj.keyDefault)) {
+        if (isUndefined(obj[keyDefault])) {
             result[keyDefault] = valDefault;
         }
     });
