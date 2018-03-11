@@ -1,0 +1,1015 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>For - Documentation</title>
+
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Namespaces</h3><ul><li><a href="Array.html">Array</a><ul class='methods'><li data-type='method'><a href="Array.html#.arrChunk">arrChunk</a></li><li data-type='method'><a href="Array.html#.arrCompact">arrCompact</a></li><li data-type='method'><a href="Array.html#.arrCount">arrCount</a></li><li data-type='method'><a href="Array.html#.arrDifference">arrDifference</a></li><li data-type='method'><a href="Array.html#.arrFlattenDeep">arrFlattenDeep</a></li><li data-type='method'><a href="Array.html#.arrFrom">arrFrom</a></li><li data-type='method'><a href="Array.html#.arrFromDeep">arrFromDeep</a></li><li data-type='method'><a href="Array.html#.arrIntersection">arrIntersection</a></li><li data-type='method'><a href="Array.html#.arrMapDeep">arrMapDeep</a></li><li data-type='method'><a href="Array.html#.arrRemoveIndex">arrRemoveIndex</a></li><li data-type='method'><a href="Array.html#.arrRemoveItem">arrRemoveItem</a></li><li data-type='method'><a href="Array.html#.arrStep">arrStep</a></li><li data-type='method'><a href="Array.html#.arrUniq">arrUniq</a></li></ul></li><li><a href="Fn.html">Fn</a><ul class='methods'><li data-type='method'><a href="Fn.html#.fnAttempt">fnAttempt</a></li><li data-type='method'><a href="Fn.html#.fnCurry">fnCurry</a></li><li data-type='method'><a href="Fn.html#.fnThrottle">fnThrottle</a></li></ul></li><li><a href="For.html">For</a><ul class='methods'><li data-type='method'><a href="For.html#.forEach">forEach</a></li><li data-type='method'><a href="For.html#.forEachDeep">forEachDeep</a></li><li data-type='method'><a href="For.html#.forEachEntry">forEachEntry</a></li><li data-type='method'><a href="For.html#.forEachEntryDeep">forEachEntryDeep</a></li><li data-type='method'><a href="For.html#.forTimes">forTimes</a></li></ul></li><li><a href="Get.html">Get</a><ul class='methods'><li data-type='method'><a href="Get.html#.getPath">getPath</a></li></ul></li><li><a href="Has.html">Has</a><ul class='methods'><li data-type='method'><a href="Has.html#.hasPath">hasPath</a></li></ul></li><li><a href="Is.html">Is</a><ul class='methods'><li data-type='method'><a href="Is.html#.isArguments">isArguments</a></li><li data-type='method'><a href="Is.html#.isArray">isArray</a></li><li data-type='method'><a href="Is.html#.isArrayBuffer">isArrayBuffer</a></li><li data-type='method'><a href="Is.html#.isArrayLike">isArrayLike</a></li><li data-type='method'><a href="Is.html#.isArrayTyped">isArrayTyped</a></li><li data-type='method'><a href="Is.html#.isBoolean">isBoolean</a></li><li data-type='method'><a href="Is.html#.isDate">isDate</a></li><li data-type='method'><a href="Is.html#.isEmpty">isEmpty</a></li><li data-type='method'><a href="Is.html#.isEqual">isEqual</a></li><li data-type='method'><a href="Is.html#.isError">isError</a></li><li data-type='method'><a href="Is.html#.isFunction">isFunction</a></li><li data-type='method'><a href="Is.html#.isInstanceOf">isInstanceOf</a></li><li data-type='method'><a href="Is.html#.isInteger">isInteger</a></li><li data-type='method'><a href="Is.html#.isMap">isMap</a></li><li data-type='method'><a href="Is.html#.isNil">isNil</a></li><li data-type='method'><a href="Is.html#.isNumber">isNumber</a></li><li data-type='method'><a href="Is.html#.isObject">isObject</a></li><li data-type='method'><a href="Is.html#.isObjectLike">isObjectLike</a></li><li data-type='method'><a href="Is.html#.isObjectPlain">isObjectPlain</a></li><li data-type='method'><a href="Is.html#.isPromise">isPromise</a></li><li data-type='method'><a href="Is.html#.isRegExp">isRegExp</a></li><li data-type='method'><a href="Is.html#.isSet">isSet</a></li><li data-type='method'><a href="Is.html#.isString">isString</a></li><li data-type='method'><a href="Is.html#.isSymbol">isSymbol</a></li><li data-type='method'><a href="Is.html#.isTypeOf">isTypeOf</a></li><li data-type='method'><a href="Is.html#.isUndefined">isUndefined</a></li></ul></li><li><a href="Map.html">Map</a><ul class='methods'><li data-type='method'><a href="Map.html#.mapFromObject">mapFromObject</a></li></ul></li><li><a href="Number.html">Number</a><ul class='methods'><li data-type='method'><a href="Number.html#.numberClamp">numberClamp</a></li><li data-type='method'><a href="Number.html#.numberInRange">numberInRange</a></li></ul></li><li><a href="Object.html">Object</a><ul class='methods'><li data-type='method'><a href="Object.html#.objDefaults">objDefaults</a></li><li data-type='method'><a href="Object.html#.objDefaultsDeep">objDefaultsDeep</a></li><li data-type='method'><a href="Object.html#.objFrom">objFrom</a></li><li data-type='method'><a href="Object.html#.objFromDeep">objFromDeep</a></li><li data-type='method'><a href="Object.html#.objMap">objMap</a></li><li data-type='method'><a href="Object.html#.objMapDeep">objMapDeep</a></li></ul></li><li><a href="Random.html">Random</a><ul class='methods'><li data-type='method'><a href="Random.html#.randomItem">randomItem</a></li><li data-type='method'><a href="Random.html#.randomNumber">randomNumber</a></li></ul></li></ul>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">For</h1>
+    
+
+    
+
+
+
+
+<section>
+
+<header>
+    
+        <h2>
+        For
+        </h2>
+        
+    
+</header>
+
+<article>
+    <div class="container-overview">
+    
+        
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="lightdash.esm.js.html">lightdash.esm.js</a>, <a href="lightdash.esm.js.html#line1309">line 1309</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+        
+            <div class="description">Looping through iterables</div>
+        
+
+        
+    
+    </div>
+
+    
+
+    
+
+    
+
+     
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Methods</h3>
+
+        
+            
+
+    
+
+    <h4 class="name" id=".forEach"><span class="type-signature">(static) </span>forEach<span class="signature">(arr, fn)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="lightdash.esm.js.html">lightdash.esm.js</a>, <a href="lightdash.esm.js.html#line336">line 336</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description">
+    Iterates over each element in an array
+
+Wrapper around arr.forEach to have a cleaner API and better minified code
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>// returns a = [0, 2, 6]
+const a = [1, 2, 3];
+
+forEach(a, (val, index)=>a[index] = val * index)</code></pre>
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>arr</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="Array.html">Array</a>.&lt;any></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>fn</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">fn(val: any, index: number, arr: any[])</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id=".forEachDeep"><span class="type-signature">(static) </span>forEachDeep<span class="signature">(arr, fn)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="lightdash.esm.js.html">lightdash.esm.js</a>, <a href="lightdash.esm.js.html#line666">line 666</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description">
+    Recursively iterates over each element in an array
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>// returns a = [0, 4, [0, 1, [0], 12]]
+const a = [2, 4, [1, 1, [16], 4]];
+
+forEachDeep(a, (val, index, arr) => arr[index] = index * val)</code></pre>
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>arr</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="Array.html">Array</a>.&lt;any></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>fn</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">fn(val: any, index: number, arr: any[])</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id=".forEachEntry"><span class="type-signature">(static) </span>forEachEntry<span class="signature">(obj, fn)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="lightdash.esm.js.html">lightdash.esm.js</a>, <a href="lightdash.esm.js.html#line353">line 353</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description">
+    Iterates over each entry of an object
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>// returns a = {a: 0, b: 2}
+const a = {a: 1, b: 2};
+
+forEachEntry(a, (key, val, index) => a[key] = val * index)</code></pre>
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>obj</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>fn</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">fn(key: any, val: any, index: number, arr: any[])</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id=".forEachEntryDeep"><span class="type-signature">(static) </span>forEachEntryDeep<span class="signature">(obj, fn)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="lightdash.esm.js.html">lightdash.esm.js</a>, <a href="lightdash.esm.js.html#line681">line 681</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description">
+    Recursively iterates over each entry of an object
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>// returns {a: 0, b: {c: [0, 2]}}
+const a = {a: 1, b: {c: [1, 2]}};
+
+forEachEntryDeep(a, (key, val, index, obj) => obj[key] = index * val)</code></pre>
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>obj</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>fn</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">fn(key: any, val: any, index: number, arr: any[])</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id=".forTimes"><span class="type-signature">(static) </span>forTimes<span class="signature">(start, max, increase, fn)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="lightdash.esm.js.html">lightdash.esm.js</a>, <a href="lightdash.esm.js.html#line698">line 698</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description">
+    Execute a function n times
+
+Wrapper around a simple for-loop to have better minified code
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>// returns a = [2, 4, 6, 8, 10]
+const a = [];
+
+forTimes(1, 6, 1, index => a.push(index * 2))</code></pre>
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>start</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>max</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>increase</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>fn</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">fn(index: number)</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+    
+
+    
+
+    
+</article>
+
+</section>
+
+
+
+
+</div>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.0-dev</a> on Sun Mar 11 2018 10:47:11 GMT+0100 (CET) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/linenumber.js"></script>
+</body>
+</html>
