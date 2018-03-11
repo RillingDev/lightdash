@@ -90,14 +90,14 @@ import fnThrottle from "./fn/throttle";
  * Number generation and checking
  * @namespace Number
  */
-import numberClamp from "./number/clamp";
-import numberInRange from "./number/inRange";
+import numberClamp from "./num/clamp";
+import numberInRange from "./num/inRange";
 /**
  * Random number generation
  * @namespace Random
  */
-import randomItem from "./random/item";
-import randomNumber from "./random/number";
+import randomItem from "./rand/item";
+import randomNumber from "./rand/number";
 /**
  * Random number generation
  * @namespace Algorithm

@@ -1,4 +1,4 @@
-import numberInRange from "../number/inRange";
+import numberInRange from "../num/inRange";
 
 /**
  * Returns a new array with the item at the index removed.
