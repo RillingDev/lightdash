@@ -108,6 +108,12 @@ import numberInRange from "./number/inRange";
 import randomItem from "./random/item";
 import randomNumber from "./random/number";
 
+/**
+ * Random number generation
+ * @namespace Algorithm
+ */
+import algBinarySearch from "./alg/binarySearch";
+
 export {
     isEqual,
     isInstanceOf,
@@ -168,5 +174,6 @@ export {
     numberInRange,
     numberClamp,
     randomNumber,
-    randomItem
+    randomItem,
+    algBinarySearch
 };

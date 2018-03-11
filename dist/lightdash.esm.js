@@ -1295,6 +1295,39 @@ const randomNumber = (min = 0, max = 1, floating = true) => {
 const randomItem = (arr) => arr[randomNumber(0, arr.length - 1, false)];
 
 /**
+ * Binary Search implementation
+ *
+ * @function algBinarySearch
+ * @memberof Algorithm
+ * @since 5.0.0
+ * @param {number[]} arr
+ * @param {number} search
+ * @returns {number|null}
+ * @example
+ * algBinarySearch([0,1,2],2)         //=> 1
+ * algBinarySearch([0,1,2], 100)         //=> null
+ */
+const algBinarySearch = (arr, search) => {
+    let low = 0;
+    let high = arr.length - 1;
+    let mid;
+    while (low <= high) {
+        mid = Math.floor(low + (high - low) / 2);
+        const current = arr[mid];
+        if (current === search) {
+            return mid;
+        }
+        else if (current < search) {
+            low = mid + 1;
+        }
+        else {
+            high = mid - 1;
+        }
+    }
+    return null;
+};
+
+/**
  * Value, type checking and comparison
  * @namespace Is
  */
@@ -1334,5 +1367,9 @@ const randomItem = (arr) => arr[randomNumber(0, arr.length - 1, false)];
  * Random number generation
  * @namespace Random
  */
+/**
+ * Random number generation
+ * @namespace Algorithm
+ */
 
-export { isEqual, isInstanceOf, isTypeOf, isUndefined, isNil, isNumber, isString, isBoolean, isSymbol, isObject, isObjectLike, isObjectPlain, isArray, isArrayLike, isArrayBuffer, isArrayTyped, isPromise, isMap, isSet, isDate, isRegExp, isFunction, isArguments, isError, isEmpty, isInteger, hasPath, getPath, forTimes, forEach, forEachDeep, forEachEntry, forEachEntryDeep, arrFrom, arrFromDeep, arrMapDeep, arrFlattenDeep, arrCompact, arrChunk, arrStep, arrRemoveIndex, arrRemoveItem, arrCount, arrDifference, arrIntersection, arrUniq, objFrom, objFromDeep, objMap, objMapDeep, objDefaults, objDefaultsDeep, mapFromObject, fnThrottle, fnAttempt, fnCurry, numberInRange, numberClamp, randomNumber, randomItem };
+export { isEqual, isInstanceOf, isTypeOf, isUndefined, isNil, isNumber, isString, isBoolean, isSymbol, isObject, isObjectLike, isObjectPlain, isArray, isArrayLike, isArrayBuffer, isArrayTyped, isPromise, isMap, isSet, isDate, isRegExp, isFunction, isArguments, isError, isEmpty, isInteger, hasPath, getPath, forTimes, forEach, forEachDeep, forEachEntry, forEachEntryDeep, arrFrom, arrFromDeep, arrMapDeep, arrFlattenDeep, arrCompact, arrChunk, arrStep, arrRemoveIndex, arrRemoveItem, arrCount, arrDifference, arrIntersection, arrUniq, objFrom, objFromDeep, objMap, objMapDeep, objDefaults, objDefaultsDeep, mapFromObject, fnThrottle, fnAttempt, fnCurry, numberInRange, numberClamp, randomNumber, randomItem, algBinarySearch };
