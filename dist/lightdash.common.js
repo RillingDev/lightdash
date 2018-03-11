@@ -1332,19 +1332,19 @@ const algBinarySearch = (arr, search) => {
 };
 
 /**
- * Value, type checking and comparison
+ * Value checking, type checking, and comparison
  * @namespace Is
  */
 /**
- * Checks if a target has something
+ * Check if a target has something
  * @namespace Has
  */
 /**
- * Gets target data
+ * Get value from a target
  * @namespace Get
  */
 /**
- * Looping through iterables
+ * Looping through ranges, arrays and objects
  * @namespace For
  */
 /**
@@ -1356,7 +1356,7 @@ const algBinarySearch = (arr, search) => {
  * @namespace Object
  */
 /**
- * Map manipulation and analysis
+ * Map manipulation
  * @namespace Map
  */
 /**
@@ -1364,15 +1364,15 @@ const algBinarySearch = (arr, search) => {
  * @namespace Fn
  */
 /**
- * Number generation and checking
+ * Number manipulation and comparison
  * @namespace Number
  */
 /**
- * Random number generation
+ * Random number generation and value picking
  * @namespace Random
  */
 /**
- * Random number generation
+ * Generic algorithms
  * @namespace Algorithm
  */
 

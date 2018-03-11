@@ -1,5 +1,5 @@
 /**
- * Value, type checking and comparison
+ * Value checking, type checking, and comparison
  * @namespace Is
  */
 import isArguments from "./is/arguments";
@@ -30,19 +30,19 @@ import isTypeOf from "./is/typeOf";
 import isUndefined from "./is/undefined";
 
 /**
- * Checks if a target has something
+ * Check if a target has something
  * @namespace Has
  */
 import hasPath from "./has/path";
 
 /**
- * Gets target data
+ * Get value from a target
  * @namespace Get
  */
 import getPath from "./get/path";
 
 /**
- * Looping through iterables
+ * Looping through ranges, arrays and objects
  * @namespace For
  */
 import forEach from "./for/each";
@@ -81,7 +81,7 @@ import objMap from "./obj/map";
 import objMapDeep from "./obj/mapDeep";
 
 /**
- * Map manipulation and analysis
+ * Map manipulation
  * @namespace Map
  */
 import mapFromObject from "./map/fromObject";
@@ -95,21 +95,21 @@ import fnCurry from "./fn/curry";
 import fnThrottle from "./fn/throttle";
 
 /**
- * Number generation and checking
+ * Number manipulation and comparison
  * @namespace Number
  */
 import numberClamp from "./num/clamp";
 import numberInRange from "./num/inRange";
 
 /**
- * Random number generation
+ * Random number generation and value picking
  * @namespace Random
  */
 import randomItem from "./rand/item";
 import randomNumber from "./rand/number";
 
 /**
- * Random number generation
+ * Generic algorithms
  * @namespace Algorithm
  */
 import algBinarySearch from "./alg/binarySearch";
