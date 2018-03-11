@@ -9,7 +9,6 @@ import isArrayLike from "./is/arrayLike";
 import isArrayTyped from "./is/arrayTyped";
 import isBoolean from "./is/boolean";
 import isDate from "./is/date";
-import isDefined from "./is/defined";
 import isEmpty from "./is/empty";
 import isEqual from "./is/equal";
 import isError from "./is/error";
@@ -22,7 +21,6 @@ import isNumber from "./is/number";
 import isObject from "./is/object";
 import isObjectLike from "./is/objectLike";
 import isObjectPlain from "./is/objectPlain";
-import isPrimitive from "./is/primitive";
 import isPromise from "./is/promise";
 import isRegExp from "./is/regExp";
 import isSet from "./is/set";
@@ -34,8 +32,6 @@ import isUndefined from "./is/undefined";
  * Checks if a target has something
  * @namespace Has
  */
-import hasKey from "./has/key";
-import hasOwnProperty from "./has/ownProperty";
 import hasPath from "./has/path";
 /**
  * Gets target data
@@ -74,15 +70,10 @@ import arrUniq from "./arr/uniq";
  */
 import objDefaults from "./obj/defaults";
 import objDefaultsDeep from "./obj/defaultsDeep";
-import objDefineProperty from "./obj/defineProperty";
-import objEntries from "./obj/entries";
 import objFrom from "./obj/from";
 import objFromDeep from "./obj/fromDeep";
-import objKeys from "./obj/keys";
 import objMap from "./obj/map";
 import objMapDeep from "./obj/mapDeep";
-import objMerge from "./obj/merge";
-import objValues from "./obj/values";
 /**
  * Map manipulation and analysis
  * @namespace Map
@@ -107,4 +98,4 @@ import numberInRange from "./number/inRange";
  */
 import randomItem from "./random/item";
 import randomNumber from "./random/number";
-export { isEqual, isInstanceOf, isTypeOf, isUndefined, isDefined, isNil, isPrimitive, isNumber, isString, isBoolean, isSymbol, isObject, isObjectLike, isObjectPlain, isArray, isArrayLike, isArrayBuffer, isArrayTyped, isPromise, isMap, isSet, isDate, isRegExp, isFunction, isArguments, isError, isEmpty, isInteger, hasKey, hasPath, hasOwnProperty, getPath, forTimes, forEach, forEachDeep, forEachEntry, forEachEntryDeep, arrFrom, arrFromDeep, arrMapDeep, arrFlattenDeep, arrCompact, arrChunk, arrStep, arrRemoveIndex, arrRemoveItem, arrCount, arrDifference, arrIntersection, arrUniq, objFrom, objFromDeep, objMap, objMapDeep, objDefaults, objDefaultsDeep, objMerge, objDefineProperty, objKeys, objValues, objEntries, mapFromObject, fnThrottle, fnAttempt, fnCurry, numberInRange, numberClamp, randomNumber, randomItem };
+export { isEqual, isInstanceOf, isTypeOf, isUndefined, isNil, isNumber, isString, isBoolean, isSymbol, isObject, isObjectLike, isObjectPlain, isArray, isArrayLike, isArrayBuffer, isArrayTyped, isPromise, isMap, isSet, isDate, isRegExp, isFunction, isArguments, isError, isEmpty, isInteger, hasPath, getPath, forTimes, forEach, forEachDeep, forEachEntry, forEachEntryDeep, arrFrom, arrFromDeep, arrMapDeep, arrFlattenDeep, arrCompact, arrChunk, arrStep, arrRemoveIndex, arrRemoveItem, arrCount, arrDifference, arrIntersection, arrUniq, objFrom, objFromDeep, objMap, objMapDeep, objDefaults, objDefaultsDeep, mapFromObject, fnThrottle, fnAttempt, fnCurry, numberInRange, numberClamp, randomNumber, randomItem };

@@ -1,4 +1,3 @@
-import { _Set } from "../constants";
 import arrFrom from "./from";
 
 /**
@@ -13,6 +12,6 @@ import arrFrom from "./from";
  * // returns [1, 2, 3, 4]
  * arrUniq([1, 1, 1, 2, 3, 1, 2, 1, 4])
  */
-const arrUniq = <T>(arr: T[]): T[] => arrFrom(new _Set(arr));
+const arrUniq = <T>(arr: T[]): T[] => arrFrom(new Set(arr));
 
 export default arrUniq;

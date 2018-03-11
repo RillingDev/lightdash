@@ -1,5 +1,3 @@
-import { _Array } from "../constants";
-
 /**
  * Creates a new array with the values of the input iterable.
  *
@@ -17,6 +15,6 @@ import { _Array } from "../constants";
  *
  * b[1] = 10;
  */
-const arrFrom = _Array.from;
+const arrFrom = Array.from;
 
 export default arrFrom;

@@ -1,5 +1,3 @@
-import { _Array } from "../constants";
-
 /**
  * Checks if a value is an array.
  *
@@ -19,6 +17,6 @@ import { _Array } from "../constants";
  * // returns false
  * isArray({});
  */
-const isArray = _Array.isArray;
+const isArray = Array.isArray;
 
 export default isArray;

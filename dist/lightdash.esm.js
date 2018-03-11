@@ -60,17 +60,6 @@ const isFunction = (val) => isTypeOf(val, "function");
  */
 const isArguments = (val) => isFunction(val.callee);
 
-// tslint:disable
-/*
- * Using this can really reduce the minified output but can have optimization issues
- */
-const _Number = Number;
-const _Object = Object;
-const _Array = Array;
-const _Set = Set;
-const _Map = Map;
-const _Math = Math;
-
 /**
  * Checks if a value is an array.
  *
@@ -90,7 +79,7 @@ const _Math = Math;
  * // returns false
  * isArray({});
  */
-const isArray = _Array.isArray;
+const isArray = Array.isArray;
 
 /**
  * Checks if the value is an instance of a target constructor.
@@ -158,51 +147,6 @@ const isArrayBuffer = (val) => isInstanceOf(val, ArrayBuffer);
 const isUndefined = (val) => isTypeOf(val, "undefined");
 
 /**
- * Checks if a value is defined.
- *
- * @function isDefined
- * @memberof Is
- * @since 1.0.0
- * @param {any} val
- * @returns {boolean}
- * @example
- * // returns true
- * const a = {};
- *
- * isDefined(1)
- * isDefined(a)
- *
- * @example
- * // returns false
- * const a = {};
- *
- * isDefined(a.b)
- * isDefined(undefined)
- */
-const isDefined = (val) => !isUndefined(val);
-
-/**
- * Checks if a target has a certain key.
- *
- * @function hasKey
- * @memberof Has
- * @since 1.0.0
- * @param {any} target
- * @param {string} key
- * @returns {boolean}
- * @example
- * // returns true
- * hasKey([1, 2, 3], "0")
- * hasKey({foo: 0}, "foo")
- * hasKey("foo", "replace")
- *
- * @example
- * // returns false
- * hasKey({}, "foo")
- */
-const hasKey = (target, key) => isDefined(target[key]);
-
-/**
  * Checks if a value is undefined or null.
  *
  * @function isNil
@@ -265,7 +209,7 @@ const isObjectLike = (val) => !isNil(val) && isTypeOf(val, "object");
  * isArrayLike("foo")
  * isArrayLike(1)
  */
-const isArrayLike = (val) => isObjectLike(val) && hasKey(val, "length");
+const isArrayLike = (val) => isObjectLike(val) && !isUndefined(val.length);
 
 /**
  * Checks if a value is a number.
@@ -349,22 +293,6 @@ const isBoolean = (val) => isTypeOf(val, "boolean");
 const isDate = (val) => isInstanceOf(val, Date);
 
 /**
- * Returns an array of the objects keys.
- *
- * `Object.keys` shorthand.
- *
- * @function objKeys
- * @memberof Object
- * @since 1.0.0
- * @param {Object} obj
- * @returns {any[]}
- * @example
- * // returns ["a", "b", "c"]
- * objKeys({a: 1, b: 2, c: 3})
- */
-const objKeys = _Object.keys;
-
-/**
  * Checks if a value is empty.
  *
  * A value is consider empty if it is either a primitive or an object-like without content.
@@ -396,30 +324,14 @@ const isEmpty = (val) => {
     if (isArrayLike(val)) {
         return val.length === 0;
     }
-    else if (hasKey(val, "size")) {
+    else if (!isUndefined(val.size)) {
         return val.size === 0;
     }
     else if (isObjectLike(val)) {
-        return objKeys(val).length === 0;
+        return Object.keys(val).length === 0;
     }
     return true;
 };
-
-/**
- * Returns an array of the objects entries.
- *
- * `Object.entries` shorthand.
- *
- * @function objEntries
- * @memberof Object
- * @since 1.0.0
- * @param {Object} obj
- * @returns {any[]} Array<[key: any, val: any]>]
- * @example
- * // returns [["a", 1], ["b", 2], ["c", 3]]
- * objEntries({a: 1, b: 2, c: 3})
- */
-const objEntries = _Object.entries;
 
 /**
  * Iterates over each element in an array
@@ -452,7 +364,7 @@ const forEach = (arr, fn) => arr.forEach(fn);
  * forEachEntry(a, (key, val, index) => a[key] = val * index)
  */
 const forEachEntry = (obj, fn) => {
-    forEach(objEntries(obj), (entry, index) => {
+    forEach(Object.entries(obj), (entry, index) => {
         fn(entry[0], entry[1], index, obj);
     });
 };
@@ -484,12 +396,12 @@ const isEqual = (a, b) => {
     }
     if (isObjectLike(a) &&
         isObjectLike(b) &&
-        objKeys(a).length === objKeys(b).length) {
+        Object.keys(a).length === Object.keys(b).length) {
         let result = true;
         forEachEntry(a, (key, aVal) => {
             // Only check if the comparison didn't fail already
             if (result === true) {
-                if (hasKey(b, key)) {
+                if (!isUndefined(b[key])) {
                     result = isEqual(aVal, b[key]);
                 }
                 else {
@@ -541,7 +453,7 @@ const isError = (val) => isInstanceOf(val, Error);
  * isInteger(2.34);
  * isInteger(Infinity)
  */
-const isInteger = _Number.isInteger;
+const isInteger = Number.isInteger;
 
 /**
  * Checks if a value is a map.
@@ -559,7 +471,7 @@ const isInteger = _Number.isInteger;
  * // returns false
  * isMap([[1, 2]])
  */
-const isMap = (val) => isInstanceOf(val, _Map);
+const isMap = (val) => isInstanceOf(val, Map);
 
 /**
  * Checks if a value is an object.
@@ -600,27 +512,7 @@ const isObject = (val) => !isNil(val) && (isTypeOf(val, "object") || isTypeOf(va
  * isObjectPlain([])
  * isObjectPlain(()=>{})
  */
-const isObjectPlain = (val) => isObject(val) && val.constructor === _Object;
-
-/**
- * Checks if a value is primitive.
- *
- * @function isPrimitive
- * @memberof Is
- * @since 1.0.0
- * @param {any} val
- * @returns {boolean}
- * @example
- * // returns true
- * isPrimitive(1)
- * isPrimitive(null)
- *
- * @example
- * // returns false
- * isPrimitive({})
- * isPrimitive([])
- */
-const isPrimitive = (val) => !isObject(val);
+const isObjectPlain = (val) => isObject(val) && val.constructor === Object;
 
 /**
  * Checks if a value is a promise.
@@ -678,7 +570,7 @@ const isRegExp = (val) => isInstanceOf(val, RegExp);
  * // returns false
  * isSet([1, 2])
  */
-const isSet = (val) => isInstanceOf(val, _Set);
+const isSet = (val) => isInstanceOf(val, Set);
 
 /**
  * Checks if a value is a string.
@@ -718,29 +610,6 @@ const isString = (val) => isTypeOf(val, "string");
 const isSymbol = (val) => isTypeOf(val, "symbol");
 
 /**
- * Checks if an object has a certain own key.
- *
- * `obj.hasOwnProperty` shorthand.
- *
- * @function hasOwnProperty
- * @memberof Has
- * @since 2.8.0
- * @param {Object} obj
- * @param {string} key
- * @returns {boolean}
- * @example
- * // returns true
- * hasOwnProperty([1, 2, 3], "0")
- * hasOwnProperty({foo: 0}, "foo")
- *
- * @example
- * // returns false
- * hasOwnProperty([], "forEach")
- * hasOwnProperty("foo", "replace")
- */
-const hasOwnProperty = (obj, key) => obj.hasOwnProperty(key);
-
-/**
  * Accesses a target by a path-array of key-strings.
  *
  * If the path doesn't exist, null is returned.
@@ -759,9 +628,9 @@ const hasOwnProperty = (obj, key) => obj.hasOwnProperty(key);
 const getPath = (target, path) => {
     let targetCurrent = target;
     let index = 0;
-    while (isDefined(targetCurrent) && index < path.length) {
+    while (!isUndefined(targetCurrent) && index < path.length) {
         const keyCurrent = path[index];
-        if (!hasKey(targetCurrent, keyCurrent)) {
+        if (!isUndefined(targetCurrent.keyCurrent)) {
             return null;
         }
         targetCurrent = targetCurrent[keyCurrent];
@@ -904,7 +773,7 @@ const arrCompact = (arr) => arr.filter((val) => val);
  * arrCount([1, 1, 2, 2, 1, 3, 4, 1])
  */
 const arrCount = (arr) => {
-    const result = new _Map();
+    const result = new Map();
     forEach(arr, val => result.set(val, result.has(val) ? result.get(val) + 1 : 1));
     return result;
 };
@@ -978,7 +847,7 @@ const arrFlattenDeep = (arr) => {
  *
  * b[1] = 10;
  */
-const arrFrom = _Array.from;
+const arrFrom = Array.from;
 
 /**
  * Recursively maps the values of the input array with the iterator function and return the result.
@@ -1122,24 +991,7 @@ const arrStep = (arr, step) => arr.filter((val, index) => index % step === 0);
  * // returns [1, 2, 3, 4]
  * arrUniq([1, 1, 1, 2, 3, 1, 2, 1, 4])
  */
-const arrUniq = (arr) => arrFrom(new _Set(arr));
-
-/**
- * Merges contents of two objects.
- *
- * `Object.assign` shorthand.
- *
- * @function objMerge
- * @memberof Object
- * @since 2.7.0
- * @param {Object} obj
- * @param {Object} objSecondary
- * @returns {Object}
- * @example
- * // returns {a: 1, b: 2}
- * objMerge({a: 1}, {b: 2})
- */
-const objMerge = _Object.assign;
+const arrUniq = (arr) => arrFrom(new Set(arr));
 
 /**
  * Creates a new object with the entries of the input object.
@@ -1156,7 +1008,7 @@ const objMerge = _Object.assign;
  *
  * b.a = 10;
  */
-const objFrom = (obj) => objMerge({}, obj);
+const objFrom = (obj) => Object.assign({}, obj);
 
 /**
  * Sets every nil property of object to the value from the default object.
@@ -1174,7 +1026,7 @@ const objFrom = (obj) => objMerge({}, obj);
 const objDefaults = (obj, objDefault) => {
     const result = isArray(obj) ? arrFrom(obj) : objFrom(obj);
     forEachEntry(objDefault, (keyDefault, valDefault) => {
-        if (!hasKey(obj, keyDefault)) {
+        if (isUndefined(obj.keyDefault)) {
             result[keyDefault] = valDefault;
         }
     });
@@ -1266,49 +1118,6 @@ const objDefaultsDeep = (obj, objDefault) => {
 };
 
 /**
- * Adds a property to an object with optional custom flags.
- *
- * `Object.defineProperty` shorthand.
- *
- * @function objDefineProperty
- * @memberof Object
- * @since 2.8.0
- * @param {Object} obj
- * @param {string} key
- * @param {any} val
- * @param {boolean} [enumerable=true]
- * @param {boolean} [writable=true]
- * @param {boolean} [configurable=true]
- * @returns {Object}
- * @example
- * // returns a = {"foo": 1}
- * const a={};
- * objDefineProperty(a, "foo", 1)
- */
-const objDefineProperty = (obj, key, val, enumerable = true, writable = true, configurable = true) => _Object.defineProperty(obj, key, {
-    value: val,
-    enumerable,
-    writable,
-    configurable
-});
-
-/**
- * Returns an array of the objects values.
- *
- * `Object.values` shorthand.
- *
- * @function objValues
- * @memberof Object
- * @since 1.0.0
- * @param {Object} obj
- * @returns {any[]}
- * @example
- * // returns [1, 2, 3]
- * objValues({a: 1, b: 2, c: 3})
- */
-const objValues = _Object.values;
-
-/**
  * Creates a map from an object.
  *
  * @function mapFromObject
@@ -1320,7 +1129,7 @@ const objValues = _Object.values;
  * // returns Map{a: 1, b: 4, c: 5}
  * mapFromObject({a: 1, b: 4, c: 5})
  */
-const mapFromObject = (obj) => new _Map(objEntries(obj));
+const mapFromObject = (obj) => new Map(Object.entries(obj));
 
 /**
  * Wrapper around try/catch.
@@ -1467,8 +1276,8 @@ const randomNumber = (min = 0, max = 1, floating = true) => {
     if (diff === 0) {
         return min;
     }
-    const rand = min + _Math.random() * diff;
-    return floating ? rand : _Math.floor(rand / diff * (diff + 1));
+    const rand = min + Math.random() * diff;
+    return floating ? rand : Math.floor(rand / diff * (diff + 1));
 };
 
 /**
@@ -1526,4 +1335,4 @@ const randomItem = (arr) => arr[randomNumber(0, arr.length - 1, false)];
  * @namespace Random
  */
 
-export { isEqual, isInstanceOf, isTypeOf, isUndefined, isDefined, isNil, isPrimitive, isNumber, isString, isBoolean, isSymbol, isObject, isObjectLike, isObjectPlain, isArray, isArrayLike, isArrayBuffer, isArrayTyped, isPromise, isMap, isSet, isDate, isRegExp, isFunction, isArguments, isError, isEmpty, isInteger, hasKey, hasPath, hasOwnProperty, getPath, forTimes, forEach, forEachDeep, forEachEntry, forEachEntryDeep, arrFrom, arrFromDeep, arrMapDeep, arrFlattenDeep, arrCompact, arrChunk, arrStep, arrRemoveIndex, arrRemoveItem, arrCount, arrDifference, arrIntersection, arrUniq, objFrom, objFromDeep, objMap, objMapDeep, objDefaults, objDefaultsDeep, objMerge, objDefineProperty, objKeys, objValues, objEntries, mapFromObject, fnThrottle, fnAttempt, fnCurry, numberInRange, numberClamp, randomNumber, randomItem };
+export { isEqual, isInstanceOf, isTypeOf, isUndefined, isNil, isNumber, isString, isBoolean, isSymbol, isObject, isObjectLike, isObjectPlain, isArray, isArrayLike, isArrayBuffer, isArrayTyped, isPromise, isMap, isSet, isDate, isRegExp, isFunction, isArguments, isError, isEmpty, isInteger, hasPath, getPath, forTimes, forEach, forEachDeep, forEachEntry, forEachEntryDeep, arrFrom, arrFromDeep, arrMapDeep, arrFlattenDeep, arrCompact, arrChunk, arrStep, arrRemoveIndex, arrRemoveItem, arrCount, arrDifference, arrIntersection, arrUniq, objFrom, objFromDeep, objMap, objMapDeep, objDefaults, objDefaultsDeep, mapFromObject, fnThrottle, fnAttempt, fnCurry, numberInRange, numberClamp, randomNumber, randomItem };

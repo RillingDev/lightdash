@@ -1,5 +1,4 @@
-import hasKey from "../has/key";
-import isDefined from "../is/defined";
+import isUndefined from "../is/undefined";
 
 /**
  * Accesses a target by a path-array of key-strings.
@@ -21,10 +20,10 @@ const getPath = (target: any, path: string[]): any => {
     let targetCurrent = target;
     let index = 0;
 
-    while (isDefined(targetCurrent) && index < path.length) {
+    while (!isUndefined(targetCurrent) && index < path.length) {
         const keyCurrent = path[index];
 
-        if (!hasKey(targetCurrent, keyCurrent)) {
+        if (!isUndefined(targetCurrent.keyCurrent)) {
             return null;
         }
 

@@ -1,4 +1,4 @@
-import hasKey from "../has/key";
+import isUndefined from "../is/undefined";
 import isObjectLike from "./objectLike";
 
 /**
@@ -22,6 +22,6 @@ import isObjectLike from "./objectLike";
  * isArrayLike(1)
  */
 const isArrayLike = (val: any): boolean =>
-    isObjectLike(val) && hasKey(val, "length");
+    isObjectLike(val) && !isUndefined(val.length);
 
 export default isArrayLike;

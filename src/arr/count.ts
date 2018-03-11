@@ -1,4 +1,3 @@
-import { _Map } from "../constants";
 import forEach from "../for/each";
 
 /**
@@ -14,10 +13,10 @@ import forEach from "../for/each";
  * arrCount([1, 1, 2, 2, 1, 3, 4, 1])
  */
 const arrCount = <T>(arr: T[]): Map<T, number> => {
-    const result: Map<T, number> = new _Map();
+    const result: Map<T, number> = new Map();
 
     forEach(arr, val =>
-        result.set(val, result.has(val) ? (result.get(val) as number) + 1 : 1)
+        result.set(val, result.has(val) ? <number>result.get(val) + 1 : 1)
     );
 
     return result;

@@ -1,7 +1,7 @@
 import arrFrom from "../arr/from";
 import forEachEntry from "../for/eachEntry";
-import hasKey from "../has/key";
 import isArray from "../is/array";
+import isUndefined from "../is/undefined";
 import objFrom from "./from";
 
 /**
@@ -17,11 +17,11 @@ import objFrom from "./from";
  * // returns a = {a: 1, b: 2, c: 5}
  * objDefaults({a: 1, c: 5}, {a: 1, b: 2, c: 3})
  */
-const objDefaults = (obj: object, objDefault: object): object => {
+const objDefaults = (obj: any, objDefault: any): object => {
     const result = isArray(obj) ? arrFrom(obj) : objFrom(obj);
 
     forEachEntry(objDefault, (keyDefault, valDefault) => {
-        if (!hasKey(obj, keyDefault)) {
+        if (isUndefined(obj.keyDefault)) {
             result[keyDefault] = valDefault;
         }
     });

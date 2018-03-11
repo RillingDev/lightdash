@@ -1,7 +1,6 @@
-import hasKey from "../has/key";
-import objKeys from "../obj/keys";
 import isArrayLike from "./arrayLike";
 import isObjectLike from "./objectLike";
+import isUndefined from "./undefined";
 
 /**
  * Checks if a value is empty.
@@ -34,10 +33,10 @@ import isObjectLike from "./objectLike";
 const isEmpty = (val: any): boolean => {
     if (isArrayLike(val)) {
         return val.length === 0;
-    } else if (hasKey(val, "size")) {
+    } else if (!isUndefined(val.size)) {
         return val.size === 0;
     } else if (isObjectLike(val)) {
-        return objKeys(val).length === 0;
+        return Object.keys(val).length === 0;
     }
 
     return true;

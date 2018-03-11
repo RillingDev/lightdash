@@ -9,7 +9,6 @@ import isArrayLike from "./is/arrayLike";
 import isArrayTyped from "./is/arrayTyped";
 import isBoolean from "./is/boolean";
 import isDate from "./is/date";
-import isDefined from "./is/defined";
 import isEmpty from "./is/empty";
 import isEqual from "./is/equal";
 import isError from "./is/error";
@@ -22,7 +21,6 @@ import isNumber from "./is/number";
 import isObject from "./is/object";
 import isObjectLike from "./is/objectLike";
 import isObjectPlain from "./is/objectPlain";
-import isPrimitive from "./is/primitive";
 import isPromise from "./is/promise";
 import isRegExp from "./is/regExp";
 import isSet from "./is/set";
@@ -35,8 +33,6 @@ import isUndefined from "./is/undefined";
  * Checks if a target has something
  * @namespace Has
  */
-import hasKey from "./has/key";
-import hasOwnProperty from "./has/ownProperty";
 import hasPath from "./has/path";
 
 /**
@@ -79,15 +75,10 @@ import arrUniq from "./arr/uniq";
  */
 import objDefaults from "./obj/defaults";
 import objDefaultsDeep from "./obj/defaultsDeep";
-import objDefineProperty from "./obj/defineProperty";
-import objEntries from "./obj/entries";
 import objFrom from "./obj/from";
 import objFromDeep from "./obj/fromDeep";
-import objKeys from "./obj/keys";
 import objMap from "./obj/map";
 import objMapDeep from "./obj/mapDeep";
-import objMerge from "./obj/merge";
-import objValues from "./obj/values";
 
 /**
  * Map manipulation and analysis
@@ -122,9 +113,7 @@ export {
     isInstanceOf,
     isTypeOf,
     isUndefined,
-    isDefined,
     isNil,
-    isPrimitive,
     isNumber,
     isString,
     isBoolean,
@@ -146,9 +135,7 @@ export {
     isError,
     isEmpty,
     isInteger,
-    hasKey,
     hasPath,
-    hasOwnProperty,
     getPath,
     forTimes,
     forEach,
@@ -174,11 +161,6 @@ export {
     objMapDeep,
     objDefaults,
     objDefaultsDeep,
-    objMerge,
-    objDefineProperty,
-    objKeys,
-    objValues,
-    objEntries,
     mapFromObject,
     fnThrottle,
     fnAttempt,

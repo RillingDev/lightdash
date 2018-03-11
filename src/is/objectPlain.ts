@@ -1,4 +1,3 @@
-import { _Object } from "../constants";
 import isObject from "./object";
 
 /**
@@ -21,6 +20,6 @@ import isObject from "./object";
  * isObjectPlain(()=>{})
  */
 const isObjectPlain = (val: any): boolean =>
-    isObject(val) && val.constructor === _Object;
+    isObject(val) && val.constructor === Object;
 
 export default isObjectPlain;

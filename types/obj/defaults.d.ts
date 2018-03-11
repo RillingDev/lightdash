@@ -11,5 +11,5 @@
  * // returns a = {a: 1, b: 2, c: 5}
  * objDefaults({a: 1, c: 5}, {a: 1, b: 2, c: 3})
  */
-declare const objDefaults: (obj: object, objDefault: object) => object;
+declare const objDefaults: (obj: any, objDefault: any) => object;
 export default objDefaults;

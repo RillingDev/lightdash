@@ -1,7 +1,6 @@
 import forEachEntry from "../for/eachEntry";
-import hasKey from "../has/key";
-import objKeys from "../obj/keys";
 import isObjectLike from "./objectLike";
+import isUndefined from "./undefined";
 
 /**
  * Recursively checks if two items and their the contents are equal.
@@ -32,14 +31,14 @@ const isEqual = (a: any, b: any): boolean => {
     if (
         isObjectLike(a) &&
         isObjectLike(b) &&
-        objKeys(a).length === objKeys(b).length
+        Object.keys(a).length === Object.keys(b).length
     ) {
         let result = true;
 
         forEachEntry(a, (key, aVal) => {
             // Only check if the comparison didn't fail already
             if (result === true) {
-                if (hasKey(b, key)) {
+                if (!isUndefined(b[key])) {
                     result = isEqual(aVal, b[key]);
                 } else {
                     result = false;
