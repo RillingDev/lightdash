@@ -10,7 +10,7 @@
  * // returns Map{a: 1, b: 4, c: 5}
  * mapFromObject({a: 1, b: 4, c: 5})
  */
-const mapFromObject = (obj: object): Map<PropertyKey, any> =>
+const mapFromObject = (obj: object): Map<string, any> =>
     new Map(Object.entries(obj));
 
 export default mapFromObject;

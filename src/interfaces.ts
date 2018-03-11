@@ -1,4 +1,9 @@
 interface IGenericClass {
     new (): any;
 }
-export { IGenericClass };
+
+interface ITypedObject<T> {
+    [key: string]: T;
+}
+
+export { IGenericClass, ITypedObject };

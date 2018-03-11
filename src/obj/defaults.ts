@@ -17,7 +17,7 @@ import objFrom from "./from";
  * // returns a = {a: 1, b: 2, c: 5}
  * objDefaults({a: 1, c: 5}, {a: 1, b: 2, c: 3})
  */
-const objDefaults = (obj: any, objDefault: any): object => {
+const objDefaults = (obj: object, objDefault: object): object => {
     const result = isArray(obj) ? arrFrom(obj) : objFrom(obj);
 
     forEachEntry(objDefault, (keyDefault, valDefault) => {

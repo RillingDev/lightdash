@@ -1,4 +1,4 @@
-import { IGenericObject } from "./interfaces";
+import { ITypedObject } from "./interfaces";
 
 type forTimesIterator = (index: number) => void;
 
@@ -10,14 +10,14 @@ type forEachEntryIterator<T> = (
     key: string,
     val: T,
     index: number,
-    obj: IGenericObject<T>
+    obj: ITypedObject<T>
 ) => void;
 
 type forEachEntryMapper<T, U> = (
     key: string,
     val: T,
     index: number,
-    obj: IGenericObject<T>
+    obj: ITypedObject<T>
 ) => U;
 
 export {
