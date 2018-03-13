@@ -8,7 +8,7 @@
     "settings": {
         "input": "main.ts",
         "namespace": {
-            "module": "_",
+            "module": "_l",
             "file": "lightdash"
         },
         "external": []
@@ -34,10 +34,7 @@
         "type": "git",
         "url": "git+https://github.com/FelixRilling/lightdash.git"
     },
-    "keywords": [
-        "lightdash",
-        "utility"
-    ],
+    "keywords": ["lightdash", "utility"],
     "author": "Felix Rilling",
     "license": "MIT",
     "bugs": {

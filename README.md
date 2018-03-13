@@ -2,11 +2,15 @@
 
 ## Introduction
 
-An utility library written in TypeScript designed to be lightweight and modern. It's heavily inspired by lodash and underscore, but with the goal to be as small and fast as possible, both in file size as in performance. It is completely written from scratch with the latest ES7 features.
+An utility library written in TypeScript designed to be lightweight and modern. It's heavily inspired by lodash and underscore, but with the goal to be as small and fast as possible. It is completely written from scratch with the latest ES8 features.
+
+**[Docs](https://felixrilling.github.io/lightdash/)**
 
 Importing the modules you want from the file fitting your environment (`lightdash.common.js` for commonjs/node or `lightdash.esm.js` for ES modules) is recommended to drastically reduce file size by only using functions actually needed.
 
 ## Usage
+
+Installation:
 
 ```shell
 npm install --save lightdash
@@ -28,13 +32,11 @@ const { arrDifference } = require("lightdash");
 arrDifference([1, 2, 3], [1, 3]);
 ```
 
-## Contents
+If you have to use lightdash directly in the browser, use the exposed `_l` namespace
 
-Most functions are very similar to their lodash counterparts, however some might behave a little different so make sure to check the docs.
-
-**[Docs](https://felixrilling.github.io/lightdash/)**
-
-For detailed descriptions and type annotations check the source or run `npm run docs`
+```js
+_l.arrDifference([1, 2, 3], [1, 3]);
+```
 
 ## Contributing
 
