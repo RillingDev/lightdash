@@ -1,7 +1,7 @@
 /**
  * Checks if a number is in the given range.
  *
- * @function numberInRange
+ * @function numInRange
  * @memberof Number
  * @since 1.0.0
  * @param {number} val
@@ -10,14 +10,14 @@
  * @returns {boolean}
  * @example
  * // returns true
- * numberInRange(0.5, 0, 1)
- * numberInRange(1, 0, 1)
- * numberInRange(0, -5, 5)
+ * numInRange(0.5, 0, 1)
+ * numInRange(1, 0, 1)
+ * numInRange(0, -5, 5)
  *
  * @example
  * // returns false
  * numberInRange(-1, 0, 5)
  * numberInRange(10, 0, 5)
  */
-declare const numberInRange: (val: number, min: number, max: number) => boolean;
-export default numberInRange;
+declare const numInRange: (val: number, min: number, max: number) => boolean;
+export default numInRange;

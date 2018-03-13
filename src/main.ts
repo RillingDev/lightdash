@@ -95,15 +95,15 @@ import fnThrottle from "./fn/throttle";
  * Number manipulation and comparison
  * @namespace Number
  */
-import numberClamp from "./num/clamp";
-import numberInRange from "./num/inRange";
+import numClamp from "./num/clamp";
+import numInRange from "./num/inRange";
 
 /**
  * Random number generation and value picking
  * @namespace Random
  */
-import randomItem from "./rand/item";
-import randomNumber from "./rand/number";
+import randItem from "./rand/item";
+import randNumber from "./rand/number";
 
 /**
  * Generic algorithms
@@ -165,9 +165,9 @@ export {
     fnThrottle,
     fnAttempt,
     fnCurry,
-    numberInRange,
-    numberClamp,
-    randomNumber,
-    randomItem,
+    numInRange,
+    numClamp,
+    randNumber,
+    randItem,
     algBinarySearch
 };

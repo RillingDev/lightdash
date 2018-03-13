@@ -851,7 +851,7 @@ const arrIntersection = (arr, ...values) => {
 /**
  * Checks if a number is in the given range.
  *
- * @function numberInRange
+ * @function numInRange
  * @memberof Number
  * @since 1.0.0
  * @param {number} val
@@ -860,16 +860,16 @@ const arrIntersection = (arr, ...values) => {
  * @returns {boolean}
  * @example
  * // returns true
- * numberInRange(0.5, 0, 1)
- * numberInRange(1, 0, 1)
- * numberInRange(0, -5, 5)
+ * numInRange(0.5, 0, 1)
+ * numInRange(1, 0, 1)
+ * numInRange(0, -5, 5)
  *
  * @example
  * // returns false
  * numberInRange(-1, 0, 5)
  * numberInRange(10, 0, 5)
  */
-const numberInRange = (val, min, max) => val >= min && val <= max;
+const numInRange = (val, min, max) => val >= min && val <= max;
 
 /**
  * Returns a new array with the item at the index removed.
@@ -885,7 +885,7 @@ const numberInRange = (val, min, max) => val >= min && val <= max;
  * arrRemoveIndex(["foo", "bar", "fizz"], 1)
  */
 const arrRemoveIndex = (arr, index) => {
-    if (!numberInRange(index, 0, arr.length - 1)) {
+    if (!numInRange(index, 0, arr.length - 1)) {
         return arr;
     }
     return index === 0
@@ -1178,7 +1178,7 @@ const fnThrottle = (fn, timeout, immediate = false) => {
 /**
  * Clamps a number in a given range.
  *
- * @function numberClamp
+ * @function numClamp
  * @memberof Number
  * @since 1.0.0
  * @param {number} val
@@ -1186,11 +1186,11 @@ const fnThrottle = (fn, timeout, immediate = false) => {
  * @param {number} max
  * @returns {number}
  * @example
- * numberClamp(5, 0, 10)    //=> 5
- * numberClamp(-2, 0, 10)   //=> 0
- * numberClamp(99, 0, 10)   //=> 10
+ * numClamp(5, 0, 10)    //=> 5
+ * numClamp(-2, 0, 10)   //=> 0
+ * numClamp(99, 0, 10)   //=> 10
  */
-const numberClamp = (val, min, max) => {
+const numClamp = (val, min, max) => {
     if (val < min) {
         return min;
     }
@@ -1203,7 +1203,7 @@ const numberClamp = (val, min, max) => {
 /**
  * Return a random float or integer number in the given range.
  *
- * @function randomNumber
+ * @function randNumber
  * @memberof Random
  * @since 3.0.0
  * @param {number} [min=0]
@@ -1211,11 +1211,11 @@ const numberClamp = (val, min, max) => {
  * @param {boolean} [floating=true]
  * @returns {number}
  * @example
- * randomNumber()               //=> 0.56832138
- * randomNumber(0, 100)         //=> 54.2135123
- * randomNumber(2, 10, false)   //=> 5
+ * randNumber()               //=> 0.56832138
+ * randNumber(0, 100)         //=> 54.2135123
+ * randNumber(2, 10, false)   //=> 5
  */
-const randomNumber = (min = 0, max = 1, floating = true) => {
+const randNumber = (min = 0, max = 1, floating = true) => {
     const diff = max - min;
     if (diff === 0) {
         return min;
@@ -1227,16 +1227,16 @@ const randomNumber = (min = 0, max = 1, floating = true) => {
 /**
  * Return a random item from an array.
  *
- * @function randomItem
+ * @function randItem
  * @memberof Random
  * @since 3.0.0
  * @param {any[]} arr
  * @returns {any}
  * @example
- * randomItem(["foo", "bar"])      //=> "foo"
- * randomNumber([1, 2, 3, 4, 5])   //=> 3
+ * randItem(["foo", "bar"])      //=> "foo"
+ * randItem([1, 2, 3, 4, 5])   //=> 3
  */
-const randomItem = (arr) => arr[randomNumber(0, arr.length - 1, false)];
+const randItem = (arr) => arr[randNumber(0, arr.length - 1, false)];
 
 /**
  * Binary Search implementation
@@ -1369,10 +1369,10 @@ exports.mapFromObject = mapFromObject;
 exports.fnThrottle = fnThrottle;
 exports.fnAttempt = fnAttempt;
 exports.fnCurry = fnCurry;
-exports.numberInRange = numberInRange;
-exports.numberClamp = numberClamp;
-exports.randomNumber = randomNumber;
-exports.randomItem = randomItem;
+exports.numInRange = numInRange;
+exports.numClamp = numClamp;
+exports.randNumber = randNumber;
+exports.randItem = randItem;
 exports.algBinarySearch = algBinarySearch;
 
 return exports;
