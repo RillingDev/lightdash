@@ -1,4 +1,3 @@
-import arrFrom from "../arr/from";
 import forEachEntry from "../for/eachEntry";
 import isArray from "../is/array";
 import isUndefined from "../is/undefined";
@@ -18,7 +17,7 @@ import objFrom from "./from";
  * objDefaults({a: 1, c: 5}, {a: 1, b: 2, c: 3})
  */
 const objDefaults = (obj: object, objDefault: object): object => {
-    const result = isArray(obj) ? arrFrom(obj) : objFrom(obj);
+    const result = isArray(obj) ? Array.from(obj) : objFrom(obj);
 
     forEachEntry(objDefault, (keyDefault, valDefault) => {
         if (isUndefined(obj[keyDefault])) {

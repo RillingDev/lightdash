@@ -1,5 +1,3 @@
-import forTimes from "../for/times";
-
 /**
  * Creates an array of elements split into groups by size.
  *
@@ -24,9 +22,9 @@ const arrChunk = <T>(arr: T[], chunk: number): T[][] => {
 
     const result: T[][] = [];
 
-    forTimes(0, arr.length - 1, chunk, (index: number) => {
-        result.push(arr.slice(index, index + chunk));
-    });
+    for (let i = 0; i < arr.length - 1; i += chunk) {
+        result.push(arr.slice(i, i + chunk));
+    }
 
     return result;
 };

@@ -45,11 +45,9 @@ import getPath from "./get/path";
  * Looping through ranges, arrays and objects
  * @namespace For
  */
-import forEach from "./for/each";
 import forEachDeep from "./for/eachDeep";
 import forEachEntry from "./for/eachEntry";
 import forEachEntryDeep from "./for/eachEntryDeep";
-import forTimes from "./for/times";
 
 /**
  * Array manipulation and analysis
@@ -60,7 +58,6 @@ import arrCompact from "./arr/compact";
 import arrCount from "./arr/count";
 import arrDifference from "./arr/difference";
 import arrFlattenDeep from "./arr/flattenDeep";
-import arrFrom from "./arr/from";
 import arrFromDeep from "./arr/fromDeep";
 import arrIntersection from "./arr/intersection";
 import arrMapDeep from "./arr/mapDeep";
@@ -143,12 +140,9 @@ export {
     isInteger,
     hasPath,
     getPath,
-    forTimes,
-    forEach,
     forEachDeep,
     forEachEntry,
     forEachEntryDeep,
-    arrFrom,
     arrFromDeep,
     arrMapDeep,
     arrFlattenDeep,

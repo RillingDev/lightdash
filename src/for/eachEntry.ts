@@ -1,5 +1,4 @@
 import { forEachEntryIterator } from "../types";
-import forEach from "./each";
 
 /**
  * Iterates over each entry of an object
@@ -15,7 +14,7 @@ import forEach from "./each";
  * forEachEntry(a, (key, val, index) => a[key] = val * index)
  */
 const forEachEntry = (obj: object, fn: forEachEntryIterator<any>): void => {
-    forEach(Object.entries(obj), (entry, index) => {
+    Object.entries(obj).forEach((entry, index) => {
         fn(entry[0], entry[1], index, obj);
     });
 };

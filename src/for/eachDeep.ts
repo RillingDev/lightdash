@@ -1,6 +1,5 @@
 import isArray from "../is/array";
 import { forEachIterator } from "../types";
-import forEach from "./each";
 
 /**
  * Recursively iterates over each element in an array
@@ -16,8 +15,7 @@ import forEach from "./each";
  * forEachDeep(a, (val, index, arr) => arr[index] = index * val)
  */
 const forEachDeep = (arr: any[], fn: forEachIterator<any>): void =>
-    forEach(
-        arr,
+    arr.forEach(
         (val, index) =>
             isArray(val) ? forEachDeep(val, fn) : fn(val, index, arr)
     );

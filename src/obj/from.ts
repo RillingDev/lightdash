@@ -1,6 +1,3 @@
-import arrFrom from "../arr/from";
-import isArray from "../is/array";
-
 /**
  * Creates a new object with the entries of the input object.
  *

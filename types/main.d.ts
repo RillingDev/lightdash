@@ -42,11 +42,9 @@ import getPath from "./get/path";
  * Looping through ranges, arrays and objects
  * @namespace For
  */
-import forEach from "./for/each";
 import forEachDeep from "./for/eachDeep";
 import forEachEntry from "./for/eachEntry";
 import forEachEntryDeep from "./for/eachEntryDeep";
-import forTimes from "./for/times";
 /**
  * Array manipulation and analysis
  * @namespace Array
@@ -56,7 +54,6 @@ import arrCompact from "./arr/compact";
 import arrCount from "./arr/count";
 import arrDifference from "./arr/difference";
 import arrFlattenDeep from "./arr/flattenDeep";
-import arrFrom from "./arr/from";
 import arrFromDeep from "./arr/fromDeep";
 import arrIntersection from "./arr/intersection";
 import arrMapDeep from "./arr/mapDeep";
@@ -103,4 +100,4 @@ import randomNumber from "./rand/number";
  * @namespace Algorithm
  */
 import algBinarySearch from "./alg/binarySearch";
-export { isEqual, isInstanceOf, isTypeOf, isUndefined, isNil, isNumber, isString, isBoolean, isSymbol, isObject, isObjectLike, isObjectPlain, isArray, isArrayLike, isArrayBuffer, isArrayTyped, isPromise, isMap, isSet, isDate, isRegExp, isFunction, isArguments, isError, isEmpty, isInteger, hasPath, getPath, forTimes, forEach, forEachDeep, forEachEntry, forEachEntryDeep, arrFrom, arrFromDeep, arrMapDeep, arrFlattenDeep, arrCompact, arrChunk, arrStep, arrRemoveIndex, arrRemoveItem, arrCount, arrDifference, arrIntersection, arrUniq, objFrom, objFromDeep, objMap, objMapDeep, objDefaults, objDefaultsDeep, mapFromObject, fnThrottle, fnAttempt, fnCurry, numberInRange, numberClamp, randomNumber, randomItem, algBinarySearch };
+export { isEqual, isInstanceOf, isTypeOf, isUndefined, isNil, isNumber, isString, isBoolean, isSymbol, isObject, isObjectLike, isObjectPlain, isArray, isArrayLike, isArrayBuffer, isArrayTyped, isPromise, isMap, isSet, isDate, isRegExp, isFunction, isArguments, isError, isEmpty, isInteger, hasPath, getPath, forEachDeep, forEachEntry, forEachEntryDeep, arrFromDeep, arrMapDeep, arrFlattenDeep, arrCompact, arrChunk, arrStep, arrRemoveIndex, arrRemoveItem, arrCount, arrDifference, arrIntersection, arrUniq, objFrom, objFromDeep, objMap, objMapDeep, objDefaults, objDefaultsDeep, mapFromObject, fnThrottle, fnAttempt, fnCurry, numberInRange, numberClamp, randomNumber, randomItem, algBinarySearch };

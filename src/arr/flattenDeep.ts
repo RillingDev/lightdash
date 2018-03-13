@@ -1,4 +1,3 @@
-import forEach from "../for/each";
 import isArray from "../is/array";
 
 /**
@@ -20,7 +19,7 @@ import isArray from "../is/array";
 const arrFlattenDeep = (arr: any[]): any[] => {
     const result: any[] = [];
 
-    forEach(arr, val => {
+    arr.forEach(val => {
         if (isArray(val)) {
             result.push(...arrFlattenDeep(val));
         } else {

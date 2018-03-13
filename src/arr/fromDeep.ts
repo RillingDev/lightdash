@@ -1,5 +1,4 @@
 import isArray from "../is/array";
-import arrFrom from "./from";
 import arrMapDeep from "./mapDeep";
 
 /**
@@ -18,6 +17,6 @@ import arrMapDeep from "./mapDeep";
  * b[3][1][0] = 10;
  */
 const arrFromDeep = (arr: any[]): any[] =>
-    arrMapDeep(arrFrom(arr), val => (isArray(val) ? arrFrom(val) : val));
+    arrMapDeep(Array.from(arr), val => (isArray(val) ? Array.from(val) : val));
 
 export default arrFromDeep;

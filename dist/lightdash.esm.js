@@ -334,23 +334,6 @@ const isEmpty = (val) => {
 };
 
 /**
- * Iterates over each element in an array
- *
- * Wrapper around arr.forEach to have a cleaner API and better minified code
- *
- * @function forEach
- * @memberof For
- * @param {any[]} arr
- * @param {function} fn fn(val: any, index: number, arr: any[])
- * @example
- * // returns a = [0, 2, 6]
- * const a = [1, 2, 3];
- *
- * forEach(a, (val, index)=>a[index] = val * index)
- */
-const forEach = (arr, fn) => arr.forEach(fn);
-
-/**
  * Iterates over each entry of an object
  *
  * @function forEachEntry
@@ -364,7 +347,7 @@ const forEach = (arr, fn) => arr.forEach(fn);
  * forEachEntry(a, (key, val, index) => a[key] = val * index)
  */
 const forEachEntry = (obj, fn) => {
-    forEach(Object.entries(obj), (entry, index) => {
+    Object.entries(obj).forEach((entry, index) => {
         fn(entry[0], entry[1], index, obj);
     });
 };
@@ -676,7 +659,7 @@ const hasPath = (target, path) => !isNil(getPath(target, path));
  *
  * forEachDeep(a, (val, index, arr) => arr[index] = index * val)
  */
-const forEachDeep = (arr, fn) => forEach(arr, (val, index) => isArray(val) ? forEachDeep(val, fn) : fn(val, index, arr));
+const forEachDeep = (arr, fn) => arr.forEach((val, index) => isArray(val) ? forEachDeep(val, fn) : fn(val, index, arr));
 
 /**
  * Recursively iterates over each entry of an object
@@ -694,29 +677,6 @@ const forEachDeep = (arr, fn) => forEach(arr, (val, index) => isArray(val) ? for
 const forEachEntryDeep = (obj, fn) => forEachEntry(obj, (key, val, index) => isObjectLike(val)
     ? forEachEntryDeep(val, fn)
     : fn(key, val, index, obj));
-
-/**
- * Execute a function n times
- *
- * Wrapper around a simple for-loop to have better minified code
- *
- * @function forTimes
- * @memberof For
- * @param {number} start
- * @param {number} max
- * @param {number} increase
- * @param {function} fn fn(index: number)
- * @example
- * // returns a = [2, 4, 6, 8, 10]
- * const a = [];
- *
- * forTimes(1, 6, 1, index => a.push(index * 2))
- */
-const forTimes = (start, max, increase, fn) => {
-    for (let index = start; index <= max; index += increase) {
-        fn(index);
-    }
-};
 
 /**
  * Creates an array of elements split into groups by size.
@@ -740,9 +700,9 @@ const arrChunk = (arr, chunk) => {
         return [];
     }
     const result = [];
-    forTimes(0, arr.length - 1, chunk, (index) => {
-        result.push(arr.slice(index, index + chunk));
-    });
+    for (let i = 0; i < arr.length - 1; i += chunk) {
+        result.push(arr.slice(i, i + chunk));
+    }
     return result;
 };
 
@@ -774,7 +734,7 @@ const arrCompact = (arr) => arr.filter((val) => val);
  */
 const arrCount = (arr) => {
     const result = new Map();
-    forEach(arr, val => result.set(val, result.has(val) ? result.get(val) + 1 : 1));
+    arr.forEach(val => result.set(val, result.has(val) ? result.get(val) + 1 : 1));
     return result;
 };
 
@@ -819,7 +779,7 @@ const arrDifference = (arr, ...values) => {
  */
 const arrFlattenDeep = (arr) => {
     const result = [];
-    forEach(arr, val => {
+    arr.forEach(val => {
         if (isArray(val)) {
             result.push(...arrFlattenDeep(val));
         }
@@ -829,25 +789,6 @@ const arrFlattenDeep = (arr) => {
     });
     return result;
 };
-
-/**
- * Creates a new array with the values of the input iterable.
- *
- * `Array.from` shorthand.
- *
- * @function arrFrom
- * @memberof Array
- * @since 1.0.0
- * @param {any} arr
- * @returns {any[]}
- * @example
- * // returns a = [1, 2, 3], b = [1, 10, 3]
- * const a = [1, 2, 3];
- * const b = arrFrom(a);
- *
- * b[1] = 10;
- */
-const arrFrom = Array.from;
 
 /**
  * Recursively maps the values of the input array with the iterator function and return the result.
@@ -879,7 +820,7 @@ const arrMapDeep = (arr, fn) => arr.map((val, index) => isArray(val) ? arrMapDee
  *
  * b[3][1][0] = 10;
  */
-const arrFromDeep = (arr) => arrMapDeep(arrFrom(arr), val => (isArray(val) ? arrFrom(val) : val));
+const arrFromDeep = (arr) => arrMapDeep(Array.from(arr), val => (isArray(val) ? Array.from(val) : val));
 
 /**
  * Returns an array of all elements that exist in the first array and at least once in one of the other arrays.
@@ -991,7 +932,7 @@ const arrStep = (arr, step) => arr.filter((val, index) => index % step === 0);
  * // returns [1, 2, 3, 4]
  * arrUniq([1, 1, 1, 2, 3, 1, 2, 1, 4])
  */
-const arrUniq = (arr) => arrFrom(new Set(arr));
+const arrUniq = (arr) => Array.from(new Set(arr));
 
 /**
  * Creates a new object with the entries of the input object.
@@ -1024,7 +965,7 @@ const objFrom = (obj) => Object.assign({}, obj);
  * objDefaults({a: 1, c: 5}, {a: 1, b: 2, c: 3})
  */
 const objDefaults = (obj, objDefault) => {
-    const result = isArray(obj) ? arrFrom(obj) : objFrom(obj);
+    const result = isArray(obj) ? Array.from(obj) : objFrom(obj);
     forEachEntry(objDefault, (keyDefault, valDefault) => {
         if (isUndefined(obj[keyDefault])) {
             result[keyDefault] = valDefault;
@@ -1102,7 +1043,7 @@ const objFromDeep = (obj) => objMapDeep(objFrom(obj), (key, val) => (isObjectLik
  * objDefaultsDeep({a: [1, 2], c: {f: "x"}}, {a: [1, 2, 3], b: 2, c: {f: "y"}})
  */
 const objDefaultsDeep = (obj, objDefault) => {
-    const result = isArray(obj) ? arrFrom(obj) : objFromDeep(obj);
+    const result = isArray(obj) ? Array.from(obj) : objFromDeep(obj);
     forEachEntry(objDefault, (keyDefault, valDefault) => {
         const valGiven = obj[keyDefault];
         if (isObjectLike(valDefault)) {
@@ -1372,4 +1313,4 @@ const algBinarySearch = (arr, search) => {
  * @namespace Algorithm
  */
 
-export { isEqual, isInstanceOf, isTypeOf, isUndefined, isNil, isNumber, isString, isBoolean, isSymbol, isObject, isObjectLike, isObjectPlain, isArray, isArrayLike, isArrayBuffer, isArrayTyped, isPromise, isMap, isSet, isDate, isRegExp, isFunction, isArguments, isError, isEmpty, isInteger, hasPath, getPath, forTimes, forEach, forEachDeep, forEachEntry, forEachEntryDeep, arrFrom, arrFromDeep, arrMapDeep, arrFlattenDeep, arrCompact, arrChunk, arrStep, arrRemoveIndex, arrRemoveItem, arrCount, arrDifference, arrIntersection, arrUniq, objFrom, objFromDeep, objMap, objMapDeep, objDefaults, objDefaultsDeep, mapFromObject, fnThrottle, fnAttempt, fnCurry, numberInRange, numberClamp, randomNumber, randomItem, algBinarySearch };
+export { isEqual, isInstanceOf, isTypeOf, isUndefined, isNil, isNumber, isString, isBoolean, isSymbol, isObject, isObjectLike, isObjectPlain, isArray, isArrayLike, isArrayBuffer, isArrayTyped, isPromise, isMap, isSet, isDate, isRegExp, isFunction, isArguments, isError, isEmpty, isInteger, hasPath, getPath, forEachDeep, forEachEntry, forEachEntryDeep, arrFromDeep, arrMapDeep, arrFlattenDeep, arrCompact, arrChunk, arrStep, arrRemoveIndex, arrRemoveItem, arrCount, arrDifference, arrIntersection, arrUniq, objFrom, objFromDeep, objMap, objMapDeep, objDefaults, objDefaultsDeep, mapFromObject, fnThrottle, fnAttempt, fnCurry, numberInRange, numberClamp, randomNumber, randomItem, algBinarySearch };
