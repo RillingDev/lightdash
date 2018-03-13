@@ -2,11 +2,11 @@
 
 ## Introduction
 
-An utility library written in TypeScript designed to be lightweight and modern. It's heavily inspired by lodash and underscore, but with the goal to be as small and fast as possible. It is completely written from scratch with the latest ES8 features.
+An extensive collection of utility functions written in TypeScript, designed to be lightweight and modern. It's heavily inspired by lodash and underscore, but with the goal to be tiny and as fast as possible. It is completely written from scratch with the latest ES8 features.
 
 **[Docs](https://felixrilling.github.io/lightdash/)**
 
-Importing the modules you want from the file fitting your environment (`lightdash.common.js` for commonjs/node or `lightdash.esm.js` for ES modules) is recommended to drastically reduce file size by only using functions actually needed.
+Importing the modules you want from the file fitting your environment (`lightdash.esm.js` for ES modules or `lightdash.common.js` for commonjs/node) is highly recommended to drastically reduce file size by only including the functions actually needed.
 
 ## Usage
 
