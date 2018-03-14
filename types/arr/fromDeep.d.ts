@@ -13,5 +13,5 @@
  *
  * b[3][1][0] = 10;
  */
-declare const arrFromDeep: (arr: any[]) => any[];
+declare const arrFromDeep: <T>(arr: T[]) => T[];
 export default arrFromDeep;

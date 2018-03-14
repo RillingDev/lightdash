@@ -17,7 +17,7 @@
 const fnThrottle = (
     fn: (...args: any[]) => any,
     timeout: number,
-    immediate: boolean = false
+    immediate = false
 ) => {
     const getTimer = () =>
         setTimeout(() => {
