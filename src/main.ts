@@ -104,6 +104,7 @@ import numInRange from "./num/inRange";
  */
 import randItem from "./rand/item";
 import randNumber from "./rand/number";
+import randShuffle from "./rand/shuffle";
 
 /**
  * Generic algorithms
@@ -169,5 +170,6 @@ export {
     numClamp,
     randNumber,
     randItem,
+    randShuffle,
     algBinarySearch
 };

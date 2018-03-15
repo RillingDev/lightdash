@@ -1209,14 +1209,14 @@ const numClamp = (val, min, max) => {
  * @since 3.0.0
  * @param {number} [min=0]
  * @param {number} [max=1]
- * @param {boolean} [floating=true]
+ * @param {boolean} [floating=false]
  * @returns {number}
  * @example
  * randNumber()               //=> 0.56832138
  * randNumber(0, 100)         //=> 54.2135123
  * randNumber(2, 10, false)   //=> 5
  */
-const randNumber = (min = 0, max = 1, floating = true) => {
+const randNumber = (min = 0, max = 1, floating = false) => {
     const diff = max - min;
     if (diff === 0) {
         return min;
@@ -1237,7 +1237,32 @@ const randNumber = (min = 0, max = 1, floating = true) => {
  * randItem(["foo", "bar"])      //=> "foo"
  * randItem([1, 2, 3, 4, 5])   //=> 3
  */
-const randItem = (arr) => arr[randNumber(0, arr.length - 1, false)];
+const randItem = (arr) => arr[randNumber(0, arr.length - 1)];
+
+/**
+ * Shuffles an array randomly and returns it
+ *
+ * Fisher Yates Shuffle Algorithm
+ *
+ * @function randShuffle
+ * @memberof Random
+ * @since 5.0.0
+ * @param {any[]} arr
+ * @returns {any[]}
+ * @example
+ * randShuffle([1,2,3])        //=> [3,1,2]
+ */
+const randShuffle = (arr) => {
+    let input = Array.from(arr);
+    const result = [];
+    while (result.length < arr.length) {
+        const index = randNumber(0, arr.length - 1);
+        const val = input[index];
+        result.push(val);
+        input = arrRemoveIndex(input, index);
+    }
+    return result;
+};
 
 /**
  * Binary Search implementation
@@ -1374,4 +1399,5 @@ exports.numInRange = numInRange;
 exports.numClamp = numClamp;
 exports.randNumber = randNumber;
 exports.randItem = randItem;
+exports.randShuffle = randShuffle;
 exports.algBinarySearch = algBinarySearch;
