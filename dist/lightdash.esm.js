@@ -1208,9 +1208,9 @@ const numClamp = (val, min, max) => {
  * @param {boolean} [floating=false]
  * @returns {number}
  * @example
- * randNumber()               //=> 0.56832138
- * randNumber(0, 100)         //=> 54.2135123
- * randNumber(2, 10, false)   //=> 5
+ * randNumber()               //=> 1
+ * randNumber(0, 100)         //=> 54
+ * randNumber(2, 10, true)   //=> 6.23132496
  */
 const randNumber = (min = 0, max = 1, floating = false) => {
     const diff = max - min;

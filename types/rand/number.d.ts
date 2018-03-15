@@ -9,9 +9,9 @@
  * @param {boolean} [floating=false]
  * @returns {number}
  * @example
- * randNumber()               //=> 0.56832138
- * randNumber(0, 100)         //=> 54.2135123
- * randNumber(2, 10, false)   //=> 5
+ * randNumber()               //=> 1
+ * randNumber(0, 100)         //=> 54
+ * randNumber(2, 10, true)   //=> 6.23132496
  */
 declare const randNumber: (min?: number, max?: number, floating?: boolean) => number;
 export default randNumber;
