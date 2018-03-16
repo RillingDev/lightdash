@@ -13,8 +13,8 @@ import objFrom from "./from";
  * @param {Object} objDefault
  * @returns {Object}
  * @example
- * // returns a = {a: 1, b: 2, c: 5}
  * objDefaults({a: 1, c: 5}, {a: 1, b: 2, c: 3})
+ * // => {a: 1, b: 2, c: 5}
  */
 const objDefaults = (obj: object, objDefault: object): object => {
     const result = isArray(obj) ? Array.from(obj) : objFrom(obj);

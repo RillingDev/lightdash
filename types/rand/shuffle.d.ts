@@ -9,7 +9,8 @@
  * @param {any[]} arr
  * @returns {any[]}
  * @example
- * randShuffle([1,2,3])        //=> [3,1,2]
+ * randShuffle([1,2,3])
+ * // => [3,1,2]
  */
 declare const randShuffle: <T>(arr: T[]) => T[];
 export default randShuffle;

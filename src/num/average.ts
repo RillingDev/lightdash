@@ -9,8 +9,8 @@ import numSum from "./sum";
  * @param {number[]} arr
  * @returns {number}
  * @example
- * // returns 2.2666
  * numAverage([1, 2.5, 3.3])
+ * // => 2.2666
  */
 const numAverage = (arr: number[]): number => numSum(arr) / arr.length;
 

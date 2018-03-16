@@ -12,7 +12,8 @@ import randNumber from "./number";
  * @param {any[]} arr
  * @returns {any[]}
  * @example
- * randShuffle([1,2,3])        //=> [3,1,2]
+ * randShuffle([1,2,3])
+ * // => [3,1,2]
  */
 const randShuffle = <T>(arr: T[]): T[] => {
     let input = Array.from(arr);

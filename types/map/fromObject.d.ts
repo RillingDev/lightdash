@@ -7,8 +7,8 @@
  * @param {Object} obj
  * @returns {Map}
  * @example
- * // returns Map{a: 1, b: 4, c: 5}
  * mapFromObject({a: 1, b: 4, c: 5})
+ * // => Map<string,number>{a: 1, b: 4, c: 5}
  */
 declare const mapFromObject: (obj: object) => Map<string, any>;
 export default mapFromObject;

@@ -7,8 +7,11 @@
  * @param {any[]} arr
  * @returns {any}
  * @example
- * randItem(["foo", "bar"])      //=> "foo"
- * randItem([1, 2, 3, 4, 5])   //=> 3
+ * randItem(["foo", "bar"])
+ * // => "foo"
+ *
+ * randItem([1, 2, 3, 4, 5])
+ * // => 3
  */
 declare const randItem: <T>(arr: T[]) => T;
 export default randItem;

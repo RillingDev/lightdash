@@ -7,8 +7,8 @@
  * @param {number[]} arr
  * @returns {number}
  * @example
- * // returns 2.2666
  * numAverage([1, 2.5, 3.3])
+ * // => 2.2666
  */
 declare const numAverage: (arr: number[]) => number;
 export default numAverage;

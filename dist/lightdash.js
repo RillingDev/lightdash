@@ -935,11 +935,12 @@ const arrUniq = (arr) => Array.from(new Set(arr));
  * @param {Object} obj
  * @returns {Object}
  * @example
- * // returns a = {a: 4, b: 2}, b = {a: 10, b: 2}
  * const a = {a: 4, b: 2};
  * const b = objFrom(a);
  *
  * b.a = 10;
+ * // a = {a: 4, b: 2}
+ * // b = {a: 10, b: 2}
  */
 const objFrom = (obj) => Object.assign({}, obj);
 
@@ -953,8 +954,8 @@ const objFrom = (obj) => Object.assign({}, obj);
  * @param {Object} objDefault
  * @returns {Object}
  * @example
- * // returns a = {a: 1, b: 2, c: 5}
  * objDefaults({a: 1, c: 5}, {a: 1, b: 2, c: 3})
+ * // => {a: 1, b: 2, c: 5}
  */
 const objDefaults = (obj, objDefault) => {
     const result = isArray(obj) ? Array.from(obj) : objFrom(obj);
@@ -976,8 +977,8 @@ const objDefaults = (obj, objDefault) => {
  * @param {function} fn fn(key: any, val: any, index: number, arr: any[])
  * @returns {Object}
  * @example
- * // returns a = {a: 8, b: 4}
  * objMap({a: 4, b: 2}, (key, val) => val * 2)
+ * // => {a: 8, b: 4}
  */
 const objMap = (obj, fn) => {
     const objNew = {};
@@ -997,8 +998,8 @@ const objMap = (obj, fn) => {
  * @param {function} fn fn(key: any, val: any, index: number, arr: any[])
  * @returns {Object}
  * @example
- * // returns {a: {b: 4, c: [20, 40]}}
  * arrMapDeep({a: {b: 2, c: [10, 20]}}, (key, val) => val * 2)
+ * // => {a: {b: 4, c: [20, 40]}}
  */
 const objMapDeep = (obj, fn) => objMap(obj, (key, val, index, objNew) => isObjectLike(val)
     ? objMapDeep(val, fn)
@@ -1013,11 +1014,12 @@ const objMapDeep = (obj, fn) => objMap(obj, (key, val, index, objNew) => isObjec
  * @param {Object} obj
  * @returns {Object}
  * @example
- * // returns a = {a: {b: 2, c: {a: 10, b: 20}}, b = {a: {b: 2, c: {a: 123, b: 20}}}
  * const a = {a: {b: 2, c: {a: 10, b: 20}}};
  * const b = objFromDeep(a);
  *
  * b.a.c.a = 123;
+ * // a = {a: {b: 2, c: {a: 10, b: 20}}
+ * // b = {a: {b: 2, c: {a: 123, b: 20}}}
  */
 const objFromDeep = (obj) => objMapDeep(objFrom(obj), (key, val) => (isObjectLike(val) ? objFrom(val) : val));
 
@@ -1031,8 +1033,8 @@ const objFromDeep = (obj) => objMapDeep(objFrom(obj), (key, val) => (isObjectLik
  * @param {Object} objDefault
  * @returns {Object}
  * @example
- * // returns a = {a: [1, 2, 3], b: 2, c: {f: "x"}}
  * objDefaultsDeep({a: [1, 2], c: {f: "x"}}, {a: [1, 2, 3], b: 2, c: {f: "y"}})
+ * // => {a: [1, 2, 3], b: 2, c: {f: "x"}}
  */
 const objDefaultsDeep = (obj, objDefault) => {
     const result = isArray(obj) ? Array.from(obj) : objFromDeep(obj);
@@ -1059,8 +1061,8 @@ const objDefaultsDeep = (obj, objDefault) => {
  * @param {Object} obj
  * @returns {Map}
  * @example
- * // returns Map{a: 1, b: 4, c: 5}
  * mapFromObject({a: 1, b: 4, c: 5})
+ * // => Map<string,number>{a: 1, b: 4, c: 5}
  */
 const mapFromObject = (obj) => new Map(Object.entries(obj));
 
@@ -1182,8 +1184,8 @@ const fnThrottle = (fn, timeout, immediate = false) => {
  * @param {number[]} arr
  * @returns {number}
  * @example
- * // returns 6.8
  * numSum([1, 2.5, 3.3])
+ * // => 6.8
  */
 const numSum = (arr) => arr.reduce((a, b) => a + b);
 
@@ -1196,8 +1198,8 @@ const numSum = (arr) => arr.reduce((a, b) => a + b);
  * @param {number[]} arr
  * @returns {number}
  * @example
- * // returns 2.2666
  * numAverage([1, 2.5, 3.3])
+ * // => 2.2666
  */
 const numAverage = (arr) => numSum(arr) / arr.length;
 
@@ -1212,9 +1214,14 @@ const numAverage = (arr) => numSum(arr) / arr.length;
  * @param {number} max
  * @returns {number}
  * @example
- * numberClamp(5, 0, 10)    //=> 5
- * numberClamp(-2, 0, 10)   //=> 0
- * numberClamp(99, 0, 10)   //=> 10
+ * numberClamp(5, 0, 10)
+ * // => 5
+ *
+ * numberClamp(-2, 0, 10)
+ * // => 0
+ *
+ * numberClamp(99, 0, 10)
+ * // => 10
  */
 const numberClamp = (val, min, max) => {
     if (val < min) {
@@ -1237,9 +1244,14 @@ const numberClamp = (val, min, max) => {
  * @param {boolean} [floating=false]
  * @returns {number}
  * @example
- * randNumber()               //=> 1
- * randNumber(0, 100)         //=> 54
- * randNumber(2, 10, true)   //=> 6.23132496
+ * randNumber()
+ * // => 1
+ *
+ * randNumber(0, 100)
+ * // => 54
+ *
+ * randNumber(2, 10, true)
+ * // => 6.23132496
  */
 const randNumber = (min = 0, max = 1, floating = false) => {
     const diff = max - min;
@@ -1259,8 +1271,11 @@ const randNumber = (min = 0, max = 1, floating = false) => {
  * @param {any[]} arr
  * @returns {any}
  * @example
- * randItem(["foo", "bar"])      //=> "foo"
- * randItem([1, 2, 3, 4, 5])   //=> 3
+ * randItem(["foo", "bar"])
+ * // => "foo"
+ *
+ * randItem([1, 2, 3, 4, 5])
+ * // => 3
  */
 const randItem = (arr) => arr[randNumber(0, arr.length - 1)];
 
@@ -1275,7 +1290,8 @@ const randItem = (arr) => arr[randNumber(0, arr.length - 1)];
  * @param {any[]} arr
  * @returns {any[]}
  * @example
- * randShuffle([1,2,3])        //=> [3,1,2]
+ * randShuffle([1,2,3])
+ * // => [3,1,2]
  */
 const randShuffle = (arr) => {
     let input = Array.from(arr);

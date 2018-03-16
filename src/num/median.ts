@@ -9,12 +9,11 @@ import numAverage from "./average";
  * @param {number[]} arr
  * @returns {number}
  * @example
- * // returns 2.5
- * numAverage([1, 2.5, 3.3])
+ * numMedian([1, 2.5, 3.3])
+ * // => 2.5
  *
- * @example
- * // returns 3
- * numAverage([1, 2, 4, 5])
+ * numMedian([1, 2, 4, 5])
+ * // => 3
  */
 const numMedian = (arr: number[]): number => {
     const arrLengthHalf = arr.length / 2;

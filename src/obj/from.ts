@@ -7,11 +7,12 @@
  * @param {Object} obj
  * @returns {Object}
  * @example
- * // returns a = {a: 4, b: 2}, b = {a: 10, b: 2}
  * const a = {a: 4, b: 2};
  * const b = objFrom(a);
  *
  * b.a = 10;
+ * // a = {a: 4, b: 2}
+ * // b = {a: 10, b: 2}
  */
 const objFrom = (obj: object): object => Object.assign({}, obj);
 

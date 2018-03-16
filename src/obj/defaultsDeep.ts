@@ -14,8 +14,8 @@ import objFrom from "./fromDeep";
  * @param {Object} objDefault
  * @returns {Object}
  * @example
- * // returns a = {a: [1, 2, 3], b: 2, c: {f: "x"}}
  * objDefaultsDeep({a: [1, 2], c: {f: "x"}}, {a: [1, 2, 3], b: 2, c: {f: "y"}})
+ * // => {a: [1, 2, 3], b: 2, c: {f: "x"}}
  */
 const objDefaultsDeep = (obj: object, objDefault: object): object => {
     const result = isArray(obj) ? Array.from(obj) : objFrom(obj);

@@ -8,8 +8,8 @@
  * @param {Object} objDefault
  * @returns {Object}
  * @example
- * // returns a = {a: [1, 2, 3], b: 2, c: {f: "x"}}
  * objDefaultsDeep({a: [1, 2], c: {f: "x"}}, {a: [1, 2, 3], b: 2, c: {f: "y"}})
+ * // => {a: [1, 2, 3], b: 2, c: {f: "x"}}
  */
 declare const objDefaultsDeep: (obj: object, objDefault: object) => object;
 export default objDefaultsDeep;

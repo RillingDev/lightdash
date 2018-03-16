@@ -7,11 +7,12 @@
  * @param {Object} obj
  * @returns {Object}
  * @example
- * // returns a = {a: {b: 2, c: {a: 10, b: 20}}, b = {a: {b: 2, c: {a: 123, b: 20}}}
  * const a = {a: {b: 2, c: {a: 10, b: 20}}};
  * const b = objFromDeep(a);
  *
  * b.a.c.a = 123;
+ * // a = {a: {b: 2, c: {a: 10, b: 20}}
+ * // b = {a: {b: 2, c: {a: 123, b: 20}}}
  */
 declare const objFromDeep: (obj: object) => object;
 export default objFromDeep;

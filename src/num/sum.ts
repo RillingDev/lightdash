@@ -7,8 +7,8 @@
  * @param {number[]} arr
  * @returns {number}
  * @example
- * // returns 6.8
  * numSum([1, 2.5, 3.3])
+ * // => 6.8
  */
 const numSum = (arr: number[]): number => arr.reduce((a, b) => a + b);
 
