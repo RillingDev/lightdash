@@ -1,5 +1,3 @@
-import numberInRange from "../num/inRange";
-
 /**
  * Returns a new array with the item at the index removed.
  *
@@ -14,7 +12,7 @@ import numberInRange from "../num/inRange";
  * arrRemoveIndex(["foo", "bar", "fizz"], 1)
  */
 const arrRemoveIndex = <T>(arr: T[], index: number): T[] => {
-    if (!numberInRange(index, 0, arr.length - 1)) {
+    if (index < 0 || index >= arr.length) {
         return arr;
     }
 

@@ -95,8 +95,6 @@ import fnThrottle from "./fn/throttle";
  * Number manipulation and comparison
  * @namespace Number
  */
-import numClamp from "./num/clamp";
-import numInRange from "./num/inRange";
 
 /**
  * Random number generation and value picking
@@ -166,8 +164,6 @@ export {
     fnThrottle,
     fnAttempt,
     fnCurry,
-    numInRange,
-    numClamp,
     randNumber,
     randItem,
     randShuffle,

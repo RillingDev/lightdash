@@ -846,29 +846,6 @@ const arrIntersection = (arr, ...values) => {
 };
 
 /**
- * Checks if a number is in the given range.
- *
- * @function numInRange
- * @memberof Number
- * @since 1.0.0
- * @param {number} val
- * @param {number} min
- * @param {number} max
- * @returns {boolean}
- * @example
- * // returns true
- * numInRange(0.5, 0, 1)
- * numInRange(1, 0, 1)
- * numInRange(0, -5, 5)
- *
- * @example
- * // returns false
- * numberInRange(-1, 0, 5)
- * numberInRange(10, 0, 5)
- */
-const numInRange = (val, min, max) => val >= min && val <= max;
-
-/**
  * Returns a new array with the item at the index removed.
  *
  * @function arrRemoveIndex
@@ -882,7 +859,7 @@ const numInRange = (val, min, max) => val >= min && val <= max;
  * arrRemoveIndex(["foo", "bar", "fizz"], 1)
  */
 const arrRemoveIndex = (arr, index) => {
-    if (!numInRange(index, 0, arr.length - 1)) {
+    if (index < 0 || index >= arr.length) {
         return arr;
     }
     return index === 0
@@ -1173,31 +1150,6 @@ const fnThrottle = (fn, timeout, immediate = false) => {
 };
 
 /**
- * Clamps a number in a given range.
- *
- * @function numClamp
- * @memberof Number
- * @since 1.0.0
- * @param {number} val
- * @param {number} min
- * @param {number} max
- * @returns {number}
- * @example
- * numClamp(5, 0, 10)    //=> 5
- * numClamp(-2, 0, 10)   //=> 0
- * numClamp(99, 0, 10)   //=> 10
- */
-const numClamp = (val, min, max) => {
-    if (val < min) {
-        return min;
-    }
-    else if (val > max) {
-        return max;
-    }
-    return val;
-};
-
-/**
  * Return a random float or integer number in the given range.
  *
  * @function randNumber
@@ -1338,4 +1290,4 @@ const algBinarySearch = (arr, search) => {
  * @namespace Algorithm
  */
 
-export { isEqual, isInstanceOf, isTypeOf, isUndefined, isNil, isNumber, isString, isBoolean, isSymbol, isObject, isObjectLike, isObjectPlain, isArray, isArrayLike, isArrayBuffer, isArrayTyped, isPromise, isMap, isSet, isDate, isRegExp, isFunction, isArguments, isError, isEmpty, isInteger, hasPath, getPath, forEachDeep, forEachEntry, forEachEntryDeep, arrFromDeep, arrMapDeep, arrFlattenDeep, arrCompact, arrChunk, arrStep, arrRemoveIndex, arrRemoveItem, arrCount, arrDifference, arrIntersection, arrUniq, objFrom, objFromDeep, objMap, objMapDeep, objDefaults, objDefaultsDeep, mapFromObject, fnThrottle, fnAttempt, fnCurry, numInRange, numClamp, randNumber, randItem, randShuffle, algBinarySearch };
+export { isEqual, isInstanceOf, isTypeOf, isUndefined, isNil, isNumber, isString, isBoolean, isSymbol, isObject, isObjectLike, isObjectPlain, isArray, isArrayLike, isArrayBuffer, isArrayTyped, isPromise, isMap, isSet, isDate, isRegExp, isFunction, isArguments, isError, isEmpty, isInteger, hasPath, getPath, forEachDeep, forEachEntry, forEachEntryDeep, arrFromDeep, arrMapDeep, arrFlattenDeep, arrCompact, arrChunk, arrStep, arrRemoveIndex, arrRemoveItem, arrCount, arrDifference, arrIntersection, arrUniq, objFrom, objFromDeep, objMap, objMapDeep, objDefaults, objDefaultsDeep, mapFromObject, fnThrottle, fnAttempt, fnCurry, randNumber, randItem, randShuffle, algBinarySearch };
