@@ -7,12 +7,12 @@
  * @param {any} val
  * @returns {boolean}
  * @example
- * // returns true
  * isMap(new Map())
+ * // => true
  *
  * @example
- * // returns false
  * isMap([[1, 2]])
+ * // => false
  */
 declare const isMap: (val: any) => boolean;
 export default isMap;

@@ -9,13 +9,15 @@
  * @param {any} val
  * @returns {boolean}
  * @example
- * // returns true
  * isObjectPlain({})
+ * // => true
  *
  * @example
- * // returns false
  * isObjectPlain([])
- * isObjectPlain(()=>{})
+ * // => false
+ *
+ * isObjectPlain(() => {})
+ * // => false
  */
 declare const isObjectPlain: (val: any) => boolean;
 export default isObjectPlain;

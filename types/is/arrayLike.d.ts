@@ -7,16 +7,18 @@
  * @param {any} val
  * @returns {boolean}
  * @example
- * // returns true
  * isArrayLike([])
+ * // => true
+ *
  * isArrayLike({length: 0})
+ * // => true
  *
  * @example
- * // returns false
  * isArrayLike({})
- * isArrayLike(null)
+ * // => false
+ *
  * isArrayLike("foo")
- * isArrayLike(1)
+ * // => false
  */
 declare const isArrayLike: (val: any) => boolean;
 export default isArrayLike;

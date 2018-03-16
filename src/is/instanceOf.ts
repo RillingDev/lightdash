@@ -10,15 +10,21 @@ import { IGenericClass } from "../interfaces";
  * @param {Class} target
  * @returns {boolean}
  * @example
- * // returns true
  * isInstanceOf({}, Object)
+ * // => true
+ *
  * isInstanceOf([], Object)
+ * // => true
+ *
  * isInstanceOf([], Array)
+ * // => true
  *
  * @example
- * // returns false
  * isInstanceOf({}, Array)
+ * // => false
+ *
  * isInstanceOf([], Map)
+ * // => false
  */
 const isInstanceOf = (val: any, target: IGenericClass): boolean =>
     val instanceof target;

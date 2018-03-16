@@ -9,12 +9,12 @@ import isInstanceOf from "./instanceOf";
  * @param {any} val
  * @returns {boolean}
  * @example
- * // returns true
  * isMap(new Map())
+ * // => true
  *
  * @example
- * // returns false
  * isMap([[1, 2]])
+ * // => false
  */
 const isMap = (val: any): boolean => isInstanceOf(val, Map);
 

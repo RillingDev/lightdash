@@ -7,14 +7,18 @@
  * @param {any} val
  * @returns {boolean}
  * @example
- * // returns true
  * isNil(null)
+ * // => true
+ *
  * isNil(undefined)
+ * // => true
  *
  * @example
- * // returns false
  * isNil(0)
- * isNil({})
+ * // => false
+ *
+ * isNil("")
+ * // => false
  */
 declare const isNil: (val: any) => boolean;
 export default isNil;

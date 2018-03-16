@@ -7,12 +7,12 @@
  * @param {any} val
  * @returns {boolean}
  * @example
- * // returns true
  * isString("foo")
+ * // => true
  *
  * @example
- * // returns false
  * isString(1)
+ * // => false
  */
 declare const isString: (val: any) => boolean;
 export default isString;

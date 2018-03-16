@@ -14,7 +14,6 @@ import isEqual from "./is/equal";
 import isError from "./is/error";
 import isFunction from "./is/function";
 import isInstanceOf from "./is/instanceOf";
-import isInteger from "./is/integer";
 import isMap from "./is/map";
 import isNil from "./is/nil";
 import isNumber from "./is/number";
@@ -103,4 +102,4 @@ import randShuffle from "./rand/shuffle";
  * @namespace Algorithm
  */
 import algBinarySearch from "./alg/binarySearch";
-export { isEqual, isInstanceOf, isTypeOf, isUndefined, isNil, isNumber, isString, isBoolean, isSymbol, isObject, isObjectLike, isObjectPlain, isArray, isArrayLike, isArrayBuffer, isArrayTyped, isPromise, isMap, isSet, isDate, isRegExp, isFunction, isArguments, isError, isEmpty, isInteger, hasPath, getPath, forEachDeep, forEachEntry, forEachEntryDeep, arrFromDeep, arrMapDeep, arrFlattenDeep, arrCompact, arrChunk, arrStep, arrRemoveIndex, arrRemoveItem, arrCount, arrDifference, arrIntersection, arrUniq, objFrom, objFromDeep, objMap, objMapDeep, objDefaults, objDefaultsDeep, mapFromObject, fnThrottle, fnAttempt, fnCurry, numClamp, numSum, numAverage, numMedian, randNumber, randItem, randShuffle, algBinarySearch };
+export { isEqual, isInstanceOf, isTypeOf, isUndefined, isNil, isNumber, isString, isBoolean, isSymbol, isObject, isObjectLike, isObjectPlain, isArray, isArrayLike, isArrayBuffer, isArrayTyped, isPromise, isMap, isSet, isDate, isRegExp, isFunction, isArguments, isError, isEmpty, hasPath, getPath, forEachDeep, forEachEntry, forEachEntryDeep, arrFromDeep, arrMapDeep, arrFlattenDeep, arrCompact, arrChunk, arrStep, arrRemoveIndex, arrRemoveItem, arrCount, arrDifference, arrIntersection, arrUniq, objFrom, objFromDeep, objMap, objMapDeep, objDefaults, objDefaultsDeep, mapFromObject, fnThrottle, fnAttempt, fnCurry, numClamp, numSum, numAverage, numMedian, randNumber, randItem, randShuffle, algBinarySearch };

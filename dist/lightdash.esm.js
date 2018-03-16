@@ -8,14 +8,18 @@
  * @param {string} type
  * @returns {boolean}
  * @example
- * // returns true
  * isTypeOf({}, "object")
+ * // => true
+ *
  * isTypeOf([], "object")
+ * // => true
+ *
  * isTypeOf("foo", "string")
+ * // => true
  *
  * @example
- * // returns false
  * isTypeOf("foo", "number")
+ * // => false
  */
 const isTypeOf = (val, type) => typeof val === type;
 
@@ -28,13 +32,15 @@ const isTypeOf = (val, type) => typeof val === type;
  * @param {any} val
  * @returns {boolean}
  * @example
- * // returns true
  * isFunction(function a(){})
- * isFunction(() => 1)
+ * // => true
+ *
+ * isFunction(Array.from)
+ * // => true
  *
  * @example
- * // returns false
  * isFunction(null)
+ * // => false
  */
 const isFunction = (val) => isTypeOf(val, "function");
 
@@ -47,16 +53,16 @@ const isFunction = (val) => isTypeOf(val, "function");
  * @param {any} val
  * @returns {boolean}
  * @example
- * // returns true
  * const foo = function(){
  *   return arguments;
  * };
  *
  * isArguments(foo());
+ * // => true
  *
  * @example
- * // returns false
  * isArguments([]);
+ * // => false
  */
 const isArguments = (val) => isFunction(val.callee);
 
@@ -71,13 +77,15 @@ const isArguments = (val) => isFunction(val.callee);
  * @param {any} val
  * @returns {boolean}
  * @example
- * // returns true
  * isArray([]);
+ * // => true
+ *
  * isArray([1, 2, 3]);
+ * // => true
  *
  * @example
- * // returns false
  * isArray({});
+ * // => false
  */
 const isArray = Array.isArray;
 
@@ -91,15 +99,21 @@ const isArray = Array.isArray;
  * @param {Class} target
  * @returns {boolean}
  * @example
- * // returns true
  * isInstanceOf({}, Object)
+ * // => true
+ *
  * isInstanceOf([], Object)
+ * // => true
+ *
  * isInstanceOf([], Array)
+ * // => true
  *
  * @example
- * // returns false
  * isInstanceOf({}, Array)
+ * // => false
+ *
  * isInstanceOf([], Map)
+ * // => false
  */
 const isInstanceOf = (val, target) => val instanceof target;
 
@@ -112,12 +126,12 @@ const isInstanceOf = (val, target) => val instanceof target;
  * @param {any} val
  * @returns {boolean}
  * @example
- * // returns true
  * isArrayBuffer(new ArrayBuffer())
+ * // => true
  *
  * @example
- * // returns false
  * isArrayBuffer([1, 2])
+ * // => false
  */
 // @ts-ignore: ArrayBuffer declaration is outdated
 const isArrayBuffer = (val) => isInstanceOf(val, ArrayBuffer);
@@ -131,18 +145,22 @@ const isArrayBuffer = (val) => isInstanceOf(val, ArrayBuffer);
  * @param {any} val
  * @returns {boolean}
  * @example
- * // returns false
  * const a = {};
  *
  * isUndefined(a.b)
+ * // => true
+ *
  * isUndefined(undefined)
+ * // => true
  *
  * @example
- * // returns false
  * const a = {};
  *
  * isUndefined(1)
+ * // => false
+ *
  * isUndefined(a)
+ * // => false
  */
 const isUndefined = (val) => isTypeOf(val, "undefined");
 
@@ -155,14 +173,18 @@ const isUndefined = (val) => isTypeOf(val, "undefined");
  * @param {any} val
  * @returns {boolean}
  * @example
- * // returns true
  * isNil(null)
+ * // => true
+ *
  * isNil(undefined)
+ * // => true
  *
  * @example
- * // returns false
  * isNil(0)
- * isNil({})
+ * // => false
+ *
+ * isNil("")
+ * // => false
  */
 const isNil = (val) => isUndefined(val) || val === null;
 
@@ -178,14 +200,18 @@ const isNil = (val) => isUndefined(val) || val === null;
  * @param {any} val
  * @returns {boolean}
  * @example
- * // returns true
  * isObjectLike({})
+ * // => true
+ *
  * isObjectLike([])
+ * // => true
  *
  * @example
- * // returns false
  * isObjectLike(1)
+ * // => false
+ *
  * isObjectLike(() => 1))
+ * // => false
  */
 const isObjectLike = (val) => !isNil(val) && isTypeOf(val, "object");
 
@@ -198,16 +224,18 @@ const isObjectLike = (val) => !isNil(val) && isTypeOf(val, "object");
  * @param {any} val
  * @returns {boolean}
  * @example
- * // returns true
  * isArrayLike([])
+ * // => true
+ *
  * isArrayLike({length: 0})
+ * // => true
  *
  * @example
- * // returns false
  * isArrayLike({})
- * isArrayLike(null)
+ * // => false
+ *
  * isArrayLike("foo")
- * isArrayLike(1)
+ * // => false
  */
 const isArrayLike = (val) => isObjectLike(val) && !isUndefined(val.length);
 
@@ -220,16 +248,25 @@ const isArrayLike = (val) => isObjectLike(val) && !isUndefined(val.length);
  * @param {any} val
  * @returns {boolean}
  * @example
- * // returns true
  * isNumber(1)
+ * // => true
+ *
  * isNumber(2.34)
+ * // => true
+ *
  * isNumber(Infinity)
+ * // => true
+ *
  * isNumber(NaN)
+ * // => true
+ * // (NaN is considered a number, see IEEE_754)
  *
  * @example
- * // returns false
  * isNumber("2")
+ * // => false
+ *
  * isNumber(null)
+ * // => false
  */
 const isNumber = (val) => isTypeOf(val, "number");
 
@@ -242,13 +279,15 @@ const isNumber = (val) => isTypeOf(val, "number");
  * @param {any} val
  * @returns {boolean}
  * @example
- * // returns true
  * isArrayTyped(new Int16Array());
+ * // => true
+ *
  * isArrayTyped(new Uint8Array());
+ * // => true
  *
  * @example
- * // returns false
  * isArrayTyped([]);
+ * // => false
  */
 const isArrayTyped = (val) => isNumber(val.BYTES_PER_ELEMENT);
 
@@ -261,15 +300,21 @@ const isArrayTyped = (val) => isNumber(val.BYTES_PER_ELEMENT);
  * @param {any} val
  * @returns {boolean}
  * @example
- * // returns true
  * isBoolean(true)
+ * // => true
+ *
  * isBoolean(false)
+ * // => true
  *
  * @example
- * // returns false
  * isBoolean(0)
+ * // => false
+ *
  * isBoolean(null)
+ * // => false
+ *
  * isBoolean("")
+ * // => false
  */
 const isBoolean = (val) => isTypeOf(val, "boolean");
 
@@ -282,13 +327,15 @@ const isBoolean = (val) => isTypeOf(val, "boolean");
  * @param {any} val
  * @returns {boolean}
  * @example
- * // returns true
  * isDate(Date())
+ * // => true
+ *
  * isDate(new Date())
+ * // => true
  *
  * @example
- * // returns false
- * isDate(123213)
+ * isDate(123213231)
+ * // => false
  */
 const isDate = (val) => isInstanceOf(val, Date);
 
@@ -306,19 +353,33 @@ const isDate = (val) => isInstanceOf(val, Date);
  * @param {any} val
  * @returns {boolean}
  * @example
- * // returns true
  * isEmpty([])
+ * // => true
+ *
  * isEmpty({})
+ * // => true
+ *
  * isEmpty("")
+ * // => true
+ *
  * isEmpty(true)
+ * // => true
+ *
  * isEmpty(1)
+ * // => true
+ *
  * isEmpty(null)
+ * // => true
  *
  * @example
- * // returns false
  * isEmpty("foo")
+ * // => false
+ *
  * isEmpty([1, 2])
+ * // => false
+ *
  * isEmpty({a: 1})
+ * // => false
  */
 const isEmpty = (val) => {
     if (isArrayLike(val)) {
@@ -362,16 +423,24 @@ const forEachEntry = (obj, fn) => {
  * @param {any} b
  * @returns {boolean}
  * @example
- * // returns true
  * isEqual(1, 1)
+ * // => true
+ *
  * isEqual({}, {})
+ * // => true
+ *
  * isEqual([1, 2], [1, 2])
+ * // => true
+ *
  * isEqual([1, 2, [3, 4]], [1, 2, [3, 4]])
+ * // => true
  *
  * @example
- * // returns false
  * isEqual([1, 2, 3], [1])
- * isEqual([1, 2, [3]], [1, 2, [4]])
+ * // => false
+ *
+ * isEqual(1, true)
+ * // => false
  */
 const isEqual = (a, b) => {
     if (a === b) {
@@ -406,37 +475,17 @@ const isEqual = (a, b) => {
  * @param {any} val
  * @returns {boolean}
  * @example
- * // returns true
  * isError(new Error())
+ * // => true
+ *
  * isError(new URIError())
+ * // => true
  *
  * @example
- * // returns false
  * isError("foo")
+ * // => false
  */
 const isError = (val) => isInstanceOf(val, Error);
-
-/**
- * Checks if a value is an integer.
- *
- * `Number.isInteger` shorthand.
- *
- * @function isInteger
- * @memberof Is
- * @since 2.10.0
- * @param {any} val
- * @returns {boolean}
- * @example
- * // returns true
- * isInteger(1);
- * isInteger(2000);
- *
- * @example
- * // returns false
- * isInteger(2.34);
- * isInteger(Infinity)
- */
-const isInteger = Number.isInteger;
 
 /**
  * Checks if a value is a map.
@@ -447,12 +496,12 @@ const isInteger = Number.isInteger;
  * @param {any} val
  * @returns {boolean}
  * @example
- * // returns true
  * isMap(new Map())
+ * // => true
  *
  * @example
- * // returns false
  * isMap([[1, 2]])
+ * // => false
  */
 const isMap = (val) => isInstanceOf(val, Map);
 
@@ -465,14 +514,18 @@ const isMap = (val) => isInstanceOf(val, Map);
  * @param {any} val
  * @returns {boolean}
  * @example
- * // returns true
  * isObject({})
+ * // => true
+ *
  * isObject([])
+ * // => true
+ *
  * isObject(() => 1))
+ * // => true
  *
  * @example
- * // returns false
  * isObject(1)
+ * // => false
  */
 const isObject = (val) => !isNil(val) && (isTypeOf(val, "object") || isTypeOf(val, "function"));
 
@@ -487,13 +540,15 @@ const isObject = (val) => !isNil(val) && (isTypeOf(val, "object") || isTypeOf(va
  * @param {any} val
  * @returns {boolean}
  * @example
- * // returns true
  * isObjectPlain({})
+ * // => true
  *
  * @example
- * // returns false
  * isObjectPlain([])
- * isObjectPlain(()=>{})
+ * // => false
+ *
+ * isObjectPlain(() => {})
+ * // => false
  */
 const isObjectPlain = (val) => isObject(val) && val.constructor === Object;
 
@@ -506,14 +561,14 @@ const isObjectPlain = (val) => isObject(val) && val.constructor === Object;
  * @param {any} val
  * @returns {boolean}
  * @example
- * // returns true
  * const foo = new Promise((resolve, reject) => resolve("foo"));
  *
  * isPromise(foo);
+ * // => true
  *
  * @example
- * // returns false
  * isPromise(() => "foo");
+ * // => false
  */
 const isPromise = (val) => isFunction(val.then) && isFunction(val.catch);
 
@@ -526,13 +581,15 @@ const isPromise = (val) => isFunction(val.then) && isFunction(val.catch);
  * @param {any} val
  * @returns {boolean}
  * @example
- * // returns true
  * isRegExp(new RegExp("foo"))
+ * // => true
+ *
  * isRegExp(/foo/)
+ * // => true
  *
  * @example
- * //returns false
  * isRegExp("foo")
+ * // => false
  */
 // @ts-ignore: RegExp declaration is outdated
 const isRegExp = (val) => isInstanceOf(val, RegExp);
@@ -546,12 +603,12 @@ const isRegExp = (val) => isInstanceOf(val, RegExp);
  * @param {any} val
  * @returns {boolean}
  * @example
- * // returns true
  * isSet(new Set())
+ * // => true
  *
  * @example
- * // returns false
  * isSet([1, 2])
+ * // => false
  */
 const isSet = (val) => isInstanceOf(val, Set);
 
@@ -564,12 +621,12 @@ const isSet = (val) => isInstanceOf(val, Set);
  * @param {any} val
  * @returns {boolean}
  * @example
- * // returns true
  * isString("foo")
+ * // => true
  *
  * @example
- * // returns false
  * isString(1)
+ * // => false
  */
 const isString = (val) => isTypeOf(val, "string");
 
@@ -582,13 +639,15 @@ const isString = (val) => isTypeOf(val, "string");
  * @param {any} val
  * @returns {boolean}
  * @example
- * // returns true
  * isSymbol(Symbol())
+ * // => true
+ *
  * isSymbol(Symbol.split)
+ * // => true
  *
  * @example
- * // returns false
  * isSymbol("foo")
+ * // => false
  */
 const isSymbol = (val) => isTypeOf(val, "symbol");
 
@@ -1383,4 +1442,4 @@ const algBinarySearch = (arr, search) => {
  * @namespace Algorithm
  */
 
-export { isEqual, isInstanceOf, isTypeOf, isUndefined, isNil, isNumber, isString, isBoolean, isSymbol, isObject, isObjectLike, isObjectPlain, isArray, isArrayLike, isArrayBuffer, isArrayTyped, isPromise, isMap, isSet, isDate, isRegExp, isFunction, isArguments, isError, isEmpty, isInteger, hasPath, getPath, forEachDeep, forEachEntry, forEachEntryDeep, arrFromDeep, arrMapDeep, arrFlattenDeep, arrCompact, arrChunk, arrStep, arrRemoveIndex, arrRemoveItem, arrCount, arrDifference, arrIntersection, arrUniq, objFrom, objFromDeep, objMap, objMapDeep, objDefaults, objDefaultsDeep, mapFromObject, fnThrottle, fnAttempt, fnCurry, numberClamp as numClamp, numSum, numAverage, numAverage as numMedian, randNumber, randItem, randShuffle, algBinarySearch };
+export { isEqual, isInstanceOf, isTypeOf, isUndefined, isNil, isNumber, isString, isBoolean, isSymbol, isObject, isObjectLike, isObjectPlain, isArray, isArrayLike, isArrayBuffer, isArrayTyped, isPromise, isMap, isSet, isDate, isRegExp, isFunction, isArguments, isError, isEmpty, hasPath, getPath, forEachDeep, forEachEntry, forEachEntryDeep, arrFromDeep, arrMapDeep, arrFlattenDeep, arrCompact, arrChunk, arrStep, arrRemoveIndex, arrRemoveItem, arrCount, arrDifference, arrIntersection, arrUniq, objFrom, objFromDeep, objMap, objMapDeep, objDefaults, objDefaultsDeep, mapFromObject, fnThrottle, fnAttempt, fnCurry, numberClamp as numClamp, numSum, numAverage, numAverage as numMedian, randNumber, randItem, randShuffle, algBinarySearch };

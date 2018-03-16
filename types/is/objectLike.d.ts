@@ -10,14 +10,18 @@
  * @param {any} val
  * @returns {boolean}
  * @example
- * // returns true
  * isObjectLike({})
+ * // => true
+ *
  * isObjectLike([])
+ * // => true
  *
  * @example
- * // returns false
  * isObjectLike(1)
+ * // => false
+ *
  * isObjectLike(() => 1))
+ * // => false
  */
 declare const isObjectLike: (val: any) => boolean;
 export default isObjectLike;

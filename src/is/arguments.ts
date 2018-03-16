@@ -9,16 +9,16 @@ import isFunction from "./function";
  * @param {any} val
  * @returns {boolean}
  * @example
- * // returns true
  * const foo = function(){
  *   return arguments;
  * };
  *
  * isArguments(foo());
+ * // => true
  *
  * @example
- * // returns false
  * isArguments([]);
+ * // => false
  */
 const isArguments = (val: any): boolean => isFunction(val.callee);
 

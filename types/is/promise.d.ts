@@ -7,14 +7,14 @@
  * @param {any} val
  * @returns {boolean}
  * @example
- * // returns true
  * const foo = new Promise((resolve, reject) => resolve("foo"));
  *
  * isPromise(foo);
+ * // => true
  *
  * @example
- * // returns false
  * isPromise(() => "foo");
+ * // => false
  */
 declare const isPromise: (val: any) => boolean;
 export default isPromise;

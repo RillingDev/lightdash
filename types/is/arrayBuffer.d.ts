@@ -7,12 +7,12 @@
  * @param {any} val
  * @returns {boolean}
  * @example
- * // returns true
  * isArrayBuffer(new ArrayBuffer())
+ * // => true
  *
  * @example
- * // returns false
  * isArrayBuffer([1, 2])
+ * // => false
  */
 declare const isArrayBuffer: (val: any) => boolean;
 export default isArrayBuffer;

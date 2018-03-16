@@ -9,14 +9,18 @@ import isUndefined from "./undefined";
  * @param {any} val
  * @returns {boolean}
  * @example
- * // returns true
  * isNil(null)
+ * // => true
+ *
  * isNil(undefined)
+ * // => true
  *
  * @example
- * // returns false
  * isNil(0)
- * isNil({})
+ * // => false
+ *
+ * isNil("")
+ * // => false
  */
 const isNil = (val: any): boolean => isUndefined(val) || val === null;
 

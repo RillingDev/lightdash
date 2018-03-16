@@ -11,13 +11,15 @@ import isObject from "./object";
  * @param {any} val
  * @returns {boolean}
  * @example
- * // returns true
  * isObjectPlain({})
+ * // => true
  *
  * @example
- * // returns false
  * isObjectPlain([])
- * isObjectPlain(()=>{})
+ * // => false
+ *
+ * isObjectPlain(() => {})
+ * // => false
  */
 const isObjectPlain = (val: any): boolean =>
     isObject(val) && val.constructor === Object;

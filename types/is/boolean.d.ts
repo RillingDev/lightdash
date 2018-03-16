@@ -7,15 +7,21 @@
  * @param {any} val
  * @returns {boolean}
  * @example
- * // returns true
  * isBoolean(true)
+ * // => true
+ *
  * isBoolean(false)
+ * // => true
  *
  * @example
- * // returns false
  * isBoolean(0)
+ * // => false
+ *
  * isBoolean(null)
+ * // => false
+ *
  * isBoolean("")
+ * // => false
  */
 declare const isBoolean: (val: any) => boolean;
 export default isBoolean;

@@ -8,16 +8,24 @@
  * @param {any} b
  * @returns {boolean}
  * @example
- * // returns true
  * isEqual(1, 1)
+ * // => true
+ *
  * isEqual({}, {})
+ * // => true
+ *
  * isEqual([1, 2], [1, 2])
+ * // => true
+ *
  * isEqual([1, 2, [3, 4]], [1, 2, [3, 4]])
+ * // => true
  *
  * @example
- * // returns false
  * isEqual([1, 2, 3], [1])
- * isEqual([1, 2, [3]], [1, 2, [4]])
+ * // => false
+ *
+ * isEqual(1, true)
+ * // => false
  */
 declare const isEqual: (a: any, b: any) => boolean;
 export default isEqual;

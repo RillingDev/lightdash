@@ -7,14 +7,18 @@
  * @param {any} val
  * @returns {boolean}
  * @example
- * // returns true
  * isObject({})
+ * // => true
+ *
  * isObject([])
+ * // => true
+ *
  * isObject(() => 1))
+ * // => true
  *
  * @example
- * // returns false
  * isObject(1)
+ * // => false
  */
 declare const isObject: (val: any) => boolean;
 export default isObject;

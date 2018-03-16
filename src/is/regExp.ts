@@ -9,13 +9,15 @@ import isInstanceOf from "./instanceOf";
  * @param {any} val
  * @returns {boolean}
  * @example
- * // returns true
  * isRegExp(new RegExp("foo"))
+ * // => true
+ *
  * isRegExp(/foo/)
+ * // => true
  *
  * @example
- * //returns false
  * isRegExp("foo")
+ * // => false
  */
 // @ts-ignore: RegExp declaration is outdated
 const isRegExp = (val: any): boolean => isInstanceOf(val, RegExp);

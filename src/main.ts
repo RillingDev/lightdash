@@ -14,7 +14,6 @@ import isEqual from "./is/equal";
 import isError from "./is/error";
 import isFunction from "./is/function";
 import isInstanceOf from "./is/instanceOf";
-import isInteger from "./is/integer";
 import isMap from "./is/map";
 import isNil from "./is/nil";
 import isNumber from "./is/number";
@@ -140,7 +139,6 @@ export {
     isArguments,
     isError,
     isEmpty,
-    isInteger,
     hasPath,
     getPath,
     forEachDeep,

@@ -7,13 +7,15 @@
  * @param {any} val
  * @returns {boolean}
  * @example
- * // returns true
  * isDate(Date())
+ * // => true
+ *
  * isDate(new Date())
+ * // => true
  *
  * @example
- * // returns false
- * isDate(123213)
+ * isDate(123213231)
+ * // => false
  */
 declare const isDate: (val: any) => boolean;
 export default isDate;

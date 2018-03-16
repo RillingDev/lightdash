@@ -10,16 +10,18 @@ import isObjectLike from "./objectLike";
  * @param {any} val
  * @returns {boolean}
  * @example
- * // returns true
  * isArrayLike([])
+ * // => true
+ *
  * isArrayLike({length: 0})
+ * // => true
  *
  * @example
- * // returns false
  * isArrayLike({})
- * isArrayLike(null)
+ * // => false
+ *
  * isArrayLike("foo")
- * isArrayLike(1)
+ * // => false
  */
 const isArrayLike = (val: any): boolean =>
     isObjectLike(val) && !isUndefined(val.length);

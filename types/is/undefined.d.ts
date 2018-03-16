@@ -7,18 +7,22 @@
  * @param {any} val
  * @returns {boolean}
  * @example
- * // returns false
  * const a = {};
  *
  * isUndefined(a.b)
+ * // => true
+ *
  * isUndefined(undefined)
+ * // => true
  *
  * @example
- * // returns false
  * const a = {};
  *
  * isUndefined(1)
+ * // => false
+ *
  * isUndefined(a)
+ * // => false
  */
 declare const isUndefined: (val: any) => boolean;
 export default isUndefined;

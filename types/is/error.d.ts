@@ -7,13 +7,15 @@
  * @param {any} val
  * @returns {boolean}
  * @example
- * // returns true
  * isError(new Error())
+ * // => true
+ *
  * isError(new URIError())
+ * // => true
  *
  * @example
- * // returns false
  * isError("foo")
+ * // => false
  */
 declare const isError: (val: any) => boolean;
 export default isError;

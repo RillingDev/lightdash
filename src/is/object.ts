@@ -10,14 +10,18 @@ import isTypeOf from "./typeOf";
  * @param {any} val
  * @returns {boolean}
  * @example
- * // returns true
  * isObject({})
+ * // => true
+ *
  * isObject([])
+ * // => true
+ *
  * isObject(() => 1))
+ * // => true
  *
  * @example
- * // returns false
  * isObject(1)
+ * // => false
  */
 const isObject = (val: any): boolean =>
     !isNil(val) && (isTypeOf(val, "object") || isTypeOf(val, "function"));

@@ -7,13 +7,15 @@
  * @param {any} val
  * @returns {boolean}
  * @example
- * // returns true
  * isRegExp(new RegExp("foo"))
+ * // => true
+ *
  * isRegExp(/foo/)
+ * // => true
  *
  * @example
- * //returns false
  * isRegExp("foo")
+ * // => false
  */
 declare const isRegExp: (val: any) => boolean;
 export default isRegExp;

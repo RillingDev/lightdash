@@ -9,13 +9,15 @@ import isInstanceOf from "./instanceOf";
  * @param {any} val
  * @returns {boolean}
  * @example
- * // returns true
  * isError(new Error())
+ * // => true
+ *
  * isError(new URIError())
+ * // => true
  *
  * @example
- * // returns false
  * isError("foo")
+ * // => false
  */
 const isError = (val: any): boolean => isInstanceOf(val, Error);
 

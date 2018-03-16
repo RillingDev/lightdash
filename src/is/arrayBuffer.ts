@@ -9,12 +9,12 @@ import isInstanceOf from "./instanceOf";
  * @param {any} val
  * @returns {boolean}
  * @example
- * // returns true
  * isArrayBuffer(new ArrayBuffer())
+ * // => true
  *
  * @example
- * // returns false
  * isArrayBuffer([1, 2])
+ * // => false
  */
 // @ts-ignore: ArrayBuffer declaration is outdated
 const isArrayBuffer = (val: any): boolean => isInstanceOf(val, ArrayBuffer);

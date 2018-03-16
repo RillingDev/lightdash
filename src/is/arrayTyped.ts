@@ -9,13 +9,15 @@ import isNumber from "./number";
  * @param {any} val
  * @returns {boolean}
  * @example
- * // returns true
  * isArrayTyped(new Int16Array());
+ * // => true
+ *
  * isArrayTyped(new Uint8Array());
+ * // => true
  *
  * @example
- * // returns false
  * isArrayTyped([]);
+ * // => false
  */
 const isArrayTyped = (val: any): boolean => isNumber(val.BYTES_PER_ELEMENT);
 

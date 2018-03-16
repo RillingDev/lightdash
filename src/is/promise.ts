@@ -9,14 +9,14 @@ import isFunction from "./function";
  * @param {any} val
  * @returns {boolean}
  * @example
- * // returns true
  * const foo = new Promise((resolve, reject) => resolve("foo"));
  *
  * isPromise(foo);
+ * // => true
  *
  * @example
- * // returns false
  * isPromise(() => "foo");
+ * // => false
  */
 const isPromise = (val: any): boolean =>
     isFunction(val.then) && isFunction(val.catch);

@@ -9,16 +9,25 @@ import isTypeOf from "./typeOf";
  * @param {any} val
  * @returns {boolean}
  * @example
- * // returns true
  * isNumber(1)
+ * // => true
+ *
  * isNumber(2.34)
+ * // => true
+ *
  * isNumber(Infinity)
+ * // => true
+ *
  * isNumber(NaN)
+ * // => true
+ * // (NaN is considered a number, see IEEE_754)
  *
  * @example
- * // returns false
  * isNumber("2")
+ * // => false
+ *
  * isNumber(null)
+ * // => false
  */
 const isNumber = (val: any): boolean => isTypeOf(val, "number");
 

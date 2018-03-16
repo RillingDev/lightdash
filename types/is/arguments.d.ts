@@ -7,16 +7,16 @@
  * @param {any} val
  * @returns {boolean}
  * @example
- * // returns true
  * const foo = function(){
  *   return arguments;
  * };
  *
  * isArguments(foo());
+ * // => true
  *
  * @example
- * // returns false
  * isArguments([]);
+ * // => false
  */
 declare const isArguments: (val: any) => boolean;
 export default isArguments;

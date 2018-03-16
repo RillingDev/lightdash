@@ -9,15 +9,21 @@ import isTypeOf from "./typeOf";
  * @param {any} val
  * @returns {boolean}
  * @example
- * // returns true
  * isBoolean(true)
+ * // => true
+ *
  * isBoolean(false)
+ * // => true
  *
  * @example
- * // returns false
  * isBoolean(0)
+ * // => false
+ *
  * isBoolean(null)
+ * // => false
+ *
  * isBoolean("")
+ * // => false
  */
 const isBoolean = (val: any): boolean => isTypeOf(val, "boolean");
 

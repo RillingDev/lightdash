@@ -12,19 +12,33 @@
  * @param {any} val
  * @returns {boolean}
  * @example
- * // returns true
  * isEmpty([])
+ * // => true
+ *
  * isEmpty({})
+ * // => true
+ *
  * isEmpty("")
+ * // => true
+ *
  * isEmpty(true)
+ * // => true
+ *
  * isEmpty(1)
+ * // => true
+ *
  * isEmpty(null)
+ * // => true
  *
  * @example
- * // returns false
  * isEmpty("foo")
+ * // => false
+ *
  * isEmpty([1, 2])
+ * // => false
+ *
  * isEmpty({a: 1})
+ * // => false
  */
 declare const isEmpty: (val: any) => boolean;
 export default isEmpty;

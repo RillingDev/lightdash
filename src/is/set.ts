@@ -9,12 +9,12 @@ import isInstanceOf from "./instanceOf";
  * @param {any} val
  * @returns {boolean}
  * @example
- * // returns true
  * isSet(new Set())
+ * // => true
  *
  * @example
- * // returns false
  * isSet([1, 2])
+ * // => false
  */
 const isSet = (val: any): boolean => isInstanceOf(val, Set);
 

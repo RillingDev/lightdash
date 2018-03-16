@@ -9,13 +9,15 @@
  * @param {any} val
  * @returns {boolean}
  * @example
- * // returns true
  * isArray([]);
+ * // => true
+ *
  * isArray([1, 2, 3]);
+ * // => true
  *
  * @example
- * // returns false
  * isArray({});
+ * // => false
  */
 const isArray = Array.isArray;
 

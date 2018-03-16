@@ -7,13 +7,15 @@
  * @param {any} val
  * @returns {boolean}
  * @example
- * // returns true
  * isSymbol(Symbol())
+ * // => true
+ *
  * isSymbol(Symbol.split)
+ * // => true
  *
  * @example
- * // returns false
  * isSymbol("foo")
+ * // => false
  */
 declare const isSymbol: (val: any) => boolean;
 export default isSymbol;
