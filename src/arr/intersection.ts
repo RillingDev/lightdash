@@ -10,12 +10,11 @@ import arrCount from "./count";
  * @param {...any[]} values
  * @returns {any[]}
  * @example
- * // returns [1, 3]
  * arrIntersection([1, 2, 3], [1, "foo", 3])
+ * // => [1, 3]
  *
- * @example
- * // returns [2]
  * arrIntersection([1, 2, 3], ["foo"], [2, 0, 2])
+ * // => [2]
  */
 const arrIntersection = <T>(arr: T[], ...values: any[]): T[] => {
     const valuesCounted = arrCount([].concat(...values));

@@ -341,10 +341,10 @@ const isEmpty = (val) => {
  * @param {object} obj
  * @param {function} fn fn(key: any, val: any, index: number, arr: any[])
  * @example
- * // returns a = {a: 0, b: 2}
  * const a = {a: 1, b: 2};
  *
  * forEachEntry(a, (key, val, index) => a[key] = val * index)
+ * // a = {a: 0, b: 2}
  */
 const forEachEntry = (obj, fn) => {
     Object.entries(obj).forEach((entry, index) => {
@@ -604,9 +604,14 @@ const isSymbol = (val) => isTypeOf(val, "symbol");
  * @param {string[]} path
  * @returns {boolean}
  * @example
- * getPath({a: 1}, ["a"]);                              //=> 1
- * getPath([4, 6, 8], ["1"]);                           //=> 6
- * getPath({a: {b: 2, c: [10, 20]}}, ["a", "c", "0"]);  //=> 10
+ * getPath({a: 1}, ["a"]);
+ * // => 1
+ *
+ * getPath([4, 6, 8], ["1"]);
+ * // => 6
+ *
+ * getPath({a: {b: 2, c: [10, 20]}}, ["a", "c", "0"]);
+ * // => 10
  */
 const getPath = (target, path) => {
     let targetCurrent = target;
@@ -632,17 +637,27 @@ const getPath = (target, path) => {
  * @param {string[]} path
  * @returns {boolean}
  * @example
- * // returns true
  * hasPath({a: 1}, ["a"]);
+ * // => true
+ *
  * hasPath([4, 6, 8], ["1"]);
+ * // => true
+ *
  * hasPath({a: {b: 2, c: [10, 20]}}, ["a", "c", "0"]);
+ * // => true
  *
  * @example
- * // returns false
  * hasPath({a: 1}, ["c"]);
+ * // => false
+ *
  * hasPath([4, 6, 8], ["8"]);
+ * // => false
+ *
  * hasPath({a: {b: 2, c: [10, 20]}}, ["f", "x", "231", "21"]);
+ * // => false
+ *
  * hasPath(1, ["foo"]);
+ * // => false
  */
 const hasPath = (target, path) => !isNil(getPath(target, path));
 
@@ -654,10 +669,10 @@ const hasPath = (target, path) => !isNil(getPath(target, path));
  * @param {any[]} arr
  * @param {function} fn fn(val: any, index: number, arr: any[])
  * @example
- * // returns a = [0, 4, [0, 1, [0], 12]]
  * const a = [2, 4, [1, 1, [16], 4]];
  *
  * forEachDeep(a, (val, index, arr) => arr[index] = index * val)
+ * // a = [0, 4, [0, 1, [0], 12]]
  */
 const forEachDeep = (arr, fn) => arr.forEach((val, index) => isArray(val) ? forEachDeep(val, fn) : fn(val, index, arr));
 
@@ -669,10 +684,10 @@ const forEachDeep = (arr, fn) => arr.forEach((val, index) => isArray(val) ? forE
  * @param {object} obj
  * @param {function} fn fn(key: any, val: any, index: number, arr: any[])
  * @example
- * // returns {a: 0, b: {c: [0, 2]}}
  * const a = {a: 1, b: {c: [1, 2]}};
  *
  * forEachEntryDeep(a, (key, val, index, obj) => obj[key] = index * val)
+ * // a = {a: 0, b: {c: [0, 2]}}
  */
 const forEachEntryDeep = (obj, fn) => forEachEntry(obj, (key, val, index) => isObjectLike(val)
     ? forEachEntryDeep(val, fn)
@@ -688,12 +703,11 @@ const forEachEntryDeep = (obj, fn) => forEachEntry(obj, (key, val, index) => isO
  * @param {number} chunk
  * @returns {any[]}
  * @example
- * // returns [[1, 2], [3, 4], [5, 6]]
  * arrChunk([1, 2, 3, 4, 5, 6], 2)
+ * // => [[1, 2], [3, 4], [5, 6]]
  *
- * @example
- * // returns [[1, 2, 3], [4, 5]]
  * arrChunk([1, 2, 3, 4, 5], 3)
+ * // => [[1, 2, 3], [4, 5]]
  */
 const arrChunk = (arr, chunk) => {
     if (chunk < 1) {
@@ -715,8 +729,8 @@ const arrChunk = (arr, chunk) => {
  * @param {any[]} arr
  * @returns {any[]}
  * @example
- * // returns [1, 2, 3, 4, 5]
  * arrCompact([1, "", "", 2, 3, null, 4, undefined, 5, ""])
+ * // => [1, 2, 3, 4, 5]
  */
 const arrCompact = (arr) => arr.filter((val) => val);
 
@@ -729,8 +743,8 @@ const arrCompact = (arr) => arr.filter((val) => val);
  * @param {any[]} arr
  * @returns {Map<any, number>} Map<element: any, count: number>
  * @example
- * // returns Map{1: 4, 2: 2, 3: 1, 4: 1}
  * arrCount([1, 1, 2, 2, 1, 3, 4, 1])
+ * // => Map<any, number>{1: 4, 2: 2, 3: 1, 4: 1}
  */
 const arrCount = (arr) => {
     const result = new Map();
@@ -748,12 +762,11 @@ const arrCount = (arr) => {
  * @param {...any[]} values
  * @returns {any[]}
  * @example
- * // returns [2]
  * arrDifference([1, 2, 3], [1, "foo", 3])
+ * // => [2]
  *
- * @example
- * // returns [1, 3]
  * arrDifference([1, 2, 3], ["foo"], [2, 0, 2])
+ * // => [1, 3]
  */
 const arrDifference = (arr, ...values) => {
     const valuesCounted = arrCount([].concat(...values));
@@ -770,12 +783,11 @@ const arrDifference = (arr, ...values) => {
  * @param {any[]} arr
  * @returns {any[]}
  * @example
- * // returns [1, 2, 3]
  * arrFlattenDeep([1, 2, [3]])
+ * // => [1, 2, 3]
  *
- * @example
- * // returns [1, 2, 3, 5, 6, 6]
  * arrFlattenDeep([1, 2, [3, [[[5]]], [6, [6]]])
+ * // => [1, 2, 3, 5, 6, 6]
  */
 const arrFlattenDeep = (arr) => {
     const result = [];
@@ -800,8 +812,8 @@ const arrFlattenDeep = (arr) => {
  * @param {function} fn fn(val: any, index: number, arr: any[])
  * @returns {any[]}
  * @example
- * // returns [4, 8, [2, 2, [32], 8]]
  * arrMapDeep([2, 4, [1, 1, [16], 4]], val => val * 2)
+ * // => [4, 8, [2, 2, [32], 8]]
  */
 const arrMapDeep = (arr, fn) => arr.map((val, index) => isArray(val) ? arrMapDeep(val, fn) : fn(val, index, arr));
 
@@ -814,11 +826,12 @@ const arrMapDeep = (arr, fn) => arr.map((val, index) => isArray(val) ? arrMapDee
  * @param {any} arr
  * @returns {any[]}
  * @example
- * // returns a = [1, 2, 3, [5, [6]]], b = [1, 2, 3, [5, [10]]]
  * const a = [1, 2, 3, [5, [6]]];
  * const b = arrFromDeep(a);
  *
  * b[3][1][0] = 10;
+ * // a = [1, 2, 3, [5, [6]]]
+ * // b = [1, 2, 3, [5, [10]]]
  */
 const arrFromDeep = (arr) => arrMapDeep(Array.from(arr), val => (isArray(val) ? Array.from(val) : val));
 
@@ -832,12 +845,11 @@ const arrFromDeep = (arr) => arrMapDeep(Array.from(arr), val => (isArray(val) ? 
  * @param {...any[]} values
  * @returns {any[]}
  * @example
- * // returns [1, 3]
  * arrIntersection([1, 2, 3], [1, "foo", 3])
+ * // => [1, 3]
  *
- * @example
- * // returns [2]
  * arrIntersection([1, 2, 3], ["foo"], [2, 0, 2])
+ * // => [2]
  */
 const arrIntersection = (arr, ...values) => {
     const valuesCounted = arrCount([].concat(...values));
@@ -855,8 +867,8 @@ const arrIntersection = (arr, ...values) => {
  * @param {number} index
  * @returns {any[]}
  * @example
- * // returns ["foo", "fizz"]
  * arrRemoveIndex(["foo", "bar", "fizz"], 1)
+ * // => ["foo", "fizz"]
  */
 const arrRemoveIndex = (arr, index) => {
     if (index < 0 || index >= arr.length) {
@@ -877,8 +889,8 @@ const arrRemoveIndex = (arr, index) => {
  * @param {any} item
  * @returns {any[]}
  * @example
- * // returns ["foo", "fizz"]
  * arrRemoveItem(["foo", "bar", "fizz"], "bar")
+ * // => ["foo", "fizz"]
  */
 const arrRemoveItem = (arr, item) => arr.includes(item) ? arrRemoveIndex(arr, arr.indexOf(item)) : arr;
 
@@ -892,8 +904,8 @@ const arrRemoveItem = (arr, item) => arr.includes(item) ? arrRemoveIndex(arr, ar
  * @param {number} step
  * @returns {any[]}
  * @example
- * // returns [1, 3, 5]
  * arrStep([1, 2, 3, 4, 5, 6], 2)
+ * // => [1, 3, 5]
  */
 const arrStep = (arr, step) => arr.filter((val, index) => index % step === 0);
 
@@ -906,8 +918,8 @@ const arrStep = (arr, step) => arr.filter((val, index) => index % step === 0);
  * @param {any[]} arr
  * @returns {any[]}
  * @example
- * // returns [1, 2, 3, 4]
  * arrUniq([1, 1, 1, 2, 3, 1, 2, 1, 4])
+ * // => [1, 2, 3, 4]
  */
 const arrUniq = (arr) => Array.from(new Set(arr));
 
@@ -1069,8 +1081,11 @@ const mapFromObject = (obj) => new Map(Object.entries(obj));
  *  return a + b;
  * };
  *
- * fnAttempt(foo, 2, 1)   //=> 3
- * fnAttempt(foo, 2, 500) //=> RangeError
+ * fnAttempt(foo, 2, 1)
+ * // => 3
+ *
+ * fnAttempt(foo, 2, 500)
+ * // => RangeError
  */
 const fnAttempt = (fn, ...args) => {
     try {
@@ -1098,9 +1113,14 @@ const fnAttempt = (fn, ...args) => {
  * const foo = (a, b, c) => [a, b, c];
  * const fooCurried = fnCurry(foo);
  *
- * fooCurried(1)(2)(3) //=> [1, 2, 3]
- * fooCurried(1, 2)(3) //=> [1, 2, 3]
- * fooCurried(1, 2, 3) //=> [1, 2, 3]
+ * fooCurried(1)(2)(3)
+ * // => [1, 2, 3]
+ *
+ * fooCurried(1, 2)(3)
+ * // => [1, 2, 3]
+ *
+ * fooCurried(1, 2, 3)
+ * // => [1, 2, 3]
  */
 const fnCurry = (fn, arity = fn.length) => {
     // tslint:disable-next-line
@@ -1130,7 +1150,8 @@ const fnCurry = (fn, arity = fn.length) => {
  * @returns {Function}
  * @example
  * const foo = (a, b) => console.log(a + b);
- * const fooThrottled = fnThrottle(foo, 500); // function that can only run every 500ms
+ * const fooThrottled = fnThrottle(foo, 500);
+ * // function can only run every 500ms
  */
 const fnThrottle = (fn, timeout, immediate = false) => {
     const getTimer = () => setTimeout(() => {
@@ -1150,7 +1171,7 @@ const fnThrottle = (fn, timeout, immediate = false) => {
 };
 
 /**
- * Returns the sum of an array of numbers
+ * Returns the sum of an array of numbers.
  *
  * @function numSum
  * @memberof Number
@@ -1164,7 +1185,7 @@ const fnThrottle = (fn, timeout, immediate = false) => {
 const numSum = (arr) => arr.reduce((a, b) => a + b);
 
 /**
- * Returns the average of an array of numbers
+ * Returns the average of an array of numbers.
  *
  * @function numAverage
  * @memberof Number
@@ -1241,9 +1262,9 @@ const randNumber = (min = 0, max = 1, floating = false) => {
 const randItem = (arr) => arr[randNumber(0, arr.length - 1)];
 
 /**
- * Shuffles an array randomly and returns it
+ * Shuffles an array randomly and returns it.
  *
- * Fisher Yates Shuffle Algorithm
+ * Fisher Yates Shuffle Algorithm.
  *
  * @function randShuffle
  * @memberof Random
@@ -1266,7 +1287,7 @@ const randShuffle = (arr) => {
 };
 
 /**
- * Binary Search implementation
+ * Binary Search implementation.
  *
  * @function algBinarySearch
  * @memberof Algorithm
@@ -1275,8 +1296,11 @@ const randShuffle = (arr) => {
  * @param {number} search
  * @returns {number|null}
  * @example
- * algBinarySearch([0,1,2],2)         //=> 1
- * algBinarySearch([0,1,2], 100)         //=> null
+ * algBinarySearch([0,1,2],2)
+ * // => 1
+ *
+ * algBinarySearch([0,1,2], 100)
+ * // => null
  */
 const algBinarySearch = (arr, search) => {
     let low = 0;

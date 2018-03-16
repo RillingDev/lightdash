@@ -8,8 +8,8 @@
  * @param {any} item
  * @returns {any[]}
  * @example
- * // returns ["foo", "fizz"]
  * arrRemoveItem(["foo", "bar", "fizz"], "bar")
+ * // => ["foo", "fizz"]
  */
 declare const arrRemoveItem: <T>(arr: T[], item: T) => T[];
 export default arrRemoveItem;

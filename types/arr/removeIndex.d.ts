@@ -8,8 +8,8 @@
  * @param {number} index
  * @returns {any[]}
  * @example
- * // returns ["foo", "fizz"]
  * arrRemoveIndex(["foo", "bar", "fizz"], 1)
+ * // => ["foo", "fizz"]
  */
 declare const arrRemoveIndex: <T>(arr: T[], index: number) => T[];
 export default arrRemoveIndex;

@@ -11,17 +11,27 @@ import isNil from "../is/nil";
  * @param {string[]} path
  * @returns {boolean}
  * @example
- * // returns true
  * hasPath({a: 1}, ["a"]);
+ * // => true
+ *
  * hasPath([4, 6, 8], ["1"]);
+ * // => true
+ *
  * hasPath({a: {b: 2, c: [10, 20]}}, ["a", "c", "0"]);
+ * // => true
  *
  * @example
- * // returns false
  * hasPath({a: 1}, ["c"]);
+ * // => false
+ *
  * hasPath([4, 6, 8], ["8"]);
+ * // => false
+ *
  * hasPath({a: {b: 2, c: [10, 20]}}, ["f", "x", "231", "21"]);
+ * // => false
+ *
  * hasPath(1, ["foo"]);
+ * // => false
  */
 const hasPath = (target: any, path: string[]): boolean =>
     !isNil(getPath(target, path));

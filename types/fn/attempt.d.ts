@@ -18,8 +18,11 @@
  *  return a + b;
  * };
  *
- * fnAttempt(foo, 2, 1)   //=> 3
- * fnAttempt(foo, 2, 500) //=> RangeError
+ * fnAttempt(foo, 2, 1)
+ * // => 3
+ *
+ * fnAttempt(foo, 2, 500)
+ * // => RangeError
  */
 declare const fnAttempt: <T>(fn: (...args: any[]) => T, ...args: any[]) => T | Error;
 export default fnAttempt;

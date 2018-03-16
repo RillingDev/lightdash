@@ -8,8 +8,8 @@
  * @param {number} index
  * @returns {any[]}
  * @example
- * // returns ["foo", "fizz"]
  * arrRemoveIndex(["foo", "bar", "fizz"], 1)
+ * // => ["foo", "fizz"]
  */
 const arrRemoveIndex = <T>(arr: T[], index: number): T[] => {
     if (index < 0 || index >= arr.length) {

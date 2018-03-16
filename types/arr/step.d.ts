@@ -8,8 +8,8 @@
  * @param {number} step
  * @returns {any[]}
  * @example
- * // returns [1, 3, 5]
  * arrStep([1, 2, 3, 4, 5, 6], 2)
+ * // => [1, 3, 5]
  */
 declare const arrStep: <T>(arr: T[], step: number) => T[];
 export default arrStep;

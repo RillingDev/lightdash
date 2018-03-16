@@ -1,7 +1,7 @@
 import numAverage from "./average";
 
 /**
- * Returns the median of an array of numbers
+ * Returns the median of an array of numbers.
  *
  * @function numMedian
  * @memberof Number

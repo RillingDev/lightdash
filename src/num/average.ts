@@ -1,7 +1,7 @@
 import numSum from "./sum";
 
 /**
- * Returns the average of an array of numbers
+ * Returns the average of an array of numbers.
  *
  * @function numAverage
  * @memberof Number

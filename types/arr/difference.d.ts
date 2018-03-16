@@ -8,12 +8,11 @@
  * @param {...any[]} values
  * @returns {any[]}
  * @example
- * // returns [2]
  * arrDifference([1, 2, 3], [1, "foo", 3])
+ * // => [2]
  *
- * @example
- * // returns [1, 3]
  * arrDifference([1, 2, 3], ["foo"], [2, 0, 2])
+ * // => [1, 3]
  */
 declare const arrDifference: <T>(arr: T[], ...values: any[]) => T[];
 export default arrDifference;

@@ -1,7 +1,7 @@
 /**
- * Shuffles an array randomly and returns it
+ * Shuffles an array randomly and returns it.
  *
- * Fisher Yates Shuffle Algorithm
+ * Fisher Yates Shuffle Algorithm.
  *
  * @function randShuffle
  * @memberof Random

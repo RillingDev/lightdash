@@ -8,12 +8,11 @@
  * @param {number} chunk
  * @returns {any[]}
  * @example
- * // returns [[1, 2], [3, 4], [5, 6]]
  * arrChunk([1, 2, 3, 4, 5, 6], 2)
+ * // => [[1, 2], [3, 4], [5, 6]]
  *
- * @example
- * // returns [[1, 2, 3], [4, 5]]
  * arrChunk([1, 2, 3, 4, 5], 3)
+ * // => [[1, 2, 3], [4, 5]]
  */
 const arrChunk = <T>(arr: T[], chunk: number): T[][] => {
     if (chunk < 1) {

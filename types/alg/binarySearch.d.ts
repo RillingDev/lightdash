@@ -1,5 +1,5 @@
 /**
- * Binary Search implementation
+ * Binary Search implementation.
  *
  * @function algBinarySearch
  * @memberof Algorithm
@@ -8,8 +8,11 @@
  * @param {number} search
  * @returns {number|null}
  * @example
- * algBinarySearch([0,1,2],2)         //=> 1
- * algBinarySearch([0,1,2], 100)         //=> null
+ * algBinarySearch([0,1,2],2)
+ * // => 1
+ *
+ * algBinarySearch([0,1,2], 100)
+ * // => null
  */
 declare const algBinarySearch: (arr: number[], search: number) => number | null;
 export default algBinarySearch;

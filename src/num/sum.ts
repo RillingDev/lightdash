@@ -1,5 +1,5 @@
 /**
- * Returns the sum of an array of numbers
+ * Returns the sum of an array of numbers.
  *
  * @function numSum
  * @memberof Number

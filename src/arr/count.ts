@@ -7,8 +7,8 @@
  * @param {any[]} arr
  * @returns {Map<any, number>} Map<element: any, count: number>
  * @example
- * // returns Map{1: 4, 2: 2, 3: 1, 4: 1}
  * arrCount([1, 1, 2, 2, 1, 3, 4, 1])
+ * // => Map<any, number>{1: 4, 2: 2, 3: 1, 4: 1}
  */
 const arrCount = <T>(arr: T[]): Map<T, number> => {
     const result: Map<T, number> = new Map();
