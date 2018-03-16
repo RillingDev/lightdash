@@ -13,5 +13,14 @@
  * numberClamp(-2, 0, 10)   //=> 0
  * numberClamp(99, 0, 10)   //=> 10
  */
-declare const numberClamp: (val: number, min: number, max: number) => number;
+const numberClamp = (val: number, min: number, max: number): number => {
+    if (val < min) {
+        return min;
+    } else if (val > max) {
+        return max;
+    }
+
+    return val;
+};
+
 export default numberClamp;

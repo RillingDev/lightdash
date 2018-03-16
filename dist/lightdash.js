@@ -1153,6 +1153,59 @@ const fnThrottle = (fn, timeout, immediate = false) => {
 };
 
 /**
+ * Returns the sum of an array of numbers
+ *
+ * @function numSum
+ * @memberof Number
+ * @since 5.0.0
+ * @param {number[]} arr
+ * @returns {number}
+ * @example
+ * // returns 6.8
+ * numSum([1, 2.5, 3.3])
+ */
+const numSum = (arr) => arr.reduce((a, b) => a + b);
+
+/**
+ * Returns the average of an array of numbers
+ *
+ * @function numAverage
+ * @memberof Number
+ * @since 5.0.0
+ * @param {number[]} arr
+ * @returns {number}
+ * @example
+ * // returns 2.2666
+ * numAverage([1, 2.5, 3.3])
+ */
+const numAverage = (arr) => numSum(arr) / arr.length;
+
+/**
+ * Clamps a number in a given range.
+ *
+ * @function numberClamp
+ * @memberof Number
+ * @since 1.0.0
+ * @param {number} val
+ * @param {number} min
+ * @param {number} max
+ * @returns {number}
+ * @example
+ * numberClamp(5, 0, 10)    //=> 5
+ * numberClamp(-2, 0, 10)   //=> 0
+ * numberClamp(99, 0, 10)   //=> 10
+ */
+const numberClamp = (val, min, max) => {
+    if (val < min) {
+        return min;
+    }
+    else if (val > max) {
+        return max;
+    }
+    return val;
+};
+
+/**
  * Return a random float or integer number in the given range.
  *
  * @function randNumber
@@ -1346,6 +1399,10 @@ exports.mapFromObject = mapFromObject;
 exports.fnThrottle = fnThrottle;
 exports.fnAttempt = fnAttempt;
 exports.fnCurry = fnCurry;
+exports.numClamp = numberClamp;
+exports.numSum = numSum;
+exports.numAverage = numAverage;
+exports.numMedian = numAverage;
 exports.randNumber = randNumber;
 exports.randItem = randItem;
 exports.randShuffle = randShuffle;

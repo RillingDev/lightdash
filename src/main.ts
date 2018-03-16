@@ -95,6 +95,10 @@ import fnThrottle from "./fn/throttle";
  * Number manipulation and comparison
  * @namespace Number
  */
+import numAverage from "./num/average";
+import numClamp from "./num/clamp";
+import numMedian from "./num/median";
+import numSum from "./num/sum";
 
 /**
  * Random number generation and value picking
@@ -164,6 +168,10 @@ export {
     fnThrottle,
     fnAttempt,
     fnCurry,
+    numClamp,
+    numSum,
+    numAverage,
+    numMedian,
     randNumber,
     randItem,
     randShuffle,
