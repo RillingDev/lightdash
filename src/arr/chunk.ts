@@ -1,3 +1,5 @@
+import isIndex from "../is/index";
+
 /**
  * Creates an array of elements split into groups by size.
  *
@@ -14,14 +16,14 @@
  * arrChunk([1, 2, 3, 4, 5], 3)
  * // => [[1, 2, 3], [4, 5]]
  */
-const arrChunk = <T>(arr: T[], chunk: number): T[][] => {
-    if (chunk < 1) {
+const arrChunk = <T>(arr: T[], chunk: number): T[][] | void[] => {
+    if (!isIndex(chunk) || chunk === 0) {
         return [];
     }
 
     const result: T[][] = [];
 
-    for (let i = 0; i < arr.length - 1; i += chunk) {
+    for (let i = 0; i < arr.length; i += chunk) {
         result.push(arr.slice(i, i + chunk));
     }
 

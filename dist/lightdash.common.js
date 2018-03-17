@@ -492,6 +492,33 @@ const isEqual = (a, b) => {
 const isError = (val) => isInstanceOf(val, Error);
 
 /**
+ * Checks if a value is a valid index.
+ *
+ * @function isIndex
+ * @memberof Is
+ * @since 5.0.0
+ * @param {any} val
+ * @returns {boolean}
+ * @example
+ * isIndex(0)
+ * // => true
+ *
+ * isIndex(123)
+ * // => true
+ *
+ * @example
+ * isIndex(0.43)
+ * // => false
+ *
+ * isIndex(-4)
+ * // => false
+ *
+ * isIndex(Infinity)
+ * // => false
+ */
+const isIndex = (val) => Number.isInteger(val) && val >= 0;
+
+/**
  * Checks if a value is a map.
  *
  * @function isMap
@@ -773,11 +800,11 @@ const forEachEntryDeep = (obj, fn) => forEachEntry(obj, (key, val, index) => isO
  * // => [[1, 2, 3], [4, 5]]
  */
 const arrChunk = (arr, chunk) => {
-    if (chunk < 1) {
+    if (!isIndex(chunk) || chunk === 0) {
         return [];
     }
     const result = [];
-    for (let i = 0; i < arr.length - 1; i += chunk) {
+    for (let i = 0; i < arr.length; i += chunk) {
         result.push(arr.slice(i, i + chunk));
     }
     return result;
@@ -1471,6 +1498,7 @@ exports.isFunction = isFunction;
 exports.isArguments = isArguments;
 exports.isError = isError;
 exports.isEmpty = isEmpty;
+exports.isIndex = isIndex;
 exports.hasPath = hasPath;
 exports.getPath = getPath;
 exports.forEachDeep = forEachDeep;
