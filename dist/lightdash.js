@@ -960,7 +960,7 @@ const arrIntersection = (arr, ...values) => {
  * // => ["foo", "fizz"]
  */
 const arrRemoveIndex = (arr, index) => {
-    if (index < 0 || index >= arr.length) {
+    if (!isIndex(index) || index > arr.length) {
         return arr;
     }
     return index === 0

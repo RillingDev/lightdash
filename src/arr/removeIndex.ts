@@ -1,3 +1,5 @@
+import isIndex from "../is/index";
+
 /**
  * Returns a new array with the item at the index removed.
  *
@@ -12,7 +14,7 @@
  * // => ["foo", "fizz"]
  */
 const arrRemoveIndex = <T>(arr: T[], index: number): T[] => {
-    if (index < 0 || index >= arr.length) {
+    if (!isIndex(index) || index > arr.length) {
         return arr;
     }
 
