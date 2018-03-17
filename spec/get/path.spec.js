@@ -1,6 +1,10 @@
 const { getPath } = require("../../dist/lightdash.common");
 
 describe("getPath", () => {
+    it("Empty", () => {
+        expect(getPath([], [])).toEqual([]);
+        expect(getPath({}, [])).toEqual({});
+    });
     it("Simple", () => {
         expect(
             getPath(
@@ -22,5 +26,12 @@ describe("getPath", () => {
                 ["a", "c", "0"]
             )
         ).toBe(10);
+    });
+    it("Nonexistent", () => {
+        expect(getPath([1, 2, 3], ["0", "foo"])).toEqual(null);
+        expect(getPath({ a: 1, b: 2 }, ["a", "foo"])).toEqual(null);
+        expect(getPath({ a: 1, b: 2 }, ["a", "foo", "bar", "bizz"])).toEqual(
+            null
+        );
     });
 });

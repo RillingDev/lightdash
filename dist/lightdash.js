@@ -707,7 +707,7 @@ var _l = (function (exports) {
         let index = 0;
         while (!isUndefined(targetCurrent) && index < path.length) {
             const keyCurrent = path[index];
-            if (!isUndefined(targetCurrent.keyCurrent)) {
+            if (isUndefined(targetCurrent[keyCurrent])) {
                 return null;
             }
             targetCurrent = targetCurrent[keyCurrent];

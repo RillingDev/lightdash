@@ -1,6 +1,16 @@
 const { forEachEntry } = require("../../dist/lightdash.common");
 
 describe("forEachEntry", () => {
+    it("Empty", () => {
+        const input = {};
+        const result = [];
+
+        forEachEntry(input, (key, val) => {
+            result.push(val);
+        });
+
+        expect(result).toEqual([]);
+    });
     it("Simple", () => {
         const input = {
             a: 2,
@@ -28,5 +38,17 @@ describe("forEachEntry", () => {
                 v: 1
             }
         ]);
+    });
+    it("Circular", () => {
+        const input = { a: 1 };
+        const result = [];
+
+        input.b = input;
+
+        forEachEntry(input, (key, val) => {
+            result.push(val);
+        });
+
+        expect(result).toEqual([1, input]);
     });
 });
