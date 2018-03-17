@@ -1,6 +1,10 @@
 const { objMapDeep } = require("../../dist/lightdash.common");
 
 describe("objMapDeep", () => {
+    it("Empty", () => {
+        expect(objMapDeep({}, () => 1)).toEqual({});
+        expect(objMapDeep([], () => 1)).toEqual({});
+    });
     it("Simple", () => {
         const input = {
             a: 1,

@@ -1,6 +1,11 @@
 const { objDefaultsDeep } = require("../../dist/lightdash.common");
 
 describe("objDefaultsDeep", () => {
+    it("Empty", () => {
+        expect(objDefaultsDeep({}, {})).toEqual({});
+        expect(objDefaultsDeep({ a: 1 }, {})).toEqual({ a: 1 });
+        expect(objDefaultsDeep({}, { a: 1 })).toEqual({ a: 1 });
+    });
     it("Simple", () => {
         expect(
             objDefaultsDeep(
