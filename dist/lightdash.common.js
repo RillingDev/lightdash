@@ -1293,7 +1293,7 @@ const numAverage = (arr) => numSum(arr) / arr.length;
 /**
  * Clamps a number in a given range.
  *
- * @function numberClamp
+ * @function numClamp
  * @memberof Number
  * @since 1.0.0
  * @param {number} val
@@ -1301,16 +1301,16 @@ const numAverage = (arr) => numSum(arr) / arr.length;
  * @param {number} max
  * @returns {number}
  * @example
- * numberClamp(5, 0, 10)
+ * numClamp(5, 0, 10)
  * // => 5
  *
- * numberClamp(-2, 0, 10)
+ * numClamp(-2, 0, 10)
  * // => 0
  *
- * numberClamp(99, 0, 10)
+ * numClamp(99, 0, 10)
  * // => 10
  */
-const numberClamp = (val, min, max) => {
+const numClamp = (val, min, max) => {
     if (val < min) {
         return min;
     }
@@ -1318,6 +1318,28 @@ const numberClamp = (val, min, max) => {
         return max;
     }
     return val;
+};
+
+/**
+ * Returns the median of an array of numbers.
+ *
+ * @function numMedian
+ * @memberof Number
+ * @since 5.0.0
+ * @param {number[]} arr
+ * @returns {number}
+ * @example
+ * numMedian([1, 2.5, 3.3])
+ * // => 2.5
+ *
+ * numMedian([1, 2, 4, 5])
+ * // => 3
+ */
+const numMedian = (arr) => {
+    const arrLengthHalf = arr.length / 2;
+    return arr.length % 2 === 0
+        ? arr[arrLengthHalf]
+        : numAverage(arr.slice(Math.floor(arrLengthHalf), 2));
 };
 
 /**
@@ -1526,10 +1548,10 @@ exports.mapFromObject = mapFromObject;
 exports.fnThrottle = fnThrottle;
 exports.fnAttempt = fnAttempt;
 exports.fnCurry = fnCurry;
-exports.numClamp = numberClamp;
+exports.numClamp = numClamp;
 exports.numSum = numSum;
 exports.numAverage = numAverage;
-exports.numMedian = numAverage;
+exports.numMedian = numMedian;
 exports.randNumber = randNumber;
 exports.randItem = randItem;
 exports.randShuffle = randShuffle;

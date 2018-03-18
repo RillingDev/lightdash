@@ -1,7 +1,7 @@
 /**
  * Clamps a number in a given range.
  *
- * @function numberClamp
+ * @function numClamp
  * @memberof Number
  * @since 1.0.0
  * @param {number} val
@@ -9,16 +9,16 @@
  * @param {number} max
  * @returns {number}
  * @example
- * numberClamp(5, 0, 10)
+ * numClamp(5, 0, 10)
  * // => 5
  *
- * numberClamp(-2, 0, 10)
+ * numClamp(-2, 0, 10)
  * // => 0
  *
- * numberClamp(99, 0, 10)
+ * numClamp(99, 0, 10)
  * // => 10
  */
-const numberClamp = (val: number, min: number, max: number): number => {
+const numClamp = (val: number, min: number, max: number): number => {
     if (val < min) {
         return min;
     } else if (val > max) {
@@ -28,4 +28,4 @@ const numberClamp = (val: number, min: number, max: number): number => {
     return val;
 };
 
-export default numberClamp;
+export default numClamp;

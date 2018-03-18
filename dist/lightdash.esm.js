@@ -1289,7 +1289,7 @@ const numAverage = (arr) => numSum(arr) / arr.length;
 /**
  * Clamps a number in a given range.
  *
- * @function numberClamp
+ * @function numClamp
  * @memberof Number
  * @since 1.0.0
  * @param {number} val
@@ -1297,16 +1297,16 @@ const numAverage = (arr) => numSum(arr) / arr.length;
  * @param {number} max
  * @returns {number}
  * @example
- * numberClamp(5, 0, 10)
+ * numClamp(5, 0, 10)
  * // => 5
  *
- * numberClamp(-2, 0, 10)
+ * numClamp(-2, 0, 10)
  * // => 0
  *
- * numberClamp(99, 0, 10)
+ * numClamp(99, 0, 10)
  * // => 10
  */
-const numberClamp = (val, min, max) => {
+const numClamp = (val, min, max) => {
     if (val < min) {
         return min;
     }
@@ -1314,6 +1314,28 @@ const numberClamp = (val, min, max) => {
         return max;
     }
     return val;
+};
+
+/**
+ * Returns the median of an array of numbers.
+ *
+ * @function numMedian
+ * @memberof Number
+ * @since 5.0.0
+ * @param {number[]} arr
+ * @returns {number}
+ * @example
+ * numMedian([1, 2.5, 3.3])
+ * // => 2.5
+ *
+ * numMedian([1, 2, 4, 5])
+ * // => 3
+ */
+const numMedian = (arr) => {
+    const arrLengthHalf = arr.length / 2;
+    return arr.length % 2 === 0
+        ? arr[arrLengthHalf]
+        : numAverage(arr.slice(Math.floor(arrLengthHalf), 2));
 };
 
 /**
@@ -1469,4 +1491,4 @@ const algBinarySearch = (arr, search) => {
  * @namespace Algorithm
  */
 
-export { isEqual, isInstanceOf, isTypeOf, isUndefined, isNil, isNumber, isString, isBoolean, isSymbol, isObject, isObjectLike, isObjectPlain, isArray, isArrayLike, isArrayBuffer, isArrayTyped, isPromise, isMap, isSet, isDate, isRegExp, isFunction, isArguments, isError, isEmpty, isIndex, hasPath, getPath, forEachDeep, forEachEntry, forEachEntryDeep, arrFromDeep, arrMapDeep, arrFlattenDeep, arrCompact, arrChunk, arrStep, arrRemoveIndex, arrRemoveItem, arrCount, arrDifference, arrIntersection, arrUniq, objFrom, objFromDeep, objMap, objMapDeep, objDefaults, objDefaultsDeep, mapFromObject, fnThrottle, fnAttempt, fnCurry, numberClamp as numClamp, numSum, numAverage, numAverage as numMedian, randNumber, randItem, randShuffle, algBinarySearch };
+export { isEqual, isInstanceOf, isTypeOf, isUndefined, isNil, isNumber, isString, isBoolean, isSymbol, isObject, isObjectLike, isObjectPlain, isArray, isArrayLike, isArrayBuffer, isArrayTyped, isPromise, isMap, isSet, isDate, isRegExp, isFunction, isArguments, isError, isEmpty, isIndex, hasPath, getPath, forEachDeep, forEachEntry, forEachEntryDeep, arrFromDeep, arrMapDeep, arrFlattenDeep, arrCompact, arrChunk, arrStep, arrRemoveIndex, arrRemoveItem, arrCount, arrDifference, arrIntersection, arrUniq, objFrom, objFromDeep, objMap, objMapDeep, objDefaults, objDefaultsDeep, mapFromObject, fnThrottle, fnAttempt, fnCurry, numClamp, numSum, numAverage, numMedian, randNumber, randItem, randShuffle, algBinarySearch };

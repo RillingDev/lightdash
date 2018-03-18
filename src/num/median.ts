@@ -23,4 +23,4 @@ const numMedian = (arr: number[]): number => {
         : numAverage(arr.slice(Math.floor(arrLengthHalf), 2));
 };
 
-export default numAverage;
+export default numMedian;
