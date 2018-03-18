@@ -16,14 +16,14 @@ import randNumber from "./number";
  * // => [3,1,2]
  */
 const randShuffle = <T>(arr: T[]): T[] => {
-    let input = Array.from(arr);
     const result: T[] = [];
+    let input = Array.from(arr);
+    let length = arr.length;
 
-    while (result.length < arr.length) {
-        const index = randNumber(0, arr.length - 1);
-        const val = input[index];
+    while (length--) {
+        const index = randNumber(0, length - 1);
 
-        result.push(val);
+        result.push(input[index]);
         input = arrRemoveIndex(input, index);
     }
 
