@@ -1402,12 +1402,12 @@ var _l = (function (exports) {
      * // => [3,1,2]
      */
     const randShuffle = (arr) => {
-        let input = Array.from(arr);
         const result = [];
-        while (result.length < arr.length) {
-            const index = randNumber(0, arr.length - 1);
-            const val = input[index];
-            result.push(val);
+        let input = Array.from(arr);
+        let length = arr.length;
+        while (length--) {
+            const index = randNumber(0, length - 1);
+            result.push(input[index]);
             input = arrRemoveIndex(input, index);
         }
         return result;
