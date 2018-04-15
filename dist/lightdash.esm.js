@@ -1399,13 +1399,13 @@ const randItem = (arr) => arr[randNumber(0, arr.length - 1)];
  * // => [3,1,2]
  */
 const randShuffle = (arr) => {
-    const result = [];
-    let input = Array.from(arr);
-    let length = arr.length;
+    const result = Array.from(arr);
+    let length = result.length;
     while (length--) {
-        const index = randNumber(0, length - 1);
-        result.push(input[index]);
-        input = arrRemoveIndex(input, index);
+        const index = randNumber(0, length);
+        const temp = result[length];
+        result[length] = result[index];
+        result[index] = temp;
     }
     return result;
 };

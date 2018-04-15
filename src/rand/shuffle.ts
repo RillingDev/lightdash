@@ -1,4 +1,3 @@
-import arrRemoveIndex from "../arr/removeIndex";
 import randNumber from "./number";
 
 /**
@@ -16,15 +15,15 @@ import randNumber from "./number";
  * // => [3,1,2]
  */
 const randShuffle = <T>(arr: T[]): T[] => {
-    const result: T[] = [];
-    let input = Array.from(arr);
-    let length = arr.length;
+    const result = Array.from(arr);
+    let length = result.length;
 
     while (length--) {
-        const index = randNumber(0, length - 1);
+        const index = randNumber(0, length);
+        const temp = result[length];
 
-        result.push(input[index]);
-        input = arrRemoveIndex(input, index);
+        result[length] = result[index];
+        result[index] = temp;
     }
 
     return result;
