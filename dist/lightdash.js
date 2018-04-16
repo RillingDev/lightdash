@@ -1247,6 +1247,7 @@ var _l = (function (exports) {
     const fnThrottle = (fn, timeout, immediate = false) => {
         const getTimer = () => setTimeout(() => {
             canRun = true;
+            // @ts-ignore TODO investigate
             clearTimeout(timer);
         }, timeout);
         let canRun = immediate;

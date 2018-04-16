@@ -23,6 +23,7 @@ const fnThrottle = (
     const getTimer = () =>
         setTimeout(() => {
             canRun = true;
+            // @ts-ignore TODO investigate
             clearTimeout(timer);
         }, timeout);
     let canRun = immediate;
