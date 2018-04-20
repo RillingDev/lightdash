@@ -23,11 +23,11 @@ const fnThrottle = (
     const getTimer = () =>
         setTimeout(() => {
             canRun = true;
-            // @ts-ignore TODO investigate
             clearTimeout(timer);
         }, timeout);
     let canRun = immediate;
-    let timer = immediate ? -1 : getTimer();
+    // Has to be set to any because it can either a number (in browsers) or a Timer instance (in NodeJS)
+    let timer: any = immediate ? -1 : getTimer();
 
     // tslint:disable-next-line:only-arrow-functions
     return function() {

@@ -1245,10 +1245,10 @@ var _l = (function (exports) {
     const fnThrottle = (fn, timeout, immediate = false) => {
         const getTimer = () => setTimeout(() => {
             canRun = true;
-            // @ts-ignore TODO investigate
             clearTimeout(timer);
         }, timeout);
         let canRun = immediate;
+        // Has to be set to any because it can either a number (in browsers) or a Timer instance (in NodeJS)
         let timer = immediate ? -1 : getTimer();
         // tslint:disable-next-line:only-arrow-functions
         return function () {
