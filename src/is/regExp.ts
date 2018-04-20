@@ -19,7 +19,7 @@ import isInstanceOf from "./instanceOf";
  * isRegExp("foo")
  * // => false
  */
-// @ts-ignore: RegExp declaration is outdated
+// @ts-ignore: RegExp declaration is invalid
 const isRegExp = (val: any): boolean => isInstanceOf(val, RegExp);
 
 export default isRegExp;

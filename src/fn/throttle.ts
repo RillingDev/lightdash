@@ -29,13 +29,13 @@ const fnThrottle = (
     let canRun = immediate;
     let timer = immediate ? -1 : getTimer();
 
+    // tslint:disable-next-line:only-arrow-functions
     return function() {
         if (canRun) {
             canRun = false;
             timer = getTimer();
 
-            // @ts-ignore
-            return fn.apply(this, arguments);
+            return fn(...arguments);
         }
     };
 };

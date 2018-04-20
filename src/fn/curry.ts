@@ -25,11 +25,11 @@
  * // => [1, 2, 3]
  */
 const fnCurry = (fn: (...args: any[]) => any, arity: number = fn.length) => {
-    // tslint:disable-next-line
+    // tslint:disable-next-line:only-arrow-functions
     const resolver: (...args: any[]) => any = function() {
         const argsBase: IArguments = arguments;
 
-        // tslint:disable-next-line
+        // tslint:disable-next-line:only-arrow-functions
         return function() {
             const args: any[] = [...argsBase, ...arguments];
             const result: (...args: any[]) => any =

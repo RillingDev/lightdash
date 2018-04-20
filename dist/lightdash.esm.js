@@ -133,7 +133,7 @@ const isInstanceOf = (val, target) => val instanceof target;
  * isArrayBuffer([1, 2])
  * // => false
  */
-// @ts-ignore: ArrayBuffer declaration is outdated
+// @ts-ignore: ArrayBuffer declaration is invalid
 const isArrayBuffer = (val) => isInstanceOf(val, ArrayBuffer);
 
 /**
@@ -618,7 +618,7 @@ const isPromise = (val) => isFunction(val.then) && isFunction(val.catch);
  * isRegExp("foo")
  * // => false
  */
-// @ts-ignore: RegExp declaration is outdated
+// @ts-ignore: RegExp declaration is invalid
 const isRegExp = (val) => isInstanceOf(val, RegExp);
 
 /**
@@ -856,7 +856,6 @@ const arrCount = (arr) => {
  */
 const arrDifference = (arr, ...values) => {
     const valuesCounted = arrCount([].concat(...values));
-    // @ts-ignore: ts seems to pull the wrong data for arrCount
     return arr.filter(item => !valuesCounted.has(item));
 };
 
@@ -939,7 +938,6 @@ const arrFromDeep = (arr) => arrMapDeep(Array.from(arr), val => (isArray(val) ? 
  */
 const arrIntersection = (arr, ...values) => {
     const valuesCounted = arrCount([].concat(...values));
-    // @ts-ignore: ts seems to pull the wrong data for arrCount
     return arr.filter(item => valuesCounted.has(item));
 };
 
@@ -1211,10 +1209,10 @@ const fnAttempt = (fn, ...args) => {
  * // => [1, 2, 3]
  */
 const fnCurry = (fn, arity = fn.length) => {
-    // tslint:disable-next-line
+    // tslint:disable-next-line:only-arrow-functions
     const resolver = function () {
         const argsBase = arguments;
-        // tslint:disable-next-line
+        // tslint:disable-next-line:only-arrow-functions
         return function () {
             const args = [...argsBase, ...arguments];
             const result = args.length >= arity ? fn : resolver;
@@ -1249,12 +1247,12 @@ const fnThrottle = (fn, timeout, immediate = false) => {
     }, timeout);
     let canRun = immediate;
     let timer = immediate ? -1 : getTimer();
+    // tslint:disable-next-line:only-arrow-functions
     return function () {
         if (canRun) {
             canRun = false;
             timer = getTimer();
-            // @ts-ignore
-            return fn.apply(this, arguments);
+            return fn(...arguments);
         }
     };
 };

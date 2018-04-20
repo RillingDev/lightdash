@@ -17,9 +17,8 @@ import arrCount from "./count";
  * // => [2]
  */
 const arrIntersection = <T>(arr: T[], ...values: any[]): T[] => {
-    const valuesCounted = arrCount([].concat(...values));
+    const valuesCounted = arrCount(<any[]>[].concat(...values));
 
-    // @ts-ignore: ts seems to pull the wrong data for arrCount
     return arr.filter(item => valuesCounted.has(item));
 };
 
