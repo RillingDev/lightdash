@@ -1347,8 +1347,8 @@ const numMedian = (arr) => {
  * @function randNumber
  * @memberof Random
  * @since 3.0.0
- * @param {number} [min=0]
- * @param {number} [max=1]
+ * @param {number} [min=0] inclusive minimum
+ * @param {number} [max=1] inclusive maximum
  * @param {boolean} [floating=false]
  * @returns {number}
  * @example
@@ -1366,8 +1366,8 @@ const randNumber = (min = 0, max = 1, floating = false) => {
     if (diff === 0) {
         return min;
     }
-    const rand = min + Math.random() * diff;
-    return floating ? rand : Math.floor(rand / diff * (diff + 1));
+    const rand = Math.random() * diff;
+    return min + (floating ? rand : Math.floor(rand / diff * (diff + 1)));
 };
 
 /**

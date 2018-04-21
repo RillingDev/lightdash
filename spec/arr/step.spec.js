@@ -7,6 +7,9 @@ describe("arrStep", () => {
     it("No Step", () => {
         expect(arrStep([1, 2, 3, 4, 5, 6], 0)).toEqual([]);
     });
+    it("Step 1", () => {
+        expect(arrStep([1, 2, 3, 4, 5, 6], 1)).toEqual([1, 2, 3, 4, 5, 6]);
+    });
     it("Negative Step", () => {
         expect(arrStep([1, 2, 3, 4, 5, 6], -3)).toEqual([1, 4]);
     });

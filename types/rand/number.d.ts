@@ -4,8 +4,8 @@
  * @function randNumber
  * @memberof Random
  * @since 3.0.0
- * @param {number} [min=0]
- * @param {number} [max=1]
+ * @param {number} [min=0] inclusive minimum
+ * @param {number} [max=1] inclusive maximum
  * @param {boolean} [floating=false]
  * @returns {number}
  * @example

@@ -1,6 +1,6 @@
 const { randNumber } = require("../../dist/lightdash.common");
 
-const RUNS = 2 ** 4;
+const RUNS = 2 ** 8;
 
 describe("randNumber", () => {
     for (let i = 0; i < RUNS; i++) {
@@ -36,6 +36,15 @@ describe("randNumber", () => {
             const val = randNumber(max, 0);
 
             expect(Number.isInteger(val) && val > 0 && val <= max).toBe(true);
+        });
+    }
+
+    for (let i = 0; i < RUNS; i++) {
+        it(`Two Args Large Inverted 2#${i}`, () => {
+            const max = -2;
+            const val = randNumber(max, 2);
+
+            expect(Number.isInteger(val) && val >= -2 && val <= 2).toBe(true);
         });
     }
 
