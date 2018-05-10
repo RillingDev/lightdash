@@ -1043,7 +1043,9 @@ const objFrom = (obj) => Object.assign({}, obj);
  * // => {a: 1, b: 2, c: 5}
  */
 const objDefaults = (obj, objDefault) => {
-    const result = isArray(obj) ? Array.from(obj) : objFrom(obj);
+    const result = isArray(obj)
+        ? Array.from(obj)
+        : objFrom(obj);
     forEachEntry(objDefault, (keyDefault, valDefault) => {
         if (isUndefined(obj[keyDefault])) {
             result[keyDefault] = valDefault;
@@ -1122,7 +1124,9 @@ const objFromDeep = (obj) => objMapDeep(objFrom(obj), (key, val) => (isObjectLik
  * // => {a: [1, 2, 3], b: 2, c: {f: "x"}}
  */
 const objDefaultsDeep = (obj, objDefault) => {
-    const result = isArray(obj) ? Array.from(obj) : objFromDeep(obj);
+    const result = isArray(obj)
+        ? Array.from(obj)
+        : objFromDeep(obj);
     forEachEntry(objDefault, (keyDefault, valDefault) => {
         const valGiven = obj[keyDefault];
         if (isObjectLike(valDefault)) {

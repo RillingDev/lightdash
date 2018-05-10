@@ -1,3 +1,4 @@
+import { ITypedObject } from "../interfaces";
 /**
  * Sets every nil property of object to the value from the default object.
  *
@@ -11,5 +12,5 @@
  * objDefaults({a: 1, c: 5}, {a: 1, b: 2, c: 3})
  * // => {a: 1, b: 2, c: 5}
  */
-declare const objDefaults: (obj: object, objDefault: object) => object;
+declare const objDefaults: (obj: ITypedObject<any>, objDefault: object) => object;
 export default objDefaults;

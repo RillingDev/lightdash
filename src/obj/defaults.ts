@@ -1,4 +1,5 @@
 import forEachEntry from "../for/eachEntry";
+import { ITypedObject } from "../interfaces";
 import isArray from "../is/array";
 import isUndefined from "../is/undefined";
 import objFrom from "./from";
@@ -16,8 +17,10 @@ import objFrom from "./from";
  * objDefaults({a: 1, c: 5}, {a: 1, b: 2, c: 3})
  * // => {a: 1, b: 2, c: 5}
  */
-const objDefaults = (obj: object, objDefault: object): object => {
-    const result = isArray(obj) ? Array.from(obj) : objFrom(obj);
+const objDefaults = (obj: ITypedObject<any>, objDefault: object): object => {
+    const result: ITypedObject<any> = isArray(obj)
+        ? Array.from(obj)
+        : objFrom(obj);
 
     forEachEntry(objDefault, (keyDefault, valDefault) => {
         if (isUndefined(obj[keyDefault])) {

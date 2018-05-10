@@ -1,4 +1,5 @@
 import forEachEntry from "../for/eachEntry";
+import { ITypedObject } from "../interfaces";
 import { forEachEntryMapper } from "../types";
 import objFrom from "./from";
 
@@ -16,7 +17,7 @@ import objFrom from "./from";
  * // => {a: 8, b: 4}
  */
 const objMap = (obj: object, fn: forEachEntryMapper<any, any>): object => {
-    const objNew = {};
+    const objNew: ITypedObject<any> = {};
 
     forEachEntry(obj, (key, val, index) => {
         objNew[key] = fn(key, val, index, obj);
