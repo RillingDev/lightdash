@@ -14,5 +14,5 @@
  * arrChunk([1, 2, 3, 4, 5], 3)
  * // => [[1, 2, 3], [4, 5]]
  */
-declare const arrChunk: <T>(arr: T[], chunk: number) => T[][] | void[];
+declare const arrChunk: <T>(arr: T[], chunk: number) => T[][];
 export default arrChunk;

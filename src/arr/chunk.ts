@@ -16,7 +16,7 @@ import isIndex from "../is/index";
  * arrChunk([1, 2, 3, 4, 5], 3)
  * // => [[1, 2, 3], [4, 5]]
  */
-const arrChunk = <T>(arr: T[], chunk: number): T[][] | void[] => {
+const arrChunk = <T>(arr: T[], chunk: number): T[][] => {
     if (!isIndex(chunk) || chunk === 0) {
         return [];
     }

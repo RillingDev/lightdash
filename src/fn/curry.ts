@@ -3,7 +3,7 @@
  *
  * A curried function can take between zero and n arguments,
  * where n is either the functions argument length or the provided arity.
- * As soon as n arguments are reached, the function is run with all arguments
+ * As soon as n arguments are reached, the function is run with all arguments.
  *
  * @function fnCurry
  * @memberof Fn

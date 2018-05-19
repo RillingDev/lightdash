@@ -3,7 +3,7 @@ import randNumber from "./number";
 /**
  * Shuffles an array randomly and returns it.
  *
- * Fisher Yates Shuffle Algorithm.
+ * Fisher-Yates shuffle algorithm.
  *
  * @function randShuffle
  * @memberof Random

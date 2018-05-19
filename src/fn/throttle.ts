@@ -1,7 +1,7 @@
 /**
  * Throttles a function to only run every n ms.
  *
- * Useful for event handlers that fire several times a second, such as scroll or resize
+ * Useful for event handlers that fire several times a second, such as scroll or resize.
  *
  * @function fnThrottle
  * @memberof Fn

@@ -4,7 +4,7 @@
  * @function arrFromDeep
  * @memberof Array
  * @since 2.0.0
- * @param {any} arr
+ * @param {any[]} arr
  * @returns {any[]}
  * @example
  * const a = [1, 2, 3, [5, [6]]];

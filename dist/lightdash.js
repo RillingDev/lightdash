@@ -691,7 +691,7 @@ var _l = (function (exports) {
      * @since 2.0.0
      * @param {any} target
      * @param {string[]} path
-     * @returns {boolean}
+     * @returns {null|any}
      * @example
      * getPath({a: 1}, ["a"]);
      * // => 1
@@ -911,7 +911,7 @@ var _l = (function (exports) {
      * @function arrFromDeep
      * @memberof Array
      * @since 2.0.0
-     * @param {any} arr
+     * @param {any[]} arr
      * @returns {any[]}
      * @example
      * const a = [1, 2, 3, [5, [6]]];
@@ -1194,7 +1194,7 @@ var _l = (function (exports) {
      *
      * A curried function can take between zero and n arguments,
      * where n is either the functions argument length or the provided arity.
-     * As soon as n arguments are reached, the function is run with all arguments
+     * As soon as n arguments are reached, the function is run with all arguments.
      *
      * @function fnCurry
      * @memberof Fn
@@ -1232,7 +1232,7 @@ var _l = (function (exports) {
     /**
      * Throttles a function to only run every n ms.
      *
-     * Useful for event handlers that fire several times a second, such as scroll or resize
+     * Useful for event handlers that fire several times a second, such as scroll or resize.
      *
      * @function fnThrottle
      * @memberof Fn
@@ -1393,7 +1393,7 @@ var _l = (function (exports) {
     /**
      * Shuffles an array randomly and returns it.
      *
-     * Fisher Yates Shuffle Algorithm.
+     * Fisher-Yates shuffle algorithm.
      *
      * @function randShuffle
      * @memberof Random
