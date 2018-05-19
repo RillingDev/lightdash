@@ -28,6 +28,7 @@ import isUndefined from "./is/undefined";
 import hasPath from "./has/path";
 
 import getPath from "./get/path";
+import getSize from "./get/size";
 
 import forEachDeep from "./for/eachDeep";
 import forEachEntry from "./for/eachEntry";
@@ -98,6 +99,7 @@ export {
     isIndex,
     hasPath,
     getPath,
+    getSize,
     forEachDeep,
     forEachEntry,
     forEachEntryDeep,

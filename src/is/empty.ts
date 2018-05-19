@@ -1,12 +1,10 @@
-import isArrayLike from "./arrayLike";
-import isObjectLike from "./objectLike";
-import isUndefined from "./undefined";
+import getSize from "../get/size";
 
 /**
  * Checks if a value is empty.
  *
  * A value is consider empty if it is either a primitive or an object-like without content.
- * Array-likes are considered empty if they have a length of zero,
+ * Array-likes and strings are considered empty if they have a length of zero,
  * Sets/Maps if they have a size of zero,
  * and Objects if their keys have a length of zero.
  *
@@ -44,16 +42,6 @@ import isUndefined from "./undefined";
  * isEmpty({a: 1})
  * // => false
  */
-const isEmpty = (val: any): boolean => {
-    if (isArrayLike(val)) {
-        return val.length === 0;
-    } else if (!isUndefined(val.size)) {
-        return val.size === 0;
-    } else if (isObjectLike(val)) {
-        return Object.keys(val).length === 0;
-    }
-
-    return true;
-};
+const isEmpty = (val: any): boolean => getSize(val) < 1;
 
 export default isEmpty;

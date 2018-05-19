@@ -343,10 +343,75 @@ var _l = (function (exports) {
     const isDate = (val) => isInstanceOf(val, Date);
 
     /**
+     * Checks if a value is a string.
+     *
+     * @function isString
+     * @memberof Is
+     * @since 1.0.0
+     * @param {any} val
+     * @returns {boolean}
+     * @example
+     * isString("foo")
+     * // => true
+     *
+     * @example
+     * isString(1)
+     * // => false
+     */
+    const isString = (val) => isTypeOf(val, "string");
+
+    /**
+     * Gets size of a value.
+     *
+     * If the value has a length or size property, return that.
+     * If the value is object-like, return the length of keys.
+     * Else return -1.
+     *
+     * @function getSize
+     * @memberof Get
+     * @since 6.0.0
+     * @param {any} val
+     * @returns {number}
+     * @example
+     * getSize([1,2])
+     * // => 2
+     *
+     * getSize({a:1})
+     * // => 1
+     *
+     * getSize(new Set())
+     * // => 0
+     *
+     * isEmpty("foo")
+     * // => 3
+     *
+     * isEmpty(1)
+     * // => -1
+     *
+     * isEmpty(null)
+     * // => -1
+     */
+    const getSize = (val) => {
+        if (isNil(val)) {
+            return -1;
+        }
+        else if (isArrayLike(val) || isString(val)) {
+            return val.length;
+        }
+        else if (!isUndefined(val.size)) {
+            return val.size;
+        }
+        else if (isObjectLike(val)) {
+            return Object.keys(val).length;
+        }
+        return -1;
+    };
+
+    /**
      * Checks if a value is empty.
      *
      * A value is consider empty if it is either a primitive or an object-like without content.
-     * Array-likes are considered empty if they have a length of zero,
+     * Array-likes and strings are considered empty if they have a length of zero,
      * Sets/Maps if they have a size of zero,
      * and Objects if their keys have a length of zero.
      *
@@ -384,18 +449,7 @@ var _l = (function (exports) {
      * isEmpty({a: 1})
      * // => false
      */
-    const isEmpty = (val) => {
-        if (isArrayLike(val)) {
-            return val.length === 0;
-        }
-        else if (!isUndefined(val.size)) {
-            return val.size === 0;
-        }
-        else if (isObjectLike(val)) {
-            return Object.keys(val).length === 0;
-        }
-        return true;
-    };
+    const isEmpty = (val) => getSize(val) < 1;
 
     /**
      * Iterates over each entry of an object
@@ -641,24 +695,6 @@ var _l = (function (exports) {
      * // => false
      */
     const isSet = (val) => isInstanceOf(val, Set);
-
-    /**
-     * Checks if a value is a string.
-     *
-     * @function isString
-     * @memberof Is
-     * @since 1.0.0
-     * @param {any} val
-     * @returns {boolean}
-     * @example
-     * isString("foo")
-     * // => true
-     *
-     * @example
-     * isString(1)
-     * // => false
-     */
-    const isString = (val) => isTypeOf(val, "string");
 
     /**
      * Checks if a value is a symbol.
@@ -1497,6 +1533,7 @@ var _l = (function (exports) {
     exports.isIndex = isIndex;
     exports.hasPath = hasPath;
     exports.getPath = getPath;
+    exports.getSize = getSize;
     exports.forEachDeep = forEachDeep;
     exports.forEachEntry = forEachEntry;
     exports.forEachEntryDeep = forEachEntryDeep;

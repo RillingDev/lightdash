@@ -6,8 +6,9 @@ describe("isEmpty", () => {
         expect(isEmpty([])).toBe(true);
         expect(isEmpty({})).toBe(true);
         expect(isEmpty(2)).toBe(true);
-        expect(isEmpty("foo")).toBe(true);
+        expect(isEmpty(null)).toBe(true);
 
+        expect(isEmpty("foo")).toBe(false);
         expect(isEmpty([1, 2, 3])).toBe(false);
         expect(
             isEmpty({
