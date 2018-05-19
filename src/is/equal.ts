@@ -37,27 +37,27 @@ const isEqual = (a: any, b: any): boolean => {
     }
 
     if (
-        isObjectLike(a) &&
-        isObjectLike(b) &&
-        Object.keys(a).length === Object.keys(b).length
+        !isObjectLike(a) ||
+        !isObjectLike(b) ||
+        Object.keys(a).length !== Object.keys(b).length
     ) {
-        let result = true;
-
-        forEachEntry(a, (key, aVal) => {
-            // Only check if the comparison didn't fail already
-            if (result === true) {
-                if (!isUndefined(b[key])) {
-                    result = isEqual(aVal, b[key]);
-                } else {
-                    result = false;
-                }
-            }
-        });
-
-        return result;
+        return false;
     }
 
-    return false;
+    let result = true;
+
+    forEachEntry(a, (key, aVal) => {
+        // Only check if the comparison didn't fail already
+        if (result === true) {
+            if (!isUndefined(b[key])) {
+                result = isEqual(aVal, b[key]);
+            } else {
+                result = false;
+            }
+        }
+    });
+
+    return result;
 };
 
 export default isEqual;

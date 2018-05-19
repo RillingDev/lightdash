@@ -446,24 +446,24 @@ const isEqual = (a, b) => {
     if (a === b) {
         return true;
     }
-    if (isObjectLike(a) &&
-        isObjectLike(b) &&
-        Object.keys(a).length === Object.keys(b).length) {
-        let result = true;
-        forEachEntry(a, (key, aVal) => {
-            // Only check if the comparison didn't fail already
-            if (result === true) {
-                if (!isUndefined(b[key])) {
-                    result = isEqual(aVal, b[key]);
-                }
-                else {
-                    result = false;
-                }
-            }
-        });
-        return result;
+    if (!isObjectLike(a) ||
+        !isObjectLike(b) ||
+        Object.keys(a).length !== Object.keys(b).length) {
+        return false;
     }
-    return false;
+    let result = true;
+    forEachEntry(a, (key, aVal) => {
+        // Only check if the comparison didn't fail already
+        if (result === true) {
+            if (!isUndefined(b[key])) {
+                result = isEqual(aVal, b[key]);
+            }
+            else {
+                result = false;
+            }
+        }
+    });
+    return result;
 };
 
 /**
