@@ -864,34 +864,6 @@ const arrDifference = (arr, ...values) => {
 };
 
 /**
- * Recursively flattens an array.
- *
- * @function arrFlattenDeep
- * @memberof Array
- * @since 1.0.0
- * @param {any[]} arr
- * @returns {any[]}
- * @example
- * arrFlattenDeep([1, 2, [3]])
- * // => [1, 2, 3]
- *
- * arrFlattenDeep([1, 2, [3, [[[5]]], [6, [6]]])
- * // => [1, 2, 3, 5, 6, 6]
- */
-const arrFlattenDeep = (arr) => {
-    const result = [];
-    arr.forEach(val => {
-        if (isArray(val)) {
-            result.push(...arrFlattenDeep(val));
-        }
-        else {
-            result.push(val);
-        }
-    });
-    return result;
-};
-
-/**
  * Recursively maps the values of the input array with the iterator function and return the result.
  *
  * @function arrMapDeep
@@ -1531,7 +1503,6 @@ exports.forEachEntry = forEachEntry;
 exports.forEachEntryDeep = forEachEntryDeep;
 exports.arrFromDeep = arrFromDeep;
 exports.arrMapDeep = arrMapDeep;
-exports.arrFlattenDeep = arrFlattenDeep;
 exports.arrCompact = arrCompact;
 exports.arrChunk = arrChunk;
 exports.arrStep = arrStep;

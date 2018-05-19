@@ -37,7 +37,6 @@ import arrChunk from "./arr/chunk";
 import arrCompact from "./arr/compact";
 import arrCount from "./arr/count";
 import arrDifference from "./arr/difference";
-import arrFlattenDeep from "./arr/flattenDeep";
 import arrFromDeep from "./arr/fromDeep";
 import arrIntersection from "./arr/intersection";
 import arrMapDeep from "./arr/mapDeep";
@@ -104,7 +103,6 @@ export {
     forEachEntryDeep,
     arrFromDeep,
     arrMapDeep,
-    arrFlattenDeep,
     arrCompact,
     arrChunk,
     arrStep,
