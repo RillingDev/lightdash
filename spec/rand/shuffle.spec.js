@@ -1,6 +1,6 @@
 const { randShuffle } = require("../../dist/lightdash.common");
 
-const RUNS = 2 ** 8;
+const RUNS = 2 ** 6;
 
 describe("randShuffle", () => {
     for (let i = 0; i < RUNS; i++) {
