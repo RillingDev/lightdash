@@ -1020,6 +1020,64 @@ const arrStep = (arr, step) => arr.filter((val, index) => index % step === 0);
 const arrUniq = (arr) => Array.from(new Set(arr));
 
 /**
+ * Maps each entry of an object and returns the result.
+ *
+ * @function objMap
+ * @memberof Object
+ * @since 1.0.0
+ * @param {Object} obj
+ * @param {function} fn fn(key: any, val: any, index: number, obj: object)
+ * @returns {Object}
+ * @example
+ * objMap({a: 4, b: 2}, (key, val) => val * 2)
+ * // => {a: 8, b: 4}
+ */
+const objMap = (obj, fn) => {
+    const objNew = {};
+    forEachEntry(obj, (key, val, index) => {
+        objNew[key] = fn(key, val, index, obj);
+    });
+    return objNew;
+};
+
+/**
+ * Replaces every cyclic reference of an object.
+ *
+ * Can take a custom replacer function and a pre-filled WeakSet of references.
+ *
+ * @function objDecycle
+ * @memberof Object
+ * @since 6.0.0
+ * @param {Object} obj
+ * @param {function} [fn=()=>null] fn(key: any, val: any, index: number, obj: object)
+ * @param {WeakSet<any>} [references=new WeakSet()]
+ * @returns {Object}
+ * @example
+ * const a = {b: 1, c: 2};
+ *
+ * a.a = a;
+ *
+ * objDecycle(a)
+ * // => {a: null, b: 1, c: 2}
+ *
+ * objDecycle(a,key=>`_${key}`)
+ * // => {a: "_a", b: 1, c: 2}
+ */
+const objDecycle = (obj, fn = () => null, references = new WeakSet()) => {
+    references.add(obj);
+    return objMap(obj, (key, val, index, objNew) => {
+        if (references.has(val)) {
+            return fn(key, val, index, objNew);
+        }
+        if (isObjectLike(val)) {
+            references.add(val);
+            return objDecycle(val, fn, references);
+        }
+        return val;
+    });
+};
+
+/**
  * Creates a new object with the entries of the input object.
  *
  * @function objFrom
@@ -1063,34 +1121,13 @@ const objDefaults = (obj, objDefault) => {
 };
 
 /**
- * Maps each entry of an object and returns the result.
- *
- * @function objMap
- * @memberof Object
- * @since 1.0.0
- * @param {Object} obj
- * @param {function} fn fn(key: any, val: any, index: number, arr: any[])
- * @returns {Object}
- * @example
- * objMap({a: 4, b: 2}, (key, val) => val * 2)
- * // => {a: 8, b: 4}
- */
-const objMap = (obj, fn) => {
-    const objNew = {};
-    forEachEntry(obj, (key, val, index) => {
-        objNew[key] = fn(key, val, index, obj);
-    });
-    return objNew;
-};
-
-/**
  * Recursively maps each entry of an object and returns the result.
  *
  * @function objMapDeep
  * @memberof Object
  * @since 1.0.0
  * @param {Object} obj
- * @param {function} fn fn(key: any, val: any, index: number, arr: any[])
+ * @param {function} fn fn(key: any, val: any, index: number, obj: object)
  * @returns {Object}
  * @example
  * arrMapDeep({a: {b: 2, c: [10, 20]}}, (key, val) => val * 2)
@@ -1555,6 +1592,7 @@ exports.objMap = objMap;
 exports.objMapDeep = objMapDeep;
 exports.objDefaults = objDefaults;
 exports.objDefaultsDeep = objDefaultsDeep;
+exports.objDecycle = objDecycle;
 exports.mapFromObject = mapFromObject;
 exports.fnThrottle = fnThrottle;
 exports.fnAttempt = fnAttempt;

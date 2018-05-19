@@ -6,7 +6,7 @@ import { forEachEntryMapper } from "../types";
  * @memberof Object
  * @since 1.0.0
  * @param {Object} obj
- * @param {function} fn fn(key: any, val: any, index: number, arr: any[])
+ * @param {function} fn fn(key: any, val: any, index: number, obj: object)
  * @returns {Object}
  * @example
  * objMap({a: 4, b: 2}, (key, val) => val * 2)

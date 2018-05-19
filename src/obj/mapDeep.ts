@@ -9,7 +9,7 @@ import objMap from "./map";
  * @memberof Object
  * @since 1.0.0
  * @param {Object} obj
- * @param {function} fn fn(key: any, val: any, index: number, arr: any[])
+ * @param {function} fn fn(key: any, val: any, index: number, obj: object)
  * @returns {Object}
  * @example
  * arrMapDeep({a: {b: 2, c: [10, 20]}}, (key, val) => val * 2)

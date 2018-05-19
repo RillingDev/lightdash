@@ -46,6 +46,7 @@ import arrRemoveItem from "./arr/removeItem";
 import arrStep from "./arr/step";
 import arrUniq from "./arr/uniq";
 
+import objDecycle from "./obj/decycle";
 import objDefaults from "./obj/defaults";
 import objDefaultsDeep from "./obj/defaultsDeep";
 import objFrom from "./obj/from";
@@ -120,6 +121,7 @@ export {
     objMapDeep,
     objDefaults,
     objDefaultsDeep,
+    objDecycle,
     mapFromObject,
     fnThrottle,
     fnAttempt,
