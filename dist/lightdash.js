@@ -959,20 +959,13 @@ var _l = (function (exports) {
      * @memberof Array
      * @since 2.8.0
      * @param {any[]} arr
-     * @param {number} index
+     * @param {number} targetIndex
      * @returns {any[]}
      * @example
      * arrRemoveIndex(["foo", "bar", "fizz"], 1)
      * // => ["foo", "fizz"]
      */
-    const arrRemoveIndex = (arr, index) => {
-        if (!isIndex(index) || index > arr.length) {
-            return arr;
-        }
-        return index === 0
-            ? arr.slice(1)
-            : arr.slice(0, index).concat(arr.slice(index + 1));
-    };
+    const arrRemoveIndex = (arr, targetIndex) => arr.filter((val, index) => index !== targetIndex);
 
     /**
      * Returns a new array with the first occurrence of the item removed.
@@ -981,13 +974,13 @@ var _l = (function (exports) {
      * @memberof Array
      * @since 2.8.0
      * @param {any[]} arr
-     * @param {any} item
+     * @param {any} targetItem
      * @returns {any[]}
      * @example
      * arrRemoveItem(["foo", "bar", "fizz"], "bar")
      * // => ["foo", "fizz"]
      */
-    const arrRemoveItem = (arr, item) => arr.includes(item) ? arrRemoveIndex(arr, arr.indexOf(item)) : arr;
+    const arrRemoveItem = (arr, targetItem) => arr.filter(item => item !== targetItem);
 
     /**
      * Returns a new array with every n-th item from the input array.
