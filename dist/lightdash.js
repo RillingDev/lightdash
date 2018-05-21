@@ -968,7 +968,7 @@ var _l = (function (exports) {
     const arrRemoveIndex = (arr, targetIndex) => arr.filter((val, index) => index !== targetIndex);
 
     /**
-     * Returns a new array with the first occurrence of the item removed.
+     * Returns a new array with the given item removed.
      *
      * @function arrRemoveItem
      * @memberof Array
