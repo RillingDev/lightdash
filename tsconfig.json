@@ -6,7 +6,9 @@
         "removeComments": false,
         "strict": true,
         "noImplicitAny": true,
+        "emitDecoratorMetadata": true,
         "experimentalDecorators": true
     },
+    "typeRoots": ["node_modules/@types"],
     "include": ["src/**/*.ts"]
 }
