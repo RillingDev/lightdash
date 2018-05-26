@@ -843,6 +843,28 @@ const arrChunk = (arr, chunk) => {
 };
 
 /**
+ * Collects the values of an array in a Map as arrays.
+ *
+ * @function arrCollect
+ * @memberof Array
+ * @since 6.1.0
+ * @param {any[]} arr
+ * @param {function} fn fn(val: any, index: number, arr: any[])
+ * @returns {Map<any, any[]>} Map<val: any, arr: any[]>
+ * @example
+ * arrCollect([1, 2, 3, 4, 5], val => val % 2)
+ * // => Map<any, any[]>{0: [2, 4], 1: [1, 3, 5]}
+ */
+const arrCollect = (arr, fn) => {
+    const result = new Map();
+    arr.forEach((val, index) => {
+        const key = fn(val, index, arr);
+        result.set(key, result.has(key) ? [...result.get(key), val] : [val]);
+    });
+    return result;
+};
+
+/**
  * Returns an array with every falsey value removed out.
  *
  * @function arrCompact
@@ -1532,4 +1554,4 @@ const algBinarySearch = (arr, search) => {
  * @namespace Algorithm
  */
 
-export { isEqual, isInstanceOf, isTypeOf, isUndefined, isNil, isNumber, isString, isBoolean, isSymbol, isObject, isObjectLike, isObjectPlain, isArray, isArrayLike, isArrayBuffer, isArrayTyped, isPromise, isMap, isSet, isDate, isRegExp, isFunction, isArguments, isError, isEmpty, isIndex, hasPath, getPath, getSize, forEachDeep, forEachEntry, forEachEntryDeep, arrFromDeep, arrMapDeep, arrCompact, arrChunk, arrStep, arrRemoveIndex, arrRemoveItem, arrCount, arrDifference, arrIntersection, arrUniq, objFrom, objFromDeep, objMap, objMapDeep, objDefaults, objDefaultsDeep, objDecycle, mapFromObject, fnThrottle, fnAttempt, fnCurry, numClamp, numSum, numAverage, numMedian, randNumber, randItem, randShuffle, algBinarySearch };
+export { isEqual, isInstanceOf, isTypeOf, isUndefined, isNil, isNumber, isString, isBoolean, isSymbol, isObject, isObjectLike, isObjectPlain, isArray, isArrayLike, isArrayBuffer, isArrayTyped, isPromise, isMap, isSet, isDate, isRegExp, isFunction, isArguments, isError, isEmpty, isIndex, hasPath, getPath, getSize, forEachDeep, forEachEntry, forEachEntryDeep, arrFromDeep, arrMapDeep, arrCompact, arrChunk, arrStep, arrRemoveIndex, arrRemoveItem, arrCount, arrCollect, arrDifference, arrIntersection, arrUniq, objFrom, objFromDeep, objMap, objMapDeep, objDefaults, objDefaultsDeep, objDecycle, mapFromObject, fnThrottle, fnAttempt, fnCurry, numClamp, numSum, numAverage, numMedian, randNumber, randItem, randShuffle, algBinarySearch };

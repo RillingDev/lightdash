@@ -35,6 +35,7 @@ import forEachEntry from "./for/eachEntry";
 import forEachEntryDeep from "./for/eachEntryDeep";
 
 import arrChunk from "./arr/chunk";
+import arrCollect from "./arr/collect";
 import arrCompact from "./arr/compact";
 import arrCount from "./arr/count";
 import arrDifference from "./arr/difference";
@@ -112,6 +113,7 @@ export {
     arrRemoveIndex,
     arrRemoveItem,
     arrCount,
+    arrCollect,
     arrDifference,
     arrIntersection,
     arrUniq,

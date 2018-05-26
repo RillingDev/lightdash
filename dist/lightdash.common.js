@@ -847,6 +847,28 @@ const arrChunk = (arr, chunk) => {
 };
 
 /**
+ * Collects the values of an array in a Map as arrays.
+ *
+ * @function arrCollect
+ * @memberof Array
+ * @since 6.1.0
+ * @param {any[]} arr
+ * @param {function} fn fn(val: any, index: number, arr: any[])
+ * @returns {Map<any, any[]>} Map<val: any, arr: any[]>
+ * @example
+ * arrCollect([1, 2, 3, 4, 5], val => val % 2)
+ * // => Map<any, any[]>{0: [2, 4], 1: [1, 3, 5]}
+ */
+const arrCollect = (arr, fn) => {
+    const result = new Map();
+    arr.forEach((val, index) => {
+        const key = fn(val, index, arr);
+        result.set(key, result.has(key) ? [...result.get(key), val] : [val]);
+    });
+    return result;
+};
+
+/**
  * Returns an array with every falsey value removed out.
  *
  * @function arrCompact
@@ -1576,6 +1598,7 @@ exports.arrStep = arrStep;
 exports.arrRemoveIndex = arrRemoveIndex;
 exports.arrRemoveItem = arrRemoveItem;
 exports.arrCount = arrCount;
+exports.arrCollect = arrCollect;
 exports.arrDifference = arrDifference;
 exports.arrIntersection = arrIntersection;
 exports.arrUniq = arrUniq;
