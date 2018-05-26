@@ -30,9 +30,10 @@ import hasPath from "./has/path";
 import getPath from "./get/path";
 import getSize from "./get/size";
 
-import forEachDeep from "./for/eachDeep";
-import forEachEntry from "./for/eachEntry";
-import forEachEntryDeep from "./for/eachEntryDeep";
+import numAverage from "./num/average";
+import numClamp from "./num/clamp";
+import numMedian from "./num/median";
+import numSum from "./num/sum";
 
 import arrChunk from "./arr/chunk";
 import arrCollect from "./arr/collect";
@@ -57,20 +58,19 @@ import objMapDeep from "./obj/mapDeep";
 
 import mapFromObject from "./map/fromObject";
 
+import forEachDeep from "./for/eachDeep";
+import forEachEntry from "./for/eachEntry";
+import forEachEntryDeep from "./for/eachEntryDeep";
+
 import fnAttempt from "./fn/attempt";
 import fnCurry from "./fn/curry";
 import fnThrottle from "./fn/throttle";
 
-import numAverage from "./num/average";
-import numClamp from "./num/clamp";
-import numMedian from "./num/median";
-import numSum from "./num/sum";
+import algBinarySearch from "./alg/binarySearch";
 
 import randItem from "./rand/item";
 import randNumber from "./rand/number";
 import randShuffle from "./rand/shuffle";
-
-import algBinarySearch from "./alg/binarySearch";
 
 export {
     isEqual,
@@ -102,9 +102,10 @@ export {
     hasPath,
     getPath,
     getSize,
-    forEachDeep,
-    forEachEntry,
-    forEachEntryDeep,
+    numClamp,
+    numSum,
+    numAverage,
+    numMedian,
     arrFromDeep,
     arrMapDeep,
     arrCompact,
@@ -128,14 +129,13 @@ export {
     fnThrottle,
     fnAttempt,
     fnCurry,
-    numClamp,
-    numSum,
-    numAverage,
-    numMedian,
+    forEachDeep,
+    forEachEntry,
+    forEachEntryDeep,
+    algBinarySearch,
     randNumber,
     randItem,
-    randShuffle,
-    algBinarySearch
+    randShuffle
 };
 /**
  * Value checking, type checking, and comparison

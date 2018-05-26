@@ -787,36 +787,84 @@ var _l = (function (exports) {
     const hasPath = (target, path) => !isNil(getPath(target, path));
 
     /**
-     * Recursively iterates over each element in an array.
+     * Returns the sum of an array of numbers.
      *
-     * @function forEachDeep
-     * @memberof For
-     * @param {any[]} arr
-     * @param {function} fn fn(val: any, index: number, arr: any[])
+     * @function numSum
+     * @memberof Number
+     * @since 5.0.0
+     * @param {number[]} arr
+     * @returns {number}
      * @example
-     * const a = [2, 4, [1, 1, [16], 4]];
-     *
-     * forEachDeep(a, (val, index, arr) => arr[index] = index * val)
-     * // a = [0, 4, [0, 1, [0], 12]]
+     * numSum([1, 2.5, 3.3])
+     * // => 6.8
      */
-    const forEachDeep = (arr, fn) => arr.forEach((val, index) => isArray(val) ? forEachDeep(val, fn) : fn(val, index, arr));
+    const numSum = (arr) => arr.reduce((a, b) => a + b);
 
     /**
-     * Recursively iterates over each entry of an object.
+     * Returns the average of an array of numbers.
      *
-     * @function forEachEntryDeep
-     * @memberof For
-     * @param {object} obj
-     * @param {function} fn fn(key: any, val: any, index: number, arr: any[])
+     * @function numAverage
+     * @memberof Number
+     * @since 5.0.0
+     * @param {number[]} arr
+     * @returns {number}
      * @example
-     * const a = {a: 1, b: {c: [1, 2]}};
-     *
-     * forEachEntryDeep(a, (key, val, index, obj) => obj[key] = index * val)
-     * // a = {a: 0, b: {c: [0, 2]}}
+     * numAverage([1, 2.5, 3.3])
+     * // => 2.2666
      */
-    const forEachEntryDeep = (obj, fn) => forEachEntry(obj, (key, val, index) => isObjectLike(val)
-        ? forEachEntryDeep(val, fn)
-        : fn(key, val, index, obj));
+    const numAverage = (arr) => numSum(arr) / arr.length;
+
+    /**
+     * Clamps a number in a given range.
+     *
+     * @function numClamp
+     * @memberof Number
+     * @since 1.0.0
+     * @param {number} val
+     * @param {number} min
+     * @param {number} max
+     * @returns {number}
+     * @example
+     * numClamp(5, 0, 10)
+     * // => 5
+     *
+     * numClamp(-2, 0, 10)
+     * // => 0
+     *
+     * numClamp(99, 0, 10)
+     * // => 10
+     */
+    const numClamp = (val, min, max) => {
+        if (val < min) {
+            return min;
+        }
+        else if (val > max) {
+            return max;
+        }
+        return val;
+    };
+
+    /**
+     * Returns the median of an array of numbers.
+     *
+     * @function numMedian
+     * @memberof Number
+     * @since 5.0.0
+     * @param {number[]} arr
+     * @returns {number}
+     * @example
+     * numMedian([1, 2.5, 3.3])
+     * // => 2.5
+     *
+     * numMedian([1, 2, 4, 5])
+     * // => 3
+     */
+    const numMedian = (arr) => {
+        const arrLengthHalf = arr.length / 2;
+        return arr.length % 2 === 0
+            ? arr[arrLengthHalf]
+            : numAverage(arr.slice(Math.floor(arrLengthHalf), 2));
+    };
 
     /**
      * Creates an array of elements split into groups by size.
@@ -1215,6 +1263,38 @@ var _l = (function (exports) {
     const mapFromObject = (obj) => new Map(Object.entries(obj));
 
     /**
+     * Recursively iterates over each element in an array.
+     *
+     * @function forEachDeep
+     * @memberof For
+     * @param {any[]} arr
+     * @param {function} fn fn(val: any, index: number, arr: any[])
+     * @example
+     * const a = [2, 4, [1, 1, [16], 4]];
+     *
+     * forEachDeep(a, (val, index, arr) => arr[index] = index * val)
+     * // a = [0, 4, [0, 1, [0], 12]]
+     */
+    const forEachDeep = (arr, fn) => arr.forEach((val, index) => isArray(val) ? forEachDeep(val, fn) : fn(val, index, arr));
+
+    /**
+     * Recursively iterates over each entry of an object.
+     *
+     * @function forEachEntryDeep
+     * @memberof For
+     * @param {object} obj
+     * @param {function} fn fn(key: any, val: any, index: number, arr: any[])
+     * @example
+     * const a = {a: 1, b: {c: [1, 2]}};
+     *
+     * forEachEntryDeep(a, (key, val, index, obj) => obj[key] = index * val)
+     * // a = {a: 0, b: {c: [0, 2]}}
+     */
+    const forEachEntryDeep = (obj, fn) => forEachEntry(obj, (key, val, index) => isObjectLike(val)
+        ? forEachEntryDeep(val, fn)
+        : fn(key, val, index, obj));
+
+    /**
      * Wrapper around try/catch.
      *
      * Returns the function result or, if an error is thrown, the error.
@@ -1325,83 +1405,39 @@ var _l = (function (exports) {
     };
 
     /**
-     * Returns the sum of an array of numbers.
+     * Binary Search implementation.
      *
-     * @function numSum
-     * @memberof Number
+     * @function algBinarySearch
+     * @memberof Algorithm
      * @since 5.0.0
      * @param {number[]} arr
-     * @returns {number}
+     * @param {number} search
+     * @returns {number|null}
      * @example
-     * numSum([1, 2.5, 3.3])
-     * // => 6.8
+     * algBinarySearch([0, 1, 2], 2)
+     * // => 1
+     *
+     * algBinarySearch([0, 1, 2], 100)
+     * // => null
      */
-    const numSum = (arr) => arr.reduce((a, b) => a + b);
-
-    /**
-     * Returns the average of an array of numbers.
-     *
-     * @function numAverage
-     * @memberof Number
-     * @since 5.0.0
-     * @param {number[]} arr
-     * @returns {number}
-     * @example
-     * numAverage([1, 2.5, 3.3])
-     * // => 2.2666
-     */
-    const numAverage = (arr) => numSum(arr) / arr.length;
-
-    /**
-     * Clamps a number in a given range.
-     *
-     * @function numClamp
-     * @memberof Number
-     * @since 1.0.0
-     * @param {number} val
-     * @param {number} min
-     * @param {number} max
-     * @returns {number}
-     * @example
-     * numClamp(5, 0, 10)
-     * // => 5
-     *
-     * numClamp(-2, 0, 10)
-     * // => 0
-     *
-     * numClamp(99, 0, 10)
-     * // => 10
-     */
-    const numClamp = (val, min, max) => {
-        if (val < min) {
-            return min;
+    const algBinarySearch = (arr, search) => {
+        let low = 0;
+        let high = arr.length - 1;
+        let mid;
+        while (low <= high) {
+            mid = Math.floor(low + (high - low) / 2);
+            const current = arr[mid];
+            if (current === search) {
+                return mid;
+            }
+            else if (current < search) {
+                low = mid + 1;
+            }
+            else {
+                high = mid - 1;
+            }
         }
-        else if (val > max) {
-            return max;
-        }
-        return val;
-    };
-
-    /**
-     * Returns the median of an array of numbers.
-     *
-     * @function numMedian
-     * @memberof Number
-     * @since 5.0.0
-     * @param {number[]} arr
-     * @returns {number}
-     * @example
-     * numMedian([1, 2.5, 3.3])
-     * // => 2.5
-     *
-     * numMedian([1, 2, 4, 5])
-     * // => 3
-     */
-    const numMedian = (arr) => {
-        const arrLengthHalf = arr.length / 2;
-        return arr.length % 2 === 0
-            ? arr[arrLengthHalf]
-            : numAverage(arr.slice(Math.floor(arrLengthHalf), 2));
+        return null;
     };
 
     /**
@@ -1474,42 +1510,6 @@ var _l = (function (exports) {
             result[index] = temp;
         }
         return result;
-    };
-
-    /**
-     * Binary Search implementation.
-     *
-     * @function algBinarySearch
-     * @memberof Algorithm
-     * @since 5.0.0
-     * @param {number[]} arr
-     * @param {number} search
-     * @returns {number|null}
-     * @example
-     * algBinarySearch([0, 1, 2], 2)
-     * // => 1
-     *
-     * algBinarySearch([0, 1, 2], 100)
-     * // => null
-     */
-    const algBinarySearch = (arr, search) => {
-        let low = 0;
-        let high = arr.length - 1;
-        let mid;
-        while (low <= high) {
-            mid = Math.floor(low + (high - low) / 2);
-            const current = arr[mid];
-            if (current === search) {
-                return mid;
-            }
-            else if (current < search) {
-                low = mid + 1;
-            }
-            else {
-                high = mid - 1;
-            }
-        }
-        return null;
     };
 
     /**
@@ -1586,9 +1586,10 @@ var _l = (function (exports) {
     exports.hasPath = hasPath;
     exports.getPath = getPath;
     exports.getSize = getSize;
-    exports.forEachDeep = forEachDeep;
-    exports.forEachEntry = forEachEntry;
-    exports.forEachEntryDeep = forEachEntryDeep;
+    exports.numClamp = numClamp;
+    exports.numSum = numSum;
+    exports.numAverage = numAverage;
+    exports.numMedian = numMedian;
     exports.arrFromDeep = arrFromDeep;
     exports.arrMapDeep = arrMapDeep;
     exports.arrCompact = arrCompact;
@@ -1612,14 +1613,13 @@ var _l = (function (exports) {
     exports.fnThrottle = fnThrottle;
     exports.fnAttempt = fnAttempt;
     exports.fnCurry = fnCurry;
-    exports.numClamp = numClamp;
-    exports.numSum = numSum;
-    exports.numAverage = numAverage;
-    exports.numMedian = numMedian;
+    exports.forEachDeep = forEachDeep;
+    exports.forEachEntry = forEachEntry;
+    exports.forEachEntryDeep = forEachEntryDeep;
+    exports.algBinarySearch = algBinarySearch;
     exports.randNumber = randNumber;
     exports.randItem = randItem;
     exports.randShuffle = randShuffle;
-    exports.algBinarySearch = algBinarySearch;
 
     return exports;
 
