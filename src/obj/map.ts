@@ -1,7 +1,6 @@
 import forEachEntry from "../for/eachEntry";
 import { ITypedObject } from "../interfaces";
 import { forEachEntryMapper } from "../types";
-import objFrom from "./from";
 
 /**
  * Maps each entry of an object and returns the result.

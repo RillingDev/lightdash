@@ -1033,7 +1033,7 @@ var _l = (function (exports) {
     };
 
     /**
-     * Replaces every cyclic reference of an object.
+     * Replaces every circular reference in an object.
      *
      * Can take a custom replacer function and a pre-filled WeakSet of references.
      *
@@ -1130,7 +1130,7 @@ var _l = (function (exports) {
         : fn(key, val, index, objNew));
 
     /**
-     * Deeply creates a new object with the entries of the input object.
+     * Recursively creates a new object with the entries of the input object.
      *
      * @function objFromDeep
      * @memberof Object

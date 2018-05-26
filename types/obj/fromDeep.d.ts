@@ -1,5 +1,5 @@
 /**
- * Deeply creates a new object with the entries of the input object.
+ * Recursively creates a new object with the entries of the input object.
  *
  * @function objFromDeep
  * @memberof Object

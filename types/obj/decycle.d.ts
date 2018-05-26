@@ -1,7 +1,7 @@
 import { ITypedObject } from "../interfaces";
 import { forEachEntryMapper } from "../types";
 /**
- * Replaces every cyclic reference of an object.
+ * Replaces every circular reference in an object.
  *
  * Can take a custom replacer function and a pre-filled WeakSet of references.
  *
