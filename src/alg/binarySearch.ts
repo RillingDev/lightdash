@@ -8,10 +8,10 @@
  * @param {number} search
  * @returns {number|null}
  * @example
- * algBinarySearch([0,1,2],2)
+ * algBinarySearch([0, 1, 2], 2)
  * // => 1
  *
- * algBinarySearch([0,1,2], 100)
+ * algBinarySearch([0, 1, 2], 100)
  * // => null
  */
 const algBinarySearch = (arr: number[], search: number): number | null => {

@@ -1,6 +1,6 @@
 import { forEachIterator } from "../types";
 /**
- * Recursively iterates over each element in an array
+ * Recursively iterates over each element in an array.
  *
  * @function forEachDeep
  * @memberof For

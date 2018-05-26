@@ -7,6 +7,7 @@
         "no-angle-bracket-type-assertion": false,
         "curly": false,
         "object-literal-sort-keys": false,
+        "max-classes-per-file": false,
         "arrow-return-shorthand": true,
         "callable-types": true,
         "class-name": true,

@@ -1,5 +1,5 @@
 /**
- * Checks if a target has a path-array of key-strings.
+ * Checks if a target has a given path.
  *
  * @function hasPath
  * @memberof Has

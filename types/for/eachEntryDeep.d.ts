@@ -1,6 +1,6 @@
 import { forEachEntryIterator } from "../types";
 /**
- * Recursively iterates over each entry of an object
+ * Recursively iterates over each entry of an object.
  *
  * @function forEachEntryDeep
  * @memberof For

@@ -1,7 +1,7 @@
 import { forEachEntryIterator } from "../types";
 
 /**
- * Iterates over each entry of an object
+ * Iterates over each entry of an object.
  *
  * @function forEachEntry
  * @memberof For

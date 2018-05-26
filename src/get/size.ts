@@ -7,9 +7,9 @@ import isUndefined from "../is/undefined";
 /**
  * Gets size of a value.
  *
- * If the value has a length or size property, return that.
- * If the value is object-like, return the length of keys.
- * Else return -1.
+ * If the value has a length or size property, the value of that is returned.
+ * If the value is object-like, the length of its entries is returned.
+ * Otherwise -1 is returned.
  *
  * @function getSize
  * @memberof Get

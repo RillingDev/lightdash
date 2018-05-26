@@ -1,7 +1,7 @@
 /**
- * Accesses a target by a path-array of key-strings.
+ * Returns a targets value in a given path.
  *
- * If the path doesn't exist, null is returned.
+ * If the path doesn't exist in the target, null is returned.
  *
  * @function getPath
  * @memberof Get

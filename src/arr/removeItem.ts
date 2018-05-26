@@ -1,5 +1,5 @@
 /**
- * Returns a new array with the given item removed.
+ * Returns an array with the given item removed.
  *
  * @function arrRemoveItem
  * @memberof Array

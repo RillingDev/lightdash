@@ -364,9 +364,9 @@ const isString = (val) => isTypeOf(val, "string");
 /**
  * Gets size of a value.
  *
- * If the value has a length or size property, return that.
- * If the value is object-like, return the length of keys.
- * Else return -1.
+ * If the value has a length or size property, the value of that is returned.
+ * If the value is object-like, the length of its entries is returned.
+ * Otherwise -1 is returned.
  *
  * @function getSize
  * @memberof Get
@@ -453,7 +453,7 @@ const getSize = (val) => {
 const isEmpty = (val) => getSize(val) < 1;
 
 /**
- * Iterates over each entry of an object
+ * Iterates over each entry of an object.
  *
  * @function forEachEntry
  * @memberof For
@@ -719,9 +719,9 @@ const isSet = (val) => isInstanceOf(val, Set);
 const isSymbol = (val) => isTypeOf(val, "symbol");
 
 /**
- * Accesses a target by a path-array of key-strings.
+ * Returns a targets value in a given path.
  *
- * If the path doesn't exist, null is returned.
+ * If the path doesn't exist in the target, null is returned.
  *
  * @function getPath
  * @memberof Get
@@ -754,7 +754,7 @@ const getPath = (target, path) => {
 };
 
 /**
- * Checks if a target has a path-array of key-strings.
+ * Checks if a target has a given path.
  *
  * @function hasPath
  * @memberof Has
@@ -788,7 +788,7 @@ const getPath = (target, path) => {
 const hasPath = (target, path) => !isNil(getPath(target, path));
 
 /**
- * Recursively iterates over each element in an array
+ * Recursively iterates over each element in an array.
  *
  * @function forEachDeep
  * @memberof For
@@ -803,7 +803,7 @@ const hasPath = (target, path) => !isNil(getPath(target, path));
 const forEachDeep = (arr, fn) => arr.forEach((val, index) => isArray(val) ? forEachDeep(val, fn) : fn(val, index, arr));
 
 /**
- * Recursively iterates over each entry of an object
+ * Recursively iterates over each entry of an object.
  *
  * @function forEachEntryDeep
  * @memberof For
@@ -867,7 +867,7 @@ const arrCompact = (arr) => arr.filter((val) => val);
  * @memberof Array
  * @since 2.0.0
  * @param {any[]} arr
- * @returns {Map<any, number>} Map<element: any, count: number>
+ * @returns {Map<any, number>} Map<val: any, count: number>
  * @example
  * arrCount([1, 1, 2, 2, 1, 3, 4, 1])
  * // => Map<any, number>{1: 4, 2: 2, 3: 1, 4: 1}
@@ -954,7 +954,7 @@ const arrIntersection = (arr, ...values) => {
 };
 
 /**
- * Returns a new array with the item at the index removed.
+ * Returns an array with the item at the index removed.
  *
  * @function arrRemoveIndex
  * @memberof Array
@@ -969,7 +969,7 @@ const arrIntersection = (arr, ...values) => {
 const arrRemoveIndex = (arr, targetIndex) => arr.filter((val, index) => index !== targetIndex);
 
 /**
- * Returns a new array with the given item removed.
+ * Returns an array with the given item removed.
  *
  * @function arrRemoveItem
  * @memberof Array
@@ -984,7 +984,7 @@ const arrRemoveIndex = (arr, targetIndex) => arr.filter((val, index) => index !=
 const arrRemoveItem = (arr, targetItem) => arr.filter(item => item !== targetItem);
 
 /**
- * Returns a new array with every n-th item from the input array.
+ * Returns an array with every n-th item from the input array.
  *
  * @function arrStep
  * @memberof Array
@@ -1465,10 +1465,10 @@ const randShuffle = (arr) => {
  * @param {number} search
  * @returns {number|null}
  * @example
- * algBinarySearch([0,1,2],2)
+ * algBinarySearch([0, 1, 2], 2)
  * // => 1
  *
- * algBinarySearch([0,1,2], 100)
+ * algBinarySearch([0, 1, 2], 100)
  * // => null
  */
 const algBinarySearch = (arr, search) => {

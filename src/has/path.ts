@@ -2,7 +2,7 @@ import getPath from "../get/path";
 import isNil from "../is/nil";
 
 /**
- * Checks if a target has a path-array of key-strings.
+ * Checks if a target has a given path.
  *
  * @function hasPath
  * @memberof Has
