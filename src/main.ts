@@ -35,6 +35,15 @@ import numClamp from "./num/clamp";
 import numMedian from "./num/median";
 import numSum from "./num/sum";
 
+import strFromCamelCase from "./str/fromCamelCase";
+import strFromKebabCase from "./str/fromKebabCase";
+import strFromPascalCase from "./str/fromPascalCase";
+import strFromSnakeCase from "./str/fromSnakeCase";
+import strToCamelCase from "./str/toCamelCase";
+import strToKebabCase from "./str/toKebabCase";
+import strToPascalCase from "./str/toPascalCase";
+import strToSnakeCase from "./str/toSnakeCase";
+
 import arrChunk from "./arr/chunk";
 import arrCollect from "./arr/collect";
 import arrCompact from "./arr/compact";
@@ -106,6 +115,14 @@ export {
     numSum,
     numAverage,
     numMedian,
+    strFromCamelCase,
+    strFromKebabCase,
+    strFromPascalCase,
+    strFromSnakeCase,
+    strToCamelCase,
+    strToKebabCase,
+    strToPascalCase,
+    strToSnakeCase,
     arrFromDeep,
     arrMapDeep,
     arrCompact,
@@ -153,8 +170,13 @@ export {
  */
 
 /**
- * Looping through ranges, arrays and objects
- * @namespace For
+ * Number manipulation and comparison
+ * @namespace Number
+ */
+
+/**
+ * String manipulation and comparison
+ * @namespace String
  */
 
 /**
@@ -178,16 +200,16 @@ export {
  */
 
 /**
- * Number manipulation and comparison
- * @namespace Number
- */
-
-/**
- * Random number generation and value picking
- * @namespace Random
+ * Looping through ranges, arrays and objects
+ * @namespace For
  */
 
 /**
  * Generic algorithms
  * @namespace Algorithm
+ */
+
+/**
+ * Random number generation and value picking
+ * @namespace Random
  */

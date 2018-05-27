@@ -868,6 +868,142 @@ const numMedian = (arr) => {
 };
 
 /**
+ * TODO
+ *
+ * @function strNyi
+ * @memberof String
+ * @since 6.2.0
+ * @param {string} str
+ * @returns {string[]}
+ * @example
+ * strNyi(["foo", "bar"])
+ * // => "foo"
+ *
+ * strNyi([1, 2, 3, 4, 5])
+ * // => 3
+ */
+const strNyi = () => null;
+
+/**
+ * TODO
+ *
+ * @function strNyi
+ * @memberof String
+ * @since 6.2.0
+ * @param {string} str
+ * @returns {string[]}
+ * @example
+ * strNyi(["foo", "bar"])
+ * // => "foo"
+ *
+ * strNyi([1, 2, 3, 4, 5])
+ * // => 3
+ */
+const strNyi$1 = () => null;
+
+/**
+ * TODO
+ *
+ * @function strNyi
+ * @memberof String
+ * @since 6.2.0
+ * @param {string} str
+ * @returns {string[]}
+ * @example
+ * strNyi(["foo", "bar"])
+ * // => "foo"
+ *
+ * strNyi([1, 2, 3, 4, 5])
+ * // => 3
+ */
+const strNyi$2 = () => null;
+
+/**
+ * TODO
+ *
+ * @function strNyi
+ * @memberof String
+ * @since 6.2.0
+ * @param {string} str
+ * @returns {string[]}
+ * @example
+ * strNyi(["foo", "bar"])
+ * // => "foo"
+ *
+ * strNyi([1, 2, 3, 4, 5])
+ * // => 3
+ */
+const strNyi$3 = () => null;
+
+/**
+ * TODO
+ *
+ * @function strNyi
+ * @memberof String
+ * @since 6.2.0
+ * @param {string} str
+ * @returns {string[]}
+ * @example
+ * strNyi(["foo", "bar"])
+ * // => "foo"
+ *
+ * strNyi([1, 2, 3, 4, 5])
+ * // => 3
+ */
+const strNyi$4 = () => null;
+
+/**
+ * TODO
+ *
+ * @function strNyi
+ * @memberof String
+ * @since 6.2.0
+ * @param {string} str
+ * @returns {string[]}
+ * @example
+ * strNyi(["foo", "bar"])
+ * // => "foo"
+ *
+ * strNyi([1, 2, 3, 4, 5])
+ * // => 3
+ */
+const strNyi$5 = () => null;
+
+/**
+ * TODO
+ *
+ * @function strNyi
+ * @memberof String
+ * @since 6.2.0
+ * @param {string} str
+ * @returns {string[]}
+ * @example
+ * strNyi(["foo", "bar"])
+ * // => "foo"
+ *
+ * strNyi([1, 2, 3, 4, 5])
+ * // => 3
+ */
+const strNyi$6 = () => null;
+
+/**
+ * TODO
+ *
+ * @function strNyi
+ * @memberof String
+ * @since 6.2.0
+ * @param {string} str
+ * @returns {string[]}
+ * @example
+ * strNyi(["foo", "bar"])
+ * // => "foo"
+ *
+ * strNyi([1, 2, 3, 4, 5])
+ * // => 3
+ */
+const strNyi$7 = () => null;
+
+/**
  * Creates an array of elements split into groups by size.
  *
  * @function arrChunk
@@ -1526,8 +1662,12 @@ const randShuffle = (arr) => {
  * @namespace Get
  */
 /**
- * Looping through ranges, arrays and objects
- * @namespace For
+ * Number manipulation and comparison
+ * @namespace Number
+ */
+/**
+ * String manipulation and comparison
+ * @namespace String
  */
 /**
  * Array manipulation and analysis
@@ -1546,16 +1686,16 @@ const randShuffle = (arr) => {
  * @namespace Fn
  */
 /**
- * Number manipulation and comparison
- * @namespace Number
- */
-/**
- * Random number generation and value picking
- * @namespace Random
+ * Looping through ranges, arrays and objects
+ * @namespace For
  */
 /**
  * Generic algorithms
  * @namespace Algorithm
+ */
+/**
+ * Random number generation and value picking
+ * @namespace Random
  */
 
 exports.isEqual = isEqual;
@@ -1591,6 +1731,14 @@ exports.numClamp = numClamp;
 exports.numSum = numSum;
 exports.numAverage = numAverage;
 exports.numMedian = numMedian;
+exports.strFromCamelCase = strNyi;
+exports.strFromKebabCase = strNyi$1;
+exports.strFromPascalCase = strNyi$2;
+exports.strFromSnakeCase = strNyi$3;
+exports.strToCamelCase = strNyi$4;
+exports.strToKebabCase = strNyi$5;
+exports.strToPascalCase = strNyi$6;
+exports.strToSnakeCase = strNyi$7;
 exports.arrFromDeep = arrFromDeep;
 exports.arrMapDeep = arrMapDeep;
 exports.arrCompact = arrCompact;

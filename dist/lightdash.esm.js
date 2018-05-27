@@ -864,6 +864,142 @@ const numMedian = (arr) => {
 };
 
 /**
+ * TODO
+ *
+ * @function strNyi
+ * @memberof String
+ * @since 6.2.0
+ * @param {string} str
+ * @returns {string[]}
+ * @example
+ * strNyi(["foo", "bar"])
+ * // => "foo"
+ *
+ * strNyi([1, 2, 3, 4, 5])
+ * // => 3
+ */
+const strNyi = () => null;
+
+/**
+ * TODO
+ *
+ * @function strNyi
+ * @memberof String
+ * @since 6.2.0
+ * @param {string} str
+ * @returns {string[]}
+ * @example
+ * strNyi(["foo", "bar"])
+ * // => "foo"
+ *
+ * strNyi([1, 2, 3, 4, 5])
+ * // => 3
+ */
+const strNyi$1 = () => null;
+
+/**
+ * TODO
+ *
+ * @function strNyi
+ * @memberof String
+ * @since 6.2.0
+ * @param {string} str
+ * @returns {string[]}
+ * @example
+ * strNyi(["foo", "bar"])
+ * // => "foo"
+ *
+ * strNyi([1, 2, 3, 4, 5])
+ * // => 3
+ */
+const strNyi$2 = () => null;
+
+/**
+ * TODO
+ *
+ * @function strNyi
+ * @memberof String
+ * @since 6.2.0
+ * @param {string} str
+ * @returns {string[]}
+ * @example
+ * strNyi(["foo", "bar"])
+ * // => "foo"
+ *
+ * strNyi([1, 2, 3, 4, 5])
+ * // => 3
+ */
+const strNyi$3 = () => null;
+
+/**
+ * TODO
+ *
+ * @function strNyi
+ * @memberof String
+ * @since 6.2.0
+ * @param {string} str
+ * @returns {string[]}
+ * @example
+ * strNyi(["foo", "bar"])
+ * // => "foo"
+ *
+ * strNyi([1, 2, 3, 4, 5])
+ * // => 3
+ */
+const strNyi$4 = () => null;
+
+/**
+ * TODO
+ *
+ * @function strNyi
+ * @memberof String
+ * @since 6.2.0
+ * @param {string} str
+ * @returns {string[]}
+ * @example
+ * strNyi(["foo", "bar"])
+ * // => "foo"
+ *
+ * strNyi([1, 2, 3, 4, 5])
+ * // => 3
+ */
+const strNyi$5 = () => null;
+
+/**
+ * TODO
+ *
+ * @function strNyi
+ * @memberof String
+ * @since 6.2.0
+ * @param {string} str
+ * @returns {string[]}
+ * @example
+ * strNyi(["foo", "bar"])
+ * // => "foo"
+ *
+ * strNyi([1, 2, 3, 4, 5])
+ * // => 3
+ */
+const strNyi$6 = () => null;
+
+/**
+ * TODO
+ *
+ * @function strNyi
+ * @memberof String
+ * @since 6.2.0
+ * @param {string} str
+ * @returns {string[]}
+ * @example
+ * strNyi(["foo", "bar"])
+ * // => "foo"
+ *
+ * strNyi([1, 2, 3, 4, 5])
+ * // => 3
+ */
+const strNyi$7 = () => null;
+
+/**
  * Creates an array of elements split into groups by size.
  *
  * @function arrChunk
@@ -1522,8 +1658,12 @@ const randShuffle = (arr) => {
  * @namespace Get
  */
 /**
- * Looping through ranges, arrays and objects
- * @namespace For
+ * Number manipulation and comparison
+ * @namespace Number
+ */
+/**
+ * String manipulation and comparison
+ * @namespace String
  */
 /**
  * Array manipulation and analysis
@@ -1542,16 +1682,16 @@ const randShuffle = (arr) => {
  * @namespace Fn
  */
 /**
- * Number manipulation and comparison
- * @namespace Number
- */
-/**
- * Random number generation and value picking
- * @namespace Random
+ * Looping through ranges, arrays and objects
+ * @namespace For
  */
 /**
  * Generic algorithms
  * @namespace Algorithm
  */
+/**
+ * Random number generation and value picking
+ * @namespace Random
+ */
 
-export { isEqual, isInstanceOf, isTypeOf, isUndefined, isNil, isNumber, isString, isBoolean, isSymbol, isObject, isObjectLike, isObjectPlain, isArray, isArrayLike, isArrayBuffer, isArrayTyped, isPromise, isMap, isSet, isDate, isRegExp, isFunction, isArguments, isError, isEmpty, isIndex, hasPath, getPath, getSize, numClamp, numSum, numAverage, numMedian, arrFromDeep, arrMapDeep, arrCompact, arrChunk, arrStep, arrRemoveIndex, arrRemoveItem, arrCount, arrCollect, arrDifference, arrIntersection, arrUniq, objFrom, objFromDeep, objMap, objMapDeep, objDefaults, objDefaultsDeep, objDecycle, mapFromObject, fnThrottle, fnAttempt, fnCurry, forEachDeep, forEachEntry, forEachEntryDeep, algBinarySearch, randNumber, randItem, randShuffle };
+export { isEqual, isInstanceOf, isTypeOf, isUndefined, isNil, isNumber, isString, isBoolean, isSymbol, isObject, isObjectLike, isObjectPlain, isArray, isArrayLike, isArrayBuffer, isArrayTyped, isPromise, isMap, isSet, isDate, isRegExp, isFunction, isArguments, isError, isEmpty, isIndex, hasPath, getPath, getSize, numClamp, numSum, numAverage, numMedian, strNyi as strFromCamelCase, strNyi$1 as strFromKebabCase, strNyi$2 as strFromPascalCase, strNyi$3 as strFromSnakeCase, strNyi$4 as strToCamelCase, strNyi$5 as strToKebabCase, strNyi$6 as strToPascalCase, strNyi$7 as strToSnakeCase, arrFromDeep, arrMapDeep, arrCompact, arrChunk, arrStep, arrRemoveIndex, arrRemoveItem, arrCount, arrCollect, arrDifference, arrIntersection, arrUniq, objFrom, objFromDeep, objMap, objMapDeep, objDefaults, objDefaultsDeep, objDecycle, mapFromObject, fnThrottle, fnAttempt, fnCurry, forEachDeep, forEachEntry, forEachEntryDeep, algBinarySearch, randNumber, randItem, randShuffle };
