@@ -1,17 +1,17 @@
 /**
- * TODO
+ * Creates a snake_case string from an array of substrings.
  *
- * @function strNyi
+ * @function strToSnakeCase
  * @memberof String
  * @since 6.2.0
- * @param {string} str
- * @returns {string[]}
+ * @param {string[]} arr
+ * @returns {string}
  * @example
- * strNyi(["foo", "bar"])
- * // => "foo"
+ * strToSnakeCase(["foo", "bar"])
+ * // => "foo_bar"
  *
- * strNyi([1, 2, 3, 4, 5])
- * // => 3
+ * strToSnakeCase(["Fizz","buzz","BaZZ"])
+ * // => "fizz_buzz_bazz"
  */
-declare const strNyi: () => null;
-export default strNyi;
+declare const strToSnakeCase: (arr: string[]) => string;
+export default strToSnakeCase;

@@ -1,18 +1,27 @@
 /**
- * TODO
+ * Creates a camelCase string from an array of substrings.
  *
- * @function strNyi
+ * @function strToCamelCase
  * @memberof String
  * @since 6.2.0
- * @param {string} str
- * @returns {string[]}
+ * @param {string[]} arr
+ * @returns {string}
  * @example
- * strNyi(["foo", "bar"])
- * // => "foo"
+ * strToCamelCase(["foo", "bar"])
+ * // => "fooBar"
  *
- * strNyi([1, 2, 3, 4, 5])
- * // => 3
+ * strToCamelCase(["Fizz","buzz","BaZZ"])
+ * // => "fizzBuzzBazz"
  */
-const strNyi = () => null;
+const strToCamelCase = (arr: string[]): string =>
+    arr
+        .map(
+            (val, index) =>
+                index === 0
+                    ? val.toLowerCase()
+                    : val.substr(0, 1).toUpperCase() +
+                      val.substr(1).toLowerCase()
+        )
+        .join("");
 
-export default strNyi;
+export default strToCamelCase;

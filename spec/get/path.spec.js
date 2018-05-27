@@ -28,10 +28,8 @@ describe("getPath", () => {
         ).toBe(10);
     });
     it("Nonexistent", () => {
-        expect(getPath([1, 2, 3], ["0", "foo"])).toEqual(null);
-        expect(getPath({ a: 1, b: 2 }, ["a", "foo"])).toEqual(null);
-        expect(getPath({ a: 1, b: 2 }, ["a", "foo", "bar", "bizz"])).toEqual(
-            null
-        );
+        expect(getPath([1, 2, 3], ["0", "foo"])).toBeNull();
+        expect(getPath({ a: 1, b: 2 }, ["a", "foo"])).toBeNull();
+        expect(getPath({ a: 1, b: 2 }, ["a", "foo", "bar", "bizz"])).toBeNull();
     });
 });

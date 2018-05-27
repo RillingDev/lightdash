@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Object - Documentation</title>
+    <title>String - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -28,7 +28,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">Object</h1>
+    <h1 class="page-title">String</h1>
     
 
     
@@ -41,7 +41,7 @@
 <header>
     
         <h2>
-        Object
+        String
         </h2>
         
     
@@ -57,7 +57,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="lightdash.esm.js.html">lightdash.esm.js</a>, <a href="lightdash.esm.js.html#line1679">line 1679</a>
+        <a href="lightdash.esm.js.html">lightdash.esm.js</a>, <a href="lightdash.esm.js.html#line1671">line 1671</a>
     </li></ul></dd>
     
 
@@ -96,7 +96,7 @@
 
 
         
-            <div class="description">Object manipulation and analysis</div>
+            <div class="description">String manipulation and comparison</div>
         
 
         
@@ -123,7 +123,7 @@
 
     
 
-    <h4 class="name" id=".objDecycle"><span class="type-signature">(static) </span>objDecycle<span class="signature">(obj, fn<span class="signature-attributes">opt</span>, references<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {<a href="Object.html">Object</a>}</span></h4>
+    <h4 class="name" id=".strNyi"><span class="type-signature">(static) </span>strNyi<span class="signature">(str)</span><span class="type-signature"> &rarr; {<a href="Array.html">Array</a>.&lt;string>}</span></h4>
 
     
 
@@ -135,7 +135,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="lightdash.esm.js.html">lightdash.esm.js</a>, <a href="lightdash.esm.js.html#line1245">line 1245</a>
+        <a href="lightdash.esm.js.html">lightdash.esm.js</a>, <a href="lightdash.esm.js.html#line900">line 900</a>
     </li></ul></dd>
     
 
@@ -143,7 +143,7 @@
 
     
     <dt class="tag-since">Since:</dt>
-    <dd class="tag-since"><ul class="dummy"><li>6.0.0</li></ul></dd>
+    <dd class="tag-since"><ul class="dummy"><li>6.2.0</li></ul></dd>
     
 
     
@@ -178,9 +178,7 @@
 
 
 <div class="description">
-    Replaces every circular reference in an object.
-
-Can take a custom replacer function and a pre-filled WeakSet of references.
+    TODO
 </div>
 
 
@@ -193,15 +191,11 @@ Can take a custom replacer function and a pre-filled WeakSet of references.
 
     <h5>Example</h5>
     
-    <pre class="prettyprint"><code>const a = {b: 1, c: 2};
+    <pre class="prettyprint"><code>strNyi(["foo", "bar"])
+// => "foo"
 
-a.a = a;
-
-objDecycle(a)
-// => {a: null, b: 1, c: 2}
-
-objDecycle(a,key=>`_${key}`)
-// => {a: "_a", b: 1, c: 2}</code></pre>
+strNyi([1, 2, 3, 4, 5])
+// => 3</code></pre>
 
 
 
@@ -219,11 +213,7 @@ objDecycle(a,key=>`_${key}`)
         <th>Type</th>
 
         
-        <th>Attributes</th>
-        
 
-        
-        <th>Default</th>
         
 
         <th class="last">Description</th>
@@ -235,110 +225,20 @@ objDecycle(a,key=>`_${key}`)
 
         <tr>
             
-                <td class="name"><code>obj</code></td>
+                <td class="name"><code>str</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type"><a href="Object.html">Object</a></span>
+<span class="param-type">string</span>
 
 
             
             </td>
 
             
-                <td class="attributes">
-                
 
-                
-
-                
-                </td>
-            
-
-            
-                <td class="default">
-                
-                </td>
-            
-
-            <td class="description last"></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>fn</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">function</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-                <td class="default">
-                
-                    <code>()=>null</code>
-                
-                </td>
-            
-
-            <td class="description last">fn(key: any, val: any, index: number, obj: object)</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>references</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">WeakSet.&lt;any></span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-                <td class="default">
-                
-                    <code>new WeakSet()</code>
-                
-                </td>
             
 
             <td class="description last"></td>
@@ -372,7 +272,7 @@ objDecycle(a,key=>`_${key}`)
     </dt>
     <dd>
         
-<span class="param-type"><a href="Object.html">Object</a></span>
+<span class="param-type"><a href="Array.html">Array</a>.&lt;string></span>
 
 
     </dd>
@@ -386,7 +286,7 @@ objDecycle(a,key=>`_${key}`)
 
     
 
-    <h4 class="name" id=".objDefaults"><span class="type-signature">(static) </span>objDefaults<span class="signature">(obj, objDefault)</span><span class="type-signature"> &rarr; {<a href="Object.html">Object</a>}</span></h4>
+    <h4 class="name" id=".strNyi"><span class="type-signature">(static) </span>strNyi<span class="signature">(str)</span><span class="type-signature"> &rarr; {<a href="Array.html">Array</a>.&lt;string>}</span></h4>
 
     
 
@@ -398,7 +298,7 @@ objDecycle(a,key=>`_${key}`)
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="lightdash.esm.js.html">lightdash.esm.js</a>, <a href="lightdash.esm.js.html#line1300">line 1300</a>
+        <a href="lightdash.esm.js.html">lightdash.esm.js</a>, <a href="lightdash.esm.js.html#line866">line 866</a>
     </li></ul></dd>
     
 
@@ -406,7 +306,7 @@ objDecycle(a,key=>`_${key}`)
 
     
     <dt class="tag-since">Since:</dt>
-    <dd class="tag-since"><ul class="dummy"><li>2.6.0</li></ul></dd>
+    <dd class="tag-since"><ul class="dummy"><li>6.2.0</li></ul></dd>
     
 
     
@@ -441,7 +341,7 @@ objDecycle(a,key=>`_${key}`)
 
 
 <div class="description">
-    Sets every nil property of object to the value from the default object.
+    TODO
 </div>
 
 
@@ -454,8 +354,11 @@ objDecycle(a,key=>`_${key}`)
 
     <h5>Example</h5>
     
-    <pre class="prettyprint"><code>objDefaults({a: 1, c: 5}, {a: 1, b: 2, c: 3})
-// => {a: 1, b: 2, c: 5}</code></pre>
+    <pre class="prettyprint"><code>strNyi(["foo", "bar"])
+// => "foo"
+
+strNyi([1, 2, 3, 4, 5])
+// => 3</code></pre>
 
 
 
@@ -485,36 +388,13 @@ objDecycle(a,key=>`_${key}`)
 
         <tr>
             
-                <td class="name"><code>obj</code></td>
+                <td class="name"><code>str</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type"><a href="Object.html">Object</a></span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>objDefault</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type"><a href="Object.html">Object</a></span>
+<span class="param-type">string</span>
 
 
             
@@ -555,7 +435,7 @@ objDecycle(a,key=>`_${key}`)
     </dt>
     <dd>
         
-<span class="param-type"><a href="Object.html">Object</a></span>
+<span class="param-type"><a href="Array.html">Array</a>.&lt;string></span>
 
 
     </dd>
@@ -569,7 +449,7 @@ objDecycle(a,key=>`_${key}`)
 
     
 
-    <h4 class="name" id=".objDefaultsDeep"><span class="type-signature">(static) </span>objDefaultsDeep<span class="signature">(obj, objDefault)</span><span class="type-signature"> &rarr; {<a href="Object.html">Object</a>}</span></h4>
+    <h4 class="name" id=".strNyi"><span class="type-signature">(static) </span>strNyi<span class="signature">(str)</span><span class="type-signature"> &rarr; {<a href="Array.html">Array</a>.&lt;string>}</span></h4>
 
     
 
@@ -581,7 +461,7 @@ objDecycle(a,key=>`_${key}`)
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="lightdash.esm.js.html">lightdash.esm.js</a>, <a href="lightdash.esm.js.html#line1360">line 1360</a>
+        <a href="lightdash.esm.js.html">lightdash.esm.js</a>, <a href="lightdash.esm.js.html#line883">line 883</a>
     </li></ul></dd>
     
 
@@ -589,7 +469,7 @@ objDecycle(a,key=>`_${key}`)
 
     
     <dt class="tag-since">Since:</dt>
-    <dd class="tag-since"><ul class="dummy"><li>2.7.0</li></ul></dd>
+    <dd class="tag-since"><ul class="dummy"><li>6.2.0</li></ul></dd>
     
 
     
@@ -624,7 +504,7 @@ objDecycle(a,key=>`_${key}`)
 
 
 <div class="description">
-    Recursively sets every nil property of object to the value from the default object.
+    TODO
 </div>
 
 
@@ -637,8 +517,11 @@ objDecycle(a,key=>`_${key}`)
 
     <h5>Example</h5>
     
-    <pre class="prettyprint"><code>objDefaultsDeep({a: [1, 2], c: {f: "x"}}, {a: [1, 2, 3], b: 2, c: {f: "y"}})
-// => {a: [1, 2, 3], b: 2, c: {f: "x"}}</code></pre>
+    <pre class="prettyprint"><code>strNyi(["foo", "bar"])
+// => "foo"
+
+strNyi([1, 2, 3, 4, 5])
+// => 3</code></pre>
 
 
 
@@ -668,36 +551,13 @@ objDecycle(a,key=>`_${key}`)
 
         <tr>
             
-                <td class="name"><code>obj</code></td>
+                <td class="name"><code>str</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type"><a href="Object.html">Object</a></span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>objDefault</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type"><a href="Object.html">Object</a></span>
+<span class="param-type">string</span>
 
 
             
@@ -738,7 +598,7 @@ objDecycle(a,key=>`_${key}`)
     </dt>
     <dd>
         
-<span class="param-type"><a href="Object.html">Object</a></span>
+<span class="param-type"><a href="Array.html">Array</a>.&lt;string></span>
 
 
     </dd>
@@ -752,7 +612,7 @@ objDecycle(a,key=>`_${key}`)
 
     
 
-    <h4 class="name" id=".objFrom"><span class="type-signature">(static) </span>objFrom<span class="signature">(obj)</span><span class="type-signature"> &rarr; {<a href="Object.html">Object</a>}</span></h4>
+    <h4 class="name" id=".strNyi"><span class="type-signature">(static) </span>strNyi<span class="signature">(str)</span><span class="type-signature"> &rarr; {<a href="Array.html">Array</a>.&lt;string>}</span></h4>
 
     
 
@@ -764,7 +624,7 @@ objDecycle(a,key=>`_${key}`)
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="lightdash.esm.js.html">lightdash.esm.js</a>, <a href="lightdash.esm.js.html#line1282">line 1282</a>
+        <a href="lightdash.esm.js.html">lightdash.esm.js</a>, <a href="lightdash.esm.js.html#line917">line 917</a>
     </li></ul></dd>
     
 
@@ -772,7 +632,7 @@ objDecycle(a,key=>`_${key}`)
 
     
     <dt class="tag-since">Since:</dt>
-    <dd class="tag-since"><ul class="dummy"><li>1.0.0</li></ul></dd>
+    <dd class="tag-since"><ul class="dummy"><li>6.2.0</li></ul></dd>
     
 
     
@@ -807,7 +667,7 @@ objDecycle(a,key=>`_${key}`)
 
 
 <div class="description">
-    Creates a new object with the entries of the input object.
+    TODO
 </div>
 
 
@@ -820,12 +680,11 @@ objDecycle(a,key=>`_${key}`)
 
     <h5>Example</h5>
     
-    <pre class="prettyprint"><code>const a = {a: 4, b: 2};
-const b = objFrom(a);
+    <pre class="prettyprint"><code>strNyi(["foo", "bar"])
+// => "foo"
 
-b.a = 10;
-// a = {a: 4, b: 2}
-// b = {a: 10, b: 2}</code></pre>
+strNyi([1, 2, 3, 4, 5])
+// => 3</code></pre>
 
 
 
@@ -855,13 +714,13 @@ b.a = 10;
 
         <tr>
             
-                <td class="name"><code>obj</code></td>
+                <td class="name"><code>str</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type"><a href="Object.html">Object</a></span>
+<span class="param-type">string</span>
 
 
             
@@ -902,7 +761,7 @@ b.a = 10;
     </dt>
     <dd>
         
-<span class="param-type"><a href="Object.html">Object</a></span>
+<span class="param-type"><a href="Array.html">Array</a>.&lt;string></span>
 
 
     </dd>
@@ -916,7 +775,7 @@ b.a = 10;
 
     
 
-    <h4 class="name" id=".objFromDeep"><span class="type-signature">(static) </span>objFromDeep<span class="signature">(obj)</span><span class="type-signature"> &rarr; {<a href="Object.html">Object</a>}</span></h4>
+    <h4 class="name" id=".strToCamelCase"><span class="type-signature">(static) </span>strToCamelCase<span class="signature">(arr)</span><span class="type-signature"> &rarr; {string}</span></h4>
 
     
 
@@ -928,7 +787,7 @@ b.a = 10;
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="lightdash.esm.js.html">lightdash.esm.js</a>, <a href="lightdash.esm.js.html#line1342">line 1342</a>
+        <a href="lightdash.esm.js.html">lightdash.esm.js</a>, <a href="lightdash.esm.js.html#line934">line 934</a>
     </li></ul></dd>
     
 
@@ -936,7 +795,7 @@ b.a = 10;
 
     
     <dt class="tag-since">Since:</dt>
-    <dd class="tag-since"><ul class="dummy"><li>1.0.0</li></ul></dd>
+    <dd class="tag-since"><ul class="dummy"><li>6.2.0</li></ul></dd>
     
 
     
@@ -971,7 +830,7 @@ b.a = 10;
 
 
 <div class="description">
-    Recursively creates a new object with the entries of the input object.
+    Creates a camelCase string from an array of substrings.
 </div>
 
 
@@ -984,12 +843,11 @@ b.a = 10;
 
     <h5>Example</h5>
     
-    <pre class="prettyprint"><code>const a = {a: {b: 2, c: {a: 10, b: 20}}};
-const b = objFromDeep(a);
+    <pre class="prettyprint"><code>strToCamelCase(["foo", "bar"])
+// => "fooBar"
 
-b.a.c.a = 123;
-// a = {a: {b: 2, c: {a: 10, b: 20}}
-// b = {a: {b: 2, c: {a: 123, b: 20}}}</code></pre>
+strToCamelCase(["Fizz","buzz","BaZZ"])
+// => "fizzBuzzBazz"</code></pre>
 
 
 
@@ -1019,13 +877,13 @@ b.a.c.a = 123;
 
         <tr>
             
-                <td class="name"><code>obj</code></td>
+                <td class="name"><code>arr</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type"><a href="Object.html">Object</a></span>
+<span class="param-type"><a href="Array.html">Array</a>.&lt;string></span>
 
 
             
@@ -1066,7 +924,7 @@ b.a.c.a = 123;
     </dt>
     <dd>
         
-<span class="param-type"><a href="Object.html">Object</a></span>
+<span class="param-type">string</span>
 
 
     </dd>
@@ -1080,7 +938,7 @@ b.a.c.a = 123;
 
     
 
-    <h4 class="name" id=".objMap"><span class="type-signature">(static) </span>objMap<span class="signature">(obj, fn)</span><span class="type-signature"> &rarr; {<a href="Object.html">Object</a>}</span></h4>
+    <h4 class="name" id=".strToKebabCase"><span class="type-signature">(static) </span>strToKebabCase<span class="signature">(arr)</span><span class="type-signature"> &rarr; {string}</span></h4>
 
     
 
@@ -1092,7 +950,7 @@ b.a.c.a = 123;
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="lightdash.esm.js.html">lightdash.esm.js</a>, <a href="lightdash.esm.js.html#line1224">line 1224</a>
+        <a href="lightdash.esm.js.html">lightdash.esm.js</a>, <a href="lightdash.esm.js.html#line956">line 956</a>
     </li></ul></dd>
     
 
@@ -1100,7 +958,7 @@ b.a.c.a = 123;
 
     
     <dt class="tag-since">Since:</dt>
-    <dd class="tag-since"><ul class="dummy"><li>1.0.0</li></ul></dd>
+    <dd class="tag-since"><ul class="dummy"><li>6.2.0</li></ul></dd>
     
 
     
@@ -1135,7 +993,7 @@ b.a.c.a = 123;
 
 
 <div class="description">
-    Maps each entry of an object and returns the result.
+    Creates a kebab-case string from an array of substrings.
 </div>
 
 
@@ -1148,8 +1006,11 @@ b.a.c.a = 123;
 
     <h5>Example</h5>
     
-    <pre class="prettyprint"><code>objMap({a: 4, b: 2}, (key, val) => val * 2)
-// => {a: 8, b: 4}</code></pre>
+    <pre class="prettyprint"><code>strToKebabCase(["foo", "bar"])
+// => "foo-bar"
+
+strToKebabCase(["Fizz","buzz","BaZZ"])
+// => "fizz-buzz-bazz"</code></pre>
 
 
 
@@ -1179,13 +1040,13 @@ b.a.c.a = 123;
 
         <tr>
             
-                <td class="name"><code>obj</code></td>
+                <td class="name"><code>arr</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type"><a href="Object.html">Object</a></span>
+<span class="param-type"><a href="Array.html">Array</a>.&lt;string></span>
 
 
             
@@ -1196,29 +1057,6 @@ b.a.c.a = 123;
             
 
             <td class="description last"></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>fn</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">function</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">fn(key: any, val: any, index: number, obj: object)</td>
         </tr>
 
     
@@ -1249,7 +1087,7 @@ b.a.c.a = 123;
     </dt>
     <dd>
         
-<span class="param-type"><a href="Object.html">Object</a></span>
+<span class="param-type">string</span>
 
 
     </dd>
@@ -1263,7 +1101,7 @@ b.a.c.a = 123;
 
     
 
-    <h4 class="name" id=".objMapDeep"><span class="type-signature">(static) </span>objMapDeep<span class="signature">(obj, fn)</span><span class="type-signature"> &rarr; {<a href="Object.html">Object</a>}</span></h4>
+    <h4 class="name" id=".strToPascalCase"><span class="type-signature">(static) </span>strToPascalCase<span class="signature">(arr)</span><span class="type-signature"> &rarr; {string}</span></h4>
 
     
 
@@ -1275,7 +1113,7 @@ b.a.c.a = 123;
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="lightdash.esm.js.html">lightdash.esm.js</a>, <a href="lightdash.esm.js.html#line1325">line 1325</a>
+        <a href="lightdash.esm.js.html">lightdash.esm.js</a>, <a href="lightdash.esm.js.html#line973">line 973</a>
     </li></ul></dd>
     
 
@@ -1283,7 +1121,7 @@ b.a.c.a = 123;
 
     
     <dt class="tag-since">Since:</dt>
-    <dd class="tag-since"><ul class="dummy"><li>1.0.0</li></ul></dd>
+    <dd class="tag-since"><ul class="dummy"><li>6.2.0</li></ul></dd>
     
 
     
@@ -1318,7 +1156,7 @@ b.a.c.a = 123;
 
 
 <div class="description">
-    Recursively maps each entry of an object and returns the result.
+    Creates a PascalCase string from an array of substrings.
 </div>
 
 
@@ -1331,8 +1169,11 @@ b.a.c.a = 123;
 
     <h5>Example</h5>
     
-    <pre class="prettyprint"><code>arrMapDeep({a: {b: 2, c: [10, 20]}}, (key, val) => val * 2)
-// => {a: {b: 4, c: [20, 40]}}</code></pre>
+    <pre class="prettyprint"><code>strToPascalCase(["foo", "bar"])
+// => "FooBar"
+
+strToPascalCase(["Fizz","buzz","BaZZ"])
+// => "FizzBuzzBazz"</code></pre>
 
 
 
@@ -1362,13 +1203,13 @@ b.a.c.a = 123;
 
         <tr>
             
-                <td class="name"><code>obj</code></td>
+                <td class="name"><code>arr</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type"><a href="Object.html">Object</a></span>
+<span class="param-type"><a href="Array.html">Array</a>.&lt;string></span>
 
 
             
@@ -1379,29 +1220,6 @@ b.a.c.a = 123;
             
 
             <td class="description last"></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>fn</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">function</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">fn(key: any, val: any, index: number, obj: object)</td>
         </tr>
 
     
@@ -1432,7 +1250,170 @@ b.a.c.a = 123;
     </dt>
     <dd>
         
-<span class="param-type"><a href="Object.html">Object</a></span>
+<span class="param-type">string</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+        
+            
+
+    
+
+    <h4 class="name" id=".strToSnakeCase"><span class="type-signature">(static) </span>strToSnakeCase<span class="signature">(arr)</span><span class="type-signature"> &rarr; {string}</span></h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="lightdash.esm.js.html">lightdash.esm.js</a>, <a href="lightdash.esm.js.html#line992">line 992</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+    <dt class="tag-since">Since:</dt>
+    <dd class="tag-since"><ul class="dummy"><li>6.2.0</li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description">
+    Creates a snake_case string from an array of substrings.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>strToSnakeCase(["foo", "bar"])
+// => "foo_bar"
+
+strToSnakeCase(["Fizz","buzz","BaZZ"])
+// => "fizz_buzz_bazz"</code></pre>
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>arr</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="Array.html">Array</a>.&lt;string></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">string</span>
 
 
     </dd>

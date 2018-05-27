@@ -867,6 +867,149 @@ var _l = (function (exports) {
     };
 
     /**
+     * TODO
+     *
+     * @function strNyi
+     * @memberof String
+     * @since 6.2.0
+     * @param {string} str
+     * @returns {string[]}
+     * @example
+     * strNyi(["foo", "bar"])
+     * // => "foo"
+     *
+     * strNyi([1, 2, 3, 4, 5])
+     * // => 3
+     */
+    const strNyi = () => null;
+
+    /**
+     * TODO
+     *
+     * @function strNyi
+     * @memberof String
+     * @since 6.2.0
+     * @param {string} str
+     * @returns {string[]}
+     * @example
+     * strNyi(["foo", "bar"])
+     * // => "foo"
+     *
+     * strNyi([1, 2, 3, 4, 5])
+     * // => 3
+     */
+    const strNyi$1 = () => null;
+
+    /**
+     * TODO
+     *
+     * @function strNyi
+     * @memberof String
+     * @since 6.2.0
+     * @param {string} str
+     * @returns {string[]}
+     * @example
+     * strNyi(["foo", "bar"])
+     * // => "foo"
+     *
+     * strNyi([1, 2, 3, 4, 5])
+     * // => 3
+     */
+    const strNyi$2 = () => null;
+
+    /**
+     * TODO
+     *
+     * @function strNyi
+     * @memberof String
+     * @since 6.2.0
+     * @param {string} str
+     * @returns {string[]}
+     * @example
+     * strNyi(["foo", "bar"])
+     * // => "foo"
+     *
+     * strNyi([1, 2, 3, 4, 5])
+     * // => 3
+     */
+    const strNyi$3 = () => null;
+
+    /**
+     * Creates a camelCase string from an array of substrings.
+     *
+     * @function strToCamelCase
+     * @memberof String
+     * @since 6.2.0
+     * @param {string[]} arr
+     * @returns {string}
+     * @example
+     * strToCamelCase(["foo", "bar"])
+     * // => "fooBar"
+     *
+     * strToCamelCase(["Fizz","buzz","BaZZ"])
+     * // => "fizzBuzzBazz"
+     */
+    const strToCamelCase = (arr) => arr
+        .map((val, index) => index === 0
+        ? val.toLowerCase()
+        : val.substr(0, 1).toUpperCase() +
+            val.substr(1).toLowerCase())
+        .join("");
+
+    /**
+     * Creates a kebab-case string from an array of substrings.
+     *
+     * @function strToKebabCase
+     * @memberof String
+     * @since 6.2.0
+     * @param {string[]} arr
+     * @returns {string}
+     * @example
+     * strToKebabCase(["foo", "bar"])
+     * // => "foo-bar"
+     *
+     * strToKebabCase(["Fizz","buzz","BaZZ"])
+     * // => "fizz-buzz-bazz"
+     */
+    const strToKebabCase = (arr) => arr.map(val => val.toLowerCase()).join("-");
+
+    /**
+     * Creates a PascalCase string from an array of substrings.
+     *
+     * @function strToPascalCase
+     * @memberof String
+     * @since 6.2.0
+     * @param {string[]} arr
+     * @returns {string}
+     * @example
+     * strToPascalCase(["foo", "bar"])
+     * // => "FooBar"
+     *
+     * strToPascalCase(["Fizz","buzz","BaZZ"])
+     * // => "FizzBuzzBazz"
+     */
+    const strToPascalCase = (arr) => arr
+        .map(val => val.substr(0, 1).toUpperCase() + val.substr(1).toLowerCase())
+        .join("");
+
+    /**
+     * Creates a snake_case string from an array of substrings.
+     *
+     * @function strToSnakeCase
+     * @memberof String
+     * @since 6.2.0
+     * @param {string[]} arr
+     * @returns {string}
+     * @example
+     * strToSnakeCase(["foo", "bar"])
+     * // => "foo_bar"
+     *
+     * strToSnakeCase(["Fizz","buzz","BaZZ"])
+     * // => "fizz_buzz_bazz"
+     */
+    const strToSnakeCase = (arr) => arr.map(val => val.toLowerCase()).join("_");
+
+    /**
      * Creates an array of elements split into groups by size.
      *
      * @function arrChunk
@@ -1525,8 +1668,12 @@ var _l = (function (exports) {
      * @namespace Get
      */
     /**
-     * Looping through ranges, arrays and objects
-     * @namespace For
+     * Number manipulation and comparison
+     * @namespace Number
+     */
+    /**
+     * String manipulation and comparison
+     * @namespace String
      */
     /**
      * Array manipulation and analysis
@@ -1545,16 +1692,16 @@ var _l = (function (exports) {
      * @namespace Fn
      */
     /**
-     * Number manipulation and comparison
-     * @namespace Number
-     */
-    /**
-     * Random number generation and value picking
-     * @namespace Random
+     * Looping through ranges, arrays and objects
+     * @namespace For
      */
     /**
      * Generic algorithms
      * @namespace Algorithm
+     */
+    /**
+     * Random number generation and value picking
+     * @namespace Random
      */
 
     exports.isEqual = isEqual;
@@ -1590,6 +1737,14 @@ var _l = (function (exports) {
     exports.numSum = numSum;
     exports.numAverage = numAverage;
     exports.numMedian = numMedian;
+    exports.strFromCamelCase = strNyi;
+    exports.strFromKebabCase = strNyi$1;
+    exports.strFromPascalCase = strNyi$2;
+    exports.strFromSnakeCase = strNyi$3;
+    exports.strToCamelCase = strToCamelCase;
+    exports.strToKebabCase = strToKebabCase;
+    exports.strToPascalCase = strToPascalCase;
+    exports.strToSnakeCase = strToSnakeCase;
     exports.arrFromDeep = arrFromDeep;
     exports.arrMapDeep = arrMapDeep;
     exports.arrCompact = arrCompact;

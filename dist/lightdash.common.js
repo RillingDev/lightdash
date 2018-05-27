@@ -936,72 +936,79 @@ const strNyi$2 = () => null;
 const strNyi$3 = () => null;
 
 /**
- * TODO
+ * Creates a camelCase string from an array of substrings.
  *
- * @function strNyi
+ * @function strToCamelCase
  * @memberof String
  * @since 6.2.0
- * @param {string} str
- * @returns {string[]}
+ * @param {string[]} arr
+ * @returns {string}
  * @example
- * strNyi(["foo", "bar"])
- * // => "foo"
+ * strToCamelCase(["foo", "bar"])
+ * // => "fooBar"
  *
- * strNyi([1, 2, 3, 4, 5])
- * // => 3
+ * strToCamelCase(["Fizz","buzz","BaZZ"])
+ * // => "fizzBuzzBazz"
  */
-const strNyi$4 = () => null;
+const strToCamelCase = (arr) => arr
+    .map((val, index) => index === 0
+    ? val.toLowerCase()
+    : val.substr(0, 1).toUpperCase() +
+        val.substr(1).toLowerCase())
+    .join("");
 
 /**
- * TODO
+ * Creates a kebab-case string from an array of substrings.
  *
- * @function strNyi
+ * @function strToKebabCase
  * @memberof String
  * @since 6.2.0
- * @param {string} str
- * @returns {string[]}
+ * @param {string[]} arr
+ * @returns {string}
  * @example
- * strNyi(["foo", "bar"])
- * // => "foo"
+ * strToKebabCase(["foo", "bar"])
+ * // => "foo-bar"
  *
- * strNyi([1, 2, 3, 4, 5])
- * // => 3
+ * strToKebabCase(["Fizz","buzz","BaZZ"])
+ * // => "fizz-buzz-bazz"
  */
-const strNyi$5 = () => null;
+const strToKebabCase = (arr) => arr.map(val => val.toLowerCase()).join("-");
 
 /**
- * TODO
+ * Creates a PascalCase string from an array of substrings.
  *
- * @function strNyi
+ * @function strToPascalCase
  * @memberof String
  * @since 6.2.0
- * @param {string} str
- * @returns {string[]}
+ * @param {string[]} arr
+ * @returns {string}
  * @example
- * strNyi(["foo", "bar"])
- * // => "foo"
+ * strToPascalCase(["foo", "bar"])
+ * // => "FooBar"
  *
- * strNyi([1, 2, 3, 4, 5])
- * // => 3
+ * strToPascalCase(["Fizz","buzz","BaZZ"])
+ * // => "FizzBuzzBazz"
  */
-const strNyi$6 = () => null;
+const strToPascalCase = (arr) => arr
+    .map(val => val.substr(0, 1).toUpperCase() + val.substr(1).toLowerCase())
+    .join("");
 
 /**
- * TODO
+ * Creates a snake_case string from an array of substrings.
  *
- * @function strNyi
+ * @function strToSnakeCase
  * @memberof String
  * @since 6.2.0
- * @param {string} str
- * @returns {string[]}
+ * @param {string[]} arr
+ * @returns {string}
  * @example
- * strNyi(["foo", "bar"])
- * // => "foo"
+ * strToSnakeCase(["foo", "bar"])
+ * // => "foo_bar"
  *
- * strNyi([1, 2, 3, 4, 5])
- * // => 3
+ * strToSnakeCase(["Fizz","buzz","BaZZ"])
+ * // => "fizz_buzz_bazz"
  */
-const strNyi$7 = () => null;
+const strToSnakeCase = (arr) => arr.map(val => val.toLowerCase()).join("_");
 
 /**
  * Creates an array of elements split into groups by size.
@@ -1735,10 +1742,10 @@ exports.strFromCamelCase = strNyi;
 exports.strFromKebabCase = strNyi$1;
 exports.strFromPascalCase = strNyi$2;
 exports.strFromSnakeCase = strNyi$3;
-exports.strToCamelCase = strNyi$4;
-exports.strToKebabCase = strNyi$5;
-exports.strToPascalCase = strNyi$6;
-exports.strToSnakeCase = strNyi$7;
+exports.strToCamelCase = strToCamelCase;
+exports.strToKebabCase = strToKebabCase;
+exports.strToPascalCase = strToPascalCase;
+exports.strToSnakeCase = strToSnakeCase;
 exports.arrFromDeep = arrFromDeep;
 exports.arrMapDeep = arrMapDeep;
 exports.arrCompact = arrCompact;

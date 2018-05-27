@@ -1,18 +1,23 @@
 /**
- * TODO
+ * Creates a PascalCase string from an array of substrings.
  *
- * @function strNyi
+ * @function strToPascalCase
  * @memberof String
  * @since 6.2.0
- * @param {string} str
- * @returns {string[]}
+ * @param {string[]} arr
+ * @returns {string}
  * @example
- * strNyi(["foo", "bar"])
- * // => "foo"
+ * strToPascalCase(["foo", "bar"])
+ * // => "FooBar"
  *
- * strNyi([1, 2, 3, 4, 5])
- * // => 3
+ * strToPascalCase(["Fizz","buzz","BaZZ"])
+ * // => "FizzBuzzBazz"
  */
-const strNyi = () => null;
+const strToPascalCase = (arr: string[]): string =>
+    arr
+        .map(
+            val => val.substr(0, 1).toUpperCase() + val.substr(1).toLowerCase()
+        )
+        .join("");
 
-export default strNyi;
+export default strToPascalCase;

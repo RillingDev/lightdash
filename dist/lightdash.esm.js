@@ -932,72 +932,79 @@ const strNyi$2 = () => null;
 const strNyi$3 = () => null;
 
 /**
- * TODO
+ * Creates a camelCase string from an array of substrings.
  *
- * @function strNyi
+ * @function strToCamelCase
  * @memberof String
  * @since 6.2.0
- * @param {string} str
- * @returns {string[]}
+ * @param {string[]} arr
+ * @returns {string}
  * @example
- * strNyi(["foo", "bar"])
- * // => "foo"
+ * strToCamelCase(["foo", "bar"])
+ * // => "fooBar"
  *
- * strNyi([1, 2, 3, 4, 5])
- * // => 3
+ * strToCamelCase(["Fizz","buzz","BaZZ"])
+ * // => "fizzBuzzBazz"
  */
-const strNyi$4 = () => null;
+const strToCamelCase = (arr) => arr
+    .map((val, index) => index === 0
+    ? val.toLowerCase()
+    : val.substr(0, 1).toUpperCase() +
+        val.substr(1).toLowerCase())
+    .join("");
 
 /**
- * TODO
+ * Creates a kebab-case string from an array of substrings.
  *
- * @function strNyi
+ * @function strToKebabCase
  * @memberof String
  * @since 6.2.0
- * @param {string} str
- * @returns {string[]}
+ * @param {string[]} arr
+ * @returns {string}
  * @example
- * strNyi(["foo", "bar"])
- * // => "foo"
+ * strToKebabCase(["foo", "bar"])
+ * // => "foo-bar"
  *
- * strNyi([1, 2, 3, 4, 5])
- * // => 3
+ * strToKebabCase(["Fizz","buzz","BaZZ"])
+ * // => "fizz-buzz-bazz"
  */
-const strNyi$5 = () => null;
+const strToKebabCase = (arr) => arr.map(val => val.toLowerCase()).join("-");
 
 /**
- * TODO
+ * Creates a PascalCase string from an array of substrings.
  *
- * @function strNyi
+ * @function strToPascalCase
  * @memberof String
  * @since 6.2.0
- * @param {string} str
- * @returns {string[]}
+ * @param {string[]} arr
+ * @returns {string}
  * @example
- * strNyi(["foo", "bar"])
- * // => "foo"
+ * strToPascalCase(["foo", "bar"])
+ * // => "FooBar"
  *
- * strNyi([1, 2, 3, 4, 5])
- * // => 3
+ * strToPascalCase(["Fizz","buzz","BaZZ"])
+ * // => "FizzBuzzBazz"
  */
-const strNyi$6 = () => null;
+const strToPascalCase = (arr) => arr
+    .map(val => val.substr(0, 1).toUpperCase() + val.substr(1).toLowerCase())
+    .join("");
 
 /**
- * TODO
+ * Creates a snake_case string from an array of substrings.
  *
- * @function strNyi
+ * @function strToSnakeCase
  * @memberof String
  * @since 6.2.0
- * @param {string} str
- * @returns {string[]}
+ * @param {string[]} arr
+ * @returns {string}
  * @example
- * strNyi(["foo", "bar"])
- * // => "foo"
+ * strToSnakeCase(["foo", "bar"])
+ * // => "foo_bar"
  *
- * strNyi([1, 2, 3, 4, 5])
- * // => 3
+ * strToSnakeCase(["Fizz","buzz","BaZZ"])
+ * // => "fizz_buzz_bazz"
  */
-const strNyi$7 = () => null;
+const strToSnakeCase = (arr) => arr.map(val => val.toLowerCase()).join("_");
 
 /**
  * Creates an array of elements split into groups by size.
@@ -1694,4 +1701,4 @@ const randShuffle = (arr) => {
  * @namespace Random
  */
 
-export { isEqual, isInstanceOf, isTypeOf, isUndefined, isNil, isNumber, isString, isBoolean, isSymbol, isObject, isObjectLike, isObjectPlain, isArray, isArrayLike, isArrayBuffer, isArrayTyped, isPromise, isMap, isSet, isDate, isRegExp, isFunction, isArguments, isError, isEmpty, isIndex, hasPath, getPath, getSize, numClamp, numSum, numAverage, numMedian, strNyi as strFromCamelCase, strNyi$1 as strFromKebabCase, strNyi$2 as strFromPascalCase, strNyi$3 as strFromSnakeCase, strNyi$4 as strToCamelCase, strNyi$5 as strToKebabCase, strNyi$6 as strToPascalCase, strNyi$7 as strToSnakeCase, arrFromDeep, arrMapDeep, arrCompact, arrChunk, arrStep, arrRemoveIndex, arrRemoveItem, arrCount, arrCollect, arrDifference, arrIntersection, arrUniq, objFrom, objFromDeep, objMap, objMapDeep, objDefaults, objDefaultsDeep, objDecycle, mapFromObject, fnThrottle, fnAttempt, fnCurry, forEachDeep, forEachEntry, forEachEntryDeep, algBinarySearch, randNumber, randItem, randShuffle };
+export { isEqual, isInstanceOf, isTypeOf, isUndefined, isNil, isNumber, isString, isBoolean, isSymbol, isObject, isObjectLike, isObjectPlain, isArray, isArrayLike, isArrayBuffer, isArrayTyped, isPromise, isMap, isSet, isDate, isRegExp, isFunction, isArguments, isError, isEmpty, isIndex, hasPath, getPath, getSize, numClamp, numSum, numAverage, numMedian, strNyi as strFromCamelCase, strNyi$1 as strFromKebabCase, strNyi$2 as strFromPascalCase, strNyi$3 as strFromSnakeCase, strToCamelCase, strToKebabCase, strToPascalCase, strToSnakeCase, arrFromDeep, arrMapDeep, arrCompact, arrChunk, arrStep, arrRemoveIndex, arrRemoveItem, arrCount, arrCollect, arrDifference, arrIntersection, arrUniq, objFrom, objFromDeep, objMap, objMapDeep, objDefaults, objDefaultsDeep, objDecycle, mapFromObject, fnThrottle, fnAttempt, fnCurry, forEachDeep, forEachEntry, forEachEntryDeep, algBinarySearch, randNumber, randItem, randShuffle };

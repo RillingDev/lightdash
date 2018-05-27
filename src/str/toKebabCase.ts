@@ -1,18 +1,19 @@
 /**
- * TODO
+ * Creates a kebab-case string from an array of substrings.
  *
- * @function strNyi
+ * @function strToKebabCase
  * @memberof String
  * @since 6.2.0
- * @param {string} str
- * @returns {string[]}
+ * @param {string[]} arr
+ * @returns {string}
  * @example
- * strNyi(["foo", "bar"])
- * // => "foo"
+ * strToKebabCase(["foo", "bar"])
+ * // => "foo-bar"
  *
- * strNyi([1, 2, 3, 4, 5])
- * // => 3
+ * strToKebabCase(["Fizz","buzz","BaZZ"])
+ * // => "fizz-buzz-bazz"
  */
-const strNyi = () => null;
+const strToKebabCase = (arr: string[]): string =>
+    arr.map(val => val.toLowerCase()).join("-");
 
-export default strNyi;
+export default strToKebabCase;
