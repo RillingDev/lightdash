@@ -1,6 +1,6 @@
 const { strToSnakeCase } = require("../../dist/lightdash.common");
 
-describe("strToCamelCase", () => {
+describe("strToSnakeCase", () => {
     it("Empty", () => {
         expect(strToSnakeCase([])).toBe("");
     });

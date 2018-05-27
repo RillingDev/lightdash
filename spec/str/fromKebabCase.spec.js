@@ -1,6 +1,6 @@
 const { strFromKebabCase } = require("../../dist/lightdash.common");
 
-describe("strToCamelCase", () => {
+describe("strFromKebabCase", () => {
     it("Empty", () => {
         expect(strFromKebabCase("")).toEqual([]);
     });

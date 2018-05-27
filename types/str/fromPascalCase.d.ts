@@ -1,17 +1,17 @@
 /**
- * TODO
+ * Creates an array of substrings from a PascalCase string.
  *
- * @function strNyi
+ * @function strFromPascalCase
  * @memberof String
  * @since 6.2.0
  * @param {string} str
  * @returns {string[]}
  * @example
- * strNyi(["foo", "bar"])
- * // => "foo"
+ * strFromPascalCase("FooBar")
+ * // => ["Foo", "Bar"]
  *
- * strNyi([1, 2, 3, 4, 5])
- * // => 3
+ * strFromPascalCase("FizzBuzzBazz")
+ * // => ["Fizz","Buzz","Bazz"]
  */
-declare const strNyi: () => null;
-export default strNyi;
+declare const strFromPascalCase: (str: string) => string[];
+export default strFromPascalCase;

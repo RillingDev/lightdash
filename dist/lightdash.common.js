@@ -868,23 +868,6 @@ const numMedian = (arr) => {
 };
 
 /**
- * TODO
- *
- * @function strNyi
- * @memberof String
- * @since 6.2.0
- * @param {string} str
- * @returns {string[]}
- * @example
- * strNyi(["foo", "bar"])
- * // => "foo"
- *
- * strNyi([1, 2, 3, 4, 5])
- * // => 3
- */
-const strNyi = () => null;
-
-/**
  * Returns an array with every falsey value removed out.
  *
  * @function arrCompact
@@ -897,6 +880,52 @@ const strNyi = () => null;
  * // => [1, 2, 3, 4, 5]
  */
 const arrCompact = (arr) => arr.filter((val) => val);
+
+/**
+ * Creates an array of substrings from a PascalCase string.
+ *
+ * @function strFromPascalCase
+ * @memberof String
+ * @since 6.2.0
+ * @param {string} str
+ * @returns {string[]}
+ * @example
+ * strFromPascalCase("FooBar")
+ * // => ["Foo", "Bar"]
+ *
+ * strFromPascalCase("FizzBuzzBazz")
+ * // => ["Fizz","Buzz","Bazz"]
+ */
+const strFromPascalCase = (str) => {
+    const result = [];
+    let cache = [];
+    str.split("").forEach((letter, index) => {
+        if (index > 0 && letter !== letter.toLowerCase()) {
+            result.push(cache.join(""));
+            cache = [];
+        }
+        cache.push(letter);
+    });
+    result.push(cache.join(""));
+    return arrCompact(result);
+};
+
+/**
+ * Creates an array of substrings from a camelCase string.
+ *
+ * @function strFromCamelCase
+ * @memberof String
+ * @since 6.2.0
+ * @param {string} str
+ * @returns {string[]}
+ * @example
+ * strFromPascalCase("fooBar")
+ * // => ["foo", "Bar"]
+ *
+ * strFromPascalCase("fizzBuzzBazz")
+ * // => ["fizz","Buzz","Bazz"]
+ */
+const strFromCamelCase = strFromPascalCase;
 
 /**
  * Creates an array of substrings from a kebab-case string.
@@ -914,23 +943,6 @@ const arrCompact = (arr) => arr.filter((val) => val);
  * // => ["Fizz","buzz","BaZZ"]
  */
 const strFromKebabCase = (str) => arrCompact(str.split("-" /* kebab */));
-
-/**
- * TODO
- *
- * @function strNyi
- * @memberof String
- * @since 6.2.0
- * @param {string} str
- * @returns {string[]}
- * @example
- * strNyi(["foo", "bar"])
- * // => "foo"
- *
- * strNyi([1, 2, 3, 4, 5])
- * // => 3
- */
-const strNyi$1 = () => null;
 
 /**
  * Creates an array of substrings from a snake_case string.
@@ -1738,9 +1750,9 @@ exports.numClamp = numClamp;
 exports.numSum = numSum;
 exports.numAverage = numAverage;
 exports.numMedian = numMedian;
-exports.strFromCamelCase = strNyi;
+exports.strFromCamelCase = strFromCamelCase;
 exports.strFromKebabCase = strFromKebabCase;
-exports.strFromPascalCase = strNyi$1;
+exports.strFromPascalCase = strFromPascalCase;
 exports.strFromSnakeCase = strFromSnakeCase;
 exports.strToCamelCase = strToCamelCase;
 exports.strToKebabCase = strToKebabCase;

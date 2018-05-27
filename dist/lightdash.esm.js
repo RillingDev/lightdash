@@ -864,23 +864,6 @@ const numMedian = (arr) => {
 };
 
 /**
- * TODO
- *
- * @function strNyi
- * @memberof String
- * @since 6.2.0
- * @param {string} str
- * @returns {string[]}
- * @example
- * strNyi(["foo", "bar"])
- * // => "foo"
- *
- * strNyi([1, 2, 3, 4, 5])
- * // => 3
- */
-const strNyi = () => null;
-
-/**
  * Returns an array with every falsey value removed out.
  *
  * @function arrCompact
@@ -893,6 +876,52 @@ const strNyi = () => null;
  * // => [1, 2, 3, 4, 5]
  */
 const arrCompact = (arr) => arr.filter((val) => val);
+
+/**
+ * Creates an array of substrings from a PascalCase string.
+ *
+ * @function strFromPascalCase
+ * @memberof String
+ * @since 6.2.0
+ * @param {string} str
+ * @returns {string[]}
+ * @example
+ * strFromPascalCase("FooBar")
+ * // => ["Foo", "Bar"]
+ *
+ * strFromPascalCase("FizzBuzzBazz")
+ * // => ["Fizz","Buzz","Bazz"]
+ */
+const strFromPascalCase = (str) => {
+    const result = [];
+    let cache = [];
+    str.split("").forEach((letter, index) => {
+        if (index > 0 && letter !== letter.toLowerCase()) {
+            result.push(cache.join(""));
+            cache = [];
+        }
+        cache.push(letter);
+    });
+    result.push(cache.join(""));
+    return arrCompact(result);
+};
+
+/**
+ * Creates an array of substrings from a camelCase string.
+ *
+ * @function strFromCamelCase
+ * @memberof String
+ * @since 6.2.0
+ * @param {string} str
+ * @returns {string[]}
+ * @example
+ * strFromPascalCase("fooBar")
+ * // => ["foo", "Bar"]
+ *
+ * strFromPascalCase("fizzBuzzBazz")
+ * // => ["fizz","Buzz","Bazz"]
+ */
+const strFromCamelCase = strFromPascalCase;
 
 /**
  * Creates an array of substrings from a kebab-case string.
@@ -910,23 +939,6 @@ const arrCompact = (arr) => arr.filter((val) => val);
  * // => ["Fizz","buzz","BaZZ"]
  */
 const strFromKebabCase = (str) => arrCompact(str.split("-" /* kebab */));
-
-/**
- * TODO
- *
- * @function strNyi
- * @memberof String
- * @since 6.2.0
- * @param {string} str
- * @returns {string[]}
- * @example
- * strNyi(["foo", "bar"])
- * // => "foo"
- *
- * strNyi([1, 2, 3, 4, 5])
- * // => 3
- */
-const strNyi$1 = () => null;
 
 /**
  * Creates an array of substrings from a snake_case string.
@@ -1701,4 +1713,4 @@ const randShuffle = (arr) => {
  * @namespace Random
  */
 
-export { isEqual, isInstanceOf, isTypeOf, isUndefined, isNil, isNumber, isString, isBoolean, isSymbol, isObject, isObjectLike, isObjectPlain, isArray, isArrayLike, isArrayBuffer, isArrayTyped, isPromise, isMap, isSet, isDate, isRegExp, isFunction, isArguments, isError, isEmpty, isIndex, hasPath, getPath, getSize, numClamp, numSum, numAverage, numMedian, strNyi as strFromCamelCase, strFromKebabCase, strNyi$1 as strFromPascalCase, strFromSnakeCase, strToCamelCase, strToKebabCase, strToPascalCase, strToSnakeCase, arrFromDeep, arrMapDeep, arrCompact, arrChunk, arrStep, arrRemoveIndex, arrRemoveItem, arrCount, arrCollect, arrDifference, arrIntersection, arrUniq, objFrom, objFromDeep, objMap, objMapDeep, objDefaults, objDefaultsDeep, objDecycle, mapFromObject, fnThrottle, fnAttempt, fnCurry, forEachDeep, forEachEntry, forEachEntryDeep, algBinarySearch, randNumber, randItem, randShuffle };
+export { isEqual, isInstanceOf, isTypeOf, isUndefined, isNil, isNumber, isString, isBoolean, isSymbol, isObject, isObjectLike, isObjectPlain, isArray, isArrayLike, isArrayBuffer, isArrayTyped, isPromise, isMap, isSet, isDate, isRegExp, isFunction, isArguments, isError, isEmpty, isIndex, hasPath, getPath, getSize, numClamp, numSum, numAverage, numMedian, strFromCamelCase, strFromKebabCase, strFromPascalCase, strFromSnakeCase, strToCamelCase, strToKebabCase, strToPascalCase, strToSnakeCase, arrFromDeep, arrMapDeep, arrCompact, arrChunk, arrStep, arrRemoveIndex, arrRemoveItem, arrCount, arrCollect, arrDifference, arrIntersection, arrUniq, objFrom, objFromDeep, objMap, objMapDeep, objDefaults, objDefaultsDeep, objDecycle, mapFromObject, fnThrottle, fnAttempt, fnCurry, forEachDeep, forEachEntry, forEachEntryDeep, algBinarySearch, randNumber, randItem, randShuffle };

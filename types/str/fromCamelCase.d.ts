@@ -1,17 +1,17 @@
 /**
- * TODO
+ * Creates an array of substrings from a camelCase string.
  *
- * @function strNyi
+ * @function strFromCamelCase
  * @memberof String
  * @since 6.2.0
  * @param {string} str
  * @returns {string[]}
  * @example
- * strNyi(["foo", "bar"])
- * // => "foo"
+ * strFromPascalCase("fooBar")
+ * // => ["foo", "Bar"]
  *
- * strNyi([1, 2, 3, 4, 5])
- * // => 3
+ * strFromPascalCase("fizzBuzzBazz")
+ * // => ["fizz","Buzz","Bazz"]
  */
-declare const strNyi: () => null;
-export default strNyi;
+declare const strFromCamelCase: (str: string) => string[];
+export default strFromCamelCase;

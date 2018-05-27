@@ -1,18 +1,36 @@
+import arrCompact from "../arr/compact";
+
 /**
- * TODO
+ * Creates an array of substrings from a PascalCase string.
  *
- * @function strNyi
+ * @function strFromPascalCase
  * @memberof String
  * @since 6.2.0
  * @param {string} str
  * @returns {string[]}
  * @example
- * strNyi(["foo", "bar"])
- * // => "foo"
+ * strFromPascalCase("FooBar")
+ * // => ["Foo", "Bar"]
  *
- * strNyi([1, 2, 3, 4, 5])
- * // => 3
+ * strFromPascalCase("FizzBuzzBazz")
+ * // => ["Fizz","Buzz","Bazz"]
  */
-const strNyi = () => null;
+const strFromPascalCase = (str: string): string[] => {
+    const result: string[] = [];
+    let cache: string[] = [];
 
-export default strNyi;
+    str.split("").forEach((letter, index) => {
+        if (index > 0 && letter !== letter.toLowerCase()) {
+            result.push(cache.join(""));
+            cache = [];
+        }
+
+        cache.push(letter);
+    });
+
+    result.push(cache.join(""));
+
+    return arrCompact(result);
+};
+
+export default strFromPascalCase;
