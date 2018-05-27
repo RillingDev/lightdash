@@ -1,18 +1,22 @@
+import arrCompact from "../arr/compact";
+import delimiters from "./lib/delimiters";
+
 /**
- * TODO
+ * Creates an array of substrings from a kebab-case string.
  *
- * @function strNyi
+ * @function strFromKebabCase
  * @memberof String
  * @since 6.2.0
  * @param {string} str
  * @returns {string[]}
  * @example
- * strNyi(["foo", "bar"])
- * // => "foo"
+ * strFromKebabCase("foo-bar")
+ * // => ["foo", "bar"]
  *
- * strNyi([1, 2, 3, 4, 5])
- * // => 3
+ * strFromKebabCase("Fizz-buzz-BaZZ")
+ * // => ["Fizz","buzz","BaZZ"]
  */
-const strNyi = () => null;
+const strFromKebabCase = (str: string): string[] =>
+    arrCompact(str.split(delimiters.kebab));
 
-export default strNyi;
+export default strFromKebabCase;

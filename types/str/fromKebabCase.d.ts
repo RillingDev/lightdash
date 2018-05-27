@@ -1,17 +1,17 @@
 /**
- * TODO
+ * Creates an array of substrings from a kebab-case string.
  *
- * @function strNyi
+ * @function strFromKebabCase
  * @memberof String
  * @since 6.2.0
  * @param {string} str
  * @returns {string[]}
  * @example
- * strNyi(["foo", "bar"])
- * // => "foo"
+ * strFromKebabCase("foo-bar")
+ * // => ["foo", "bar"]
  *
- * strNyi([1, 2, 3, 4, 5])
- * // => 3
+ * strFromKebabCase("Fizz-buzz-BaZZ")
+ * // => ["Fizz","buzz","BaZZ"]
  */
-declare const strNyi: () => null;
-export default strNyi;
+declare const strFromKebabCase: (str: string) => string[];
+export default strFromKebabCase;

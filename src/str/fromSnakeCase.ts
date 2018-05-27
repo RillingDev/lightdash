@@ -1,18 +1,22 @@
+import arrCompact from "../arr/compact";
+import delimiters from "./lib/delimiters";
+
 /**
- * TODO
+ * Creates an array of substrings from a snake_case string.
  *
- * @function strNyi
+ * @function strFromSnakeCase
  * @memberof String
  * @since 6.2.0
  * @param {string} str
  * @returns {string[]}
  * @example
- * strNyi(["foo", "bar"])
- * // => "foo"
+ * strFromSnakeCase("foo_bar")
+ * // => ["foo", "bar"]
  *
- * strNyi([1, 2, 3, 4, 5])
- * // => 3
+ * strFromSnakeCase("Fizz_buzz_BaZZ")
+ * // => ["Fizz","buzz","BaZZ"]
  */
-const strNyi = () => null;
+const strFromSnakeCase = (str: string): string[] =>
+    arrCompact(str.split(delimiters.snake));
 
-export default strNyi;
+export default strFromSnakeCase;

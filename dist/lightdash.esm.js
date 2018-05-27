@@ -881,6 +881,37 @@ const numMedian = (arr) => {
 const strNyi = () => null;
 
 /**
+ * Returns an array with every falsey value removed out.
+ *
+ * @function arrCompact
+ * @memberof Array
+ * @since 1.0.0
+ * @param {any[]} arr
+ * @returns {any[]}
+ * @example
+ * arrCompact([1, "", "", 2, 3, null, 4, undefined, 5, ""])
+ * // => [1, 2, 3, 4, 5]
+ */
+const arrCompact = (arr) => arr.filter((val) => val);
+
+/**
+ * Creates an array of substrings from a kebab-case string.
+ *
+ * @function strFromKebabCase
+ * @memberof String
+ * @since 6.2.0
+ * @param {string} str
+ * @returns {string[]}
+ * @example
+ * strFromKebabCase("foo-bar")
+ * // => ["foo", "bar"]
+ *
+ * strFromKebabCase("Fizz-buzz-BaZZ")
+ * // => ["Fizz","buzz","BaZZ"]
+ */
+const strFromKebabCase = (str) => arrCompact(str.split("-" /* kebab */));
+
+/**
  * TODO
  *
  * @function strNyi
@@ -898,38 +929,21 @@ const strNyi = () => null;
 const strNyi$1 = () => null;
 
 /**
- * TODO
+ * Creates an array of substrings from a snake_case string.
  *
- * @function strNyi
+ * @function strFromSnakeCase
  * @memberof String
  * @since 6.2.0
  * @param {string} str
  * @returns {string[]}
  * @example
- * strNyi(["foo", "bar"])
- * // => "foo"
+ * strFromSnakeCase("foo_bar")
+ * // => ["foo", "bar"]
  *
- * strNyi([1, 2, 3, 4, 5])
- * // => 3
+ * strFromSnakeCase("Fizz_buzz_BaZZ")
+ * // => ["Fizz","buzz","BaZZ"]
  */
-const strNyi$2 = () => null;
-
-/**
- * TODO
- *
- * @function strNyi
- * @memberof String
- * @since 6.2.0
- * @param {string} str
- * @returns {string[]}
- * @example
- * strNyi(["foo", "bar"])
- * // => "foo"
- *
- * strNyi([1, 2, 3, 4, 5])
- * // => 3
- */
-const strNyi$3 = () => null;
+const strFromSnakeCase = (str) => arrCompact(str.split("_" /* snake */));
 
 /**
  * Creates a camelCase string from an array of substrings.
@@ -968,7 +982,7 @@ const strToCamelCase = (arr) => arr
  * strToKebabCase(["Fizz","buzz","BaZZ"])
  * // => "fizz-buzz-bazz"
  */
-const strToKebabCase = (arr) => arr.map(val => val.toLowerCase()).join("-");
+const strToKebabCase = (arr) => arr.map(val => val.toLowerCase()).join("-" /* kebab */);
 
 /**
  * Creates a PascalCase string from an array of substrings.
@@ -1004,7 +1018,7 @@ const strToPascalCase = (arr) => arr
  * strToSnakeCase(["Fizz","buzz","BaZZ"])
  * // => "fizz_buzz_bazz"
  */
-const strToSnakeCase = (arr) => arr.map(val => val.toLowerCase()).join("_");
+const strToSnakeCase = (arr) => arr.map(val => val.toLowerCase()).join("_" /* snake */);
 
 /**
  * Creates an array of elements split into groups by size.
@@ -1054,20 +1068,6 @@ const arrCollect = (arr, fn) => {
     });
     return result;
 };
-
-/**
- * Returns an array with every falsey value removed out.
- *
- * @function arrCompact
- * @memberof Array
- * @since 1.0.0
- * @param {any[]} arr
- * @returns {any[]}
- * @example
- * arrCompact([1, "", "", 2, 3, null, 4, undefined, 5, ""])
- * // => [1, 2, 3, 4, 5]
- */
-const arrCompact = (arr) => arr.filter((val) => val);
 
 /**
  * Counts how many times an element appears in an array.
@@ -1701,4 +1701,4 @@ const randShuffle = (arr) => {
  * @namespace Random
  */
 
-export { isEqual, isInstanceOf, isTypeOf, isUndefined, isNil, isNumber, isString, isBoolean, isSymbol, isObject, isObjectLike, isObjectPlain, isArray, isArrayLike, isArrayBuffer, isArrayTyped, isPromise, isMap, isSet, isDate, isRegExp, isFunction, isArguments, isError, isEmpty, isIndex, hasPath, getPath, getSize, numClamp, numSum, numAverage, numMedian, strNyi as strFromCamelCase, strNyi$1 as strFromKebabCase, strNyi$2 as strFromPascalCase, strNyi$3 as strFromSnakeCase, strToCamelCase, strToKebabCase, strToPascalCase, strToSnakeCase, arrFromDeep, arrMapDeep, arrCompact, arrChunk, arrStep, arrRemoveIndex, arrRemoveItem, arrCount, arrCollect, arrDifference, arrIntersection, arrUniq, objFrom, objFromDeep, objMap, objMapDeep, objDefaults, objDefaultsDeep, objDecycle, mapFromObject, fnThrottle, fnAttempt, fnCurry, forEachDeep, forEachEntry, forEachEntryDeep, algBinarySearch, randNumber, randItem, randShuffle };
+export { isEqual, isInstanceOf, isTypeOf, isUndefined, isNil, isNumber, isString, isBoolean, isSymbol, isObject, isObjectLike, isObjectPlain, isArray, isArrayLike, isArrayBuffer, isArrayTyped, isPromise, isMap, isSet, isDate, isRegExp, isFunction, isArguments, isError, isEmpty, isIndex, hasPath, getPath, getSize, numClamp, numSum, numAverage, numMedian, strNyi as strFromCamelCase, strFromKebabCase, strNyi$1 as strFromPascalCase, strFromSnakeCase, strToCamelCase, strToKebabCase, strToPascalCase, strToSnakeCase, arrFromDeep, arrMapDeep, arrCompact, arrChunk, arrStep, arrRemoveIndex, arrRemoveItem, arrCount, arrCollect, arrDifference, arrIntersection, arrUniq, objFrom, objFromDeep, objMap, objMapDeep, objDefaults, objDefaultsDeep, objDecycle, mapFromObject, fnThrottle, fnAttempt, fnCurry, forEachDeep, forEachEntry, forEachEntryDeep, algBinarySearch, randNumber, randItem, randShuffle };
