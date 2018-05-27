@@ -40,6 +40,7 @@ import strFromCamelCase from "./str/fromCamelCase";
 import strFromKebabCase from "./str/fromKebabCase";
 import strFromPascalCase from "./str/fromPascalCase";
 import strFromSnakeCase from "./str/fromSnakeCase";
+import strSimilar from "./str/similar";
 import strToCamelCase from "./str/toCamelCase";
 import strToKebabCase from "./str/toKebabCase";
 import strToPascalCase from "./str/toPascalCase";
@@ -117,6 +118,7 @@ export {
     numAverage,
     numMedian,
     strDistance,
+    strSimilar,
     strFromCamelCase,
     strFromKebabCase,
     strFromPascalCase,

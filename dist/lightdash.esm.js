@@ -1022,6 +1022,58 @@ const strFromKebabCase = (str) => arrCompact(str.split("-" /* kebab */));
 const strFromSnakeCase = (str) => arrCompact(str.split("_" /* snake */));
 
 /**
+ * Collects the values of an array in a Map as arrays.
+ *
+ * @function arrCollect
+ * @memberof Array
+ * @since 6.1.0
+ * @param {any[]} arr
+ * @param {function} fn fn(val: any, index: number, arr: any[])
+ * @returns {Map<any, any[]>} Map<val: any, arr: any[]>
+ * @example
+ * arrCollect([1, 2, 3, 4, 5], val => val % 2)
+ * // => Map<any, any[]>{0: [2, 4], 1: [1, 3, 5]}
+ */
+const arrCollect = (arr, fn) => {
+    const result = new Map();
+    arr.forEach((val, index) => {
+        const key = fn(val, index, arr);
+        result.set(key, result.has(key) ? [...result.get(key), val] : [val]);
+    });
+    return result;
+};
+
+/**
+ * Returns strings similar to the input based on the list given.
+ *
+ * @function strSimilar
+ * @memberof String
+ * @since 6.3.0
+ * @param {string} str
+ * @param {Array<string>} list
+ * @param {boolean} [returnFull=false]
+ * @returns {Array<string>|Map<number,string[]>}
+ * @example
+ * strSimilar("Fob", ["Foo", "Bar"])
+ * // => ["Foo"]
+ *
+ * strSimilar("cmmit", ["init", "commit", "push"])
+ * // => ["commit"]
+ *
+ * strSimilar("Kitten", ["Sitten", "Sitting", "Bitten"])
+ * // => ["Sitten", "Bitten"]
+ *
+ * strSimilar("cmmit", ["init", "commit", "push"], true)
+ * // => Map<number, string[]>{"1": ["commit"], "3": ["init"], "5": ["push"]}
+ */
+const strSimilar = (str, list, returnFull = false) => {
+    const result = arrCollect(list, val => strDistance(str, val));
+    return returnFull
+        ? result
+        : result.get(Math.min(...result.keys()));
+};
+
+/**
  * Creates a camelCase string from an array of substrings.
  *
  * @function strToCamelCase
@@ -1120,28 +1172,6 @@ const arrChunk = (arr, chunk) => {
     for (let i = 0; i < arr.length; i += chunk) {
         result.push(arr.slice(i, i + chunk));
     }
-    return result;
-};
-
-/**
- * Collects the values of an array in a Map as arrays.
- *
- * @function arrCollect
- * @memberof Array
- * @since 6.1.0
- * @param {any[]} arr
- * @param {function} fn fn(val: any, index: number, arr: any[])
- * @returns {Map<any, any[]>} Map<val: any, arr: any[]>
- * @example
- * arrCollect([1, 2, 3, 4, 5], val => val % 2)
- * // => Map<any, any[]>{0: [2, 4], 1: [1, 3, 5]}
- */
-const arrCollect = (arr, fn) => {
-    const result = new Map();
-    arr.forEach((val, index) => {
-        const key = fn(val, index, arr);
-        result.set(key, result.has(key) ? [...result.get(key), val] : [val]);
-    });
     return result;
 };
 
@@ -1777,4 +1807,4 @@ const randShuffle = (arr) => {
  * @namespace Random
  */
 
-export { isEqual, isInstanceOf, isTypeOf, isUndefined, isNil, isNumber, isString, isBoolean, isSymbol, isObject, isObjectLike, isObjectPlain, isArray, isArrayLike, isArrayBuffer, isArrayTyped, isPromise, isMap, isSet, isDate, isRegExp, isFunction, isArguments, isError, isEmpty, isIndex, hasPath, getPath, getSize, numClamp, numSum, numAverage, numMedian, strDistance, strFromCamelCase, strFromKebabCase, strFromPascalCase, strFromSnakeCase, strToCamelCase, strToKebabCase, strToPascalCase, strToSnakeCase, arrFromDeep, arrMapDeep, arrCompact, arrChunk, arrStep, arrRemoveIndex, arrRemoveItem, arrCount, arrCollect, arrDifference, arrIntersection, arrUniq, objFrom, objFromDeep, objMap, objMapDeep, objDefaults, objDefaultsDeep, objDecycle, mapFromObject, fnThrottle, fnAttempt, fnCurry, forEachDeep, forEachEntry, forEachEntryDeep, algBinarySearch, randNumber, randItem, randShuffle };
+export { isEqual, isInstanceOf, isTypeOf, isUndefined, isNil, isNumber, isString, isBoolean, isSymbol, isObject, isObjectLike, isObjectPlain, isArray, isArrayLike, isArrayBuffer, isArrayTyped, isPromise, isMap, isSet, isDate, isRegExp, isFunction, isArguments, isError, isEmpty, isIndex, hasPath, getPath, getSize, numClamp, numSum, numAverage, numMedian, strDistance, strSimilar, strFromCamelCase, strFromKebabCase, strFromPascalCase, strFromSnakeCase, strToCamelCase, strToKebabCase, strToPascalCase, strToSnakeCase, arrFromDeep, arrMapDeep, arrCompact, arrChunk, arrStep, arrRemoveIndex, arrRemoveItem, arrCount, arrCollect, arrDifference, arrIntersection, arrUniq, objFrom, objFromDeep, objMap, objMapDeep, objDefaults, objDefaultsDeep, objDecycle, mapFromObject, fnThrottle, fnAttempt, fnCurry, forEachDeep, forEachEntry, forEachEntryDeep, algBinarySearch, randNumber, randItem, randShuffle };
