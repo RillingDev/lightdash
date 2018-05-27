@@ -35,6 +35,7 @@ import numClamp from "./num/clamp";
 import numMedian from "./num/median";
 import numSum from "./num/sum";
 
+import strDistance from "./str/distance";
 import strFromCamelCase from "./str/fromCamelCase";
 import strFromKebabCase from "./str/fromKebabCase";
 import strFromPascalCase from "./str/fromPascalCase";
@@ -115,6 +116,7 @@ export {
     numSum,
     numAverage,
     numMedian,
+    strDistance,
     strFromCamelCase,
     strFromKebabCase,
     strFromPascalCase,
