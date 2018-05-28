@@ -815,6 +815,42 @@ var _l = (function (exports) {
     const numAverage = (arr) => numSum(arr) / arr.length;
 
     /**
+     * Binary Search implementation.
+     *
+     * @function numBinarySearch
+     * @memberof Number
+     * @since 5.0.0
+     * @param {number[]} arr
+     * @param {number} search
+     * @returns {number|null}
+     * @example
+     * numBinarySearch([0, 1, 2], 2)
+     * // => 1
+     *
+     * numBinarySearch([0, 1, 2], 100)
+     * // => null
+     */
+    const numBinarySearch = (arr, search) => {
+        let low = 0;
+        let high = arr.length - 1;
+        let mid;
+        while (low <= high) {
+            mid = Math.floor(low + (high - low) / 2);
+            const current = arr[mid];
+            if (current === search) {
+                return mid;
+            }
+            else if (current < search) {
+                low = mid + 1;
+            }
+            else {
+                high = mid - 1;
+            }
+        }
+        return null;
+    };
+
+    /**
      * Clamps a number in a given range.
      *
      * @function numClamp
@@ -1654,42 +1690,6 @@ var _l = (function (exports) {
     };
 
     /**
-     * Binary Search implementation.
-     *
-     * @function algBinarySearch
-     * @memberof Algorithm
-     * @since 5.0.0
-     * @param {number[]} arr
-     * @param {number} search
-     * @returns {number|null}
-     * @example
-     * algBinarySearch([0, 1, 2], 2)
-     * // => 1
-     *
-     * algBinarySearch([0, 1, 2], 100)
-     * // => null
-     */
-    const algBinarySearch = (arr, search) => {
-        let low = 0;
-        let high = arr.length - 1;
-        let mid;
-        while (low <= high) {
-            mid = Math.floor(low + (high - low) / 2);
-            const current = arr[mid];
-            if (current === search) {
-                return mid;
-            }
-            else if (current < search) {
-                low = mid + 1;
-            }
-            else {
-                high = mid - 1;
-            }
-        }
-        return null;
-    };
-
-    /**
      * Return a random float or integer number in the given range.
      *
      * @function randNumber
@@ -1802,10 +1802,6 @@ var _l = (function (exports) {
      * @namespace For
      */
     /**
-     * Generic algorithms
-     * @namespace Algorithm
-     */
-    /**
      * Random number generation and value picking
      * @namespace Random
      */
@@ -1843,6 +1839,7 @@ var _l = (function (exports) {
     exports.numSum = numSum;
     exports.numAverage = numAverage;
     exports.numMedian = numMedian;
+    exports.numBinarySearch = numBinarySearch;
     exports.strDistance = strDistance;
     exports.strSimilar = strSimilar;
     exports.strFromCamelCase = strFromCamelCase;
@@ -1879,7 +1876,6 @@ var _l = (function (exports) {
     exports.forEachDeep = forEachDeep;
     exports.forEachEntry = forEachEntry;
     exports.forEachEntryDeep = forEachEntryDeep;
-    exports.algBinarySearch = algBinarySearch;
     exports.randNumber = randNumber;
     exports.randItem = randItem;
     exports.randShuffle = randShuffle;

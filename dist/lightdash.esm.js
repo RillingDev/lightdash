@@ -812,6 +812,42 @@ const numSum = (arr) => arr.reduce((a, b) => a + b);
 const numAverage = (arr) => numSum(arr) / arr.length;
 
 /**
+ * Binary Search implementation.
+ *
+ * @function numBinarySearch
+ * @memberof Number
+ * @since 5.0.0
+ * @param {number[]} arr
+ * @param {number} search
+ * @returns {number|null}
+ * @example
+ * numBinarySearch([0, 1, 2], 2)
+ * // => 1
+ *
+ * numBinarySearch([0, 1, 2], 100)
+ * // => null
+ */
+const numBinarySearch = (arr, search) => {
+    let low = 0;
+    let high = arr.length - 1;
+    let mid;
+    while (low <= high) {
+        mid = Math.floor(low + (high - low) / 2);
+        const current = arr[mid];
+        if (current === search) {
+            return mid;
+        }
+        else if (current < search) {
+            low = mid + 1;
+        }
+        else {
+            high = mid - 1;
+        }
+    }
+    return null;
+};
+
+/**
  * Clamps a number in a given range.
  *
  * @function numClamp
@@ -1651,42 +1687,6 @@ const fnThrottle = (fn, timeout, immediate = false) => {
 };
 
 /**
- * Binary Search implementation.
- *
- * @function algBinarySearch
- * @memberof Algorithm
- * @since 5.0.0
- * @param {number[]} arr
- * @param {number} search
- * @returns {number|null}
- * @example
- * algBinarySearch([0, 1, 2], 2)
- * // => 1
- *
- * algBinarySearch([0, 1, 2], 100)
- * // => null
- */
-const algBinarySearch = (arr, search) => {
-    let low = 0;
-    let high = arr.length - 1;
-    let mid;
-    while (low <= high) {
-        mid = Math.floor(low + (high - low) / 2);
-        const current = arr[mid];
-        if (current === search) {
-            return mid;
-        }
-        else if (current < search) {
-            low = mid + 1;
-        }
-        else {
-            high = mid - 1;
-        }
-    }
-    return null;
-};
-
-/**
  * Return a random float or integer number in the given range.
  *
  * @function randNumber
@@ -1799,12 +1799,8 @@ const randShuffle = (arr) => {
  * @namespace For
  */
 /**
- * Generic algorithms
- * @namespace Algorithm
- */
-/**
  * Random number generation and value picking
  * @namespace Random
  */
 
-export { isEqual, isInstanceOf, isTypeOf, isUndefined, isNil, isNumber, isString, isBoolean, isSymbol, isObject, isObjectLike, isObjectPlain, isArray, isArrayLike, isArrayBuffer, isArrayTyped, isPromise, isMap, isSet, isDate, isRegExp, isFunction, isArguments, isError, isEmpty, isIndex, hasPath, getPath, getSize, numClamp, numSum, numAverage, numMedian, strDistance, strSimilar, strFromCamelCase, strFromKebabCase, strFromPascalCase, strFromSnakeCase, strToCamelCase, strToKebabCase, strToPascalCase, strToSnakeCase, arrFromDeep, arrMapDeep, arrCompact, arrChunk, arrStep, arrRemoveIndex, arrRemoveItem, arrCount, arrCollect, arrDifference, arrIntersection, arrUniq, objFrom, objFromDeep, objMap, objMapDeep, objDefaults, objDefaultsDeep, objDecycle, mapFromObject, fnThrottle, fnAttempt, fnCurry, forEachDeep, forEachEntry, forEachEntryDeep, algBinarySearch, randNumber, randItem, randShuffle };
+export { isEqual, isInstanceOf, isTypeOf, isUndefined, isNil, isNumber, isString, isBoolean, isSymbol, isObject, isObjectLike, isObjectPlain, isArray, isArrayLike, isArrayBuffer, isArrayTyped, isPromise, isMap, isSet, isDate, isRegExp, isFunction, isArguments, isError, isEmpty, isIndex, hasPath, getPath, getSize, numClamp, numSum, numAverage, numMedian, numBinarySearch, strDistance, strSimilar, strFromCamelCase, strFromKebabCase, strFromPascalCase, strFromSnakeCase, strToCamelCase, strToKebabCase, strToPascalCase, strToSnakeCase, arrFromDeep, arrMapDeep, arrCompact, arrChunk, arrStep, arrRemoveIndex, arrRemoveItem, arrCount, arrCollect, arrDifference, arrIntersection, arrUniq, objFrom, objFromDeep, objMap, objMapDeep, objDefaults, objDefaultsDeep, objDecycle, mapFromObject, fnThrottle, fnAttempt, fnCurry, forEachDeep, forEachEntry, forEachEntryDeep, randNumber, randItem, randShuffle };

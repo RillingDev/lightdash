@@ -1,20 +1,20 @@
 /**
  * Binary Search implementation.
  *
- * @function algBinarySearch
- * @memberof Algorithm
+ * @function numBinarySearch
+ * @memberof Number
  * @since 5.0.0
  * @param {number[]} arr
  * @param {number} search
  * @returns {number|null}
  * @example
- * algBinarySearch([0, 1, 2], 2)
+ * numBinarySearch([0, 1, 2], 2)
  * // => 1
  *
- * algBinarySearch([0, 1, 2], 100)
+ * numBinarySearch([0, 1, 2], 100)
  * // => null
  */
-const algBinarySearch = (arr: number[], search: number): number | null => {
+const numBinarySearch = (arr: number[], search: number): number | null => {
     let low = 0;
     let high = arr.length - 1;
     let mid: number;
@@ -36,4 +36,4 @@ const algBinarySearch = (arr: number[], search: number): number | null => {
     return null;
 };
 
-export default algBinarySearch;
+export default numBinarySearch;
