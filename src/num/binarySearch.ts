@@ -36,4 +36,4 @@ const numBinarySearch = (arr: number[], search: number): number | null => {
     return null;
 };
 
-export default numBinarySearch;
+export { numBinarySearch };

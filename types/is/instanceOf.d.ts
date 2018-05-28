@@ -26,4 +26,4 @@ import { IGenericClass } from "../interfaces";
  * // => false
  */
 declare const isInstanceOf: (val: any, target: IGenericClass) => boolean;
-export default isInstanceOf;
+export { isInstanceOf };

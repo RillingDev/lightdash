@@ -30,4 +30,4 @@
  * // => -1
  */
 declare const getSize: (val: any) => number;
-export default getSize;
+export { getSize };

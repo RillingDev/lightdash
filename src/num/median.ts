@@ -1,4 +1,4 @@
-import numAverage from "./average";
+import { numAverage } from "./average";
 
 /**
  * Returns the median of an array of numbers.
@@ -23,4 +23,4 @@ const numMedian = (arr: number[]): number => {
         : numAverage(arr.slice(Math.floor(arrLengthHalf), 2));
 };
 
-export default numMedian;
+export { numMedian };

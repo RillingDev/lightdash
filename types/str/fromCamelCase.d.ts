@@ -14,4 +14,4 @@
  * // => ["fizz","Buzz","Bazz"]
  */
 declare const strFromCamelCase: (str: string) => string[];
-export default strFromCamelCase;
+export { strFromCamelCase };

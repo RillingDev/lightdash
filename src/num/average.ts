@@ -1,4 +1,4 @@
-import numSum from "./sum";
+import { numSum } from "./sum";
 
 /**
  * Returns the average of an array of numbers.
@@ -14,4 +14,4 @@ import numSum from "./sum";
  */
 const numAverage = (arr: number[]): number => numSum(arr) / arr.length;
 
-export default numAverage;
+export { numAverage };

@@ -25,4 +25,4 @@
  * // => [1, 2, 3]
  */
 declare const fnCurry: (fn: (...args: any[]) => any, arity?: number) => any;
-export default fnCurry;
+export { fnCurry };

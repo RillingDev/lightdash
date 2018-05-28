@@ -15,4 +15,4 @@
  * // => [2]
  */
 declare const arrIntersection: <T>(arr: T[], ...values: any[]) => T[];
-export default arrIntersection;
+export { arrIntersection };

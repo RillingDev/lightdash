@@ -3,4 +3,4 @@ const enum delimiters {
     snake = "_"
 }
 
-export default delimiters;
+export { delimiters };

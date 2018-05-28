@@ -12,4 +12,4 @@
  * // => ["foo", "fizz"]
  */
 declare const arrRemoveIndex: <T>(arr: T[], targetIndex: number) => T[];
-export default arrRemoveIndex;
+export { arrRemoveIndex };

@@ -12,4 +12,4 @@
  * // => ["foo", "fizz"]
  */
 declare const arrRemoveItem: <T>(arr: T[], targetItem: T) => T[];
-export default arrRemoveItem;
+export { arrRemoveItem };

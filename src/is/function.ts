@@ -1,4 +1,4 @@
-import isTypeOf from "./typeOf";
+import { isTypeOf } from "./typeOf";
 
 /**
  * Checks if a value is a function.
@@ -21,4 +21,4 @@ import isTypeOf from "./typeOf";
  */
 const isFunction = (val: any): boolean => isTypeOf(val, "function");
 
-export default isFunction;
+export { isFunction };

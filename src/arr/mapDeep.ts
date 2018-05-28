@@ -1,4 +1,4 @@
-import isArray from "../is/array";
+import { isArray } from "../is/array";
 import { forEachMapper } from "../types";
 
 /**
@@ -20,4 +20,4 @@ const arrMapDeep = <T>(arr: T[], fn: forEachMapper<T, any>): any[] =>
             isArray(val) ? arrMapDeep(val, fn) : fn(val, index, arr)
     );
 
-export default arrMapDeep;
+export { arrMapDeep };

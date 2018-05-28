@@ -1,4 +1,4 @@
-import isTypeOf from "./typeOf";
+import { isTypeOf } from "./typeOf";
 
 /**
  * Checks if a value is undefined.
@@ -28,4 +28,4 @@ import isTypeOf from "./typeOf";
  */
 const isUndefined = (val: any): boolean => isTypeOf(val, "undefined");
 
-export default isUndefined;
+export { isUndefined };

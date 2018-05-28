@@ -13,4 +13,4 @@ import { ITypedObject } from "../interfaces";
  * // => {a: [1, 2, 3], b: 2, c: {f: "x"}}
  */
 declare const objDefaultsDeep: (obj: ITypedObject<any>, objDefault: object) => object;
-export default objDefaultsDeep;
+export { objDefaultsDeep };

@@ -1,4 +1,4 @@
-import randNumber from "./number";
+import { randNumber } from "./number";
 
 /**
  * Shuffles an array randomly and returns it.
@@ -29,4 +29,4 @@ const randShuffle = <T>(arr: T[]): T[] => {
     return result;
 };
 
-export default randShuffle;
+export { randShuffle };

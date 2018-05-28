@@ -24,4 +24,4 @@ import { forEachEntryMapper } from "../types";
  * // => {a: "_a", b: 1, c: 2}
  */
 declare const objDecycle: (obj: ITypedObject<any>, fn?: forEachEntryMapper<any, any>, references?: WeakSet<any>) => object;
-export default objDecycle;
+export { objDecycle };

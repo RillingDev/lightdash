@@ -18,4 +18,4 @@
  * // => false
  */
 declare const isFunction: (val: any) => boolean;
-export default isFunction;
+export { isFunction };

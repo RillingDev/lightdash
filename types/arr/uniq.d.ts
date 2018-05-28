@@ -11,4 +11,4 @@
  * // => [1, 2, 3, 4]
  */
 declare const arrUniq: <T>(arr: T[]) => T[];
-export default arrUniq;
+export { arrUniq };

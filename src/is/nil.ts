@@ -1,4 +1,4 @@
-import isUndefined from "./undefined";
+import { isUndefined } from "./undefined";
 
 /**
  * Checks if a value is undefined or null.
@@ -24,4 +24,4 @@ import isUndefined from "./undefined";
  */
 const isNil = (val: any): boolean => isUndefined(val) || val === null;
 
-export default isNil;
+export { isNil };

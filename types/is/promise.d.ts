@@ -17,4 +17,4 @@
  * // => false
  */
 declare const isPromise: (val: any) => boolean;
-export default isPromise;
+export { isPromise };

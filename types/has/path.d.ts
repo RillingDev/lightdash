@@ -31,4 +31,4 @@
  * // => false
  */
 declare const hasPath: (target: any, path: string[]) => boolean;
-export default hasPath;
+export { hasPath };

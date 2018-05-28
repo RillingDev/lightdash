@@ -14,4 +14,4 @@
 const arrRemoveItem = <T>(arr: T[], targetItem: T): T[] =>
     arr.filter(item => item !== targetItem);
 
-export default arrRemoveItem;
+export { arrRemoveItem };

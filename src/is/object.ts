@@ -1,5 +1,5 @@
-import isNil from "./nil";
-import isTypeOf from "./typeOf";
+import { isNil } from "./nil";
+import { isTypeOf } from "./typeOf";
 
 /**
  * Checks if a value is an object.
@@ -26,4 +26,4 @@ import isTypeOf from "./typeOf";
 const isObject = (val: any): boolean =>
     !isNil(val) && (isTypeOf(val, "object") || isTypeOf(val, "function"));
 
-export default isObject;
+export { isObject };

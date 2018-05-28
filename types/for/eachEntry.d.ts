@@ -13,4 +13,4 @@ import { forEachEntryIterator } from "../types";
  * // a = {a: 0, b: 2}
  */
 declare const forEachEntry: (obj: object, fn: forEachEntryIterator<any>) => void;
-export default forEachEntry;
+export { forEachEntry };

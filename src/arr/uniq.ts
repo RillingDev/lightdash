@@ -12,4 +12,4 @@
  */
 const arrUniq = <T>(arr: T[]): T[] => Array.from(new Set(arr));
 
-export default arrUniq;
+export { arrUniq };

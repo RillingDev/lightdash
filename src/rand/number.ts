@@ -34,4 +34,4 @@ const randNumber = (
     return min + (floating ? rand : Math.floor(rand / diff * (diff + 1)));
 };
 
-export default randNumber;
+export { randNumber };

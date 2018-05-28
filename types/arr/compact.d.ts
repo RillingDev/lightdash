@@ -11,4 +11,4 @@
  * // => [1, 2, 3, 4, 5]
  */
 declare const arrCompact: <T>(arr: T[]) => T[];
-export default arrCompact;
+export { arrCompact };

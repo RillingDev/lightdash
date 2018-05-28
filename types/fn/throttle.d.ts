@@ -16,4 +16,4 @@
  * // function can only run every 500ms
  */
 declare const fnThrottle: (fn: (...args: any[]) => any, timeout: number, immediate?: boolean) => () => any;
-export default fnThrottle;
+export { fnThrottle };

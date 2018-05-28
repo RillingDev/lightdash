@@ -1,4 +1,4 @@
-import isNumber from "./number";
+import { isNumber } from "./number";
 
 /**
  * Checks if a value is a typed array.
@@ -21,4 +21,4 @@ import isNumber from "./number";
  */
 const isArrayTyped = (val: any): boolean => isNumber(val.BYTES_PER_ELEMENT);
 
-export default isArrayTyped;
+export { isArrayTyped };

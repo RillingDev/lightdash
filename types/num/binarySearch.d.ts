@@ -15,4 +15,4 @@
  * // => null
  */
 declare const numBinarySearch: (arr: number[], search: number) => number | null;
-export default numBinarySearch;
+export { numBinarySearch };

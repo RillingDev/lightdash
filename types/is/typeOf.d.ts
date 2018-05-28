@@ -22,4 +22,4 @@
  * // => false
  */
 declare const isTypeOf: (val: any, type: string) => boolean;
-export default isTypeOf;
+export { isTypeOf };

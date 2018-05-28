@@ -25,4 +25,4 @@
  */
 const isIndex = (val: any): boolean => Number.isInteger(val) && val >= 0;
 
-export default isIndex;
+export { isIndex };

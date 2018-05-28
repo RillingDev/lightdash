@@ -1,4 +1,4 @@
-import arrCount from "./count";
+import { arrCount } from "./count";
 
 /**
  * Returns an array of all elements that exist in the first array, but not any others.
@@ -22,4 +22,4 @@ const arrDifference = <T>(arr: T[], ...values: any[]): T[] => {
     return arr.filter(item => !valuesCounted.has(item));
 };
 
-export default arrDifference;
+export { arrDifference };

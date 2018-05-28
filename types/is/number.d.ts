@@ -28,4 +28,4 @@
  * // => false
  */
 declare const isNumber: (val: any) => boolean;
-export default isNumber;
+export { isNumber };

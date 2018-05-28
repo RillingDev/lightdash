@@ -21,4 +21,4 @@
  * // => false
  */
 declare const isArrayLike: (val: any) => boolean;
-export default isArrayLike;
+export { isArrayLike };

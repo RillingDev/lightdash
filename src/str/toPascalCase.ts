@@ -20,4 +20,4 @@ const strToPascalCase = (arr: string[]): string =>
         )
         .join("");
 
-export default strToPascalCase;
+export { strToPascalCase };

@@ -1,4 +1,4 @@
-import isInstanceOf from "./instanceOf";
+import { isInstanceOf } from "./instanceOf";
 
 /**
  * Checks if a value is a set.
@@ -18,4 +18,4 @@ import isInstanceOf from "./instanceOf";
  */
 const isSet = (val: any): boolean => isInstanceOf(val, Set);
 
-export default isSet;
+export { isSet };

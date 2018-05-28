@@ -18,4 +18,4 @@
  * // => false
  */
 declare const isRegExp: (val: any) => boolean;
-export default isRegExp;
+export { isRegExp };

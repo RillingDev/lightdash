@@ -1,4 +1,4 @@
-import isFunction from "./function";
+import { isFunction } from "./function";
 
 /**
  * Checks if a value is an arguments array-like.
@@ -22,4 +22,4 @@ import isFunction from "./function";
  */
 const isArguments = (val: any): boolean => isFunction(val.callee);
 
-export default isArguments;
+export { isArguments };

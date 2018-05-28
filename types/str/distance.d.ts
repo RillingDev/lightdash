@@ -18,4 +18,4 @@
  * // => 0
  */
 declare const strDistance: (str1: string, str2: string) => number;
-export default strDistance;
+export { strDistance };

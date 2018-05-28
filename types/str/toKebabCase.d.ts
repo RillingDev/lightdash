@@ -14,4 +14,4 @@
  * // => "fizz-buzz-bazz"
  */
 declare const strToKebabCase: (arr: string[]) => string;
-export default strToKebabCase;
+export { strToKebabCase };

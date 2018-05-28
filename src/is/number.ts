@@ -1,4 +1,4 @@
-import isTypeOf from "./typeOf";
+import { isTypeOf } from "./typeOf";
 
 /**
  * Checks if a value is a number.
@@ -31,4 +31,4 @@ import isTypeOf from "./typeOf";
  */
 const isNumber = (val: any): boolean => isTypeOf(val, "number");
 
-export default isNumber;
+export { isNumber };

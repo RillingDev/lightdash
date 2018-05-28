@@ -1,4 +1,4 @@
-import arrCompact from "../arr/compact";
+import { arrCompact } from "../arr/compact";
 
 /**
  * Creates an array of substrings from a PascalCase string.
@@ -33,4 +33,4 @@ const strFromPascalCase = (str: string): string[] => {
     return arrCompact(result);
 };
 
-export default strFromPascalCase;
+export { strFromPascalCase };

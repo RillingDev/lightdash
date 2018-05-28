@@ -1465,6 +1465,37 @@ const objDefaults = (obj, objDefault) => {
 };
 
 /**
+ * Recursively sets every nil property of object to the value from the default object.
+ *
+ * @function objDefaultsDeep
+ * @memberof Object
+ * @since 2.7.0
+ * @param {Object} obj
+ * @param {Object} objDefault
+ * @returns {Object}
+ * @example
+ * objDefaultsDeep({a: [1, 2], c: {f: "x"}}, {a: [1, 2, 3], b: 2, c: {f: "y"}})
+ * // => {a: [1, 2, 3], b: 2, c: {f: "x"}}
+ */
+const objDefaultsDeep = (obj, objDefault) => {
+    const result = isArray(obj)
+        ? Array.from(obj)
+        : objFrom(obj);
+    forEachEntry(objDefault, (keyDefault, valDefault) => {
+        const valGiven = obj[keyDefault];
+        if (isObjectLike(valDefault)) {
+            result[keyDefault] = isObjectLike(valGiven)
+                ? objDefaultsDeep(valGiven, valDefault)
+                : valDefault;
+        }
+        else {
+            result[keyDefault] = isUndefined(valGiven) ? valDefault : valGiven;
+        }
+    });
+    return result;
+};
+
+/**
  * Recursively maps each entry of an object and returns the result.
  *
  * @function objMapDeep
@@ -1498,37 +1529,6 @@ const objMapDeep = (obj, fn) => objMap(obj, (key, val, index, objNew) => isObjec
  * // b = {a: {b: 2, c: {a: 123, b: 20}}}
  */
 const objFromDeep = (obj) => objMapDeep(objFrom(obj), (key, val) => (isObjectLike(val) ? objFrom(val) : val));
-
-/**
- * Recursively sets every nil property of object to the value from the default object.
- *
- * @function objDefaultsDeep
- * @memberof Object
- * @since 2.7.0
- * @param {Object} obj
- * @param {Object} objDefault
- * @returns {Object}
- * @example
- * objDefaultsDeep({a: [1, 2], c: {f: "x"}}, {a: [1, 2, 3], b: 2, c: {f: "y"}})
- * // => {a: [1, 2, 3], b: 2, c: {f: "x"}}
- */
-const objDefaultsDeep = (obj, objDefault) => {
-    const result = isArray(obj)
-        ? Array.from(obj)
-        : objFromDeep(obj);
-    forEachEntry(objDefault, (keyDefault, valDefault) => {
-        const valGiven = obj[keyDefault];
-        if (isObjectLike(valDefault)) {
-            result[keyDefault] = isObjectLike(valGiven)
-                ? objDefaultsDeep(valGiven, valDefault)
-                : valDefault;
-        }
-        else {
-            result[keyDefault] = isUndefined(valGiven) ? valDefault : valGiven;
-        }
-    });
-    return result;
-};
 
 /**
  * Creates a map from an object.

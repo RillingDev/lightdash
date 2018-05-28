@@ -15,4 +15,4 @@
  * // => [1, 3]
  */
 declare const arrDifference: <T>(arr: T[], ...values: any[]) => T[];
-export default arrDifference;
+export { arrDifference };

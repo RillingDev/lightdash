@@ -1,8 +1,8 @@
-import isArrayLike from "../is/arrayLike";
-import isNil from "../is/nil";
-import isObjectLike from "../is/objectLike";
-import isString from "../is/string";
-import isUndefined from "../is/undefined";
+import { isArrayLike } from "../is/arrayLike";
+import { isNil } from "../is/nil";
+import { isObjectLike } from "../is/objectLike";
+import { isString } from "../is/string";
+import { isUndefined } from "../is/undefined";
 
 /**
  * Gets size of a value.
@@ -49,4 +49,4 @@ const getSize = (val: any): number => {
     return -1;
 };
 
-export default getSize;
+export { getSize };

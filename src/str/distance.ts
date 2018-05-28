@@ -73,4 +73,4 @@ const strDistance = (str1: string, str2: string): number => {
     return matrix[str2Length][str1Length];
 };
 
-export default strDistance;
+export { strDistance };

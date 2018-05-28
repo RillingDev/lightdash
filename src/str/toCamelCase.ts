@@ -24,4 +24,4 @@ const strToCamelCase = (arr: string[]): string =>
         )
         .join("");
 
-export default strToCamelCase;
+export { strToCamelCase };

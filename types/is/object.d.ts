@@ -21,4 +21,4 @@
  * // => false
  */
 declare const isObject: (val: any) => boolean;
-export default isObject;
+export { isObject };

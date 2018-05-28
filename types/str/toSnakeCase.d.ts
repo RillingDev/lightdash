@@ -14,4 +14,4 @@
  * // => "fizz_buzz_bazz"
  */
 declare const strToSnakeCase: (arr: string[]) => string;
-export default strToSnakeCase;
+export { strToSnakeCase };

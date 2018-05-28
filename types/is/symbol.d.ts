@@ -18,4 +18,4 @@
  * // => false
  */
 declare const isSymbol: (val: any) => boolean;
-export default isSymbol;
+export { isSymbol };

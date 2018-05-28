@@ -28,4 +28,4 @@ const arrCollect = <T>(arr: T[], fn: forEachMapper<T, any>): Map<any, T[]> => {
     return result;
 };
 
-export default arrCollect;
+export { arrCollect };

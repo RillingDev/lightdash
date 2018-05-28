@@ -15,4 +15,4 @@
  * // => false
  */
 declare const isArrayBuffer: (val: any) => boolean;
-export default isArrayBuffer;
+export { isArrayBuffer };

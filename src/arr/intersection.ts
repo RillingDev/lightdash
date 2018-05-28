@@ -1,4 +1,4 @@
-import arrCount from "./count";
+import { arrCount } from "./count";
 
 /**
  * Returns an array of all elements that exist in the first array and at least once in one of the other arrays.
@@ -22,4 +22,4 @@ const arrIntersection = <T>(arr: T[], ...values: any[]): T[] => {
     return arr.filter(item => valuesCounted.has(item));
 };
 
-export default arrIntersection;
+export { arrIntersection };

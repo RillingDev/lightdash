@@ -1,6 +1,6 @@
-import isObjectLike from "../is/objectLike";
+import { isObjectLike } from "../is/objectLike";
 import { forEachEntryIterator } from "../types";
-import forEachEntry from "./eachEntry";
+import { forEachEntry } from "./eachEntry";
 
 /**
  * Recursively iterates over each entry of an object.
@@ -24,4 +24,4 @@ const forEachEntryDeep = (obj: object, fn: forEachEntryIterator<any>): void =>
                 : fn(key, val, index, obj)
     );
 
-export default forEachEntryDeep;
+export { forEachEntryDeep };

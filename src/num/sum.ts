@@ -12,4 +12,4 @@
  */
 const numSum = (arr: number[]): number => arr.reduce((a, b) => a + b);
 
-export default numSum;
+export { numSum };

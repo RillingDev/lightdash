@@ -13,4 +13,4 @@
 const mapFromObject = (obj: object): Map<string, any> =>
     new Map(Object.entries(obj));
 
-export default mapFromObject;
+export { mapFromObject };

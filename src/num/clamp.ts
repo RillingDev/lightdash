@@ -28,4 +28,4 @@ const numClamp = (val: number, min: number, max: number): number => {
     return val;
 };
 
-export default numClamp;
+export { numClamp };

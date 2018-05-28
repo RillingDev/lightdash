@@ -1,4 +1,4 @@
-import strFromPascalCase from "./fromPascalCase";
+import { strFromPascalCase } from "./fromPascalCase";
 
 /**
  * Creates an array of substrings from a camelCase string.
@@ -17,4 +17,4 @@ import strFromPascalCase from "./fromPascalCase";
  */
 const strFromCamelCase = strFromPascalCase;
 
-export default strFromCamelCase;
+export { strFromCamelCase };

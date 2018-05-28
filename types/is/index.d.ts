@@ -24,4 +24,4 @@
  * // => false
  */
 declare const isIndex: (val: any) => boolean;
-export default isIndex;
+export { isIndex };

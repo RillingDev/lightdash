@@ -13,4 +13,4 @@ import { forEachEntryMapper } from "../types";
  * // => {a: 8, b: 4}
  */
 declare const objMap: (obj: object, fn: forEachEntryMapper<any, any>) => object;
-export default objMap;
+export { objMap };

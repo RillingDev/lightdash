@@ -13,4 +13,4 @@ import { forEachIterator } from "../types";
  * // a = [0, 4, [0, 1, [0], 12]]
  */
 declare const forEachDeep: <T>(arr: T[], fn: forEachIterator<T>) => void;
-export default forEachDeep;
+export { forEachDeep };

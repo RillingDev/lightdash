@@ -25,4 +25,4 @@
  * // => false
  */
 declare const isUndefined: (val: any) => boolean;
-export default isUndefined;
+export { isUndefined };

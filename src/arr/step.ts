@@ -14,4 +14,4 @@
 const arrStep = <T>(arr: T[], step: number): T[] =>
     arr.filter((val, index) => index % step === 0);
 
-export default arrStep;
+export { arrStep };

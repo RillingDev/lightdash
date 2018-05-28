@@ -1,4 +1,4 @@
-import isInstanceOf from "./instanceOf";
+import { isInstanceOf } from "./instanceOf";
 
 /**
  * Checks if a value is a map.
@@ -18,4 +18,4 @@ import isInstanceOf from "./instanceOf";
  */
 const isMap = (val: any): boolean => isInstanceOf(val, Map);
 
-export default isMap;
+export { isMap };

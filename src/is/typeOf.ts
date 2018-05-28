@@ -23,4 +23,4 @@
  */
 const isTypeOf = (val: any, type: string): boolean => typeof val === type;
 
-export default isTypeOf;
+export { isTypeOf };

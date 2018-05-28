@@ -1,5 +1,5 @@
-import isArray from "../is/array";
-import arrMapDeep from "./mapDeep";
+import { isArray } from "../is/array";
+import { arrMapDeep } from "./mapDeep";
 
 /**
  * Recursively creates a new array with the values of the input iterable.
@@ -20,4 +20,4 @@ import arrMapDeep from "./mapDeep";
 const arrFromDeep = <T>(arr: T[]): T[] =>
     arrMapDeep(Array.from(arr), val => (isArray(val) ? Array.from(val) : val));
 
-export default arrFromDeep;
+export { arrFromDeep };

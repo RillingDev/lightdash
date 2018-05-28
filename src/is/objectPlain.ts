@@ -1,4 +1,4 @@
-import isObject from "./object";
+import { isObject } from "./object";
 
 /**
  * Checks if a value is a plain object.
@@ -24,4 +24,4 @@ import isObject from "./object";
 const isObjectPlain = (val: any): boolean =>
     isObject(val) && val.constructor === Object;
 
-export default isObjectPlain;
+export { isObjectPlain };

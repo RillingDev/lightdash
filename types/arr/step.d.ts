@@ -12,4 +12,4 @@
  * // => [1, 3, 5]
  */
 declare const arrStep: <T>(arr: T[], step: number) => T[];
-export default arrStep;
+export { arrStep };

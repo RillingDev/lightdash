@@ -1,7 +1,7 @@
 import { ITypedObject } from "../interfaces";
-import isObjectLike from "../is/objectLike";
+import { isObjectLike } from "../is/objectLike";
 import { forEachEntryMapper } from "../types";
-import objMap from "./map";
+import { objMap } from "./map";
 
 /**
  * Replaces every circular reference in an object.
@@ -48,4 +48,4 @@ const objDecycle = (
     });
 };
 
-export default objDecycle;
+export { objDecycle };

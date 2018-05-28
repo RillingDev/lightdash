@@ -14,4 +14,4 @@
  * // => 3
  */
 declare const randItem: <T>(arr: T[]) => T;
-export default randItem;
+export { randItem };

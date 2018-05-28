@@ -20,4 +20,4 @@
  * // => false
  */
 declare const isObjectPlain: (val: any) => boolean;
-export default isObjectPlain;
+export { isObjectPlain };

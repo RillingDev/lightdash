@@ -1,6 +1,6 @@
-import isObjectLike from "../is/objectLike";
+import { isObjectLike } from "../is/objectLike";
 import { forEachEntryMapper } from "../types";
-import objMap from "./map";
+import { objMap } from "./map";
 
 /**
  * Recursively maps each entry of an object and returns the result.
@@ -24,4 +24,4 @@ const objMapDeep = (obj: object, fn: forEachEntryMapper<any, any>): object =>
                 : fn(key, val, index, objNew)
     );
 
-export default objMapDeep;
+export { objMapDeep };

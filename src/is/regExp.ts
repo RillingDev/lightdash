@@ -1,4 +1,4 @@
-import isInstanceOf from "./instanceOf";
+import { isInstanceOf } from "./instanceOf";
 
 /**
  * Checks if a value is a regular expression.
@@ -22,4 +22,4 @@ import isInstanceOf from "./instanceOf";
 // @ts-ignore: RegExp declaration is invalid
 const isRegExp = (val: any): boolean => isInstanceOf(val, RegExp);
 
-export default isRegExp;
+export { isRegExp };

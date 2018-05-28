@@ -14,4 +14,4 @@
  * // => "FizzBuzzBazz"
  */
 declare const strToPascalCase: (arr: string[]) => string;
-export default strToPascalCase;
+export { strToPascalCase };

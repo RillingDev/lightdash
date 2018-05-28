@@ -20,4 +20,4 @@
  * // => 10
  */
 declare const getPath: (target: any, path: string[]) => any;
-export default getPath;
+export { getPath };

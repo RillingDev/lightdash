@@ -15,4 +15,4 @@
  * // => false
  */
 declare const isString: (val: any) => boolean;
-export default isString;
+export { isString };

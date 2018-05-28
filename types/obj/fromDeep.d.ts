@@ -15,4 +15,4 @@
  * // b = {a: {b: 2, c: {a: 123, b: 20}}}
  */
 declare const objFromDeep: (obj: object) => object;
-export default objFromDeep;
+export { objFromDeep };

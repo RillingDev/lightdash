@@ -11,4 +11,4 @@
  * // => 2.2666
  */
 declare const numAverage: (arr: number[]) => number;
-export default numAverage;
+export { numAverage };

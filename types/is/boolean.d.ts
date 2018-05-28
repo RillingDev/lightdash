@@ -24,4 +24,4 @@
  * // => false
  */
 declare const isBoolean: (val: any) => boolean;
-export default isBoolean;
+export { isBoolean };

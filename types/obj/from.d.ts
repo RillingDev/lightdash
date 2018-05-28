@@ -15,4 +15,4 @@
  * // b = {a: 10, b: 2}
  */
 declare const objFrom: (obj: object) => object;
-export default objFrom;
+export { objFrom };

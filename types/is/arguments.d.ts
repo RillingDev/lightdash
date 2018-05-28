@@ -19,4 +19,4 @@
  * // => false
  */
 declare const isArguments: (val: any) => boolean;
-export default isArguments;
+export { isArguments };

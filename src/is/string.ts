@@ -1,4 +1,4 @@
-import isTypeOf from "./typeOf";
+import { isTypeOf } from "./typeOf";
 
 /**
  * Checks if a value is a string.
@@ -18,4 +18,4 @@ import isTypeOf from "./typeOf";
  */
 const isString = (val: any): boolean => isTypeOf(val, "string");
 
-export default isString;
+export { isString };

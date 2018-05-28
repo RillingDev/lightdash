@@ -1,5 +1,5 @@
-import arrCollect from "../arr/collect";
-import strDistance from "./distance";
+import { arrCollect } from "../arr/collect";
+import { strDistance } from "./distance";
 
 /**
  * Returns strings similar to the input based on the list given.
@@ -38,4 +38,4 @@ const strSimilar = (
         : <string[]>result.get(Math.min(...result.keys()));
 };
 
-export default strSimilar;
+export { strSimilar };

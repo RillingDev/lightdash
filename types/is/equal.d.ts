@@ -28,4 +28,4 @@
  * // => false
  */
 declare const isEqual: (a: any, b: any) => boolean;
-export default isEqual;
+export { isEqual };

@@ -11,4 +11,4 @@
  * // => Map<any, number>{1: 4, 2: 2, 3: 1, 4: 1}
  */
 declare const arrCount: <T>(arr: T[]) => Map<T, number>;
-export default arrCount;
+export { arrCount };

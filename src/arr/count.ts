@@ -20,4 +20,4 @@ const arrCount = <T>(arr: T[]): Map<T, number> => {
     return result;
 };
 
-export default arrCount;
+export { arrCount };

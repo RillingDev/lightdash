@@ -1,4 +1,4 @@
-import randNumber from "./number";
+import { randNumber } from "./number";
 
 /**
  * Return a random item from an array.
@@ -17,4 +17,4 @@ import randNumber from "./number";
  */
 const randItem = <T>(arr: T[]): T => arr[randNumber(0, arr.length - 1)];
 
-export default randItem;
+export { randItem };

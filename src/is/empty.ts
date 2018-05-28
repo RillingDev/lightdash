@@ -1,4 +1,4 @@
-import getSize from "../get/size";
+import { getSize } from "../get/size";
 
 /**
  * Checks if a value is empty.
@@ -44,4 +44,4 @@ import getSize from "../get/size";
  */
 const isEmpty = (val: any): boolean => getSize(val) < 1;
 
-export default isEmpty;
+export { isEmpty };

@@ -1,8 +1,8 @@
-import forEachEntry from "../for/eachEntry";
+import { forEachEntry } from "../for/eachEntry";
 import { ITypedObject } from "../interfaces";
-import isArray from "../is/array";
-import isUndefined from "../is/undefined";
-import objFrom from "./from";
+import { isArray } from "../is/array";
+import { isUndefined } from "../is/undefined";
+import { objFrom } from "./from";
 
 /**
  * Sets every nil property of object to the value from the default object.
@@ -31,4 +31,4 @@ const objDefaults = (obj: ITypedObject<any>, objDefault: object): object => {
     return result;
 };
 
-export default objDefaults;
+export { objDefaults };

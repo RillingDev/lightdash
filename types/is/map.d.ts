@@ -15,4 +15,4 @@
  * // => false
  */
 declare const isMap: (val: any) => boolean;
-export default isMap;
+export { isMap };

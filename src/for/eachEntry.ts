@@ -19,4 +19,4 @@ const forEachEntry = (obj: object, fn: forEachEntryIterator<any>): void => {
     });
 };
 
-export default forEachEntry;
+export { forEachEntry };

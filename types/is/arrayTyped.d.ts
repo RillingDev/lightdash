@@ -18,4 +18,4 @@
  * // => false
  */
 declare const isArrayTyped: (val: any) => boolean;
-export default isArrayTyped;
+export { isArrayTyped };

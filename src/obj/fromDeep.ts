@@ -1,6 +1,6 @@
-import isObjectLike from "../is/objectLike";
-import objFrom from "./from";
-import objMapDeep from "./mapDeep";
+import { isObjectLike } from "../is/objectLike";
+import { objFrom } from "./from";
+import { objMapDeep } from "./mapDeep";
 
 /**
  * Recursively creates a new object with the entries of the input object.
@@ -24,4 +24,4 @@ const objFromDeep = (obj: object): object =>
         (key, val) => (isObjectLike(val) ? objFrom(val) : val)
     );
 
-export default objFromDeep;
+export { objFromDeep };

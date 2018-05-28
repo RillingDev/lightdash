@@ -1,5 +1,5 @@
-import arrCompact from "../arr/compact";
-import delimiters from "./lib/delimiters";
+import { arrCompact } from "../arr/compact";
+import { delimiters } from "./lib/delimiters";
 
 /**
  * Creates an array of substrings from a kebab-case string.
@@ -19,4 +19,4 @@ import delimiters from "./lib/delimiters";
 const strFromKebabCase = (str: string): string[] =>
     arrCompact(str.split(delimiters.kebab));
 
-export default strFromKebabCase;
+export { strFromKebabCase };

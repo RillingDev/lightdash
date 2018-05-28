@@ -19,4 +19,4 @@
  * // => 6.23132496
  */
 declare const randNumber: (min?: number, max?: number, floating?: boolean) => number;
-export default randNumber;
+export { randNumber };

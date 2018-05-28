@@ -25,4 +25,4 @@
  * // => RangeError
  */
 declare const fnAttempt: <T>(fn: (...args: any[]) => T, ...args: any[]) => T | Error;
-export default fnAttempt;
+export { fnAttempt };

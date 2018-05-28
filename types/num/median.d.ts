@@ -14,4 +14,4 @@
  * // => 3
  */
 declare const numMedian: (arr: number[]) => number;
-export default numMedian;
+export { numMedian };

@@ -1,6 +1,6 @@
-import forEachEntry from "../for/eachEntry";
-import isObjectLike from "./objectLike";
-import isUndefined from "./undefined";
+import { forEachEntry } from "../for/eachEntry";
+import { isObjectLike } from "./objectLike";
+import { isUndefined } from "./undefined";
 
 /**
  * Recursively checks if two items and their the contents are equal.
@@ -60,4 +60,4 @@ const isEqual = (a: any, b: any): boolean => {
     return result;
 };
 
-export default isEqual;
+export { isEqual };

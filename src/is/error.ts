@@ -1,4 +1,4 @@
-import isInstanceOf from "./instanceOf";
+import { isInstanceOf } from "./instanceOf";
 
 /**
  * Checks if a value is an error.
@@ -21,4 +21,4 @@ import isInstanceOf from "./instanceOf";
  */
 const isError = (val: any): boolean => isInstanceOf(val, Error);
 
-export default isError;
+export { isError };

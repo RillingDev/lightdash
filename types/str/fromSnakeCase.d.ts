@@ -14,4 +14,4 @@
  * // => ["Fizz","buzz","BaZZ"]
  */
 declare const strFromSnakeCase: (str: string) => string[];
-export default strFromSnakeCase;
+export { strFromSnakeCase };

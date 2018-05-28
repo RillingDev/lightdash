@@ -1,5 +1,5 @@
-import isUndefined from "../is/undefined";
-import isObjectLike from "./objectLike";
+import { isUndefined } from "../is/undefined";
+import { isObjectLike } from "./objectLike";
 
 /**
  * Checks if a value is object-like and has a length property.
@@ -26,4 +26,4 @@ import isObjectLike from "./objectLike";
 const isArrayLike = (val: any): boolean =>
     isObjectLike(val) && !isUndefined(val.length);
 
-export default isArrayLike;
+export { isArrayLike };

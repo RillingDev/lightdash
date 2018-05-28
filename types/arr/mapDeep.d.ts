@@ -13,4 +13,4 @@ import { forEachMapper } from "../types";
  * // => [4, 8, [2, 2, [32], 8]]
  */
 declare const arrMapDeep: <T>(arr: T[], fn: forEachMapper<T, any>) => any[];
-export default arrMapDeep;
+export { arrMapDeep };

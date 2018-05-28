@@ -1,4 +1,4 @@
-import isInstanceOf from "./instanceOf";
+import { isInstanceOf } from "./instanceOf";
 
 /**
  * Checks if a value is an array-buffer.
@@ -19,4 +19,4 @@ import isInstanceOf from "./instanceOf";
 // @ts-ignore: ArrayBuffer declaration is invalid
 const isArrayBuffer = (val: any): boolean => isInstanceOf(val, ArrayBuffer);
 
-export default isArrayBuffer;
+export { isArrayBuffer };

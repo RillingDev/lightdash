@@ -15,4 +15,4 @@
  * // => false
  */
 declare const isSet: (val: any) => boolean;
-export default isSet;
+export { isSet };

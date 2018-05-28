@@ -14,4 +14,4 @@
  * // => ["Fizz","Buzz","Bazz"]
  */
 declare const strFromPascalCase: (str: string) => string[];
-export default strFromPascalCase;
+export { strFromPascalCase };

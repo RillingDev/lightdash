@@ -19,4 +19,4 @@
  * // => 10
  */
 declare const numClamp: (val: number, min: number, max: number) => number;
-export default numClamp;
+export { numClamp };

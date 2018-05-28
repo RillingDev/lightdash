@@ -12,4 +12,4 @@
  */
 const arrCompact = <T>(arr: T[]): T[] => arr.filter((val: T) => val);
 
-export default arrCompact;
+export { arrCompact };

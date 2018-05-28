@@ -1,4 +1,4 @@
-import forEachEntry from "../for/eachEntry";
+import { forEachEntry } from "../for/eachEntry";
 import { ITypedObject } from "../interfaces";
 import { forEachEntryMapper } from "../types";
 
@@ -25,4 +25,4 @@ const objMap = (obj: object, fn: forEachEntryMapper<any, any>): object => {
     return objNew;
 };
 
-export default objMap;
+export { objMap };

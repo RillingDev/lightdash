@@ -13,4 +13,4 @@
  * // => [3,1,2]
  */
 declare const randShuffle: <T>(arr: T[]) => T[];
-export default randShuffle;
+export { randShuffle };

@@ -18,4 +18,4 @@
  * // => false
  */
 declare const isError: (val: any) => boolean;
-export default isError;
+export { isError };

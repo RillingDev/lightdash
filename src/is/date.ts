@@ -1,4 +1,4 @@
-import isInstanceOf from "./instanceOf";
+import { isInstanceOf } from "./instanceOf";
 
 /**
  * Checks if a value is a date object.
@@ -21,4 +21,4 @@ import isInstanceOf from "./instanceOf";
  */
 const isDate = (val: any): boolean => isInstanceOf(val, Date);
 
-export default isDate;
+export { isDate };

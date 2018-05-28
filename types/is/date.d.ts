@@ -18,4 +18,4 @@
  * // => false
  */
 declare const isDate: (val: any) => boolean;
-export default isDate;
+export { isDate };

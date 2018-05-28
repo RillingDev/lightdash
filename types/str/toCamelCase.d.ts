@@ -14,4 +14,4 @@
  * // => "fizzBuzzBazz"
  */
 declare const strToCamelCase: (arr: string[]) => string;
-export default strToCamelCase;
+export { strToCamelCase };

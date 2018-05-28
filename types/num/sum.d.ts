@@ -11,4 +11,4 @@
  * // => 6.8
  */
 declare const numSum: (arr: number[]) => number;
-export default numSum;
+export { numSum };

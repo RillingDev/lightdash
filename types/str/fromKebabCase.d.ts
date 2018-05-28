@@ -14,4 +14,4 @@
  * // => ["Fizz","buzz","BaZZ"]
  */
 declare const strFromKebabCase: (str: string) => string[];
-export default strFromKebabCase;
+export { strFromKebabCase };

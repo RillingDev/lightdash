@@ -1,4 +1,4 @@
-import isArray from "../is/array";
+import { isArray } from "../is/array";
 import { forEachIterator } from "../types";
 
 /**
@@ -20,4 +20,4 @@ const forEachDeep = <T>(arr: T[], fn: forEachIterator<T>): void =>
             isArray(val) ? forEachDeep(val, fn) : fn(val, index, arr)
     );
 
-export default forEachDeep;
+export { forEachDeep };

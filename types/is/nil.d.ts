@@ -21,4 +21,4 @@
  * // => false
  */
 declare const isNil: (val: any) => boolean;
-export default isNil;
+export { isNil };

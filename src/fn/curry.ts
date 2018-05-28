@@ -42,4 +42,4 @@ const fnCurry = (fn: (...args: any[]) => any, arity: number = fn.length) => {
     return resolver();
 };
 
-export default fnCurry;
+export { fnCurry };

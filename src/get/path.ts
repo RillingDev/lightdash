@@ -1,4 +1,4 @@
-import isUndefined from "../is/undefined";
+import { isUndefined } from "../is/undefined";
 
 /**
  * Returns a targets value in a given path.
@@ -39,4 +39,4 @@ const getPath = (target: any, path: string[]): null | any => {
     return targetCurrent;
 };
 
-export default getPath;
+export { getPath };

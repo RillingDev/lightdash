@@ -1,5 +1,5 @@
-import getPath from "../get/path";
-import isNil from "../is/nil";
+import { getPath } from "../get/path";
+import { isNil } from "../is/nil";
 
 /**
  * Checks if a target has a given path.
@@ -36,4 +36,4 @@ import isNil from "../is/nil";
 const hasPath = (target: any, path: string[]): boolean =>
     !isNil(getPath(target, path));
 
-export default hasPath;
+export { hasPath };

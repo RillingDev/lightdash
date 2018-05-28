@@ -1,4 +1,4 @@
-import isFunction from "./function";
+import { isFunction } from "./function";
 
 /**
  * Checks if a value is a promise.
@@ -21,4 +21,4 @@ import isFunction from "./function";
 const isPromise = (val: any): boolean =>
     isFunction(val.then) && isFunction(val.catch);
 
-export default isPromise;
+export { isPromise };

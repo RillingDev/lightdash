@@ -13,4 +13,4 @@ import { forEachMapper } from "../types";
  * // => Map<any, any[]>{0: [2, 4], 1: [1, 3, 5]}
  */
 declare const arrCollect: <T>(arr: T[], fn: forEachMapper<T, any>) => Map<any, T[]>;
-export default arrCollect;
+export { arrCollect };

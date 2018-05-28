@@ -14,4 +14,4 @@
 const arrRemoveIndex = <T>(arr: T[], targetIndex: number): T[] =>
     arr.filter((val, index) => index !== targetIndex);
 
-export default arrRemoveIndex;
+export { arrRemoveIndex };

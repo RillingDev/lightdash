@@ -40,4 +40,4 @@ const fnThrottle = (
     };
 };
 
-export default fnThrottle;
+export { fnThrottle };

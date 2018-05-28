@@ -16,4 +16,4 @@
  */
 const objFrom = (obj: object): object => Object.assign({}, obj);
 
-export default objFrom;
+export { objFrom };

@@ -1,4 +1,4 @@
-import isIndex from "../is/index";
+import { isIndex } from "../is/index";
 
 /**
  * Creates an array of elements split into groups by size.
@@ -30,4 +30,4 @@ const arrChunk = <T>(arr: T[], chunk: number): T[][] => {
     return result;
 };
 
-export default arrChunk;
+export { arrChunk };

@@ -15,4 +15,4 @@
  * // b = [1, 2, 3, [5, [10]]]
  */
 declare const arrFromDeep: <T>(arr: T[]) => T[];
-export default arrFromDeep;
+export { arrFromDeep };
