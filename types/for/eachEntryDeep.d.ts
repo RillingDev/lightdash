@@ -1,4 +1,4 @@
-import { forEachEntryIterator } from "../types";
+import { forEachEntryIterator } from "./lib/iterators";
 /**
  * Recursively iterates over each entry of an object.
  *

@@ -1,6 +1,6 @@
-import { ITypedObject } from "../interfaces";
+import { forEachEntryMapper } from "../for/lib/iterators";
 import { isObjectLike } from "../is/objectLike";
-import { forEachEntryMapper } from "../types";
+import { ITypedObject } from "./lib/typedObject";
 import { objMap } from "./map";
 
 /**

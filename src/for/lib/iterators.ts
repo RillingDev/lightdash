@@ -1,4 +1,4 @@
-import { ITypedObject } from "./interfaces";
+import { ITypedObject } from "../../obj/lib/typedObject";
 
 type forEachIterator<T> = (val: T, index: number, arr: T[]) => void;
 type forEachMapper<T, U> = (val: T, index: number, arr: T[]) => U;

@@ -1,4 +1,4 @@
-import { forEachMapper } from "../types";
+import { forEachMapper } from "../for/lib/iterators";
 /**
  * Recursively maps the values of the input array with the iterator function and return the result.
  *

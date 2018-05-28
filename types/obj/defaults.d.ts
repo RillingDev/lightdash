@@ -1,4 +1,4 @@
-import { ITypedObject } from "../interfaces";
+import { ITypedObject } from "./lib/typedObject";
 /**
  * Sets every nil property of object to the value from the default object.
  *

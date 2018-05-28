@@ -1,5 +1,5 @@
-import { ITypedObject } from "../interfaces";
-import { forEachEntryMapper } from "../types";
+import { forEachEntryMapper } from "../for/lib/iterators";
+import { ITypedObject } from "./lib/typedObject";
 /**
  * Replaces every circular reference in an object.
  *

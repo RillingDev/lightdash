@@ -1,4 +1,4 @@
-import { forEachIterator } from "../types";
+import { forEachIterator } from "./lib/iterators";
 /**
  * Recursively iterates over each element in an array.
  *

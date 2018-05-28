@@ -1,4 +1,4 @@
-import { forEachMapper } from "../types";
+import { forEachMapper } from "../for/lib/iterators";
 
 /**
  * Collects the values of an array in a Map as arrays.

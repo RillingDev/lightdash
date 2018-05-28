@@ -1,4 +1,4 @@
-import { forEachEntryMapper } from "../types";
+import { forEachEntryMapper } from "../for/lib/iterators";
 /**
  * Maps each entry of an object and returns the result.
  *
