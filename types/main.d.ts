@@ -72,3 +72,47 @@ import { randItem } from "./rand/item";
 import { randNumber } from "./rand/number";
 import { randShuffle } from "./rand/shuffle";
 export { isEqual, isInstanceOf, isTypeOf, isUndefined, isNil, isNumber, isString, isBoolean, isSymbol, isObject, isObjectLike, isObjectPlain, isArray, isArrayLike, isArrayBuffer, isArrayTyped, isPromise, isMap, isSet, isDate, isRegExp, isFunction, isArguments, isError, isEmpty, isIndex, hasPath, getPath, getSize, numClamp, numSum, numAverage, numMedian, numBinarySearch, strDistance, strSimilar, strFromCamelCase, strFromKebabCase, strFromPascalCase, strFromSnakeCase, strToCamelCase, strToKebabCase, strToPascalCase, strToSnakeCase, arrFromDeep, arrMapDeep, arrCompact, arrChunk, arrStep, arrRemoveIndex, arrRemoveItem, arrCount, arrCollect, arrDifference, arrIntersection, arrUniq, objFrom, objFromDeep, objMap, objMapDeep, objDefaults, objDefaultsDeep, objDecycle, mapFromObject, fnThrottle, fnAttempt, fnCurry, forEachDeep, forEachEntry, forEachEntryDeep, randNumber, randItem, randShuffle };
+/**
+ * Value checking, type checking, and comparison
+ * @namespace Is
+ */
+/**
+ * Check if a target has something
+ * @namespace Has
+ */
+/**
+ * Get value from a target
+ * @namespace Get
+ */
+/**
+ * Number manipulation and comparison
+ * @namespace Number
+ */
+/**
+ * String manipulation and comparison
+ * @namespace String
+ */
+/**
+ * Array manipulation and analysis
+ * @namespace Array
+ */
+/**
+ * Object manipulation and analysis
+ * @namespace Object
+ */
+/**
+ * Map manipulation
+ * @namespace Map
+ */
+/**
+ * Function manipulation
+ * @namespace Fn
+ */
+/**
+ * Looping through ranges, arrays and objects
+ * @namespace For
+ */
+/**
+ * Random number generation and value picking
+ * @namespace Random
+ */

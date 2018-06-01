@@ -1,5 +1,5 @@
 declare const enum delimiters {
     kebab = "-",
-    snake = "_",
+    snake = "_"
 }
 export { delimiters };
