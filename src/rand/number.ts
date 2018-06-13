@@ -31,7 +31,7 @@ const randNumber = (
 
     const rand = Math.random() * diff;
 
-    return min + (floating ? rand : Math.floor(rand / diff * (diff + 1)));
+    return min + (floating ? rand : Math.floor((rand / diff) * (diff + 1)));
 };
 
 export { randNumber };

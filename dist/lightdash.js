@@ -189,7 +189,7 @@ var _l = (function (exports) {
      * isNil("")
      * // => false
      */
-    const isNil = (val) => isUndefined(val) || val === null;
+    const isNil = (val) => val == null;
 
     /**
      * Checks if a value is not nil and has a type of object.
@@ -588,6 +588,27 @@ var _l = (function (exports) {
      * // => false
      */
     const isMap = (val) => isInstanceOf(val, Map);
+
+    /**
+     * Checks if a value is null.
+     *
+     * @function isNull
+     * @memberof Is
+     * @since 7.1.0
+     * @param {any} val
+     * @returns {boolean}
+     * @example
+     * isNull(null)
+     * // => true
+     *
+     * @example
+     * isNull(0)
+     * // => false
+     *
+     * isNull(undefined)
+     * // => false
+     */
+    const isNull = (val) => val === null;
 
     /**
      * Checks if a value is an object.
@@ -1715,7 +1736,7 @@ var _l = (function (exports) {
             return min;
         }
         const rand = Math.random() * diff;
-        return min + (floating ? rand : Math.floor(rand / diff * (diff + 1)));
+        return min + (floating ? rand : Math.floor((rand / diff) * (diff + 1)));
     };
 
     /**
@@ -1810,6 +1831,7 @@ var _l = (function (exports) {
     exports.isInstanceOf = isInstanceOf;
     exports.isTypeOf = isTypeOf;
     exports.isUndefined = isUndefined;
+    exports.isNull = isNull;
     exports.isNil = isNil;
     exports.isNumber = isNumber;
     exports.isString = isString;

@@ -186,7 +186,7 @@ const isUndefined = (val) => isTypeOf(val, "undefined");
  * isNil("")
  * // => false
  */
-const isNil = (val) => isUndefined(val) || val === null;
+const isNil = (val) => val == null;
 
 /**
  * Checks if a value is not nil and has a type of object.
@@ -585,6 +585,27 @@ const isIndex = (val) => Number.isInteger(val) && val >= 0;
  * // => false
  */
 const isMap = (val) => isInstanceOf(val, Map);
+
+/**
+ * Checks if a value is null.
+ *
+ * @function isNull
+ * @memberof Is
+ * @since 7.1.0
+ * @param {any} val
+ * @returns {boolean}
+ * @example
+ * isNull(null)
+ * // => true
+ *
+ * @example
+ * isNull(0)
+ * // => false
+ *
+ * isNull(undefined)
+ * // => false
+ */
+const isNull = (val) => val === null;
 
 /**
  * Checks if a value is an object.
@@ -1712,7 +1733,7 @@ const randNumber = (min = 0, max = 1, floating = false) => {
         return min;
     }
     const rand = Math.random() * diff;
-    return min + (floating ? rand : Math.floor(rand / diff * (diff + 1)));
+    return min + (floating ? rand : Math.floor((rand / diff) * (diff + 1)));
 };
 
 /**
@@ -1803,4 +1824,4 @@ const randShuffle = (arr) => {
  * @namespace Random
  */
 
-export { isEqual, isInstanceOf, isTypeOf, isUndefined, isNil, isNumber, isString, isBoolean, isSymbol, isObject, isObjectLike, isObjectPlain, isArray, isArrayLike, isArrayBuffer, isArrayTyped, isPromise, isMap, isSet, isDate, isRegExp, isFunction, isArguments, isError, isEmpty, isIndex, hasPath, getPath, getSize, numClamp, numSum, numAverage, numMedian, numBinarySearch, strDistance, strSimilar, strFromCamelCase, strFromKebabCase, strFromPascalCase, strFromSnakeCase, strToCamelCase, strToKebabCase, strToPascalCase, strToSnakeCase, arrFromDeep, arrMapDeep, arrCompact, arrChunk, arrStep, arrRemoveIndex, arrRemoveItem, arrCount, arrCollect, arrDifference, arrIntersection, arrUniq, objFrom, objFromDeep, objMap, objMapDeep, objDefaults, objDefaultsDeep, objDecycle, mapFromObject, fnThrottle, fnAttempt, fnCurry, forEachDeep, forEachEntry, forEachEntryDeep, randNumber, randItem, randShuffle };
+export { isEqual, isInstanceOf, isTypeOf, isUndefined, isNull, isNil, isNumber, isString, isBoolean, isSymbol, isObject, isObjectLike, isObjectPlain, isArray, isArrayLike, isArrayBuffer, isArrayTyped, isPromise, isMap, isSet, isDate, isRegExp, isFunction, isArguments, isError, isEmpty, isIndex, hasPath, getPath, getSize, numClamp, numSum, numAverage, numMedian, numBinarySearch, strDistance, strSimilar, strFromCamelCase, strFromKebabCase, strFromPascalCase, strFromSnakeCase, strToCamelCase, strToKebabCase, strToPascalCase, strToSnakeCase, arrFromDeep, arrMapDeep, arrCompact, arrChunk, arrStep, arrRemoveIndex, arrRemoveItem, arrCount, arrCollect, arrDifference, arrIntersection, arrUniq, objFrom, objFromDeep, objMap, objMapDeep, objDefaults, objDefaultsDeep, objDecycle, mapFromObject, fnThrottle, fnAttempt, fnCurry, forEachDeep, forEachEntry, forEachEntryDeep, randNumber, randItem, randShuffle };

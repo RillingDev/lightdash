@@ -1,5 +1,3 @@
-import { isUndefined } from "./undefined";
-
 /**
  * Checks if a value is undefined or null.
  *
@@ -22,6 +20,6 @@ import { isUndefined } from "./undefined";
  * isNil("")
  * // => false
  */
-const isNil = (val: any): boolean => isUndefined(val) || val === null;
+const isNil = (val: any): boolean => val == null;
 
 export { isNil };

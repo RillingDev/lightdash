@@ -13,6 +13,7 @@ import { isIndex } from "./is/index";
 import { isInstanceOf } from "./is/instanceOf";
 import { isMap } from "./is/map";
 import { isNil } from "./is/nil";
+import { isNull } from "./is/null";
 import { isNumber } from "./is/number";
 import { isObject } from "./is/object";
 import { isObjectLike } from "./is/objectLike";
@@ -87,6 +88,7 @@ export {
     isInstanceOf,
     isTypeOf,
     isUndefined,
+    isNull,
     isNil,
     isNumber,
     isString,
