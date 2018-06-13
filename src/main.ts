@@ -35,6 +35,7 @@ import { numAverage } from "./num/average";
 import { numBinarySearch } from "./num/binarySearch";
 import { numClamp } from "./num/clamp";
 import { numMedian } from "./num/median";
+import { numSafe } from "./num/safe";
 import { numSum } from "./num/sum";
 
 import { strDistance } from "./str/distance";
@@ -119,6 +120,7 @@ export {
     numAverage,
     numMedian,
     numBinarySearch,
+    numSafe,
     strDistance,
     strSimilar,
     strFromCamelCase,
