@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>For - Documentation</title>
+    <title>Search - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -28,7 +28,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">For</h1>
+    <h1 class="page-title">Search</h1>
     
 
     
@@ -41,7 +41,7 @@
 <header>
     
         <h2>
-        For
+        Search
         </h2>
         
     
@@ -57,7 +57,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="lightdash.esm.js.html">lightdash.esm.js</a>, <a href="lightdash.esm.js.html#line1834">line 1834</a>
+        <a href="lightdash.esm.js.html">lightdash.esm.js</a>, <a href="lightdash.esm.js.html#line1842">line 1842</a>
     </li></ul></dd>
     
 
@@ -96,7 +96,7 @@
 
 
         
-            <div class="description">Looping through ranges, arrays and objects</div>
+            <div class="description">Array and object search</div>
         
 
         
@@ -123,7 +123,7 @@
 
     
 
-    <h4 class="name" id=".forEachDeep"><span class="type-signature">(static) </span>forEachDeep<span class="signature">(arr, fn)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id=".searchBinary"><span class="type-signature">(static) </span>searchBinary<span class="signature">(arr, search)</span><span class="type-signature"> &rarr; {number|null}</span></h4>
 
     
 
@@ -135,12 +135,15 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="lightdash.esm.js.html">lightdash.esm.js</a>, <a href="lightdash.esm.js.html#line1552">line 1552</a>
+        <a href="lightdash.esm.js.html">lightdash.esm.js</a>, <a href="lightdash.esm.js.html#line1694">line 1694</a>
     </li></ul></dd>
     
 
     
 
+    
+    <dt class="tag-since">Since:</dt>
+    <dd class="tag-since"><ul class="dummy"><li>5.0.0</li></ul></dd>
     
 
     
@@ -175,7 +178,7 @@
 
 
 <div class="description">
-    Recursively iterates over each element in an array.
+    Binary Search implementation.
 </div>
 
 
@@ -188,10 +191,11 @@
 
     <h5>Example</h5>
     
-    <pre class="prettyprint"><code>const a = [2, 4, [1, 1, [16], 4]];
+    <pre class="prettyprint"><code>searchBinary([0, 1, 2], 2)
+// => 1
 
-forEachDeep(a, (val, index, arr) => arr[index] = index * val)
-// a = [0, 4, [0, 1, [0], 12]]</code></pre>
+searchBinary([0, 1, 2], 100)
+// => null</code></pre>
 
 
 
@@ -227,7 +231,7 @@ forEachDeep(a, (val, index, arr) => arr[index] = index * val)
             <td class="type">
             
                 
-<span class="param-type"><a href="Array.html">Array</a>.&lt;any></span>
+<span class="param-type"><a href="Array.html">Array</a>.&lt;number></span>
 
 
             
@@ -244,13 +248,13 @@ forEachDeep(a, (val, index, arr) => arr[index] = index * val)
 
         <tr>
             
-                <td class="name"><code>fn</code></td>
+                <td class="name"><code>search</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">function</span>
+<span class="param-type">number</span>
 
 
             
@@ -260,7 +264,7 @@ forEachDeep(a, (val, index, arr) => arr[index] = index * val)
 
             
 
-            <td class="description last">fn(val: any, index: number, arr: any[])</td>
+            <td class="description last"></td>
         </tr>
 
     
@@ -280,334 +284,27 @@ forEachDeep(a, (val, index, arr) => arr[index] = index * val)
 
 
 
-
+<h5>Returns:</h5>
 
         
-            
-
-    
-
-    <h4 class="name" id=".forEachEntry"><span class="type-signature">(static) </span>forEachEntry<span class="signature">(obj, fn)</span><span class="type-signature"></span></h4>
-
-    
 
 
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">number</span>
+|
+
+<span class="param-type">null</span>
 
 
-<dl class="details">
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="lightdash.esm.js.html">lightdash.esm.js</a>, <a href="lightdash.esm.js.html#line451">line 451</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
+    </dd>
 </dl>
 
-
-
-
-
-<div class="description">
-    Iterates over each entry of an object.
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Example</h5>
     
-    <pre class="prettyprint"><code>const a = {a: 1, b: 2};
-
-forEachEntry(a, (key, val, index) => a[key] = val * index)
-// a = {a: 0, b: 2}</code></pre>
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>obj</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">object</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>fn</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">function</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">fn(key: any, val: any, index: number, arr: any[])</td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
-            
-
-    
-
-    <h4 class="name" id=".forEachEntryDeep"><span class="type-signature">(static) </span>forEachEntryDeep<span class="signature">(obj, fn)</span><span class="type-signature"></span></h4>
-
-    
-
-
-
-
-<dl class="details">
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="lightdash.esm.js.html">lightdash.esm.js</a>, <a href="lightdash.esm.js.html#line1567">line 1567</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-<div class="description">
-    Recursively iterates over each entry of an object.
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Example</h5>
-    
-    <pre class="prettyprint"><code>const a = {a: 1, b: {c: [1, 2]}};
-
-forEachEntryDeep(a, (key, val, index, obj) => obj[key] = index * val)
-// a = {a: 0, b: {c: [0, 2]}}</code></pre>
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>obj</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">object</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>fn</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">function</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">fn(key: any, val: any, index: number, arr: any[])</td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
         

@@ -32,7 +32,6 @@ import { getPath } from "./get/path";
 import { getSize } from "./get/size";
 
 import { numAverage } from "./num/average";
-import { numBinarySearch } from "./num/binarySearch";
 import { numClamp } from "./num/clamp";
 import { numMedian } from "./num/median";
 import { numSafe } from "./num/safe";
@@ -80,6 +79,8 @@ import { fnAttempt } from "./fn/attempt";
 import { fnCurry } from "./fn/curry";
 import { fnThrottle } from "./fn/throttle";
 
+import { searchBinary } from "./search/binary";
+
 import { randItem } from "./rand/item";
 import { randNumber } from "./rand/number";
 import { randShuffle } from "./rand/shuffle";
@@ -119,7 +120,6 @@ export {
     numSum,
     numAverage,
     numMedian,
-    numBinarySearch,
     numSafe,
     strDistance,
     strSimilar,
@@ -157,6 +157,7 @@ export {
     forEachDeep,
     forEachEntry,
     forEachEntryDeep,
+    searchBinary,
     randNumber,
     randItem,
     randShuffle
@@ -202,13 +203,18 @@ export {
  */
 
 /**
+ * Looping through ranges, arrays and objects
+ * @namespace For
+ */
+
+/**
  * Function manipulation
  * @namespace Fn
  */
 
 /**
- * Looping through ranges, arrays and objects
- * @namespace For
+ * Array and object search
+ * @namespace Search
  */
 
 /**
