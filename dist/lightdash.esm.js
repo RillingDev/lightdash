@@ -1582,41 +1582,6 @@ const forEachEntryDeep = (obj, fn) => forEachEntry(obj, (key, val, index) => isO
     : fn(key, val, index, obj));
 
 /**
- * Wrapper around try/catch.
- *
- * Returns the function result or, if an error is thrown, the error.
- *
- * @function fnAttempt
- * @memberof Fn
- * @since 3.2.0
- * @param {Function} fn
- * @param {...any[]} args
- * @returns {any|error}
- * @example
- * const foo = (a, b) => {
- *  if(b > 10){
- *    throw new RangeError();
- *  }
- *
- *  return a + b;
- * };
- *
- * fnAttempt(foo, 2, 1)
- * // => 3
- *
- * fnAttempt(foo, 2, 500)
- * // => RangeError
- */
-const fnAttempt = (fn, ...args) => {
-    try {
-        return fn(...args);
-    }
-    catch (err) {
-        return err;
-    }
-};
-
-/**
  * Returns a curried function.
  *
  * A curried function can take between zero and n arguments,
@@ -1848,4 +1813,4 @@ const randShuffle = (arr) => {
  * @namespace Random
  */
 
-export { isEqual, isInstanceOf, isTypeOf, isUndefined, isNull, isNil, isNumber, isString, isBoolean, isSymbol, isObject, isObjectLike, isObjectPlain, isArray, isArrayLike, isArrayBuffer, isArrayTyped, isPromise, isMap, isSet, isDate, isRegExp, isFunction, isArguments, isError, isEmpty, isIndex, hasPath, getPath, getSize, numClamp, numSum, numAverage, numMedian, numSafe, strDistance, strSimilar, strFromCamelCase, strFromKebabCase, strFromPascalCase, strFromSnakeCase, strToCamelCase, strToKebabCase, strToPascalCase, strToSnakeCase, arrFromDeep, arrMapDeep, arrCompact, arrChunk, arrStep, arrRemoveIndex, arrRemoveItem, arrCount, arrCollect, arrDifference, arrIntersection, arrUniq, objFrom, objFromDeep, objMap, objMapDeep, objDefaults, objDefaultsDeep, objDecycle, mapFromObject, fnThrottle, fnAttempt, fnCurry, forEachDeep, forEachEntry, forEachEntryDeep, searchBinary, randNumber, randItem, randShuffle };
+export { isEqual, isInstanceOf, isTypeOf, isUndefined, isNull, isNil, isNumber, isString, isBoolean, isSymbol, isObject, isObjectLike, isObjectPlain, isArray, isArrayLike, isArrayBuffer, isArrayTyped, isPromise, isMap, isSet, isDate, isRegExp, isFunction, isArguments, isError, isEmpty, isIndex, hasPath, getPath, getSize, numClamp, numSum, numAverage, numMedian, numSafe, strDistance, strSimilar, strFromCamelCase, strFromKebabCase, strFromPascalCase, strFromSnakeCase, strToCamelCase, strToKebabCase, strToPascalCase, strToSnakeCase, arrFromDeep, arrMapDeep, arrCompact, arrChunk, arrStep, arrRemoveIndex, arrRemoveItem, arrCount, arrCollect, arrDifference, arrIntersection, arrUniq, objFrom, objFromDeep, objMap, objMapDeep, objDefaults, objDefaultsDeep, objDecycle, mapFromObject, fnThrottle, fnCurry, forEachDeep, forEachEntry, forEachEntryDeep, searchBinary, randNumber, randItem, randShuffle };
