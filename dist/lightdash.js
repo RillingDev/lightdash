@@ -45,7 +45,8 @@ var _l = (function (exports) {
      * isFunction(null)
      * // => false
      */
-    const isFunction = (val) => isTypeOf(val, "function");
+
+    const isFunction = val => isTypeOf(val, "function");
 
     /**
      * Checks if a value is an arguments array-like.
@@ -67,7 +68,8 @@ var _l = (function (exports) {
      * isArguments([]);
      * // => false
      */
-    const isArguments = (val) => isFunction(val.callee);
+
+    const isArguments = val => isFunction(val.callee);
 
     /**
      * Checks if a value is an array.
@@ -137,7 +139,8 @@ var _l = (function (exports) {
      * // => false
      */
     // @ts-ignore: ArrayBuffer declaration is invalid
-    const isArrayBuffer = (val) => isInstanceOf(val, ArrayBuffer);
+
+    const isArrayBuffer = val => isInstanceOf(val, ArrayBuffer);
 
     /**
      * Checks if a value is undefined.
@@ -165,7 +168,8 @@ var _l = (function (exports) {
      * isUndefined(a)
      * // => false
      */
-    const isUndefined = (val) => isTypeOf(val, "undefined");
+
+    const isUndefined = val => isTypeOf(val, "undefined");
 
     /**
      * Checks if a value is undefined or null.
@@ -189,7 +193,7 @@ var _l = (function (exports) {
      * isNil("")
      * // => false
      */
-    const isNil = (val) => val == null;
+    const isNil = val => val == null;
 
     /**
      * Checks if a value is not nil and has a type of object.
@@ -216,7 +220,8 @@ var _l = (function (exports) {
      * isObjectLike(() => 1))
      * // => false
      */
-    const isObjectLike = (val) => !isNil(val) && isTypeOf(val, "object");
+
+    const isObjectLike = val => !isNil(val) && isTypeOf(val, "object");
 
     /**
      * Checks if a value is object-like and has a length property.
@@ -240,7 +245,8 @@ var _l = (function (exports) {
      * isArrayLike("foo")
      * // => false
      */
-    const isArrayLike = (val) => isObjectLike(val) && !isUndefined(val.length);
+
+    const isArrayLike = val => isObjectLike(val) && !isUndefined(val.length);
 
     /**
      * Checks if a value is a number.
@@ -271,7 +277,8 @@ var _l = (function (exports) {
      * isNumber(null)
      * // => false
      */
-    const isNumber = (val) => isTypeOf(val, "number");
+
+    const isNumber = val => isTypeOf(val, "number");
 
     /**
      * Checks if a value is a typed array.
@@ -292,7 +299,8 @@ var _l = (function (exports) {
      * isArrayTyped([]);
      * // => false
      */
-    const isArrayTyped = (val) => isNumber(val.BYTES_PER_ELEMENT);
+
+    const isArrayTyped = val => isNumber(val.BYTES_PER_ELEMENT);
 
     /**
      * Checks if a value is a boolean.
@@ -319,7 +327,8 @@ var _l = (function (exports) {
      * isBoolean("")
      * // => false
      */
-    const isBoolean = (val) => isTypeOf(val, "boolean");
+
+    const isBoolean = val => isTypeOf(val, "boolean");
 
     /**
      * Checks if a value is a date object.
@@ -340,7 +349,8 @@ var _l = (function (exports) {
      * isDate(123213231)
      * // => false
      */
-    const isDate = (val) => isInstanceOf(val, Date);
+
+    const isDate = val => isInstanceOf(val, Date);
 
     /**
      * Checks if a value is a string.
@@ -358,7 +368,8 @@ var _l = (function (exports) {
      * isString(1)
      * // => false
      */
-    const isString = (val) => isTypeOf(val, "string");
+
+    const isString = val => isTypeOf(val, "string");
 
     /**
      * Gets size of a value.
@@ -391,20 +402,19 @@ var _l = (function (exports) {
      * isEmpty(null)
      * // => -1
      */
-    const getSize = (val) => {
-        if (isNil(val)) {
-            return -1;
-        }
-        else if (isArrayLike(val) || isString(val)) {
-            return val.length;
-        }
-        else if (!isUndefined(val.size)) {
-            return val.size;
-        }
-        else if (isObjectLike(val)) {
-            return Object.keys(val).length;
-        }
+
+    const getSize = val => {
+      if (isNil(val)) {
         return -1;
+      } else if (isArrayLike(val) || isString(val)) {
+        return val.length;
+      } else if (!isUndefined(val.size)) {
+        return val.size;
+      } else if (isObjectLike(val)) {
+        return Object.keys(val).length;
+      }
+
+      return -1;
     };
 
     /**
@@ -449,7 +459,8 @@ var _l = (function (exports) {
      * isEmpty({a: 1})
      * // => false
      */
-    const isEmpty = (val) => getSize(val) < 1;
+
+    const isEmpty = val => getSize(val) < 1;
 
     /**
      * Iterates over each entry of an object.
@@ -465,9 +476,9 @@ var _l = (function (exports) {
      * // a = {a: 0, b: 2}
      */
     const forEachEntry = (obj, fn) => {
-        Object.entries(obj).forEach((entry, index) => {
-            fn(entry[0], entry[1], index, obj);
-        });
+      Object.entries(obj).forEach((entry, index) => {
+        fn(entry[0], entry[1], index, obj);
+      });
     };
 
     /**
@@ -499,28 +510,28 @@ var _l = (function (exports) {
      * isEqual(1, true)
      * // => false
      */
+
     const isEqual = (a, b) => {
-        if (a === b) {
-            return true;
+      if (a === b) {
+        return true;
+      }
+
+      if (!isObjectLike(a) || !isObjectLike(b) || Object.keys(a).length !== Object.keys(b).length) {
+        return false;
+      }
+
+      let result = true;
+      forEachEntry(a, (key, aVal) => {
+        // Only check if the comparison didn't fail already
+        if (result === true) {
+          if (!isUndefined(b[key])) {
+            result = isEqual(aVal, b[key]);
+          } else {
+            result = false;
+          }
         }
-        if (!isObjectLike(a) ||
-            !isObjectLike(b) ||
-            Object.keys(a).length !== Object.keys(b).length) {
-            return false;
-        }
-        let result = true;
-        forEachEntry(a, (key, aVal) => {
-            // Only check if the comparison didn't fail already
-            if (result === true) {
-                if (!isUndefined(b[key])) {
-                    result = isEqual(aVal, b[key]);
-                }
-                else {
-                    result = false;
-                }
-            }
-        });
-        return result;
+      });
+      return result;
     };
 
     /**
@@ -542,7 +553,8 @@ var _l = (function (exports) {
      * isError("foo")
      * // => false
      */
-    const isError = (val) => isInstanceOf(val, Error);
+
+    const isError = val => isInstanceOf(val, Error);
 
     /**
      * Checks if a value is a valid index.
@@ -569,7 +581,7 @@ var _l = (function (exports) {
      * isIndex(Infinity)
      * // => false
      */
-    const isIndex = (val) => Number.isInteger(val) && val >= 0;
+    const isIndex = val => Number.isInteger(val) && val >= 0;
 
     /**
      * Checks if a value is a map.
@@ -587,7 +599,8 @@ var _l = (function (exports) {
      * isMap([[1, 2]])
      * // => false
      */
-    const isMap = (val) => isInstanceOf(val, Map);
+
+    const isMap = val => isInstanceOf(val, Map);
 
     /**
      * Checks if a value is null.
@@ -608,7 +621,7 @@ var _l = (function (exports) {
      * isNull(undefined)
      * // => false
      */
-    const isNull = (val) => val === null;
+    const isNull = val => val === null;
 
     /**
      * Checks if a value is an object.
@@ -632,7 +645,8 @@ var _l = (function (exports) {
      * isObject(1)
      * // => false
      */
-    const isObject = (val) => !isNil(val) && (isTypeOf(val, "object") || isTypeOf(val, "function"));
+
+    const isObject = val => !isNil(val) && (isTypeOf(val, "object") || isTypeOf(val, "function"));
 
     /**
      * Checks if a value is a plain object.
@@ -655,7 +669,8 @@ var _l = (function (exports) {
      * isObjectPlain(() => {})
      * // => false
      */
-    const isObjectPlain = (val) => isObject(val) && val.constructor === Object;
+
+    const isObjectPlain = val => isObject(val) && val.constructor === Object;
 
     /**
      * Checks if a value is a promise.
@@ -675,7 +690,8 @@ var _l = (function (exports) {
      * isPromise(() => "foo");
      * // => false
      */
-    const isPromise = (val) => isFunction(val.then) && isFunction(val.catch);
+
+    const isPromise = val => isFunction(val.then) && isFunction(val.catch);
 
     /**
      * Checks if a value is a regular expression.
@@ -697,7 +713,8 @@ var _l = (function (exports) {
      * // => false
      */
     // @ts-ignore: RegExp declaration is invalid
-    const isRegExp = (val) => isInstanceOf(val, RegExp);
+
+    const isRegExp = val => isInstanceOf(val, RegExp);
 
     /**
      * Checks if a value is a set.
@@ -715,7 +732,8 @@ var _l = (function (exports) {
      * isSet([1, 2])
      * // => false
      */
-    const isSet = (val) => isInstanceOf(val, Set);
+
+    const isSet = val => isInstanceOf(val, Set);
 
     /**
      * Checks if a value is a symbol.
@@ -736,7 +754,8 @@ var _l = (function (exports) {
      * isSymbol("foo")
      * // => false
      */
-    const isSymbol = (val) => isTypeOf(val, "symbol");
+
+    const isSymbol = val => isTypeOf(val, "symbol");
 
     /**
      * Returns a targets value in a given path.
@@ -759,18 +778,23 @@ var _l = (function (exports) {
      * getPath({a: {b: 2, c: [10, 20]}}, ["a", "c", "0"]);
      * // => 10
      */
+
     const getPath = (target, path) => {
-        let targetCurrent = target;
-        let index = 0;
-        while (!isUndefined(targetCurrent) && index < path.length) {
-            const keyCurrent = path[index];
-            if (isUndefined(targetCurrent[keyCurrent])) {
-                return null;
-            }
-            targetCurrent = targetCurrent[keyCurrent];
-            index++;
+      let targetCurrent = target;
+      let index = 0;
+
+      while (!isUndefined(targetCurrent) && index < path.length) {
+        const keyCurrent = path[index];
+
+        if (isUndefined(targetCurrent[keyCurrent])) {
+          return null;
         }
-        return targetCurrent;
+
+        targetCurrent = targetCurrent[keyCurrent];
+        index++;
+      }
+
+      return targetCurrent;
     };
 
     /**
@@ -805,6 +829,7 @@ var _l = (function (exports) {
      * hasPath(1, ["foo"]);
      * // => false
      */
+
     const hasPath = (target, path) => !isNil(getPath(target, path));
 
     /**
@@ -819,7 +844,7 @@ var _l = (function (exports) {
      * numSum([1, 2.5, 3.3])
      * // => 6.8
      */
-    const numSum = (arr) => arr.reduce((a, b) => a + b);
+    const numSum = arr => arr.reduce((a, b) => a + b);
 
     /**
      * Returns the average of an array of numbers.
@@ -833,7 +858,8 @@ var _l = (function (exports) {
      * numAverage([1, 2.5, 3.3])
      * // => 2.2666
      */
-    const numAverage = (arr) => numSum(arr) / arr.length;
+
+    const numAverage = arr => numSum(arr) / arr.length;
 
     /**
      * Clamps a number in a given range.
@@ -856,13 +882,13 @@ var _l = (function (exports) {
      * // => 10
      */
     const numClamp = (val, min, max) => {
-        if (val < min) {
-            return min;
-        }
-        else if (val > max) {
-            return max;
-        }
-        return val;
+      if (val < min) {
+        return min;
+      } else if (val > max) {
+        return max;
+      }
+
+      return val;
     };
 
     /**
@@ -880,11 +906,10 @@ var _l = (function (exports) {
      * numMedian([1, 2, 4, 5])
      * // => 3
      */
-    const numMedian = (arr) => {
-        const arrLengthHalf = arr.length / 2;
-        return arr.length % 2 === 0
-            ? arr[arrLengthHalf]
-            : numAverage(arr.slice(Math.floor(arrLengthHalf), 2));
+
+    const numMedian = arr => {
+      const arrLengthHalf = arr.length / 2;
+      return arr.length % 2 === 0 ? arr[arrLengthHalf] : numAverage(arr.slice(Math.floor(arrLengthHalf), 2));
     };
 
     /**
@@ -905,7 +930,8 @@ var _l = (function (exports) {
      * numSafe(Infinity)
      * // => Number.MIN_SAFE_INTEGER
      */
-    const numSafe = (val) => numClamp(val, Number.MIN_SAFE_INTEGER, Number.MAX_SAFE_INTEGER);
+
+    const numSafe = val => numClamp(val, Number.MIN_SAFE_INTEGER, Number.MAX_SAFE_INTEGER);
 
     /**
      * Returns levenshtein string distance of two strings.
@@ -927,48 +953,54 @@ var _l = (function (exports) {
      * // => 0
      */
     const strDistance = (str1, str2) => {
-        // Cache string length
-        const str1Length = str1.length;
-        const str2Length = str2.length;
-        if (str1Length === 0) {
-            // Exit early if str1 is empty
-            return str2Length;
+      // Cache string length
+      const str1Length = str1.length;
+      const str2Length = str2.length;
+
+      if (str1Length === 0) {
+        // Exit early if str1 is empty
+        return str2Length;
+      }
+
+      if (str2Length === 0) {
+        // Exit early if str2 is empty
+        return str1Length;
+      } // Create matrix that is (str2.length+1)x(str1.length+1) fields
+
+
+      const matrix = []; // Increment along the first column of each row
+
+      for (let y = 0; y <= str2Length; y++) {
+        matrix[y] = [y];
+      } // Increment each column in the first row
+
+
+      for (let x = 0; x <= str1Length; x++) {
+        matrix[0][x] = x;
+      } // Fill matrix
+
+
+      for (let y = 1; y <= str2Length; y++) {
+        const matrixColumnCurrent = matrix[y];
+        const matrixColumnLast = matrix[y - 1];
+
+        for (let x = 1; x <= str1Length; x++) {
+          if (str2.charAt(y - 1) === str1.charAt(x - 1)) {
+            // Check if letter at the position is the same
+            matrixColumnCurrent[x] = matrixColumnLast[x - 1];
+          } else {
+            // Check for substitution/insertion/deletion
+            const substitution = matrixColumnLast[x - 1] + 1;
+            const insertion = matrixColumnCurrent[x - 1] + 1;
+            const deletion = matrixColumnLast[x] + 1; // Get smallest of the three
+
+            matrixColumnCurrent[x] = Math.min(substitution, insertion, deletion);
+          }
         }
-        if (str2Length === 0) {
-            // Exit early if str2 is empty
-            return str1Length;
-        }
-        // Create matrix that is (str2.length+1)x(str1.length+1) fields
-        const matrix = [];
-        // Increment along the first column of each row
-        for (let y = 0; y <= str2Length; y++) {
-            matrix[y] = [y];
-        }
-        // Increment each column in the first row
-        for (let x = 0; x <= str1Length; x++) {
-            matrix[0][x] = x;
-        }
-        // Fill matrix
-        for (let y = 1; y <= str2Length; y++) {
-            const matrixColumnCurrent = matrix[y];
-            const matrixColumnLast = matrix[y - 1];
-            for (let x = 1; x <= str1Length; x++) {
-                if (str2.charAt(y - 1) === str1.charAt(x - 1)) {
-                    // Check if letter at the position is the same
-                    matrixColumnCurrent[x] = matrixColumnLast[x - 1];
-                }
-                else {
-                    // Check for substitution/insertion/deletion
-                    const substitution = matrixColumnLast[x - 1] + 1;
-                    const insertion = matrixColumnCurrent[x - 1] + 1;
-                    const deletion = matrixColumnLast[x] + 1;
-                    // Get smallest of the three
-                    matrixColumnCurrent[x] = Math.min(substitution, insertion, deletion);
-                }
-            }
-        }
-        // Return max value
-        return matrix[str2Length][str1Length];
+      } // Return max value
+
+
+      return matrix[str2Length][str1Length];
     };
 
     /**
@@ -983,7 +1015,7 @@ var _l = (function (exports) {
      * arrCompact([1, "", "", 2, 3, null, 4, undefined, 5, ""])
      * // => [1, 2, 3, 4, 5]
      */
-    const arrCompact = (arr) => arr.filter((val) => val);
+    const arrCompact = arr => arr.filter(val => val);
 
     /**
      * Creates an array of substrings from a PascalCase string.
@@ -1000,18 +1032,20 @@ var _l = (function (exports) {
      * strFromPascalCase("FizzBuzzBazz")
      * // => ["Fizz","Buzz","Bazz"]
      */
-    const strFromPascalCase = (str) => {
-        const result = [];
-        let cache = [];
-        str.split("").forEach((letter, index) => {
-            if (index > 0 && letter !== letter.toLowerCase()) {
-                result.push(cache.join(""));
-                cache = [];
-            }
-            cache.push(letter);
-        });
-        result.push(cache.join(""));
-        return arrCompact(result);
+
+    const strFromPascalCase = str => {
+      const result = [];
+      let cache = [];
+      str.split("").forEach((letter, index) => {
+        if (index > 0 && letter !== letter.toLowerCase()) {
+          result.push(cache.join(""));
+          cache = [];
+        }
+
+        cache.push(letter);
+      });
+      result.push(cache.join(""));
+      return arrCompact(result);
     };
 
     /**
@@ -1029,6 +1063,7 @@ var _l = (function (exports) {
      * strFromPascalCase("fizzBuzzBazz")
      * // => ["fizz","Buzz","Bazz"]
      */
+
     const strFromCamelCase = strFromPascalCase;
 
     /**
@@ -1046,7 +1081,10 @@ var _l = (function (exports) {
      * strFromKebabCase("Fizz-buzz-BaZZ")
      * // => ["Fizz","buzz","BaZZ"]
      */
-    const strFromKebabCase = (str) => arrCompact(str.split("-" /* kebab */));
+
+    const strFromKebabCase = str => arrCompact(str.split("-"
+    /* kebab */
+    ));
 
     /**
      * Creates an array of substrings from a snake_case string.
@@ -1063,7 +1101,10 @@ var _l = (function (exports) {
      * strFromSnakeCase("Fizz_buzz_BaZZ")
      * // => ["Fizz","buzz","BaZZ"]
      */
-    const strFromSnakeCase = (str) => arrCompact(str.split("_" /* snake */));
+
+    const strFromSnakeCase = str => arrCompact(str.split("_"
+    /* snake */
+    ));
 
     /**
      * Collects the values of an array in a Map as arrays.
@@ -1079,12 +1120,12 @@ var _l = (function (exports) {
      * // => Map<any, any[]>{0: [2, 4], 1: [1, 3, 5]}
      */
     const arrCollect = (arr, fn) => {
-        const result = new Map();
-        arr.forEach((val, index) => {
-            const key = fn(val, index, arr);
-            result.set(key, result.has(key) ? [...result.get(key), val] : [val]);
-        });
-        return result;
+      const result = new Map();
+      arr.forEach((val, index) => {
+        const key = fn(val, index, arr);
+        result.set(key, result.has(key) ? [...result.get(key), val] : [val]);
+      });
+      return result;
     };
 
     /**
@@ -1110,11 +1151,10 @@ var _l = (function (exports) {
      * strSimilar("cmmit", ["init", "commit", "push"], true)
      * // => Map<number, string[]>{"1": ["commit"], "3": ["init"], "5": ["push"]}
      */
+
     const strSimilar = (str, list, returnFull = false) => {
-        const result = arrCollect(list, val => strDistance(str, val));
-        return returnFull
-            ? result
-            : result.get(Math.min(...result.keys()));
+      const result = arrCollect(list, val => strDistance(str, val));
+      return returnFull ? result : result.get(Math.min(...result.keys()));
     };
 
     /**
@@ -1132,12 +1172,7 @@ var _l = (function (exports) {
      * strToCamelCase(["Fizz","buzz","BaZZ"])
      * // => "fizzBuzzBazz"
      */
-    const strToCamelCase = (arr) => arr
-        .map((val, index) => index === 0
-        ? val.toLowerCase()
-        : val.substr(0, 1).toUpperCase() +
-            val.substr(1).toLowerCase())
-        .join("");
+    const strToCamelCase = arr => arr.map((val, index) => index === 0 ? val.toLowerCase() : val.substr(0, 1).toUpperCase() + val.substr(1).toLowerCase()).join("");
 
     /**
      * Creates a kebab-case string from an array of substrings.
@@ -1154,7 +1189,9 @@ var _l = (function (exports) {
      * strToKebabCase(["Fizz","buzz","BaZZ"])
      * // => "fizz-buzz-bazz"
      */
-    const strToKebabCase = (arr) => arr.map(val => val.toLowerCase()).join("-" /* kebab */);
+    const strToKebabCase = arr => arr.map(val => val.toLowerCase()).join("-"
+    /* kebab */
+    );
 
     /**
      * Creates a PascalCase string from an array of substrings.
@@ -1171,9 +1208,7 @@ var _l = (function (exports) {
      * strToPascalCase(["Fizz","buzz","BaZZ"])
      * // => "FizzBuzzBazz"
      */
-    const strToPascalCase = (arr) => arr
-        .map(val => val.substr(0, 1).toUpperCase() + val.substr(1).toLowerCase())
-        .join("");
+    const strToPascalCase = arr => arr.map(val => val.substr(0, 1).toUpperCase() + val.substr(1).toLowerCase()).join("");
 
     /**
      * Creates a snake_case string from an array of substrings.
@@ -1190,7 +1225,9 @@ var _l = (function (exports) {
      * strToSnakeCase(["Fizz","buzz","BaZZ"])
      * // => "fizz_buzz_bazz"
      */
-    const strToSnakeCase = (arr) => arr.map(val => val.toLowerCase()).join("_" /* snake */);
+    const strToSnakeCase = arr => arr.map(val => val.toLowerCase()).join("_"
+    /* snake */
+    );
 
     /**
      * Creates an array of elements split into groups by size.
@@ -1208,15 +1245,19 @@ var _l = (function (exports) {
      * arrChunk([1, 2, 3, 4, 5], 3)
      * // => [[1, 2, 3], [4, 5]]
      */
+
     const arrChunk = (arr, chunk) => {
-        if (!isIndex(chunk) || chunk === 0) {
-            return [];
-        }
-        const result = [];
-        for (let i = 0; i < arr.length; i += chunk) {
-            result.push(arr.slice(i, i + chunk));
-        }
-        return result;
+      if (!isIndex(chunk) || chunk === 0) {
+        return [];
+      }
+
+      const result = [];
+
+      for (let i = 0; i < arr.length; i += chunk) {
+        result.push(arr.slice(i, i + chunk));
+      }
+
+      return result;
     };
 
     /**
@@ -1231,10 +1272,10 @@ var _l = (function (exports) {
      * arrCount([1, 1, 2, 2, 1, 3, 4, 1])
      * // => Map<any, number>{1: 4, 2: 2, 3: 1, 4: 1}
      */
-    const arrCount = (arr) => {
-        const result = new Map();
-        arr.forEach(val => result.set(val, result.has(val) ? result.get(val) + 1 : 1));
-        return result;
+    const arrCount = arr => {
+      const result = new Map();
+      arr.forEach(val => result.set(val, result.has(val) ? result.get(val) + 1 : 1));
+      return result;
     };
 
     /**
@@ -1253,9 +1294,10 @@ var _l = (function (exports) {
      * arrDifference([1, 2, 3], ["foo"], [2, 0, 2])
      * // => [1, 3]
      */
+
     const arrDifference = (arr, ...values) => {
-        const valuesCounted = arrCount([].concat(...values));
-        return arr.filter(item => !valuesCounted.has(item));
+      const valuesCounted = arrCount([].concat(...values));
+      return arr.filter(item => !valuesCounted.has(item));
     };
 
     /**
@@ -1271,6 +1313,7 @@ var _l = (function (exports) {
      * arrMapDeep([2, 4, [1, 1, [16], 4]], val => val * 2)
      * // => [4, 8, [2, 2, [32], 8]]
      */
+
     const arrMapDeep = (arr, fn) => arr.map((val, index) => isArray(val) ? arrMapDeep(val, fn) : fn(val, index, arr));
 
     /**
@@ -1289,7 +1332,8 @@ var _l = (function (exports) {
      * // a = [1, 2, 3, [5, [6]]]
      * // b = [1, 2, 3, [5, [10]]]
      */
-    const arrFromDeep = (arr) => arrMapDeep(Array.from(arr), val => (isArray(val) ? Array.from(val) : val));
+
+    const arrFromDeep = arr => arrMapDeep(Array.from(arr), val => isArray(val) ? Array.from(val) : val);
 
     /**
      * Returns an array of all elements that exist in the first array and at least once in one of the other arrays.
@@ -1307,9 +1351,10 @@ var _l = (function (exports) {
      * arrIntersection([1, 2, 3], ["foo"], [2, 0, 2])
      * // => [2]
      */
+
     const arrIntersection = (arr, ...values) => {
-        const valuesCounted = arrCount([].concat(...values));
-        return arr.filter(item => valuesCounted.has(item));
+      const valuesCounted = arrCount([].concat(...values));
+      return arr.filter(item => valuesCounted.has(item));
     };
 
     /**
@@ -1369,7 +1414,7 @@ var _l = (function (exports) {
      * arrUniq([1, 1, 1, 2, 3, 1, 2, 1, 4])
      * // => [1, 2, 3, 4]
      */
-    const arrUniq = (arr) => Array.from(new Set(arr));
+    const arrUniq = arr => Array.from(new Set(arr));
 
     /**
      * Maps each entry of an object and returns the result.
@@ -1384,12 +1429,13 @@ var _l = (function (exports) {
      * objMap({a: 4, b: 2}, (key, val) => val * 2)
      * // => {a: 8, b: 4}
      */
+
     const objMap = (obj, fn) => {
-        const objNew = {};
-        forEachEntry(obj, (key, val, index) => {
-            objNew[key] = fn(key, val, index, obj);
-        });
-        return objNew;
+      const objNew = {};
+      forEachEntry(obj, (key, val, index) => {
+        objNew[key] = fn(key, val, index, obj);
+      });
+      return objNew;
     };
 
     /**
@@ -1415,18 +1461,21 @@ var _l = (function (exports) {
      * objDecycle(a,key=>`_${key}`)
      * // => {a: "_a", b: 1, c: 2}
      */
+
     const objDecycle = (obj, fn = () => null, references = new WeakSet()) => {
-        references.add(obj);
-        return objMap(obj, (key, val, index, objNew) => {
-            if (references.has(val)) {
-                return fn(key, val, index, objNew);
-            }
-            if (isObjectLike(val)) {
-                references.add(val);
-                return objDecycle(val, fn, references);
-            }
-            return val;
-        });
+      references.add(obj);
+      return objMap(obj, (key, val, index, objNew) => {
+        if (references.has(val)) {
+          return fn(key, val, index, objNew);
+        }
+
+        if (isObjectLike(val)) {
+          references.add(val);
+          return objDecycle(val, fn, references);
+        }
+
+        return val;
+      });
     };
 
     /**
@@ -1445,7 +1494,7 @@ var _l = (function (exports) {
      * // a = {a: 4, b: 2}
      * // b = {a: 10, b: 2}
      */
-    const objFrom = (obj) => Object.assign({}, obj);
+    const objFrom = obj => Object.assign({}, obj);
 
     /**
      * Sets every nil property of object to the value from the default object.
@@ -1460,16 +1509,15 @@ var _l = (function (exports) {
      * objDefaults({a: 1, c: 5}, {a: 1, b: 2, c: 3})
      * // => {a: 1, b: 2, c: 5}
      */
+
     const objDefaults = (obj, objDefault) => {
-        const result = isArray(obj)
-            ? Array.from(obj)
-            : objFrom(obj);
-        forEachEntry(objDefault, (keyDefault, valDefault) => {
-            if (isUndefined(obj[keyDefault])) {
-                result[keyDefault] = valDefault;
-            }
-        });
-        return result;
+      const result = isArray(obj) ? Array.from(obj) : objFrom(obj);
+      forEachEntry(objDefault, (keyDefault, valDefault) => {
+        if (isUndefined(obj[keyDefault])) {
+          result[keyDefault] = valDefault;
+        }
+      });
+      return result;
     };
 
     /**
@@ -1485,22 +1533,19 @@ var _l = (function (exports) {
      * objDefaultsDeep({a: [1, 2], c: {f: "x"}}, {a: [1, 2, 3], b: 2, c: {f: "y"}})
      * // => {a: [1, 2, 3], b: 2, c: {f: "x"}}
      */
+
     const objDefaultsDeep = (obj, objDefault) => {
-        const result = isArray(obj)
-            ? Array.from(obj)
-            : objFrom(obj);
-        forEachEntry(objDefault, (keyDefault, valDefault) => {
-            const valGiven = obj[keyDefault];
-            if (isObjectLike(valDefault)) {
-                result[keyDefault] = isObjectLike(valGiven)
-                    ? objDefaultsDeep(valGiven, valDefault)
-                    : valDefault;
-            }
-            else {
-                result[keyDefault] = isUndefined(valGiven) ? valDefault : valGiven;
-            }
-        });
-        return result;
+      const result = isArray(obj) ? Array.from(obj) : objFrom(obj);
+      forEachEntry(objDefault, (keyDefault, valDefault) => {
+        const valGiven = obj[keyDefault];
+
+        if (isObjectLike(valDefault)) {
+          result[keyDefault] = isObjectLike(valGiven) ? objDefaultsDeep(valGiven, valDefault) : valDefault;
+        } else {
+          result[keyDefault] = isUndefined(valGiven) ? valDefault : valGiven;
+        }
+      });
+      return result;
     };
 
     /**
@@ -1516,9 +1561,8 @@ var _l = (function (exports) {
      * arrMapDeep({a: {b: 2, c: [10, 20]}}, (key, val) => val * 2)
      * // => {a: {b: 4, c: [20, 40]}}
      */
-    const objMapDeep = (obj, fn) => objMap(obj, (key, val, index, objNew) => isObjectLike(val)
-        ? objMapDeep(val, fn)
-        : fn(key, val, index, objNew));
+
+    const objMapDeep = (obj, fn) => objMap(obj, (key, val, index, objNew) => isObjectLike(val) ? objMapDeep(val, fn) : fn(key, val, index, objNew));
 
     /**
      * Recursively creates a new object with the entries of the input object.
@@ -1536,7 +1580,8 @@ var _l = (function (exports) {
      * // a = {a: {b: 2, c: {a: 10, b: 20}}
      * // b = {a: {b: 2, c: {a: 123, b: 20}}}
      */
-    const objFromDeep = (obj) => objMapDeep(objFrom(obj), (key, val) => (isObjectLike(val) ? objFrom(val) : val));
+
+    const objFromDeep = obj => objMapDeep(objFrom(obj), (key, val) => isObjectLike(val) ? objFrom(val) : val);
 
     /**
      * Creates a map from an object.
@@ -1550,7 +1595,7 @@ var _l = (function (exports) {
      * mapFromObject({a: 1, b: 4, c: 5})
      * // => Map<string,number>{a: 1, b: 4, c: 5}
      */
-    const mapFromObject = (obj) => new Map(Object.entries(obj));
+    const mapFromObject = obj => new Map(Object.entries(obj));
 
     /**
      * Recursively iterates over each element in an array.
@@ -1565,6 +1610,7 @@ var _l = (function (exports) {
      * forEachDeep(a, (val, index, arr) => arr[index] = index * val)
      * // a = [0, 4, [0, 1, [0], 12]]
      */
+
     const forEachDeep = (arr, fn) => arr.forEach((val, index) => isArray(val) ? forEachDeep(val, fn) : fn(val, index, arr));
 
     /**
@@ -1580,9 +1626,8 @@ var _l = (function (exports) {
      * forEachEntryDeep(a, (key, val, index, obj) => obj[key] = index * val)
      * // a = {a: 0, b: {c: [0, 2]}}
      */
-    const forEachEntryDeep = (obj, fn) => forEachEntry(obj, (key, val, index) => isObjectLike(val)
-        ? forEachEntryDeep(val, fn)
-        : fn(key, val, index, obj));
+
+    const forEachEntryDeep = (obj, fn) => forEachEntry(obj, (key, val, index) => isObjectLike(val) ? forEachEntryDeep(val, fn) : fn(key, val, index, obj));
 
     /**
      * Returns a curried function.
@@ -1611,17 +1656,18 @@ var _l = (function (exports) {
      * // => [1, 2, 3]
      */
     const fnCurry = (fn, arity = fn.length) => {
-        // tslint:disable-next-line:only-arrow-functions
-        const resolver = function () {
-            const argsBase = arguments;
-            // tslint:disable-next-line:only-arrow-functions
-            return function () {
-                const args = [...argsBase, ...arguments];
-                const result = args.length >= arity ? fn : resolver;
-                return result(...args);
-            };
+      // tslint:disable-next-line:only-arrow-functions
+      const resolver = function () {
+        const argsBase = arguments; // tslint:disable-next-line:only-arrow-functions
+
+        return function () {
+          const args = [...argsBase, ...arguments];
+          const result = args.length >= arity ? fn : resolver;
+          return result(...args);
         };
-        return resolver();
+      };
+
+      return resolver();
     };
 
     /**
@@ -1642,21 +1688,22 @@ var _l = (function (exports) {
      * // function can only run every 500ms
      */
     const fnThrottle = (fn, timeout, immediate = false) => {
-        const getTimer = () => setTimeout(() => {
-            canRun = true;
-            clearTimeout(timer);
-        }, timeout);
-        let canRun = immediate;
-        // Has to be set to any because it can either a number (in browsers) or a Timer instance (in NodeJS)
-        let timer = immediate ? -1 : getTimer();
-        // tslint:disable-next-line:only-arrow-functions
-        return function () {
-            if (canRun) {
-                canRun = false;
-                timer = getTimer();
-                return fn(...arguments);
-            }
-        };
+      const getTimer = () => setTimeout(() => {
+        canRun = true;
+        clearTimeout(timer);
+      }, timeout);
+
+      let canRun = immediate; // Has to be set to any because it can either a number (in browsers) or a Timer instance (in NodeJS)
+
+      let timer = immediate ? -1 : getTimer(); // tslint:disable-next-line:only-arrow-functions
+
+      return function () {
+        if (canRun) {
+          canRun = false;
+          timer = getTimer();
+          return fn(...arguments);
+        }
+      };
     };
 
     /**
@@ -1676,23 +1723,24 @@ var _l = (function (exports) {
      * // => null
      */
     const searchBinary = (arr, search) => {
-        let low = 0;
-        let high = arr.length - 1;
-        let mid;
-        while (low <= high) {
-            mid = Math.floor(low + (high - low) / 2);
-            const current = arr[mid];
-            if (current === search) {
-                return mid;
-            }
-            else if (current < search) {
-                low = mid + 1;
-            }
-            else {
-                high = mid - 1;
-            }
+      let low = 0;
+      let high = arr.length - 1;
+      let mid;
+
+      while (low <= high) {
+        mid = Math.floor(low + (high - low) / 2);
+        const current = arr[mid];
+
+        if (current === search) {
+          return mid;
+        } else if (current < search) {
+          low = mid + 1;
+        } else {
+          high = mid - 1;
         }
-        return null;
+      }
+
+      return null;
     };
 
     /**
@@ -1716,12 +1764,14 @@ var _l = (function (exports) {
      * // => 6.23132496
      */
     const randNumber = (min = 0, max = 1, floating = false) => {
-        const diff = max - min;
-        if (diff === 0) {
-            return min;
-        }
-        const rand = Math.random() * diff;
-        return min + (floating ? rand : Math.floor((rand / diff) * (diff + 1)));
+      const diff = max - min;
+
+      if (diff === 0) {
+        return min;
+      }
+
+      const rand = Math.random() * diff;
+      return min + (floating ? rand : Math.floor(rand / diff * (diff + 1)));
     };
 
     /**
@@ -1739,7 +1789,8 @@ var _l = (function (exports) {
      * randItem([1, 2, 3, 4, 5])
      * // => 3
      */
-    const randItem = (arr) => arr[randNumber(0, arr.length - 1)];
+
+    const randItem = arr => arr[randNumber(0, arr.length - 1)];
 
     /**
      * Shuffles an array randomly and returns it.
@@ -1755,62 +1806,76 @@ var _l = (function (exports) {
      * randShuffle([1,2,3])
      * // => [3,1,2]
      */
-    const randShuffle = (arr) => {
-        const result = Array.from(arr);
-        let length = result.length;
-        while (length--) {
-            const index = randNumber(0, length);
-            const temp = result[length];
-            result[length] = result[index];
-            result[index] = temp;
-        }
-        return result;
+
+    const randShuffle = arr => {
+      const result = Array.from(arr);
+      let length = result.length;
+
+      while (length--) {
+        const index = randNumber(0, length);
+        const temp = result[length];
+        result[length] = result[index];
+        result[index] = temp;
+      }
+
+      return result;
     };
 
     /**
      * Value checking, type checking, and comparison
      * @namespace Is
      */
+
     /**
      * Check if a target has something
      * @namespace Has
      */
+
     /**
      * Get value from a target
      * @namespace Get
      */
+
     /**
      * Number manipulation and comparison
      * @namespace Number
      */
+
     /**
      * String manipulation and comparison
      * @namespace String
      */
+
     /**
      * Array manipulation and analysis
      * @namespace Array
      */
+
     /**
      * Object manipulation and analysis
      * @namespace Object
      */
+
     /**
      * Map manipulation
      * @namespace Map
      */
+
     /**
      * Looping through ranges, arrays and objects
      * @namespace For
      */
+
     /**
      * Function manipulation
      * @namespace Fn
      */
+
     /**
      * Array and object search
      * @namespace Search
      */
+
     /**
      * Random number generation and value picking
      * @namespace Random
