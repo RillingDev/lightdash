@@ -1,5 +1,5 @@
 interface IGenericClass {
-    new (): any;
+    new(): any;
 }
 
 export { IGenericClass };
