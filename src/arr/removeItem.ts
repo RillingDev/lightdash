@@ -1,5 +1,5 @@
 /**
- * Returns an array with the given item removed.
+ * Returns an array with all instances of the given item removed.
  *
  * @function arrRemoveItem
  * @memberof Array
@@ -8,7 +8,7 @@
  * @param {any} targetItem
  * @returns {any[]}
  * @example
- * arrRemoveItem(["foo", "bar", "fizz"], "bar")
+ * arrRemoveItem(["foo", "bar", "fizz", "bar"], "bar")
  * // => ["foo", "fizz"]
  */
 const arrRemoveItem = <T>(arr: T[], targetItem: T): T[] =>

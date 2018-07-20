@@ -1373,7 +1373,23 @@ var _l = (function (exports) {
     const arrRemoveIndex = (arr, targetIndex) => arr.filter((val, index) => index !== targetIndex);
 
     /**
-     * Returns an array with the given item removed.
+     * Returns an array with the first instance of the given item removed.
+     *
+     * @function arrRemoveFirstItem
+     * @memberof Array
+     * @since 8.1.0
+     * @param {any[]} arr
+     * @param {any} targetItem
+     * @returns {any[]}
+     * @example
+     * arrRemoveFirstItem(["foo", "bar", "fizz", "bar"], "bar")
+     * // => ["foo", "fizz"]
+     */
+
+    const arrRemoveFirstItem = (arr, targetItem) => arrRemoveIndex(arr, arr.indexOf(targetItem));
+
+    /**
+     * Returns an array with all instances of the given item removed.
      *
      * @function arrRemoveItem
      * @memberof Array
@@ -1382,7 +1398,7 @@ var _l = (function (exports) {
      * @param {any} targetItem
      * @returns {any[]}
      * @example
-     * arrRemoveItem(["foo", "bar", "fizz"], "bar")
+     * arrRemoveItem(["foo", "bar", "fizz", "bar"], "bar")
      * // => ["foo", "fizz"]
      */
     const arrRemoveItem = (arr, targetItem) => arr.filter(item => item !== targetItem);
@@ -1933,6 +1949,7 @@ var _l = (function (exports) {
     exports.arrStep = arrStep;
     exports.arrRemoveIndex = arrRemoveIndex;
     exports.arrRemoveItem = arrRemoveItem;
+    exports.arrRemoveFirstItem = arrRemoveFirstItem;
     exports.arrCount = arrCount;
     exports.arrCollect = arrCollect;
     exports.arrDifference = arrDifference;

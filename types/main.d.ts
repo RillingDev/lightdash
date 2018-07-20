@@ -51,6 +51,7 @@ import { arrDifference } from "./arr/difference";
 import { arrFromDeep } from "./arr/fromDeep";
 import { arrIntersection } from "./arr/intersection";
 import { arrMapDeep } from "./arr/mapDeep";
+import { arrRemoveFirstItem } from "./arr/removeFirstItem";
 import { arrRemoveIndex } from "./arr/removeIndex";
 import { arrRemoveItem } from "./arr/removeItem";
 import { arrStep } from "./arr/step";
@@ -72,7 +73,7 @@ import { searchBinary } from "./search/binary";
 import { randItem } from "./rand/item";
 import { randNumber } from "./rand/number";
 import { randShuffle } from "./rand/shuffle";
-export { isEqual, isInstanceOf, isTypeOf, isUndefined, isNull, isNil, isNumber, isString, isBoolean, isSymbol, isObject, isObjectLike, isObjectPlain, isArray, isArrayLike, isArrayBuffer, isArrayTyped, isPromise, isMap, isSet, isDate, isRegExp, isFunction, isArguments, isError, isEmpty, isIndex, hasPath, getPath, getSize, numClamp, numSum, numAverage, numMedian, numSafe, strDistance, strSimilar, strFromCamelCase, strFromKebabCase, strFromPascalCase, strFromSnakeCase, strToCamelCase, strToKebabCase, strToPascalCase, strToSnakeCase, arrFromDeep, arrMapDeep, arrCompact, arrChunk, arrStep, arrRemoveIndex, arrRemoveItem, arrCount, arrCollect, arrDifference, arrIntersection, arrUniq, objFrom, objFromDeep, objMap, objMapDeep, objDefaults, objDefaultsDeep, objDecycle, mapFromObject, fnThrottle, fnCurry, forEachDeep, forEachEntry, forEachEntryDeep, searchBinary, randNumber, randItem, randShuffle };
+export { isEqual, isInstanceOf, isTypeOf, isUndefined, isNull, isNil, isNumber, isString, isBoolean, isSymbol, isObject, isObjectLike, isObjectPlain, isArray, isArrayLike, isArrayBuffer, isArrayTyped, isPromise, isMap, isSet, isDate, isRegExp, isFunction, isArguments, isError, isEmpty, isIndex, hasPath, getPath, getSize, numClamp, numSum, numAverage, numMedian, numSafe, strDistance, strSimilar, strFromCamelCase, strFromKebabCase, strFromPascalCase, strFromSnakeCase, strToCamelCase, strToKebabCase, strToPascalCase, strToSnakeCase, arrFromDeep, arrMapDeep, arrCompact, arrChunk, arrStep, arrRemoveIndex, arrRemoveItem, arrRemoveFirstItem, arrCount, arrCollect, arrDifference, arrIntersection, arrUniq, objFrom, objFromDeep, objMap, objMapDeep, objDefaults, objDefaultsDeep, objDecycle, mapFromObject, fnThrottle, fnCurry, forEachDeep, forEachEntry, forEachEntryDeep, searchBinary, randNumber, randItem, randShuffle };
 /**
  * Value checking, type checking, and comparison
  * @namespace Is

@@ -56,6 +56,7 @@ import { arrDifference } from "./arr/difference";
 import { arrFromDeep } from "./arr/fromDeep";
 import { arrIntersection } from "./arr/intersection";
 import { arrMapDeep } from "./arr/mapDeep";
+import { arrRemoveFirstItem } from "./arr/removeFirstItem";
 import { arrRemoveIndex } from "./arr/removeIndex";
 import { arrRemoveItem } from "./arr/removeItem";
 import { arrStep } from "./arr/step";
@@ -137,6 +138,7 @@ export {
     arrStep,
     arrRemoveIndex,
     arrRemoveItem,
+    arrRemoveFirstItem,
     arrCount,
     arrCollect,
     arrDifference,
