@@ -20,6 +20,15 @@ const fnDebounce = (
     fn: (...args: any[]) => Function,
     timeout: number
 ): Function => {
+
+    /**
+     * Notes: Calls first invocation immediately
+     *        After last invocation fires immediately 
+     * 
+     * Todo: set immediate flag 
+     *       fix timeout on last 
+     */
+
     let timer: NodeJS.Timer | undefined;
 
     return function (...args: any[]) {
