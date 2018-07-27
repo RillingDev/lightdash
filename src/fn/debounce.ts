@@ -22,11 +22,8 @@ const fnDebounce = (
 ): Function => {
 
     /**
-     * Notes: Calls first invocation immediately
-     *        After last invocation fires immediately 
-     * 
-     * Todo: set immediate flag 
-     *       fix timeout on last 
+     * Notes: Calls first invocation immediately when not interrupted.
+     *        Should this be expected or not?
      */
 
     let timer: NodeJS.Timer | undefined;

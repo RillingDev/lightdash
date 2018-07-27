@@ -1641,6 +1641,43 @@ const fnCurry = (fn, arity = fn.length) => {
 };
 
 /**
+ *  Creates a debounced function that delays invoking Fn
+ *
+ *
+ * @function fnDebounce
+ * @memberof Fn
+ * @param {Function} fn
+ * @param {number} timeout
+ * @returns {Function}
+ * @example
+ * const foo = (a, b) => console.log(a + b);
+ * const fooDebounced = fnDebounce(foo, 500);
+ *
+ * fooDebounced(50,50) => // 100
+ *
+ * // function can only run 500ms after last invocation is made.
+ */
+const fnDebounce = (fn, timeout) => {
+    /**
+     * Notes: Calls first invocation immediately when not interrupted.
+     *        Should this be expected or not?
+     */
+    let timer;
+    return function (...args) {
+        const later = function () {
+            timer = undefined;
+            fn(...args);
+        };
+        const callNow = !timer;
+        if (timer !== undefined)
+            clearTimeout(timer);
+        timer = setTimeout(later, timeout);
+        if (callNow)
+            fn(...args);
+    };
+};
+
+/**
  * Throttles a function to only run every n ms.
  *
  * Useful for event handlers that fire several times a second, such as scroll or resize.
@@ -1898,8 +1935,9 @@ exports.objDefaults = objDefaults;
 exports.objDefaultsDeep = objDefaultsDeep;
 exports.objDecycle = objDecycle;
 exports.mapFromObject = mapFromObject;
-exports.fnThrottle = fnThrottle;
 exports.fnCurry = fnCurry;
+exports.fnDebounce = fnDebounce;
+exports.fnThrottle = fnThrottle;
 exports.forEachDeep = forEachDeep;
 exports.forEachEntry = forEachEntry;
 exports.forEachEntryDeep = forEachEntryDeep;
