@@ -25,8 +25,7 @@ const fnDebounce = (
     return function (...args: any[]) {
         const later = function () {
             timer = undefined;
-            // fn.apply(fn) satisfies `this` operator; `this` implicitly has type 'any' 
-            fn.apply(fn, args);
+            fn(...args);
         };
 
         const callNow = !timer;
@@ -37,7 +36,7 @@ const fnDebounce = (
         timer = setTimeout(later, timeout);
 
         if (callNow)
-            fn.apply(fn, args);
+            fn(...args);
 
     };
 }
