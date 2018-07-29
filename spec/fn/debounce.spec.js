@@ -4,30 +4,35 @@ describe('fnDebounce', () => {
     let results = [];
 
     beforeAll(function () {
-        let timer = 0;
+        let timer = 1;
         const foo = (a, b) => results.push(a + b);
-        const fooDebounced = fnDebounce(foo, 1000);
+        const fooDebounced = fnDebounce(foo, 10);
 
-        return new Promise(function (resolve, reject) {
+        return new Promise(function (resolve) {
             const interval = setInterval(() => {
-                fooDebounced(5, 5);
-                timer += 1;
+                results.push(timer)
                 if (timer >= 5) {
                     clearInterval(interval);
-                    resolve();
+                    setTimeout(() => {
+                        resolve();
+                    }, 20)
+                } else {
+                    fooDebounced(5, 5);
+                    timer += 1;
                 }
-            }, 50);
+            }, 5);
 
         });
     });
 
-    it("should have 1 in length", () => {
+    it("should have 6 in length", () => {
+        // [1,2,3,4,5,10]
         console.log(results)
-        expect(results.length).toBe(1)
+        expect(results.length).toBe(6)
     })
 
     it("should be 10", () => {
         console.log(results)
-        expect(results[0]).toBe(10)
+        expect(results[results.length - 1]).toBe(10)
     })
 })
