@@ -23,11 +23,6 @@ const fnDebounce = (
     timeout: number
 ): Function => {
 
-    /**
-     * Notes: Calls first invocation immediately when not interrupted.
-     *        Should this be expected or not?
-     */
-
     let timer: any;
 
     return function (...args: any[]) {
@@ -36,14 +31,11 @@ const fnDebounce = (
             fn(...args);
         };
 
-        const callNow = !timer;
-
-        if (isUndefined(timer))
-            clearTimeout(timer);
+        clearTimeout(timer);
 
         timer = setTimeout(later, timeout);
 
-        if (callNow)
+        if (!timer)
             fn(...args);
 
     };

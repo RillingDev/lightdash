@@ -1654,21 +1654,15 @@ const fnCurry = (fn, arity = fn.length) => {
  * // function can only run 500ms after last invocation is made.
  */
 const fnDebounce = (fn, timeout) => {
-    /**
-     * Notes: Calls first invocation immediately when not interrupted.
-     *        Should this be expected or not?
-     */
     let timer;
     return function (...args) {
         const later = function () {
             timer = undefined;
             fn(...args);
         };
-        const callNow = !timer;
-        if (isUndefined(timer))
-            clearTimeout(timer);
+        clearTimeout(timer);
         timer = setTimeout(later, timeout);
-        if (callNow)
+        if (!timer)
             fn(...args);
     };
 };
