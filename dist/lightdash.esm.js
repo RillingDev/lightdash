@@ -1665,7 +1665,7 @@ const fnDebounce = (fn, timeout) => {
             fn(...args);
         };
         const callNow = !timer;
-        if (timer !== undefined)
+        if (isUndefined(timer))
             clearTimeout(timer);
         timer = setTimeout(later, timeout);
         if (callNow)
