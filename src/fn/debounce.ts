@@ -1,5 +1,3 @@
-import { isUndefined } from './../is/undefined'
-
 /**
  *  Creates a debounced function that delays invoking Fn
  * 
