@@ -1,3 +1,5 @@
+import { isUndefined } from './../is/undefined'
+
 /**
  *  Creates a debounced function that delays invoking Fn
  * 
@@ -17,7 +19,7 @@
  */
 
 const fnDebounce = (
-    fn: (...args: any[]) => Function,
+    fn: (...args: any[]) => any,
     timeout: number
 ): Function => {
 
@@ -26,7 +28,7 @@ const fnDebounce = (
      *        Should this be expected or not?
      */
 
-    let timer: NodeJS.Timer | undefined;
+    let timer: any;
 
     return function (...args: any[]) {
         const later = function () {
@@ -36,7 +38,7 @@ const fnDebounce = (
 
         const callNow = !timer;
 
-        if (timer !== undefined)
+        if (isUndefined(timer))
             clearTimeout(timer);
 
         timer = setTimeout(later, timeout);
