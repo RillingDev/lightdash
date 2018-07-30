@@ -1687,8 +1687,7 @@ var _l = (function (exports) {
     };
 
     /**
-     *  Creates a debounced function that delays invoking Fn
-     *
+     * Creates a debounced function that delays invoking fn.
      *
      * @function fnDebounce
      * @memberof Fn
@@ -1697,29 +1696,25 @@ var _l = (function (exports) {
      * @returns {Function}
      * @example
      * const foo = (a, b) => console.log(a + b);
-     * const fooDebounced = fnDebounce(foo, 500);
-     *
-     * fooDebounced(50,50) => // 100
-     *
-     * // function can only run 500ms after last invocation is made.
+     * const fooThrottled = fnThrottle(foo, 500);
+     * // function can only run 500ms after the last invocation was made
      */
-
     const fnDebounce = (fn, timeout) => {
-      /**
-       * Notes: Calls first invocation immediately when not interrupted.
-       *        Should this be expected or not?
-       */
-      let timer;
+      let timer; // tslint:disable-next-line:only-arrow-functions
+
       return function (...args) {
+        // tslint:disable-next-line:only-arrow-functions
         const later = function () {
           timer = undefined;
           fn(...args);
         };
 
-        const callNow = !timer;
-        if (isUndefined(timer)) clearTimeout(timer);
+        clearTimeout(timer);
         timer = setTimeout(later, timeout);
-        if (callNow) fn(...args);
+
+        if (!timer) {
+          fn(...args);
+        }
       };
     };
 

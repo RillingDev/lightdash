@@ -1637,8 +1637,7 @@ const fnCurry = (fn, arity = fn.length) => {
 };
 
 /**
- *  Creates a debounced function that delays invoking Fn
- *
+ * Creates a debounced function that delays invoking fn.
  *
  * @function fnDebounce
  * @memberof Fn
@@ -1647,23 +1646,23 @@ const fnCurry = (fn, arity = fn.length) => {
  * @returns {Function}
  * @example
  * const foo = (a, b) => console.log(a + b);
- * const fooDebounced = fnDebounce(foo, 500);
- *
- * fooDebounced(50,50) => // 100
- *
- * // function can only run 500ms after last invocation is made.
+ * const fooThrottled = fnThrottle(foo, 500);
+ * // function can only run 500ms after the last invocation was made
  */
 const fnDebounce = (fn, timeout) => {
     let timer;
+    // tslint:disable-next-line:only-arrow-functions
     return function (...args) {
+        // tslint:disable-next-line:only-arrow-functions
         const later = function () {
             timer = undefined;
             fn(...args);
         };
         clearTimeout(timer);
         timer = setTimeout(later, timeout);
-        if (!timer)
+        if (!timer) {
             fn(...args);
+        }
     };
 };
 

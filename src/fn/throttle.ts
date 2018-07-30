@@ -19,7 +19,7 @@ const fnThrottle = (
     fn: (...args: any[]) => any,
     timeout: number,
     immediate = false
-) => {
+): ((...args: any[]) => any) => {
     const getTimer = () =>
         setTimeout(() => {
             canRun = true;

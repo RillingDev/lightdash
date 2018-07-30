@@ -1,6 +1,5 @@
 /**
- *  Creates a debounced function that delays invoking Fn
- *
+ * Creates a debounced function that delays invoking fn.
  *
  * @function fnDebounce
  * @memberof Fn
@@ -9,11 +8,8 @@
  * @returns {Function}
  * @example
  * const foo = (a, b) => console.log(a + b);
- * const fooDebounced = fnDebounce(foo, 500);
- *
- * fooDebounced(50,50) => // 100
- *
- * // function can only run 500ms after last invocation is made.
+ * const fooThrottled = fnThrottle(foo, 500);
+ * // function can only run 500ms after the last invocation was made
  */
-declare const fnDebounce: (fn: (...args: any[]) => any, timeout: number) => Function;
+declare const fnDebounce: (fn: (...args: any[]) => any, timeout: number) => (...args: any[]) => any;
 export { fnDebounce };
