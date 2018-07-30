@@ -22,7 +22,7 @@ const fnDebounce = (
     return function(...args: any[]) {
         // tslint:disable-next-line:only-arrow-functions
         const later = function() {
-            timer = undefined;
+            timer = null;
             fn(...args);
         };
 

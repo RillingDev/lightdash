@@ -1705,7 +1705,7 @@ var _l = (function (exports) {
       return function (...args) {
         // tslint:disable-next-line:only-arrow-functions
         const later = function () {
-          timer = undefined;
+          timer = null;
           fn(...args);
         };
 

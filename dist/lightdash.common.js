@@ -1659,7 +1659,7 @@ const fnDebounce = (fn, timeout) => {
     return function (...args) {
         // tslint:disable-next-line:only-arrow-functions
         const later = function () {
-            timer = undefined;
+            timer = null;
             fn(...args);
         };
         clearTimeout(timer);
