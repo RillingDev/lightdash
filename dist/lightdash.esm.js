@@ -1637,6 +1637,37 @@ const fnCurry = (fn, arity = fn.length) => {
 };
 
 /**
+ *  Creates a debounced function that delays invoking Fn
+ *
+ *
+ * @function fnDebounce
+ * @memberof Fn
+ * @param {Function} fn
+ * @param {number} timeout
+ * @returns {Function}
+ * @example
+ * const foo = (a, b) => console.log(a + b);
+ * const fooDebounced = fnDebounce(foo, 500);
+ *
+ * fooDebounced(50,50) => // 100
+ *
+ * // function can only run 500ms after last invocation is made.
+ */
+const fnDebounce = (fn, timeout) => {
+    let timer;
+    return function (...args) {
+        const later = function () {
+            timer = undefined;
+            fn(...args);
+        };
+        clearTimeout(timer);
+        timer = setTimeout(later, timeout);
+        if (!timer)
+            fn(...args);
+    };
+};
+
+/**
  * Throttles a function to only run every n ms.
  *
  * Useful for event handlers that fire several times a second, such as scroll or resize.
@@ -1828,4 +1859,4 @@ const randShuffle = (arr) => {
  * @namespace Random
  */
 
-export { isEqual, isInstanceOf, isTypeOf, isUndefined, isNull, isNil, isNumber, isString, isBoolean, isSymbol, isObject, isObjectLike, isObjectPlain, isArray, isArrayLike, isArrayBuffer, isArrayTyped, isPromise, isMap, isSet, isDate, isRegExp, isFunction, isArguments, isError, isEmpty, isIndex, hasPath, getPath, getSize, numClamp, numSum, numAverage, numMedian, numSafe, strDistance, strSimilar, strFromCamelCase, strFromKebabCase, strFromPascalCase, strFromSnakeCase, strToCamelCase, strToKebabCase, strToPascalCase, strToSnakeCase, arrFromDeep, arrMapDeep, arrCompact, arrChunk, arrStep, arrRemoveIndex, arrRemoveItem, arrRemoveFirstItem, arrCount, arrCollect, arrDifference, arrIntersection, arrUniq, objFrom, objFromDeep, objMap, objMapDeep, objDefaults, objDefaultsDeep, objDecycle, mapFromObject, fnThrottle, fnCurry, forEachDeep, forEachEntry, forEachEntryDeep, searchBinary, randNumber, randItem, randShuffle };
+export { isEqual, isInstanceOf, isTypeOf, isUndefined, isNull, isNil, isNumber, isString, isBoolean, isSymbol, isObject, isObjectLike, isObjectPlain, isArray, isArrayLike, isArrayBuffer, isArrayTyped, isPromise, isMap, isSet, isDate, isRegExp, isFunction, isArguments, isError, isEmpty, isIndex, hasPath, getPath, getSize, numClamp, numSum, numAverage, numMedian, numSafe, strDistance, strSimilar, strFromCamelCase, strFromKebabCase, strFromPascalCase, strFromSnakeCase, strToCamelCase, strToKebabCase, strToPascalCase, strToSnakeCase, arrFromDeep, arrMapDeep, arrCompact, arrChunk, arrStep, arrRemoveIndex, arrRemoveItem, arrRemoveFirstItem, arrCount, arrCollect, arrDifference, arrIntersection, arrUniq, objFrom, objFromDeep, objMap, objMapDeep, objDefaults, objDefaultsDeep, objDecycle, mapFromObject, fnCurry, fnDebounce, fnThrottle, forEachDeep, forEachEntry, forEachEntryDeep, searchBinary, randNumber, randItem, randShuffle };
