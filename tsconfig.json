@@ -7,8 +7,6 @@
         "newLine": "LF",
         "removeComments": false,
         "strict": true,
-        "noImplicitAny": true,
-        "emitDecoratorMetadata": true,
-        "experimentalDecorators": true
+        "noImplicitAny": true
     }
 }
