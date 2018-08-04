@@ -39,6 +39,10 @@
         "utility"
     ],
     "author": "Felix Rilling",
+    "contributors": [
+        "Felix Rilling",
+        "Tyler Roberts"
+    ],
     "license": "MIT",
     "bugs": {
         "url": "https://github.com/FelixRilling/lightdash/issues"
