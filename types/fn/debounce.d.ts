@@ -1,5 +1,5 @@
 /**
- * Creates a debounced function that delays invoking fn.
+ * Creates a debounced function that delays invoking the fn.
  *
  * @function fnDebounce
  * @memberof Fn

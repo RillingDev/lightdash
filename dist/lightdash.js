@@ -1687,7 +1687,7 @@ var _l = (function (exports) {
     };
 
     /**
-     * Creates a debounced function that delays invoking fn.
+     * Creates a debounced function that delays invoking the fn.
      *
      * @function fnDebounce
      * @memberof Fn
@@ -1702,18 +1702,15 @@ var _l = (function (exports) {
     const fnDebounce = (fn, timeout) => {
       let timer; // tslint:disable-next-line:only-arrow-functions
 
-      return function (...args) {
-        // tslint:disable-next-line:only-arrow-functions
-        const later = function () {
-          timer = null;
-          fn(...args);
-        };
-
+      return function () {
         clearTimeout(timer);
-        timer = setTimeout(later, timeout);
+        timer = setTimeout(() => {
+          timer = null;
+          fn(...arguments);
+        }, timeout);
 
         if (!timer) {
-          fn(...args);
+          fn(...arguments);
         }
       };
     };
@@ -1736,6 +1733,7 @@ var _l = (function (exports) {
      * // function can only run every 500ms
      */
     const fnThrottle = (fn, timeout, immediate = false) => {
+      // Private helper that creates a returns a timeout to reset the canRun state and the timer
       const getTimer = () => setTimeout(() => {
         canRun = true;
         clearTimeout(timer);
@@ -1747,9 +1745,9 @@ var _l = (function (exports) {
 
       return function () {
         if (canRun) {
+          fn(...arguments);
           canRun = false;
           timer = getTimer();
-          return fn(...arguments);
         }
       };
     };

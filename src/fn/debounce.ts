@@ -1,5 +1,5 @@
 /**
- * Creates a debounced function that delays invoking fn.
+ * Creates a debounced function that delays invoking the fn.
  *
  * @function fnDebounce
  * @memberof Fn
@@ -19,19 +19,16 @@ const fnDebounce = (
     let timer: any;
 
     // tslint:disable-next-line:only-arrow-functions
-    return function(...args: any[]) {
-        // tslint:disable-next-line:only-arrow-functions
-        const later = function() {
-            timer = null;
-            fn(...args);
-        };
-
+    return function() {
         clearTimeout(timer);
 
-        timer = setTimeout(later, timeout);
+        timer = setTimeout(() => {
+            timer = null;
+            fn(...arguments);
+        }, timeout);
 
         if (!timer) {
-            fn(...args);
+            fn(...arguments);
         }
     };
 };

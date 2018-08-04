@@ -20,6 +20,7 @@ const fnThrottle = (
     timeout: number,
     immediate = false
 ): ((...args: any[]) => any) => {
+    // Private helper that creates a returns a timeout to reset the canRun state and the timer
     const getTimer = () =>
         setTimeout(() => {
             canRun = true;
@@ -32,10 +33,9 @@ const fnThrottle = (
     // tslint:disable-next-line:only-arrow-functions
     return function() {
         if (canRun) {
+            fn(...arguments);
             canRun = false;
             timer = getTimer();
-
-            return fn(...arguments);
         }
     };
 };
