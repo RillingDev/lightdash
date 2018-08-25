@@ -390,10 +390,7 @@ const isString = (val) => isTypeOf(val, "string");
  * // => -1
  */
 const getSize = (val) => {
-    if (isNil(val)) {
-        return -1;
-    }
-    else if (isArrayLike(val) || isString(val)) {
+    if (isArrayLike(val) || isString(val)) {
         return val.length;
     }
     else if (!isUndefined(val.size)) {
@@ -588,27 +585,6 @@ const isIndex = (val) => Number.isInteger(val) && val >= 0;
 const isMap = (val) => isInstanceOf(val, Map);
 
 /**
- * Checks if a value is null.
- *
- * @function isNull
- * @memberof Is
- * @since 7.1.0
- * @param {any} val
- * @returns {boolean}
- * @example
- * isNull(null)
- * // => true
- *
- * @example
- * isNull(0)
- * // => false
- *
- * isNull(undefined)
- * // => false
- */
-const isNull = (val) => val === null;
-
-/**
  * Checks if a value is an object.
  *
  * @function isObject
@@ -695,7 +671,7 @@ const isPromise = (val) => isFunction(val.then) && isFunction(val.catch);
  * // => false
  */
 // @ts-ignore: RegExp declaration is invalid
-const isRegExp = (val) => isInstanceOf(val, RegExp);
+const isRegExp = (val) => isInstanceOf(val, RegExpConstructor);
 
 /**
  * Checks if a value is a set.
@@ -806,34 +782,6 @@ const getPath = (target, path) => {
 const hasPath = (target, path) => !isNil(getPath(target, path));
 
 /**
- * Returns the sum of an array of numbers.
- *
- * @function numSum
- * @memberof Number
- * @since 5.0.0
- * @param {number[]} arr
- * @returns {number}
- * @example
- * numSum([1, 2.5, 3.3])
- * // => 6.8
- */
-const numSum = (arr) => arr.reduce((a, b) => a + b);
-
-/**
- * Returns the average of an array of numbers.
- *
- * @function numAverage
- * @memberof Number
- * @since 5.0.0
- * @param {number[]} arr
- * @returns {number}
- * @example
- * numAverage([1, 2.5, 3.3])
- * // => 2.2666
- */
-const numAverage = (arr) => numSum(arr) / arr.length;
-
-/**
  * Clamps a number in a given range.
  *
  * @function numClamp
@@ -861,28 +809,6 @@ const numClamp = (val, min, max) => {
         return max;
     }
     return val;
-};
-
-/**
- * Returns the median of an array of numbers.
- *
- * @function numMedian
- * @memberof Number
- * @since 5.0.0
- * @param {number[]} arr
- * @returns {number}
- * @example
- * numMedian([1, 2.5, 3.3])
- * // => 2.5
- *
- * numMedian([1, 2, 4, 5])
- * // => 3
- */
-const numMedian = (arr) => {
-    const arrLengthHalf = arr.length / 2;
-    return arr.length % 2 === 0
-        ? arr[arrLengthHalf]
-        : numAverage(arr.slice(Math.floor(arrLengthHalf), 2));
 };
 
 /**
@@ -981,7 +907,7 @@ const strDistance = (str1, str2) => {
  * arrCompact([1, "", "", 2, 3, null, 4, undefined, 5, ""])
  * // => [1, 2, 3, 4, 5]
  */
-const arrCompact = (arr) => arr.filter((val) => val);
+const arrCompact = (arr) => arr.filter((val) => Boolean(val));
 
 /**
  * Creates an array of substrings from a PascalCase string.
@@ -1326,21 +1252,6 @@ const arrIntersection = (arr, ...values) => {
 const arrRemoveIndex = (arr, targetIndex) => arr.filter((val, index) => index !== targetIndex);
 
 /**
- * Returns an array with the first instance of the given item removed.
- *
- * @function arrRemoveFirstItem
- * @memberof Array
- * @since 8.1.0
- * @param {any[]} arr
- * @param {any} targetItem
- * @returns {any[]}
- * @example
- * arrRemoveFirstItem(["foo", "bar", "fizz", "bar"], "bar")
- * // => ["foo", "fizz"]
- */
-const arrRemoveFirstItem = (arr, targetItem) => arrRemoveIndex(arr, arr.indexOf(targetItem));
-
-/**
  * Returns an array with all instances of the given item removed.
  *
  * @function arrRemoveItem
@@ -1348,12 +1259,15 @@ const arrRemoveFirstItem = (arr, targetItem) => arrRemoveIndex(arr, arr.indexOf(
  * @since 2.8.0
  * @param {any[]} arr
  * @param {any} targetItem
+ * @param {boolean} [removeAll=true] removeAll
  * @returns {any[]}
  * @example
  * arrRemoveItem(["foo", "bar", "fizz", "bar"], "bar")
  * // => ["foo", "fizz"]
  */
-const arrRemoveItem = (arr, targetItem) => arr.filter(item => item !== targetItem);
+const arrRemoveItem = (arr, targetItem, removeAll = true) => removeAll ?
+    arr.filter(item => item !== targetItem) :
+    arrRemoveIndex(arr, arr.indexOf(targetItem));
 
 /**
  * Returns an array with every n-th item from the input array.
@@ -1858,4 +1772,4 @@ const randShuffle = (arr) => {
  * @namespace Random
  */
 
-export { isEqual, isInstanceOf, isTypeOf, isUndefined, isNull, isNil, isNumber, isString, isBoolean, isSymbol, isObject, isObjectLike, isObjectPlain, isArray, isArrayLike, isArrayBuffer, isArrayTyped, isPromise, isMap, isSet, isDate, isRegExp, isFunction, isArguments, isError, isEmpty, isIndex, hasPath, getPath, getSize, numClamp, numSum, numAverage, numMedian, numSafe, strDistance, strSimilar, strFromCamelCase, strFromKebabCase, strFromPascalCase, strFromSnakeCase, strToCamelCase, strToKebabCase, strToPascalCase, strToSnakeCase, arrFromDeep, arrMapDeep, arrCompact, arrChunk, arrStep, arrRemoveIndex, arrRemoveItem, arrRemoveFirstItem, arrCount, arrCollect, arrDifference, arrIntersection, arrUniq, objFrom, objFromDeep, objMap, objMapDeep, objDefaults, objDefaultsDeep, objDecycle, mapFromObject, fnCurry, fnDebounce, fnThrottle, forEachDeep, forEachEntry, forEachEntryDeep, searchBinary, randNumber, randItem, randShuffle };
+export { isEqual, isInstanceOf, isTypeOf, isUndefined, isNil, isNumber, isString, isBoolean, isSymbol, isObject, isObjectLike, isObjectPlain, isArray, isArrayLike, isArrayBuffer, isArrayTyped, isPromise, isMap, isSet, isDate, isRegExp, isFunction, isArguments, isError, isEmpty, isIndex, hasPath, getPath, getSize, numClamp, numSafe, strDistance, strSimilar, strFromCamelCase, strFromKebabCase, strFromPascalCase, strFromSnakeCase, strToCamelCase, strToKebabCase, strToPascalCase, strToSnakeCase, arrFromDeep, arrMapDeep, arrCompact, arrChunk, arrStep, arrRemoveIndex, arrRemoveItem, arrCount, arrCollect, arrDifference, arrIntersection, arrUniq, objFrom, objFromDeep, objMap, objMapDeep, objDefaults, objDefaultsDeep, objDecycle, mapFromObject, fnCurry, fnDebounce, fnThrottle, forEachDeep, forEachEntry, forEachEntryDeep, searchBinary, randNumber, randItem, randShuffle };

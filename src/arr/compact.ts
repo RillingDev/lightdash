@@ -10,6 +10,6 @@
  * arrCompact([1, "", "", 2, 3, null, 4, undefined, 5, ""])
  * // => [1, 2, 3, 4, 5]
  */
-const arrCompact = <T>(arr: T[]): T[] => arr.filter((val: T) => val);
+const arrCompact = <T>(arr: T[]): T[] => arr.filter((val: T) => Boolean(val));
 
 export { arrCompact };

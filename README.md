@@ -58,3 +58,15 @@ _l.arrDifference([1, 2, 3], [1, 3]);
 ## Contributing
 
 Contributions are always welcome, no matter if you have a requests, an idea, found a bug, or spotted a typo: Feel free to create a PR or open an issue!
+
+## Changelog
+
+### v9.0.0
+
+Breaking:
+    - Merged arrRemoveItem and arrRemoveItemFirst
+    - removed isObjectLike and isNull
+    - removed numSum, numMedian and numAverage
+    
+Misc:
+    - Rewrote test in TS

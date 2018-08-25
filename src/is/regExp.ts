@@ -20,6 +20,6 @@ import { isInstanceOf } from "./instanceOf";
  * // => false
  */
 // @ts-ignore: RegExp declaration is invalid
-const isRegExp = (val: any): val is RegExp => isInstanceOf(val, RegExp);
+const isRegExp = (val: any): val is RegExp => isInstanceOf(val, RegExpConstructor);
 
 export { isRegExp };

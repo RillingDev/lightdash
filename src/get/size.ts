@@ -1,5 +1,4 @@
 import { isArrayLike } from "../is/arrayLike";
-import { isNil } from "../is/nil";
 import { isObjectLike } from "../is/objectLike";
 import { isString } from "../is/string";
 import { isUndefined } from "../is/undefined";
@@ -36,9 +35,7 @@ import { isUndefined } from "../is/undefined";
  * // => -1
  */
 const getSize = (val: any): number => {
-    if (isNil(val)) {
-        return -1;
-    } else if (isArrayLike(val) || isString(val)) {
+    if (isArrayLike(val) || isString(val)) {
         return val.length;
     } else if (!isUndefined(val.size)) {
         return val.size;

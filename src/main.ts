@@ -13,7 +13,6 @@ import { isIndex } from "./is/index";
 import { isInstanceOf } from "./is/instanceOf";
 import { isMap } from "./is/map";
 import { isNil } from "./is/nil";
-import { isNull } from "./is/null";
 import { isNumber } from "./is/number";
 import { isObject } from "./is/object";
 import { isObjectLike } from "./is/objectLike";
@@ -31,11 +30,8 @@ import { hasPath } from "./has/path";
 import { getPath } from "./get/path";
 import { getSize } from "./get/size";
 
-import { numAverage } from "./num/average";
 import { numClamp } from "./num/clamp";
-import { numMedian } from "./num/median";
 import { numSafe } from "./num/safe";
-import { numSum } from "./num/sum";
 
 import { strDistance } from "./str/distance";
 import { strFromCamelCase } from "./str/fromCamelCase";
@@ -56,7 +52,6 @@ import { arrDifference } from "./arr/difference";
 import { arrFromDeep } from "./arr/fromDeep";
 import { arrIntersection } from "./arr/intersection";
 import { arrMapDeep } from "./arr/mapDeep";
-import { arrRemoveFirstItem } from "./arr/removeFirstItem";
 import { arrRemoveIndex } from "./arr/removeIndex";
 import { arrRemoveItem } from "./arr/removeItem";
 import { arrStep } from "./arr/step";
@@ -91,7 +86,6 @@ export {
     isInstanceOf,
     isTypeOf,
     isUndefined,
-    isNull,
     isNil,
     isNumber,
     isString,
@@ -118,9 +112,6 @@ export {
     getPath,
     getSize,
     numClamp,
-    numSum,
-    numAverage,
-    numMedian,
     numSafe,
     strDistance,
     strSimilar,
@@ -139,7 +130,6 @@ export {
     arrStep,
     arrRemoveIndex,
     arrRemoveItem,
-    arrRemoveFirstItem,
     arrCount,
     arrCollect,
     arrDifference,
