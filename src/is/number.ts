@@ -29,6 +29,6 @@ import { isTypeOf } from "./typeOf";
  * isNumber(null)
  * // => false
  */
-const isNumber = (val: any): boolean => isTypeOf(val, "number");
+const isNumber = (val: any): val is number => isTypeOf(val, "number");
 
 export { isNumber };

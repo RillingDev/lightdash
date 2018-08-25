@@ -21,7 +21,7 @@ import { isObject } from "./object";
  * isObjectPlain(() => {})
  * // => false
  */
-const isObjectPlain = (val: any): boolean =>
+const isObjectPlain = (val: any): val is object =>
     isObject(val) && val.constructor === Object;
 
 export { isObjectPlain };

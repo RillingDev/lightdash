@@ -16,6 +16,6 @@ import { isInstanceOf } from "./instanceOf";
  * isMap([[1, 2]])
  * // => false
  */
-const isMap = (val: any): boolean => isInstanceOf(val, Map);
+const isMap = (val: any): val is Map<any, any> => isInstanceOf(val, Map);
 
 export { isMap };

@@ -16,6 +16,6 @@ import { isInstanceOf } from "./instanceOf";
  * isSet([1, 2])
  * // => false
  */
-const isSet = (val: any): boolean => isInstanceOf(val, Set);
+const isSet = (val: any): val is Set<any> => isInstanceOf(val, Set);
 
 export { isSet };

@@ -17,6 +17,6 @@
  * isNull(undefined)
  * // => false
  */
-const isNull = (val: any): boolean => val === null;
+const isNull = (val: any): val is null => val === null;
 
 export { isNull };

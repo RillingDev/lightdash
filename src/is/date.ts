@@ -19,6 +19,6 @@ import { isInstanceOf } from "./instanceOf";
  * isDate(123213231)
  * // => false
  */
-const isDate = (val: any): boolean => isInstanceOf(val, Date);
+const isDate = (val: any): val is Date => isInstanceOf(val, Date);
 
 export { isDate };

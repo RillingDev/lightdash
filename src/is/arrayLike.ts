@@ -1,4 +1,4 @@
-import { isUndefined } from "../is/undefined";
+import { isUndefined } from "./undefined";
 import { isObjectLike } from "./objectLike";
 
 /**
@@ -23,7 +23,7 @@ import { isObjectLike } from "./objectLike";
  * isArrayLike("foo")
  * // => false
  */
-const isArrayLike = (val: any): boolean =>
+const isArrayLike = (val: any): val is ArrayLike<any> =>
     isObjectLike(val) && !isUndefined(val.length);
 
 export { isArrayLike };

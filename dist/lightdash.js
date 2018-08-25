@@ -136,8 +136,9 @@ var _l = (function (exports) {
      * isArrayBuffer([1, 2])
      * // => false
      */
+    const isArrayBuffer = (val) => 
     // @ts-ignore: ArrayBuffer declaration is invalid
-    const isArrayBuffer = (val) => isInstanceOf(val, ArrayBuffer);
+    isInstanceOf(val, ArrayBuffer);
 
     /**
      * Checks if a value is undefined.
@@ -285,7 +286,7 @@ var _l = (function (exports) {
      * isArrayTyped(new Int16Array());
      * // => true
      *
-     * isArrayTyped(new Uint8Array());
+     * isArrayTyped(new UInt8Array());
      * // => true
      *
      * @example

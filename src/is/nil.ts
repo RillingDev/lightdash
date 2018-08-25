@@ -20,6 +20,6 @@
  * isNil("")
  * // => false
  */
-const isNil = (val: any): boolean => val == null;
+const isNil = (val: any): val is null | undefined => val == null;
 
 export { isNil };

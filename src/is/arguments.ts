@@ -20,6 +20,6 @@ import { isFunction } from "./function";
  * isArguments([]);
  * // => false
  */
-const isArguments = (val: any): boolean => isFunction(val.callee);
+const isArguments = (val: any): val is IArguments => isFunction(val.callee);
 
 export { isArguments };

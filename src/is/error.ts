@@ -19,6 +19,6 @@ import { isInstanceOf } from "./instanceOf";
  * isError("foo")
  * // => false
  */
-const isError = (val: any): boolean => isInstanceOf(val, Error);
+const isError = (val: any): val is Error => isInstanceOf(val, Error);
 
 export { isError };

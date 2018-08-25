@@ -1,4 +1,5 @@
 import { isTypeOf } from "./typeOf";
+import { anyFunction } from "./lib/anyFunction";
 
 /**
  * Checks if a value is a function.
@@ -19,6 +20,6 @@ import { isTypeOf } from "./typeOf";
  * isFunction(null)
  * // => false
  */
-const isFunction = (val: any): boolean => isTypeOf(val, "function");
+const isFunction = (val: any): val is anyFunction => isTypeOf(val, "function");
 
 export { isFunction };

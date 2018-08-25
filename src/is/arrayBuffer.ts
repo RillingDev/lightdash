@@ -16,7 +16,9 @@ import { isInstanceOf } from "./instanceOf";
  * isArrayBuffer([1, 2])
  * // => false
  */
-// @ts-ignore: ArrayBuffer declaration is invalid
-const isArrayBuffer = (val: any): boolean => isInstanceOf(val, ArrayBuffer);
+
+const isArrayBuffer = (val: any): val is ArrayBuffer =>
+    // @ts-ignore: ArrayBuffer declaration is invalid
+    isInstanceOf(val, ArrayBuffer);
 
 export { isArrayBuffer };

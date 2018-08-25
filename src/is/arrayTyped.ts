@@ -12,13 +12,23 @@ import { isNumber } from "./number";
  * isArrayTyped(new Int16Array());
  * // => true
  *
- * isArrayTyped(new Uint8Array());
+ * isArrayTyped(new UInt8Array());
  * // => true
  *
  * @example
  * isArrayTyped([]);
  * // => false
  */
-const isArrayTyped = (val: any): boolean => isNumber(val.BYTES_PER_ELEMENT);
+const isArrayTyped = (
+    val: any
+): val is
+    | Int8Array
+    | Int16Array
+    | Int32Array
+    | Uint8Array
+    | Uint16Array
+    | Uint32Array
+    | Float32Array
+    | Float64Array => isNumber(val.BYTES_PER_ELEMENT);
 
 export { isArrayTyped };

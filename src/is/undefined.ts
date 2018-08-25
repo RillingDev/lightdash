@@ -26,6 +26,6 @@ import { isTypeOf } from "./typeOf";
  * isUndefined(a)
  * // => false
  */
-const isUndefined = (val: any): boolean => isTypeOf(val, "undefined");
+const isUndefined = (val: any): val is undefined => isTypeOf(val, "undefined");
 
 export { isUndefined };

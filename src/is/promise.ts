@@ -18,7 +18,7 @@ import { isFunction } from "./function";
  * isPromise(() => "foo");
  * // => false
  */
-const isPromise = (val: any): boolean =>
+const isPromise = (val: any): val is Promise<any> =>
     isFunction(val.then) && isFunction(val.catch);
 
 export { isPromise };
