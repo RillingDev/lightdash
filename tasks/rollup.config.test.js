@@ -5,7 +5,7 @@ export default {
     input: "spec/main.ts",
     output: {
         format: "cjs",
-        file: `./spec/dist/main.spec.js`
+        file: `./spec/out/main.spec.js`
     },
     external: [],
     plugins: [

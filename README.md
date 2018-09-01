@@ -70,3 +70,4 @@ Breaking:
     
 Misc:
     - Rewrote test in TS
+    - Improved type guard interference

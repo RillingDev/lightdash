@@ -673,8 +673,9 @@ var _l = (function (exports) {
      * isRegExp("foo")
      * // => false
      */
+    const isRegExp = (val) => 
     // @ts-ignore: RegExp declaration is invalid
-    const isRegExp = (val) => isInstanceOf(val, RegExpConstructor);
+    isInstanceOf(val, RegExpConstructor);
 
     /**
      * Checks if a value is a set.
@@ -1268,9 +1269,9 @@ var _l = (function (exports) {
      * arrRemoveItem(["foo", "bar", "fizz", "bar"], "bar")
      * // => ["foo", "fizz"]
      */
-    const arrRemoveItem = (arr, targetItem, removeAll = true) => removeAll ?
-        arr.filter(item => item !== targetItem) :
-        arrRemoveIndex(arr, arr.indexOf(targetItem));
+    const arrRemoveItem = (arr, targetItem, removeAll = true) => removeAll
+        ? arr.filter(item => item !== targetItem)
+        : arrRemoveIndex(arr, arr.indexOf(targetItem));
 
     /**
      * Returns an array with every n-th item from the input array.
