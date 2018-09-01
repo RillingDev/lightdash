@@ -1,4 +1,4 @@
-import { forEachMapper } from "../for/lib/iterators";
+import { forEachMapper } from "../for/lib/forEachMapper";
 
 /**
  * Collects the values of an array in a Map as arrays.
@@ -13,6 +13,7 @@ import { forEachMapper } from "../for/lib/iterators";
  * arrCollect([1, 2, 3, 4, 5], val => val % 2)
  * // => Map<any, any[]>{0: [2, 4], 1: [1, 3, 5]}
  */
+
 const arrCollect = <T>(arr: T[], fn: forEachMapper<T, any>): Map<any, T[]> => {
     const result: Map<any, T[]> = new Map();
 

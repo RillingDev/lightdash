@@ -3,7 +3,7 @@ import { isArray } from "../is/array";
 import { isObjectLike } from "../is/objectLike";
 import { isUndefined } from "../is/undefined";
 import { objFrom } from "./from";
-import { ITypedObject } from "./lib/typedObject";
+import { ITypedObject } from "./lib/ITypedObject";
 
 /**
  * Recursively sets every nil property of object to the value from the default object.

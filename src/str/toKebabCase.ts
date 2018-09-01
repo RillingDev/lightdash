@@ -1,4 +1,4 @@
-import { delimiters } from "./lib/delimiters";
+import { Delimiters } from "./lib/Delimiters";
 
 /**
  * Creates a kebab-case string from an array of substrings.
@@ -16,6 +16,6 @@ import { delimiters } from "./lib/delimiters";
  * // => "fizz-buzz-bazz"
  */
 const strToKebabCase = (arr: string[]): string =>
-    arr.map(val => val.toLowerCase()).join(delimiters.kebab);
+    arr.map(val => val.toLowerCase()).join(Delimiters.KEBAB);
 
 export { strToKebabCase };

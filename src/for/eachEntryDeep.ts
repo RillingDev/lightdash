@@ -1,6 +1,6 @@
 import { isObjectLike } from "../is/objectLike";
 import { forEachEntry } from "./eachEntry";
-import { forEachEntryIterator } from "./lib/iterators";
+import { forEachEntryIterator } from "./lib/forEachEntryIterator";
 
 /**
  * Recursively iterates over each entry of an object.

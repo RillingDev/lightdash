@@ -1,6 +1,6 @@
 import { forEachEntry } from "../for/eachEntry";
-import { forEachEntryMapper } from "../for/lib/iterators";
-import { ITypedObject } from "./lib/typedObject";
+import { forEachEntryMapper } from "../for/lib/forEachEntryMapper";
+import { ITypedObject } from "./lib/ITypedObject";
 
 /**
  * Maps each entry of an object and returns the result.

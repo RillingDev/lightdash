@@ -67,6 +67,7 @@ Breaking:
     - Merged arrRemoveItem and arrRemoveItemFirst
     - removed isObjectLike and isNull
     - removed numSum, numMedian and numAverage
+    - removed fnCurry
     
 Misc:
     - Rewrote test in TS

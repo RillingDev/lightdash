@@ -1,6 +1,6 @@
-import { forEachEntryMapper } from "../for/lib/iterators";
+import { forEachEntryMapper } from "../for/lib/forEachEntryMapper";
 import { isObjectLike } from "../is/objectLike";
-import { ITypedObject } from "./lib/typedObject";
+import { ITypedObject } from "./lib/ITypedObject";
 import { objMap } from "./map";
 
 /**

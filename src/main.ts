@@ -71,7 +71,6 @@ import { forEachDeep } from "./for/eachDeep";
 import { forEachEntry } from "./for/eachEntry";
 import { forEachEntryDeep } from "./for/eachEntryDeep";
 
-import { fnCurry } from "./fn/curry";
 import { fnDebounce } from "./fn/debounce";
 import { fnThrottle } from "./fn/throttle";
 
@@ -143,7 +142,6 @@ export {
     objDefaultsDeep,
     objDecycle,
     mapFromObject,
-    fnCurry,
     fnDebounce,
     fnThrottle,
     forEachDeep,

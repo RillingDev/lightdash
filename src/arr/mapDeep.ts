@@ -1,4 +1,4 @@
-import { forEachMapper } from "../for/lib/iterators";
+import { forEachMapper } from "../for/lib/forEachEntryMapper";
 import { isArray } from "../is/array";
 
 /**

@@ -1,5 +1,5 @@
 import { isArray } from "../is/array";
-import { forEachIterator } from "./lib/iterators";
+import { forEachIterator } from "./lib/forEachIterator";
 
 /**
  * Recursively iterates over each element in an array.

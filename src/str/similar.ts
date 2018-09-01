@@ -29,7 +29,7 @@ const strSimilar = (
     list: string[],
     returnFull = false
 ): string[] | Map<number, string[]> => {
-    const result: Map<number, string[]> = arrCollect(list, val =>
+    const result: Map<number, string[]> = arrCollect(list, (val: string) =>
         strDistance(str, val)
     );
 

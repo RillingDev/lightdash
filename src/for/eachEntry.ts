@@ -1,4 +1,4 @@
-import { forEachEntryIterator } from "./lib/iterators";
+import { forEachEntryIterator } from "./lib/forEachEntryIterator";
 
 /**
  * Iterates over each entry of an object.

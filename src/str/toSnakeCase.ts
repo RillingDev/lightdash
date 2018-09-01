@@ -1,4 +1,4 @@
-import { delimiters } from "./lib/delimiters";
+import { Delimiters } from "./lib/Delimiters";
 
 /**
  * Creates a snake_case string from an array of substrings.
@@ -16,6 +16,6 @@ import { delimiters } from "./lib/delimiters";
  * // => "fizz_buzz_bazz"
  */
 const strToSnakeCase = (arr: string[]): string =>
-    arr.map(val => val.toLowerCase()).join(delimiters.snake);
+    arr.map(val => val.toLowerCase()).join(Delimiters.SNAKE);
 
 export { strToSnakeCase };

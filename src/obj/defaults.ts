@@ -2,7 +2,7 @@ import { forEachEntry } from "../for/eachEntry";
 import { isArray } from "../is/array";
 import { isUndefined } from "../is/undefined";
 import { objFrom } from "./from";
-import { ITypedObject } from "./lib/typedObject";
+import { ITypedObject } from "./lib/ITypedObject";
 
 /**
  * Sets every nil property of object to the value from the default object.
