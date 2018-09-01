@@ -1,4 +1,4 @@
-import { forEachMapper } from "../for/lib/forEachEntryMapper";
+import { forEachMapper } from "../for/lib/forEachMapper";
 import { isArray } from "../is/array";
 
 /**
@@ -14,7 +14,7 @@ import { isArray } from "../is/array";
  * arrMapDeep([2, 4, [1, 1, [16], 4]], val => val * 2)
  * // => [4, 8, [2, 2, [32], 8]]
  */
-const arrMapDeep = <T>(arr: T[], fn: forEachMapper<T, any>): any[] =>
+const arrMapDeep = <T>(arr: T[], fn: forEachMapper<T, any>): any =>
     arr.map(
         (val, index) =>
             isArray(val) ? arrMapDeep(val, fn) : fn(val, index, arr)

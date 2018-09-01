@@ -1,4 +1,4 @@
-import { forEachMapper } from "../for/lib/iterators";
+import { forEachMapper } from "../for/lib/forEachMapper";
 /**
  * Recursively maps the values of the input array with the iterator function and return the result.
  *
@@ -12,5 +12,5 @@ import { forEachMapper } from "../for/lib/iterators";
  * arrMapDeep([2, 4, [1, 1, [16], 4]], val => val * 2)
  * // => [4, 8, [2, 2, [32], 8]]
  */
-declare const arrMapDeep: <T>(arr: T[], fn: forEachMapper<T, any>) => any[];
+declare const arrMapDeep: <T>(arr: T[], fn: forEachMapper<T, any>) => any;
 export { arrMapDeep };

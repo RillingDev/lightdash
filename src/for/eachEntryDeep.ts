@@ -1,6 +1,7 @@
 import { isObjectLike } from "../is/objectLike";
 import { forEachEntry } from "./eachEntry";
 import { forEachEntryIterator } from "./lib/forEachEntryIterator";
+import { ITypedObject } from "../obj/lib/ITypedObject";
 
 /**
  * Recursively iterates over each entry of an object.
@@ -15,7 +16,7 @@ import { forEachEntryIterator } from "./lib/forEachEntryIterator";
  * forEachEntryDeep(a, (key, val, index, obj) => obj[key] = index * val)
  * // a = {a: 0, b: {c: [0, 2]}}
  */
-const forEachEntryDeep = (obj: object, fn: forEachEntryIterator<any>): void =>
+const forEachEntryDeep = (obj: ITypedObject<any>, fn: forEachEntryIterator<any>): void =>
     forEachEntry(
         obj,
         (key, val, index) =>

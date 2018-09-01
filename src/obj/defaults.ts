@@ -17,7 +17,7 @@ import { ITypedObject } from "./lib/ITypedObject";
  * objDefaults({a: 1, c: 5}, {a: 1, b: 2, c: 3})
  * // => {a: 1, b: 2, c: 5}
  */
-const objDefaults = (obj: ITypedObject<any>, objDefault: object): object => {
+const objDefaults = <T = any, U = any>(obj: ITypedObject<T>, objDefault: ITypedObject<U>): ITypedObject<T> & ITypedObject<U> => {
     const result: ITypedObject<any> = isArray(obj)
         ? Array.from(obj)
         : objFrom(obj);

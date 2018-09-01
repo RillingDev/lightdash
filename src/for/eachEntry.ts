@@ -1,4 +1,5 @@
 import { forEachEntryIterator } from "./lib/forEachEntryIterator";
+import { ITypedObject } from "../obj/lib/ITypedObject";
 
 /**
  * Iterates over each entry of an object.
@@ -13,7 +14,7 @@ import { forEachEntryIterator } from "./lib/forEachEntryIterator";
  * forEachEntry(a, (key, val, index) => a[key] = val * index)
  * // a = {a: 0, b: 2}
  */
-const forEachEntry = (obj: object, fn: forEachEntryIterator<any>): void => {
+const forEachEntry = (obj: ITypedObject<any>, fn: forEachEntryIterator<any>): void => {
     Object.entries(obj).forEach((entry, index) => {
         fn(entry[0], entry[1], index, obj);
     });

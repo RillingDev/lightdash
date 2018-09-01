@@ -1,6 +1,7 @@
 import { isObjectLike } from "../is/objectLike";
 import { objFrom } from "./from";
 import { objMapDeep } from "./mapDeep";
+import { ITypedObject } from "./lib/ITypedObject";
 
 /**
  * Recursively creates a new object with the entries of the input object.
@@ -18,7 +19,7 @@ import { objMapDeep } from "./mapDeep";
  * // a = {a: {b: 2, c: {a: 10, b: 20}}
  * // b = {a: {b: 2, c: {a: 123, b: 20}}}
  */
-const objFromDeep = (obj: object): object =>
+const objFromDeep = (obj: ITypedObject<any>): ITypedObject<any> =>
     objMapDeep(
         objFrom(obj),
         (key, val) => (isObjectLike(val) ? objFrom(val) : val)

@@ -908,7 +908,7 @@ const strDistance = (str1, str2) => {
  * arrCompact([1, "", "", 2, 3, null, 4, undefined, 5, ""])
  * // => [1, 2, 3, 4, 5]
  */
-const arrCompact = (arr) => arr.filter((val) => Boolean(val));
+const arrCompact = (arr) => arr.filter(val => val);
 
 /**
  * Creates an array of substrings from a PascalCase string.
@@ -971,7 +971,7 @@ const strFromCamelCase = strFromPascalCase;
  * strFromKebabCase("Fizz-buzz-BaZZ")
  * // => ["Fizz","buzz","BaZZ"]
  */
-const strFromKebabCase = (str) => arrCompact(str.split("-" /* kebab */));
+const strFromKebabCase = (str) => arrCompact(str.split("-" /* KEBAB */));
 
 /**
  * Creates an array of substrings from a snake_case string.
@@ -988,7 +988,7 @@ const strFromKebabCase = (str) => arrCompact(str.split("-" /* kebab */));
  * strFromSnakeCase("Fizz_buzz_BaZZ")
  * // => ["Fizz","buzz","BaZZ"]
  */
-const strFromSnakeCase = (str) => arrCompact(str.split("_" /* snake */));
+const strFromSnakeCase = (str) => arrCompact(str.split("_" /* SNAKE */));
 
 /**
  * Collects the values of an array in a Map as arrays.
@@ -1036,7 +1036,7 @@ const arrCollect = (arr, fn) => {
  * // => Map<number, string[]>{"1": ["commit"], "3": ["init"], "5": ["push"]}
  */
 const strSimilar = (str, list, returnFull = false) => {
-    const result = arrCollect(list, val => strDistance(str, val));
+    const result = arrCollect(list, (val) => strDistance(str, val));
     return returnFull
         ? result
         : result.get(Math.min(...result.keys()));
@@ -1079,7 +1079,7 @@ const strToCamelCase = (arr) => arr
  * strToKebabCase(["Fizz","buzz","BaZZ"])
  * // => "fizz-buzz-bazz"
  */
-const strToKebabCase = (arr) => arr.map(val => val.toLowerCase()).join("-" /* kebab */);
+const strToKebabCase = (arr) => arr.map(val => val.toLowerCase()).join("-" /* KEBAB */);
 
 /**
  * Creates a PascalCase string from an array of substrings.
@@ -1115,7 +1115,7 @@ const strToPascalCase = (arr) => arr
  * strToSnakeCase(["Fizz","buzz","BaZZ"])
  * // => "fizz_buzz_bazz"
  */
-const strToSnakeCase = (arr) => arr.map(val => val.toLowerCase()).join("_" /* snake */);
+const strToSnakeCase = (arr) => arr.map(val => val.toLowerCase()).join("_" /* SNAKE */);
 
 /**
  * Creates an array of elements split into groups by size.
@@ -1513,46 +1513,6 @@ const forEachEntryDeep = (obj, fn) => forEachEntry(obj, (key, val, index) => isO
     : fn(key, val, index, obj));
 
 /**
- * Returns a curried function.
- *
- * A curried function can take between zero and n arguments,
- * where n is either the functions argument length or the provided arity.
- * As soon as n arguments are reached, the function is run with all arguments.
- *
- * @function fnCurry
- * @memberof Fn
- * @since 3.2.0
- * @param {Function} fn
- * @param {number} [arity=fn.length]
- * @returns {Function}
- * @example
- * const foo = (a, b, c) => [a, b, c];
- * const fooCurried = fnCurry(foo);
- *
- * fooCurried(1)(2)(3)
- * // => [1, 2, 3]
- *
- * fooCurried(1, 2)(3)
- * // => [1, 2, 3]
- *
- * fooCurried(1, 2, 3)
- * // => [1, 2, 3]
- */
-const fnCurry = (fn, arity = fn.length) => {
-    // tslint:disable-next-line:only-arrow-functions
-    const resolver = function () {
-        const argsBase = arguments;
-        // tslint:disable-next-line:only-arrow-functions
-        return function () {
-            const args = [...argsBase, ...arguments];
-            const result = args.length >= arity ? fn : resolver;
-            return result(...args);
-        };
-    };
-    return resolver();
-};
-
-/**
  * Creates a debounced function that delays invoking the fn.
  *
  * @function fnDebounce
@@ -1773,4 +1733,4 @@ const randShuffle = (arr) => {
  * @namespace Random
  */
 
-export { isEqual, isInstanceOf, isTypeOf, isUndefined, isNil, isNumber, isString, isBoolean, isSymbol, isObject, isObjectLike, isObjectPlain, isArray, isArrayLike, isArrayBuffer, isArrayTyped, isPromise, isMap, isSet, isDate, isRegExp, isFunction, isArguments, isError, isEmpty, isIndex, hasPath, getPath, getSize, numClamp, numSafe, strDistance, strSimilar, strFromCamelCase, strFromKebabCase, strFromPascalCase, strFromSnakeCase, strToCamelCase, strToKebabCase, strToPascalCase, strToSnakeCase, arrFromDeep, arrMapDeep, arrCompact, arrChunk, arrStep, arrRemoveIndex, arrRemoveItem, arrCount, arrCollect, arrDifference, arrIntersection, arrUniq, objFrom, objFromDeep, objMap, objMapDeep, objDefaults, objDefaultsDeep, objDecycle, mapFromObject, fnCurry, fnDebounce, fnThrottle, forEachDeep, forEachEntry, forEachEntryDeep, searchBinary, randNumber, randItem, randShuffle };
+export { isEqual, isInstanceOf, isTypeOf, isUndefined, isNil, isNumber, isString, isBoolean, isSymbol, isObject, isObjectLike, isObjectPlain, isArray, isArrayLike, isArrayBuffer, isArrayTyped, isPromise, isMap, isSet, isDate, isRegExp, isFunction, isArguments, isError, isEmpty, isIndex, hasPath, getPath, getSize, numClamp, numSafe, strDistance, strSimilar, strFromCamelCase, strFromKebabCase, strFromPascalCase, strFromSnakeCase, strToCamelCase, strToKebabCase, strToPascalCase, strToSnakeCase, arrFromDeep, arrMapDeep, arrCompact, arrChunk, arrStep, arrRemoveIndex, arrRemoveItem, arrCount, arrCollect, arrDifference, arrIntersection, arrUniq, objFrom, objFromDeep, objMap, objMapDeep, objDefaults, objDefaultsDeep, objDecycle, mapFromObject, fnDebounce, fnThrottle, forEachDeep, forEachEntry, forEachEntryDeep, searchBinary, randNumber, randItem, randShuffle };

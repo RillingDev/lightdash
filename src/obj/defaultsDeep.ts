@@ -18,10 +18,10 @@ import { ITypedObject } from "./lib/ITypedObject";
  * objDefaultsDeep({a: [1, 2], c: {f: "x"}}, {a: [1, 2, 3], b: 2, c: {f: "y"}})
  * // => {a: [1, 2, 3], b: 2, c: {f: "x"}}
  */
-const objDefaultsDeep = (
-    obj: ITypedObject<any>,
-    objDefault: object
-): object => {
+const objDefaultsDeep = <T = any, U = any>(
+    obj: ITypedObject<T>,
+    objDefault: ITypedObject<U>
+): ITypedObject<T> & ITypedObject<U> => {
     const result: ITypedObject<any> = isArray(obj)
         ? Array.from(obj)
         : objFrom(obj);

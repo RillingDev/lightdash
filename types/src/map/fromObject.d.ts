@@ -1,3 +1,4 @@
+import { ITypedObject } from "../obj/lib/ITypedObject";
 /**
  * Creates a map from an object.
  *
@@ -10,5 +11,5 @@
  * mapFromObject({a: 1, b: 4, c: 5})
  * // => Map<string,number>{a: 1, b: 4, c: 5}
  */
-declare const mapFromObject: (obj: object) => Map<string, any>;
+declare const mapFromObject: <T>(obj: ITypedObject<T>) => Map<string, T>;
 export { mapFromObject };
