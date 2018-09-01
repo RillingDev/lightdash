@@ -7,7 +7,7 @@ import { forEachIterator } from "./lib/forEachIterator";
  * @function forEachDeep
  * @memberof For
  * @param {any[]} arr
- * @param {function} fn fn(val: any, index: number, arr: any[])
+ * @param {function} fn fn(val: *, index: number, arr: any[])
  * @example
  * const a = [2, 4, [1, 1, [16], 4]];
  *

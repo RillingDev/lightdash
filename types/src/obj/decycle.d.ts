@@ -9,7 +9,7 @@ import { ITypedObject } from "./lib/ITypedObject";
  * @memberof Object
  * @since 6.0.0
  * @param {Object} obj
- * @param {function} [fn=()=>null] fn(key: any, val: any, index: number, obj: object)
+ * @param {function} [fn=()=>null] fn(key: *, val: any, index: number, obj: object)
  * @param {WeakSet<any>} [references=new WeakSet()]
  * @returns {Object}
  * @example

@@ -452,7 +452,7 @@ const isEmpty = (val) => getSize(val) < 1;
  * @function forEachEntry
  * @memberof For
  * @param {object} obj
- * @param {function} fn fn(key: any, val: any, index: number, arr: any[])
+ * @param {function} fn fn(key: *, val: *, index: number, arr: any[])
  * @example
  * const a = {a: 1, b: 2};
  *
@@ -723,7 +723,7 @@ const isSymbol = (val) => isTypeOf(val, "symbol");
  * @since 2.0.0
  * @param {any} target
  * @param {string[]} path
- * @returns {null|any}
+ * @returns {any}
  * @example
  * getPath({a: 1}, ["a"]);
  * // => 1
@@ -992,13 +992,15 @@ const strFromSnakeCase = (str) => arrCompact(str.split("_" /* SNAKE */));
 
 /**
  * Collects the values of an array in a Map as arrays.
+ * If the fn returns a nil value, the element will be skipped,
+ * otherwise the return value will be used as key.
  *
  * @function arrCollect
  * @memberof Array
  * @since 6.1.0
  * @param {any[]} arr
- * @param {function} fn fn(val: any, index: number, arr: any[])
- * @returns {Map<any, any[]>} Map<val: any, arr: any[]>
+ * @param {function} fn fn(val: *, index: number, arr: any[])
+ * @returns {Map<any, any[]>} Map<val: *, arr: any[]>
  * @example
  * arrCollect([1, 2, 3, 4, 5], val => val % 2)
  * // => Map<any, any[]>{0: [2, 4], 1: [1, 3, 5]}
@@ -1007,7 +1009,9 @@ const arrCollect = (arr, fn) => {
     const result = new Map();
     arr.forEach((val, index) => {
         const key = fn(val, index, arr);
-        result.set(key, result.has(key) ? [...result.get(key), val] : [val]);
+        if (!isNil(key)) {
+            result.set(key, result.has(key) ? [...result.get(key), val] : [val]);
+        }
     });
     return result;
 };
@@ -1151,7 +1155,7 @@ const arrChunk = (arr, chunk) => {
  * @memberof Array
  * @since 2.0.0
  * @param {any[]} arr
- * @returns {Map<any, number>} Map<val: any, count: number>
+ * @returns {Map<any, number>} Map<val: *, count: number>
  * @example
  * arrCount([1, 1, 2, 2, 1, 3, 4, 1])
  * // => Map<any, number>{1: 4, 2: 2, 3: 1, 4: 1}
@@ -1190,7 +1194,7 @@ const arrDifference = (arr, ...values) => {
  * @memberof Array
  * @since 1.0.0
  * @param {any[]} arr
- * @param {function} fn fn(val: any, index: number, arr: any[])
+ * @param {function} fn fn(val: *, index: number, arr: any[])
  * @returns {any[]}
  * @example
  * arrMapDeep([2, 4, [1, 1, [16], 4]], val => val * 2)
@@ -1329,7 +1333,7 @@ const objMap = (obj, fn) => {
  * @memberof Object
  * @since 6.0.0
  * @param {Object} obj
- * @param {function} [fn=()=>null] fn(key: any, val: any, index: number, obj: object)
+ * @param {function} [fn=()=>null] fn(key: *, val: any, index: number, obj: object)
  * @param {WeakSet<any>} [references=new WeakSet()]
  * @returns {Object}
  * @example
@@ -1486,7 +1490,7 @@ const mapFromObject = (obj) => new Map(Object.entries(obj));
  * @function forEachDeep
  * @memberof For
  * @param {any[]} arr
- * @param {function} fn fn(val: any, index: number, arr: any[])
+ * @param {function} fn fn(val: *, index: number, arr: any[])
  * @example
  * const a = [2, 4, [1, 1, [16], 4]];
  *
@@ -1501,7 +1505,7 @@ const forEachDeep = (arr, fn) => arr.forEach((val, index) => isArray(val) ? forE
  * @function forEachEntryDeep
  * @memberof For
  * @param {object} obj
- * @param {function} fn fn(key: any, val: any, index: number, arr: any[])
+ * @param {function} fn fn(key: *, val: *, index: number, arr: any[])
  * @example
  * const a = {a: 1, b: {c: [1, 2]}};
  *

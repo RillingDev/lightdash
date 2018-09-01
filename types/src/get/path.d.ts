@@ -8,7 +8,7 @@
  * @since 2.0.0
  * @param {any} target
  * @param {string[]} path
- * @returns {null|any}
+ * @returns {any}
  * @example
  * getPath({a: 1}, ["a"]);
  * // => 1

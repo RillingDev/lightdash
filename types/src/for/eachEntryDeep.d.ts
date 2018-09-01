@@ -6,7 +6,7 @@ import { ITypedObject } from "../obj/lib/ITypedObject";
  * @function forEachEntryDeep
  * @memberof For
  * @param {object} obj
- * @param {function} fn fn(key: any, val: any, index: number, arr: any[])
+ * @param {function} fn fn(key: *, val: *, index: number, arr: any[])
  * @example
  * const a = {a: 1, b: {c: [1, 2]}};
  *

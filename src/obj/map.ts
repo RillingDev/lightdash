@@ -15,7 +15,10 @@ import { ITypedObject } from "./lib/ITypedObject";
  * objMap({a: 4, b: 2}, (key, val) => val * 2)
  * // => {a: 8, b: 4}
  */
-const objMap = (obj: ITypedObject<any>, fn: forEachEntryMapper<any, any>): ITypedObject<any> => {
+const objMap = (
+    obj: ITypedObject<any>,
+    fn: forEachEntryMapper<any, any>
+): ITypedObject<any> => {
     const objNew: ITypedObject<any> = {};
 
     forEachEntry(obj, (key, val, index) => {
