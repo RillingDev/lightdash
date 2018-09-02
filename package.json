@@ -6,7 +6,6 @@
     "module": "./dist/lightdash.esm.js",
     "types": "./types/main.d.ts",
     "settings": {
-        "input": "main.ts",
         "namespace": {
             "module": "_l",
             "file": "lightdash"
@@ -19,8 +18,9 @@
         "build:iife": "rollup -c ./tasks/rollup.config.iife.js",
         "build:iife-min": "rollup -c ./tasks/rollup.config.iife-min.js",
         "build:test": "rollup -c ./tasks/rollup.config.test.js",
+        "build:declarations": "tsc --build ./tasks/tsconfig.declarations.json",
         "watch": "rollup -c ./tasks/rollup.config.js --watch",
-        "dist": "npm-run-all --parallel build build:iife build:iife-min",
+        "dist": "npm-run-all --parallel build build:iife build:iife-min build:declarations",
         "lint": "npm-run-all --parallel lint:ts",
         "lint:ts": "tslint ./src/**/*.ts ./spec/**/*.ts",
         "fix": "npm-run-all fix:ts fix:prettier",
