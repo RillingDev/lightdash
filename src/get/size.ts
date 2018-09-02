@@ -2,6 +2,7 @@ import { isArrayLike } from "../is/arrayLike";
 import { isObjectLike } from "../is/objectLike";
 import { isString } from "../is/string";
 import { isUndefined } from "../is/undefined";
+import { isNil } from "../is/nil";
 
 /**
  * Gets size of a value.
@@ -25,17 +26,19 @@ import { isUndefined } from "../is/undefined";
  * getSize(new Set())
  * // => 0
  *
- * isEmpty("foo")
+ * getSize("foo")
  * // => 3
  *
- * isEmpty(1)
+ * getSize(1)
  * // => -1
  *
- * isEmpty(null)
+ * getSize(null)
  * // => -1
  */
 const getSize = (val: any): number => {
-    if (isArrayLike(val) || isString(val)) {
+    if (isNil(val)) {
+        return -1;
+    } else if (isArrayLike(val) || isString(val)) {
         return val.length;
     } else if (!isUndefined(val.size)) {
         return val.size;

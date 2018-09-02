@@ -20,13 +20,13 @@
  * getSize(new Set())
  * // => 0
  *
- * isEmpty("foo")
+ * getSize("foo")
  * // => 3
  *
- * isEmpty(1)
+ * getSize(1)
  * // => -1
  *
- * isEmpty(null)
+ * getSize(null)
  * // => -1
  */
 declare const getSize: (val: any) => number;

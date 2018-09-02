@@ -25,8 +25,6 @@ import { isSymbol } from "./is/symbol";
 import { isTypeOf } from "./is/typeOf";
 import { isUndefined } from "./is/undefined";
 
-import { hasPath } from "./has/path";
-
 import { getPath } from "./get/path";
 import { getSize } from "./get/size";
 
@@ -107,7 +105,6 @@ export {
     isError,
     isEmpty,
     isIndex,
-    hasPath,
     getPath,
     getSize,
     numClamp,
@@ -155,11 +152,6 @@ export {
 /**
  * Value checking, type checking, and comparison
  * @namespace Is
- */
-
-/**
- * Check if a target has something
- * @namespace Has
  */
 
 /**

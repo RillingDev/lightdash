@@ -383,17 +383,20 @@ var _l = (function (exports) {
      * getSize(new Set())
      * // => 0
      *
-     * isEmpty("foo")
+     * getSize("foo")
      * // => 3
      *
-     * isEmpty(1)
+     * getSize(1)
      * // => -1
      *
-     * isEmpty(null)
+     * getSize(null)
      * // => -1
      */
     const getSize = (val) => {
-        if (isArrayLike(val) || isString(val)) {
+        if (isNil(val)) {
+            return -1;
+        }
+        else if (isArrayLike(val) || isString(val)) {
             return val.length;
         }
         else if (!isUndefined(val.size)) {
@@ -752,40 +755,6 @@ var _l = (function (exports) {
         }
         return targetCurrent;
     };
-
-    /**
-     * Checks if a target has a given path.
-     *
-     * @function hasPath
-     * @memberof Has
-     * @since 2.0.0
-     * @param {any} target
-     * @param {string[]} path
-     * @returns {boolean}
-     * @example
-     * hasPath({a: 1}, ["a"]);
-     * // => true
-     *
-     * hasPath([4, 6, 8], ["1"]);
-     * // => true
-     *
-     * hasPath({a: {b: 2, c: [10, 20]}}, ["a", "c", "0"]);
-     * // => true
-     *
-     * @example
-     * hasPath({a: 1}, ["c"]);
-     * // => false
-     *
-     * hasPath([4, 6, 8], ["8"]);
-     * // => false
-     *
-     * hasPath({a: {b: 2, c: [10, 20]}}, ["f", "x", "231", "21"]);
-     * // => false
-     *
-     * hasPath(1, ["foo"]);
-     * // => false
-     */
-    const hasPath = (target, path) => !isNil(getPath(target, path));
 
     /**
      * Clamps a number in a given range.
@@ -1706,10 +1675,6 @@ var _l = (function (exports) {
      * @namespace Is
      */
     /**
-     * Check if a target has something
-     * @namespace Has
-     */
-    /**
      * Get value from a target
      * @namespace Get
      */
@@ -1776,7 +1741,6 @@ var _l = (function (exports) {
     exports.isError = isError;
     exports.isEmpty = isEmpty;
     exports.isIndex = isIndex;
-    exports.hasPath = hasPath;
     exports.getPath = getPath;
     exports.getSize = getSize;
     exports.numClamp = numClamp;

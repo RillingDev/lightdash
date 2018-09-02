@@ -13,3 +13,5 @@ import "./arr/uniq.spec";
 import "./for/eachDeep.spec";
 import "./for/eachEntry.spec";
 import "./for/eachEntryDeep.spec";
+import "./get/path.spec";
+import "./get/size.spec";

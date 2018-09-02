@@ -69,7 +69,8 @@ Breaking:
 - removed isObjectLike and isNull
 - removed numSum, numMedian and numAverage
 - removed fnCurry
-    
+- removed hasPath
+
 Misc:
 
 - Rewrote test in TS

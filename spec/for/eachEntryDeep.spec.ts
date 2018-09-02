@@ -9,6 +9,6 @@ describe("forEachEntryDeep", () => {
             obj[key] = index * val;
         });
 
-        expect(a).toEqual({a: 0, b: {c: [0, 2]}});
+        expect(a).toEqual({ a: 0, b: { c: [0, 2] } });
     });
 });
