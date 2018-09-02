@@ -1,3 +1,5 @@
+import { anyFn } from "./lib/anyFn";
+
 /**
  * Creates a debounced function that delays invoking the fn.
  *
@@ -11,5 +13,5 @@
  * const fooThrottled = fnThrottle(foo, 500);
  * // function can only run 500ms after the last invocation was made
  */
-declare const fnDebounce: (fn: (...args: any[]) => any, timeout: number) => (...args: any[]) => any;
+declare const fnDebounce: (fn: anyFn, timeout: number) => anyFn;
 export { fnDebounce };

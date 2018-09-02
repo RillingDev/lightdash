@@ -6,7 +6,7 @@ import "./arr/difference.spec";
 import "./arr/fromDeep.spec";
 import "./arr/intersection.spec";
 import "./arr/mapDeep.spec";
-import "./arr/removeIndex";
+import "./arr/removeIndex.spec";
 import "./arr/removeItem.spec";
 import "./arr/step.spec";
 import "./arr/uniq.spec";

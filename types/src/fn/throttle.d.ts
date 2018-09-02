@@ -1,3 +1,5 @@
+import { anyFn } from "./lib/anyFn";
+
 /**
  * Throttles a function to only run every n ms.
  *
@@ -15,5 +17,5 @@
  * const fooThrottled = fnThrottle(foo, 500);
  * // function can only run every 500ms
  */
-declare const fnThrottle: (fn: (...args: any[]) => any, timeout: number, immediate?: boolean) => (...args: any[]) => any;
+declare const fnThrottle: (fn: anyFn, timeout: number, immediate?: boolean) => anyFn;
 export { fnThrottle };

@@ -1,3 +1,5 @@
+import { anyFn } from "./lib/anyFn";
+
 /**
  * Throttles a function to only run every n ms.
  *
@@ -15,11 +17,7 @@
  * const fooThrottled = fnThrottle(foo, 500);
  * // function can only run every 500ms
  */
-const fnThrottle = (
-    fn: (...args: any[]) => any,
-    timeout: number,
-    immediate = false
-): ((...args: any[]) => any) => {
+const fnThrottle = (fn: anyFn, timeout: number, immediate = false): anyFn => {
     // Private helper that creates a returns a timeout to reset the canRun state and the timer
     const getTimer = () =>
         setTimeout(() => {

@@ -16,7 +16,6 @@ import { isNil } from "../is/nil";
  * arrCollect([1, 2, 3, 4, 5], val => val % 2)
  * // => Map<any, any[]>{0: [2, 4], 1: [1, 3, 5]}
  */
-
 const arrCollect = <T, U = any>(
     arr: T[],
     fn: forEachMapper<T, U>

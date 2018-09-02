@@ -12,7 +12,6 @@ import { ITypedObject } from "../obj/lib/ITypedObject";
  * mapFromObject({a: 1, b: 4, c: 5})
  * // => Map<string,number>{a: 1, b: 4, c: 5}
  */
-
 const mapFromObject = <T>(obj: ITypedObject<T>): Map<string, T> =>
     new Map(Object.entries(obj));
 

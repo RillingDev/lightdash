@@ -1,4 +1,5 @@
-import { anyFunction } from "./lib/anyFunction";
+import { anyFn } from "../fn/lib/anyFn";
+
 /**
  * Checks if a value is a function.
  *
@@ -18,5 +19,5 @@ import { anyFunction } from "./lib/anyFunction";
  * isFunction(null)
  * // => false
  */
-declare const isFunction: (val: any) => val is anyFunction;
+declare const isFunction: (val: any) => val is anyFn;
 export { isFunction };
