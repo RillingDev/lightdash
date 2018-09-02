@@ -15,7 +15,7 @@ import { isArray } from "../is/array";
  * arrMapDeep([2, 4, [1, 1, [16], 4]], val => val * 2)
  * // => [4, 8, [2, 2, [32], 8]]
  */
-const arrMapDeep = (arr: any[], fn: forEachMapper<any, any>): any =>
+const arrMapDeep = (arr: any[], fn: forEachMapper<any, any>): any[] =>
     arr.map(
         (val, index) =>
             isArray(val) ? arrMapDeep(val, fn) : fn(val, index, arr)

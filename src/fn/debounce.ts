@@ -1,4 +1,4 @@
-import { anyFn } from "./lib/anyFn";
+import { anyVoidFn } from "./lib/anyVoidFn";
 
 /**
  * Creates a debounced function that delays invoking the fn.
@@ -13,7 +13,7 @@ import { anyFn } from "./lib/anyFn";
  * const fooThrottled = fnThrottle(foo, 500);
  * // function can only run 500ms after the last invocation was made
  */
-const fnDebounce = (fn: anyFn, timeout: number): anyFn => {
+const fnDebounce = (fn: anyVoidFn, timeout: number): anyVoidFn => {
     let timer: any;
 
     // tslint:disable-next-line:only-arrow-functions

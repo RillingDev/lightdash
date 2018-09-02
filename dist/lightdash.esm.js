@@ -456,7 +456,9 @@ const isEmpty = (val) => getSize(val) < 1;
  * @example
  * const a = {a: 1, b: 2};
  *
- * forEachEntry(a, (key, val, index) => a[key] = val * index)
+ * forEachEntry(a, (key, val, index) => {
+ *     a[key] = val * index;
+ * })
  * // a = {a: 0, b: 2}
  */
 const forEachEntry = (obj, fn) => {
@@ -1498,7 +1500,9 @@ const mapFromObject = (obj) => new Map(Object.entries(obj));
  * @example
  * const a = [2, 4, [1, 1, [16], 4]];
  *
- * forEachDeep(a, (val, index, arr) => arr[index] = index * val)
+ * forEachDeep(a, (val, index, arr) => {
+ *     arr[index] = index * val;
+ * })
  * // a = [0, 4, [0, 1, [0], 12]]
  */
 const forEachDeep = (arr, fn) => arr.forEach((val, index) => isArray(val) ? forEachDeep(val, fn) : fn(val, index, arr));
@@ -1513,7 +1517,9 @@ const forEachDeep = (arr, fn) => arr.forEach((val, index) => isArray(val) ? forE
  * @example
  * const a = {a: 1, b: {c: [1, 2]}};
  *
- * forEachEntryDeep(a, (key, val, index, obj) => obj[key] = index * val)
+ * forEachEntryDeep(a, (key, val, index, obj) => {
+ *     obj[key] = index * val;
+ * })
  * // a = {a: 0, b: {c: [0, 2]}}
  */
 const forEachEntryDeep = (obj, fn) => forEachEntry(obj, (key, val, index) => isObjectLike(val)

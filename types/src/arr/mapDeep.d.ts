@@ -12,5 +12,5 @@ import { forEachMapper } from "../for/lib/forEachMapper";
  * arrMapDeep([2, 4, [1, 1, [16], 4]], val => val * 2)
  * // => [4, 8, [2, 2, [32], 8]]
  */
-declare const arrMapDeep: (arr: any[], fn: forEachMapper<any, any>) => any;
+declare const arrMapDeep: (arr: any[], fn: forEachMapper<any, any>) => any[];
 export { arrMapDeep };

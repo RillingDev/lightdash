@@ -9,8 +9,10 @@ import { forEachIterator } from "./lib/forEachIterator";
  * @example
  * const a = [2, 4, [1, 1, [16], 4]];
  *
- * forEachDeep(a, (val, index, arr) => arr[index] = index * val)
+ * forEachDeep(a, (val, index, arr) => {
+ *     arr[index] = index * val;
+ * })
  * // a = [0, 4, [0, 1, [0], 12]]
  */
-declare const forEachDeep: <T>(arr: T[], fn: forEachIterator<T>) => void;
+declare const forEachDeep: (arr: any[], fn: forEachIterator<any>) => void;
 export { forEachDeep };

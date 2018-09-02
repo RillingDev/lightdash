@@ -10,7 +10,9 @@ import { ITypedObject } from "../obj/lib/ITypedObject";
  * @example
  * const a = {a: 1, b: 2};
  *
- * forEachEntry(a, (key, val, index) => a[key] = val * index)
+ * forEachEntry(a, (key, val, index) => {
+ *     a[key] = val * index;
+ * })
  * // a = {a: 0, b: 2}
  */
 declare const forEachEntry: (obj: ITypedObject<any>, fn: forEachEntryIterator<any>) => void;

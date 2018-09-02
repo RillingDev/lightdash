@@ -64,11 +64,13 @@ Contributions are always welcome, no matter if you have a requests, an idea, fou
 ### v9.0.0
 
 Breaking:
-    - Merged arrRemoveItem and arrRemoveItemFirst
-    - removed isObjectLike and isNull
-    - removed numSum, numMedian and numAverage
-    - removed fnCurry
+
+- Merged arrRemoveItem and arrRemoveItemFirst
+- removed isObjectLike and isNull
+- removed numSum, numMedian and numAverage
+- removed fnCurry
     
 Misc:
-    - Rewrote test in TS
-    - Improved type guard interference
+
+- Rewrote test in TS
+- Improved type guard interference
