@@ -1,14 +1,10 @@
 import { arrIntersection } from "../../src/arr/intersection";
 
-describe("arrDifference", () => {
+describe("arrIntersection", () => {
     it("returns intersection", () => {
-        expect(
-            arrIntersection([1, 2, 3], [1, "foo", 3])
-        ).toEqual([1, 3]);
+        expect(arrIntersection([1, 2, 3], [1, "foo", 3])).toEqual([1, 3]);
     });
     it("returns intersection multiple", () => {
-        expect(
-            arrIntersection([1, 2, 3], ["foo"], [2, 0, 2])
-        ).toEqual([2]);
+        expect(arrIntersection([1, 2, 3], ["foo"], [2, 0, 2])).toEqual([2]);
     });
 });

@@ -1190,6 +1190,7 @@ var _l = (function (exports) {
         return arr.filter(item => !valuesCounted.has(item));
     };
 
+    // TODO: Figure out a way to properly use generics here.
     /**
      * Recursively maps the values of the input array with the iterator function and return the result.
      *
@@ -1272,6 +1273,9 @@ var _l = (function (exports) {
      * @example
      * arrRemoveItem(["foo", "bar", "fizz", "bar"], "bar")
      * // => ["foo", "fizz"]
+     *
+     * arrRemoveItem(["foo", "bar", "fizz", "bar"], "bar", false)
+     * // => ["foo", "fizz", "bar"]
      */
     const arrRemoveItem = (arr, targetItem, removeAll = true) => removeAll
         ? arr.filter(item => item !== targetItem)

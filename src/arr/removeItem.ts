@@ -13,6 +13,9 @@ import { arrRemoveIndex } from "./removeIndex";
  * @example
  * arrRemoveItem(["foo", "bar", "fizz", "bar"], "bar")
  * // => ["foo", "fizz"]
+ *
+ * arrRemoveItem(["foo", "bar", "fizz", "bar"], "bar", false)
+ * // => ["foo", "fizz", "bar"]
  */
 const arrRemoveItem = <T>(arr: T[], targetItem: T, removeAll = true): T[] =>
     removeAll
