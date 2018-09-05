@@ -17,3 +17,16 @@ import "./for/eachEntryDeep.spec";
 
 import "./get/path.spec";
 import "./get/size.spec";
+
+import "./is/_index.spec";
+import "./is/arrayBuffer.spec";
+import "./is/arrayLike.spec";
+import "./is/arrayTyped.spec";
+import "./is/empty.spec";
+import "./is/equal.spec";
+import "./is/object.spec";
+import "./is/objectLike.spec";
+import "./is/objectPlain.spec";
+
+import "./num/clamp.spec";
+import "./num/safe.spec";
