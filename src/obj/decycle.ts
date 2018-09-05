@@ -6,7 +6,7 @@ import { objMap } from "./map";
 /**
  * Replaces every circular reference in an object.
  *
- * Can take a custom replacer function and a pre-filled WeakSet of references.
+ * Can take a custom replacer function and a pre-filled weak set of references.
  *
  * @function objDecycle
  * @memberof Object

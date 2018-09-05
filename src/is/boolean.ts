@@ -15,14 +15,10 @@ import { isTypeOf } from "./typeOf";
  * isBoolean(false)
  * // => true
  *
- * @example
  * isBoolean(0)
  * // => false
  *
  * isBoolean(null)
- * // => false
- *
- * isBoolean("")
  * // => false
  */
 const isBoolean = (val: any): val is boolean => isTypeOf(val, "boolean");

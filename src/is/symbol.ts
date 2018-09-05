@@ -15,7 +15,6 @@ import { isTypeOf } from "./typeOf";
  * isSymbol(Symbol.split)
  * // => true
  *
- * @example
  * isSymbol("foo")
  * // => false
  */

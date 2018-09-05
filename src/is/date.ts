@@ -9,13 +9,9 @@ import { isInstanceOf } from "./instanceOf";
  * @param {any} val
  * @returns {boolean}
  * @example
- * isDate(Date())
- * // => true
- *
  * isDate(new Date())
  * // => true
  *
- * @example
  * isDate(123213231)
  * // => false
  */

@@ -16,7 +16,6 @@
  * isObject(() => 1))
  * // => true
  *
- * @example
  * isObject(1)
  * // => false
  */

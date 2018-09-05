@@ -1,12 +1,12 @@
 /**
- * Return a random float or integer number in the given range.
+ * Return a random number in the given range.
  *
  * @function randNumber
  * @memberof Random
  * @since 3.0.0
  * @param {number} [min=0] inclusive minimum
  * @param {number} [max=1] inclusive maximum
- * @param {boolean} [floating=false]
+ * @param {boolean} [float=false]
  * @returns {number}
  * @example
  * randNumber()
@@ -21,7 +21,7 @@
 const randNumber = (
     min: number = 0,
     max: number = 1,
-    floating: boolean = false
+    float: boolean = false
 ): number => {
     const diff = max - min;
 
@@ -31,7 +31,7 @@ const randNumber = (
 
     const rand = Math.random() * diff;
 
-    return min + (floating ? rand : Math.floor((rand / diff) * (diff + 1)));
+    return min + (float ? rand : Math.floor((rand / diff) * (diff + 1)));
 };
 
 export { randNumber };

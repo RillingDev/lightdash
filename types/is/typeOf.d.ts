@@ -8,16 +8,9 @@
  * @param {string} type
  * @returns {boolean}
  * @example
- * isTypeOf({}, "object")
- * // => true
- *
- * isTypeOf([], "object")
- * // => true
- *
  * isTypeOf("foo", "string")
  * // => true
  *
- * @example
  * isTypeOf("foo", "number")
  * // => false
  */

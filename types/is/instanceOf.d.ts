@@ -1,4 +1,5 @@
 import { IGenericClass } from "./lib/IAnyClass";
+
 /**
  * Checks if the value is an instance of a target constructor.
  *
@@ -9,20 +10,10 @@ import { IGenericClass } from "./lib/IAnyClass";
  * @param {Class} target
  * @returns {boolean}
  * @example
- * isInstanceOf({}, Object)
- * // => true
- *
- * isInstanceOf([], Object)
- * // => true
- *
  * isInstanceOf([], Array)
  * // => true
  *
- * @example
  * isInstanceOf({}, Array)
- * // => false
- *
- * isInstanceOf([], Map)
  * // => false
  */
 declare const isInstanceOf: (val: any, target: IGenericClass) => boolean;

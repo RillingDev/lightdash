@@ -12,7 +12,6 @@ import { isTypeOf } from "./typeOf";
  * isString("foo")
  * // => true
  *
- * @example
  * isString(1)
  * // => false
  */

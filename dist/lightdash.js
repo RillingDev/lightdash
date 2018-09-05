@@ -2,77 +2,9 @@ var _l = (function (exports) {
     'use strict';
 
     /**
-     * Checks if the value has a certain type-string.
-     *
-     * @function isTypeOf
-     * @memberof Is
-     * @since 1.0.0
-     * @param {any} val
-     * @param {string} type
-     * @returns {boolean}
-     * @example
-     * isTypeOf({}, "object")
-     * // => true
-     *
-     * isTypeOf([], "object")
-     * // => true
-     *
-     * isTypeOf("foo", "string")
-     * // => true
-     *
-     * @example
-     * isTypeOf("foo", "number")
-     * // => false
-     */
-    const isTypeOf = (val, type) => typeof val === type;
-
-    /**
-     * Checks if a value is a function.
-     *
-     * @function isFunction
-     * @memberof Is
-     * @since 1.0.0
-     * @param {any} val
-     * @returns {boolean}
-     * @example
-     * isFunction(function a(){})
-     * // => true
-     *
-     * isFunction(Array.from)
-     * // => true
-     *
-     * @example
-     * isFunction(null)
-     * // => false
-     */
-    const isFunction = (val) => isTypeOf(val, "function");
-
-    /**
-     * Checks if a value is an arguments array-like.
-     *
-     * @function isArguments
-     * @memberof Is
-     * @since 2.10.0
-     * @param {any} val
-     * @returns {boolean}
-     * @example
-     * const foo = function(){
-     *   return arguments;
-     * };
-     *
-     * isArguments(foo());
-     * // => true
-     *
-     * @example
-     * isArguments([]);
-     * // => false
-     */
-    const isArguments = (val) => isFunction(val.callee);
-
-    /**
      * Checks if a value is an array.
      *
-     * `Array.isArray` shorthand.
+     * Alias of the native `Array.isArray`.
      *
      * @function isArray
      * @memberof Is
@@ -80,13 +12,9 @@ var _l = (function (exports) {
      * @param {any} val
      * @returns {boolean}
      * @example
-     * isArray([]);
-     * // => true
-     *
      * isArray([1, 2, 3]);
      * // => true
      *
-     * @example
      * isArray({});
      * // => false
      */
@@ -102,20 +30,10 @@ var _l = (function (exports) {
      * @param {Class} target
      * @returns {boolean}
      * @example
-     * isInstanceOf({}, Object)
-     * // => true
-     *
-     * isInstanceOf([], Object)
-     * // => true
-     *
      * isInstanceOf([], Array)
      * // => true
      *
-     * @example
      * isInstanceOf({}, Array)
-     * // => false
-     *
-     * isInstanceOf([], Map)
      * // => false
      */
     const isInstanceOf = (val, target) => val instanceof target;
@@ -129,44 +47,15 @@ var _l = (function (exports) {
      * @param {any} val
      * @returns {boolean}
      * @example
-     * isArrayBuffer(new ArrayBuffer())
+     * isArrayBuffer(new ArrayBuffer(8))
      * // => true
      *
-     * @example
      * isArrayBuffer([1, 2])
      * // => false
      */
     const isArrayBuffer = (val) => 
     // @ts-ignore: ArrayBuffer declaration is invalid
     isInstanceOf(val, ArrayBuffer);
-
-    /**
-     * Checks if a value is undefined.
-     *
-     * @function isUndefined
-     * @memberof Is
-     * @since 1.0.0
-     * @param {any} val
-     * @returns {boolean}
-     * @example
-     * const a = {};
-     *
-     * isUndefined(a.b)
-     * // => true
-     *
-     * isUndefined(undefined)
-     * // => true
-     *
-     * @example
-     * const a = {};
-     *
-     * isUndefined(1)
-     * // => false
-     *
-     * isUndefined(a)
-     * // => false
-     */
-    const isUndefined = (val) => isTypeOf(val, "undefined");
 
     /**
      * Checks if a value is undefined or null.
@@ -183,7 +72,6 @@ var _l = (function (exports) {
      * isNil(undefined)
      * // => true
      *
-     * @example
      * isNil(0)
      * // => false
      *
@@ -193,10 +81,28 @@ var _l = (function (exports) {
     const isNil = (val) => val == null;
 
     /**
+     * Checks if the value has a certain type-string.
+     *
+     * @function isTypeOf
+     * @memberof Is
+     * @since 1.0.0
+     * @param {any} val
+     * @param {string} type
+     * @returns {boolean}
+     * @example
+     * isTypeOf("foo", "string")
+     * // => true
+     *
+     * isTypeOf("foo", "number")
+     * // => false
+     */
+    const isTypeOf = (val, type) => typeof val === type;
+
+    /**
      * Checks if a value is not nil and has a type of object.
      *
-     * The main difference to isObject is that functions are not considered object-like,
-     * because `typeof function(){}` returns "function".
+     * The main difference to {@link isObject} is that functions are not considered object-like,
+     * because `typeof function(){}` returns `"function"`.
      *
      * @function isObjectLike
      * @memberof Is
@@ -210,38 +116,13 @@ var _l = (function (exports) {
      * isObjectLike([])
      * // => true
      *
-     * @example
-     * isObjectLike(1)
+     * isObjectLike(() => 1))
      * // => false
      *
-     * isObjectLike(() => 1))
+     * isObjectLike(1)
      * // => false
      */
     const isObjectLike = (val) => !isNil(val) && isTypeOf(val, "object");
-
-    /**
-     * Checks if a value is object-like and has a length property.
-     *
-     * @function isArrayLike
-     * @memberof Is
-     * @since 1.0.0
-     * @param {any} val
-     * @returns {boolean}
-     * @example
-     * isArrayLike([])
-     * // => true
-     *
-     * isArrayLike({length: 0})
-     * // => true
-     *
-     * @example
-     * isArrayLike({})
-     * // => false
-     *
-     * isArrayLike("foo")
-     * // => false
-     */
-    const isArrayLike = (val) => isObjectLike(val) && !isUndefined(val.length);
 
     /**
      * Checks if a value is a number.
@@ -265,7 +146,6 @@ var _l = (function (exports) {
      * // => true
      * // (NaN is considered a number, see IEEE_754)
      *
-     * @example
      * isNumber("2")
      * // => false
      *
@@ -273,6 +153,26 @@ var _l = (function (exports) {
      * // => false
      */
     const isNumber = (val) => isTypeOf(val, "number");
+
+    /**
+     * Checks if a value is object-like and has a length property.
+     *
+     * @function isArrayLike
+     * @memberof Is
+     * @since 1.0.0
+     * @param {any} val
+     * @returns {boolean}
+     * @example
+     * isArrayLike([])
+     * // => true
+     *
+     * isArrayLike({length: 0})
+     * // => true
+     *
+     * isArrayLike({})
+     * // => false
+     */
+    const isArrayLike = (val) => isObjectLike(val) && isNumber(val.length);
 
     /**
      * Checks if a value is a typed array.
@@ -286,14 +186,13 @@ var _l = (function (exports) {
      * isArrayTyped(new Int16Array());
      * // => true
      *
-     * isArrayTyped(new UInt8Array());
+     * isArrayTyped(new Uint8Array());
      * // => true
      *
-     * @example
      * isArrayTyped([]);
      * // => false
      */
-    const isArrayTyped = (val) => isNumber(val.BYTES_PER_ELEMENT);
+    const isArrayTyped = (val) => !isNil(val) && isNumber(val.BYTES_PER_ELEMENT);
 
     /**
      * Checks if a value is a boolean.
@@ -310,14 +209,10 @@ var _l = (function (exports) {
      * isBoolean(false)
      * // => true
      *
-     * @example
      * isBoolean(0)
      * // => false
      *
      * isBoolean(null)
-     * // => false
-     *
-     * isBoolean("")
      * // => false
      */
     const isBoolean = (val) => isTypeOf(val, "boolean");
@@ -331,13 +226,9 @@ var _l = (function (exports) {
      * @param {any} val
      * @returns {boolean}
      * @example
-     * isDate(Date())
-     * // => true
-     *
      * isDate(new Date())
      * // => true
      *
-     * @example
      * isDate(123213231)
      * // => false
      */
@@ -355,11 +246,35 @@ var _l = (function (exports) {
      * isString("foo")
      * // => true
      *
-     * @example
      * isString(1)
      * // => false
      */
     const isString = (val) => isTypeOf(val, "string");
+
+    /**
+     * Checks if a value is undefined.
+     *
+     * @function isUndefined
+     * @memberof Is
+     * @since 1.0.0
+     * @param {any} val
+     * @returns {boolean}
+     * @example
+     * const a = {};
+     *
+     * isUndefined(a.b)
+     * // => true
+     *
+     * isUndefined(undefined)
+     * // => true
+     *
+     * isUndefined(null)
+     * // => false
+     *
+     * isUndefined(1)
+     * // => false
+     */
+    const isUndefined = (val) => isTypeOf(val, "undefined");
 
     /**
      * Gets size of a value.
@@ -413,8 +328,7 @@ var _l = (function (exports) {
      *
      * A value is consider empty if it is either a primitive or an object-like without content.
      * Array-likes and strings are considered empty if they have a length of zero,
-     * Sets/Maps if they have a size of zero,
-     * and Objects if their keys have a length of zero.
+     * sets/maps if they have a size of zero, and objects if their keys have a length of zero.
      *
      * @function isEmpty
      * @memberof Is
@@ -431,16 +345,12 @@ var _l = (function (exports) {
      * isEmpty("")
      * // => true
      *
-     * isEmpty(true)
-     * // => true
-     *
-     * isEmpty(1)
+     * isEmpty(123)
      * // => true
      *
      * isEmpty(null)
      * // => true
      *
-     * @example
      * isEmpty("foo")
      * // => false
      *
@@ -448,6 +358,9 @@ var _l = (function (exports) {
      * // => false
      *
      * isEmpty({a: 1})
+     * // => false
+     *
+     * isEmpty(new Map([["foo", 1]]))
      * // => false
      */
     const isEmpty = (val) => getSize(val) < 1;
@@ -495,7 +408,6 @@ var _l = (function (exports) {
      * isEqual([1, 2, [3, 4]], [1, 2, [3, 4]])
      * // => true
      *
-     * @example
      * isEqual([1, 2, 3], [1])
      * // => false
      *
@@ -535,18 +447,35 @@ var _l = (function (exports) {
      * @param {any} val
      * @returns {boolean}
      * @example
-     * isError(new Error())
-     * // => true
-     *
      * isError(new URIError())
      * // => true
      *
-     * @example
      * isError("foo")
      * // => false
      */
     const isError = (val) => isInstanceOf(val, Error);
 
+    /**
+     * Checks if a value is a function.
+     *
+     * @function isFunction
+     * @memberof Is
+     * @since 1.0.0
+     * @param {any} val
+     * @returns {boolean}
+     * @example
+     * isFunction(function a(){})
+     * // => true
+     *
+     * isFunction(Array.from)
+     * // => true
+     *
+     * isFunction(null)
+     * // => false
+     */
+    const isFunction = (val) => isTypeOf(val, "function");
+
+    // File is named "_index.ts" to avoid it being treated as module index file.
     /**
      * Checks if a value is a valid index.
      *
@@ -556,13 +485,9 @@ var _l = (function (exports) {
      * @param {any} val
      * @returns {boolean}
      * @example
-     * isIndex(0)
-     * // => true
-     *
      * isIndex(123)
      * // => true
      *
-     * @example
      * isIndex(0.43)
      * // => false
      *
@@ -586,7 +511,6 @@ var _l = (function (exports) {
      * isMap(new Map())
      * // => true
      *
-     * @example
      * isMap([[1, 2]])
      * // => false
      */
@@ -610,7 +534,6 @@ var _l = (function (exports) {
      * isObject(() => 1))
      * // => true
      *
-     * @example
      * isObject(1)
      * // => false
      */
@@ -630,11 +553,13 @@ var _l = (function (exports) {
      * isObjectPlain({})
      * // => true
      *
-     * @example
      * isObjectPlain([])
      * // => false
      *
-     * isObjectPlain(() => {})
+     * isObjectPlain(() => 1)
+     * // => false
+     *
+     * isObjectPlain(1)
      * // => false
      */
     const isObjectPlain = (val) => isObject(val) && val.constructor === Object;
@@ -648,16 +573,15 @@ var _l = (function (exports) {
      * @param {any} val
      * @returns {boolean}
      * @example
-     * const foo = new Promise((resolve, reject) => resolve("foo"));
-     *
-     * isPromise(foo);
+     * isPromise(new Promise((resolve, reject) => resolve("foo")));
      * // => true
      *
-     * @example
      * isPromise(() => "foo");
      * // => false
      */
-    const isPromise = (val) => isFunction(val.then) && isFunction(val.catch);
+    const isPromise = (val) =>
+        // @ts-ignore: Promise declaration is invalid
+        isInstanceOf(val, Promise);
 
     /**
      * Checks if a value is a regular expression.
@@ -674,8 +598,7 @@ var _l = (function (exports) {
      * isRegExp(/foo/)
      * // => true
      *
-     * @example
-     * isRegExp("foo")
+     * isRegExp("/foo/")
      * // => false
      */
     const isRegExp = (val) => 
@@ -694,7 +617,6 @@ var _l = (function (exports) {
      * isSet(new Set())
      * // => true
      *
-     * @example
      * isSet([1, 2])
      * // => false
      */
@@ -715,7 +637,6 @@ var _l = (function (exports) {
      * isSymbol(Symbol.split)
      * // => true
      *
-     * @example
      * isSymbol("foo")
      * // => false
      */
@@ -795,19 +716,17 @@ var _l = (function (exports) {
      * @param {number} val
      * @returns {number}
      * @example
-     * numSafe(5)
-     * // => 5
+     * numSafe(99999999999999999)
+     * // => Number.MAX_SAFE_INTEGER
      *
-     * numSafe(Number.MAX_VALUE)
-     * // => Number.MIN_SAFE_INTEGER
-     *
-     * numSafe(Infinity)
+     * numSafe(-Infinity)
      * // => Number.MIN_SAFE_INTEGER
      */
     const numSafe = (val) => numClamp(val, Number.MIN_SAFE_INTEGER, Number.MAX_SAFE_INTEGER);
 
+    // noinspection SpellCheckingInspection
     /**
-     * Returns levenshtein string distance of two strings.
+     * Returns Levenshtein string distance of two strings.
      *
      * @function strDistance
      * @memberof String
@@ -826,48 +745,35 @@ var _l = (function (exports) {
      * // => 0
      */
     const strDistance = (str1, str2) => {
-        // Cache string length
-        const str1Length = str1.length;
-        const str2Length = str2.length;
-        if (str1Length === 0) {
-            // Exit early if str1 is empty
-            return str2Length;
+        if (str1.length === 0) {
+            return str2.length;
         }
-        if (str2Length === 0) {
-            // Exit early if str2 is empty
-            return str1Length;
+        else if (str2.length === 0) {
+            return str1.length;
         }
-        // Create matrix that is (str2.length+1)x(str1.length+1) fields
         const matrix = [];
-        // Increment along the first column of each row
-        for (let y = 0; y <= str2Length; y++) {
+        for (let y = 0; y <= str2.length; y++) {
             matrix[y] = [y];
         }
-        // Increment each column in the first row
-        for (let x = 0; x <= str1Length; x++) {
+        for (let x = 0; x <= str1.length; x++) {
             matrix[0][x] = x;
         }
-        // Fill matrix
-        for (let y = 1; y <= str2Length; y++) {
+        for (let y = 1; y <= str2.length; y++) {
             const matrixColumnCurrent = matrix[y];
             const matrixColumnLast = matrix[y - 1];
-            for (let x = 1; x <= str1Length; x++) {
+            for (let x = 1; x <= str1.length; x++) {
                 if (str2.charAt(y - 1) === str1.charAt(x - 1)) {
-                    // Check if letter at the position is the same
                     matrixColumnCurrent[x] = matrixColumnLast[x - 1];
                 }
                 else {
-                    // Check for substitution/insertion/deletion
                     const substitution = matrixColumnLast[x - 1] + 1;
                     const insertion = matrixColumnCurrent[x - 1] + 1;
                     const deletion = matrixColumnLast[x] + 1;
-                    // Get smallest of the three
                     matrixColumnCurrent[x] = Math.min(substitution, insertion, deletion);
                 }
             }
         }
-        // Return max value
-        return matrix[str2Length][str1Length];
+        return matrix[str2.length][str1.length];
     };
 
     /**
@@ -916,16 +822,18 @@ var _l = (function (exports) {
     /**
      * Creates an array of substrings from a camelCase string.
      *
+     * Alias of {@link strFromPascalCase}.
+     *
      * @function strFromCamelCase
      * @memberof String
      * @since 6.2.0
      * @param {string} str
      * @returns {string[]}
      * @example
-     * strFromPascalCase("fooBar")
+     * strFromCamelCase("fooBar")
      * // => ["foo", "Bar"]
      *
-     * strFromPascalCase("fizzBuzzBazz")
+     * strFromCamelCase("fizzBuzzBazz")
      * // => ["fizz","Buzz","Bazz"]
      */
     const strFromCamelCase = strFromPascalCase;
@@ -965,8 +873,8 @@ var _l = (function (exports) {
     const strFromSnakeCase = (str) => arrCompact(str.split("_" /* SNAKE */));
 
     /**
-     * Collects the values of an array in a Map as arrays.
-     * If the fn returns a nil value, the element will be skipped,
+     * Collects the values of an array in a map as arrays.
+     * If the function returns a nil value, the element will be skipped,
      * otherwise the return value will be used as key.
      *
      * @function arrCollect
@@ -990,6 +898,7 @@ var _l = (function (exports) {
         return result;
     };
 
+    // noinspection SpellCheckingInspection
     /**
      * Returns strings similar to the input based on the list given.
      *
@@ -1305,7 +1214,7 @@ var _l = (function (exports) {
     /**
      * Replaces every circular reference in an object.
      *
-     * Can take a custom replacer function and a pre-filled WeakSet of references.
+     * Can take a custom replacer function and a pre-filled weak set of references.
      *
      * @function objDecycle
      * @memberof Object
@@ -1499,7 +1408,7 @@ var _l = (function (exports) {
         : fn(key, val, index, obj));
 
     /**
-     * Creates a debounced function that delays invoking the fn.
+     * Creates a debounced function that delays invoking the function.
      *
      * @function fnDebounce
      * @memberof Fn
@@ -1528,8 +1437,6 @@ var _l = (function (exports) {
 
     /**
      * Throttles a function to only run every n ms.
-     *
-     * Useful for event handlers that fire several times a second, such as scroll or resize.
      *
      * @function fnThrottle
      * @memberof Fn
@@ -1563,7 +1470,7 @@ var _l = (function (exports) {
     };
 
     /**
-     * Binary Search implementation.
+     * Binary-search implementation.
      *
      * @function searchBinary
      * @memberof Search
@@ -1599,14 +1506,14 @@ var _l = (function (exports) {
     };
 
     /**
-     * Return a random float or integer number in the given range.
+     * Return a random number in the given range.
      *
      * @function randNumber
      * @memberof Random
      * @since 3.0.0
      * @param {number} [min=0] inclusive minimum
      * @param {number} [max=1] inclusive maximum
-     * @param {boolean} [floating=false]
+     * @param {boolean} [float=false]
      * @returns {number}
      * @example
      * randNumber()
@@ -1618,13 +1525,13 @@ var _l = (function (exports) {
      * randNumber(2, 10, true)
      * // => 6.23132496
      */
-    const randNumber = (min = 0, max = 1, floating = false) => {
+    const randNumber = (min = 0, max = 1, float = false) => {
         const diff = max - min;
         if (diff === 0) {
             return min;
         }
         const rand = Math.random() * diff;
-        return min + (floating ? rand : Math.floor((rand / diff) * (diff + 1)));
+        return min + (float ? rand : Math.floor((rand / diff) * (diff + 1)));
     };
 
     /**
@@ -1675,7 +1582,7 @@ var _l = (function (exports) {
      * @namespace Is
      */
     /**
-     * Get value from a target
+     * Get values and properties of a target
      * @namespace Get
      */
     /**
@@ -1737,7 +1644,6 @@ var _l = (function (exports) {
     exports.isDate = isDate;
     exports.isRegExp = isRegExp;
     exports.isFunction = isFunction;
-    exports.isArguments = isArguments;
     exports.isError = isError;
     exports.isEmpty = isEmpty;
     exports.isIndex = isIndex;

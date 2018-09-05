@@ -17,13 +17,10 @@ import { isTypeOf } from "./typeOf";
  * isUndefined(undefined)
  * // => true
  *
- * @example
- * const a = {};
- *
- * isUndefined(1)
+ * isUndefined(null)
  * // => false
  *
- * isUndefined(a)
+ * isUndefined(1)
  * // => false
  */
 const isUndefined = (val: any): val is undefined => isTypeOf(val, "undefined");

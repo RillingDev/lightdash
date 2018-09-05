@@ -1,4 +1,5 @@
 import { anyFn } from "../fn/lib/anyFn";
+
 /**
  * Checks if a value is a function.
  *
@@ -14,7 +15,6 @@ import { anyFn } from "../fn/lib/anyFn";
  * isFunction(Array.from)
  * // => true
  *
- * @example
  * isFunction(null)
  * // => false
  */

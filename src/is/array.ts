@@ -1,7 +1,7 @@
 /**
  * Checks if a value is an array.
  *
- * `Array.isArray` shorthand.
+ * Alias of the native `Array.isArray`.
  *
  * @function isArray
  * @memberof Is
@@ -9,13 +9,9 @@
  * @param {any} val
  * @returns {boolean}
  * @example
- * isArray([]);
- * // => true
- *
  * isArray([1, 2, 3]);
  * // => true
  *
- * @example
  * isArray({});
  * // => false
  */

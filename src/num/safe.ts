@@ -9,13 +9,10 @@ import { numClamp } from "./clamp";
  * @param {number} val
  * @returns {number}
  * @example
- * numSafe(5)
- * // => 5
+ * numSafe(99999999999999999)
+ * // => Number.MAX_SAFE_INTEGER
  *
- * numSafe(Number.MAX_VALUE)
- * // => Number.MIN_SAFE_INTEGER
- *
- * numSafe(Infinity)
+ * numSafe(-Infinity)
  * // => Number.MIN_SAFE_INTEGER
  */
 const numSafe = (val: number): number =>

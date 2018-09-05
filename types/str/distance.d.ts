@@ -1,5 +1,5 @@
 /**
- * Returns levenshtein string distance of two strings.
+ * Returns Levenshtein string distance of two strings.
  *
  * @function strDistance
  * @memberof String

@@ -1,4 +1,3 @@
-import { isArguments } from "./is/arguments";
 import { isArray } from "./is/array";
 import { isArrayBuffer } from "./is/arrayBuffer";
 import { isArrayLike } from "./is/arrayLike";
@@ -9,7 +8,7 @@ import { isEmpty } from "./is/empty";
 import { isEqual } from "./is/equal";
 import { isError } from "./is/error";
 import { isFunction } from "./is/function";
-import { isIndex } from "./is/index";
+import { isIndex } from "./is/_index";
 import { isInstanceOf } from "./is/instanceOf";
 import { isMap } from "./is/map";
 import { isNil } from "./is/nil";
@@ -101,7 +100,6 @@ export {
     isDate,
     isRegExp,
     isFunction,
-    isArguments,
     isError,
     isEmpty,
     isIndex,
@@ -155,7 +153,7 @@ export {
  */
 
 /**
- * Get value from a target
+ * Get values and properties of a target
  * @namespace Get
  */
 

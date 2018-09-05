@@ -1,4 +1,4 @@
-import { isIndex } from "../is/index";
+import { isIndex } from "../is/_index";
 
 /**
  * Creates an array of elements split into groups by size.

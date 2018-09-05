@@ -12,7 +12,6 @@ import { isInstanceOf } from "./instanceOf";
  * isSet(new Set())
  * // => true
  *
- * @example
  * isSet([1, 2])
  * // => false
  */

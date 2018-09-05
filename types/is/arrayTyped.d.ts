@@ -10,10 +10,9 @@
  * isArrayTyped(new Int16Array());
  * // => true
  *
- * isArrayTyped(new UInt8Array());
+ * isArrayTyped(new Uint8Array());
  * // => true
  *
- * @example
  * isArrayTyped([]);
  * // => false
  */

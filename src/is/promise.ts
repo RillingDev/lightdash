@@ -1,4 +1,4 @@
-import { isFunction } from "./function";
+import { isInstanceOf } from "./instanceOf";
 
 /**
  * Checks if a value is a promise.
@@ -9,16 +9,14 @@ import { isFunction } from "./function";
  * @param {any} val
  * @returns {boolean}
  * @example
- * const foo = new Promise((resolve, reject) => resolve("foo"));
- *
- * isPromise(foo);
+ * isPromise(new Promise((resolve, reject) => resolve("foo")));
  * // => true
  *
- * @example
  * isPromise(() => "foo");
  * // => false
  */
 const isPromise = (val: any): val is Promise<any> =>
-    isFunction(val.then) && isFunction(val.catch);
+    // @ts-ignore: Promise declaration is invalid
+    isInstanceOf(val, Promise);
 
 export { isPromise };

@@ -1,3 +1,5 @@
+// File is named "_index.ts" to avoid it being treated as module index file.
+
 /**
  * Checks if a value is a valid index.
  *
@@ -7,13 +9,9 @@
  * @param {any} val
  * @returns {boolean}
  * @example
- * isIndex(0)
- * // => true
- *
  * isIndex(123)
  * // => true
  *
- * @example
  * isIndex(0.43)
  * // => false
  *
@@ -23,5 +21,6 @@
  * isIndex(Infinity)
  * // => false
  */
-declare const isIndex: (val: any) => boolean;
+const isIndex = (val: any): boolean => Number.isInteger(val) && val >= 0;
+
 export { isIndex };

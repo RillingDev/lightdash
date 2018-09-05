@@ -24,7 +24,6 @@ import { isUndefined } from "./undefined";
  * isEqual([1, 2, [3, 4]], [1, 2, [3, 4]])
  * // => true
  *
- * @example
  * isEqual([1, 2, 3], [1])
  * // => false
  *

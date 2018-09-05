@@ -1,75 +1,7 @@
 /**
- * Checks if the value has a certain type-string.
- *
- * @function isTypeOf
- * @memberof Is
- * @since 1.0.0
- * @param {any} val
- * @param {string} type
- * @returns {boolean}
- * @example
- * isTypeOf({}, "object")
- * // => true
- *
- * isTypeOf([], "object")
- * // => true
- *
- * isTypeOf("foo", "string")
- * // => true
- *
- * @example
- * isTypeOf("foo", "number")
- * // => false
- */
-const isTypeOf = (val, type) => typeof val === type;
-
-/**
- * Checks if a value is a function.
- *
- * @function isFunction
- * @memberof Is
- * @since 1.0.0
- * @param {any} val
- * @returns {boolean}
- * @example
- * isFunction(function a(){})
- * // => true
- *
- * isFunction(Array.from)
- * // => true
- *
- * @example
- * isFunction(null)
- * // => false
- */
-const isFunction = (val) => isTypeOf(val, "function");
-
-/**
- * Checks if a value is an arguments array-like.
- *
- * @function isArguments
- * @memberof Is
- * @since 2.10.0
- * @param {any} val
- * @returns {boolean}
- * @example
- * const foo = function(){
- *   return arguments;
- * };
- *
- * isArguments(foo());
- * // => true
- *
- * @example
- * isArguments([]);
- * // => false
- */
-const isArguments = (val) => isFunction(val.callee);
-
-/**
  * Checks if a value is an array.
  *
- * `Array.isArray` shorthand.
+ * Alias of the native `Array.isArray`.
  *
  * @function isArray
  * @memberof Is
@@ -77,13 +9,9 @@ const isArguments = (val) => isFunction(val.callee);
  * @param {any} val
  * @returns {boolean}
  * @example
- * isArray([]);
- * // => true
- *
  * isArray([1, 2, 3]);
  * // => true
  *
- * @example
  * isArray({});
  * // => false
  */
@@ -99,20 +27,10 @@ const isArray = Array.isArray;
  * @param {Class} target
  * @returns {boolean}
  * @example
- * isInstanceOf({}, Object)
- * // => true
- *
- * isInstanceOf([], Object)
- * // => true
- *
  * isInstanceOf([], Array)
  * // => true
  *
- * @example
  * isInstanceOf({}, Array)
- * // => false
- *
- * isInstanceOf([], Map)
  * // => false
  */
 const isInstanceOf = (val, target) => val instanceof target;
@@ -126,44 +44,15 @@ const isInstanceOf = (val, target) => val instanceof target;
  * @param {any} val
  * @returns {boolean}
  * @example
- * isArrayBuffer(new ArrayBuffer())
+ * isArrayBuffer(new ArrayBuffer(8))
  * // => true
  *
- * @example
  * isArrayBuffer([1, 2])
  * // => false
  */
 const isArrayBuffer = (val) => 
 // @ts-ignore: ArrayBuffer declaration is invalid
 isInstanceOf(val, ArrayBuffer);
-
-/**
- * Checks if a value is undefined.
- *
- * @function isUndefined
- * @memberof Is
- * @since 1.0.0
- * @param {any} val
- * @returns {boolean}
- * @example
- * const a = {};
- *
- * isUndefined(a.b)
- * // => true
- *
- * isUndefined(undefined)
- * // => true
- *
- * @example
- * const a = {};
- *
- * isUndefined(1)
- * // => false
- *
- * isUndefined(a)
- * // => false
- */
-const isUndefined = (val) => isTypeOf(val, "undefined");
 
 /**
  * Checks if a value is undefined or null.
@@ -180,7 +69,6 @@ const isUndefined = (val) => isTypeOf(val, "undefined");
  * isNil(undefined)
  * // => true
  *
- * @example
  * isNil(0)
  * // => false
  *
@@ -190,10 +78,28 @@ const isUndefined = (val) => isTypeOf(val, "undefined");
 const isNil = (val) => val == null;
 
 /**
+ * Checks if the value has a certain type-string.
+ *
+ * @function isTypeOf
+ * @memberof Is
+ * @since 1.0.0
+ * @param {any} val
+ * @param {string} type
+ * @returns {boolean}
+ * @example
+ * isTypeOf("foo", "string")
+ * // => true
+ *
+ * isTypeOf("foo", "number")
+ * // => false
+ */
+const isTypeOf = (val, type) => typeof val === type;
+
+/**
  * Checks if a value is not nil and has a type of object.
  *
- * The main difference to isObject is that functions are not considered object-like,
- * because `typeof function(){}` returns "function".
+ * The main difference to {@link isObject} is that functions are not considered object-like,
+ * because `typeof function(){}` returns `"function"`.
  *
  * @function isObjectLike
  * @memberof Is
@@ -207,38 +113,13 @@ const isNil = (val) => val == null;
  * isObjectLike([])
  * // => true
  *
- * @example
- * isObjectLike(1)
+ * isObjectLike(() => 1))
  * // => false
  *
- * isObjectLike(() => 1))
+ * isObjectLike(1)
  * // => false
  */
 const isObjectLike = (val) => !isNil(val) && isTypeOf(val, "object");
-
-/**
- * Checks if a value is object-like and has a length property.
- *
- * @function isArrayLike
- * @memberof Is
- * @since 1.0.0
- * @param {any} val
- * @returns {boolean}
- * @example
- * isArrayLike([])
- * // => true
- *
- * isArrayLike({length: 0})
- * // => true
- *
- * @example
- * isArrayLike({})
- * // => false
- *
- * isArrayLike("foo")
- * // => false
- */
-const isArrayLike = (val) => isObjectLike(val) && !isUndefined(val.length);
 
 /**
  * Checks if a value is a number.
@@ -262,7 +143,6 @@ const isArrayLike = (val) => isObjectLike(val) && !isUndefined(val.length);
  * // => true
  * // (NaN is considered a number, see IEEE_754)
  *
- * @example
  * isNumber("2")
  * // => false
  *
@@ -270,6 +150,26 @@ const isArrayLike = (val) => isObjectLike(val) && !isUndefined(val.length);
  * // => false
  */
 const isNumber = (val) => isTypeOf(val, "number");
+
+/**
+ * Checks if a value is object-like and has a length property.
+ *
+ * @function isArrayLike
+ * @memberof Is
+ * @since 1.0.0
+ * @param {any} val
+ * @returns {boolean}
+ * @example
+ * isArrayLike([])
+ * // => true
+ *
+ * isArrayLike({length: 0})
+ * // => true
+ *
+ * isArrayLike({})
+ * // => false
+ */
+const isArrayLike = (val) => isObjectLike(val) && isNumber(val.length);
 
 /**
  * Checks if a value is a typed array.
@@ -283,14 +183,13 @@ const isNumber = (val) => isTypeOf(val, "number");
  * isArrayTyped(new Int16Array());
  * // => true
  *
- * isArrayTyped(new UInt8Array());
+ * isArrayTyped(new Uint8Array());
  * // => true
  *
- * @example
  * isArrayTyped([]);
  * // => false
  */
-const isArrayTyped = (val) => isNumber(val.BYTES_PER_ELEMENT);
+const isArrayTyped = (val) => !isNil(val) && isNumber(val.BYTES_PER_ELEMENT);
 
 /**
  * Checks if a value is a boolean.
@@ -307,14 +206,10 @@ const isArrayTyped = (val) => isNumber(val.BYTES_PER_ELEMENT);
  * isBoolean(false)
  * // => true
  *
- * @example
  * isBoolean(0)
  * // => false
  *
  * isBoolean(null)
- * // => false
- *
- * isBoolean("")
  * // => false
  */
 const isBoolean = (val) => isTypeOf(val, "boolean");
@@ -328,13 +223,9 @@ const isBoolean = (val) => isTypeOf(val, "boolean");
  * @param {any} val
  * @returns {boolean}
  * @example
- * isDate(Date())
- * // => true
- *
  * isDate(new Date())
  * // => true
  *
- * @example
  * isDate(123213231)
  * // => false
  */
@@ -352,11 +243,35 @@ const isDate = (val) => isInstanceOf(val, Date);
  * isString("foo")
  * // => true
  *
- * @example
  * isString(1)
  * // => false
  */
 const isString = (val) => isTypeOf(val, "string");
+
+/**
+ * Checks if a value is undefined.
+ *
+ * @function isUndefined
+ * @memberof Is
+ * @since 1.0.0
+ * @param {any} val
+ * @returns {boolean}
+ * @example
+ * const a = {};
+ *
+ * isUndefined(a.b)
+ * // => true
+ *
+ * isUndefined(undefined)
+ * // => true
+ *
+ * isUndefined(null)
+ * // => false
+ *
+ * isUndefined(1)
+ * // => false
+ */
+const isUndefined = (val) => isTypeOf(val, "undefined");
 
 /**
  * Gets size of a value.
@@ -410,8 +325,7 @@ const getSize = (val) => {
  *
  * A value is consider empty if it is either a primitive or an object-like without content.
  * Array-likes and strings are considered empty if they have a length of zero,
- * Sets/Maps if they have a size of zero,
- * and Objects if their keys have a length of zero.
+ * sets/maps if they have a size of zero, and objects if their keys have a length of zero.
  *
  * @function isEmpty
  * @memberof Is
@@ -428,16 +342,12 @@ const getSize = (val) => {
  * isEmpty("")
  * // => true
  *
- * isEmpty(true)
- * // => true
- *
- * isEmpty(1)
+ * isEmpty(123)
  * // => true
  *
  * isEmpty(null)
  * // => true
  *
- * @example
  * isEmpty("foo")
  * // => false
  *
@@ -445,6 +355,9 @@ const getSize = (val) => {
  * // => false
  *
  * isEmpty({a: 1})
+ * // => false
+ *
+ * isEmpty(new Map([["foo", 1]]))
  * // => false
  */
 const isEmpty = (val) => getSize(val) < 1;
@@ -492,7 +405,6 @@ const forEachEntry = (obj, fn) => {
  * isEqual([1, 2, [3, 4]], [1, 2, [3, 4]])
  * // => true
  *
- * @example
  * isEqual([1, 2, 3], [1])
  * // => false
  *
@@ -532,18 +444,35 @@ const isEqual = (a, b) => {
  * @param {any} val
  * @returns {boolean}
  * @example
- * isError(new Error())
- * // => true
- *
  * isError(new URIError())
  * // => true
  *
- * @example
  * isError("foo")
  * // => false
  */
 const isError = (val) => isInstanceOf(val, Error);
 
+/**
+ * Checks if a value is a function.
+ *
+ * @function isFunction
+ * @memberof Is
+ * @since 1.0.0
+ * @param {any} val
+ * @returns {boolean}
+ * @example
+ * isFunction(function a(){})
+ * // => true
+ *
+ * isFunction(Array.from)
+ * // => true
+ *
+ * isFunction(null)
+ * // => false
+ */
+const isFunction = (val) => isTypeOf(val, "function");
+
+// File is named "_index.ts" to avoid it being treated as module index file.
 /**
  * Checks if a value is a valid index.
  *
@@ -553,13 +482,9 @@ const isError = (val) => isInstanceOf(val, Error);
  * @param {any} val
  * @returns {boolean}
  * @example
- * isIndex(0)
- * // => true
- *
  * isIndex(123)
  * // => true
  *
- * @example
  * isIndex(0.43)
  * // => false
  *
@@ -583,7 +508,6 @@ const isIndex = (val) => Number.isInteger(val) && val >= 0;
  * isMap(new Map())
  * // => true
  *
- * @example
  * isMap([[1, 2]])
  * // => false
  */
@@ -607,7 +531,6 @@ const isMap = (val) => isInstanceOf(val, Map);
  * isObject(() => 1))
  * // => true
  *
- * @example
  * isObject(1)
  * // => false
  */
@@ -627,11 +550,13 @@ const isObject = (val) => !isNil(val) && (isTypeOf(val, "object") || isTypeOf(va
  * isObjectPlain({})
  * // => true
  *
- * @example
  * isObjectPlain([])
  * // => false
  *
- * isObjectPlain(() => {})
+ * isObjectPlain(() => 1)
+ * // => false
+ *
+ * isObjectPlain(1)
  * // => false
  */
 const isObjectPlain = (val) => isObject(val) && val.constructor === Object;
@@ -645,16 +570,15 @@ const isObjectPlain = (val) => isObject(val) && val.constructor === Object;
  * @param {any} val
  * @returns {boolean}
  * @example
- * const foo = new Promise((resolve, reject) => resolve("foo"));
- *
- * isPromise(foo);
+ * isPromise(new Promise((resolve, reject) => resolve("foo")));
  * // => true
  *
- * @example
  * isPromise(() => "foo");
  * // => false
  */
-const isPromise = (val) => isFunction(val.then) && isFunction(val.catch);
+const isPromise = (val) =>
+// @ts-ignore: Promise declaration is invalid
+    isInstanceOf(val, Promise);
 
 /**
  * Checks if a value is a regular expression.
@@ -671,8 +595,7 @@ const isPromise = (val) => isFunction(val.then) && isFunction(val.catch);
  * isRegExp(/foo/)
  * // => true
  *
- * @example
- * isRegExp("foo")
+ * isRegExp("/foo/")
  * // => false
  */
 const isRegExp = (val) => 
@@ -691,7 +614,6 @@ isInstanceOf(val, RegExpConstructor);
  * isSet(new Set())
  * // => true
  *
- * @example
  * isSet([1, 2])
  * // => false
  */
@@ -712,7 +634,6 @@ const isSet = (val) => isInstanceOf(val, Set);
  * isSymbol(Symbol.split)
  * // => true
  *
- * @example
  * isSymbol("foo")
  * // => false
  */
@@ -792,19 +713,17 @@ const numClamp = (val, min, max) => {
  * @param {number} val
  * @returns {number}
  * @example
- * numSafe(5)
- * // => 5
+ * numSafe(99999999999999999)
+ * // => Number.MAX_SAFE_INTEGER
  *
- * numSafe(Number.MAX_VALUE)
- * // => Number.MIN_SAFE_INTEGER
- *
- * numSafe(Infinity)
+ * numSafe(-Infinity)
  * // => Number.MIN_SAFE_INTEGER
  */
 const numSafe = (val) => numClamp(val, Number.MIN_SAFE_INTEGER, Number.MAX_SAFE_INTEGER);
 
+// noinspection SpellCheckingInspection
 /**
- * Returns levenshtein string distance of two strings.
+ * Returns Levenshtein string distance of two strings.
  *
  * @function strDistance
  * @memberof String
@@ -823,48 +742,35 @@ const numSafe = (val) => numClamp(val, Number.MIN_SAFE_INTEGER, Number.MAX_SAFE_
  * // => 0
  */
 const strDistance = (str1, str2) => {
-    // Cache string length
-    const str1Length = str1.length;
-    const str2Length = str2.length;
-    if (str1Length === 0) {
-        // Exit early if str1 is empty
-        return str2Length;
+    if (str1.length === 0) {
+        return str2.length;
     }
-    if (str2Length === 0) {
-        // Exit early if str2 is empty
-        return str1Length;
+    else if (str2.length === 0) {
+        return str1.length;
     }
-    // Create matrix that is (str2.length+1)x(str1.length+1) fields
     const matrix = [];
-    // Increment along the first column of each row
-    for (let y = 0; y <= str2Length; y++) {
+    for (let y = 0; y <= str2.length; y++) {
         matrix[y] = [y];
     }
-    // Increment each column in the first row
-    for (let x = 0; x <= str1Length; x++) {
+    for (let x = 0; x <= str1.length; x++) {
         matrix[0][x] = x;
     }
-    // Fill matrix
-    for (let y = 1; y <= str2Length; y++) {
+    for (let y = 1; y <= str2.length; y++) {
         const matrixColumnCurrent = matrix[y];
         const matrixColumnLast = matrix[y - 1];
-        for (let x = 1; x <= str1Length; x++) {
+        for (let x = 1; x <= str1.length; x++) {
             if (str2.charAt(y - 1) === str1.charAt(x - 1)) {
-                // Check if letter at the position is the same
                 matrixColumnCurrent[x] = matrixColumnLast[x - 1];
             }
             else {
-                // Check for substitution/insertion/deletion
                 const substitution = matrixColumnLast[x - 1] + 1;
                 const insertion = matrixColumnCurrent[x - 1] + 1;
                 const deletion = matrixColumnLast[x] + 1;
-                // Get smallest of the three
                 matrixColumnCurrent[x] = Math.min(substitution, insertion, deletion);
             }
         }
     }
-    // Return max value
-    return matrix[str2Length][str1Length];
+    return matrix[str2.length][str1.length];
 };
 
 /**
@@ -913,16 +819,18 @@ const strFromPascalCase = (str) => {
 /**
  * Creates an array of substrings from a camelCase string.
  *
+ * Alias of {@link strFromPascalCase}.
+ *
  * @function strFromCamelCase
  * @memberof String
  * @since 6.2.0
  * @param {string} str
  * @returns {string[]}
  * @example
- * strFromPascalCase("fooBar")
+ * strFromCamelCase("fooBar")
  * // => ["foo", "Bar"]
  *
- * strFromPascalCase("fizzBuzzBazz")
+ * strFromCamelCase("fizzBuzzBazz")
  * // => ["fizz","Buzz","Bazz"]
  */
 const strFromCamelCase = strFromPascalCase;
@@ -962,8 +870,8 @@ const strFromKebabCase = (str) => arrCompact(str.split("-" /* KEBAB */));
 const strFromSnakeCase = (str) => arrCompact(str.split("_" /* SNAKE */));
 
 /**
- * Collects the values of an array in a Map as arrays.
- * If the fn returns a nil value, the element will be skipped,
+ * Collects the values of an array in a map as arrays.
+ * If the function returns a nil value, the element will be skipped,
  * otherwise the return value will be used as key.
  *
  * @function arrCollect
@@ -987,6 +895,7 @@ const arrCollect = (arr, fn) => {
     return result;
 };
 
+// noinspection SpellCheckingInspection
 /**
  * Returns strings similar to the input based on the list given.
  *
@@ -1302,7 +1211,7 @@ const objMap = (obj, fn) => {
 /**
  * Replaces every circular reference in an object.
  *
- * Can take a custom replacer function and a pre-filled WeakSet of references.
+ * Can take a custom replacer function and a pre-filled weak set of references.
  *
  * @function objDecycle
  * @memberof Object
@@ -1496,7 +1405,7 @@ const forEachEntryDeep = (obj, fn) => forEachEntry(obj, (key, val, index) => isO
     : fn(key, val, index, obj));
 
 /**
- * Creates a debounced function that delays invoking the fn.
+ * Creates a debounced function that delays invoking the function.
  *
  * @function fnDebounce
  * @memberof Fn
@@ -1525,8 +1434,6 @@ const fnDebounce = (fn, timeout) => {
 
 /**
  * Throttles a function to only run every n ms.
- *
- * Useful for event handlers that fire several times a second, such as scroll or resize.
  *
  * @function fnThrottle
  * @memberof Fn
@@ -1560,7 +1467,7 @@ const fnThrottle = (fn, timeout, immediate = false) => {
 };
 
 /**
- * Binary Search implementation.
+ * Binary-search implementation.
  *
  * @function searchBinary
  * @memberof Search
@@ -1596,14 +1503,14 @@ const searchBinary = (arr, search) => {
 };
 
 /**
- * Return a random float or integer number in the given range.
+ * Return a random number in the given range.
  *
  * @function randNumber
  * @memberof Random
  * @since 3.0.0
  * @param {number} [min=0] inclusive minimum
  * @param {number} [max=1] inclusive maximum
- * @param {boolean} [floating=false]
+ * @param {boolean} [float=false]
  * @returns {number}
  * @example
  * randNumber()
@@ -1615,13 +1522,13 @@ const searchBinary = (arr, search) => {
  * randNumber(2, 10, true)
  * // => 6.23132496
  */
-const randNumber = (min = 0, max = 1, floating = false) => {
+const randNumber = (min = 0, max = 1, float = false) => {
     const diff = max - min;
     if (diff === 0) {
         return min;
     }
     const rand = Math.random() * diff;
-    return min + (floating ? rand : Math.floor((rand / diff) * (diff + 1)));
+    return min + (float ? rand : Math.floor((rand / diff) * (diff + 1)));
 };
 
 /**
@@ -1672,7 +1579,7 @@ const randShuffle = (arr) => {
  * @namespace Is
  */
 /**
- * Get value from a target
+ * Get values and properties of a target
  * @namespace Get
  */
 /**
@@ -1712,4 +1619,73 @@ const randShuffle = (arr) => {
  * @namespace Random
  */
 
-export { isEqual, isInstanceOf, isTypeOf, isUndefined, isNil, isNumber, isString, isBoolean, isSymbol, isObject, isObjectLike, isObjectPlain, isArray, isArrayLike, isArrayBuffer, isArrayTyped, isPromise, isMap, isSet, isDate, isRegExp, isFunction, isArguments, isError, isEmpty, isIndex, getPath, getSize, numClamp, numSafe, strDistance, strSimilar, strFromCamelCase, strFromKebabCase, strFromPascalCase, strFromSnakeCase, strToCamelCase, strToKebabCase, strToPascalCase, strToSnakeCase, arrFromDeep, arrMapDeep, arrCompact, arrChunk, arrStep, arrRemoveIndex, arrRemoveItem, arrCount, arrCollect, arrDifference, arrIntersection, arrUniq, objFrom, objFromDeep, objMap, objMapDeep, objDefaults, objDefaultsDeep, objDecycle, mapFromObject, fnDebounce, fnThrottle, forEachDeep, forEachEntry, forEachEntryDeep, searchBinary, randNumber, randItem, randShuffle };
+export {
+    isEqual,
+    isInstanceOf,
+    isTypeOf,
+    isUndefined,
+    isNil,
+    isNumber,
+    isString,
+    isBoolean,
+    isSymbol,
+    isObject,
+    isObjectLike,
+    isObjectPlain,
+    isArray,
+    isArrayLike,
+    isArrayBuffer,
+    isArrayTyped,
+    isPromise,
+    isMap,
+    isSet,
+    isDate,
+    isRegExp,
+    isFunction,
+    isError,
+    isEmpty,
+    isIndex,
+    getPath,
+    getSize,
+    numClamp,
+    numSafe,
+    strDistance,
+    strSimilar,
+    strFromCamelCase,
+    strFromKebabCase,
+    strFromPascalCase,
+    strFromSnakeCase,
+    strToCamelCase,
+    strToKebabCase,
+    strToPascalCase,
+    strToSnakeCase,
+    arrFromDeep,
+    arrMapDeep,
+    arrCompact,
+    arrChunk,
+    arrStep,
+    arrRemoveIndex,
+    arrRemoveItem,
+    arrCount,
+    arrCollect,
+    arrDifference,
+    arrIntersection,
+    arrUniq,
+    objFrom,
+    objFromDeep,
+    objMap,
+    objMapDeep,
+    objDefaults,
+    objDefaultsDeep,
+    objDecycle,
+    mapFromObject,
+    fnDebounce,
+    fnThrottle,
+    forEachDeep,
+    forEachEntry,
+    forEachEntryDeep,
+    searchBinary,
+    randNumber,
+    randItem,
+    randShuffle
+};

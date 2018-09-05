@@ -7,13 +7,9 @@
  * @param {any} val
  * @returns {boolean}
  * @example
- * isError(new Error())
- * // => true
- *
  * isError(new URIError())
  * // => true
  *
- * @example
  * isError("foo")
  * // => false
  */

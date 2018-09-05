@@ -16,7 +16,6 @@ import { anyFn } from "../fn/lib/anyFn";
  * isFunction(Array.from)
  * // => true
  *
- * @example
  * isFunction(null)
  * // => false
  */

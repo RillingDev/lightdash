@@ -7,10 +7,9 @@
  * @param {any} val
  * @returns {boolean}
  * @example
- * isArrayBuffer(new ArrayBuffer())
+ * isArrayBuffer(new ArrayBuffer(8))
  * // => true
  *
- * @example
  * isArrayBuffer([1, 2])
  * // => false
  */

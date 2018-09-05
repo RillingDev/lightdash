@@ -10,17 +10,13 @@ An extensive collection of utility functions written in TypeScript, designed to 
 
 Pros:
 
+*   Written in TypeScript, built-in TypeScript definitions.
 *   Smaller fil sizes, both when using the full build and when tree-shaking.
-*   No methods which already have a native equivalent
-*   Built with TypeScript.
-*   Type definitions included, you dont need to install a separate package for them.
 *   No support for legacy browsers, allowing for cleaner code.
 
 Cons:
 
-*   Less total available methods.
 *   No huge community behind it.
-*   Not well adopted (yet).
 *   No support for legacy browsers.
 
 ## Usage
@@ -66,12 +62,14 @@ Contributions are always welcome, no matter if you have a requests, an idea, fou
 Breaking:
 
 - Merged arrRemoveItem and arrRemoveItemFirst
-- removed isObjectLike and isNull
-- removed numSum, numMedian and numAverage
-- removed fnCurry
-- removed hasPath
+- Removed isObjectLike, isArguments and isNull
+- Removed numSum, numMedian and numAverage
+- Removed fnCurry
+- Removed hasPath
 
 Misc:
 
 - Rewrote test in TS
+- Large increase in test coverage
 - Improved type guard interference
+- Lots of minor fixs.

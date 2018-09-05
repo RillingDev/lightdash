@@ -12,11 +12,13 @@
  * isObjectPlain({})
  * // => true
  *
- * @example
  * isObjectPlain([])
  * // => false
  *
- * isObjectPlain(() => {})
+ * isObjectPlain(() => 1)
+ * // => false
+ *
+ * isObjectPlain(1)
  * // => false
  */
 declare const isObjectPlain: (val: any) => val is object;

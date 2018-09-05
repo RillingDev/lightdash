@@ -1,6 +1,7 @@
 import { arrCollect } from "../arr/collect";
 import { strDistance } from "./distance";
 
+// noinspection SpellCheckingInspection
 /**
  * Returns strings similar to the input based on the list given.
  *

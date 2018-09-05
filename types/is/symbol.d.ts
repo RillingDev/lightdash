@@ -13,7 +13,6 @@
  * isSymbol(Symbol.split)
  * // => true
  *
- * @example
  * isSymbol("foo")
  * // => false
  */

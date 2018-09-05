@@ -13,8 +13,7 @@
  * isRegExp(/foo/)
  * // => true
  *
- * @example
- * isRegExp("foo")
+ * isRegExp("/foo/")
  * // => false
  */
 declare const isRegExp: (val: any) => val is RegExp;

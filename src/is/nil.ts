@@ -13,7 +13,6 @@
  * isNil(undefined)
  * // => true
  *
- * @example
  * isNil(0)
  * // => false
  *

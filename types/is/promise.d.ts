@@ -7,12 +7,9 @@
  * @param {any} val
  * @returns {boolean}
  * @example
- * const foo = new Promise((resolve, reject) => resolve("foo"));
- *
- * isPromise(foo);
+ * isPromise(new Promise((resolve, reject) => resolve("foo")));
  * // => true
  *
- * @example
  * isPromise(() => "foo");
  * // => false
  */

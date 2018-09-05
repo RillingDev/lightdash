@@ -15,13 +15,10 @@
  * isUndefined(undefined)
  * // => true
  *
- * @example
- * const a = {};
- *
- * isUndefined(1)
+ * isUndefined(null)
  * // => false
  *
- * isUndefined(a)
+ * isUndefined(1)
  * // => false
  */
 declare const isUndefined: (val: any) => val is undefined;

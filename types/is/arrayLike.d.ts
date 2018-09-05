@@ -13,11 +13,7 @@
  * isArrayLike({length: 0})
  * // => true
  *
- * @example
  * isArrayLike({})
- * // => false
- *
- * isArrayLike("foo")
  * // => false
  */
 declare const isArrayLike: (val: any) => val is ArrayLike<any>;

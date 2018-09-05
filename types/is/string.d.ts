@@ -10,7 +10,6 @@
  * isString("foo")
  * // => true
  *
- * @example
  * isString(1)
  * // => false
  */

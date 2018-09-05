@@ -15,8 +15,7 @@ import { isInstanceOf } from "./instanceOf";
  * isRegExp(/foo/)
  * // => true
  *
- * @example
- * isRegExp("foo")
+ * isRegExp("/foo/")
  * // => false
  */
 const isRegExp = (val: any): val is RegExp =>

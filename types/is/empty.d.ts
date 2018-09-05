@@ -3,8 +3,7 @@
  *
  * A value is consider empty if it is either a primitive or an object-like without content.
  * Array-likes and strings are considered empty if they have a length of zero,
- * Sets/Maps if they have a size of zero,
- * and Objects if their keys have a length of zero.
+ * sets/maps if they have a size of zero, and objects if their keys have a length of zero.
  *
  * @function isEmpty
  * @memberof Is
@@ -21,16 +20,12 @@
  * isEmpty("")
  * // => true
  *
- * isEmpty(true)
- * // => true
- *
- * isEmpty(1)
+ * isEmpty(123)
  * // => true
  *
  * isEmpty(null)
  * // => true
  *
- * @example
  * isEmpty("foo")
  * // => false
  *
@@ -38,6 +33,9 @@
  * // => false
  *
  * isEmpty({a: 1})
+ * // => false
+ *
+ * isEmpty(new Map([["foo", 1]]))
  * // => false
  */
 declare const isEmpty: (val: any) => boolean;

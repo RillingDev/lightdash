@@ -1,4 +1,5 @@
 import { isNumber } from "./number";
+import { isNil } from "./nil";
 
 /**
  * Checks if a value is a typed array.
@@ -12,10 +13,9 @@ import { isNumber } from "./number";
  * isArrayTyped(new Int16Array());
  * // => true
  *
- * isArrayTyped(new UInt8Array());
+ * isArrayTyped(new Uint8Array());
  * // => true
  *
- * @example
  * isArrayTyped([]);
  * // => false
  */
@@ -29,6 +29,6 @@ const isArrayTyped = (
     | Uint16Array
     | Uint32Array
     | Float32Array
-    | Float64Array => isNumber(val.BYTES_PER_ELEMENT);
+    | Float64Array => !isNil(val) && isNumber(val.BYTES_PER_ELEMENT);
 
 export { isArrayTyped };

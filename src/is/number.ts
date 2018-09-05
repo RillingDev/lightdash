@@ -22,7 +22,6 @@ import { isTypeOf } from "./typeOf";
  * // => true
  * // (NaN is considered a number, see IEEE_754)
  *
- * @example
  * isNumber("2")
  * // => false
  *

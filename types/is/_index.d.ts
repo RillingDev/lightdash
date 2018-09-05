@@ -7,13 +7,9 @@
  * @param {any} val
  * @returns {boolean}
  * @example
- * isIndex(0)
- * // => true
- *
  * isIndex(123)
  * // => true
  *
- * @example
  * isIndex(0.43)
  * // => false
  *
@@ -23,6 +19,5 @@
  * isIndex(Infinity)
  * // => false
  */
-const isIndex = (val: any): boolean => Number.isInteger(val) && val >= 0;
-
+declare const isIndex: (val: any) => boolean;
 export { isIndex };

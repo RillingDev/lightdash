@@ -10,7 +10,6 @@
  * isMap(new Map())
  * // => true
  *
- * @example
  * isMap([[1, 2]])
  * // => false
  */

@@ -13,14 +13,10 @@
  * isBoolean(false)
  * // => true
  *
- * @example
  * isBoolean(0)
  * // => false
  *
  * isBoolean(null)
- * // => false
- *
- * isBoolean("")
  * // => false
  */
 declare const isBoolean: (val: any) => val is boolean;

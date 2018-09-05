@@ -1,5 +1,5 @@
 /**
- * Binary Search implementation.
+ * Binary-search implementation.
  *
  * @function searchBinary
  * @memberof Search

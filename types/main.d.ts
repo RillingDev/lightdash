@@ -1,4 +1,3 @@
-import { isArguments } from "./is/arguments";
 import { isArray } from "./is/array";
 import { isArrayBuffer } from "./is/arrayBuffer";
 import { isArrayLike } from "./is/arrayLike";
@@ -9,7 +8,7 @@ import { isEmpty } from "./is/empty";
 import { isEqual } from "./is/equal";
 import { isError } from "./is/error";
 import { isFunction } from "./is/function";
-import { isIndex } from "./is/index";
+import { isIndex } from "./is/_index";
 import { isInstanceOf } from "./is/instanceOf";
 import { isMap } from "./is/map";
 import { isNil } from "./is/nil";
@@ -67,13 +66,83 @@ import { searchBinary } from "./search/binary";
 import { randItem } from "./rand/item";
 import { randNumber } from "./rand/number";
 import { randShuffle } from "./rand/shuffle";
-export { isEqual, isInstanceOf, isTypeOf, isUndefined, isNil, isNumber, isString, isBoolean, isSymbol, isObject, isObjectLike, isObjectPlain, isArray, isArrayLike, isArrayBuffer, isArrayTyped, isPromise, isMap, isSet, isDate, isRegExp, isFunction, isArguments, isError, isEmpty, isIndex, getPath, getSize, numClamp, numSafe, strDistance, strSimilar, strFromCamelCase, strFromKebabCase, strFromPascalCase, strFromSnakeCase, strToCamelCase, strToKebabCase, strToPascalCase, strToSnakeCase, arrFromDeep, arrMapDeep, arrCompact, arrChunk, arrStep, arrRemoveIndex, arrRemoveItem, arrCount, arrCollect, arrDifference, arrIntersection, arrUniq, objFrom, objFromDeep, objMap, objMapDeep, objDefaults, objDefaultsDeep, objDecycle, mapFromObject, fnDebounce, fnThrottle, forEachDeep, forEachEntry, forEachEntryDeep, searchBinary, randNumber, randItem, randShuffle };
+
+export {
+    isEqual,
+    isInstanceOf,
+    isTypeOf,
+    isUndefined,
+    isNil,
+    isNumber,
+    isString,
+    isBoolean,
+    isSymbol,
+    isObject,
+    isObjectLike,
+    isObjectPlain,
+    isArray,
+    isArrayLike,
+    isArrayBuffer,
+    isArrayTyped,
+    isPromise,
+    isMap,
+    isSet,
+    isDate,
+    isRegExp,
+    isFunction,
+    isError,
+    isEmpty,
+    isIndex,
+    getPath,
+    getSize,
+    numClamp,
+    numSafe,
+    strDistance,
+    strSimilar,
+    strFromCamelCase,
+    strFromKebabCase,
+    strFromPascalCase,
+    strFromSnakeCase,
+    strToCamelCase,
+    strToKebabCase,
+    strToPascalCase,
+    strToSnakeCase,
+    arrFromDeep,
+    arrMapDeep,
+    arrCompact,
+    arrChunk,
+    arrStep,
+    arrRemoveIndex,
+    arrRemoveItem,
+    arrCount,
+    arrCollect,
+    arrDifference,
+    arrIntersection,
+    arrUniq,
+    objFrom,
+    objFromDeep,
+    objMap,
+    objMapDeep,
+    objDefaults,
+    objDefaultsDeep,
+    objDecycle,
+    mapFromObject,
+    fnDebounce,
+    fnThrottle,
+    forEachDeep,
+    forEachEntry,
+    forEachEntryDeep,
+    searchBinary,
+    randNumber,
+    randItem,
+    randShuffle
+};
 /**
  * Value checking, type checking, and comparison
  * @namespace Is
  */
 /**
- * Get value from a target
+ * Get values and properties of a target
  * @namespace Get
  */
 /**

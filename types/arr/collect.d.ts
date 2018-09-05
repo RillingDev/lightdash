@@ -1,7 +1,8 @@
 import { forEachMapper } from "../for/lib/forEachMapper";
+
 /**
- * Collects the values of an array in a Map as arrays.
- * If the fn returns a nil value, the element will be skipped,
+ * Collects the values of an array in a map as arrays.
+ * If the function returns a nil value, the element will be skipped,
  * otherwise the return value will be used as key.
  *
  * @function arrCollect

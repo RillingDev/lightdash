@@ -10,20 +10,10 @@ import { IGenericClass } from "./lib/IAnyClass";
  * @param {Class} target
  * @returns {boolean}
  * @example
- * isInstanceOf({}, Object)
- * // => true
- *
- * isInstanceOf([], Object)
- * // => true
- *
  * isInstanceOf([], Array)
  * // => true
  *
- * @example
  * isInstanceOf({}, Array)
- * // => false
- *
- * isInstanceOf([], Map)
  * // => false
  */
 const isInstanceOf = (val: any, target: IGenericClass): boolean =>
