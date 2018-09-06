@@ -1,7 +1,9 @@
 import { forEachEntry } from "../for/eachEntry";
 import { forEachEntryMapper } from "../for/lib/forEachEntryMapper";
 import { ITypedObject } from "./lib/ITypedObject";
+import { isArray } from "../is/array";
 
+// TODO: Figure out a way to properly use generics here.
 /**
  * Maps each entry of an object and returns the result.
  *
@@ -19,7 +21,7 @@ const objMap = (
     obj: ITypedObject<any>,
     fn: forEachEntryMapper<any, any>
 ): ITypedObject<any> => {
-    const objNew: ITypedObject<any> = {};
+    const objNew: ITypedObject<any> = isArray(obj) ? [] : {};
 
     forEachEntry(obj, (key, val, index) => {
         objNew[key] = fn(key, val, index, obj);

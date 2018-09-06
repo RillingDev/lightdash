@@ -3,6 +3,7 @@ import { isObjectLike } from "../is/objectLike";
 import { objMap } from "./map";
 import { ITypedObject } from "./lib/ITypedObject";
 
+// TODO: Figure out a way to properly use generics here.
 /**
  * Recursively maps each entry of an object and returns the result.
  *
@@ -13,7 +14,7 @@ import { ITypedObject } from "./lib/ITypedObject";
  * @param {function} fn fn(key: any, val: any, index: number, obj: object)
  * @returns {Object}
  * @example
- * arrMapDeep({a: {b: 2, c: [10, 20]}}, (key, val) => val * 2)
+ * objMapDeep({a: {b: 2, c: [10, 20]}}, (key, val) => val * 2)
  * // => {a: {b: 4, c: [20, 40]}}
  */
 const objMapDeep = (

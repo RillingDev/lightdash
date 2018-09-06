@@ -19,7 +19,7 @@ import { ITypedObject } from "./lib/ITypedObject";
  * // a = {a: {b: 2, c: {a: 10, b: 20}}
  * // b = {a: {b: 2, c: {a: 123, b: 20}}}
  */
-const objFromDeep = (obj: ITypedObject<any>): ITypedObject<any> =>
+const objFromDeep = <T>(obj: ITypedObject<T>): ITypedObject<T> =>
     objMapDeep(
         objFrom(obj),
         (key, val) => (isObjectLike(val) ? objFrom(val) : val)

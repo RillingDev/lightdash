@@ -1,9 +1,10 @@
 import { forEachEntry } from "../for/eachEntry";
-import { isArray } from "../is/array";
 import { isUndefined } from "../is/undefined";
 import { objFrom } from "./from";
 import { ITypedObject } from "./lib/ITypedObject";
+import { isArray } from "../is/array";
 
+// TODO: Figure out a way to properly use generics here.
 /**
  * Sets every nil property of object to the value from the default object.
  *
@@ -17,10 +18,10 @@ import { ITypedObject } from "./lib/ITypedObject";
  * objDefaults({a: 1, c: 5}, {a: 1, b: 2, c: 3})
  * // => {a: 1, b: 2, c: 5}
  */
-const objDefaults = <T = any, U = any>(
-    obj: ITypedObject<T>,
-    objDefault: ITypedObject<U>
-): ITypedObject<T> & ITypedObject<U> => {
+const objDefaults = (
+    obj: ITypedObject<any>,
+    objDefault: ITypedObject<any>
+): ITypedObject<any> => {
     const result: ITypedObject<any> = isArray(obj)
         ? Array.from(obj)
         : objFrom(obj);

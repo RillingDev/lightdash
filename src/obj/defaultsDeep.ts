@@ -1,10 +1,11 @@
 import { forEachEntry } from "../for/eachEntry";
-import { isArray } from "../is/array";
 import { isObjectLike } from "../is/objectLike";
 import { isUndefined } from "../is/undefined";
 import { objFrom } from "./from";
 import { ITypedObject } from "./lib/ITypedObject";
+import { isArray } from "../is/array";
 
+// TODO: Figure out a way to properly use generics here.
 /**
  * Recursively sets every nil property of object to the value from the default object.
  *
@@ -18,10 +19,10 @@ import { ITypedObject } from "./lib/ITypedObject";
  * objDefaultsDeep({a: [1, 2], c: {f: "x"}}, {a: [1, 2, 3], b: 2, c: {f: "y"}})
  * // => {a: [1, 2, 3], b: 2, c: {f: "x"}}
  */
-const objDefaultsDeep = <T = any, U = any>(
-    obj: ITypedObject<T>,
-    objDefault: ITypedObject<U>
-): ITypedObject<T> & ITypedObject<U> => {
+const objDefaultsDeep = (
+    obj: ITypedObject<any>,
+    objDefault: ITypedObject<any>
+): ITypedObject<any> => {
     const result: ITypedObject<any> = isArray(obj)
         ? Array.from(obj)
         : objFrom(obj);

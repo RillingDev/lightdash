@@ -1,4 +1,5 @@
 import { ITypedObject } from "./lib/ITypedObject";
+
 /**
  * Recursively sets every nil property of object to the value from the default object.
  *
@@ -12,5 +13,5 @@ import { ITypedObject } from "./lib/ITypedObject";
  * objDefaultsDeep({a: [1, 2], c: {f: "x"}}, {a: [1, 2, 3], b: 2, c: {f: "y"}})
  * // => {a: [1, 2, 3], b: 2, c: {f: "x"}}
  */
-declare const objDefaultsDeep: <T = any, U = any>(obj: ITypedObject<T>, objDefault: ITypedObject<U>) => ITypedObject<T> & ITypedObject<U>;
+declare const objDefaultsDeep: (obj: ITypedObject<any>, objDefault: ITypedObject<any>) => ITypedObject<any>;
 export { objDefaultsDeep };

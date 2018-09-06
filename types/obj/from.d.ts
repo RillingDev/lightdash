@@ -1,3 +1,5 @@
+import { ITypedObject } from "./lib/ITypedObject";
+
 /**
  * Creates a new object with the entries of the input object.
  *
@@ -14,5 +16,5 @@
  * // a = {a: 4, b: 2}
  * // b = {a: 10, b: 2}
  */
-declare const objFrom: (obj: object) => object;
+declare const objFrom: <T>(obj: ITypedObject<T>) => ITypedObject<T>;
 export { objFrom };

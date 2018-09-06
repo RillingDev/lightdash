@@ -1,3 +1,5 @@
+import { ITypedObject } from "./lib/ITypedObject";
+
 /**
  * Creates a new object with the entries of the input object.
  *
@@ -14,6 +16,7 @@
  * // a = {a: 4, b: 2}
  * // b = {a: 10, b: 2}
  */
-const objFrom = (obj: object): object => Object.assign({}, obj);
+const objFrom = <T>(obj: ITypedObject<T>): ITypedObject<T> =>
+    Object.assign({}, obj);
 
 export { objFrom };

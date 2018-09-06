@@ -1,4 +1,5 @@
 import { ITypedObject } from "./lib/ITypedObject";
+
 /**
  * Sets every nil property of object to the value from the default object.
  *
@@ -12,5 +13,5 @@ import { ITypedObject } from "./lib/ITypedObject";
  * objDefaults({a: 1, c: 5}, {a: 1, b: 2, c: 3})
  * // => {a: 1, b: 2, c: 5}
  */
-declare const objDefaults: <T = any, U = any>(obj: ITypedObject<T>, objDefault: ITypedObject<U>) => ITypedObject<T> & ITypedObject<U>;
+declare const objDefaults: (obj: ITypedObject<any>, objDefault: ITypedObject<any>) => ITypedObject<any>;
 export { objDefaults };

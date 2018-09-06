@@ -1191,6 +1191,7 @@ const arrStep = (arr, step) => arr.filter((val, index) => index % step === 0);
  */
 const arrUniq = (arr) => Array.from(new Set(arr));
 
+// TODO: Figure out a way to properly use generics here.
 /**
  * Maps each entry of an object and returns the result.
  *
@@ -1205,7 +1206,7 @@ const arrUniq = (arr) => Array.from(new Set(arr));
  * // => {a: 8, b: 4}
  */
 const objMap = (obj, fn) => {
-    const objNew = {};
+    const objNew = isArray(obj) ? [] : {};
     forEachEntry(obj, (key, val, index) => {
         objNew[key] = fn(key, val, index, obj);
     });
@@ -1267,6 +1268,7 @@ const objDecycle = (obj, fn = () => null, references = new WeakSet()) => {
  */
 const objFrom = (obj) => Object.assign({}, obj);
 
+// TODO: Figure out a way to properly use generics here.
 /**
  * Sets every nil property of object to the value from the default object.
  *
@@ -1292,6 +1294,7 @@ const objDefaults = (obj, objDefault) => {
     return result;
 };
 
+// TODO: Figure out a way to properly use generics here.
 /**
  * Recursively sets every nil property of object to the value from the default object.
  *
@@ -1323,6 +1326,7 @@ const objDefaultsDeep = (obj, objDefault) => {
     return result;
 };
 
+// TODO: Figure out a way to properly use generics here.
 /**
  * Recursively maps each entry of an object and returns the result.
  *
@@ -1333,7 +1337,7 @@ const objDefaultsDeep = (obj, objDefault) => {
  * @param {function} fn fn(key: any, val: any, index: number, obj: object)
  * @returns {Object}
  * @example
- * arrMapDeep({a: {b: 2, c: [10, 20]}}, (key, val) => val * 2)
+ * objMapDeep({a: {b: 2, c: [10, 20]}}, (key, val) => val * 2)
  * // => {a: {b: 4, c: [20, 40]}}
  */
 const objMapDeep = (obj, fn) => objMap(obj, (key, val, index, objNew) => isObjectLike(val)
