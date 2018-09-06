@@ -33,6 +33,11 @@ import "./num/safe.spec";
 
 import "./obj/decycle.spec";
 import "./obj/defaults.spec";
+import "./obj/defaultsDeep.spec";
+import "./obj/from.spec";
+import "./obj/fromDeep.spec";
+import "./obj/map.spec";
+import "./obj/mapDeep.spec";
 
 import "./search/binary.spec";
 
