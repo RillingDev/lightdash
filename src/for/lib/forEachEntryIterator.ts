@@ -1,10 +1,5 @@
-import { ITypedObject } from "../../obj/lib/ITypedObject";
+import { forEachEntryMapper } from "./forEachEntryMapper";
 
-type forEachEntryIterator<T> = (
-    key: string,
-    val: T,
-    index: number,
-    obj: ITypedObject<T>
-) => void;
+type forEachEntryIterator<T> = forEachEntryMapper<T, void>;
 
 export { forEachEntryIterator };

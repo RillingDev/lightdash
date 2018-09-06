@@ -1,3 +1,5 @@
-type forEachIterator<T> = (val: T, index: number, arr: T[]) => void;
+import { forEachMapper } from "./forEachMapper";
+
+type forEachIterator<T> = forEachMapper<T, void>;
 
 export { forEachIterator };

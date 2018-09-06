@@ -31,6 +31,9 @@ import "./is/objectPlain.spec";
 import "./num/clamp.spec";
 import "./num/safe.spec";
 
+import "./obj/decycle.spec";
+import "./obj/defaults.spec";
+
 import "./search/binary.spec";
 
 import "./str/distance.spec";
