@@ -808,7 +808,9 @@ var _l = (function (exports) {
     const strFromPascalCase = (str) => {
         const result = [];
         let cache = [];
-        str.split("").forEach((letter, index) => {
+        str
+            .split("")
+            .forEach((letter, index) => {
             if (index > 0 && letter !== letter.toLowerCase()) {
                 result.push(cache.join(""));
                 cache = [];
@@ -920,7 +922,7 @@ var _l = (function (exports) {
      * // => ["Sitten", "Bitten"]
      *
      * strSimilar("cmmit", ["init", "commit", "push"], true)
-     * // => Map<number, string[]>{"1": ["commit"], "3": ["init"], "5": ["push"]}
+     * // => Map<number, string[]>{1: ["commit"], 3: ["init"], 5: ["push"]}
      */
     const strSimilar = (str, list, returnFull = false) => {
         const result = arrCollect(list, (val) => strDistance(str, val));
@@ -1479,7 +1481,7 @@ var _l = (function (exports) {
      * @param {number} search
      * @returns {number|null}
      * @example
-     * searchBinary([0, 1, 2], 2)
+     * searchBinary([0, 1, 2], 1)
      * // => 1
      *
      * searchBinary([0, 1, 2], 100)

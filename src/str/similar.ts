@@ -23,7 +23,7 @@ import { strDistance } from "./distance";
  * // => ["Sitten", "Bitten"]
  *
  * strSimilar("cmmit", ["init", "commit", "push"], true)
- * // => Map<number, string[]>{"1": ["commit"], "3": ["init"], "5": ["push"]}
+ * // => Map<number, string[]>{1: ["commit"], 3: ["init"], 5: ["push"]}
  */
 const strSimilar = (
     str: string,

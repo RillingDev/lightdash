@@ -8,7 +8,7 @@
  * @param {number} search
  * @returns {number|null}
  * @example
- * searchBinary([0, 1, 2], 2)
+ * searchBinary([0, 1, 2], 1)
  * // => 1
  *
  * searchBinary([0, 1, 2], 100)

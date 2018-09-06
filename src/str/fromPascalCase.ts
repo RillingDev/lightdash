@@ -19,14 +19,16 @@ const strFromPascalCase = (str: string): string[] => {
     const result: string[] = [];
     let cache: string[] = [];
 
-    str.split("").forEach((letter, index) => {
-        if (index > 0 && letter !== letter.toLowerCase()) {
-            result.push(cache.join(""));
-            cache = [];
-        }
+    str
+        .split("")
+        .forEach((letter, index) => {
+            if (index > 0 && letter !== letter.toLowerCase()) {
+                result.push(cache.join(""));
+                cache = [];
+            }
 
-        cache.push(letter);
-    });
+            cache.push(letter);
+        });
 
     result.push(cache.join(""));
 
