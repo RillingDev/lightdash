@@ -1,3 +1,5 @@
+import { forEachIterator } from "./lib/forEachIterator";
+
 /**
  * Recursively iterates over each element in an array.
  *
@@ -13,5 +15,5 @@
  * })
  * // a = [0, 4, [0, 1, [0], 12]]
  */
-declare const forEachDeep: (arr: any[], fn: import("src/for/lib/forEachMapper").forEachMapper<any, void>) => void;
+declare const forEachDeep: (arr: any[], fn: forEachIterator<any>) => void;
 export { forEachDeep };
