@@ -579,9 +579,9 @@ var _l = (function (exports) {
      * isPromise(() => "foo");
      * // => false
      */
-    const isPromise = (val) =>
-        // @ts-ignore: Promise declaration is invalid
-        isInstanceOf(val, Promise);
+    const isPromise = (val) => 
+    // @ts-ignore: Promise declaration is invalid
+    isInstanceOf(val, Promise);
 
     /**
      * Checks if a value is a regular expression.
@@ -603,7 +603,7 @@ var _l = (function (exports) {
      */
     const isRegExp = (val) => 
     // @ts-ignore: RegExp declaration is invalid
-    isInstanceOf(val, RegExpConstructor);
+    isInstanceOf(val, RegExp);
 
     /**
      * Checks if a value is a set.

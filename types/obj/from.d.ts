@@ -1,5 +1,4 @@
 import { ITypedObject } from "./lib/ITypedObject";
-
 /**
  * Creates a new object with the entries of the input object.
  *

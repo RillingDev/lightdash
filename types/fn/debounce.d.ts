@@ -1,5 +1,4 @@
 import { anyVoidFn } from "./lib/anyVoidFn";
-
 /**
  * Creates a debounced function that delays invoking the function.
  *

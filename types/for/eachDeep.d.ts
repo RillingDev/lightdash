@@ -1,5 +1,4 @@
 import { forEachIterator } from "./lib/forEachIterator";
-
 /**
  * Recursively iterates over each element in an array.
  *

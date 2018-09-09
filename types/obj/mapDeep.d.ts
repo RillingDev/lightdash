@@ -1,6 +1,5 @@
 import { forEachEntryMapper } from "../for/lib/forEachEntryMapper";
 import { ITypedObject } from "./lib/ITypedObject";
-
 /**
  * Recursively maps each entry of an object and returns the result.
  *

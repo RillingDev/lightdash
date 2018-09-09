@@ -1,5 +1,4 @@
 import { anyFn } from "../fn/lib/anyFn";
-
 /**
  * Checks if a value is a function.
  *

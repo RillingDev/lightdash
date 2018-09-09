@@ -1,5 +1,4 @@
 import { anyVoidFn } from "./lib/anyVoidFn";
-
 /**
  * Throttles a function to only run every n ms.
  *

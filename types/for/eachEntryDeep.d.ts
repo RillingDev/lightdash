@@ -1,6 +1,5 @@
 import { forEachEntryIterator } from "./lib/forEachEntryIterator";
 import { ITypedObject } from "../obj/lib/ITypedObject";
-
 /**
  * Recursively iterates over each entry of an object.
  *

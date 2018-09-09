@@ -1,5 +1,4 @@
 import { forEachMapper } from "../for/lib/forEachMapper";
-
 /**
  * Collects the values of an array in a map as arrays.
  * If the function returns a nil value, the element will be skipped,

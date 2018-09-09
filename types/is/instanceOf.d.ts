@@ -1,5 +1,4 @@
 import { IGenericClass } from "./lib/IAnyClass";
-
 /**
  * Checks if the value is an instance of a target constructor.
  *

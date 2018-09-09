@@ -1,5 +1,4 @@
 import { ITypedObject } from "./lib/ITypedObject";
-
 /**
  * Sets every nil property of object to the value from the default object.
  *

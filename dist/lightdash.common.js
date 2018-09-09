@@ -582,7 +582,7 @@ const isObjectPlain = (val) => isObject(val) && val.constructor === Object;
  */
 const isPromise = (val) => 
 // @ts-ignore: Promise declaration is invalid
-    isInstanceOf(val, Promise);
+isInstanceOf(val, Promise);
 
 /**
  * Checks if a value is a regular expression.
@@ -604,7 +604,7 @@ const isPromise = (val) =>
  */
 const isRegExp = (val) => 
 // @ts-ignore: RegExp declaration is invalid
-isInstanceOf(val, RegExpConstructor);
+isInstanceOf(val, RegExp);
 
 /**
  * Checks if a value is a set.

@@ -578,7 +578,7 @@ const isObjectPlain = (val) => isObject(val) && val.constructor === Object;
  */
 const isPromise = (val) => 
 // @ts-ignore: Promise declaration is invalid
-    isInstanceOf(val, Promise);
+isInstanceOf(val, Promise);
 
 /**
  * Checks if a value is a regular expression.
@@ -600,7 +600,7 @@ const isPromise = (val) =>
  */
 const isRegExp = (val) => 
 // @ts-ignore: RegExp declaration is invalid
-isInstanceOf(val, RegExpConstructor);
+isInstanceOf(val, RegExp);
 
 /**
  * Checks if a value is a set.
@@ -1623,73 +1623,4 @@ const randShuffle = (arr) => {
  * @namespace Random
  */
 
-export {
-    isEqual,
-    isInstanceOf,
-    isTypeOf,
-    isUndefined,
-    isNil,
-    isNumber,
-    isString,
-    isBoolean,
-    isSymbol,
-    isObject,
-    isObjectLike,
-    isObjectPlain,
-    isArray,
-    isArrayLike,
-    isArrayBuffer,
-    isArrayTyped,
-    isPromise,
-    isMap,
-    isSet,
-    isDate,
-    isRegExp,
-    isFunction,
-    isError,
-    isEmpty,
-    isIndex,
-    getPath,
-    getSize,
-    numClamp,
-    numSafe,
-    strDistance,
-    strSimilar,
-    strFromCamelCase,
-    strFromKebabCase,
-    strFromPascalCase,
-    strFromSnakeCase,
-    strToCamelCase,
-    strToKebabCase,
-    strToPascalCase,
-    strToSnakeCase,
-    arrFromDeep,
-    arrMapDeep,
-    arrCompact,
-    arrChunk,
-    arrStep,
-    arrRemoveIndex,
-    arrRemoveItem,
-    arrCount,
-    arrCollect,
-    arrDifference,
-    arrIntersection,
-    arrUniq,
-    objFrom,
-    objFromDeep,
-    objMap,
-    objMapDeep,
-    objDefaults,
-    objDefaultsDeep,
-    objDecycle,
-    mapFromObject,
-    fnDebounce,
-    fnThrottle,
-    forEachDeep,
-    forEachEntry,
-    forEachEntryDeep,
-    searchBinary,
-    randNumber,
-    randItem,
-    randShuffle
-};
+export { isEqual, isInstanceOf, isTypeOf, isUndefined, isNil, isNumber, isString, isBoolean, isSymbol, isObject, isObjectLike, isObjectPlain, isArray, isArrayLike, isArrayBuffer, isArrayTyped, isPromise, isMap, isSet, isDate, isRegExp, isFunction, isError, isEmpty, isIndex, getPath, getSize, numClamp, numSafe, strDistance, strSimilar, strFromCamelCase, strFromKebabCase, strFromPascalCase, strFromSnakeCase, strToCamelCase, strToKebabCase, strToPascalCase, strToSnakeCase, arrFromDeep, arrMapDeep, arrCompact, arrChunk, arrStep, arrRemoveIndex, arrRemoveItem, arrCount, arrCollect, arrDifference, arrIntersection, arrUniq, objFrom, objFromDeep, objMap, objMapDeep, objDefaults, objDefaultsDeep, objDecycle, mapFromObject, fnDebounce, fnThrottle, forEachDeep, forEachEntry, forEachEntryDeep, searchBinary, randNumber, randItem, randShuffle };

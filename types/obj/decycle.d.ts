@@ -1,6 +1,5 @@
 import { forEachEntryMapper } from "../for/lib/forEachEntryMapper";
 import { ITypedObject } from "./lib/ITypedObject";
-
 /**
  * Replaces every circular reference in an object with a value, defaulting to null.
  *
