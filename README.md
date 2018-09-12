@@ -2,7 +2,9 @@
 
 ## Introduction
 
-An extensive collection of utility functions written in TypeScript, designed to be lightweight and modern. It's heavily inspired by lodash and underscore, but with the goal to be tiny and as fast as possible. It is completely written from scratch with the latest ES8+ features.
+An extensive collection of utility functions written in TypeScript, designed to be lightweight and modern.
+It's heavily inspired by lodash and underscore, but with the goal to be tiny and as fast as possible.
+It is completely written from scratch with the latest ES8+ features.
 
 **[Docs](https://felixrilling.github.io/lightdash/)**
 
@@ -12,11 +14,10 @@ Pros:
 
 *   Written in TypeScript, built-in TypeScript definitions.
 *   Smaller fil sizes, both when using the full build and when tree-shaking.
-*   No support for legacy browsers, allowing for cleaner code.
+*   Makes use of the latest ECMAScript/TypeScript features.
 
 Cons:
 
-*   No huge community behind it.
 *   No support for legacy browsers.
 
 ## Usage
