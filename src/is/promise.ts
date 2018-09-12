@@ -15,8 +15,6 @@ import { isInstanceOf } from "./instanceOf";
  * isPromise(() => "foo");
  * // => false
  */
-const isPromise = (val: any): val is Promise<any> =>
-    // @ts-ignore: Promise declaration is invalid
-    isInstanceOf(val, Promise);
+const isPromise = (val: any): val is Promise<any> => isInstanceOf(val, Promise);
 
 export { isPromise };

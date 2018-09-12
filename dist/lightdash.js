@@ -53,9 +53,7 @@ var _l = (function (exports) {
      * isArrayBuffer([1, 2])
      * // => false
      */
-    const isArrayBuffer = (val) => 
-    // @ts-ignore: ArrayBuffer declaration is invalid
-    isInstanceOf(val, ArrayBuffer);
+    const isArrayBuffer = (val) => isInstanceOf(val, ArrayBuffer);
 
     /**
      * Checks if a value is undefined or null.
@@ -579,9 +577,7 @@ var _l = (function (exports) {
      * isPromise(() => "foo");
      * // => false
      */
-    const isPromise = (val) => 
-    // @ts-ignore: Promise declaration is invalid
-    isInstanceOf(val, Promise);
+    const isPromise = (val) => isInstanceOf(val, Promise);
 
     /**
      * Checks if a value is a regular expression.
@@ -601,9 +597,7 @@ var _l = (function (exports) {
      * isRegExp("/foo/")
      * // => false
      */
-    const isRegExp = (val) => 
-    // @ts-ignore: RegExp declaration is invalid
-    isInstanceOf(val, RegExp);
+    const isRegExp = (val) => isInstanceOf(val, RegExp);
 
     /**
      * Checks if a value is a set.
