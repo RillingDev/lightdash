@@ -1,8 +1,8 @@
 import { isArrayLike } from "../is/arrayLike";
+import { isNil } from "../is/nil";
 import { isObjectLike } from "../is/objectLike";
 import { isString } from "../is/string";
 import { isUndefined } from "../is/undefined";
-import { isNil } from "../is/nil";
 
 /**
  * Gets size of a value.

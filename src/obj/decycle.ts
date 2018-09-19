@@ -1,7 +1,7 @@
 import { forEachEntryMapper } from "../for/lib/forEachEntryMapper";
 import { isObjectLike } from "../is/objectLike";
-import { objMap } from "./map";
 import { ITypedObject } from "./lib/ITypedObject";
+import { objMap } from "./map";
 
 /**
  * Replaces every circular reference in an object with a value, defaulting to null.

@@ -1,7 +1,7 @@
 import { isObjectLike } from "../is/objectLike";
+import { ITypedObject } from "../obj/lib/ITypedObject";
 import { forEachEntry } from "./eachEntry";
 import { forEachEntryIterator } from "./lib/forEachEntryIterator";
-import { ITypedObject } from "../obj/lib/ITypedObject";
 
 /**
  * Recursively iterates over each entry of an object.

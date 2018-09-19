@@ -1,5 +1,5 @@
-import { isNumber } from "./number";
 import { isNil } from "./nil";
+import { isNumber } from "./number";
 
 /**
  * Checks if a value is a typed array.

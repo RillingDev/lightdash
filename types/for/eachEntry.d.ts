@@ -1,5 +1,5 @@
-import { forEachEntryIterator } from "./lib/forEachEntryIterator";
 import { ITypedObject } from "../obj/lib/ITypedObject";
+import { forEachEntryIterator } from "./lib/forEachEntryIterator";
 /**
  * Iterates over each entry of an object.
  *

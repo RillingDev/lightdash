@@ -14,7 +14,7 @@ const arrCount = <T>(arr: T[]): Map<T, number> => {
     const result: Map<T, number> = new Map();
 
     arr.forEach(val =>
-        result.set(val, result.has(val) ? <number>result.get(val) + 1 : 1)
+        result.set(val, result.has(val) ? result.get(val)! + 1 : 1)
     );
 
     return result;

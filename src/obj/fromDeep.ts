@@ -1,7 +1,7 @@
 import { isObjectLike } from "../is/objectLike";
 import { objFrom } from "./from";
-import { objMapDeep } from "./mapDeep";
 import { ITypedObject } from "./lib/ITypedObject";
+import { objMapDeep } from "./mapDeep";
 
 /**
  * Recursively creates a new object with the entries of the input object.

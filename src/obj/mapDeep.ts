@@ -1,7 +1,7 @@
 import { forEachEntryMapper } from "../for/lib/forEachEntryMapper";
 import { isObjectLike } from "../is/objectLike";
-import { objMap } from "./map";
 import { ITypedObject } from "./lib/ITypedObject";
+import { objMap } from "./map";
 
 // TODO: Figure out a way to properly use generics here.
 /**

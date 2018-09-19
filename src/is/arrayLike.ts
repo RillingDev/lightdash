@@ -1,5 +1,5 @@
-import { isObjectLike } from "./objectLike";
 import { isNumber } from "./number";
+import { isObjectLike } from "./objectLike";
 
 /**
  * Checks if a value is object-like and has a length property.

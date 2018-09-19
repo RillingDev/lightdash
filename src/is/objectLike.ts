@@ -1,6 +1,6 @@
 import { isNil } from "./nil";
-import { isTypeOf } from "./typeOf";
 import { isObject } from "./object";
+import { isTypeOf } from "./typeOf";
 
 /**
  * Checks if a value is not nil and has a type of object.

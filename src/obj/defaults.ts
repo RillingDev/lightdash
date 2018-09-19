@@ -1,8 +1,8 @@
 import { forEachEntry } from "../for/eachEntry";
+import { isArray } from "../is/array";
 import { isUndefined } from "../is/undefined";
 import { objFrom } from "./from";
 import { ITypedObject } from "./lib/ITypedObject";
-import { isArray } from "../is/array";
 
 // TODO: Figure out a way to properly use generics here.
 /**

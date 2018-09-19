@@ -1,5 +1,5 @@
-import { isTypeOf } from "./typeOf";
 import { anyFn } from "../fn/lib/anyFn";
+import { isTypeOf } from "./typeOf";
 
 /**
  * Checks if a value is a function.

@@ -1,7 +1,7 @@
 import { forEachEntry } from "../for/eachEntry";
 import { forEachEntryMapper } from "../for/lib/forEachEntryMapper";
-import { ITypedObject } from "./lib/ITypedObject";
 import { isArray } from "../is/array";
+import { ITypedObject } from "./lib/ITypedObject";
 
 // TODO: Figure out a way to properly use generics here.
 /**

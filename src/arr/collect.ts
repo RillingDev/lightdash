@@ -28,7 +28,7 @@ const arrCollect = <T, U = any>(
         if (!isNil(key)) {
             result.set(
                 key,
-                result.has(key) ? [...(<T[]>result.get(key)), val] : [val]
+                result.has(key) ? [...result.get(key)!, val] : [val]
             );
         }
     });

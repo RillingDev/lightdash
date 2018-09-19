@@ -57,29 +57,6 @@ const isInstanceOf = (val, target) => val instanceof target;
 const isArrayBuffer = (val) => isInstanceOf(val, ArrayBuffer);
 
 /**
- * Checks if a value is undefined or null.
- *
- * @function isNil
- * @memberof Is
- * @since 1.0.0
- * @param {any} val
- * @returns {boolean}
- * @example
- * isNil(null)
- * // => true
- *
- * isNil(undefined)
- * // => true
- *
- * isNil(0)
- * // => false
- *
- * isNil("")
- * // => false
- */
-const isNil = (val) => val == null;
-
-/**
  * Checks if the value has a certain type-string.
  *
  * @function isTypeOf
@@ -96,32 +73,6 @@ const isNil = (val) => val == null;
  * // => false
  */
 const isTypeOf = (val, type) => typeof val === type;
-
-/**
- * Checks if a value is not nil and has a type of object.
- *
- * The main difference to {@link isObject} is that functions are not considered object-like,
- * because `typeof function(){}` returns `"function"`.
- *
- * @function isObjectLike
- * @memberof Is
- * @since 1.0.0
- * @param {any} val
- * @returns {boolean}
- * @example
- * isObjectLike({})
- * // => true
- *
- * isObjectLike([])
- * // => true
- *
- * isObjectLike(() => 1))
- * // => false
- *
- * isObjectLike(1)
- * // => false
- */
-const isObjectLike = (val) => !isNil(val) && isTypeOf(val, "object");
 
 /**
  * Checks if a value is a number.
@@ -152,6 +103,55 @@ const isObjectLike = (val) => !isNil(val) && isTypeOf(val, "object");
  * // => false
  */
 const isNumber = (val) => isTypeOf(val, "number");
+
+/**
+ * Checks if a value is undefined or null.
+ *
+ * @function isNil
+ * @memberof Is
+ * @since 1.0.0
+ * @param {any} val
+ * @returns {boolean}
+ * @example
+ * isNil(null)
+ * // => true
+ *
+ * isNil(undefined)
+ * // => true
+ *
+ * isNil(0)
+ * // => false
+ *
+ * isNil("")
+ * // => false
+ */
+const isNil = (val) => val == null;
+
+/**
+ * Checks if a value is not nil and has a type of object.
+ *
+ * The main difference to {@link isObject} is that functions are not considered object-like,
+ * because `typeof function(){}` returns `"function"`.
+ *
+ * @function isObjectLike
+ * @memberof Is
+ * @since 1.0.0
+ * @param {any} val
+ * @returns {boolean}
+ * @example
+ * isObjectLike({})
+ * // => true
+ *
+ * isObjectLike([])
+ * // => true
+ *
+ * isObjectLike(() => 1))
+ * // => false
+ *
+ * isObjectLike(1)
+ * // => false
+ */
+const isObjectLike = (val) => !isNil(val) && isTypeOf(val, "object");
 
 /**
  * Checks if a value is object-like and has a length property.
@@ -919,9 +919,7 @@ const arrCollect = (arr, fn) => {
  */
 const strSimilar = (str, list, returnFull = false) => {
     const result = arrCollect(list, (val) => strDistance(str, val));
-    return returnFull
-        ? result
-        : result.get(Math.min(...result.keys()));
+    return returnFull ? result : result.get(Math.min(...result.keys()));
 };
 
 /**

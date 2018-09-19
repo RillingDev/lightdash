@@ -20,7 +20,7 @@ const strToCamelCase = (arr: string[]): string =>
                 index === 0
                     ? val.toLowerCase()
                     : val.substr(0, 1).toUpperCase() +
-                    val.substr(1).toLowerCase()
+                      val.substr(1).toLowerCase()
         )
         .join("");
 

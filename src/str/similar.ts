@@ -34,9 +34,7 @@ const strSimilar = (
         strDistance(str, val)
     );
 
-    return returnFull
-        ? result
-        : <string[]>result.get(Math.min(...result.keys()));
+    return returnFull ? result : result.get(Math.min(...result.keys()))!;
 };
 
 export { strSimilar };
