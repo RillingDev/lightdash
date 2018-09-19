@@ -1,4 +1,4 @@
 interface IGenericClass {
-    new(...args: any[]): any;
+    new (...args: any[]): any;
 }
 export { IGenericClass };
