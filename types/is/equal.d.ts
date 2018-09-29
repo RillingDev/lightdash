@@ -23,6 +23,9 @@
  * isEqual([1, 2, 3], [1])
  * // => false
  *
+ * isEqual([], {})
+ * // => false
+ *
  * isEqual(1, true)
  * // => false
  */

@@ -410,6 +410,9 @@ const forEachEntry = (obj, fn) => {
  * isEqual([1, 2, 3], [1])
  * // => false
  *
+ * isEqual([], {})
+ * // => false
+ *
  * isEqual(1, true)
  * // => false
  */
@@ -419,6 +422,7 @@ const isEqual = (a, b) => {
     }
     if (!isObjectLike(a) ||
         !isObjectLike(b) ||
+        a.constructor !== b.constructor ||
         Object.keys(a).length !== Object.keys(b).length) {
         return false;
     }
