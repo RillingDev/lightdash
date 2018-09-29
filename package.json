@@ -1,7 +1,7 @@
 {
     "name": "lightdash",
     "version": "9.0.4",
-    "description": "An utility library designed to be lightweight",
+    "description": "A lightweight TypeScript utility library inspired by lodash",
     "main": "./dist/lightdash.common.js",
     "module": "./dist/lightdash.esm.js",
     "types": "./types/main.d.ts",
