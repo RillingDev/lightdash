@@ -9,6 +9,7 @@
         "no-angle-bracket-type-assertion": false,
         "no-non-null-assertion": false,
         "prefer-const": false,
+        "object-literal-sort-keys": false,
         "arrow-return-shorthand": true,
         "callable-types": true,
         "class-name": true,
