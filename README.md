@@ -58,9 +58,9 @@ _l.arrDifference([1, 2, 3], [1, 3]);
 
 Contributions are always welcome, no matter if you have a requests, an idea, found a bug, or spotted a typo: Feel free to create a PR or open an issue!
 
-## Changelog
+## Migrating
 
-### v9.0.0
+### v8.x -> v9.x
 
 Breaking:
 
@@ -69,10 +69,3 @@ Breaking:
 - Removed numSum, numMedian and numAverage
 - Removed fnCurry
 - Removed hasPath
-
-Misc:
-
-- Rewrote test in TS
-- Large increase in test coverage
-- Improved type guard interference
-- Lots of minor fixs.
