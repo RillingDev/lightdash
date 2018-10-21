@@ -4,9 +4,9 @@ import { anyVoidFn } from "./lib/anyVoidFn";
  * Creates a debounced function that delays invoking the function.
  *
  * @memberof Fn
- * @param {Function} fn
- * @param {number} timeout
- * @returns {Function}
+ * @param {Function} fn Function to debounce.
+ * @param {number} timeout Timeout to use.
+ * @returns {Function} Debounced function.
  * @example
  * const foo = (a, b) => console.log(a + b);
  * const fooThrottled = fnThrottle(foo, 500);

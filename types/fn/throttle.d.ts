@@ -4,10 +4,10 @@ import { anyVoidFn } from "./lib/anyVoidFn";
  *
  * @memberof Fn
  * @since 3.1.0
- * @param {Function} fn
- * @param {number} timeout
- * @param {boolean} [immediate=false]
- * @returns {Function}
+ * @param {Function} fn Function to throttle.
+ * @param {number} timeout Timeout to use.
+ * @param {boolean} [immediate=false] If the function should be invoked immediatly.
+ * @returns {Function} Throttled function.
  * @example
  * const foo = (a, b) => console.log(a + b);
  * const fooThrottled = fnThrottle(foo, 500);

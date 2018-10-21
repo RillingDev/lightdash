@@ -352,8 +352,8 @@ var _l = (function (exports) {
      * Iterates over each entry of an object.
      *
      * @memberof For
-     * @param {object} obj
-     * @param {function} fn fn(key: *, val: *, index: number, arr: any[])
+     * @param {object} obj Object to iterate.
+     * @param {function} fn Function to use (`fn(key: *, val: *, index: number, obj: object)`).
      * @example
      * const a = {a: 1, b: 2};
      *
@@ -1310,8 +1310,8 @@ var _l = (function (exports) {
      * Recursively iterates over each element in an array.
      *
      * @memberof For
-     * @param {any[]} arr
-     * @param {function} fn fn(val: *, index: number, arr: any[])
+     * @param {any[]} arr Array to iterate.
+     * @param {function} fn Function to use (`fn(val: *, index: number, arr: any[])`).
      * @example
      * const a = [2, 4, [1, 1, [16], 4]];
      *
@@ -1326,8 +1326,8 @@ var _l = (function (exports) {
      * Recursively iterates over each entry of an object.
      *
      * @memberof For
-     * @param {object} obj
-     * @param {function} fn fn(key: *, val: *, index: number, arr: any[])
+     * @param {object} obj Object to iterate.
+     * @param {function} fn Function to use (`fn(key: *, val: *, index: number, obj: object)`).
      * @example
      * const a = {a: 1, b: {c: [1, 2]}};
      *
@@ -1344,9 +1344,9 @@ var _l = (function (exports) {
      * Creates a debounced function that delays invoking the function.
      *
      * @memberof Fn
-     * @param {Function} fn
-     * @param {number} timeout
-     * @returns {Function}
+     * @param {Function} fn Function to debounce.
+     * @param {number} timeout Timeout to use.
+     * @returns {Function} Debounced function.
      * @example
      * const foo = (a, b) => console.log(a + b);
      * const fooThrottled = fnThrottle(foo, 500);
@@ -1372,10 +1372,10 @@ var _l = (function (exports) {
      *
      * @memberof Fn
      * @since 3.1.0
-     * @param {Function} fn
-     * @param {number} timeout
-     * @param {boolean} [immediate=false]
-     * @returns {Function}
+     * @param {Function} fn Function to throttle.
+     * @param {number} timeout Timeout to use.
+     * @param {boolean} [immediate=false] If the function should be invoked immediatly.
+     * @returns {Function} Throttled function.
      * @example
      * const foo = (a, b) => console.log(a + b);
      * const fooThrottled = fnThrottle(foo, 500);
