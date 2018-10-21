@@ -3,7 +3,6 @@ import { ITypedObject } from "./lib/ITypedObject";
 /**
  * Maps each entry of an object and returns the result.
  *
- * @function objMap
  * @memberof Object
  * @since 1.0.0
  * @param {Object} obj

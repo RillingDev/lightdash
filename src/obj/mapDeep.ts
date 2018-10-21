@@ -7,7 +7,6 @@ import { objMap } from "./map";
 /**
  * Recursively maps each entry of an object and returns the result.
  *
- * @function objMapDeep
  * @memberof Object
  * @since 1.0.0
  * @param {Object} obj

@@ -1,7 +1,6 @@
 /**
  * Returns an array with every falsey value removed out.
  *
- * @function arrCompact
  * @memberof Array
  * @since 1.0.0
  * @param {any[]} arr

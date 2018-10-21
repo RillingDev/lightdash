@@ -1,7 +1,6 @@
 /**
  * Binary-search implementation.
  *
- * @function searchBinary
  * @memberof Search
  * @since 5.0.0
  * @param {number[]} arr

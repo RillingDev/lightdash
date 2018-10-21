@@ -4,7 +4,6 @@ import { arrMapDeep } from "./mapDeep";
 /**
  * Recursively creates a new array with the values of the input iterable.
  *
- * @function arrFromDeep
  * @memberof Array
  * @since 2.0.0
  * @param {any[]} arr

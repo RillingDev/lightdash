@@ -3,7 +3,6 @@ import { Delimiters } from "./lib/Delimiters";
 /**
  * Creates a snake_case string from an array of substrings.
  *
- * @function strToSnakeCase
  * @memberof String
  * @since 6.2.0
  * @param {string[]} arr

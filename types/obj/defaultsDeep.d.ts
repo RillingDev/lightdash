@@ -2,7 +2,6 @@ import { ITypedObject } from "./lib/ITypedObject";
 /**
  * Recursively sets every nil property of object to the value from the default object.
  *
- * @function objDefaultsDeep
  * @memberof Object
  * @since 2.7.0
  * @param {Object} obj

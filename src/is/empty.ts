@@ -7,7 +7,6 @@ import { getSize } from "../get/size";
  * Array-likes and strings are considered empty if they have a length of zero,
  * sets/maps if they have a size of zero, and objects if their keys have a length of zero.
  *
- * @function isEmpty
  * @memberof Is
  * @since 1.0.0
  * @param {any} val

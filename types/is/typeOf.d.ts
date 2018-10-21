@@ -1,7 +1,6 @@
 /**
  * Checks if the value has a certain type-string.
  *
- * @function isTypeOf
  * @memberof Is
  * @since 1.0.0
  * @param {any} val

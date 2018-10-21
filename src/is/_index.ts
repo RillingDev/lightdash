@@ -3,7 +3,6 @@
 /**
  * Checks if a value is a valid index.
  *
- * @function isIndex
  * @memberof Is
  * @since 5.0.0
  * @param {any} val

@@ -6,7 +6,6 @@ var _l = (function (exports) {
      *
      * Alias of the native `Array.isArray`.
      *
-     * @function isArray
      * @memberof Is
      * @since 1.0.0
      * @param {any} val
@@ -23,7 +22,6 @@ var _l = (function (exports) {
     /**
      * Checks if the value is an instance of a target constructor.
      *
-     * @function isInstanceOf
      * @memberof Is
      * @since 1.0.0
      * @param {any} val
@@ -41,7 +39,6 @@ var _l = (function (exports) {
     /**
      * Checks if a value is an array-buffer.
      *
-     * @function isArrayBuffer
      * @memberof Is
      * @since 2.10.0
      * @param {any} val
@@ -58,7 +55,6 @@ var _l = (function (exports) {
     /**
      * Checks if the value has a certain type-string.
      *
-     * @function isTypeOf
      * @memberof Is
      * @since 1.0.0
      * @param {any} val
@@ -76,7 +72,6 @@ var _l = (function (exports) {
     /**
      * Checks if a value is a number.
      *
-     * @function isNumber
      * @memberof Is
      * @since 1.0.0
      * @param {any} val
@@ -106,7 +101,6 @@ var _l = (function (exports) {
     /**
      * Checks if a value is undefined or null.
      *
-     * @function isNil
      * @memberof Is
      * @since 1.0.0
      * @param {any} val
@@ -132,7 +126,6 @@ var _l = (function (exports) {
      * The main difference to {@link isObject} is that functions are not considered object-like,
      * because `typeof function(){}` returns `"function"`.
      *
-     * @function isObjectLike
      * @memberof Is
      * @since 1.0.0
      * @param {any} val
@@ -155,7 +148,6 @@ var _l = (function (exports) {
     /**
      * Checks if a value is object-like and has a length property.
      *
-     * @function isArrayLike
      * @memberof Is
      * @since 1.0.0
      * @param {any} val
@@ -175,7 +167,6 @@ var _l = (function (exports) {
     /**
      * Checks if a value is a typed array.
      *
-     * @function isArrayTyped
      * @memberof Is
      * @since 2.10.0
      * @param {any} val
@@ -195,7 +186,6 @@ var _l = (function (exports) {
     /**
      * Checks if a value is a boolean.
      *
-     * @function isBoolean
      * @memberof Is
      * @since 1.0.0
      * @param {any} val
@@ -218,7 +208,6 @@ var _l = (function (exports) {
     /**
      * Checks if a value is a date object.
      *
-     * @function isDate
      * @memberof Is
      * @since 2.10.0
      * @param {any} val
@@ -235,7 +224,6 @@ var _l = (function (exports) {
     /**
      * Checks if a value is a string.
      *
-     * @function isString
      * @memberof Is
      * @since 1.0.0
      * @param {any} val
@@ -252,7 +240,6 @@ var _l = (function (exports) {
     /**
      * Checks if a value is undefined.
      *
-     * @function isUndefined
      * @memberof Is
      * @since 1.0.0
      * @param {any} val
@@ -281,7 +268,6 @@ var _l = (function (exports) {
      * If the value is object-like, the length of its entries is returned.
      * Otherwise -1 is returned.
      *
-     * @function getSize
      * @memberof Get
      * @since 6.0.0
      * @param {any} val
@@ -328,7 +314,6 @@ var _l = (function (exports) {
      * Array-likes and strings are considered empty if they have a length of zero,
      * sets/maps if they have a size of zero, and objects if their keys have a length of zero.
      *
-     * @function isEmpty
      * @memberof Is
      * @since 1.0.0
      * @param {any} val
@@ -366,7 +351,6 @@ var _l = (function (exports) {
     /**
      * Iterates over each entry of an object.
      *
-     * @function forEachEntry
      * @memberof For
      * @param {object} obj
      * @param {function} fn fn(key: *, val: *, index: number, arr: any[])
@@ -387,7 +371,6 @@ var _l = (function (exports) {
     /**
      * Recursively checks if two items and their the contents are equal.
      *
-     * @function isEqual
      * @memberof Is
      * @since 1.0.0
      * @param {any} a
@@ -429,12 +412,7 @@ var _l = (function (exports) {
         forEachEntry(a, (key, aVal) => {
             // Only check if the comparison didn't fail already
             if (result === true) {
-                if (!isUndefined(b[key])) {
-                    result = isEqual(aVal, b[key]);
-                }
-                else {
-                    result = false;
-                }
+                result = isUndefined(b[key]) ? false : isEqual(aVal, b[key]);
             }
         });
         return result;
@@ -443,7 +421,6 @@ var _l = (function (exports) {
     /**
      * Checks if a value is an error.
      *
-     * @function isError
      * @memberof Is
      * @since 2.10.0
      * @param {any} val
@@ -460,7 +437,6 @@ var _l = (function (exports) {
     /**
      * Checks if a value is a function.
      *
-     * @function isFunction
      * @memberof Is
      * @since 1.0.0
      * @param {any} val
@@ -481,7 +457,6 @@ var _l = (function (exports) {
     /**
      * Checks if a value is a valid index.
      *
-     * @function isIndex
      * @memberof Is
      * @since 5.0.0
      * @param {any} val
@@ -504,7 +479,6 @@ var _l = (function (exports) {
     /**
      * Checks if a value is a map.
      *
-     * @function isMap
      * @memberof Is
      * @since 1.0.0
      * @param {any} val
@@ -521,7 +495,6 @@ var _l = (function (exports) {
     /**
      * Checks if a value is an object.
      *
-     * @function isObject
      * @memberof Is
      * @since 1.0.0
      * @param {any} val
@@ -546,7 +519,6 @@ var _l = (function (exports) {
      *
      * An object is considered plain of its direct constructor is the built-in object constructor.
      *
-     * @function isObjectPlain
      * @memberof Is
      * @since 2.9.0
      * @param {any} val
@@ -569,7 +541,6 @@ var _l = (function (exports) {
     /**
      * Checks if a value is a promise.
      *
-     * @function isPromise
      * @memberof Is
      * @since 3.0.0
      * @param {any} val
@@ -586,7 +557,6 @@ var _l = (function (exports) {
     /**
      * Checks if a value is a regular expression.
      *
-     * @function isRegExp
      * @memberof Is
      * @since 2.10.0
      * @param {any} val
@@ -606,7 +576,6 @@ var _l = (function (exports) {
     /**
      * Checks if a value is a set.
      *
-     * @function isSet
      * @memberof Is
      * @since 1.0.0
      * @param {any} val
@@ -623,7 +592,6 @@ var _l = (function (exports) {
     /**
      * Checks if a value is a symbol.
      *
-     * @function isSymbol
      * @memberof Is
      * @since 1.0.0
      * @param {any} val
@@ -645,7 +613,6 @@ var _l = (function (exports) {
      *
      * If the path doesn't exist in the target, null is returned.
      *
-     * @function getPath
      * @memberof Get
      * @since 2.0.0
      * @param {any} target
@@ -678,7 +645,6 @@ var _l = (function (exports) {
     /**
      * Clamps a number in a given range.
      *
-     * @function numClamp
      * @memberof Number
      * @since 1.0.0
      * @param {number} val
@@ -708,7 +674,6 @@ var _l = (function (exports) {
     /**
      * Clamps a number in the range of safe integers.
      *
-     * @function numSafe
      * @memberof Number
      * @since 7.1.0
      * @param {number} val
@@ -726,7 +691,6 @@ var _l = (function (exports) {
     /**
      * Returns Levenshtein string distance of two strings.
      *
-     * @function strDistance
      * @memberof String
      * @since 6.3.0
      * @param {string} str1
@@ -777,7 +741,6 @@ var _l = (function (exports) {
     /**
      * Returns an array with every falsey value removed out.
      *
-     * @function arrCompact
      * @memberof Array
      * @since 1.0.0
      * @param {any[]} arr
@@ -791,7 +754,6 @@ var _l = (function (exports) {
     /**
      * Creates an array of substrings from a PascalCase string.
      *
-     * @function strFromPascalCase
      * @memberof String
      * @since 6.2.0
      * @param {string} str
@@ -822,7 +784,6 @@ var _l = (function (exports) {
      *
      * Alias of {@link strFromPascalCase}.
      *
-     * @function strFromCamelCase
      * @memberof String
      * @since 6.2.0
      * @param {string} str
@@ -839,7 +800,6 @@ var _l = (function (exports) {
     /**
      * Creates an array of substrings from a kebab-case string.
      *
-     * @function strFromKebabCase
      * @memberof String
      * @since 6.2.0
      * @param {string} str
@@ -856,7 +816,6 @@ var _l = (function (exports) {
     /**
      * Creates an array of substrings from a snake_case string.
      *
-     * @function strFromSnakeCase
      * @memberof String
      * @since 6.2.0
      * @param {string} str
@@ -875,7 +834,6 @@ var _l = (function (exports) {
      * If the function returns a nil value, the element will be skipped,
      * otherwise the return value will be used as key.
      *
-     * @function arrCollect
      * @memberof Array
      * @since 6.1.0
      * @param {any[]} arr
@@ -900,7 +858,6 @@ var _l = (function (exports) {
     /**
      * Returns strings similar to the input based on the list given.
      *
-     * @function strSimilar
      * @memberof String
      * @since 6.3.0
      * @param {string} str
@@ -928,7 +885,6 @@ var _l = (function (exports) {
     /**
      * Creates a camelCase string from an array of substrings.
      *
-     * @function strToCamelCase
      * @memberof String
      * @since 6.2.0
      * @param {string[]} arr
@@ -950,7 +906,6 @@ var _l = (function (exports) {
     /**
      * Creates a kebab-case string from an array of substrings.
      *
-     * @function strToKebabCase
      * @memberof String
      * @since 6.2.0
      * @param {string[]} arr
@@ -967,7 +922,6 @@ var _l = (function (exports) {
     /**
      * Creates a PascalCase string from an array of substrings.
      *
-     * @function strToPascalCase
      * @memberof String
      * @since 6.2.0
      * @param {string[]} arr
@@ -986,7 +940,6 @@ var _l = (function (exports) {
     /**
      * Creates a snake_case string from an array of substrings.
      *
-     * @function strToSnakeCase
      * @memberof String
      * @since 6.2.0
      * @param {string[]} arr
@@ -1003,7 +956,6 @@ var _l = (function (exports) {
     /**
      * Creates an array of elements split into groups by size.
      *
-     * @function arrChunk
      * @memberof Array
      * @since 2.0.0
      * @param {any[]} arr
@@ -1030,7 +982,6 @@ var _l = (function (exports) {
     /**
      * Counts how many times an element appears in an array.
      *
-     * @function arrCount
      * @memberof Array
      * @since 2.0.0
      * @param {any[]} arr
@@ -1048,7 +999,6 @@ var _l = (function (exports) {
     /**
      * Returns an array of all elements that exist in the first array, but not any others.
      *
-     * @function arrDifference
      * @memberof Array
      * @since 2.0.0
      * @param {any[]} arr
@@ -1070,7 +1020,6 @@ var _l = (function (exports) {
     /**
      * Recursively maps the values of the input array with the iterator function and return the result.
      *
-     * @function arrMapDeep
      * @memberof Array
      * @since 1.0.0
      * @param {any[]} arr
@@ -1085,7 +1034,6 @@ var _l = (function (exports) {
     /**
      * Recursively creates a new array with the values of the input iterable.
      *
-     * @function arrFromDeep
      * @memberof Array
      * @since 2.0.0
      * @param {any[]} arr
@@ -1103,7 +1051,6 @@ var _l = (function (exports) {
     /**
      * Returns an array of all elements that exist in the first array and at least once in one of the other arrays.
      *
-     * @function arrIntersection
      * @memberof Array
      * @since 2.0.0
      * @param {any[]} arr
@@ -1124,7 +1071,6 @@ var _l = (function (exports) {
     /**
      * Returns an array with the item at the index removed.
      *
-     * @function arrRemoveIndex
      * @memberof Array
      * @since 2.8.0
      * @param {any[]} arr
@@ -1139,7 +1085,6 @@ var _l = (function (exports) {
     /**
      * Returns an array with all instances of the given item removed.
      *
-     * @function arrRemoveItem
      * @memberof Array
      * @since 2.8.0
      * @param {any[]} arr
@@ -1160,7 +1105,6 @@ var _l = (function (exports) {
     /**
      * Returns an array with every n-th item from the input array.
      *
-     * @function arrStep
      * @memberof Array
      * @since 1.0.0
      * @param {any[]} arr
@@ -1175,7 +1119,6 @@ var _l = (function (exports) {
     /**
      * Returns an array of all unique elements in an array.
      *
-     * @function arrUniq
      * @memberof Array
      * @since 1.0.0
      * @param {any[]} arr
@@ -1190,7 +1133,6 @@ var _l = (function (exports) {
     /**
      * Maps each entry of an object and returns the result.
      *
-     * @function objMap
      * @memberof Object
      * @since 1.0.0
      * @param {Object} obj
@@ -1213,7 +1155,6 @@ var _l = (function (exports) {
      *
      * Can take a custom replacer function and a pre-filled weak set of references.
      *
-     * @function objDecycle
      * @memberof Object
      * @since 6.0.0
      * @param {Object} obj
@@ -1248,7 +1189,6 @@ var _l = (function (exports) {
     /**
      * Creates a new object with the entries of the input object.
      *
-     * @function objFrom
      * @memberof Object
      * @since 1.0.0
      * @param {Object} obj
@@ -1267,7 +1207,6 @@ var _l = (function (exports) {
     /**
      * Sets every nil property of object to the value from the default object.
      *
-     * @function objDefaults
      * @memberof Object
      * @since 2.6.0
      * @param {Object} obj
@@ -1293,7 +1232,6 @@ var _l = (function (exports) {
     /**
      * Recursively sets every nil property of object to the value from the default object.
      *
-     * @function objDefaultsDeep
      * @memberof Object
      * @since 2.7.0
      * @param {Object} obj
@@ -1325,7 +1263,6 @@ var _l = (function (exports) {
     /**
      * Recursively maps each entry of an object and returns the result.
      *
-     * @function objMapDeep
      * @memberof Object
      * @since 1.0.0
      * @param {Object} obj
@@ -1342,7 +1279,6 @@ var _l = (function (exports) {
     /**
      * Recursively creates a new object with the entries of the input object.
      *
-     * @function objFromDeep
      * @memberof Object
      * @since 1.0.0
      * @param {Object} obj
@@ -1360,7 +1296,6 @@ var _l = (function (exports) {
     /**
      * Creates a map from an object.
      *
-     * @function mapFromObject
      * @memberof Map
      * @since 1.0.0
      * @param {Object} obj
@@ -1374,7 +1309,6 @@ var _l = (function (exports) {
     /**
      * Recursively iterates over each element in an array.
      *
-     * @function forEachDeep
      * @memberof For
      * @param {any[]} arr
      * @param {function} fn fn(val: *, index: number, arr: any[])
@@ -1391,7 +1325,6 @@ var _l = (function (exports) {
     /**
      * Recursively iterates over each entry of an object.
      *
-     * @function forEachEntryDeep
      * @memberof For
      * @param {object} obj
      * @param {function} fn fn(key: *, val: *, index: number, arr: any[])
@@ -1410,7 +1343,6 @@ var _l = (function (exports) {
     /**
      * Creates a debounced function that delays invoking the function.
      *
-     * @function fnDebounce
      * @memberof Fn
      * @param {Function} fn
      * @param {number} timeout
@@ -1438,7 +1370,6 @@ var _l = (function (exports) {
     /**
      * Throttles a function to only run every n ms.
      *
-     * @function fnThrottle
      * @memberof Fn
      * @since 3.1.0
      * @param {Function} fn
@@ -1472,7 +1403,6 @@ var _l = (function (exports) {
     /**
      * Binary-search implementation.
      *
-     * @function searchBinary
      * @memberof Search
      * @since 5.0.0
      * @param {number[]} arr
@@ -1508,7 +1438,6 @@ var _l = (function (exports) {
     /**
      * Return a random number in the given range.
      *
-     * @function randNumber
      * @memberof Random
      * @since 3.0.0
      * @param {number} [min=0] inclusive minimum
@@ -1537,7 +1466,6 @@ var _l = (function (exports) {
     /**
      * Return a random item from an array.
      *
-     * @function randItem
      * @memberof Random
      * @since 3.0.0
      * @param {any[]} arr
@@ -1556,7 +1484,6 @@ var _l = (function (exports) {
      *
      * Fisher-Yates shuffle algorithm.
      *
-     * @function randShuffle
      * @memberof Random
      * @since 5.0.0
      * @param {any[]} arr

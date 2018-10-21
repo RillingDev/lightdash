@@ -6,7 +6,6 @@ import { isNil } from "../is/nil";
  * If the function returns a nil value, the element will be skipped,
  * otherwise the return value will be used as key.
  *
- * @function arrCollect
  * @memberof Array
  * @since 6.1.0
  * @param {any[]} arr

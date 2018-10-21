@@ -1,7 +1,6 @@
 /**
  * Returns an array with the item at the index removed.
  *
- * @function arrRemoveIndex
  * @memberof Array
  * @since 2.8.0
  * @param {any[]} arr

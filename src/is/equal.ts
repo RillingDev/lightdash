@@ -5,7 +5,6 @@ import { isUndefined } from "./undefined";
 /**
  * Recursively checks if two items and their the contents are equal.
  *
- * @function isEqual
  * @memberof Is
  * @since 1.0.0
  * @param {any} a

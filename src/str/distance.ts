@@ -2,7 +2,6 @@
 /**
  * Returns Levenshtein string distance of two strings.
  *
- * @function strDistance
  * @memberof String
  * @since 6.3.0
  * @param {string} str1

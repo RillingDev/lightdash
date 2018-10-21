@@ -3,7 +3,6 @@
  *
  * Fisher-Yates shuffle algorithm.
  *
- * @function randShuffle
  * @memberof Random
  * @since 5.0.0
  * @param {any[]} arr

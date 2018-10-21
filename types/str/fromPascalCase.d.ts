@@ -1,7 +1,6 @@
 /**
  * Creates an array of substrings from a PascalCase string.
  *
- * @function strFromPascalCase
  * @memberof String
  * @since 6.2.0
  * @param {string} str

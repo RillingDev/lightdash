@@ -1,7 +1,6 @@
 /**
  * Creates a camelCase string from an array of substrings.
  *
- * @function strToCamelCase
  * @memberof String
  * @since 6.2.0
  * @param {string[]} arr

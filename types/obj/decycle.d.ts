@@ -5,7 +5,6 @@ import { ITypedObject } from "./lib/ITypedObject";
  *
  * Can take a custom replacer function and a pre-filled weak set of references.
  *
- * @function objDecycle
  * @memberof Object
  * @since 6.0.0
  * @param {Object} obj

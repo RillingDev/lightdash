@@ -4,7 +4,6 @@ import { forEachIterator } from "./lib/forEachIterator";
 /**
  * Recursively iterates over each element in an array.
  *
- * @function forEachDeep
  * @memberof For
  * @param {any[]} arr
  * @param {function} fn fn(val: *, index: number, arr: any[])

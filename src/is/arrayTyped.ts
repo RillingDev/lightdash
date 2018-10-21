@@ -4,7 +4,6 @@ import { isNumber } from "./number";
 /**
  * Checks if a value is a typed array.
  *
- * @function isArrayTyped
  * @memberof Is
  * @since 2.10.0
  * @param {any} val

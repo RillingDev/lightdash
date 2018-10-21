@@ -2,7 +2,6 @@ import { anyVoidFn } from "./lib/anyVoidFn";
 /**
  * Throttles a function to only run every n ms.
  *
- * @function fnThrottle
  * @memberof Fn
  * @since 3.1.0
  * @param {Function} fn

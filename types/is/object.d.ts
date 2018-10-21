@@ -1,7 +1,6 @@
 /**
  * Checks if a value is an object.
  *
- * @function isObject
  * @memberof Is
  * @since 1.0.0
  * @param {any} val

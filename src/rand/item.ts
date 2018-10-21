@@ -3,7 +3,6 @@ import { randNumber } from "./number";
 /**
  * Return a random item from an array.
  *
- * @function randItem
  * @memberof Random
  * @since 3.0.0
  * @param {any[]} arr

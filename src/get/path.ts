@@ -5,7 +5,6 @@ import { isUndefined } from "../is/undefined";
  *
  * If the path doesn't exist in the target, null is returned.
  *
- * @function getPath
  * @memberof Get
  * @since 2.0.0
  * @param {any} target

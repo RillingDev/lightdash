@@ -1,7 +1,6 @@
 /**
  * Creates a PascalCase string from an array of substrings.
  *
- * @function strToPascalCase
  * @memberof String
  * @since 6.2.0
  * @param {string[]} arr

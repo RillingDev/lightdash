@@ -7,7 +7,6 @@ Object.defineProperty(exports, '__esModule', { value: true });
  *
  * Alias of the native `Array.isArray`.
  *
- * @function isArray
  * @memberof Is
  * @since 1.0.0
  * @param {any} val
@@ -24,7 +23,6 @@ const isArray = Array.isArray;
 /**
  * Checks if the value is an instance of a target constructor.
  *
- * @function isInstanceOf
  * @memberof Is
  * @since 1.0.0
  * @param {any} val
@@ -42,7 +40,6 @@ const isInstanceOf = (val, target) => val instanceof target;
 /**
  * Checks if a value is an array-buffer.
  *
- * @function isArrayBuffer
  * @memberof Is
  * @since 2.10.0
  * @param {any} val
@@ -59,7 +56,6 @@ const isArrayBuffer = (val) => isInstanceOf(val, ArrayBuffer);
 /**
  * Checks if the value has a certain type-string.
  *
- * @function isTypeOf
  * @memberof Is
  * @since 1.0.0
  * @param {any} val
@@ -77,7 +73,6 @@ const isTypeOf = (val, type) => typeof val === type;
 /**
  * Checks if a value is a number.
  *
- * @function isNumber
  * @memberof Is
  * @since 1.0.0
  * @param {any} val
@@ -107,7 +102,6 @@ const isNumber = (val) => isTypeOf(val, "number");
 /**
  * Checks if a value is undefined or null.
  *
- * @function isNil
  * @memberof Is
  * @since 1.0.0
  * @param {any} val
@@ -133,7 +127,6 @@ const isNil = (val) => val == null;
  * The main difference to {@link isObject} is that functions are not considered object-like,
  * because `typeof function(){}` returns `"function"`.
  *
- * @function isObjectLike
  * @memberof Is
  * @since 1.0.0
  * @param {any} val
@@ -156,7 +149,6 @@ const isObjectLike = (val) => !isNil(val) && isTypeOf(val, "object");
 /**
  * Checks if a value is object-like and has a length property.
  *
- * @function isArrayLike
  * @memberof Is
  * @since 1.0.0
  * @param {any} val
@@ -176,7 +168,6 @@ const isArrayLike = (val) => isObjectLike(val) && isNumber(val.length);
 /**
  * Checks if a value is a typed array.
  *
- * @function isArrayTyped
  * @memberof Is
  * @since 2.10.0
  * @param {any} val
@@ -196,7 +187,6 @@ const isArrayTyped = (val) => !isNil(val) && isNumber(val.BYTES_PER_ELEMENT);
 /**
  * Checks if a value is a boolean.
  *
- * @function isBoolean
  * @memberof Is
  * @since 1.0.0
  * @param {any} val
@@ -219,7 +209,6 @@ const isBoolean = (val) => isTypeOf(val, "boolean");
 /**
  * Checks if a value is a date object.
  *
- * @function isDate
  * @memberof Is
  * @since 2.10.0
  * @param {any} val
@@ -236,7 +225,6 @@ const isDate = (val) => isInstanceOf(val, Date);
 /**
  * Checks if a value is a string.
  *
- * @function isString
  * @memberof Is
  * @since 1.0.0
  * @param {any} val
@@ -253,7 +241,6 @@ const isString = (val) => isTypeOf(val, "string");
 /**
  * Checks if a value is undefined.
  *
- * @function isUndefined
  * @memberof Is
  * @since 1.0.0
  * @param {any} val
@@ -282,7 +269,6 @@ const isUndefined = (val) => isTypeOf(val, "undefined");
  * If the value is object-like, the length of its entries is returned.
  * Otherwise -1 is returned.
  *
- * @function getSize
  * @memberof Get
  * @since 6.0.0
  * @param {any} val
@@ -329,7 +315,6 @@ const getSize = (val) => {
  * Array-likes and strings are considered empty if they have a length of zero,
  * sets/maps if they have a size of zero, and objects if their keys have a length of zero.
  *
- * @function isEmpty
  * @memberof Is
  * @since 1.0.0
  * @param {any} val
@@ -367,7 +352,6 @@ const isEmpty = (val) => getSize(val) < 1;
 /**
  * Iterates over each entry of an object.
  *
- * @function forEachEntry
  * @memberof For
  * @param {object} obj
  * @param {function} fn fn(key: *, val: *, index: number, arr: any[])
@@ -388,7 +372,6 @@ const forEachEntry = (obj, fn) => {
 /**
  * Recursively checks if two items and their the contents are equal.
  *
- * @function isEqual
  * @memberof Is
  * @since 1.0.0
  * @param {any} a
@@ -430,12 +413,7 @@ const isEqual = (a, b) => {
     forEachEntry(a, (key, aVal) => {
         // Only check if the comparison didn't fail already
         if (result === true) {
-            if (!isUndefined(b[key])) {
-                result = isEqual(aVal, b[key]);
-            }
-            else {
-                result = false;
-            }
+            result = isUndefined(b[key]) ? false : isEqual(aVal, b[key]);
         }
     });
     return result;
@@ -444,7 +422,6 @@ const isEqual = (a, b) => {
 /**
  * Checks if a value is an error.
  *
- * @function isError
  * @memberof Is
  * @since 2.10.0
  * @param {any} val
@@ -461,7 +438,6 @@ const isError = (val) => isInstanceOf(val, Error);
 /**
  * Checks if a value is a function.
  *
- * @function isFunction
  * @memberof Is
  * @since 1.0.0
  * @param {any} val
@@ -482,7 +458,6 @@ const isFunction = (val) => isTypeOf(val, "function");
 /**
  * Checks if a value is a valid index.
  *
- * @function isIndex
  * @memberof Is
  * @since 5.0.0
  * @param {any} val
@@ -505,7 +480,6 @@ const isIndex = (val) => Number.isInteger(val) && val >= 0;
 /**
  * Checks if a value is a map.
  *
- * @function isMap
  * @memberof Is
  * @since 1.0.0
  * @param {any} val
@@ -522,7 +496,6 @@ const isMap = (val) => isInstanceOf(val, Map);
 /**
  * Checks if a value is an object.
  *
- * @function isObject
  * @memberof Is
  * @since 1.0.0
  * @param {any} val
@@ -547,7 +520,6 @@ const isObject = (val) => !isNil(val) && (isTypeOf(val, "object") || isTypeOf(va
  *
  * An object is considered plain of its direct constructor is the built-in object constructor.
  *
- * @function isObjectPlain
  * @memberof Is
  * @since 2.9.0
  * @param {any} val
@@ -570,7 +542,6 @@ const isObjectPlain = (val) => isObject(val) && val.constructor === Object;
 /**
  * Checks if a value is a promise.
  *
- * @function isPromise
  * @memberof Is
  * @since 3.0.0
  * @param {any} val
@@ -587,7 +558,6 @@ const isPromise = (val) => isInstanceOf(val, Promise);
 /**
  * Checks if a value is a regular expression.
  *
- * @function isRegExp
  * @memberof Is
  * @since 2.10.0
  * @param {any} val
@@ -607,7 +577,6 @@ const isRegExp = (val) => isInstanceOf(val, RegExp);
 /**
  * Checks if a value is a set.
  *
- * @function isSet
  * @memberof Is
  * @since 1.0.0
  * @param {any} val
@@ -624,7 +593,6 @@ const isSet = (val) => isInstanceOf(val, Set);
 /**
  * Checks if a value is a symbol.
  *
- * @function isSymbol
  * @memberof Is
  * @since 1.0.0
  * @param {any} val
@@ -646,7 +614,6 @@ const isSymbol = (val) => isTypeOf(val, "symbol");
  *
  * If the path doesn't exist in the target, null is returned.
  *
- * @function getPath
  * @memberof Get
  * @since 2.0.0
  * @param {any} target
@@ -679,7 +646,6 @@ const getPath = (target, path) => {
 /**
  * Clamps a number in a given range.
  *
- * @function numClamp
  * @memberof Number
  * @since 1.0.0
  * @param {number} val
@@ -709,7 +675,6 @@ const numClamp = (val, min, max) => {
 /**
  * Clamps a number in the range of safe integers.
  *
- * @function numSafe
  * @memberof Number
  * @since 7.1.0
  * @param {number} val
@@ -727,7 +692,6 @@ const numSafe = (val) => numClamp(val, Number.MIN_SAFE_INTEGER, Number.MAX_SAFE_
 /**
  * Returns Levenshtein string distance of two strings.
  *
- * @function strDistance
  * @memberof String
  * @since 6.3.0
  * @param {string} str1
@@ -778,7 +742,6 @@ const strDistance = (str1, str2) => {
 /**
  * Returns an array with every falsey value removed out.
  *
- * @function arrCompact
  * @memberof Array
  * @since 1.0.0
  * @param {any[]} arr
@@ -792,7 +755,6 @@ const arrCompact = (arr) => arr.filter(val => val);
 /**
  * Creates an array of substrings from a PascalCase string.
  *
- * @function strFromPascalCase
  * @memberof String
  * @since 6.2.0
  * @param {string} str
@@ -823,7 +785,6 @@ const strFromPascalCase = (str) => {
  *
  * Alias of {@link strFromPascalCase}.
  *
- * @function strFromCamelCase
  * @memberof String
  * @since 6.2.0
  * @param {string} str
@@ -840,7 +801,6 @@ const strFromCamelCase = strFromPascalCase;
 /**
  * Creates an array of substrings from a kebab-case string.
  *
- * @function strFromKebabCase
  * @memberof String
  * @since 6.2.0
  * @param {string} str
@@ -857,7 +817,6 @@ const strFromKebabCase = (str) => arrCompact(str.split("-" /* KEBAB */));
 /**
  * Creates an array of substrings from a snake_case string.
  *
- * @function strFromSnakeCase
  * @memberof String
  * @since 6.2.0
  * @param {string} str
@@ -876,7 +835,6 @@ const strFromSnakeCase = (str) => arrCompact(str.split("_" /* SNAKE */));
  * If the function returns a nil value, the element will be skipped,
  * otherwise the return value will be used as key.
  *
- * @function arrCollect
  * @memberof Array
  * @since 6.1.0
  * @param {any[]} arr
@@ -901,7 +859,6 @@ const arrCollect = (arr, fn) => {
 /**
  * Returns strings similar to the input based on the list given.
  *
- * @function strSimilar
  * @memberof String
  * @since 6.3.0
  * @param {string} str
@@ -929,7 +886,6 @@ const strSimilar = (str, list, returnFull = false) => {
 /**
  * Creates a camelCase string from an array of substrings.
  *
- * @function strToCamelCase
  * @memberof String
  * @since 6.2.0
  * @param {string[]} arr
@@ -951,7 +907,6 @@ const strToCamelCase = (arr) => arr
 /**
  * Creates a kebab-case string from an array of substrings.
  *
- * @function strToKebabCase
  * @memberof String
  * @since 6.2.0
  * @param {string[]} arr
@@ -968,7 +923,6 @@ const strToKebabCase = (arr) => arr.map(val => val.toLowerCase()).join("-" /* KE
 /**
  * Creates a PascalCase string from an array of substrings.
  *
- * @function strToPascalCase
  * @memberof String
  * @since 6.2.0
  * @param {string[]} arr
@@ -987,7 +941,6 @@ const strToPascalCase = (arr) => arr
 /**
  * Creates a snake_case string from an array of substrings.
  *
- * @function strToSnakeCase
  * @memberof String
  * @since 6.2.0
  * @param {string[]} arr
@@ -1004,7 +957,6 @@ const strToSnakeCase = (arr) => arr.map(val => val.toLowerCase()).join("_" /* SN
 /**
  * Creates an array of elements split into groups by size.
  *
- * @function arrChunk
  * @memberof Array
  * @since 2.0.0
  * @param {any[]} arr
@@ -1031,7 +983,6 @@ const arrChunk = (arr, chunk) => {
 /**
  * Counts how many times an element appears in an array.
  *
- * @function arrCount
  * @memberof Array
  * @since 2.0.0
  * @param {any[]} arr
@@ -1049,7 +1000,6 @@ const arrCount = (arr) => {
 /**
  * Returns an array of all elements that exist in the first array, but not any others.
  *
- * @function arrDifference
  * @memberof Array
  * @since 2.0.0
  * @param {any[]} arr
@@ -1071,7 +1021,6 @@ const arrDifference = (arr, ...values) => {
 /**
  * Recursively maps the values of the input array with the iterator function and return the result.
  *
- * @function arrMapDeep
  * @memberof Array
  * @since 1.0.0
  * @param {any[]} arr
@@ -1086,7 +1035,6 @@ const arrMapDeep = (arr, fn) => arr.map((val, index) => isArray(val) ? arrMapDee
 /**
  * Recursively creates a new array with the values of the input iterable.
  *
- * @function arrFromDeep
  * @memberof Array
  * @since 2.0.0
  * @param {any[]} arr
@@ -1104,7 +1052,6 @@ const arrFromDeep = (arr) => arrMapDeep(Array.from(arr), val => (isArray(val) ? 
 /**
  * Returns an array of all elements that exist in the first array and at least once in one of the other arrays.
  *
- * @function arrIntersection
  * @memberof Array
  * @since 2.0.0
  * @param {any[]} arr
@@ -1125,7 +1072,6 @@ const arrIntersection = (arr, ...values) => {
 /**
  * Returns an array with the item at the index removed.
  *
- * @function arrRemoveIndex
  * @memberof Array
  * @since 2.8.0
  * @param {any[]} arr
@@ -1140,7 +1086,6 @@ const arrRemoveIndex = (arr, targetIndex) => arr.filter((val, index) => index !=
 /**
  * Returns an array with all instances of the given item removed.
  *
- * @function arrRemoveItem
  * @memberof Array
  * @since 2.8.0
  * @param {any[]} arr
@@ -1161,7 +1106,6 @@ const arrRemoveItem = (arr, targetItem, removeAll = true) => removeAll
 /**
  * Returns an array with every n-th item from the input array.
  *
- * @function arrStep
  * @memberof Array
  * @since 1.0.0
  * @param {any[]} arr
@@ -1176,7 +1120,6 @@ const arrStep = (arr, step) => arr.filter((val, index) => index % step === 0);
 /**
  * Returns an array of all unique elements in an array.
  *
- * @function arrUniq
  * @memberof Array
  * @since 1.0.0
  * @param {any[]} arr
@@ -1191,7 +1134,6 @@ const arrUniq = (arr) => Array.from(new Set(arr));
 /**
  * Maps each entry of an object and returns the result.
  *
- * @function objMap
  * @memberof Object
  * @since 1.0.0
  * @param {Object} obj
@@ -1214,7 +1156,6 @@ const objMap = (obj, fn) => {
  *
  * Can take a custom replacer function and a pre-filled weak set of references.
  *
- * @function objDecycle
  * @memberof Object
  * @since 6.0.0
  * @param {Object} obj
@@ -1249,7 +1190,6 @@ const objDecycle = (obj, fn = () => null, references = new WeakSet()) => {
 /**
  * Creates a new object with the entries of the input object.
  *
- * @function objFrom
  * @memberof Object
  * @since 1.0.0
  * @param {Object} obj
@@ -1268,7 +1208,6 @@ const objFrom = (obj) => Object.assign({}, obj);
 /**
  * Sets every nil property of object to the value from the default object.
  *
- * @function objDefaults
  * @memberof Object
  * @since 2.6.0
  * @param {Object} obj
@@ -1294,7 +1233,6 @@ const objDefaults = (obj, objDefault) => {
 /**
  * Recursively sets every nil property of object to the value from the default object.
  *
- * @function objDefaultsDeep
  * @memberof Object
  * @since 2.7.0
  * @param {Object} obj
@@ -1326,7 +1264,6 @@ const objDefaultsDeep = (obj, objDefault) => {
 /**
  * Recursively maps each entry of an object and returns the result.
  *
- * @function objMapDeep
  * @memberof Object
  * @since 1.0.0
  * @param {Object} obj
@@ -1343,7 +1280,6 @@ const objMapDeep = (obj, fn) => objMap(obj, (key, val, index, objNew) => isObjec
 /**
  * Recursively creates a new object with the entries of the input object.
  *
- * @function objFromDeep
  * @memberof Object
  * @since 1.0.0
  * @param {Object} obj
@@ -1361,7 +1297,6 @@ const objFromDeep = (obj) => objMapDeep(objFrom(obj), (key, val) => (isObjectLik
 /**
  * Creates a map from an object.
  *
- * @function mapFromObject
  * @memberof Map
  * @since 1.0.0
  * @param {Object} obj
@@ -1375,7 +1310,6 @@ const mapFromObject = (obj) => new Map(Object.entries(obj));
 /**
  * Recursively iterates over each element in an array.
  *
- * @function forEachDeep
  * @memberof For
  * @param {any[]} arr
  * @param {function} fn fn(val: *, index: number, arr: any[])
@@ -1392,7 +1326,6 @@ const forEachDeep = (arr, fn) => arr.forEach((val, index) => isArray(val) ? forE
 /**
  * Recursively iterates over each entry of an object.
  *
- * @function forEachEntryDeep
  * @memberof For
  * @param {object} obj
  * @param {function} fn fn(key: *, val: *, index: number, arr: any[])
@@ -1411,7 +1344,6 @@ const forEachEntryDeep = (obj, fn) => forEachEntry(obj, (key, val, index) => isO
 /**
  * Creates a debounced function that delays invoking the function.
  *
- * @function fnDebounce
  * @memberof Fn
  * @param {Function} fn
  * @param {number} timeout
@@ -1439,7 +1371,6 @@ const fnDebounce = (fn, timeout) => {
 /**
  * Throttles a function to only run every n ms.
  *
- * @function fnThrottle
  * @memberof Fn
  * @since 3.1.0
  * @param {Function} fn
@@ -1473,7 +1404,6 @@ const fnThrottle = (fn, timeout, immediate = false) => {
 /**
  * Binary-search implementation.
  *
- * @function searchBinary
  * @memberof Search
  * @since 5.0.0
  * @param {number[]} arr
@@ -1509,7 +1439,6 @@ const searchBinary = (arr, search) => {
 /**
  * Return a random number in the given range.
  *
- * @function randNumber
  * @memberof Random
  * @since 3.0.0
  * @param {number} [min=0] inclusive minimum
@@ -1538,7 +1467,6 @@ const randNumber = (min = 0, max = 1, float = false) => {
 /**
  * Return a random item from an array.
  *
- * @function randItem
  * @memberof Random
  * @since 3.0.0
  * @param {any[]} arr
@@ -1557,7 +1485,6 @@ const randItem = (arr) => arr[randNumber(0, arr.length - 1)];
  *
  * Fisher-Yates shuffle algorithm.
  *
- * @function randShuffle
  * @memberof Random
  * @since 5.0.0
  * @param {any[]} arr

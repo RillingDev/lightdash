@@ -3,7 +3,6 @@ import { Delimiters } from "./lib/Delimiters";
 /**
  * Creates a kebab-case string from an array of substrings.
  *
- * @function strToKebabCase
  * @memberof String
  * @since 6.2.0
  * @param {string[]} arr

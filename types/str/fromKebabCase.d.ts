@@ -1,7 +1,6 @@
 /**
  * Creates an array of substrings from a kebab-case string.
  *
- * @function strFromKebabCase
  * @memberof String
  * @since 6.2.0
  * @param {string} str

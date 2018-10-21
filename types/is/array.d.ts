@@ -3,7 +3,6 @@
  *
  * Alias of the native `Array.isArray`.
  *
- * @function isArray
  * @memberof Is
  * @since 1.0.0
  * @param {any} val

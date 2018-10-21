@@ -3,7 +3,6 @@ import { isInstanceOf } from "./instanceOf";
 /**
  * Checks if a value is a regular expression.
  *
- * @function isRegExp
  * @memberof Is
  * @since 2.10.0
  * @param {any} val

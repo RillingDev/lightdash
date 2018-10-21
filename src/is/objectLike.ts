@@ -8,7 +8,6 @@ import { isTypeOf } from "./typeOf";
  * The main difference to {@link isObject} is that functions are not considered object-like,
  * because `typeof function(){}` returns `"function"`.
  *
- * @function isObjectLike
  * @memberof Is
  * @since 1.0.0
  * @param {any} val

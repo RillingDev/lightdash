@@ -3,7 +3,6 @@ import { isInstanceOf } from "./instanceOf";
 /**
  * Checks if a value is a date object.
  *
- * @function isDate
  * @memberof Is
  * @since 2.10.0
  * @param {any} val

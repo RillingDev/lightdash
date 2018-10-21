@@ -2,7 +2,6 @@ import { anyVoidFn } from "./lib/anyVoidFn";
 /**
  * Creates a debounced function that delays invoking the function.
  *
- * @function fnDebounce
  * @memberof Fn
  * @param {Function} fn
  * @param {number} timeout

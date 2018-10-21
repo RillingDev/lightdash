@@ -1,7 +1,6 @@
 /**
  * Returns an array of all elements that exist in the first array, but not any others.
  *
- * @function arrDifference
  * @memberof Array
  * @since 2.0.0
  * @param {any[]} arr

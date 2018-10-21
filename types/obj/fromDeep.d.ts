@@ -2,7 +2,6 @@ import { ITypedObject } from "./lib/ITypedObject";
 /**
  * Recursively creates a new object with the entries of the input object.
  *
- * @function objFromDeep
  * @memberof Object
  * @since 1.0.0
  * @param {Object} obj

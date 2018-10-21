@@ -1,7 +1,6 @@
 /**
  * Returns an array with all instances of the given item removed.
  *
- * @function arrRemoveItem
  * @memberof Array
  * @since 2.8.0
  * @param {any[]} arr

@@ -5,7 +5,6 @@ import { strFromPascalCase } from "./fromPascalCase";
  *
  * Alias of {@link strFromPascalCase}.
  *
- * @function strFromCamelCase
  * @memberof String
  * @since 6.2.0
  * @param {string} str

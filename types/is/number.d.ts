@@ -1,7 +1,6 @@
 /**
  * Checks if a value is a number.
  *
- * @function isNumber
  * @memberof Is
  * @since 1.0.0
  * @param {any} val

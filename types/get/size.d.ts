@@ -5,7 +5,6 @@
  * If the value is object-like, the length of its entries is returned.
  * Otherwise -1 is returned.
  *
- * @function getSize
  * @memberof Get
  * @since 6.0.0
  * @param {any} val

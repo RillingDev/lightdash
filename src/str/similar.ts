@@ -5,7 +5,6 @@ import { strDistance } from "./distance";
 /**
  * Returns strings similar to the input based on the list given.
  *
- * @function strSimilar
  * @memberof String
  * @since 6.3.0
  * @param {string} str

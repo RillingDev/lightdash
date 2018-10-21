@@ -1,7 +1,6 @@
 /**
  * Return a random number in the given range.
  *
- * @function randNumber
  * @memberof Random
  * @since 3.0.0
  * @param {number} [min=0] inclusive minimum

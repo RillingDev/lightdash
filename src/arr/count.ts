@@ -1,7 +1,6 @@
 /**
  * Counts how many times an element appears in an array.
  *
- * @function arrCount
  * @memberof Array
  * @since 2.0.0
  * @param {any[]} arr
