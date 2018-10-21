@@ -3,9 +3,9 @@
  *
  * @memberof Array
  * @since 1.0.0
- * @param {any[]} arr
- * @param {number} step
- * @returns {any[]}
+ * @param {any[]} arr Array to use.
+ * @param {number} step Step to use.
+ * @returns {any[]} Stepped array.
  * @example
  * arrStep([1, 2, 3, 4, 5, 6], 2)
  * // => [1, 3, 5]

@@ -180,7 +180,7 @@
 
 
 <div class="description">
-    <p>Creates an array of elements split into groups by size.</p>
+    <p>Creates an array of elements split into sub arrays by size.</p>
 </div>
 
 
@@ -243,7 +243,7 @@ arrChunk([1, 2, 3, 4, 5], 3)
 
             
 
-            <td class="description last"></td>
+            <td class="description last"><p>Array to chunk.</p></td>
         </tr>
 
     
@@ -266,7 +266,7 @@ arrChunk([1, 2, 3, 4, 5], 3)
 
             
 
-            <td class="description last"></td>
+            <td class="description last"><p>Size of the chunks.</p></td>
         </tr>
 
     
@@ -289,6 +289,10 @@ arrChunk([1, 2, 3, 4, 5], 3)
 <h5>Returns:</h5>
 
         
+<div class="param-desc">
+    <p>Chunked array.</p>
+</div>
+
 
 
 <dl class="param-type">
@@ -428,7 +432,7 @@ otherwise the return value will be used as key.</p>
 
             
 
-            <td class="description last"></td>
+            <td class="description last"><p>Array to collect.</p></td>
         </tr>
 
     
@@ -451,7 +455,7 @@ otherwise the return value will be used as key.</p>
 
             
 
-            <td class="description last"><p>fn(val: *, index: number, arr: any[])</p></td>
+            <td class="description last"><p>Function to use for collection (<code>fn(val: *, index: number, arr: any[]) =&gt; any</code>).</p></td>
         </tr>
 
     
@@ -475,7 +479,7 @@ otherwise the return value will be used as key.</p>
 
         
 <div class="param-desc">
-    <p>Map&lt;val: *, arr: any[]&gt;</p>
+    <p>Map&lt;val: *, arr: any[]&gt; Collected map.</p>
 </div>
 
 
@@ -555,7 +559,7 @@ otherwise the return value will be used as key.</p>
 
 
 <div class="description">
-    <p>Returns an array with every falsey value removed out.</p>
+    <p>Returns an array with every falsey value removed.</p>
 </div>
 
 
@@ -615,7 +619,7 @@ otherwise the return value will be used as key.</p>
 
             
 
-            <td class="description last"></td>
+            <td class="description last"><p>Array to compact.</p></td>
         </tr>
 
     
@@ -638,6 +642,10 @@ otherwise the return value will be used as key.</p>
 <h5>Returns:</h5>
 
         
+<div class="param-desc">
+    <p>Compacted array.</p>
+</div>
+
 
 
 <dl class="param-type">
@@ -775,7 +783,7 @@ otherwise the return value will be used as key.</p>
 
             
 
-            <td class="description last"></td>
+            <td class="description last"><p>Array to count.</p></td>
         </tr>
 
     
@@ -799,7 +807,7 @@ otherwise the return value will be used as key.</p>
 
         
 <div class="param-desc">
-    <p>Map&lt;val: *, count: number&gt;</p>
+    <p>Map containing the counted result (<code>Map&lt;val: *, count: number&gt;</code>).</p>
 </div>
 
 
@@ -952,7 +960,7 @@ arrDifference([1, 2, 3], ["foo"], [2, 0, 2])
 
             
 
-            <td class="description last"></td>
+            <td class="description last"><p>Array to check.</p></td>
         </tr>
 
     
@@ -985,7 +993,7 @@ arrDifference([1, 2, 3], ["foo"], [2, 0, 2])
 
             
 
-            <td class="description last"></td>
+            <td class="description last"><p>Arrays to compare to.</p></td>
         </tr>
 
     
@@ -1008,6 +1016,10 @@ arrDifference([1, 2, 3], ["foo"], [2, 0, 2])
 <h5>Returns:</h5>
 
         
+<div class="param-desc">
+    <p>Difference of <code>arr</code> to <code>values</code>.</p>
+</div>
+
 
 
 <dl class="param-type">
@@ -1149,7 +1161,7 @@ b[3][1][0] = 10;
 
             
 
-            <td class="description last"></td>
+            <td class="description last"><p>Array to copy recursively.</p></td>
         </tr>
 
     
@@ -1172,6 +1184,10 @@ b[3][1][0] = 10;
 <h5>Returns:</h5>
 
         
+<div class="param-desc">
+    <p>Recursively copied array.</p>
+</div>
+
 
 
 <dl class="param-type">
@@ -1322,7 +1338,7 @@ arrIntersection([1, 2, 3], ["foo"], [2, 0, 2])
 
             
 
-            <td class="description last"></td>
+            <td class="description last"><p>Array to check.</p></td>
         </tr>
 
     
@@ -1355,7 +1371,7 @@ arrIntersection([1, 2, 3], ["foo"], [2, 0, 2])
 
             
 
-            <td class="description last"></td>
+            <td class="description last"><p>Arrays to compare to.</p></td>
         </tr>
 
     
@@ -1378,6 +1394,10 @@ arrIntersection([1, 2, 3], ["foo"], [2, 0, 2])
 <h5>Returns:</h5>
 
         
+<div class="param-desc">
+    <p>Intersection of <code>arr</code> to <code>values</code>.</p>
+</div>
+
 
 
 <dl class="param-type">
@@ -1515,7 +1535,7 @@ arrIntersection([1, 2, 3], ["foo"], [2, 0, 2])
 
             
 
-            <td class="description last"></td>
+            <td class="description last"><p>Array to map.</p></td>
         </tr>
 
     
@@ -1538,7 +1558,7 @@ arrIntersection([1, 2, 3], ["foo"], [2, 0, 2])
 
             
 
-            <td class="description last"><p>fn(val: *, index: number, arr: any[])</p></td>
+            <td class="description last"><p>Function to use for mapping (<code>fn(val: *, index: number, arr: any[]) =&gt; any</code>).</p></td>
         </tr>
 
     
@@ -1561,6 +1581,10 @@ arrIntersection([1, 2, 3], ["foo"], [2, 0, 2])
 <h5>Returns:</h5>
 
         
+<div class="param-desc">
+    <p>Array with the mapped values.</p>
+</div>
+
 
 
 <dl class="param-type">
@@ -1698,7 +1722,7 @@ arrIntersection([1, 2, 3], ["foo"], [2, 0, 2])
 
             
 
-            <td class="description last"></td>
+            <td class="description last"><p>Array to use.</p></td>
         </tr>
 
     
@@ -1721,7 +1745,7 @@ arrIntersection([1, 2, 3], ["foo"], [2, 0, 2])
 
             
 
-            <td class="description last"></td>
+            <td class="description last"><p>Index to remove.</p></td>
         </tr>
 
     
@@ -1744,6 +1768,10 @@ arrIntersection([1, 2, 3], ["foo"], [2, 0, 2])
 <h5>Returns:</h5>
 
         
+<div class="param-desc">
+    <p>Array with the index removed.</p>
+</div>
+
 
 
 <dl class="param-type">
@@ -1900,7 +1928,7 @@ arrRemoveItem(["foo", "bar", "fizz", "bar"], "bar", false)
                 </td>
             
 
-            <td class="description last"></td>
+            <td class="description last"><p>Array to use.</p></td>
         </tr>
 
     
@@ -1935,7 +1963,7 @@ arrRemoveItem(["foo", "bar", "fizz", "bar"], "bar", false)
                 </td>
             
 
-            <td class="description last"></td>
+            <td class="description last"><p>Item to remove.</p></td>
         </tr>
 
     
@@ -1974,7 +2002,7 @@ arrRemoveItem(["foo", "bar", "fizz", "bar"], "bar", false)
                 </td>
             
 
-            <td class="description last"><p>removeAll</p></td>
+            <td class="description last"><p>If all or just the first occurrence should be removed.</p></td>
         </tr>
 
     
@@ -1997,6 +2025,10 @@ arrRemoveItem(["foo", "bar", "fizz", "bar"], "bar", false)
 <h5>Returns:</h5>
 
         
+<div class="param-desc">
+    <p>Array with the item removed.</p>
+</div>
+
 
 
 <dl class="param-type">
@@ -2134,7 +2166,7 @@ arrRemoveItem(["foo", "bar", "fizz", "bar"], "bar", false)
 
             
 
-            <td class="description last"></td>
+            <td class="description last"><p>Array to use.</p></td>
         </tr>
 
     
@@ -2157,7 +2189,7 @@ arrRemoveItem(["foo", "bar", "fizz", "bar"], "bar", false)
 
             
 
-            <td class="description last"></td>
+            <td class="description last"><p>Step to use.</p></td>
         </tr>
 
     
@@ -2180,6 +2212,10 @@ arrRemoveItem(["foo", "bar", "fizz", "bar"], "bar", false)
 <h5>Returns:</h5>
 
         
+<div class="param-desc">
+    <p>Stepped array.</p>
+</div>
+
 
 
 <dl class="param-type">
@@ -2317,7 +2353,7 @@ arrRemoveItem(["foo", "bar", "fizz", "bar"], "bar", false)
 
             
 
-            <td class="description last"></td>
+            <td class="description last"><p>Array to use.</p></td>
         </tr>
 
     
@@ -2340,6 +2376,10 @@ arrRemoveItem(["foo", "bar", "fizz", "bar"], "bar", false)
 <h5>Returns:</h5>
 
         
+<div class="param-desc">
+    <p>Array of the unique values.</p>
+</div>
+
 
 
 <dl class="param-type">
@@ -2377,7 +2417,7 @@ arrRemoveItem(["foo", "bar", "fizz", "bar"], "bar", false)
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Sun Oct 21 2018 10:43:22 GMT+0200 (Central European Summer Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Sun Oct 21 2018 10:57:40 GMT+0200 (Central European Summer Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
 </footer>
 
 <script>prettyPrint();</script>

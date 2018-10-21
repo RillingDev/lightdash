@@ -740,12 +740,12 @@ const strDistance = (str1, str2) => {
 };
 
 /**
- * Returns an array with every falsey value removed out.
+ * Returns an array with every falsey value removed.
  *
  * @memberof Array
  * @since 1.0.0
- * @param {any[]} arr
- * @returns {any[]}
+ * @param {any[]} arr Array to compact.
+ * @returns {any[]} Compacted array.
  * @example
  * arrCompact([1, "", "", 2, 3, null, 4, undefined, 5, ""])
  * // => [1, 2, 3, 4, 5]
@@ -837,9 +837,9 @@ const strFromSnakeCase = (str) => arrCompact(str.split("_" /* SNAKE */));
  *
  * @memberof Array
  * @since 6.1.0
- * @param {any[]} arr
- * @param {function} fn fn(val: *, index: number, arr: any[])
- * @returns {Map<any, any[]>} Map<val: *, arr: any[]>
+ * @param {any[]} arr Array to collect.
+ * @param {function} fn Function to use for collection (`fn(val: *, index: number, arr: any[]) => any`).
+ * @returns {Map<any, any[]>} Map<val: *, arr: any[]> Collected map.
  * @example
  * arrCollect([1, 2, 3, 4, 5], val => val % 2)
  * // => Map<any, any[]>{0: [2, 4], 1: [1, 3, 5]}
@@ -955,13 +955,13 @@ const strToPascalCase = (arr) => arr
 const strToSnakeCase = (arr) => arr.map(val => val.toLowerCase()).join("_" /* SNAKE */);
 
 /**
- * Creates an array of elements split into groups by size.
+ * Creates an array of elements split into sub arrays by size.
  *
  * @memberof Array
  * @since 2.0.0
- * @param {any[]} arr
- * @param {number} chunk
- * @returns {any[]}
+ * @param {any[]} arr Array to chunk.
+ * @param {number} chunk Size of the chunks.
+ * @returns {any[]} Chunked array.
  * @example
  * arrChunk([1, 2, 3, 4, 5, 6], 2)
  * // => [[1, 2], [3, 4], [5, 6]]
@@ -985,8 +985,8 @@ const arrChunk = (arr, chunk) => {
  *
  * @memberof Array
  * @since 2.0.0
- * @param {any[]} arr
- * @returns {Map<any, number>} Map<val: *, count: number>
+ * @param {any[]} arr Array to count.
+ * @returns {Map<any, number>}  Map containing the counted result (`Map<val: *, count: number>`).
  * @example
  * arrCount([1, 1, 2, 2, 1, 3, 4, 1])
  * // => Map<any, number>{1: 4, 2: 2, 3: 1, 4: 1}
@@ -1002,9 +1002,9 @@ const arrCount = (arr) => {
  *
  * @memberof Array
  * @since 2.0.0
- * @param {any[]} arr
- * @param {...any[]} values
- * @returns {any[]}
+ * @param {any[]} arr Array to check.
+ * @param {...any[]} values Arrays to compare to.
+ * @returns {any[]} Difference of `arr` to `values`.
  * @example
  * arrDifference([1, 2, 3], [1, "foo", 3])
  * // => [2]
@@ -1023,9 +1023,9 @@ const arrDifference = (arr, ...values) => {
  *
  * @memberof Array
  * @since 1.0.0
- * @param {any[]} arr
- * @param {function} fn fn(val: *, index: number, arr: any[])
- * @returns {any[]}
+ * @param {any[]} arr Array to map.
+ * @param {function} fn Function to use for mapping (`fn(val: *, index: number, arr: any[]) => any`).
+ * @returns {any[]} Array with the mapped values.
  * @example
  * arrMapDeep([2, 4, [1, 1, [16], 4]], val => val * 2)
  * // => [4, 8, [2, 2, [32], 8]]
@@ -1037,8 +1037,8 @@ const arrMapDeep = (arr, fn) => arr.map((val, index) => isArray(val) ? arrMapDee
  *
  * @memberof Array
  * @since 2.0.0
- * @param {any[]} arr
- * @returns {any[]}
+ * @param {any[]} arr Array to copy recursively.
+ * @returns {any[]} Recursively copied array.
  * @example
  * const a = [1, 2, 3, [5, [6]]];
  * const b = arrFromDeep(a);
@@ -1054,9 +1054,9 @@ const arrFromDeep = (arr) => arrMapDeep(Array.from(arr), val => (isArray(val) ? 
  *
  * @memberof Array
  * @since 2.0.0
- * @param {any[]} arr
- * @param {...any[]} values
- * @returns {any[]}
+ * @param {any[]} arr Array to check.
+ * @param {...any[]} values Arrays to compare to.
+ * @returns {any[]} Intersection of `arr` to `values`.
  * @example
  * arrIntersection([1, 2, 3], [1, "foo", 3])
  * // => [1, 3]
@@ -1074,9 +1074,9 @@ const arrIntersection = (arr, ...values) => {
  *
  * @memberof Array
  * @since 2.8.0
- * @param {any[]} arr
- * @param {number} targetIndex
- * @returns {any[]}
+ * @param {any[]} arr Array to use.
+ * @param {number} targetIndex Index to remove.
+ * @returns {any[]} Array with the index removed.
  * @example
  * arrRemoveIndex(["foo", "bar", "fizz"], 1)
  * // => ["foo", "fizz"]
@@ -1088,10 +1088,10 @@ const arrRemoveIndex = (arr, targetIndex) => arr.filter((val, index) => index !=
  *
  * @memberof Array
  * @since 2.8.0
- * @param {any[]} arr
- * @param {any} targetItem
- * @param {boolean} [removeAll=true] removeAll
- * @returns {any[]}
+ * @param {any[]} arr Array to use.
+ * @param {any} targetItem Item to remove.
+ * @param {boolean} [removeAll=true] If all or just the first occurrence should be removed.
+ * @returns {any[]} Array with the item removed.
  * @example
  * arrRemoveItem(["foo", "bar", "fizz", "bar"], "bar")
  * // => ["foo", "fizz"]
@@ -1108,9 +1108,9 @@ const arrRemoveItem = (arr, targetItem, removeAll = true) => removeAll
  *
  * @memberof Array
  * @since 1.0.0
- * @param {any[]} arr
- * @param {number} step
- * @returns {any[]}
+ * @param {any[]} arr Array to use.
+ * @param {number} step Step to use.
+ * @returns {any[]} Stepped array.
  * @example
  * arrStep([1, 2, 3, 4, 5, 6], 2)
  * // => [1, 3, 5]
@@ -1122,8 +1122,8 @@ const arrStep = (arr, step) => arr.filter((val, index) => index % step === 0);
  *
  * @memberof Array
  * @since 1.0.0
- * @param {any[]} arr
- * @returns {any[]}
+ * @param {any[]} arr Array to use.
+ * @returns {any[]} Array of the unique values.
  * @example
  * arrUniq([1, 1, 1, 2, 3, 1, 2, 1, 4])
  * // => [1, 2, 3, 4]

@@ -3,8 +3,8 @@
  *
  * @memberof Array
  * @since 1.0.0
- * @param {any[]} arr
- * @returns {any[]}
+ * @param {any[]} arr Array to use.
+ * @returns {any[]} Array of the unique values.
  * @example
  * arrUniq([1, 1, 1, 2, 3, 1, 2, 1, 4])
  * // => [1, 2, 3, 4]

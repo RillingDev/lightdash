@@ -3,9 +3,9 @@
  *
  * @memberof Array
  * @since 2.0.0
- * @param {any[]} arr
- * @param {...any[]} values
- * @returns {any[]}
+ * @param {any[]} arr Array to check.
+ * @param {...any[]} values Arrays to compare to.
+ * @returns {any[]} Intersection of `arr` to `values`.
  * @example
  * arrIntersection([1, 2, 3], [1, "foo", 3])
  * // => [1, 3]

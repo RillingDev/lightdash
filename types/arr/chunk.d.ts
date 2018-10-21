@@ -1,11 +1,11 @@
 /**
- * Creates an array of elements split into groups by size.
+ * Creates an array of elements split into sub arrays by size.
  *
  * @memberof Array
  * @since 2.0.0
- * @param {any[]} arr
- * @param {number} chunk
- * @returns {any[]}
+ * @param {any[]} arr Array to chunk.
+ * @param {number} chunk Size of the chunks.
+ * @returns {any[]} Chunked array.
  * @example
  * arrChunk([1, 2, 3, 4, 5, 6], 2)
  * // => [[1, 2], [3, 4], [5, 6]]

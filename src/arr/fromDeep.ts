@@ -6,8 +6,8 @@ import { arrMapDeep } from "./mapDeep";
  *
  * @memberof Array
  * @since 2.0.0
- * @param {any[]} arr
- * @returns {any[]}
+ * @param {any[]} arr Array to copy recursively.
+ * @returns {any[]} Recursively copied array.
  * @example
  * const a = [1, 2, 3, [5, [6]]];
  * const b = arrFromDeep(a);

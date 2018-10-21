@@ -3,9 +3,9 @@
  *
  * @memberof Array
  * @since 2.8.0
- * @param {any[]} arr
- * @param {number} targetIndex
- * @returns {any[]}
+ * @param {any[]} arr Array to use.
+ * @param {number} targetIndex Index to remove.
+ * @returns {any[]} Array with the index removed.
  * @example
  * arrRemoveIndex(["foo", "bar", "fizz"], 1)
  * // => ["foo", "fizz"]
