@@ -52,11 +52,7 @@ const isEqual = (a: any, b: any): boolean => {
     forEachEntry(a, (key, aVal) => {
         // Only check if the comparison didn't fail already
         if (result === true) {
-            if (!isUndefined(b[key])) {
-                result = isEqual(aVal, b[key]);
-            } else {
-                result = false;
-            }
+            result = isUndefined(b[key]) ? false : isEqual(aVal, b[key]);
         }
     });
 
