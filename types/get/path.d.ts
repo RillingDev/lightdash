@@ -5,9 +5,9 @@
  *
  * @memberof Get
  * @since 2.0.0
- * @param {any} target
- * @param {string[]} path
- * @returns {any}
+ * @param {any} target Target to check.
+ * @param {string[]} path Path to use.
+ * @returns {any} The value which was looked up, or null if the path could not be resolved.
  * @example
  * getPath({a: 1}, ["a"]);
  * // => 1

@@ -1,11 +1,11 @@
 /**
- * Recursively checks if two items and their the contents are equal.
+ * Recursively checks if two values and their the contents are equal.
  *
  * @memberof Is
  * @since 1.0.0
- * @param {any} a
- * @param {any} b
- * @returns {boolean}
+ * @param {any} a First value to check.
+ * @param {any} b Second value to check.
+ * @returns {boolean} If the values are equal.
  * @example
  * isEqual(1, 1)
  * // => true

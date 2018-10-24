@@ -5,14 +5,6 @@
  *
  * @memberof Is
  * @since 1.0.0
- * @param {any} val
- * @returns {boolean}
- * @example
- * isArray([1, 2, 3]);
- * // => true
- *
- * isArray({});
- * // => false
  */
 const isArray = Array.isArray;
 

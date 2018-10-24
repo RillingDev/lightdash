@@ -5,8 +5,8 @@
  *
  * @memberof Is
  * @since 2.9.0
- * @param {any} val
- * @returns {boolean}
+ * @param {any} val Value to check.
+ * @returns {boolean} If the value is a plain object.
  * @example
  * isObjectPlain({})
  * // => true

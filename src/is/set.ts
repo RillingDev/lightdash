@@ -5,8 +5,8 @@ import { isInstanceOf } from "./instanceOf";
  *
  * @memberof Is
  * @since 1.0.0
- * @param {any} val
- * @returns {boolean}
+ * @param {any} val Value to check.
+ * @returns {boolean} If the value is a set.
  * @example
  * isSet(new Set())
  * // => true

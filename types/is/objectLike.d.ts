@@ -6,8 +6,8 @@
  *
  * @memberof Is
  * @since 1.0.0
- * @param {any} val
- * @returns {boolean}
+ * @param {any} val Value to check,
+ * @returns {boolean} If the value is object-like.
  * @example
  * isObjectLike({})
  * // => true

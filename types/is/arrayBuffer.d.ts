@@ -3,8 +3,8 @@
  *
  * @memberof Is
  * @since 2.10.0
- * @param {any} val
- * @returns {boolean}
+ * @param {any} val Value to check.
+ * @returns {boolean} If the value is an array buffer.
  * @example
  * isArrayBuffer(new ArrayBuffer(8))
  * // => true

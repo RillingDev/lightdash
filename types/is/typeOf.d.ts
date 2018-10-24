@@ -3,9 +3,9 @@
  *
  * @memberof Is
  * @since 1.0.0
- * @param {any} val
- * @param {string} type
- * @returns {boolean}
+ * @param {any} val Value to check.
+ * @param {string} type Type string to compare the value to.
+ * @returns {boolean} If the value has the type provided.
  * @example
  * isTypeOf("foo", "string")
  * // => true

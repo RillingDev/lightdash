@@ -13,8 +13,8 @@ import { isUndefined } from "../is/undefined";
  *
  * @memberof Get
  * @since 6.0.0
- * @param {any} val
- * @returns {number}
+ * @param {any} val Value to check.
+ * @returns {number} The size of the value.
  * @example
  * getSize([1,2])
  * // => 2

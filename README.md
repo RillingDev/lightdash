@@ -65,7 +65,7 @@ Contributions are always welcome, no matter if you have a requests, an idea, fou
 Breaking:
 
 - Merged arrRemoveItem and arrRemoveItemFirst
-- Removed isObjectLike, isArguments and isNull
+- Removed isArguments and isNull
 - Removed numSum, numMedian and numAverage
 - Removed fnCurry
 - Removed hasPath

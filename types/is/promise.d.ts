@@ -3,8 +3,8 @@
  *
  * @memberof Is
  * @since 3.0.0
- * @param {any} val
- * @returns {boolean}
+ * @param {any} val Value to check.
+ * @returns {boolean} If the value is a promise.
  * @example
  * isPromise(new Promise((resolve, reject) => resolve("foo")));
  * // => true

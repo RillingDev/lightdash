@@ -5,14 +5,6 @@
  *
  * @memberof Is
  * @since 1.0.0
- * @param {any} val
- * @returns {boolean}
- * @example
- * isArray([1, 2, 3]);
- * // => true
- *
- * isArray({});
- * // => false
  */
 const isArray = Array.isArray;
 
@@ -21,9 +13,9 @@ const isArray = Array.isArray;
  *
  * @memberof Is
  * @since 1.0.0
- * @param {any} val
- * @param {Class} target
- * @returns {boolean}
+ * @param {any} val Value to check.
+ * @param {Class} target Class to check if the value is an instance of it.
+ * @returns {boolean} If the value is an instance of the class.
  * @example
  * isInstanceOf([], Array)
  * // => true
@@ -38,8 +30,8 @@ const isInstanceOf = (val, target) => val instanceof target;
  *
  * @memberof Is
  * @since 2.10.0
- * @param {any} val
- * @returns {boolean}
+ * @param {any} val Value to check.
+ * @returns {boolean} If the value is an array buffer.
  * @example
  * isArrayBuffer(new ArrayBuffer(8))
  * // => true
@@ -54,9 +46,9 @@ const isArrayBuffer = (val) => isInstanceOf(val, ArrayBuffer);
  *
  * @memberof Is
  * @since 1.0.0
- * @param {any} val
- * @param {string} type
- * @returns {boolean}
+ * @param {any} val Value to check.
+ * @param {string} type Type string to compare the value to.
+ * @returns {boolean} If the value has the type provided.
  * @example
  * isTypeOf("foo", "string")
  * // => true
@@ -71,8 +63,8 @@ const isTypeOf = (val, type) => typeof val === type;
  *
  * @memberof Is
  * @since 1.0.0
- * @param {any} val
- * @returns {boolean}
+ * @param {any} val Value to check.
+ * @returns {boolean} If the value is a number.
  * @example
  * isNumber(1)
  * // => true
@@ -100,8 +92,8 @@ const isNumber = (val) => isTypeOf(val, "number");
  *
  * @memberof Is
  * @since 1.0.0
- * @param {any} val
- * @returns {boolean}
+ * @param {any} val Value to check.
+ * @returns {boolean} If the value is nil.
  * @example
  * isNil(null)
  * // => true
@@ -125,8 +117,8 @@ const isNil = (val) => val == null;
  *
  * @memberof Is
  * @since 1.0.0
- * @param {any} val
- * @returns {boolean}
+ * @param {any} val Value to check,
+ * @returns {boolean} If the value is object-like.
  * @example
  * isObjectLike({})
  * // => true
@@ -143,12 +135,14 @@ const isNil = (val) => val == null;
 const isObjectLike = (val) => !isNil(val) && isTypeOf(val, "object");
 
 /**
- * Checks if a value is object-like and has a length property.
+ * Checks if a value is array-like.
+ *
+ * A value is considered array-like if it is object-like and has a length property.
  *
  * @memberof Is
  * @since 1.0.0
- * @param {any} val
- * @returns {boolean}
+ * @param {any} val Value to check.
+ * @returns {boolean} If the value is an array-like.
  * @example
  * isArrayLike([])
  * // => true
@@ -166,8 +160,8 @@ const isArrayLike = (val) => isObjectLike(val) && isNumber(val.length);
  *
  * @memberof Is
  * @since 2.10.0
- * @param {any} val
- * @returns {boolean}
+ * @param {any} val Value to check.
+ * @returns {boolean} If the value is a typed array.
  * @example
  * isArrayTyped(new Int16Array());
  * // => true
@@ -185,8 +179,8 @@ const isArrayTyped = (val) => !isNil(val) && isNumber(val.BYTES_PER_ELEMENT);
  *
  * @memberof Is
  * @since 1.0.0
- * @param {any} val
- * @returns {boolean}
+ * @param {any} val Value to check.
+ * @returns {boolean} If the value is a boolean.
  * @example
  * isBoolean(true)
  * // => true
@@ -203,12 +197,12 @@ const isArrayTyped = (val) => !isNil(val) && isNumber(val.BYTES_PER_ELEMENT);
 const isBoolean = (val) => isTypeOf(val, "boolean");
 
 /**
- * Checks if a value is a date object.
+ * Checks if a value is a date instance.
  *
  * @memberof Is
  * @since 2.10.0
- * @param {any} val
- * @returns {boolean}
+ * @param {any} val Value to check.
+ * @returns {boolean} If the value is a date instance.
  * @example
  * isDate(new Date())
  * // => true
@@ -223,8 +217,8 @@ const isDate = (val) => isInstanceOf(val, Date);
  *
  * @memberof Is
  * @since 1.0.0
- * @param {any} val
- * @returns {boolean}
+ * @param {any} val Value to check.
+ * @returns {boolean} if the value is a string.
  * @example
  * isString("foo")
  * // => true
@@ -239,8 +233,8 @@ const isString = (val) => isTypeOf(val, "string");
  *
  * @memberof Is
  * @since 1.0.0
- * @param {any} val
- * @returns {boolean}
+ * @param {any} val Value to check.
+ * @returns {boolean} If the value is undefined.
  * @example
  * const a = {};
  *
@@ -267,8 +261,8 @@ const isUndefined = (val) => isTypeOf(val, "undefined");
  *
  * @memberof Get
  * @since 6.0.0
- * @param {any} val
- * @returns {number}
+ * @param {any} val Value to check.
+ * @returns {number} The size of the value.
  * @example
  * getSize([1,2])
  * // => 2
@@ -313,8 +307,8 @@ const getSize = (val) => {
  *
  * @memberof Is
  * @since 1.0.0
- * @param {any} val
- * @returns {boolean}
+ * @param {any} val Value to check.
+ * @returns {boolean} If the value is empty.
  * @example
  * isEmpty([])
  * // => true
@@ -366,13 +360,13 @@ const forEachEntry = (obj, fn) => {
 };
 
 /**
- * Recursively checks if two items and their the contents are equal.
+ * Recursively checks if two values and their the contents are equal.
  *
  * @memberof Is
  * @since 1.0.0
- * @param {any} a
- * @param {any} b
- * @returns {boolean}
+ * @param {any} a First value to check.
+ * @param {any} b Second value to check.
+ * @returns {boolean} If the values are equal.
  * @example
  * isEqual(1, 1)
  * // => true
@@ -420,8 +414,8 @@ const isEqual = (a, b) => {
  *
  * @memberof Is
  * @since 2.10.0
- * @param {any} val
- * @returns {boolean}
+ * @param {any} val Value to check.
+ * @returns {boolean} If the value is an error.
  * @example
  * isError(new URIError())
  * // => true
@@ -436,8 +430,8 @@ const isError = (val) => isInstanceOf(val, Error);
  *
  * @memberof Is
  * @since 1.0.0
- * @param {any} val
- * @returns {boolean}
+ * @param {any} val Value to check.
+ * @returns {boolean} If the value is a function.
  * @example
  * isFunction(function a(){})
  * // => true
@@ -450,14 +444,16 @@ const isError = (val) => isInstanceOf(val, Error);
  */
 const isFunction = (val) => isTypeOf(val, "function");
 
-// File is named "_index.ts" to avoid it being treated as module index file.
+// File is named "_index.ts" to avoid it being treated as a module index file.
 /**
  * Checks if a value is a valid index.
  *
+ * A value is a valid index if its positive and an integer.
+ *
  * @memberof Is
  * @since 5.0.0
- * @param {any} val
- * @returns {boolean}
+ * @param {any} val Value to check.
+ * @returns {boolean} If the value is a valid index.
  * @example
  * isIndex(123)
  * // => true
@@ -478,8 +474,8 @@ const isIndex = (val) => Number.isInteger(val) && val >= 0;
  *
  * @memberof Is
  * @since 1.0.0
- * @param {any} val
- * @returns {boolean}
+ * @param {any} val Value to check.
+ * @returns {boolean} If the value is a map.
  * @example
  * isMap(new Map())
  * // => true
@@ -494,8 +490,8 @@ const isMap = (val) => isInstanceOf(val, Map);
  *
  * @memberof Is
  * @since 1.0.0
- * @param {any} val
- * @returns {boolean}
+ * @param {any} val Value to check.
+ * @returns {boolean} If the value is an object.
  * @example
  * isObject({})
  * // => true
@@ -518,8 +514,8 @@ const isObject = (val) => !isNil(val) && (isTypeOf(val, "object") || isTypeOf(va
  *
  * @memberof Is
  * @since 2.9.0
- * @param {any} val
- * @returns {boolean}
+ * @param {any} val Value to check.
+ * @returns {boolean} If the value is a plain object.
  * @example
  * isObjectPlain({})
  * // => true
@@ -540,8 +536,8 @@ const isObjectPlain = (val) => isObject(val) && val.constructor === Object;
  *
  * @memberof Is
  * @since 3.0.0
- * @param {any} val
- * @returns {boolean}
+ * @param {any} val Value to check.
+ * @returns {boolean} If the value is a promise.
  * @example
  * isPromise(new Promise((resolve, reject) => resolve("foo")));
  * // => true
@@ -556,8 +552,8 @@ const isPromise = (val) => isInstanceOf(val, Promise);
  *
  * @memberof Is
  * @since 2.10.0
- * @param {any} val
- * @returns {boolean}
+ * @param {any} val Value to check.
+ * @returns {boolean} If the value is a regular expression.
  * @example
  * isRegExp(new RegExp("foo"))
  * // => true
@@ -575,8 +571,8 @@ const isRegExp = (val) => isInstanceOf(val, RegExp);
  *
  * @memberof Is
  * @since 1.0.0
- * @param {any} val
- * @returns {boolean}
+ * @param {any} val Value to check.
+ * @returns {boolean} If the value is a set.
  * @example
  * isSet(new Set())
  * // => true
@@ -591,8 +587,8 @@ const isSet = (val) => isInstanceOf(val, Set);
  *
  * @memberof Is
  * @since 1.0.0
- * @param {any} val
- * @returns {boolean}
+ * @param {any} val Value to check.
+ * @returns {boolean} If the value is a symbol.
  * @example
  * isSymbol(Symbol())
  * // => true
@@ -612,9 +608,9 @@ const isSymbol = (val) => isTypeOf(val, "symbol");
  *
  * @memberof Get
  * @since 2.0.0
- * @param {any} target
- * @param {string[]} path
- * @returns {any}
+ * @param {any} target Target to check.
+ * @param {string[]} path Path to use.
+ * @returns {any} The value which was looked up, or null if the path could not be resolved.
  * @example
  * getPath({a: 1}, ["a"]);
  * // => 1

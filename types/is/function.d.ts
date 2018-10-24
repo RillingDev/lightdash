@@ -4,8 +4,8 @@ import { anyFn } from "../fn/lib/anyFn";
  *
  * @memberof Is
  * @since 1.0.0
- * @param {any} val
- * @returns {boolean}
+ * @param {any} val Value to check.
+ * @returns {boolean} If the value is a function.
  * @example
  * isFunction(function a(){})
  * // => true
