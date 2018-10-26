@@ -1,5 +1,4 @@
 import { isIndex } from "./is/_index";
-import { isArray } from "./is/array";
 import { isArrayBuffer } from "./is/arrayBuffer";
 import { isArrayLike } from "./is/arrayLike";
 import { isArrayTyped } from "./is/arrayTyped";
@@ -92,7 +91,6 @@ export {
     isObject,
     isObjectLike,
     isObjectPlain,
-    isArray,
     isArrayLike,
     isArrayBuffer,
     isArrayTyped,

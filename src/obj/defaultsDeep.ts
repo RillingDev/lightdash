@@ -1,5 +1,4 @@
 import { forEachEntry } from "../for/eachEntry";
-import { isArray } from "../is/array";
 import { isObjectLike } from "../is/objectLike";
 import { isUndefined } from "../is/undefined";
 import { objFrom } from "./from";
@@ -22,7 +21,7 @@ const objDefaultsDeep = (
     obj: ITypedObject<any>,
     objDefault: ITypedObject<any>
 ): ITypedObject<any> => {
-    const result: ITypedObject<any> = isArray(obj)
+    const result: ITypedObject<any> = Array.isArray(obj)
         ? Array.from(obj)
         : objFrom(obj);
 

@@ -24,17 +24,6 @@
 const isIndex = (val) => Number.isInteger(val) && val >= 0;
 
 /**
- * Checks if a value is an array.
- *
- * Alias of the native `Array.isArray`.
- *
- * @alias Array.isArray
- * @memberof Is
- * @since 1.0.0
- */
-const isArray = Array.isArray;
-
-/**
  * Checks if the value is an instance of a target constructor.
  *
  * @memberof Is
@@ -1053,7 +1042,7 @@ const arrDifference = (arr, ...values) => {
  * arrMapDeep([2, 4, [1, 1, [16], 4]], val => val * 2)
  * // => [4, 8, [2, 2, [32], 8]]
  */
-const arrMapDeep = (arr, fn) => arr.map((val, index) => isArray(val) ? arrMapDeep(val, fn) : fn(val, index, arr));
+const arrMapDeep = (arr, fn) => arr.map((val, index) => Array.isArray(val) ? arrMapDeep(val, fn) : fn(val, index, arr));
 
 /**
  * Recursively creates a new array with the values of the input iterable.
@@ -1070,7 +1059,7 @@ const arrMapDeep = (arr, fn) => arr.map((val, index) => isArray(val) ? arrMapDee
  * // a = [1, 2, 3, [5, [6]]]
  * // b = [1, 2, 3, [5, [10]]]
  */
-const arrFromDeep = (arr) => arrMapDeep(Array.from(arr), val => (isArray(val) ? Array.from(val) : val));
+const arrFromDeep = (arr) => arrMapDeep(Array.from(arr), val => Array.isArray(val) ? Array.from(val) : val);
 
 /**
  * Returns an array of all elements that exist in the first array and at least once in one of the other arrays.
@@ -1167,7 +1156,7 @@ const arrUniq = (arr) => Array.from(new Set(arr));
  * // => {a: 8, b: 4}
  */
 const objMap = (obj, fn) => {
-    const objNew = isArray(obj) ? [] : {};
+    const objNew = Array.isArray(obj) ? [] : {};
     forEachEntry(obj, (key, val, index) => {
         objNew[key] = fn(key, val, index, obj);
     });
@@ -1241,7 +1230,7 @@ const objFrom = (obj) => Object.assign({}, obj);
  * // => {a: 1, b: 2, c: 5}
  */
 const objDefaults = (obj, objDefault) => {
-    const result = isArray(obj)
+    const result = Array.isArray(obj)
         ? Array.from(obj)
         : objFrom(obj);
     forEachEntry(objDefault, (keyDefault, valDefault) => {
@@ -1266,7 +1255,7 @@ const objDefaults = (obj, objDefault) => {
  * // => {a: [1, 2, 3], b: 2, c: {f: "x"}}
  */
 const objDefaultsDeep = (obj, objDefault) => {
-    const result = isArray(obj)
+    const result = Array.isArray(obj)
         ? Array.from(obj)
         : objFrom(obj);
     forEachEntry(objDefault, (keyDefault, valDefault) => {
@@ -1344,7 +1333,7 @@ const mapFromObject = (obj) => new Map(Object.entries(obj));
  * })
  * // a = [0, 4, [0, 1, [0], 12]]
  */
-const forEachDeep = (arr, fn) => arr.forEach((val, index) => isArray(val) ? forEachDeep(val, fn) : fn(val, index, arr));
+const forEachDeep = (arr, fn) => arr.forEach((val, index) => Array.isArray(val) ? forEachDeep(val, fn) : fn(val, index, arr));
 
 /**
  * Recursively iterates over each entry of an object.
@@ -1571,4 +1560,4 @@ const randShuffle = (arr) => {
  * @namespace Random
  */
 
-export { isEqual, isInstanceOf, isTypeOf, isUndefined, isNil, isNumber, isString, isBoolean, isSymbol, isObject, isObjectLike, isObjectPlain, isArray, isArrayLike, isArrayBuffer, isArrayTyped, isPromise, isMap, isSet, isWeakMap, isWeakSet, isDate, isRegExp, isFunction, isError, isEmpty, isIndex, getPath, getSize, numClamp, numSafe, strDistance, strSimilar, strFromCamelCase, strFromKebabCase, strFromPascalCase, strFromSnakeCase, strToCamelCase, strToKebabCase, strToPascalCase, strToSnakeCase, arrFromDeep, arrMapDeep, arrCompact, arrChunk, arrStep, arrRemoveIndex, arrRemoveItem, arrCount, arrCollect, arrDifference, arrIntersection, arrUniq, objFrom, objFromDeep, objMap, objMapDeep, objDefaults, objDefaultsDeep, objDecycle, mapFromObject, fnDebounce, fnThrottle, forEachDeep, forEachEntry, forEachEntryDeep, searchBinary, randNumber, randItem, randShuffle };
+export { isEqual, isInstanceOf, isTypeOf, isUndefined, isNil, isNumber, isString, isBoolean, isSymbol, isObject, isObjectLike, isObjectPlain, isArrayLike, isArrayBuffer, isArrayTyped, isPromise, isMap, isSet, isWeakMap, isWeakSet, isDate, isRegExp, isFunction, isError, isEmpty, isIndex, getPath, getSize, numClamp, numSafe, strDistance, strSimilar, strFromCamelCase, strFromKebabCase, strFromPascalCase, strFromSnakeCase, strToCamelCase, strToKebabCase, strToPascalCase, strToSnakeCase, arrFromDeep, arrMapDeep, arrCompact, arrChunk, arrStep, arrRemoveIndex, arrRemoveItem, arrCount, arrCollect, arrDifference, arrIntersection, arrUniq, objFrom, objFromDeep, objMap, objMapDeep, objDefaults, objDefaultsDeep, objDecycle, mapFromObject, fnDebounce, fnThrottle, forEachDeep, forEachEntry, forEachEntryDeep, searchBinary, randNumber, randItem, randShuffle };
