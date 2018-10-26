@@ -32,7 +32,6 @@ import { numClamp } from "./num/clamp";
 import { numSafe } from "./num/safe";
 
 import { strDistance } from "./str/distance";
-import { strFromCamelCase } from "./str/fromCamelCase";
 import { strFromKebabCase } from "./str/fromKebabCase";
 import { strFromPascalCase } from "./str/fromPascalCase";
 import { strFromSnakeCase } from "./str/fromSnakeCase";
@@ -111,7 +110,6 @@ export {
     numSafe,
     strDistance,
     strSimilar,
-    strFromCamelCase,
     strFromKebabCase,
     strFromPascalCase,
     strFromSnakeCase,

@@ -1,7 +1,9 @@
 import { arrCompact } from "../arr/compact";
 
 /**
- * Creates an array of words from a PascalCase string.
+ * Creates an array of words from a PascalCase or camelCase string.
+ *
+ * Functions the same as the removed strFromCamelCase.
  *
  * @memberof String
  * @since 6.2.0

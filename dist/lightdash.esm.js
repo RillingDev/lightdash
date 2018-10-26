@@ -767,7 +767,25 @@ const strDistance = (str1, str2) => {
 const arrCompact = (arr) => arr.filter(val => val);
 
 /**
- * Creates an array of words from a PascalCase string.
+ * Creates an array of words from a kebab-case string.
+ *
+ * @memberof String
+ * @since 6.2.0
+ * @param {string} str String in kebab-case.
+ * @returns {string[]} Words of the kebab-case string.
+ * @example
+ * strFromKebabCase("foo-bar")
+ * // => ["foo", "bar"]
+ *
+ * strFromKebabCase("Fizz-buzz-BaZZ")
+ * // => ["Fizz","buzz","BaZZ"]
+ */
+const strFromKebabCase = (str) => arrCompact(str.split("-" /* KEBAB */));
+
+/**
+ * Creates an array of words from a PascalCase or camelCase string.
+ *
+ * Functions the same as the removed strFromCamelCase.
  *
  * @memberof String
  * @since 6.2.0
@@ -793,38 +811,6 @@ const strFromPascalCase = (str) => {
     result.push(cache.join(""));
     return arrCompact(result);
 };
-
-/**
- * Creates an array of substrings from a camelCase string.
- *
- * Alias of {@link strFromPascalCase}.
- *
- * @alias strFromPascalCase
- * @memberof String
- * @since 6.2.0
- * strFromCamelCase("fooBar")
- * // => ["foo", "Bar"]
- *
- * strFromCamelCase("fizzBuzzBazz")
- * // => ["fizz","Buzz","Bazz"]
- */
-const strFromCamelCase = strFromPascalCase;
-
-/**
- * Creates an array of words from a kebab-case string.
- *
- * @memberof String
- * @since 6.2.0
- * @param {string} str String in kebab-case.
- * @returns {string[]} Words of the kebab-case string.
- * @example
- * strFromKebabCase("foo-bar")
- * // => ["foo", "bar"]
- *
- * strFromKebabCase("Fizz-buzz-BaZZ")
- * // => ["Fizz","buzz","BaZZ"]
- */
-const strFromKebabCase = (str) => arrCompact(str.split("-" /* KEBAB */));
 
 /**
  * Creates an array of words from a snake_case string.
@@ -1560,4 +1546,4 @@ const randShuffle = (arr) => {
  * @namespace Random
  */
 
-export { isEqual, isInstanceOf, isTypeOf, isUndefined, isNil, isNumber, isString, isBoolean, isSymbol, isObject, isObjectLike, isObjectPlain, isArrayLike, isArrayBuffer, isArrayTyped, isPromise, isMap, isSet, isWeakMap, isWeakSet, isDate, isRegExp, isFunction, isError, isEmpty, isIndex, getPath, getSize, numClamp, numSafe, strDistance, strSimilar, strFromCamelCase, strFromKebabCase, strFromPascalCase, strFromSnakeCase, strToCamelCase, strToKebabCase, strToPascalCase, strToSnakeCase, arrFromDeep, arrMapDeep, arrCompact, arrChunk, arrStep, arrRemoveIndex, arrRemoveItem, arrCount, arrCollect, arrDifference, arrIntersection, arrUniq, objFrom, objFromDeep, objMap, objMapDeep, objDefaults, objDefaultsDeep, objDecycle, mapFromObject, fnDebounce, fnThrottle, forEachDeep, forEachEntry, forEachEntryDeep, searchBinary, randNumber, randItem, randShuffle };
+export { isEqual, isInstanceOf, isTypeOf, isUndefined, isNil, isNumber, isString, isBoolean, isSymbol, isObject, isObjectLike, isObjectPlain, isArrayLike, isArrayBuffer, isArrayTyped, isPromise, isMap, isSet, isWeakMap, isWeakSet, isDate, isRegExp, isFunction, isError, isEmpty, isIndex, getPath, getSize, numClamp, numSafe, strDistance, strSimilar, strFromKebabCase, strFromPascalCase, strFromSnakeCase, strToCamelCase, strToKebabCase, strToPascalCase, strToSnakeCase, arrFromDeep, arrMapDeep, arrCompact, arrChunk, arrStep, arrRemoveIndex, arrRemoveItem, arrCount, arrCollect, arrDifference, arrIntersection, arrUniq, objFrom, objFromDeep, objMap, objMapDeep, objDefaults, objDefaultsDeep, objDecycle, mapFromObject, fnDebounce, fnThrottle, forEachDeep, forEachEntry, forEachEntryDeep, searchBinary, randNumber, randItem, randShuffle };
