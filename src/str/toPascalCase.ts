@@ -1,10 +1,10 @@
 /**
- * Creates a PascalCase string from an array of substrings.
+ * Creates a PascalCase string from an array of words.
  *
  * @memberof String
  * @since 6.2.0
- * @param {string[]} arr
- * @returns {string}
+ * @param {string[]} arr Words to use.
+ * @returns {string} PascalCase string of the words.
  * @example
  * strToPascalCase(["foo", "bar"])
  * // => "FooBar"

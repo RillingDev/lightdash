@@ -6,7 +6,7 @@ import { forEachIterator } from "./lib/forEachIterator";
  *
  * @memberof For
  * @param {any[]} arr Array to iterate.
- * @param {function} fn Function to use (`fn(val: *, index: number, arr: any[])`).
+ * @param {function} fn Function to use (`fn(val: *, index: number, arr: any[]) => void`).
  * @example
  * const a = [2, 4, [1, 1, [16], 4]];
  *

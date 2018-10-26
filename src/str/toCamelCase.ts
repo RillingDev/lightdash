@@ -1,10 +1,10 @@
 /**
- * Creates a camelCase string from an array of substrings.
+ * Creates a camelCase string from an array of words.
  *
  * @memberof String
  * @since 6.2.0
- * @param {string[]} arr
- * @returns {string}
+ * @param {string[]} arr Words to use.
+ * @returns {string} camelCase string of the words.
  * @example
  * strToCamelCase(["foo", "bar"])
  * // => "fooBar"

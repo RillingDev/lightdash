@@ -5,11 +5,9 @@ import { strFromPascalCase } from "./fromPascalCase";
  *
  * Alias of {@link strFromPascalCase}.
  *
+ * @alias strFromPascalCase
  * @memberof String
  * @since 6.2.0
- * @param {string} str
- * @returns {string[]}
- * @example
  * strFromCamelCase("fooBar")
  * // => ["foo", "Bar"]
  *

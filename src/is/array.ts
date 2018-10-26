@@ -3,6 +3,7 @@
  *
  * Alias of the native `Array.isArray`.
  *
+ * @alias Array.isArray
  * @memberof Is
  * @since 1.0.0
  */

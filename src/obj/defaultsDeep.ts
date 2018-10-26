@@ -11,9 +11,9 @@ import { ITypedObject } from "./lib/ITypedObject";
  *
  * @memberof Object
  * @since 2.7.0
- * @param {Object} obj
- * @param {Object} objDefault
- * @returns {Object}
+ * @param {Object} obj Object to default.
+ * @param {Object} objDefault Object containing the default values.
+ * @returns {Object} Object containing the default values in keys it did not have or had nil value in.
  * @example
  * objDefaultsDeep({a: [1, 2], c: {f: "x"}}, {a: [1, 2, 3], b: 2, c: {f: "y"}})
  * // => {a: [1, 2, 3], b: 2, c: {f: "x"}}

@@ -2,12 +2,12 @@ import { arrCompact } from "../arr/compact";
 import { Delimiters } from "./lib/Delimiters";
 
 /**
- * Creates an array of substrings from a snake_case string.
+ * Creates an array of words from a snake_case string.
  *
  * @memberof String
  * @since 6.2.0
- * @param {string} str
- * @returns {string[]}
+ * @param {string} str String in snake_case.
+ * @returns {string[]} Words of the snake_case string.
  * @example
  * strFromSnakeCase("foo_bar")
  * // => ["foo", "bar"]

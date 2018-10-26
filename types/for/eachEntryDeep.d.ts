@@ -5,7 +5,7 @@ import { forEachEntryIterator } from "./lib/forEachEntryIterator";
  *
  * @memberof For
  * @param {object} obj Object to iterate.
- * @param {function} fn Function to use (`fn(key: *, val: *, index: number, obj: object)`).
+ * @param {function} fn Function to use (`fn(key: *, val: *, index: number, obj: object) => void`).
  * @example
  * const a = {a: 1, b: {c: [1, 2]}};
  *

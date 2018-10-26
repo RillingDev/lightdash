@@ -59,7 +59,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="lightdash.esm.js.html">lightdash.esm.js</a>, <a href="lightdash.esm.js.html#line1510">line 1510</a>
+        <a href="lightdash.esm.js.html">lightdash.esm.js</a>, <a href="lightdash.esm.js.html#line1509">line 1509</a>
     </li></ul></dd>
     
 
@@ -120,7 +120,7 @@
 
         
             
-<h4 class="name" id=".strFromCamelCase"><span class="type-signature">(static, constant) </span>strFromCamelCase<span class="type-signature"></span></h4>
+<h4 class="name" id="strFromPascalCase"><span class="type-signature">(constant) </span>strFromPascalCase<span class="type-signature"></span></h4>
 
 
 
@@ -131,7 +131,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="lightdash.esm.js.html">lightdash.esm.js</a>, <a href="lightdash.esm.js.html#line791">line 791</a>
+        <a href="lightdash.esm.js.html">lightdash.esm.js</a>, <a href="lightdash.esm.js.html#line790">line 790</a>
     </li></ul></dd>
     
 
@@ -139,7 +139,12 @@
 
     
     <dt class="tag-since">Since:</dt>
-    <dd class="tag-since"><ul class="dummy"><li>6.2.0</li></ul></dd>
+    <dd class="tag-since"><ul class="dummy"><li>6.2.0
+strFromCamelCase("fooBar")
+// => ["foo", "Bar"]
+
+strFromCamelCase("fizzBuzzBazz")
+// => ["fizz","Buzz","Bazz"]</li></ul></dd>
     
 
     
@@ -175,22 +180,13 @@
 
 <div class="description">
     <p>Creates an array of substrings from a camelCase string.</p>
-<p>Alias of strFromPascalCase.</p>
+<p>Alias of <a href="String.html">strFromPascalCase</a>.</p>
 </div>
 
 
 
 
 
-
-
-    <h5>Example</h5>
-    
-    <pre class="prettyprint"><code>strFromCamelCase("fooBar")
-// => ["foo", "Bar"]
-
-strFromCamelCase("fizzBuzzBazz")
-// => ["fizz","Buzz","Bazz"]</code></pre>
 
 
 
@@ -217,7 +213,7 @@ strFromCamelCase("fizzBuzzBazz")
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="lightdash.esm.js.html">lightdash.esm.js</a>, <a href="lightdash.esm.js.html#line702">line 702</a>
+        <a href="lightdash.esm.js.html">lightdash.esm.js</a>, <a href="lightdash.esm.js.html#line703">line 703</a>
     </li></ul></dd>
     
 
@@ -260,7 +256,7 @@ strFromCamelCase("fizzBuzzBazz")
 
 
 <div class="description">
-    <p>Returns Levenshtein string distance of two strings.</p>
+    <p>Returns the levenshtein string distance of two strings.</p>
 </div>
 
 
@@ -326,7 +322,7 @@ strDistance("foo", "foo")
 
             
 
-            <td class="description last"></td>
+            <td class="description last"><p>First string to compare.</p></td>
         </tr>
 
     
@@ -349,7 +345,7 @@ strDistance("foo", "foo")
 
             
 
-            <td class="description last"></td>
+            <td class="description last"><p>Second string to compare.</p></td>
         </tr>
 
     
@@ -372,6 +368,10 @@ strDistance("foo", "foo")
 <h5>Returns:</h5>
 
         
+<div class="param-desc">
+    <p>Distance between the two strings.</p>
+</div>
+
 
 
 <dl class="param-type">
@@ -406,7 +406,7 @@ strDistance("foo", "foo")
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="lightdash.esm.js.html">lightdash.esm.js</a>, <a href="lightdash.esm.js.html#line807">line 807</a>
+        <a href="lightdash.esm.js.html">lightdash.esm.js</a>, <a href="lightdash.esm.js.html#line806">line 806</a>
     </li></ul></dd>
     
 
@@ -449,7 +449,7 @@ strDistance("foo", "foo")
 
 
 <div class="description">
-    <p>Creates an array of substrings from a kebab-case string.</p>
+    <p>Creates an array of words from a kebab-case string.</p>
 </div>
 
 
@@ -512,7 +512,7 @@ strFromKebabCase("Fizz-buzz-BaZZ")
 
             
 
-            <td class="description last"></td>
+            <td class="description last"><p>String in kebab-case.</p></td>
         </tr>
 
     
@@ -535,6 +535,10 @@ strFromKebabCase("Fizz-buzz-BaZZ")
 <h5>Returns:</h5>
 
         
+<div class="param-desc">
+    <p>Words of the kebab-case string.</p>
+</div>
+
 
 
 <dl class="param-type">
@@ -569,7 +573,7 @@ strFromKebabCase("Fizz-buzz-BaZZ")
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="lightdash.esm.js.html">lightdash.esm.js</a>, <a href="lightdash.esm.js.html#line761">line 761</a>
+        <a href="lightdash.esm.js.html">lightdash.esm.js</a>, <a href="lightdash.esm.js.html#line762">line 762</a>
     </li></ul></dd>
     
 
@@ -612,7 +616,7 @@ strFromKebabCase("Fizz-buzz-BaZZ")
 
 
 <div class="description">
-    <p>Creates an array of substrings from a PascalCase string.</p>
+    <p>Creates an array of words from a PascalCase string.</p>
 </div>
 
 
@@ -675,7 +679,7 @@ strFromPascalCase("FizzBuzzBazz")
 
             
 
-            <td class="description last"></td>
+            <td class="description last"><p>String in PascalCase.</p></td>
         </tr>
 
     
@@ -698,6 +702,10 @@ strFromPascalCase("FizzBuzzBazz")
 <h5>Returns:</h5>
 
         
+<div class="param-desc">
+    <p>Words of the PascalCase string.</p>
+</div>
+
 
 
 <dl class="param-type">
@@ -732,7 +740,7 @@ strFromPascalCase("FizzBuzzBazz")
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="lightdash.esm.js.html">lightdash.esm.js</a>, <a href="lightdash.esm.js.html#line823">line 823</a>
+        <a href="lightdash.esm.js.html">lightdash.esm.js</a>, <a href="lightdash.esm.js.html#line822">line 822</a>
     </li></ul></dd>
     
 
@@ -775,7 +783,7 @@ strFromPascalCase("FizzBuzzBazz")
 
 
 <div class="description">
-    <p>Creates an array of substrings from a snake_case string.</p>
+    <p>Creates an array of words from a snake_case string.</p>
 </div>
 
 
@@ -838,7 +846,7 @@ strFromSnakeCase("Fizz_buzz_BaZZ")
 
             
 
-            <td class="description last"></td>
+            <td class="description last"><p>String in snake_case.</p></td>
         </tr>
 
     
@@ -861,6 +869,10 @@ strFromSnakeCase("Fizz_buzz_BaZZ")
 <h5>Returns:</h5>
 
         
+<div class="param-desc">
+    <p>Words of the snake_case string.</p>
+</div>
+
 
 
 <dl class="param-type">
@@ -895,7 +907,7 @@ strFromSnakeCase("Fizz_buzz_BaZZ")
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="lightdash.esm.js.html">lightdash.esm.js</a>, <a href="lightdash.esm.js.html#line873">line 873</a>
+        <a href="lightdash.esm.js.html">lightdash.esm.js</a>, <a href="lightdash.esm.js.html#line872">line 872</a>
     </li></ul></dd>
     
 
@@ -938,7 +950,7 @@ strFromSnakeCase("Fizz_buzz_BaZZ")
 
 
 <div class="description">
-    <p>Returns strings similar to the input based on the list given.</p>
+    <p>Returns strings similar to the input based its distance to the values in the list given.</p>
 </div>
 
 
@@ -1023,7 +1035,7 @@ strSimilar("cmmit", ["init", "commit", "push"], true)
                 </td>
             
 
-            <td class="description last"></td>
+            <td class="description last"><p>String to check.</p></td>
         </tr>
 
     
@@ -1058,7 +1070,7 @@ strSimilar("cmmit", ["init", "commit", "push"], true)
                 </td>
             
 
-            <td class="description last"></td>
+            <td class="description last"><p>Array of values to compare the string to.</p></td>
         </tr>
 
     
@@ -1097,7 +1109,7 @@ strSimilar("cmmit", ["init", "commit", "push"], true)
                 </td>
             
 
-            <td class="description last"></td>
+            <td class="description last"><p>If the full map should be returned, rather than just the closest matches.</p></td>
         </tr>
 
     
@@ -1120,6 +1132,10 @@ strSimilar("cmmit", ["init", "commit", "push"], true)
 <h5>Returns:</h5>
 
         
+<div class="param-desc">
+    <p>Array of the closest matches, or the map if <code>returnFull</code> is true.</p>
+</div>
+
 
 
 <dl class="param-type">
@@ -1157,7 +1173,7 @@ strSimilar("cmmit", ["init", "commit", "push"], true)
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="lightdash.esm.js.html">lightdash.esm.js</a>, <a href="lightdash.esm.js.html#line892">line 892</a>
+        <a href="lightdash.esm.js.html">lightdash.esm.js</a>, <a href="lightdash.esm.js.html#line891">line 891</a>
     </li></ul></dd>
     
 
@@ -1200,7 +1216,7 @@ strSimilar("cmmit", ["init", "commit", "push"], true)
 
 
 <div class="description">
-    <p>Creates a camelCase string from an array of substrings.</p>
+    <p>Creates a camelCase string from an array of words.</p>
 </div>
 
 
@@ -1263,7 +1279,7 @@ strToCamelCase(["Fizz","buzz","BaZZ"])
 
             
 
-            <td class="description last"></td>
+            <td class="description last"><p>Words to use.</p></td>
         </tr>
 
     
@@ -1286,6 +1302,10 @@ strToCamelCase(["Fizz","buzz","BaZZ"])
 <h5>Returns:</h5>
 
         
+<div class="param-desc">
+    <p>camelCase string of the words.</p>
+</div>
+
 
 
 <dl class="param-type">
@@ -1320,7 +1340,7 @@ strToCamelCase(["Fizz","buzz","BaZZ"])
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="lightdash.esm.js.html">lightdash.esm.js</a>, <a href="lightdash.esm.js.html#line913">line 913</a>
+        <a href="lightdash.esm.js.html">lightdash.esm.js</a>, <a href="lightdash.esm.js.html#line912">line 912</a>
     </li></ul></dd>
     
 
@@ -1363,7 +1383,7 @@ strToCamelCase(["Fizz","buzz","BaZZ"])
 
 
 <div class="description">
-    <p>Creates a kebab-case string from an array of substrings.</p>
+    <p>Creates a kebab-case string from an array of words.</p>
 </div>
 
 
@@ -1426,7 +1446,7 @@ strToKebabCase(["Fizz","buzz","BaZZ"])
 
             
 
-            <td class="description last"></td>
+            <td class="description last"><p>Words to use.</p></td>
         </tr>
 
     
@@ -1449,6 +1469,10 @@ strToKebabCase(["Fizz","buzz","BaZZ"])
 <h5>Returns:</h5>
 
         
+<div class="param-desc">
+    <p>kebab-case string of the words.</p>
+</div>
+
 
 
 <dl class="param-type">
@@ -1483,7 +1507,7 @@ strToKebabCase(["Fizz","buzz","BaZZ"])
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="lightdash.esm.js.html">lightdash.esm.js</a>, <a href="lightdash.esm.js.html#line929">line 929</a>
+        <a href="lightdash.esm.js.html">lightdash.esm.js</a>, <a href="lightdash.esm.js.html#line928">line 928</a>
     </li></ul></dd>
     
 
@@ -1526,7 +1550,7 @@ strToKebabCase(["Fizz","buzz","BaZZ"])
 
 
 <div class="description">
-    <p>Creates a PascalCase string from an array of substrings.</p>
+    <p>Creates a PascalCase string from an array of words.</p>
 </div>
 
 
@@ -1589,7 +1613,7 @@ strToPascalCase(["Fizz","buzz","BaZZ"])
 
             
 
-            <td class="description last"></td>
+            <td class="description last"><p>Words to use.</p></td>
         </tr>
 
     
@@ -1612,6 +1636,10 @@ strToPascalCase(["Fizz","buzz","BaZZ"])
 <h5>Returns:</h5>
 
         
+<div class="param-desc">
+    <p>PascalCase string of the words.</p>
+</div>
+
 
 
 <dl class="param-type">
@@ -1646,7 +1674,7 @@ strToPascalCase(["Fizz","buzz","BaZZ"])
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="lightdash.esm.js.html">lightdash.esm.js</a>, <a href="lightdash.esm.js.html#line947">line 947</a>
+        <a href="lightdash.esm.js.html">lightdash.esm.js</a>, <a href="lightdash.esm.js.html#line946">line 946</a>
     </li></ul></dd>
     
 
@@ -1689,7 +1717,7 @@ strToPascalCase(["Fizz","buzz","BaZZ"])
 
 
 <div class="description">
-    <p>Creates a snake_case string from an array of substrings.</p>
+    <p>Creates a snake_case string from an array of words.</p>
 </div>
 
 
@@ -1752,7 +1780,7 @@ strToSnakeCase(["Fizz","buzz","BaZZ"])
 
             
 
-            <td class="description last"></td>
+            <td class="description last"><p>Words to use.</p></td>
         </tr>
 
     
@@ -1775,6 +1803,10 @@ strToSnakeCase(["Fizz","buzz","BaZZ"])
 <h5>Returns:</h5>
 
         
+<div class="param-desc">
+    <p>snake_case string of the words.</p>
+</div>
+
 
 
 <dl class="param-type">
@@ -1812,7 +1844,7 @@ strToSnakeCase(["Fizz","buzz","BaZZ"])
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Fri Oct 26 2018 18:15:27 GMT+0200 (Central European Summer Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Fri Oct 26 2018 18:36:58 GMT+0200 (Central European Summer Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
 </footer>
 
 <script>prettyPrint();</script>

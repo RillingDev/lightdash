@@ -1,12 +1,12 @@
 import { arrCompact } from "../arr/compact";
 
 /**
- * Creates an array of substrings from a PascalCase string.
+ * Creates an array of words from a PascalCase string.
  *
  * @memberof String
  * @since 6.2.0
- * @param {string} str
- * @returns {string[]}
+ * @param {string} str String in PascalCase.
+ * @returns {string[]} Words of the PascalCase string.
  * @example
  * strFromPascalCase("FooBar")
  * // => ["Foo", "Bar"]

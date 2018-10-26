@@ -3,14 +3,14 @@ import { strDistance } from "./distance";
 
 // noinspection SpellCheckingInspection
 /**
- * Returns strings similar to the input based on the list given.
+ * Returns strings similar to the input based its distance to the values in the list given.
  *
  * @memberof String
  * @since 6.3.0
- * @param {string} str
- * @param {Array<string>} list
- * @param {boolean} [returnFull=false]
- * @returns {Array<string>|Map<number,string[]>}
+ * @param {string} str String to check.
+ * @param {Array<string>} list Array of values to compare the string to.
+ * @param {boolean} [returnFull=false] If the full map should be returned, rather than just the closest matches.
+ * @returns {Array<string>|Map<number,string[]>} Array of the closest matches, or the map if `returnFull` is true.
  * @example
  * strSimilar("Fob", ["Foo", "Bar"])
  * // => ["Foo"]

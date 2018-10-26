@@ -7,10 +7,10 @@ import { ITypedObject } from "./lib/ITypedObject";
  *
  * @memberof Object
  * @since 6.0.0
- * @param {Object} obj
- * @param {function} [fn = () => null] fn(key: *, val: any, index: number, obj: object)
- * @param {WeakSet<any>} [references=new WeakSet()]
- * @returns {Object}
+ * @param {Object} obj Object to decycle.
+ * @param {function} [fn=() => null] Decycling function (`fn(key: *, val: any, index: number, obj: object) => void`)
+ * @param {WeakSet<any>} [references=new WeakSet()] WeakSet prefilled with encountered references.
+ * @returns {Object} Decycled object.
  * @example
  * const a = {a: {}, b: 1, c: 2};
  *

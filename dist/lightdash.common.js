@@ -7,6 +7,7 @@ Object.defineProperty(exports, '__esModule', { value: true });
  *
  * Alias of the native `Array.isArray`.
  *
+ * @alias Array.isArray
  * @memberof Is
  * @since 1.0.0
  */
@@ -348,7 +349,7 @@ const isEmpty = (val) => getSize(val) < 1;
  *
  * @memberof For
  * @param {object} obj Object to iterate.
- * @param {function} fn Function to use (`fn(key: *, val: *, index: number, obj: object)`).
+ * @param {function} fn Function to use (`fn(key: *, val: *, index: number, obj: object) => void`).
  * @example
  * const a = {a: 1, b: 2};
  *
@@ -686,13 +687,13 @@ const numSafe = (val) => numClamp(val, Number.MIN_SAFE_INTEGER, Number.MAX_SAFE_
 
 // noinspection SpellCheckingInspection
 /**
- * Returns Levenshtein string distance of two strings.
+ * Returns the levenshtein string distance of two strings.
  *
  * @memberof String
  * @since 6.3.0
- * @param {string} str1
- * @param {string} str2
- * @returns {number}
+ * @param {string} str1 First string to compare.
+ * @param {string} str2 Second string to compare.
+ * @returns {number} Distance between the two strings.
  * @example
  * strDistance("Kitten", "Sitting")
  * // => 3
@@ -749,12 +750,12 @@ const strDistance = (str1, str2) => {
 const arrCompact = (arr) => arr.filter(val => val);
 
 /**
- * Creates an array of substrings from a PascalCase string.
+ * Creates an array of words from a PascalCase string.
  *
  * @memberof String
  * @since 6.2.0
- * @param {string} str
- * @returns {string[]}
+ * @param {string} str String in PascalCase.
+ * @returns {string[]} Words of the PascalCase string.
  * @example
  * strFromPascalCase("FooBar")
  * // => ["Foo", "Bar"]
@@ -781,11 +782,9 @@ const strFromPascalCase = (str) => {
  *
  * Alias of {@link strFromPascalCase}.
  *
+ * @alias strFromPascalCase
  * @memberof String
  * @since 6.2.0
- * @param {string} str
- * @returns {string[]}
- * @example
  * strFromCamelCase("fooBar")
  * // => ["foo", "Bar"]
  *
@@ -795,12 +794,12 @@ const strFromPascalCase = (str) => {
 const strFromCamelCase = strFromPascalCase;
 
 /**
- * Creates an array of substrings from a kebab-case string.
+ * Creates an array of words from a kebab-case string.
  *
  * @memberof String
  * @since 6.2.0
- * @param {string} str
- * @returns {string[]}
+ * @param {string} str String in kebab-case.
+ * @returns {string[]} Words of the kebab-case string.
  * @example
  * strFromKebabCase("foo-bar")
  * // => ["foo", "bar"]
@@ -811,12 +810,12 @@ const strFromCamelCase = strFromPascalCase;
 const strFromKebabCase = (str) => arrCompact(str.split("-" /* KEBAB */));
 
 /**
- * Creates an array of substrings from a snake_case string.
+ * Creates an array of words from a snake_case string.
  *
  * @memberof String
  * @since 6.2.0
- * @param {string} str
- * @returns {string[]}
+ * @param {string} str String in snake_case.
+ * @returns {string[]} Words of the snake_case string.
  * @example
  * strFromSnakeCase("foo_bar")
  * // => ["foo", "bar"]
@@ -853,14 +852,14 @@ const arrCollect = (arr, fn) => {
 
 // noinspection SpellCheckingInspection
 /**
- * Returns strings similar to the input based on the list given.
+ * Returns strings similar to the input based its distance to the values in the list given.
  *
  * @memberof String
  * @since 6.3.0
- * @param {string} str
- * @param {Array<string>} list
- * @param {boolean} [returnFull=false]
- * @returns {Array<string>|Map<number,string[]>}
+ * @param {string} str String to check.
+ * @param {Array<string>} list Array of values to compare the string to.
+ * @param {boolean} [returnFull=false] If the full map should be returned, rather than just the closest matches.
+ * @returns {Array<string>|Map<number,string[]>} Array of the closest matches, or the map if `returnFull` is true.
  * @example
  * strSimilar("Fob", ["Foo", "Bar"])
  * // => ["Foo"]
@@ -880,12 +879,12 @@ const strSimilar = (str, list, returnFull = false) => {
 };
 
 /**
- * Creates a camelCase string from an array of substrings.
+ * Creates a camelCase string from an array of words.
  *
  * @memberof String
  * @since 6.2.0
- * @param {string[]} arr
- * @returns {string}
+ * @param {string[]} arr Words to use.
+ * @returns {string} camelCase string of the words.
  * @example
  * strToCamelCase(["foo", "bar"])
  * // => "fooBar"
@@ -901,12 +900,12 @@ const strToCamelCase = (arr) => arr
     .join("");
 
 /**
- * Creates a kebab-case string from an array of substrings.
+ * Creates a kebab-case string from an array of words.
  *
  * @memberof String
  * @since 6.2.0
- * @param {string[]} arr
- * @returns {string}
+ * @param {string[]} arr Words to use.
+ * @returns {string} kebab-case string of the words.
  * @example
  * strToKebabCase(["foo", "bar"])
  * // => "foo-bar"
@@ -917,12 +916,12 @@ const strToCamelCase = (arr) => arr
 const strToKebabCase = (arr) => arr.map(val => val.toLowerCase()).join("-" /* KEBAB */);
 
 /**
- * Creates a PascalCase string from an array of substrings.
+ * Creates a PascalCase string from an array of words.
  *
  * @memberof String
  * @since 6.2.0
- * @param {string[]} arr
- * @returns {string}
+ * @param {string[]} arr Words to use.
+ * @returns {string} PascalCase string of the words.
  * @example
  * strToPascalCase(["foo", "bar"])
  * // => "FooBar"
@@ -935,12 +934,12 @@ const strToPascalCase = (arr) => arr
     .join("");
 
 /**
- * Creates a snake_case string from an array of substrings.
+ * Creates a snake_case string from an array of words.
  *
  * @memberof String
  * @since 6.2.0
- * @param {string[]} arr
- * @returns {string}
+ * @param {string[]} arr Words to use.
+ * @returns {string} snake_case string of the words.
  * @example
  * strToSnakeCase(["foo", "bar"])
  * // => "foo_bar"
@@ -1132,9 +1131,9 @@ const arrUniq = (arr) => Array.from(new Set(arr));
  *
  * @memberof Object
  * @since 1.0.0
- * @param {Object} obj
- * @param {function} fn fn(key: any, val: any, index: number, obj: object)
- * @returns {Object}
+ * @param {Object} obj Object to map.
+ * @param {function} fn Mapping function (`fn(key: any, val: any, index: number, obj: object) => any`)
+ * @returns {Object} Mapped object.
  * @example
  * objMap({a: 4, b: 2}, (key, val) => val * 2)
  * // => {a: 8, b: 4}
@@ -1154,10 +1153,10 @@ const objMap = (obj, fn) => {
  *
  * @memberof Object
  * @since 6.0.0
- * @param {Object} obj
- * @param {function} [fn = () => null] fn(key: *, val: any, index: number, obj: object)
- * @param {WeakSet<any>} [references=new WeakSet()]
- * @returns {Object}
+ * @param {Object} obj Object to decycle.
+ * @param {function} [fn=() => null] Decycling function (`fn(key: *, val: any, index: number, obj: object) => void`)
+ * @param {WeakSet<any>} [references=new WeakSet()] WeakSet prefilled with encountered references.
+ * @returns {Object} Decycled object.
  * @example
  * const a = {a: {}, b: 1, c: 2};
  *
@@ -1188,8 +1187,8 @@ const objDecycle = (obj, fn = () => null, references = new WeakSet()) => {
  *
  * @memberof Object
  * @since 1.0.0
- * @param {Object} obj
- * @returns {Object}
+ * @param {Object} obj Object to copy.
+ * @returns {Object} Copy of the object.
  * @example
  * const a = {a: 4, b: 2};
  * const b = objFrom(a);
@@ -1202,13 +1201,13 @@ const objFrom = (obj) => Object.assign({}, obj);
 
 // TODO: Figure out a way to properly use generics here.
 /**
- * Sets every nil property of object to the value from the default object.
+ * Sets every nil property of an object to the value from the default object.
  *
  * @memberof Object
  * @since 2.6.0
- * @param {Object} obj
- * @param {Object} objDefault
- * @returns {Object}
+ * @param {Object} obj Object to default.
+ * @param {Object} objDefault Object containing the default values.
+ * @returns {Object} Object containing the default values in keys it did not have or had nil value in.
  * @example
  * objDefaults({a: 1, c: 5}, {a: 1, b: 2, c: 3})
  * // => {a: 1, b: 2, c: 5}
@@ -1231,9 +1230,9 @@ const objDefaults = (obj, objDefault) => {
  *
  * @memberof Object
  * @since 2.7.0
- * @param {Object} obj
- * @param {Object} objDefault
- * @returns {Object}
+ * @param {Object} obj Object to default.
+ * @param {Object} objDefault Object containing the default values.
+ * @returns {Object} Object containing the default values in keys it did not have or had nil value in.
  * @example
  * objDefaultsDeep({a: [1, 2], c: {f: "x"}}, {a: [1, 2, 3], b: 2, c: {f: "y"}})
  * // => {a: [1, 2, 3], b: 2, c: {f: "x"}}
@@ -1262,9 +1261,9 @@ const objDefaultsDeep = (obj, objDefault) => {
  *
  * @memberof Object
  * @since 1.0.0
- * @param {Object} obj
- * @param {function} fn fn(key: any, val: any, index: number, obj: object)
- * @returns {Object}
+ * @param {Object} obj Object to map.
+ * @param {function} fn Mapping function (`fn(key: any, val: any, index: number, obj: object) => any`)
+ * @returns {Object} Mapped object.
  * @example
  * objMapDeep({a: {b: 2, c: [10, 20]}}, (key, val) => val * 2)
  * // => {a: {b: 4, c: [20, 40]}}
@@ -1278,8 +1277,8 @@ const objMapDeep = (obj, fn) => objMap(obj, (key, val, index, objNew) => isObjec
  *
  * @memberof Object
  * @since 1.0.0
- * @param {Object} obj
- * @returns {Object}
+ * @param {Object} obj Object to copy.
+ * @returns {Object} Copy of the object.
  * @example
  * const a = {a: {b: 2, c: {a: 10, b: 20}}};
  * const b = objFromDeep(a);
@@ -1308,7 +1307,7 @@ const mapFromObject = (obj) => new Map(Object.entries(obj));
  *
  * @memberof For
  * @param {any[]} arr Array to iterate.
- * @param {function} fn Function to use (`fn(val: *, index: number, arr: any[])`).
+ * @param {function} fn Function to use (`fn(val: *, index: number, arr: any[]) => void`).
  * @example
  * const a = [2, 4, [1, 1, [16], 4]];
  *
@@ -1324,7 +1323,7 @@ const forEachDeep = (arr, fn) => arr.forEach((val, index) => isArray(val) ? forE
  *
  * @memberof For
  * @param {object} obj Object to iterate.
- * @param {function} fn Function to use (`fn(key: *, val: *, index: number, obj: object)`).
+ * @param {function} fn Function to use (`fn(key: *, val: *, index: number, obj: object) => void`).
  * @example
  * const a = {a: 1, b: {c: [1, 2]}};
  *

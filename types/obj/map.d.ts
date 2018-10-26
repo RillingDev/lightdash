@@ -5,9 +5,9 @@ import { ITypedObject } from "./lib/ITypedObject";
  *
  * @memberof Object
  * @since 1.0.0
- * @param {Object} obj
- * @param {function} fn fn(key: any, val: any, index: number, obj: object)
- * @returns {Object}
+ * @param {Object} obj Object to map.
+ * @param {function} fn Mapping function (`fn(key: any, val: any, index: number, obj: object) => any`)
+ * @returns {Object} Mapped object.
  * @example
  * objMap({a: 4, b: 2}, (key, val) => val * 2)
  * // => {a: 8, b: 4}

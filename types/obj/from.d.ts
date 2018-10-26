@@ -4,8 +4,8 @@ import { ITypedObject } from "./lib/ITypedObject";
  *
  * @memberof Object
  * @since 1.0.0
- * @param {Object} obj
- * @returns {Object}
+ * @param {Object} obj Object to copy.
+ * @returns {Object} Copy of the object.
  * @example
  * const a = {a: 4, b: 2};
  * const b = objFrom(a);

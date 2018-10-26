@@ -1,11 +1,11 @@
 /**
- * Returns Levenshtein string distance of two strings.
+ * Returns the levenshtein string distance of two strings.
  *
  * @memberof String
  * @since 6.3.0
- * @param {string} str1
- * @param {string} str2
- * @returns {number}
+ * @param {string} str1 First string to compare.
+ * @param {string} str2 Second string to compare.
+ * @returns {number} Distance between the two strings.
  * @example
  * strDistance("Kitten", "Sitting")
  * // => 3
