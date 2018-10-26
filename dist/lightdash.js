@@ -1,6 +1,31 @@
 var _l = (function (exports) {
     'use strict';
 
+    // File is named "_index.ts" to avoid it being treated as a module index file.
+    /**
+     * Checks if a value is a valid index.
+     *
+     * A value is a valid index if its positive and an integer.
+     *
+     * @memberof Is
+     * @since 5.0.0
+     * @param {any} val Value to check.
+     * @returns {boolean} If the value is a valid index.
+     * @example
+     * isIndex(123)
+     * // => true
+     *
+     * isIndex(0.43)
+     * // => false
+     *
+     * isIndex(-4)
+     * // => false
+     *
+     * isIndex(Infinity)
+     * // => false
+     */
+    const isIndex = (val) => Number.isInteger(val) && val >= 0;
+
     /**
      * Checks if a value is an array.
      *
@@ -448,31 +473,6 @@ var _l = (function (exports) {
      */
     const isFunction = (val) => isTypeOf(val, "function");
 
-    // File is named "_index.ts" to avoid it being treated as a module index file.
-    /**
-     * Checks if a value is a valid index.
-     *
-     * A value is a valid index if its positive and an integer.
-     *
-     * @memberof Is
-     * @since 5.0.0
-     * @param {any} val Value to check.
-     * @returns {boolean} If the value is a valid index.
-     * @example
-     * isIndex(123)
-     * // => true
-     *
-     * isIndex(0.43)
-     * // => false
-     *
-     * isIndex(-4)
-     * // => false
-     *
-     * isIndex(Infinity)
-     * // => false
-     */
-    const isIndex = (val) => Number.isInteger(val) && val >= 0;
-
     /**
      * Checks if a value is a map.
      *
@@ -604,6 +604,38 @@ var _l = (function (exports) {
      * // => false
      */
     const isSymbol = (val) => isTypeOf(val, "symbol");
+
+    /**
+     * Checks if a value is a weak map.
+     *
+     * @memberof Is
+     * @since 9.1.0
+     * @param {any} val Value to check.
+     * @returns {boolean} If the value is a weak map.
+     * @example
+     * isMap(new WeakMap())
+     * // => true
+     *
+     * isMap(new Map())
+     * // => false
+     */
+    const isWeakMap = (val) => isInstanceOf(val, WeakMap);
+
+    /**
+     * Checks if a value is a weak set.
+     *
+     * @memberof Is
+     * @since 9.1.0
+     * @param {any} val Value to check.
+     * @returns {boolean} If the value is a weak set.
+     * @example
+     * isSet(new WeakSet())
+     * // => true
+     *
+     * isSet(new Set())
+     * // => false
+     */
+    const isWeakSet = (val) => isInstanceOf(val, WeakSet);
 
     /**
      * Returns a targets value in a given path.
@@ -1561,6 +1593,8 @@ var _l = (function (exports) {
     exports.isPromise = isPromise;
     exports.isMap = isMap;
     exports.isSet = isSet;
+    exports.isWeakMap = isWeakMap;
+    exports.isWeakSet = isWeakSet;
     exports.isDate = isDate;
     exports.isRegExp = isRegExp;
     exports.isFunction = isFunction;

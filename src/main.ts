@@ -1,3 +1,4 @@
+import { isIndex } from "./is/_index";
 import { isArray } from "./is/array";
 import { isArrayBuffer } from "./is/arrayBuffer";
 import { isArrayLike } from "./is/arrayLike";
@@ -8,7 +9,6 @@ import { isEmpty } from "./is/empty";
 import { isEqual } from "./is/equal";
 import { isError } from "./is/error";
 import { isFunction } from "./is/function";
-import { isIndex } from "./is/_index";
 import { isInstanceOf } from "./is/instanceOf";
 import { isMap } from "./is/map";
 import { isNil } from "./is/nil";
@@ -23,6 +23,8 @@ import { isString } from "./is/string";
 import { isSymbol } from "./is/symbol";
 import { isTypeOf } from "./is/typeOf";
 import { isUndefined } from "./is/undefined";
+import { isWeakMap } from "./is/weakMap";
+import { isWeakSet } from "./is/weakSet";
 
 import { getPath } from "./get/path";
 import { getSize } from "./get/size";
@@ -97,6 +99,8 @@ export {
     isPromise,
     isMap,
     isSet,
+    isWeakMap,
+    isWeakSet,
     isDate,
     isRegExp,
     isFunction,

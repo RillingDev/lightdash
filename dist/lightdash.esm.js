@@ -1,3 +1,28 @@
+// File is named "_index.ts" to avoid it being treated as a module index file.
+/**
+ * Checks if a value is a valid index.
+ *
+ * A value is a valid index if its positive and an integer.
+ *
+ * @memberof Is
+ * @since 5.0.0
+ * @param {any} val Value to check.
+ * @returns {boolean} If the value is a valid index.
+ * @example
+ * isIndex(123)
+ * // => true
+ *
+ * isIndex(0.43)
+ * // => false
+ *
+ * isIndex(-4)
+ * // => false
+ *
+ * isIndex(Infinity)
+ * // => false
+ */
+const isIndex = (val) => Number.isInteger(val) && val >= 0;
+
 /**
  * Checks if a value is an array.
  *
@@ -445,31 +470,6 @@ const isError = (val) => isInstanceOf(val, Error);
  */
 const isFunction = (val) => isTypeOf(val, "function");
 
-// File is named "_index.ts" to avoid it being treated as a module index file.
-/**
- * Checks if a value is a valid index.
- *
- * A value is a valid index if its positive and an integer.
- *
- * @memberof Is
- * @since 5.0.0
- * @param {any} val Value to check.
- * @returns {boolean} If the value is a valid index.
- * @example
- * isIndex(123)
- * // => true
- *
- * isIndex(0.43)
- * // => false
- *
- * isIndex(-4)
- * // => false
- *
- * isIndex(Infinity)
- * // => false
- */
-const isIndex = (val) => Number.isInteger(val) && val >= 0;
-
 /**
  * Checks if a value is a map.
  *
@@ -601,6 +601,38 @@ const isSet = (val) => isInstanceOf(val, Set);
  * // => false
  */
 const isSymbol = (val) => isTypeOf(val, "symbol");
+
+/**
+ * Checks if a value is a weak map.
+ *
+ * @memberof Is
+ * @since 9.1.0
+ * @param {any} val Value to check.
+ * @returns {boolean} If the value is a weak map.
+ * @example
+ * isMap(new WeakMap())
+ * // => true
+ *
+ * isMap(new Map())
+ * // => false
+ */
+const isWeakMap = (val) => isInstanceOf(val, WeakMap);
+
+/**
+ * Checks if a value is a weak set.
+ *
+ * @memberof Is
+ * @since 9.1.0
+ * @param {any} val Value to check.
+ * @returns {boolean} If the value is a weak set.
+ * @example
+ * isSet(new WeakSet())
+ * // => true
+ *
+ * isSet(new Set())
+ * // => false
+ */
+const isWeakSet = (val) => isInstanceOf(val, WeakSet);
 
 /**
  * Returns a targets value in a given path.
@@ -1539,4 +1571,4 @@ const randShuffle = (arr) => {
  * @namespace Random
  */
 
-export { isEqual, isInstanceOf, isTypeOf, isUndefined, isNil, isNumber, isString, isBoolean, isSymbol, isObject, isObjectLike, isObjectPlain, isArray, isArrayLike, isArrayBuffer, isArrayTyped, isPromise, isMap, isSet, isDate, isRegExp, isFunction, isError, isEmpty, isIndex, getPath, getSize, numClamp, numSafe, strDistance, strSimilar, strFromCamelCase, strFromKebabCase, strFromPascalCase, strFromSnakeCase, strToCamelCase, strToKebabCase, strToPascalCase, strToSnakeCase, arrFromDeep, arrMapDeep, arrCompact, arrChunk, arrStep, arrRemoveIndex, arrRemoveItem, arrCount, arrCollect, arrDifference, arrIntersection, arrUniq, objFrom, objFromDeep, objMap, objMapDeep, objDefaults, objDefaultsDeep, objDecycle, mapFromObject, fnDebounce, fnThrottle, forEachDeep, forEachEntry, forEachEntryDeep, searchBinary, randNumber, randItem, randShuffle };
+export { isEqual, isInstanceOf, isTypeOf, isUndefined, isNil, isNumber, isString, isBoolean, isSymbol, isObject, isObjectLike, isObjectPlain, isArray, isArrayLike, isArrayBuffer, isArrayTyped, isPromise, isMap, isSet, isWeakMap, isWeakSet, isDate, isRegExp, isFunction, isError, isEmpty, isIndex, getPath, getSize, numClamp, numSafe, strDistance, strSimilar, strFromCamelCase, strFromKebabCase, strFromPascalCase, strFromSnakeCase, strToCamelCase, strToKebabCase, strToPascalCase, strToSnakeCase, arrFromDeep, arrMapDeep, arrCompact, arrChunk, arrStep, arrRemoveIndex, arrRemoveItem, arrCount, arrCollect, arrDifference, arrIntersection, arrUniq, objFrom, objFromDeep, objMap, objMapDeep, objDefaults, objDefaultsDeep, objDecycle, mapFromObject, fnDebounce, fnThrottle, forEachDeep, forEachEntry, forEachEntryDeep, searchBinary, randNumber, randItem, randShuffle };
