@@ -3,10 +3,10 @@
  *
  * @memberof Number
  * @since 1.0.0
- * @param {number} val
- * @param {number} min
- * @param {number} max
- * @returns {number}
+ * @param {number} val Value to clamp
+ * @param {number} min Inclusive minimum value.
+ * @param {number} max Inclusive maximum value.
+ * @returns {number} Value clamped into the range given.
  * @example
  * numClamp(5, 0, 10)
  * // => 5

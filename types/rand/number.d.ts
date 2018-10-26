@@ -3,10 +3,10 @@
  *
  * @memberof Random
  * @since 3.0.0
- * @param {number} [min=0] inclusive minimum
- * @param {number} [max=1] inclusive maximum
- * @param {boolean} [float=false]
- * @returns {number}
+ * @param {number} [min=0] Inclusive minimum value.
+ * @param {number} [max=1] Inclusive maximum value.
+ * @param {boolean} [float=false] If the value should be a float.
+ * @returns {number} Random number
  * @example
  * randNumber()
  * // => 1

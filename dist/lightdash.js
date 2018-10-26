@@ -643,10 +643,10 @@ var _l = (function (exports) {
      *
      * @memberof Number
      * @since 1.0.0
-     * @param {number} val
-     * @param {number} min
-     * @param {number} max
-     * @returns {number}
+     * @param {number} val Value to clamp
+     * @param {number} min Inclusive minimum value.
+     * @param {number} max Inclusive maximum value.
+     * @returns {number} Value clamped into the range given.
      * @example
      * numClamp(5, 0, 10)
      * // => 5
@@ -672,8 +672,8 @@ var _l = (function (exports) {
      *
      * @memberof Number
      * @since 7.1.0
-     * @param {number} val
-     * @returns {number}
+     * @param {number} val Value to use.
+     * @returns {number} Value clamped into the range of safe integers.
      * @example
      * numSafe(99999999999999999)
      * // => Number.MAX_SAFE_INTEGER
@@ -1294,8 +1294,8 @@ var _l = (function (exports) {
      *
      * @memberof Map
      * @since 1.0.0
-     * @param {Object} obj
-     * @returns {Map}
+     * @param {Object} obj Object to use.
+     * @returns {Map} Map created from the object.
      * @example
      * mapFromObject({a: 1, b: 4, c: 5})
      * // => Map<string,number>{a: 1, b: 4, c: 5}
@@ -1401,9 +1401,9 @@ var _l = (function (exports) {
      *
      * @memberof Search
      * @since 5.0.0
-     * @param {number[]} arr
-     * @param {number} search
-     * @returns {number|null}
+     * @param {number[]} arr Array to search in.
+     * @param {number} search Value to search.
+     * @returns {number|null} Index of the value in the array, or null if none is found.
      * @example
      * searchBinary([0, 1, 2], 1)
      * // => 1
@@ -1436,10 +1436,10 @@ var _l = (function (exports) {
      *
      * @memberof Random
      * @since 3.0.0
-     * @param {number} [min=0] inclusive minimum
-     * @param {number} [max=1] inclusive maximum
-     * @param {boolean} [float=false]
-     * @returns {number}
+     * @param {number} [min=0] Inclusive minimum value.
+     * @param {number} [max=1] Inclusive maximum value.
+     * @param {boolean} [float=false] If the value should be a float.
+     * @returns {number} Random number
      * @example
      * randNumber()
      * // => 1
@@ -1464,8 +1464,8 @@ var _l = (function (exports) {
      *
      * @memberof Random
      * @since 3.0.0
-     * @param {any[]} arr
-     * @returns {any}
+     * @param {any[]} arr Array to use.
+     * @returns {any} Random item from the array.
      * @example
      * randItem(["foo", "bar"])
      * // => "foo"
@@ -1476,14 +1476,12 @@ var _l = (function (exports) {
     const randItem = (arr) => arr[randNumber(0, arr.length - 1)];
 
     /**
-     * Shuffles an array randomly and returns it.
-     *
-     * Fisher-Yates shuffle algorithm.
+     * Shuffles an array randomly and returns it, using the Fisher-Yates shuffle algorithm.
      *
      * @memberof Random
      * @since 5.0.0
-     * @param {any[]} arr
-     * @returns {any[]}
+     * @param {any[]} arr Array to shuffle
+     * @returns {any[]} Shuffled array.
      * @example
      * randShuffle([1,2,3])
      * // => [3,1,2]

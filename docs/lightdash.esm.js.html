@@ -47,14 +47,6 @@
  *
  * @memberof Is
  * @since 1.0.0
- * @param {any} val
- * @returns {boolean}
- * @example
- * isArray([1, 2, 3]);
- * // => true
- *
- * isArray({});
- * // => false
  */
 const isArray = Array.isArray;
 
@@ -63,9 +55,9 @@ const isArray = Array.isArray;
  *
  * @memberof Is
  * @since 1.0.0
- * @param {any} val
- * @param {Class} target
- * @returns {boolean}
+ * @param {any} val Value to check.
+ * @param {Class} target Class to check if the value is an instance of it.
+ * @returns {boolean} If the value is an instance of the class.
  * @example
  * isInstanceOf([], Array)
  * // => true
@@ -80,8 +72,8 @@ const isInstanceOf = (val, target) => val instanceof target;
  *
  * @memberof Is
  * @since 2.10.0
- * @param {any} val
- * @returns {boolean}
+ * @param {any} val Value to check.
+ * @returns {boolean} If the value is an array buffer.
  * @example
  * isArrayBuffer(new ArrayBuffer(8))
  * // => true
@@ -96,9 +88,9 @@ const isArrayBuffer = (val) => isInstanceOf(val, ArrayBuffer);
  *
  * @memberof Is
  * @since 1.0.0
- * @param {any} val
- * @param {string} type
- * @returns {boolean}
+ * @param {any} val Value to check.
+ * @param {string} type Type string to compare the value to.
+ * @returns {boolean} If the value has the type provided.
  * @example
  * isTypeOf("foo", "string")
  * // => true
@@ -113,8 +105,8 @@ const isTypeOf = (val, type) => typeof val === type;
  *
  * @memberof Is
  * @since 1.0.0
- * @param {any} val
- * @returns {boolean}
+ * @param {any} val Value to check.
+ * @returns {boolean} If the value is a number.
  * @example
  * isNumber(1)
  * // => true
@@ -142,8 +134,8 @@ const isNumber = (val) => isTypeOf(val, "number");
  *
  * @memberof Is
  * @since 1.0.0
- * @param {any} val
- * @returns {boolean}
+ * @param {any} val Value to check.
+ * @returns {boolean} If the value is nil.
  * @example
  * isNil(null)
  * // => true
@@ -167,8 +159,8 @@ const isNil = (val) => val == null;
  *
  * @memberof Is
  * @since 1.0.0
- * @param {any} val
- * @returns {boolean}
+ * @param {any} val Value to check,
+ * @returns {boolean} If the value is object-like.
  * @example
  * isObjectLike({})
  * // => true
@@ -185,12 +177,14 @@ const isNil = (val) => val == null;
 const isObjectLike = (val) => !isNil(val) &amp;&amp; isTypeOf(val, "object");
 
 /**
- * Checks if a value is object-like and has a length property.
+ * Checks if a value is array-like.
+ *
+ * A value is considered array-like if it is object-like and has a length property.
  *
  * @memberof Is
  * @since 1.0.0
- * @param {any} val
- * @returns {boolean}
+ * @param {any} val Value to check.
+ * @returns {boolean} If the value is an array-like.
  * @example
  * isArrayLike([])
  * // => true
@@ -208,8 +202,8 @@ const isArrayLike = (val) => isObjectLike(val) &amp;&amp; isNumber(val.length);
  *
  * @memberof Is
  * @since 2.10.0
- * @param {any} val
- * @returns {boolean}
+ * @param {any} val Value to check.
+ * @returns {boolean} If the value is a typed array.
  * @example
  * isArrayTyped(new Int16Array());
  * // => true
@@ -227,8 +221,8 @@ const isArrayTyped = (val) => !isNil(val) &amp;&amp; isNumber(val.BYTES_PER_ELEM
  *
  * @memberof Is
  * @since 1.0.0
- * @param {any} val
- * @returns {boolean}
+ * @param {any} val Value to check.
+ * @returns {boolean} If the value is a boolean.
  * @example
  * isBoolean(true)
  * // => true
@@ -245,12 +239,12 @@ const isArrayTyped = (val) => !isNil(val) &amp;&amp; isNumber(val.BYTES_PER_ELEM
 const isBoolean = (val) => isTypeOf(val, "boolean");
 
 /**
- * Checks if a value is a date object.
+ * Checks if a value is a date instance.
  *
  * @memberof Is
  * @since 2.10.0
- * @param {any} val
- * @returns {boolean}
+ * @param {any} val Value to check.
+ * @returns {boolean} If the value is a date instance.
  * @example
  * isDate(new Date())
  * // => true
@@ -265,8 +259,8 @@ const isDate = (val) => isInstanceOf(val, Date);
  *
  * @memberof Is
  * @since 1.0.0
- * @param {any} val
- * @returns {boolean}
+ * @param {any} val Value to check.
+ * @returns {boolean} if the value is a string.
  * @example
  * isString("foo")
  * // => true
@@ -281,8 +275,8 @@ const isString = (val) => isTypeOf(val, "string");
  *
  * @memberof Is
  * @since 1.0.0
- * @param {any} val
- * @returns {boolean}
+ * @param {any} val Value to check.
+ * @returns {boolean} If the value is undefined.
  * @example
  * const a = {};
  *
@@ -309,8 +303,8 @@ const isUndefined = (val) => isTypeOf(val, "undefined");
  *
  * @memberof Get
  * @since 6.0.0
- * @param {any} val
- * @returns {number}
+ * @param {any} val Value to check.
+ * @returns {number} The size of the value.
  * @example
  * getSize([1,2])
  * // => 2
@@ -355,8 +349,8 @@ const getSize = (val) => {
  *
  * @memberof Is
  * @since 1.0.0
- * @param {any} val
- * @returns {boolean}
+ * @param {any} val Value to check.
+ * @returns {boolean} If the value is empty.
  * @example
  * isEmpty([])
  * // => true
@@ -408,13 +402,13 @@ const forEachEntry = (obj, fn) => {
 };
 
 /**
- * Recursively checks if two items and their the contents are equal.
+ * Recursively checks if two values and their the contents are equal.
  *
  * @memberof Is
  * @since 1.0.0
- * @param {any} a
- * @param {any} b
- * @returns {boolean}
+ * @param {any} a First value to check.
+ * @param {any} b Second value to check.
+ * @returns {boolean} If the values are equal.
  * @example
  * isEqual(1, 1)
  * // => true
@@ -462,8 +456,8 @@ const isEqual = (a, b) => {
  *
  * @memberof Is
  * @since 2.10.0
- * @param {any} val
- * @returns {boolean}
+ * @param {any} val Value to check.
+ * @returns {boolean} If the value is an error.
  * @example
  * isError(new URIError())
  * // => true
@@ -478,8 +472,8 @@ const isError = (val) => isInstanceOf(val, Error);
  *
  * @memberof Is
  * @since 1.0.0
- * @param {any} val
- * @returns {boolean}
+ * @param {any} val Value to check.
+ * @returns {boolean} If the value is a function.
  * @example
  * isFunction(function a(){})
  * // => true
@@ -492,14 +486,16 @@ const isError = (val) => isInstanceOf(val, Error);
  */
 const isFunction = (val) => isTypeOf(val, "function");
 
-// File is named "_index.ts" to avoid it being treated as module index file.
+// File is named "_index.ts" to avoid it being treated as a module index file.
 /**
  * Checks if a value is a valid index.
  *
+ * A value is a valid index if its positive and an integer.
+ *
  * @memberof Is
  * @since 5.0.0
- * @param {any} val
- * @returns {boolean}
+ * @param {any} val Value to check.
+ * @returns {boolean} If the value is a valid index.
  * @example
  * isIndex(123)
  * // => true
@@ -520,8 +516,8 @@ const isIndex = (val) => Number.isInteger(val) &amp;&amp; val >= 0;
  *
  * @memberof Is
  * @since 1.0.0
- * @param {any} val
- * @returns {boolean}
+ * @param {any} val Value to check.
+ * @returns {boolean} If the value is a map.
  * @example
  * isMap(new Map())
  * // => true
@@ -536,8 +532,8 @@ const isMap = (val) => isInstanceOf(val, Map);
  *
  * @memberof Is
  * @since 1.0.0
- * @param {any} val
- * @returns {boolean}
+ * @param {any} val Value to check.
+ * @returns {boolean} If the value is an object.
  * @example
  * isObject({})
  * // => true
@@ -560,8 +556,8 @@ const isObject = (val) => !isNil(val) &amp;&amp; (isTypeOf(val, "object") || isT
  *
  * @memberof Is
  * @since 2.9.0
- * @param {any} val
- * @returns {boolean}
+ * @param {any} val Value to check.
+ * @returns {boolean} If the value is a plain object.
  * @example
  * isObjectPlain({})
  * // => true
@@ -582,8 +578,8 @@ const isObjectPlain = (val) => isObject(val) &amp;&amp; val.constructor === Obje
  *
  * @memberof Is
  * @since 3.0.0
- * @param {any} val
- * @returns {boolean}
+ * @param {any} val Value to check.
+ * @returns {boolean} If the value is a promise.
  * @example
  * isPromise(new Promise((resolve, reject) => resolve("foo")));
  * // => true
@@ -598,8 +594,8 @@ const isPromise = (val) => isInstanceOf(val, Promise);
  *
  * @memberof Is
  * @since 2.10.0
- * @param {any} val
- * @returns {boolean}
+ * @param {any} val Value to check.
+ * @returns {boolean} If the value is a regular expression.
  * @example
  * isRegExp(new RegExp("foo"))
  * // => true
@@ -617,8 +613,8 @@ const isRegExp = (val) => isInstanceOf(val, RegExp);
  *
  * @memberof Is
  * @since 1.0.0
- * @param {any} val
- * @returns {boolean}
+ * @param {any} val Value to check.
+ * @returns {boolean} If the value is a set.
  * @example
  * isSet(new Set())
  * // => true
@@ -633,8 +629,8 @@ const isSet = (val) => isInstanceOf(val, Set);
  *
  * @memberof Is
  * @since 1.0.0
- * @param {any} val
- * @returns {boolean}
+ * @param {any} val Value to check.
+ * @returns {boolean} If the value is a symbol.
  * @example
  * isSymbol(Symbol())
  * // => true
@@ -654,9 +650,9 @@ const isSymbol = (val) => isTypeOf(val, "symbol");
  *
  * @memberof Get
  * @since 2.0.0
- * @param {any} target
- * @param {string[]} path
- * @returns {any}
+ * @param {any} target Target to check.
+ * @param {string[]} path Path to use.
+ * @returns {any} The value which was looked up, or null if the path could not be resolved.
  * @example
  * getPath({a: 1}, ["a"]);
  * // => 1
@@ -686,10 +682,10 @@ const getPath = (target, path) => {
  *
  * @memberof Number
  * @since 1.0.0
- * @param {number} val
- * @param {number} min
- * @param {number} max
- * @returns {number}
+ * @param {number} val Value to clamp
+ * @param {number} min Inclusive minimum value.
+ * @param {number} max Inclusive maximum value.
+ * @returns {number} Value clamped into the range given.
  * @example
  * numClamp(5, 0, 10)
  * // => 5
@@ -715,8 +711,8 @@ const numClamp = (val, min, max) => {
  *
  * @memberof Number
  * @since 7.1.0
- * @param {number} val
- * @returns {number}
+ * @param {number} val Value to use.
+ * @returns {number} Value clamped into the range of safe integers.
  * @example
  * numSafe(99999999999999999)
  * // => Number.MAX_SAFE_INTEGER
@@ -1337,8 +1333,8 @@ const objFromDeep = (obj) => objMapDeep(objFrom(obj), (key, val) => (isObjectLik
  *
  * @memberof Map
  * @since 1.0.0
- * @param {Object} obj
- * @returns {Map}
+ * @param {Object} obj Object to use.
+ * @returns {Map} Map created from the object.
  * @example
  * mapFromObject({a: 1, b: 4, c: 5})
  * // => Map&lt;string,number>{a: 1, b: 4, c: 5}
@@ -1444,9 +1440,9 @@ const fnThrottle = (fn, timeout, immediate = false) => {
  *
  * @memberof Search
  * @since 5.0.0
- * @param {number[]} arr
- * @param {number} search
- * @returns {number|null}
+ * @param {number[]} arr Array to search in.
+ * @param {number} search Value to search.
+ * @returns {number|null} Index of the value in the array, or null if none is found.
  * @example
  * searchBinary([0, 1, 2], 1)
  * // => 1
@@ -1479,10 +1475,10 @@ const searchBinary = (arr, search) => {
  *
  * @memberof Random
  * @since 3.0.0
- * @param {number} [min=0] inclusive minimum
- * @param {number} [max=1] inclusive maximum
- * @param {boolean} [float=false]
- * @returns {number}
+ * @param {number} [min=0] Inclusive minimum value.
+ * @param {number} [max=1] Inclusive maximum value.
+ * @param {boolean} [float=false] If the value should be a float.
+ * @returns {number} Random number
  * @example
  * randNumber()
  * // => 1
@@ -1507,8 +1503,8 @@ const randNumber = (min = 0, max = 1, float = false) => {
  *
  * @memberof Random
  * @since 3.0.0
- * @param {any[]} arr
- * @returns {any}
+ * @param {any[]} arr Array to use.
+ * @returns {any} Random item from the array.
  * @example
  * randItem(["foo", "bar"])
  * // => "foo"
@@ -1519,14 +1515,12 @@ const randNumber = (min = 0, max = 1, float = false) => {
 const randItem = (arr) => arr[randNumber(0, arr.length - 1)];
 
 /**
- * Shuffles an array randomly and returns it.
- *
- * Fisher-Yates shuffle algorithm.
+ * Shuffles an array randomly and returns it, using the Fisher-Yates shuffle algorithm.
  *
  * @memberof Random
  * @since 5.0.0
- * @param {any[]} arr
- * @returns {any[]}
+ * @param {any[]} arr Array to shuffle
+ * @returns {any[]} Shuffled array.
  * @example
  * randShuffle([1,2,3])
  * // => [3,1,2]
@@ -1603,7 +1597,7 @@ export { isEqual, isInstanceOf, isTypeOf, isUndefined, isNil, isNumber, isString
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Sun Oct 21 2018 11:05:57 GMT+0200 (Central European Summer Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Fri Oct 26 2018 18:15:27 GMT+0200 (Central European Summer Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
 </footer>
 
 <script>prettyPrint();</script>

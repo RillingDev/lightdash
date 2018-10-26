@@ -3,8 +3,8 @@
  *
  * @memberof Random
  * @since 3.0.0
- * @param {any[]} arr
- * @returns {any}
+ * @param {any[]} arr Array to use.
+ * @returns {any} Random item from the array.
  * @example
  * randItem(["foo", "bar"])
  * // => "foo"
