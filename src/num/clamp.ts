@@ -20,7 +20,8 @@
 const numClamp = (val: number, min: number, max: number): number => {
     if (val < min) {
         return min;
-    } else if (val > max) {
+    }
+    if (val > max) {
         return max;
     }
 

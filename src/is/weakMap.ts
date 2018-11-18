@@ -14,6 +14,7 @@ import { isInstanceOf } from "./instanceOf";
  * isMap(new Map())
  * // => false
  */
-const isWeakMap = (val: any): val is WeakMap<any, any> => isInstanceOf(val, WeakMap);
+const isWeakMap = (val: any): val is WeakMap<any, any> =>
+    isInstanceOf(val, WeakMap);
 
 export { isWeakMap };

@@ -20,12 +20,8 @@ const objMapDeep = (
     obj: ITypedObject<any>,
     fn: forEachEntryMapper<any, any>
 ): ITypedObject<any> =>
-    objMap(
-        obj,
-        (key, val, index, objNew) =>
-            isObjectLike(val)
-                ? objMapDeep(val, fn)
-                : fn(key, val, index, objNew)
+    objMap(obj, (key, val, index, objNew) =>
+        isObjectLike(val) ? objMapDeep(val, fn) : fn(key, val, index, objNew)
     );
 
 export { objMapDeep };

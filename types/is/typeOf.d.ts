@@ -13,5 +13,5 @@
  * isTypeOf("foo", "number")
  * // => false
  */
-declare const isTypeOf: (val: any, type: string) => boolean;
+declare const isTypeOf: (val: any, type: string) => val is string;
 export { isTypeOf };

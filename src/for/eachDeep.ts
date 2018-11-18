@@ -16,9 +16,8 @@ import { forEachIterator } from "./lib/forEachIterator";
  * // a = [0, 4, [0, 1, [0], 12]]
  */
 const forEachDeep = (arr: any[], fn: forEachIterator<any>): void =>
-    arr.forEach(
-        (val, index) =>
-            isArray(val) ? forEachDeep(val, fn) : fn(val, index, arr)
+    arr.forEach((val, index) =>
+        isArray(val) ? forEachDeep(val, fn) : fn(val, index, arr)
     );
 
 export { forEachDeep };

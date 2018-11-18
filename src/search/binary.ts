@@ -20,12 +20,13 @@ const searchBinary = (arr: number[], search: number): number | null => {
 
     while (low <= high) {
         mid = Math.floor(low + (high - low) / 2);
-
         const current = arr[mid];
 
         if (current === search) {
             return mid;
-        } else if (current < search) {
+        }
+
+        if (current < search) {
             low = mid + 1;
         } else {
             high = mid - 1;

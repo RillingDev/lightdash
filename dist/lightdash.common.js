@@ -202,7 +202,14 @@ const isArrayLike = (val) => isObjectLike(val) && isNumber(val.length);
  * isArrayTyped([]);
  * // => false
  */
-const isArrayTyped = (val) => !isNil(val) && isNumber(val.BYTES_PER_ELEMENT);
+const isArrayTyped = (val) => isInstanceOf(val, Int8Array) ||
+    isInstanceOf(val, Int16Array) ||
+    isInstanceOf(val, Int32Array) ||
+    isInstanceOf(val, Uint8Array) ||
+    isInstanceOf(val, Uint16Array) ||
+    isInstanceOf(val, Uint32Array) ||
+    isInstanceOf(val, Float32Array) ||
+    isInstanceOf(val, Float64Array);
 
 /**
  * Checks if a value is a boolean.
@@ -316,13 +323,13 @@ const getSize = (val) => {
     if (isNil(val)) {
         return -1;
     }
-    else if (isArrayLike(val) || isString(val)) {
+    if (isArrayLike(val) || isString(val)) {
         return val.length;
     }
-    else if (!isUndefined(val.size)) {
+    if (!isUndefined(val.size)) {
         return val.size;
     }
-    else if (isObjectLike(val)) {
+    if (isObjectLike(val)) {
         return Object.keys(val).length;
     }
     return -1;
@@ -384,9 +391,7 @@ const isEmpty = (val) => getSize(val) < 1;
  * // a = {a: 0, b: 2}
  */
 const forEachEntry = (obj, fn) => {
-    Object.entries(obj).forEach((entry, index) => {
-        fn(entry[0], entry[1], index, obj);
-    });
+    Object.entries(obj).forEach((entry, index) => fn(entry[0], entry[1], index, obj));
 };
 
 /**
@@ -510,7 +515,7 @@ const isMap = (val) => isInstanceOf(val, Map);
  * isObject(1)
  * // => false
  */
-const isObject = (val) => !isNil(val) && (isTypeOf(val, "object") || isTypeOf(val, "function"));
+const isObject = (val) => isObjectLike(val) || isFunction(val);
 
 /**
  * Checks if a value is a plain object.
@@ -695,7 +700,7 @@ const numClamp = (val, min, max) => {
     if (val < min) {
         return min;
     }
-    else if (val > max) {
+    if (val > max) {
         return max;
     }
     return val;
@@ -740,7 +745,7 @@ const strDistance = (str1, str2) => {
     if (str1.length === 0) {
         return str2.length;
     }
-    else if (str2.length === 0) {
+    if (str2.length === 0) {
         return str1.length;
     }
     const matrix = [];
@@ -907,7 +912,10 @@ const arrCollect = (arr, fn) => {
  */
 const strSimilar = (str, list, returnFull = false) => {
     const result = arrCollect(list, (val) => strDistance(str, val));
-    return returnFull ? result : result.get(Math.min(...result.keys()));
+    if (!returnFull) {
+        return result.get(Math.min(...result.keys()));
+    }
+    return result;
 };
 
 /**
@@ -927,8 +935,7 @@ const strSimilar = (str, list, returnFull = false) => {
 const strToCamelCase = (arr) => arr
     .map((val, index) => index === 0
     ? val.toLowerCase()
-    : val.substr(0, 1).toUpperCase() +
-        val.substr(1).toLowerCase())
+    : val.substr(0, 1).toUpperCase() + val.substr(1).toLowerCase())
     .join("");
 
 /**
@@ -1300,9 +1307,7 @@ const objDefaultsDeep = (obj, objDefault) => {
  * objMapDeep({a: {b: 2, c: [10, 20]}}, (key, val) => val * 2)
  * // => {a: {b: 4, c: [20, 40]}}
  */
-const objMapDeep = (obj, fn) => objMap(obj, (key, val, index, objNew) => isObjectLike(val)
-    ? objMapDeep(val, fn)
-    : fn(key, val, index, objNew));
+const objMapDeep = (obj, fn) => objMap(obj, (key, val, index, objNew) => isObjectLike(val) ? objMapDeep(val, fn) : fn(key, val, index, objNew));
 
 /**
  * Recursively creates a new object with the entries of the input object.
@@ -1319,7 +1324,7 @@ const objMapDeep = (obj, fn) => objMap(obj, (key, val, index, objNew) => isObjec
  * // a = {a: {b: 2, c: {a: 10, b: 20}}
  * // b = {a: {b: 2, c: {a: 123, b: 20}}}
  */
-const objFromDeep = (obj) => objMapDeep(objFrom(obj), (key, val) => (isObjectLike(val) ? objFrom(val) : val));
+const objFromDeep = (obj) => objMapDeep(objFrom(obj), (key, val) => isObjectLike(val) ? objFrom(val) : val);
 
 /**
  * Creates a map from an object.
@@ -1364,9 +1369,7 @@ const forEachDeep = (arr, fn) => arr.forEach((val, index) => isArray(val) ? forE
  * })
  * // a = {a: 0, b: {c: [0, 2]}}
  */
-const forEachEntryDeep = (obj, fn) => forEachEntry(obj, (key, val, index) => isObjectLike(val)
-    ? forEachEntryDeep(val, fn)
-    : fn(key, val, index, obj));
+const forEachEntryDeep = (obj, fn) => forEachEntry(obj, (key, val, index) => isObjectLike(val) ? forEachEntryDeep(val, fn) : fn(key, val, index, obj));
 
 /**
  * Creates a debounced function that delays invoking the function.
@@ -1453,7 +1456,7 @@ const searchBinary = (arr, search) => {
         if (current === search) {
             return mid;
         }
-        else if (current < search) {
+        if (current < search) {
             low = mid + 1;
         }
         else {
