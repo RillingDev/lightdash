@@ -19,9 +19,8 @@ import { objMapDeep } from "./mapDeep";
  * // b = {a: {b: 2, c: {a: 123, b: 20}}}
  */
 const objFromDeep = <T>(obj: ITypedObject<T>): ITypedObject<T> =>
-    objMapDeep(
-        objFrom(obj),
-        (key, val) => (isObjectLike(val) ? objFrom(val) : val)
+    objMapDeep(objFrom(obj), (key, val) =>
+        isObjectLike(val) ? objFrom(val) : val
     );
 
 export { objFromDeep };

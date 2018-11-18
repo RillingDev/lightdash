@@ -21,12 +21,8 @@ const forEachEntryDeep = (
     obj: ITypedObject<any>,
     fn: forEachEntryIterator<any>
 ): void =>
-    forEachEntry(
-        obj,
-        (key, val, index) =>
-            isObjectLike(val)
-                ? forEachEntryDeep(val, fn)
-                : fn(key, val, index, obj)
+    forEachEntry(obj, (key, val, index) =>
+        isObjectLike(val) ? forEachEntryDeep(val, fn) : fn(key, val, index, obj)
     );
 
 export { forEachEntryDeep };

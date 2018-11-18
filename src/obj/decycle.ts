@@ -39,7 +39,6 @@ const objDecycle = (
 
         if (isObjectLike(val)) {
             references.add(val);
-
             return objDecycle(val, fn, references);
         }
 

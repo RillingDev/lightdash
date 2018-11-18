@@ -19,9 +19,9 @@ const forEachEntry = (
     obj: ITypedObject<any>,
     fn: forEachEntryIterator<any>
 ): void => {
-    Object.entries(obj).forEach((entry, index) => {
-        fn(entry[0], entry[1], index, obj);
-    });
+    Object.entries(obj).forEach((entry, index) =>
+        fn(entry[0], entry[1], index, obj)
+    );
 };
 
 export { forEachEntry };

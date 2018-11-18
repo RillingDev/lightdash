@@ -13,6 +13,7 @@
  * isTypeOf("foo", "number")
  * // => false
  */
-const isTypeOf = (val: any, type: string): boolean => typeof val === type;
+const isTypeOf = (val: any, type: string): val is typeof type =>
+    typeof val === type;
 
 export { isTypeOf };

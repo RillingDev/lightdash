@@ -37,11 +37,14 @@ import { isUndefined } from "../is/undefined";
 const getSize = (val: any): number => {
     if (isNil(val)) {
         return -1;
-    } else if (isArrayLike(val) || isString(val)) {
+    }
+    if (isArrayLike(val) || isString(val)) {
         return val.length;
-    } else if (!isUndefined(val.size)) {
+    }
+    if (!isUndefined(val.size)) {
         return val.size;
-    } else if (isObjectLike(val)) {
+    }
+    if (isObjectLike(val)) {
         return Object.keys(val).length;
     }
 

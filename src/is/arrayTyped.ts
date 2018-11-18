@@ -1,5 +1,4 @@
-import { isNil } from "./nil";
-import { isNumber } from "./number";
+import { isInstanceOf } from "./instanceOf";
 
 /**
  * Checks if a value is a typed array.
@@ -28,6 +27,14 @@ const isArrayTyped = (
     | Uint16Array
     | Uint32Array
     | Float32Array
-    | Float64Array => !isNil(val) && isNumber(val.BYTES_PER_ELEMENT);
+    | Float64Array =>
+    isInstanceOf(val, Int8Array) ||
+    isInstanceOf(val, Int16Array) ||
+    isInstanceOf(val, Int32Array) ||
+    isInstanceOf(val, Uint8Array) ||
+    isInstanceOf(val, Uint16Array) ||
+    isInstanceOf(val, Uint32Array) ||
+    isInstanceOf(val, Float32Array) ||
+    isInstanceOf(val, Float64Array);
 
 export { isArrayTyped };

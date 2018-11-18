@@ -14,12 +14,10 @@
  */
 const strToCamelCase = (arr: string[]): string =>
     arr
-        .map(
-            (val, index) =>
-                index === 0
-                    ? val.toLowerCase()
-                    : val.substr(0, 1).toUpperCase() +
-                      val.substr(1).toLowerCase()
+        .map((val, index) =>
+            index === 0
+                ? val.toLowerCase()
+                : val.substr(0, 1).toUpperCase() + val.substr(1).toLowerCase()
         )
         .join("");
 

@@ -20,7 +20,8 @@
 const strDistance = (str1: string, str2: string): number => {
     if (str1.length === 0) {
         return str2.length;
-    } else if (str2.length === 0) {
+    }
+    if (str2.length === 0) {
         return str1.length;
     }
 
