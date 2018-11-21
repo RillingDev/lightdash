@@ -24,21 +24,25 @@
 const isIndex = (val) => Number.isInteger(val) && val >= 0;
 
 /**
- * Checks if the value is an instance of a target constructor.
+ * Checks if the value is an instance of any of the given classes.
+ * If at least one class gives back true, true is returned.
  *
  * @memberof Is
  * @since 1.0.0
  * @param {any} val Value to check.
- * @param {Class} target Class to check if the value is an instance of it.
+ * @param {...Class} targets Classes to check.
  * @returns {boolean} If the value is an instance of the class.
  * @example
  * isInstanceOf([], Array)
  * // => true
  *
- * isInstanceOf({}, Array)
+ * isInstanceOf([], Map, Set, Array)
+ * // => true
+ *
+ * isInstanceOf({}, Array, Set)
  * // => false
  */
-const isInstanceOf = (val, target) => val instanceof target;
+const isInstanceOf = (val, ...targets) => targets.some(target => val instanceof target);
 
 /**
  * Checks if a value is an array-buffer.
@@ -57,21 +61,25 @@ const isInstanceOf = (val, target) => val instanceof target;
 const isArrayBuffer = (val) => isInstanceOf(val, ArrayBuffer);
 
 /**
- * Checks if the value has a certain type-string.
+ * Checks if the value has any of the given types.
+ * If at least one type gives back true, true is returned.
  *
  * @memberof Is
  * @since 1.0.0
  * @param {any} val Value to check.
- * @param {string} type Type string to compare the value to.
+ * @param {...string} types Type strings to compare the value to.
  * @returns {boolean} If the value has the type provided.
  * @example
  * isTypeOf("foo", "string")
  * // => true
  *
+ * isTypeOf("foo", "number", "string")
+ * // => true
+ *
  * isTypeOf("foo", "number")
  * // => false
  */
-const isTypeOf = (val, type) => typeof val === type;
+const isTypeOf = (val, ...types) => types.some(type => typeof val === type);
 
 /**
  * Checks if a value is a number.
@@ -187,14 +195,7 @@ const isArrayLike = (val) => isObjectLike(val) && isNumber(val.length);
  * isArrayTyped([]);
  * // => false
  */
-const isArrayTyped = (val) => isInstanceOf(val, Int8Array) ||
-    isInstanceOf(val, Int16Array) ||
-    isInstanceOf(val, Int32Array) ||
-    isInstanceOf(val, Uint8Array) ||
-    isInstanceOf(val, Uint16Array) ||
-    isInstanceOf(val, Uint32Array) ||
-    isInstanceOf(val, Float32Array) ||
-    isInstanceOf(val, Float64Array);
+const isArrayTyped = (val) => isInstanceOf(val, Int8Array, Int16Array, Int32Array, Uint8Array, Uint16Array, Uint32Array, Float32Array, Float64Array);
 
 /**
  * Checks if a value is a boolean.
