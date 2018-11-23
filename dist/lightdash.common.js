@@ -1027,17 +1027,6 @@ const arrDifference = (arr, ...values) => {
     return arr.filter(item => !valuesCounted.has(item));
 };
 
-/**
- * Checks if a value is an array.
- *
- * Alias of the native `Array.isArray`.
- *
- * @alias Array.isArray
- * @memberof Is
- * @since 1.0.0
- */
-const isArray = Array.isArray;
-
 // TODO: Figure out a way to properly use generics here.
 /**
  * Recursively maps the values of the input array with the iterator function and return the result.
@@ -1051,7 +1040,7 @@ const isArray = Array.isArray;
  * arrMapDeep([2, 4, [1, 1, [16], 4]], val => val * 2)
  * // => [4, 8, [2, 2, [32], 8]]
  */
-const arrMapDeep = (arr, fn) => arr.map((val, index) => isArray(val) ? arrMapDeep(val, fn) : fn(val, index, arr));
+const arrMapDeep = (arr, fn) => arr.map((val, index) => Array.isArray(val) ? arrMapDeep(val, fn) : fn(val, index, arr));
 
 /**
  * Recursively creates a new array with the values of the input iterable.
@@ -1340,7 +1329,7 @@ const mapFromObject = (obj) => new Map(Object.entries(obj));
  * })
  * // a = [0, 4, [0, 1, [0], 12]]
  */
-const forEachDeep = (arr, fn) => arr.forEach((val, index) => isArray(val) ? forEachDeep(val, fn) : fn(val, index, arr));
+const forEachDeep = (arr, fn) => arr.forEach((val, index) => Array.isArray(val) ? forEachDeep(val, fn) : fn(val, index, arr));
 
 /**
  * Recursively iterates over each entry of an object.
