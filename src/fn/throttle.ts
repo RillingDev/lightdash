@@ -1,40 +1,42 @@
 import { anyVoidFn } from "./lib/anyVoidFn";
 
 /**
- * Throttles a function to only run every n ms.
+ * Creates a throttled function.
+ *
+ * Throttling ensures that the function can only be invoked once in the given timeout.
+ * @see https://css-tricks.com/the-difference-between-throttling-and-debouncing/
  *
  * @memberof Fn
  * @since 3.1.0
  * @param {Function} fn Function to throttle.
  * @param {number} timeout Timeout to use.
- * @param {boolean} [immediate=false] If the function should be invoked immediatly.
  * @returns {Function} Throttled function.
  * @example
  * const foo = (a, b) => console.log(a + b);
  * const fooThrottled = fnThrottle(foo, 500);
- * // function can only run every 500ms
+ * // function calls will be throttled to 500ms
  */
 const fnThrottle = (
-    fn: anyVoidFn,
-    timeout: number,
-    immediate = false
-): anyVoidFn => {
-    // Private helper that creates a returns a timeout to reset the canRun state and the timer
-    const getTimer = () =>
-        setTimeout(() => {
-            canRun = true;
-            clearTimeout(timer);
-        }, timeout);
-    let canRun = immediate;
-    // Has to be set to any because it can either a number (in browsers) or a Timer instance (in NodeJS)
-    let timer: any = immediate ? -1 : getTimer();
+    fn: anyVoidFn<any>,
+    timeout: number
+): anyVoidFn<any> => {
+    let timer: any = null; // Seems to require any, as the return type of the browser and node are different here.
+    let last: number | null = null;
 
     // tslint:disable-next-line:only-arrow-functions
     return function() {
-        if (canRun) {
-            fn(...arguments);
-            canRun = false;
-            timer = getTimer();
+        const now = Date.now();
+
+        const run = () => {
+            last = now;
+            fn.apply(this, arguments);
+        };
+
+        if (last != null && now < last + timeout) {
+            clearTimeout(timer);
+            timer = setTimeout(run, timeout);
+        } else {
+            run();
         }
     };
 };

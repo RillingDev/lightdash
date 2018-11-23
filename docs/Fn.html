@@ -59,7 +59,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="lightdash.esm.js.html">lightdash.esm.js</a>, <a href="lightdash.esm.js.html#line1540">line 1540</a>
+        <a href="lightdash.esm.js.html">lightdash.esm.js</a>, <a href="lightdash.esm.js.html#line1545">line 1545</a>
     </li></ul></dd>
     
 
@@ -137,7 +137,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="lightdash.esm.js.html">lightdash.esm.js</a>, <a href="lightdash.esm.js.html#line1358">line 1358</a>
+        <a href="lightdash.esm.js.html">lightdash.esm.js</a>, <a href="lightdash.esm.js.html#line1361">line 1361</a>
     </li></ul></dd>
     
 
@@ -168,6 +168,13 @@
     
 
     
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul>
+            <li><a href="https://css-tricks.com/the-difference-between-throttling-and-debouncing/">https://css-tricks.com/the-difference-between-throttling-and-debouncing/</a></li>
+        </ul>
+    </dd>
+    
 
     
 </dl>
@@ -177,7 +184,8 @@
 
 
 <div class="description">
-    <p>Creates a debounced function that delays invoking the function.</p>
+    <p>Creates a debounced function.</p>
+<p>Debouncing combines multiple function invocations in the given timeout into a single one.</p>
 </div>
 
 
@@ -191,8 +199,8 @@
     <h5>Example</h5>
     
     <pre class="prettyprint"><code>const foo = (a, b) => console.log(a + b);
-const fooThrottled = fnThrottle(foo, 500);
-// function can only run 500ms after the last invocation was made</code></pre>
+const fooDebounced = fnDebounce(foo, 500);
+// function calls will be debounced to 500ms</code></pre>
 
 
 
@@ -310,7 +318,7 @@ const fooThrottled = fnThrottle(foo, 500);
 
     
 
-    <h4 class="name" id=".fnThrottle"><span class="type-signature">(static) </span>fnThrottle<span class="signature">(fn, timeout, immediate<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {function}</span></h4>
+    <h4 class="name" id=".fnThrottle"><span class="type-signature">(static) </span>fnThrottle<span class="signature">(fn, timeout)</span><span class="type-signature"> &rarr; {function}</span></h4>
 
     
 
@@ -322,7 +330,7 @@ const fooThrottled = fnThrottle(foo, 500);
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="lightdash.esm.js.html">lightdash.esm.js</a>, <a href="lightdash.esm.js.html#line1387">line 1387</a>
+        <a href="lightdash.esm.js.html">lightdash.esm.js</a>, <a href="lightdash.esm.js.html#line1391">line 1391</a>
     </li></ul></dd>
     
 
@@ -356,6 +364,13 @@ const fooThrottled = fnThrottle(foo, 500);
     
 
     
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul>
+            <li><a href="https://css-tricks.com/the-difference-between-throttling-and-debouncing/">https://css-tricks.com/the-difference-between-throttling-and-debouncing/</a></li>
+        </ul>
+    </dd>
+    
 
     
 </dl>
@@ -365,7 +380,8 @@ const fooThrottled = fnThrottle(foo, 500);
 
 
 <div class="description">
-    <p>Throttles a function to only run every n ms.</p>
+    <p>Creates a throttled function.</p>
+<p>Throttling ensures that the function can only be invoked once in the given timeout.</p>
 </div>
 
 
@@ -380,7 +396,7 @@ const fooThrottled = fnThrottle(foo, 500);
     
     <pre class="prettyprint"><code>const foo = (a, b) => console.log(a + b);
 const fooThrottled = fnThrottle(foo, 500);
-// function can only run every 500ms</code></pre>
+// function calls will be throttled to 500ms</code></pre>
 
 
 
@@ -398,11 +414,7 @@ const fooThrottled = fnThrottle(foo, 500);
         <th>Type</th>
 
         
-        <th>Attributes</th>
-        
 
-        
-        <th>Default</th>
         
 
         <th class="last">Description</th>
@@ -427,19 +439,7 @@ const fooThrottled = fnThrottle(foo, 500);
             </td>
 
             
-                <td class="attributes">
-                
 
-                
-
-                
-                </td>
-            
-
-            
-                <td class="default">
-                
-                </td>
             
 
             <td class="description last"><p>Function to throttle.</p></td>
@@ -462,61 +462,10 @@ const fooThrottled = fnThrottle(foo, 500);
             </td>
 
             
-                <td class="attributes">
-                
 
-                
-
-                
-                </td>
-            
-
-            
-                <td class="default">
-                
-                </td>
             
 
             <td class="description last"><p>Timeout to use.</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>immediate</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">boolean</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-                <td class="default">
-                
-                    <code>false</code>
-                
-                </td>
-            
-
-            <td class="description last"><p>If the function should be invoked immediatly.</p></td>
         </tr>
 
     
@@ -580,7 +529,7 @@ const fooThrottled = fnThrottle(foo, 500);
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Wed Nov 21 2018 19:35:04 GMT+0100 (Central European Standard Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Fri Nov 23 2018 21:36:10 GMT+0100 (Central European Standard Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
 </footer>
 
 <script>prettyPrint();</script>

@@ -1,3 +1,3 @@
-type anyFn = (...args: any[]) => any;
+type anyFn<T> = (this: T, ...args: any[]) => any;
 
 export { anyFn };

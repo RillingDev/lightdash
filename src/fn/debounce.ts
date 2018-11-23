@@ -1,7 +1,10 @@
 import { anyVoidFn } from "./lib/anyVoidFn";
 
 /**
- * Creates a debounced function that delays invoking the function.
+ * Creates a debounced function.
+ *
+ * Debouncing combines multiple function invocations in the given timeout into a single one.
+ * @see https://css-tricks.com/the-difference-between-throttling-and-debouncing/
  *
  * @memberof Fn
  * @param {Function} fn Function to debounce.
@@ -9,24 +12,19 @@ import { anyVoidFn } from "./lib/anyVoidFn";
  * @returns {Function} Debounced function.
  * @example
  * const foo = (a, b) => console.log(a + b);
- * const fooThrottled = fnThrottle(foo, 500);
- * // function can only run 500ms after the last invocation was made
+ * const fooDebounced = fnDebounce(foo, 500);
+ * // function calls will be debounced to 500ms
  */
-const fnDebounce = (fn: anyVoidFn, timeout: number): anyVoidFn => {
-    let timer: any;
+const fnDebounce = (fn: anyVoidFn<any>, timeout: number): anyVoidFn<any> => {
+    let timer: any = null; // Seems to require any, as the return type of the browser and node are different here.
 
     // tslint:disable-next-line:only-arrow-functions
     return function() {
         clearTimeout(timer);
-
         timer = setTimeout(() => {
             timer = null;
-            fn(...arguments);
+            fn.apply(this, arguments);
         }, timeout);
-
-        if (!timer) {
-            fn(...arguments);
-        }
     };
 };
 

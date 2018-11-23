@@ -18,6 +18,6 @@ import { isTypeOf } from "./typeOf";
  * isFunction(null)
  * // => false
  */
-const isFunction = (val: any): val is anyFn => isTypeOf(val, "function");
+const isFunction = (val: any): val is anyFn<any> => isTypeOf(val, "function");
 
 export { isFunction };

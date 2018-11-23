@@ -16,5 +16,5 @@ import { anyFn } from "../fn/lib/anyFn";
  * isFunction(null)
  * // => false
  */
-declare const isFunction: (val: any) => val is anyFn;
+declare const isFunction: (val: any) => val is anyFn<any>;
 export { isFunction };

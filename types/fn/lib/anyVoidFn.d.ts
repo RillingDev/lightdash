@@ -1,2 +1,2 @@
-declare type anyVoidFn = (...args: any[]) => void;
+declare type anyVoidFn<T> = (this: T, ...args: any[]) => void;
 export { anyVoidFn };

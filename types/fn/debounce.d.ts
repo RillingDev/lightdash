@@ -1,6 +1,9 @@
 import { anyVoidFn } from "./lib/anyVoidFn";
 /**
- * Creates a debounced function that delays invoking the function.
+ * Creates a debounced function.
+ *
+ * Debouncing combines multiple function invocations in the given timeout into a single one.
+ * @see https://css-tricks.com/the-difference-between-throttling-and-debouncing/
  *
  * @memberof Fn
  * @param {Function} fn Function to debounce.
@@ -8,8 +11,8 @@ import { anyVoidFn } from "./lib/anyVoidFn";
  * @returns {Function} Debounced function.
  * @example
  * const foo = (a, b) => console.log(a + b);
- * const fooThrottled = fnThrottle(foo, 500);
- * // function can only run 500ms after the last invocation was made
+ * const fooDebounced = fnDebounce(foo, 500);
+ * // function calls will be debounced to 500ms
  */
-declare const fnDebounce: (fn: anyVoidFn, timeout: number) => anyVoidFn;
+declare const fnDebounce: (fn: anyVoidFn<any>, timeout: number) => anyVoidFn<any>;
 export { fnDebounce };

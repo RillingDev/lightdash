@@ -1347,7 +1347,10 @@ var _l = (function (exports) {
     const forEachEntryDeep = (obj, fn) => forEachEntry(obj, (key, val, index) => isObjectLike(val) ? forEachEntryDeep(val, fn) : fn(key, val, index, obj));
 
     /**
-     * Creates a debounced function that delays invoking the function.
+     * Creates a debounced function.
+     *
+     * Debouncing combines multiple function invocations in the given timeout into a single one.
+     * @see https://css-tricks.com/the-difference-between-throttling-and-debouncing/
      *
      * @memberof Fn
      * @param {Function} fn Function to debounce.
@@ -1355,53 +1358,53 @@ var _l = (function (exports) {
      * @returns {Function} Debounced function.
      * @example
      * const foo = (a, b) => console.log(a + b);
-     * const fooThrottled = fnThrottle(foo, 500);
-     * // function can only run 500ms after the last invocation was made
+     * const fooDebounced = fnDebounce(foo, 500);
+     * // function calls will be debounced to 500ms
      */
     const fnDebounce = (fn, timeout) => {
-        let timer;
+        let timer = null; // Seems to require any, as the return type of the browser and node are different here.
         // tslint:disable-next-line:only-arrow-functions
         return function () {
             clearTimeout(timer);
             timer = setTimeout(() => {
                 timer = null;
-                fn(...arguments);
+                fn.apply(this, arguments);
             }, timeout);
-            if (!timer) {
-                fn(...arguments);
-            }
         };
     };
 
     /**
-     * Throttles a function to only run every n ms.
+     * Creates a throttled function.
+     *
+     * Throttling ensures that the function can only be invoked once in the given timeout.
+     * @see https://css-tricks.com/the-difference-between-throttling-and-debouncing/
      *
      * @memberof Fn
      * @since 3.1.0
      * @param {Function} fn Function to throttle.
      * @param {number} timeout Timeout to use.
-     * @param {boolean} [immediate=false] If the function should be invoked immediatly.
      * @returns {Function} Throttled function.
      * @example
      * const foo = (a, b) => console.log(a + b);
      * const fooThrottled = fnThrottle(foo, 500);
-     * // function can only run every 500ms
+     * // function calls will be throttled to 500ms
      */
-    const fnThrottle = (fn, timeout, immediate = false) => {
-        // Private helper that creates a returns a timeout to reset the canRun state and the timer
-        const getTimer = () => setTimeout(() => {
-            canRun = true;
-            clearTimeout(timer);
-        }, timeout);
-        let canRun = immediate;
-        // Has to be set to any because it can either a number (in browsers) or a Timer instance (in NodeJS)
-        let timer = immediate ? -1 : getTimer();
+    const fnThrottle = (fn, timeout) => {
+        let timer = null; // Seems to require any, as the return type of the browser and node are different here.
+        let last = null;
         // tslint:disable-next-line:only-arrow-functions
         return function () {
-            if (canRun) {
-                fn(...arguments);
-                canRun = false;
-                timer = getTimer();
+            const now = Date.now();
+            const run = () => {
+                last = now;
+                fn.apply(this, arguments);
+            };
+            if (last != null && now < last + timeout) {
+                clearTimeout(timer);
+                timer = setTimeout(run, timeout);
+            }
+            else {
+                run();
             }
         };
     };

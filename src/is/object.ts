@@ -1,5 +1,5 @@
-import { isObjectLike } from "./objectLike";
 import { isFunction } from "./function";
+import { isObjectLike } from "./objectLike";
 
 /**
  * Checks if a value is an object.
