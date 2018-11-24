@@ -60,6 +60,14 @@ Contributions are always welcome, no matter if you have a requests, an idea, fou
 
 ## Migrating
 
+### v9.x -> v10.x
+
+Breaking:
+
+- changed entry iteration from key,val,index,obj to val,key,obj
+- removed isArray and strFromCamelCase (use Array.isArray and strFromPascalCase instead)
+- removed "immediate" param for fn* methods
+
 ### v8.x -> v9.x
 
 Breaking:
