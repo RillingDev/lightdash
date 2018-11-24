@@ -1,5 +1,5 @@
 import { forEachEntryMapper } from "../for/lib/forEachEntryMapper";
-import { ITypedObject } from "./lib/ITypedObject";
+import { IAnyObject } from "./lib/IAnyObject";
 /**
  * Replaces every circular reference in an object with a value, defaulting to null.
  *
@@ -22,5 +22,5 @@ import { ITypedObject } from "./lib/ITypedObject";
  * objDecycle(a, key => `_${key}`)
  * // => {a: "_a", b: 1, c: 2}
  */
-declare const objDecycle: (obj: ITypedObject<any>, fn?: forEachEntryMapper<any, any>, references?: WeakSet<any>) => object;
+declare const objDecycle: (obj: IAnyObject, fn?: forEachEntryMapper<any, any>, references?: WeakSet<any>) => object;
 export { objDecycle };

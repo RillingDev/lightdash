@@ -1,3 +1,3 @@
-import { ITypedObject } from "../../obj/lib/ITypedObject";
-declare type forEachEntryMapper<T, U> = (key: string, val: T, index: number, obj: ITypedObject<T>) => U;
+import { IAnyObject } from "../../obj/lib/IAnyObject";
+declare type forEachEntryMapper<T, U> = (val: T, key: string, obj: IAnyObject) => U;
 export { forEachEntryMapper };

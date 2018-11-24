@@ -16,10 +16,7 @@ import { anyVoidFn } from "./lib/anyVoidFn";
  * const fooThrottled = fnThrottle(foo, 500);
  * // function calls will be throttled to 500ms
  */
-const fnThrottle = (
-    fn: anyVoidFn<any>,
-    timeout: number
-): anyVoidFn<any> => {
+const fnThrottle = (fn: anyVoidFn<any>, timeout: number): anyVoidFn<any> => {
     let timer: any = null; // Seems to require any, as the return type of the browser and node are different here.
     let last: number | null = null;
 

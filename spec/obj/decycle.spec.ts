@@ -7,7 +7,7 @@ describe("objDecycle", () => {
         a.a = a;
 
         expect(objDecycle(a)).toEqual({ a: null, b: 1, c: 2 });
-        expect(objDecycle(a, key => `_${key}`)).toEqual({
+        expect(objDecycle(a, (val, key) => `_${key}`)).toEqual({
             a: "_a",
             b: 1,
             c: 2

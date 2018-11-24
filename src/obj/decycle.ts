@@ -1,6 +1,6 @@
 import { forEachEntryMapper } from "../for/lib/forEachEntryMapper";
 import { isObjectLike } from "../is/objectLike";
-import { ITypedObject } from "./lib/ITypedObject";
+import { IAnyObject } from "./lib/IAnyObject";
 import { objMap } from "./map";
 
 /**
@@ -26,15 +26,15 @@ import { objMap } from "./map";
  * // => {a: "_a", b: 1, c: 2}
  */
 const objDecycle = (
-    obj: ITypedObject<any>,
+    obj: IAnyObject,
     fn: forEachEntryMapper<any, any> = () => null,
-    references: WeakSet<any> = new WeakSet()
+    references = new WeakSet<any>()
 ): object => {
     references.add(obj);
 
-    return objMap(obj, (key, val, index, objNew) => {
+    return objMap(obj, (val, key, objNew) => {
         if (references.has(val)) {
-            return fn(key, val, index, objNew);
+            return fn(val, key, objNew);
         }
 
         if (isObjectLike(val)) {

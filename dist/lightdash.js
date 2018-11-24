@@ -380,7 +380,9 @@ var _l = (function (exports) {
      * // a = {a: 0, b: 2}
      */
     const forEachEntry = (obj, fn) => {
-        Object.entries(obj).forEach((entry, index) => fn(entry[0], entry[1], index, obj));
+        for (const [key, val] of Object.entries(obj)) {
+            fn(val, key, obj);
+        }
     };
 
     /**
@@ -424,7 +426,7 @@ var _l = (function (exports) {
             return false;
         }
         let result = true;
-        forEachEntry(a, (key, aVal) => {
+        forEachEntry(a, (aVal, key) => {
             // Only check if the comparison didn't fail already
             if (result === true) {
                 result = isUndefined(b[key]) ? false : isEqual(aVal, b[key]);
@@ -1154,8 +1156,8 @@ var _l = (function (exports) {
      */
     const objMap = (obj, fn) => {
         const objNew = Array.isArray(obj) ? [] : {};
-        forEachEntry(obj, (key, val, index) => {
-            objNew[key] = fn(key, val, index, obj);
+        forEachEntry(obj, (val, key) => {
+            objNew[key] = fn(val, key, obj);
         });
         return objNew;
     };
@@ -1184,9 +1186,9 @@ var _l = (function (exports) {
      */
     const objDecycle = (obj, fn = () => null, references = new WeakSet()) => {
         references.add(obj);
-        return objMap(obj, (key, val, index, objNew) => {
+        return objMap(obj, (val, key, objNew) => {
             if (references.has(val)) {
-                return fn(key, val, index, objNew);
+                return fn(val, key, objNew);
             }
             if (isObjectLike(val)) {
                 references.add(val);
@@ -1230,7 +1232,7 @@ var _l = (function (exports) {
         const result = Array.isArray(obj)
             ? Array.from(obj)
             : objFrom(obj);
-        forEachEntry(objDefault, (keyDefault, valDefault) => {
+        forEachEntry(objDefault, (valDefault, keyDefault) => {
             if (isUndefined(obj[keyDefault])) {
                 result[keyDefault] = valDefault;
             }
@@ -1255,7 +1257,7 @@ var _l = (function (exports) {
         const result = Array.isArray(obj)
             ? Array.from(obj)
             : objFrom(obj);
-        forEachEntry(objDefault, (keyDefault, valDefault) => {
+        forEachEntry(objDefault, (valDefault, keyDefault) => {
             const valGiven = obj[keyDefault];
             if (isObjectLike(valDefault)) {
                 result[keyDefault] = isObjectLike(valGiven)
@@ -1282,7 +1284,7 @@ var _l = (function (exports) {
      * objMapDeep({a: {b: 2, c: [10, 20]}}, (key, val) => val * 2)
      * // => {a: {b: 4, c: [20, 40]}}
      */
-    const objMapDeep = (obj, fn) => objMap(obj, (key, val, index, objNew) => isObjectLike(val) ? objMapDeep(val, fn) : fn(key, val, index, objNew));
+    const objMapDeep = (obj, fn) => objMap(obj, (val, key, objNew) => isObjectLike(val) ? objMapDeep(val, fn) : fn(val, key, objNew));
 
     /**
      * Recursively creates a new object with the entries of the input object.
@@ -1299,7 +1301,7 @@ var _l = (function (exports) {
      * // a = {a: {b: 2, c: {a: 10, b: 20}}
      * // b = {a: {b: 2, c: {a: 123, b: 20}}}
      */
-    const objFromDeep = (obj) => objMapDeep(objFrom(obj), (key, val) => isObjectLike(val) ? objFrom(val) : val);
+    const objFromDeep = (obj) => objMapDeep(objFrom(obj), val => (isObjectLike(val) ? objFrom(val) : val));
 
     /**
      * Creates a map from an object.
@@ -1344,7 +1346,7 @@ var _l = (function (exports) {
      * })
      * // a = {a: 0, b: {c: [0, 2]}}
      */
-    const forEachEntryDeep = (obj, fn) => forEachEntry(obj, (key, val, index) => isObjectLike(val) ? forEachEntryDeep(val, fn) : fn(key, val, index, obj));
+    const forEachEntryDeep = (obj, fn) => forEachEntry(obj, (val, key) => isObjectLike(val) ? forEachEntryDeep(val, fn) : fn(val, key, obj));
 
     /**
      * Creates a debounced function.

@@ -1,4 +1,4 @@
-import { ITypedObject } from "../obj/lib/ITypedObject";
+import { IAnyObject } from "../obj/lib/IAnyObject";
 import { forEachEntryIterator } from "./lib/forEachEntryIterator";
 /**
  * Iterates over each entry of an object.
@@ -14,5 +14,5 @@ import { forEachEntryIterator } from "./lib/forEachEntryIterator";
  * })
  * // a = {a: 0, b: 2}
  */
-declare const forEachEntry: (obj: ITypedObject<any>, fn: forEachEntryIterator<any>) => void;
+declare const forEachEntry: (obj: IAnyObject, fn: forEachEntryIterator<any>) => void;
 export { forEachEntry };

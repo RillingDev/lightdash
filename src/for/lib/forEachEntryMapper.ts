@@ -1,10 +1,5 @@
-import { ITypedObject } from "../../obj/lib/ITypedObject";
+import { IAnyObject } from "../../obj/lib/IAnyObject";
 
-type forEachEntryMapper<T, U> = (
-    key: string,
-    val: T,
-    index: number,
-    obj: ITypedObject<T>
-) => U;
+type forEachEntryMapper<T, U> = (val: T, key: string, obj: IAnyObject) => U;
 
 export { forEachEntryMapper };

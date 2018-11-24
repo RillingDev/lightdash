@@ -1,4 +1,4 @@
-import { ITypedObject } from "./lib/ITypedObject";
+import { IAnyObject } from "./lib/IAnyObject";
 /**
  * Recursively creates a new object with the entries of the input object.
  *
@@ -14,5 +14,5 @@ import { ITypedObject } from "./lib/ITypedObject";
  * // a = {a: {b: 2, c: {a: 10, b: 20}}
  * // b = {a: {b: 2, c: {a: 123, b: 20}}}
  */
-declare const objFromDeep: <T>(obj: ITypedObject<T>) => ITypedObject<T>;
+declare const objFromDeep: (obj: IAnyObject) => IAnyObject;
 export { objFromDeep };

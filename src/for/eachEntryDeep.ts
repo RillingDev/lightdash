@@ -1,5 +1,5 @@
 import { isObjectLike } from "../is/objectLike";
-import { ITypedObject } from "../obj/lib/ITypedObject";
+import { IAnyObject } from "../obj/lib/IAnyObject";
 import { forEachEntry } from "./eachEntry";
 import { forEachEntryIterator } from "./lib/forEachEntryIterator";
 
@@ -18,11 +18,11 @@ import { forEachEntryIterator } from "./lib/forEachEntryIterator";
  * // a = {a: 0, b: {c: [0, 2]}}
  */
 const forEachEntryDeep = (
-    obj: ITypedObject<any>,
+    obj: IAnyObject,
     fn: forEachEntryIterator<any>
 ): void =>
-    forEachEntry(obj, (key, val, index) =>
-        isObjectLike(val) ? forEachEntryDeep(val, fn) : fn(key, val, index, obj)
+    forEachEntry(obj, (val, key) =>
+        isObjectLike(val) ? forEachEntryDeep(val, fn) : fn(val, key, obj)
     );
 
 export { forEachEntryDeep };

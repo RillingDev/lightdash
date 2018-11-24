@@ -1,3 +1,3 @@
-import { ITypedObject } from "../../obj/lib/ITypedObject";
-declare type forEachEntryIterator<T> = (key: string, val: T, index: number, obj: ITypedObject<T>) => void;
+import { IAnyObject } from "../../obj/lib/IAnyObject";
+declare type forEachEntryIterator<T> = (val: T, key: string, obj: IAnyObject) => void;
 export { forEachEntryIterator };

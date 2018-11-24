@@ -1,4 +1,4 @@
-import { ITypedObject } from "./lib/ITypedObject";
+import { IAnyObject } from "./lib/IAnyObject";
 /**
  * Sets every nil property of an object to the value from the default object.
  *
@@ -11,5 +11,5 @@ import { ITypedObject } from "./lib/ITypedObject";
  * objDefaults({a: 1, c: 5}, {a: 1, b: 2, c: 3})
  * // => {a: 1, b: 2, c: 5}
  */
-declare const objDefaults: (obj: ITypedObject<any>, objDefault: ITypedObject<any>) => ITypedObject<any>;
+declare const objDefaults: (obj: IAnyObject, objDefault: IAnyObject) => IAnyObject;
 export { objDefaults };

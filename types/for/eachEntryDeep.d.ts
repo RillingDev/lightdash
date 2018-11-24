@@ -1,4 +1,4 @@
-import { ITypedObject } from "../obj/lib/ITypedObject";
+import { IAnyObject } from "../obj/lib/IAnyObject";
 import { forEachEntryIterator } from "./lib/forEachEntryIterator";
 /**
  * Recursively iterates over each entry of an object.
@@ -14,5 +14,5 @@ import { forEachEntryIterator } from "./lib/forEachEntryIterator";
  * })
  * // a = {a: 0, b: {c: [0, 2]}}
  */
-declare const forEachEntryDeep: (obj: ITypedObject<any>, fn: forEachEntryIterator<any>) => void;
+declare const forEachEntryDeep: (obj: IAnyObject, fn: forEachEntryIterator<any>) => void;
 export { forEachEntryDeep };

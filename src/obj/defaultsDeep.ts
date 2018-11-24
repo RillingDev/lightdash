@@ -2,7 +2,7 @@ import { forEachEntry } from "../for/eachEntry";
 import { isObjectLike } from "../is/objectLike";
 import { isUndefined } from "../is/undefined";
 import { objFrom } from "./from";
-import { ITypedObject } from "./lib/ITypedObject";
+import { IAnyObject } from "./lib/IAnyObject";
 
 // TODO: Figure out a way to properly use generics here.
 /**
@@ -18,14 +18,14 @@ import { ITypedObject } from "./lib/ITypedObject";
  * // => {a: [1, 2, 3], b: 2, c: {f: "x"}}
  */
 const objDefaultsDeep = (
-    obj: ITypedObject<any>,
-    objDefault: ITypedObject<any>
-): ITypedObject<any> => {
-    const result: ITypedObject<any> = Array.isArray(obj)
+    obj: IAnyObject,
+    objDefault: IAnyObject
+): IAnyObject => {
+    const result: IAnyObject = Array.isArray(obj)
         ? Array.from(obj)
         : objFrom(obj);
 
-    forEachEntry(objDefault, (keyDefault, valDefault) => {
+    forEachEntry(objDefault, (valDefault, keyDefault) => {
         const valGiven = obj[keyDefault];
 
         if (isObjectLike(valDefault)) {

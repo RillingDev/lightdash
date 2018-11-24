@@ -1,14 +1,14 @@
 import { forEachEntryDeep } from "../../src/for/eachEntryDeep";
-import { ITypedObject } from "../../src/obj/lib/ITypedObject";
+import { IAnyObject } from "../../src/obj/lib/IAnyObject";
 
 describe("forEachEntryDeep", () => {
     it("iterates", () => {
-        const a: ITypedObject<any> = { a: 1, b: { c: [1, 2] } };
+        const a: IAnyObject = { a: 1, b: { c: [1, 2] } };
 
-        forEachEntryDeep(a, (key, val, index, obj) => {
-            obj[key] = index * val;
+        forEachEntryDeep(a, (val, key, obj) => {
+            obj[key] = val * 2;
         });
 
-        expect(a).toEqual({ a: 0, b: { c: [0, 2] } });
+        expect(a).toEqual({ a: 2, b: { c: [2, 4] } });
     });
 });
