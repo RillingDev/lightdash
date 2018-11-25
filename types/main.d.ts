@@ -68,46 +68,64 @@ import { randNumber } from "./rand/number";
 import { randShuffle } from "./rand/shuffle";
 export { isEqual, isInstanceOf, isTypeOf, isUndefined, isNil, isNumber, isString, isBoolean, isSymbol, isObject, isObjectLike, isObjectPlain, isArrayLike, isArrayBuffer, isArrayTyped, isPromise, isMap, isSet, isWeakMap, isWeakSet, isDate, isRegExp, isFunction, isError, isEmpty, isIndex, getPath, getSize, numClamp, numSafe, strDistance, strSimilar, strFromKebabCase, strFromPascalCase, strFromSnakeCase, strToCamelCase, strToKebabCase, strToPascalCase, strToSnakeCase, arrFromDeep, arrMapDeep, arrCompact, arrChunk, arrStep, arrRemoveIndex, arrRemoveItem, arrCount, arrCollect, arrDifference, arrIntersection, arrUniq, objFrom, objFromDeep, objMap, objMapDeep, objDefaults, objDefaultsDeep, objDecycle, mapFromObject, fnDebounce, fnThrottle, forEachDeep, forEachEntry, forEachEntryDeep, searchBinary, randNumber, randItem, randShuffle };
 /**
- * Value checking, type checking, and comparison
+ * Value checking, type checking, and comparison.
+ *
+ * Note that some equivalents found in lodash are not provided here due to native equivalents:
+ * - isArray -> Array.isArray
+ * - isInteger -> Number.isInteger
+ * - isSafeInteger -> Number.isSafeInteger
+ * - isFinite -> Number.isFinite
+ * - isNaN -> Number.isNaN
+ *
  * @namespace Is
  */
 /**
- * Get values and properties of a target
+ * Get values and properties of a target.
+ *
  * @namespace Get
  */
 /**
- * Number manipulation and comparison
+ * Number manipulation and comparison.
+ *
  * @namespace Number
  */
 /**
- * String manipulation and comparison
+ * String manipulation and comparison.
+ *
  * @namespace String
  */
 /**
- * Array manipulation and analysis
+ * Array manipulation and analysis.
+ *
  * @namespace Array
  */
 /**
- * Object manipulation and analysis
+ * Object manipulation and analysis.
+ *
  * @namespace Object
  */
 /**
- * Map manipulation
+ * Map manipulation.
+ *
  * @namespace Map
  */
 /**
- * Looping through ranges, arrays and objects
+ * Looping through ranges, arrays and objects.
+ *
  * @namespace For
  */
 /**
- * Function manipulation
+ * Function manipulation.
+ *
  * @namespace Fn
  */
 /**
- * Array and object search
+ * Array and object search.
+ *
  * @namespace Search
  */
 /**
- * Random number generation and value picking
+ * Random number generation and value picking.
+ *
  * @namespace Random
  */

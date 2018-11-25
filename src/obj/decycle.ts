@@ -29,7 +29,7 @@ const objDecycle = (
     obj: IAnyObject,
     fn: forEachEntryMapper<any, any> = () => null,
     references = new WeakSet<any>()
-): object => {
+): IAnyObject => {
     references.add(obj);
 
     return objMap(obj, (val, key, objNew) => {

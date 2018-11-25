@@ -22,5 +22,5 @@ import { IAnyObject } from "./lib/IAnyObject";
  * objDecycle(a, key => `_${key}`)
  * // => {a: "_a", b: 1, c: 2}
  */
-declare const objDecycle: (obj: IAnyObject, fn?: forEachEntryMapper<any, any>, references?: WeakSet<any>) => object;
+declare const objDecycle: (obj: IAnyObject, fn?: forEachEntryMapper<any, any>, references?: WeakSet<any>) => IAnyObject;
 export { objDecycle };
