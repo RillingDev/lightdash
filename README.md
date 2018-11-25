@@ -54,11 +54,7 @@ If you use lightdash directly in the browser, use the exposed `_l` variable
 _l.arrDifference([1, 2, 3], [1, 3]);
 ```
 
-## Contributing
-
-Contributions are always welcome, no matter if you have a requests, an idea, found a bug, or spotted a typo: Feel free to create a PR or open an issue!
-
-## Migrating
+## Updating
 
 ### v9.x -> v10.x
 
@@ -77,3 +73,7 @@ Breaking:
 - Removed numSum, numMedian and numAverage
 - Removed fnCurry
 - Removed hasPath
+
+## Contributing
+
+Contributions are always welcome, no matter if you have a requests, an idea, found a bug, or spotted a typo: Feel free to create a PR or open an issue!

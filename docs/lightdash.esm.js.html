@@ -419,7 +419,9 @@ const isEmpty = (val) => getSize(val) &lt; 1;
  * // a = {a: 0, b: 2}
  */
 const forEachEntry = (obj, fn) => {
-    Object.entries(obj).forEach((entry, index) => fn(entry[0], entry[1], index, obj));
+    for (const [key, val] of Object.entries(obj)) {
+        fn(val, key, obj);
+    }
 };
 
 /**
@@ -463,7 +465,7 @@ const isEqual = (a, b) => {
         return false;
     }
     let result = true;
-    forEachEntry(a, (key, aVal) => {
+    forEachEntry(a, (aVal, key) => {
         // Only check if the comparison didn't fail already
         if (result === true) {
             result = isUndefined(b[key]) ? false : isEqual(aVal, b[key]);
@@ -1193,8 +1195,8 @@ const arrUniq = (arr) => Array.from(new Set(arr));
  */
 const objMap = (obj, fn) => {
     const objNew = Array.isArray(obj) ? [] : {};
-    forEachEntry(obj, (key, val, index) => {
-        objNew[key] = fn(key, val, index, obj);
+    forEachEntry(obj, (val, key) => {
+        objNew[key] = fn(val, key, obj);
     });
     return objNew;
 };
@@ -1223,9 +1225,9 @@ const objMap = (obj, fn) => {
  */
 const objDecycle = (obj, fn = () => null, references = new WeakSet()) => {
     references.add(obj);
-    return objMap(obj, (key, val, index, objNew) => {
+    return objMap(obj, (val, key, objNew) => {
         if (references.has(val)) {
-            return fn(key, val, index, objNew);
+            return fn(val, key, objNew);
         }
         if (isObjectLike(val)) {
             references.add(val);
@@ -1269,7 +1271,7 @@ const objDefaults = (obj, objDefault) => {
     const result = Array.isArray(obj)
         ? Array.from(obj)
         : objFrom(obj);
-    forEachEntry(objDefault, (keyDefault, valDefault) => {
+    forEachEntry(objDefault, (valDefault, keyDefault) => {
         if (isUndefined(obj[keyDefault])) {
             result[keyDefault] = valDefault;
         }
@@ -1294,7 +1296,7 @@ const objDefaultsDeep = (obj, objDefault) => {
     const result = Array.isArray(obj)
         ? Array.from(obj)
         : objFrom(obj);
-    forEachEntry(objDefault, (keyDefault, valDefault) => {
+    forEachEntry(objDefault, (valDefault, keyDefault) => {
         const valGiven = obj[keyDefault];
         if (isObjectLike(valDefault)) {
             result[keyDefault] = isObjectLike(valGiven)
@@ -1321,7 +1323,7 @@ const objDefaultsDeep = (obj, objDefault) => {
  * objMapDeep({a: {b: 2, c: [10, 20]}}, (key, val) => val * 2)
  * // => {a: {b: 4, c: [20, 40]}}
  */
-const objMapDeep = (obj, fn) => objMap(obj, (key, val, index, objNew) => isObjectLike(val) ? objMapDeep(val, fn) : fn(key, val, index, objNew));
+const objMapDeep = (obj, fn) => objMap(obj, (val, key, objNew) => isObjectLike(val) ? objMapDeep(val, fn) : fn(val, key, objNew));
 
 /**
  * Recursively creates a new object with the entries of the input object.
@@ -1338,7 +1340,7 @@ const objMapDeep = (obj, fn) => objMap(obj, (key, val, index, objNew) => isObjec
  * // a = {a: {b: 2, c: {a: 10, b: 20}}
  * // b = {a: {b: 2, c: {a: 123, b: 20}}}
  */
-const objFromDeep = (obj) => objMapDeep(objFrom(obj), (key, val) => isObjectLike(val) ? objFrom(val) : val);
+const objFromDeep = (obj) => objMapDeep(objFrom(obj), val => (isObjectLike(val) ? objFrom(val) : val));
 
 /**
  * Creates a map from an object.
@@ -1383,7 +1385,7 @@ const forEachDeep = (arr, fn) => arr.forEach((val, index) => Array.isArray(val) 
  * })
  * // a = {a: 0, b: {c: [0, 2]}}
  */
-const forEachEntryDeep = (obj, fn) => forEachEntry(obj, (key, val, index) => isObjectLike(val) ? forEachEntryDeep(val, fn) : fn(key, val, index, obj));
+const forEachEntryDeep = (obj, fn) => forEachEntry(obj, (val, key) => isObjectLike(val) ? forEachEntryDeep(val, fn) : fn(val, key, obj));
 
 /**
  * Creates a debounced function.
@@ -1404,9 +1406,7 @@ const fnDebounce = (fn, timeout) => {
     let timer = null; // Seems to require any, as the return type of the browser and node are different here.
     // tslint:disable-next-line:only-arrow-functions
     return function () {
-        if (timer != null) {
-            clearTimeout(timer);
-        }
+        clearTimeout(timer);
         timer = setTimeout(() => {
             timer = null;
             fn.apply(this, arguments);
@@ -1431,7 +1431,7 @@ const fnDebounce = (fn, timeout) => {
  * // function calls will be throttled to 500ms
  */
 const fnThrottle = (fn, timeout) => {
-    let timer; // Seems to require any, as the return type of the browser and node are different here.
+    let timer = null; // Seems to require any, as the return type of the browser and node are different here.
     let last = null;
     // tslint:disable-next-line:only-arrow-functions
     return function () {
@@ -1553,47 +1553,65 @@ const randShuffle = (arr) => {
 };
 
 /**
- * Value checking, type checking, and comparison
+ * Value checking, type checking, and comparison.
+ *
+ * Note that some equivalents found in lodash are not provided here due to native equivalents:
+ * - isArray -> Array.isArray
+ * - isInteger -> Number.isInteger
+ * - isSafeInteger -> Number.isSafeInteger
+ * - isFinite -> Number.isFinite
+ * - isNaN -> Number.isNaN
+ *
  * @namespace Is
  */
 /**
- * Get values and properties of a target
+ * Get values and properties of a target.
+ *
  * @namespace Get
  */
 /**
- * Number manipulation and comparison
+ * Number manipulation and comparison.
+ *
  * @namespace Number
  */
 /**
- * String manipulation and comparison
+ * String manipulation and comparison.
+ *
  * @namespace String
  */
 /**
- * Array manipulation and analysis
+ * Array manipulation and analysis.
+ *
  * @namespace Array
  */
 /**
- * Object manipulation and analysis
+ * Object manipulation and analysis.
+ *
  * @namespace Object
  */
 /**
- * Map manipulation
+ * Map manipulation.
+ *
  * @namespace Map
  */
 /**
- * Looping through ranges, arrays and objects
+ * Looping through ranges, arrays and objects.
+ *
  * @namespace For
  */
 /**
- * Function manipulation
+ * Function manipulation.
+ *
  * @namespace Fn
  */
 /**
- * Array and object search
+ * Array and object search.
+ *
  * @namespace Search
  */
 /**
- * Random number generation and value picking
+ * Random number generation and value picking.
+ *
  * @namespace Random
  */
 
@@ -1612,7 +1630,7 @@ export { isEqual, isInstanceOf, isTypeOf, isUndefined, isNil, isNumber, isString
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Fri Nov 23 2018 21:36:10 GMT+0100 (Central European Standard Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Sun Nov 25 2018 15:05:53 GMT+0100 (Central European Standard Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
 </footer>
 
 <script>prettyPrint();</script>
