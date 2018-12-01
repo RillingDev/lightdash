@@ -26,7 +26,7 @@ const fnThrottle = (fn: anyVoidFn<any>, timeout: number): anyVoidFn<any> => {
 
         const run = () => {
             last = now;
-            fn.apply(this, arguments);
+            fn.apply(this, Array.of(arguments));
         };
 
         if (last != null && now < last + timeout) {

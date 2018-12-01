@@ -7,6 +7,7 @@ import { anyVoidFn } from "./lib/anyVoidFn";
  * @see https://css-tricks.com/the-difference-between-throttling-and-debouncing/
  *
  * @memberof Fn
+ * @since 8.1.0
  * @param {Function} fn Function to debounce.
  * @param {number} timeout Timeout to use.
  * @returns {Function} Debounced function.
@@ -23,7 +24,7 @@ const fnDebounce = (fn: anyVoidFn<any>, timeout: number): anyVoidFn<any> => {
         clearTimeout(timer);
         timer = setTimeout(() => {
             timer = null;
-            fn.apply(this, arguments);
+            fn.apply(this, Array.of(arguments));
         }, timeout);
     };
 };
