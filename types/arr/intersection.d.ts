@@ -10,8 +10,8 @@
  * arrIntersection([1, 2, 3], [1, "foo", 3])
  * // => [1, 3]
  *
- * arrIntersection([1, 2, 3], ["foo"], [2, 0, 2])
+ * arrIntersection([1, 2, 3], [100], [2, 0, 2])
  * // => [2]
  */
-declare const arrIntersection: <T>(arr: T[], ...values: any[]) => T[];
+declare const arrIntersection: <T>(arr: T[], ...values: T[][]) => T[];
 export { arrIntersection };

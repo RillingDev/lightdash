@@ -10,7 +10,7 @@
  * // => Map<any, number>{1: 4, 2: 2, 3: 1, 4: 1}
  */
 const arrCount = <T>(arr: T[]): Map<T, number> => {
-    const result: Map<T, number> = new Map();
+    const result = new Map<T, number>();
 
     arr.forEach(val =>
         result.set(val, result.has(val) ? result.get(val)! + 1 : 1)

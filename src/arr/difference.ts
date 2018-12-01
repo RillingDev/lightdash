@@ -1,4 +1,5 @@
 import { arrCount } from "./count";
+import { arrMerge } from "./merge";
 
 /**
  * Returns an array of all elements that exist in the first array, but not any others.
@@ -12,11 +13,11 @@ import { arrCount } from "./count";
  * arrDifference([1, 2, 3], [1, "foo", 3])
  * // => [2]
  *
- * arrDifference([1, 2, 3], ["foo"], [2, 0, 2])
+ * arrDifference([1, 2, 3], [100], [2, 0, 2])
  * // => [1, 3]
  */
-const arrDifference = <T>(arr: T[], ...values: any[]): T[] => {
-    const valuesCounted = arrCount(<any[]>[].concat(...values));
+const arrDifference = <T>(arr: T[], ...values: T[][]): T[] => {
+    const valuesCounted = arrCount(arrMerge(...values));
 
     return arr.filter(item => !valuesCounted.has(item));
 };

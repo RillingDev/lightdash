@@ -10,8 +10,8 @@
  * arrDifference([1, 2, 3], [1, "foo", 3])
  * // => [2]
  *
- * arrDifference([1, 2, 3], ["foo"], [2, 0, 2])
+ * arrDifference([1, 2, 3], [100], [2, 0, 2])
  * // => [1, 3]
  */
-declare const arrDifference: <T>(arr: T[], ...values: any[]) => T[];
+declare const arrDifference: <T>(arr: T[], ...values: T[][]) => T[];
 export { arrDifference };

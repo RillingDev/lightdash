@@ -1009,6 +1009,31 @@ var _l = (function (exports) {
     };
 
     /**
+     * Merges an arbitrary amount of arrays.
+     *
+     * @memberof Array
+     * @since 10.1.0
+     * @param {...any[]} values Arrays to merge.
+     * @returns {any[]} merged array.
+     * @example
+     * arrMerge([1, 2, 3], [1, 6, 3])
+     * // => [1, 2, 3, 1, 6, 3]
+     *
+     * arrDifference([1, 2, 3], [0], [2, 0, 2])
+     * // => [1, 2, 3, 0, 2, 0, 2]
+     */
+    const arrMerge = (...values) => {
+        if (values.length === 0) {
+            return [];
+        }
+        const first = values[0];
+        if (values.length === 1) {
+            return first;
+        }
+        return first.concat(...values.slice(1));
+    };
+
+    /**
      * Returns an array of all elements that exist in the first array, but not any others.
      *
      * @memberof Array
@@ -1020,11 +1045,11 @@ var _l = (function (exports) {
      * arrDifference([1, 2, 3], [1, "foo", 3])
      * // => [2]
      *
-     * arrDifference([1, 2, 3], ["foo"], [2, 0, 2])
+     * arrDifference([1, 2, 3], [100], [2, 0, 2])
      * // => [1, 3]
      */
     const arrDifference = (arr, ...values) => {
-        const valuesCounted = arrCount([].concat(...values));
+        const valuesCounted = arrCount(arrMerge(...values));
         return arr.filter(item => !valuesCounted.has(item));
     };
 
@@ -1072,11 +1097,11 @@ var _l = (function (exports) {
      * arrIntersection([1, 2, 3], [1, "foo", 3])
      * // => [1, 3]
      *
-     * arrIntersection([1, 2, 3], ["foo"], [2, 0, 2])
+     * arrIntersection([1, 2, 3], [100], [2, 0, 2])
      * // => [2]
      */
     const arrIntersection = (arr, ...values) => {
-        const valuesCounted = arrCount([].concat(...values));
+        const valuesCounted = arrCount(arrMerge(...values));
         return arr.filter(item => valuesCounted.has(item));
     };
 

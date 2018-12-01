@@ -1,4 +1,5 @@
 import { arrCount } from "./count";
+import { arrMerge } from "./merge";
 
 /**
  * Returns an array of all elements that exist in the first array and at least once in one of the other arrays.
@@ -12,11 +13,11 @@ import { arrCount } from "./count";
  * arrIntersection([1, 2, 3], [1, "foo", 3])
  * // => [1, 3]
  *
- * arrIntersection([1, 2, 3], ["foo"], [2, 0, 2])
+ * arrIntersection([1, 2, 3], [100], [2, 0, 2])
  * // => [2]
  */
-const arrIntersection = <T>(arr: T[], ...values: any[]): T[] => {
-    const valuesCounted = arrCount(<any[]>[].concat(...values));
+const arrIntersection = <T>(arr: T[], ...values: T[][]): T[] => {
+    const valuesCounted = arrCount(arrMerge(...values));
 
     return arr.filter(item => valuesCounted.has(item));
 };

@@ -16,7 +16,7 @@ import { isNil } from "../is/nil";
  * // => Map<any, any[]>{0: [2, 4], 1: [1, 3, 5]}
  */
 const arrCollect = <T, U>(arr: T[], fn: forEachMapper<T, U>): Map<U, T[]> => {
-    const result: Map<U, T[]> = new Map();
+    const result = new Map<U, T[]>();
 
     arr.forEach((val, index) => {
         const key = fn(val, index, arr);
