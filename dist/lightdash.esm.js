@@ -1352,6 +1352,7 @@ const forEachEntryDeep = (obj, fn) => forEachEntry(obj, (val, key) => isObjectLi
  * @see https://css-tricks.com/the-difference-between-throttling-and-debouncing/
  *
  * @memberof Fn
+ * @since 8.1.0
  * @param {Function} fn Function to debounce.
  * @param {number} timeout Timeout to use.
  * @returns {Function} Debounced function.
@@ -1367,7 +1368,7 @@ const fnDebounce = (fn, timeout) => {
         clearTimeout(timer);
         timer = setTimeout(() => {
             timer = null;
-            fn.apply(this, arguments);
+            fn.apply(this, Array.of(arguments));
         }, timeout);
     };
 };
@@ -1396,7 +1397,7 @@ const fnThrottle = (fn, timeout) => {
         const now = Date.now();
         const run = () => {
             last = now;
-            fn.apply(this, arguments);
+            fn.apply(this, Array.of(arguments));
         };
         if (last != null && now < last + timeout) {
             clearTimeout(timer);
