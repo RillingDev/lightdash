@@ -1,5 +1,6 @@
 import { isFunction } from "./function";
 import { isObjectLike } from "./objectLike";
+import { IAnyObject } from "../obj/lib/IAnyObject";
 
 /**
  * Checks if a value is an object.
@@ -21,7 +22,7 @@ import { isObjectLike } from "./objectLike";
  * isObject(1)
  * // => false
  */
-const isObject = (val: any): val is object =>
+const isObject = (val: any): val is IAnyObject =>
     isObjectLike(val) || isFunction(val);
 
 export { isObject };

@@ -25,6 +25,7 @@ import { isUndefined } from "./is/undefined";
 import { isWeakMap } from "./is/weakMap";
 import { isWeakSet } from "./is/weakSet";
 
+import { getName } from "./get/name";
 import { getPath } from "./get/path";
 import { getSize } from "./get/size";
 
@@ -106,6 +107,7 @@ export {
     isIndex,
     getPath,
     getSize,
+    getName,
     numClamp,
     numSafe,
     strDistance,

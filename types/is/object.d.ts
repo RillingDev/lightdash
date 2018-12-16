@@ -1,3 +1,4 @@
+import { IAnyObject } from "../obj/lib/IAnyObject";
 /**
  * Checks if a value is an object.
  *
@@ -18,5 +19,5 @@
  * isObject(1)
  * // => false
  */
-declare const isObject: (val: any) => val is object;
+declare const isObject: (val: any) => val is IAnyObject;
 export { isObject };
