@@ -1,6 +1,6 @@
+import { IAnyObject } from "../obj/lib/IAnyObject";
 import { isFunction } from "./function";
 import { isObjectLike } from "./objectLike";
-import { IAnyObject } from "../obj/lib/IAnyObject";
 
 /**
  * Checks if a value is an object.
