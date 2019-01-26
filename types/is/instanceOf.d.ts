@@ -1,4 +1,4 @@
-import { IGenericClass } from "./lib/IAnyClass";
+import { anyClass } from "./lib/anyClass";
 /**
  * Checks if the value is an instance of any of the given classes.
  * If at least one class gives back true, true is returned.
@@ -18,5 +18,5 @@ import { IGenericClass } from "./lib/IAnyClass";
  * isInstanceOf({}, Array, Set)
  * // => false
  */
-declare const isInstanceOf: (val: any, ...targets: IGenericClass[]) => boolean;
-export { isInstanceOf, IGenericClass };
+declare const isInstanceOf: (val: any, ...targets: anyClass[]) => boolean;
+export { isInstanceOf, anyClass };
