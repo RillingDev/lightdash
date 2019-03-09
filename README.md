@@ -10,18 +10,6 @@ It is completely written from scratch with the latest ES8+ features.
 
 **[Docs](https://felixrilling.github.io/lightdash/)**
 
-## Differences from lodash
-
-Pros:
-
-*   Written in TypeScript, built-in TypeScript definitions.
-*   Smaller fil sizes, both when using the full build and when tree-shaking.
-*   Makes use of the latest ECMAScript/TypeScript features.
-
-Cons:
-
-*   No support for legacy browsers.
-
 ## Usage
 
 Installation:
@@ -30,9 +18,7 @@ Installation:
 npm install lightdash
 ```
 
-Importing the modules you want from the file fitting your environment (`lightdash.esm.js` for ES modules or `lightdash.common.js` for commonjs/node) is highly recommended to drastically reduce file size by only including the functions actually needed.
-
-When using ES Modules:
+When Ssing ES Modules:
 
 ```typescript
 import { arrDifference } from "lightdash";
@@ -40,7 +26,7 @@ import { arrDifference } from "lightdash";
 arrDifference([1, 2, 3], [1, 3]);
 ```
 
-When using Node/CommonJS:
+When using CommonJS (Node):
 
 ```typescript
 const { arrDifference } = require("lightdash");
@@ -48,7 +34,7 @@ const { arrDifference } = require("lightdash");
 arrDifference([1, 2, 3], [1, 3]);
 ```
 
-If you use lightdash directly in the browser, use the exposed `_l` variable
+If you use lightdash directly in the browser, use the exposed `_l` namespace.
 
 ```typescript
 _l.arrDifference([1, 2, 3], [1, 3]);
