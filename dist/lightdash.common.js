@@ -429,7 +429,7 @@ const isEqual = (a, b) => {
     let result = true;
     forEachEntry(a, (aVal, key) => {
         // Only check if the comparison didn't fail already
-        if (result === true) {
+        if (result) {
             result = isUndefined(b[key]) ? false : isEqual(aVal, b[key]);
         }
     });
