@@ -1,4 +1,3 @@
-import { arrCount } from "./count";
 import { arrMerge } from "./merge";
 
 /**
@@ -17,9 +16,9 @@ import { arrMerge } from "./merge";
  * // => [2]
  */
 const arrIntersection = <T>(arr: T[], ...values: T[][]): T[] => {
-    const valuesCounted = arrCount(arrMerge(...values));
+    const valuesMerged = arrMerge(...values);
 
-    return arr.filter(item => valuesCounted.has(item));
+    return arr.filter(item => valuesMerged.includes(item));
 };
 
 export { arrIntersection };

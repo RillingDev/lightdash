@@ -1090,8 +1090,8 @@ const arrMerge = (...values) => {
  * // => [1, 3]
  */
 const arrDifference = (arr, ...values) => {
-    const valuesCounted = arrCount(arrMerge(...values));
-    return arr.filter(item => !valuesCounted.has(item));
+    const valuesMerged = arrMerge(...values);
+    return arr.filter(item => !valuesMerged.includes(item));
 };
 
 // TODO: Figure out a way to properly use generics here.
@@ -1142,8 +1142,8 @@ const arrFromDeep = (arr) => arrMapDeep(Array.from(arr), val => Array.isArray(va
  * // => [2]
  */
 const arrIntersection = (arr, ...values) => {
-    const valuesCounted = arrCount(arrMerge(...values));
-    return arr.filter(item => valuesCounted.has(item));
+    const valuesMerged = arrMerge(...values);
+    return arr.filter(item => valuesMerged.includes(item));
 };
 
 /**
