@@ -30,7 +30,11 @@ const randNumber = (
 
     const rand = Math.random() * diff;
 
-    return min + (float ? rand : Math.floor((rand / diff) * (diff + 1)));
+    if (float) {
+        return min + rand;
+    }
+
+    return min + Math.floor((rand / diff) * (diff + 1));
 };
 
 export { randNumber };
