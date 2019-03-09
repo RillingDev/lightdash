@@ -17,17 +17,17 @@ import { IAnyObject } from "./lib/IAnyObject";
  * // => {a: 1, b: 2, c: 5}
  */
 const objDefaults = (obj: IAnyObject, objDefault: IAnyObject): IAnyObject => {
-    const result: IAnyObject = Array.isArray(obj)
+    const defaulted: IAnyObject = Array.isArray(obj)
         ? Array.from(obj)
         : objFrom(obj);
 
     forEachEntry(objDefault, (valDefault, keyDefault) => {
         if (isUndefined(obj[keyDefault])) {
-            result[keyDefault] = valDefault;
+            defaulted[keyDefault] = valDefault;
         }
     });
 
-    return result;
+    return defaulted;
 };
 
 export { objDefaults };

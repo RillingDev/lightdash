@@ -1,5 +1,4 @@
 // File is named "_index.ts" to avoid it being treated as a module index file.
-
 /**
  * Checks if a value is a valid index.
  *

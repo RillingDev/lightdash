@@ -16,20 +16,20 @@ import { isNil } from "../is/nil";
  * // => Map<any, any[]>{0: [2, 4], 1: [1, 3, 5]}
  */
 const arrCollect = <T, U>(arr: T[], fn: forEachMapper<T, U>): Map<U, T[]> => {
-    const result = new Map<U, T[]>();
+    const collected = new Map<U, T[]>();
 
     arr.forEach((val, index) => {
         const key = fn(val, index, arr);
 
         if (!isNil(key)) {
-            result.set(
+            collected.set(
                 key,
-                result.has(key) ? [...result.get(key)!, val] : [val]
+                collected.has(key) ? [...collected.get(key)!, val] : [val]
             );
         }
     });
 
-    return result;
+    return collected;
 };
 
 export { arrCollect };

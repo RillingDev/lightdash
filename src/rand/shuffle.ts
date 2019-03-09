@@ -12,18 +12,18 @@ import { randNumber } from "./number";
  * // => [3,1,2]
  */
 const randShuffle = <T>(arr: T[]): T[] => {
-    const result = Array.from(arr);
-    let length = result.length;
+    const shuffled = Array.from(arr);
+    let length = shuffled.length;
 
     while (length--) {
         const index = randNumber(0, length);
-        const temp = result[length];
+        const temp = shuffled[length];
 
-        result[length] = result[index];
-        result[index] = temp;
+        shuffled[length] = shuffled[index];
+        shuffled[index] = temp;
     }
 
-    return result;
+    return shuffled;
 };
 
 export { randShuffle };

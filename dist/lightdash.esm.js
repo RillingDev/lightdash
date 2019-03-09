@@ -422,14 +422,14 @@ const isEqual = (a, b) => {
         Object.keys(a).length !== Object.keys(b).length) {
         return false;
     }
-    let result = true;
+    let equal = true;
     forEachEntry(a, (aVal, key) => {
         // Only check if the comparison didn't fail already
-        if (result) {
-            result = isUndefined(b[key]) ? false : isEqual(aVal, b[key]);
+        if (equal) {
+            equal = isUndefined(b[key]) ? false : isEqual(aVal, b[key]);
         }
     });
-    return result;
+    return equal;
 };
 
 /**
@@ -891,14 +891,14 @@ const strFromSnakeCase = (str) => arrCompact(str.split("_" /* SNAKE */));
  * // => Map<any, any[]>{0: [2, 4], 1: [1, 3, 5]}
  */
 const arrCollect = (arr, fn) => {
-    const result = new Map();
+    const collected = new Map();
     arr.forEach((val, index) => {
         const key = fn(val, index, arr);
         if (!isNil(key)) {
-            result.set(key, result.has(key) ? [...result.get(key), val] : [val]);
+            collected.set(key, collected.has(key) ? [...collected.get(key), val] : [val]);
         }
     });
-    return result;
+    return collected;
 };
 
 // noinspection SpellCheckingInspection
@@ -1021,11 +1021,11 @@ const arrChunk = (arr, chunk) => {
     if (!isIndex(chunk) || chunk === 0) {
         return [];
     }
-    const result = [];
+    const chunked = [];
     for (let i = 0; i < arr.length; i += chunk) {
-        result.push(arr.slice(i, i + chunk));
+        chunked.push(arr.slice(i, i + chunk));
     }
-    return result;
+    return chunked;
 };
 
 /**
@@ -1040,9 +1040,9 @@ const arrChunk = (arr, chunk) => {
  * // => Map<any, number>{1: 4, 2: 2, 3: 1, 4: 1}
  */
 const arrCount = (arr) => {
-    const result = new Map();
-    arr.forEach(val => result.set(val, result.has(val) ? result.get(val) + 1 : 1));
-    return result;
+    const counted = new Map();
+    arr.forEach(val => counted.set(val, counted.has(val) ? counted.get(val) + 1 : 1));
+    return counted;
 };
 
 /**
@@ -1157,13 +1157,13 @@ const arrIntersection = (arr, ...values) => {
 const arrRemoveIndex = (arr, targetIndex) => arr.filter((val, index) => index !== targetIndex);
 
 /**
- * Returns an array with all instances of the given item removed.
+ * Returns an array with instances of the given item removed.
  *
  * @memberof Array
  * @since 2.8.0
  * @param {any[]} arr Array to use.
  * @param {any} targetItem Item to remove.
- * @param {boolean} [removeAll=true] If all or just the first occurrence should be removed.
+ * @param {boolean} [removeAll=true] If all occurrences should be removed, otherwise just the first occurrence will be.
  * @returns {any[]} Array with the item removed.
  * @example
  * arrRemoveItem(["foo", "bar", "fizz", "bar"], "bar")
@@ -1217,11 +1217,11 @@ const arrUniq = (arr) => Array.from(new Set(arr));
  * // => {a: 8, b: 4}
  */
 const objMap = (obj, fn) => {
-    const objNew = Array.isArray(obj) ? [] : {};
+    const mapped = Array.isArray(obj) ? [] : {};
     forEachEntry(obj, (val, key) => {
-        objNew[key] = fn(val, key, obj);
+        mapped[key] = fn(val, key, obj);
     });
-    return objNew;
+    return mapped;
 };
 
 /**
@@ -1291,15 +1291,15 @@ const objFrom = (obj) => Object.assign({}, obj);
  * // => {a: 1, b: 2, c: 5}
  */
 const objDefaults = (obj, objDefault) => {
-    const result = Array.isArray(obj)
+    const defaulted = Array.isArray(obj)
         ? Array.from(obj)
         : objFrom(obj);
     forEachEntry(objDefault, (valDefault, keyDefault) => {
         if (isUndefined(obj[keyDefault])) {
-            result[keyDefault] = valDefault;
+            defaulted[keyDefault] = valDefault;
         }
     });
-    return result;
+    return defaulted;
 };
 
 // TODO: Figure out a way to properly use generics here.
@@ -1316,21 +1316,21 @@ const objDefaults = (obj, objDefault) => {
  * // => {a: [1, 2, 3], b: 2, c: {f: "x"}}
  */
 const objDefaultsDeep = (obj, objDefault) => {
-    const result = Array.isArray(obj)
+    const defaulted = Array.isArray(obj)
         ? Array.from(obj)
         : objFrom(obj);
     forEachEntry(objDefault, (valDefault, keyDefault) => {
         const valGiven = obj[keyDefault];
         if (isObjectLike(valDefault)) {
-            result[keyDefault] = isObjectLike(valGiven)
+            defaulted[keyDefault] = isObjectLike(valGiven)
                 ? objDefaultsDeep(valGiven, valDefault)
                 : valDefault;
         }
         else {
-            result[keyDefault] = isUndefined(valGiven) ? valDefault : valGiven;
+            defaulted[keyDefault] = isUndefined(valGiven) ? valDefault : valGiven;
         }
     });
-    return result;
+    return defaulted;
 };
 
 // TODO: Figure out a way to properly use generics here.
@@ -1565,15 +1565,15 @@ const randItem = (arr) => arr[randNumber(0, arr.length - 1)];
  * // => [3,1,2]
  */
 const randShuffle = (arr) => {
-    const result = Array.from(arr);
-    let length = result.length;
+    const shuffled = Array.from(arr);
+    let length = shuffled.length;
     while (length--) {
         const index = randNumber(0, length);
-        const temp = result[length];
-        result[length] = result[index];
-        result[index] = temp;
+        const temp = shuffled[length];
+        shuffled[length] = shuffled[index];
+        shuffled[index] = temp;
     }
-    return result;
+    return shuffled;
 };
 
 /**

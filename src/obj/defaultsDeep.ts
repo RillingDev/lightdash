@@ -21,7 +21,7 @@ const objDefaultsDeep = (
     obj: IAnyObject,
     objDefault: IAnyObject
 ): IAnyObject => {
-    const result: IAnyObject = Array.isArray(obj)
+    const defaulted: IAnyObject = Array.isArray(obj)
         ? Array.from(obj)
         : objFrom(obj);
 
@@ -29,15 +29,15 @@ const objDefaultsDeep = (
         const valGiven = obj[keyDefault];
 
         if (isObjectLike(valDefault)) {
-            result[keyDefault] = isObjectLike(valGiven)
+            defaulted[keyDefault] = isObjectLike(valGiven)
                 ? objDefaultsDeep(valGiven, valDefault)
                 : valDefault;
         } else {
-            result[keyDefault] = isUndefined(valGiven) ? valDefault : valGiven;
+            defaulted[keyDefault] = isUndefined(valGiven) ? valDefault : valGiven;
         }
     });
 
-    return result;
+    return defaulted;
 };
 
 export { objDefaultsDeep };

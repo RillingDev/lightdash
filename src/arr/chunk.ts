@@ -20,13 +20,13 @@ const arrChunk = <T>(arr: T[], chunk: number): T[][] => {
         return [];
     }
 
-    const result: T[][] = [];
+    const chunked: T[][] = [];
 
     for (let i = 0; i < arr.length; i += chunk) {
-        result.push(arr.slice(i, i + chunk));
+        chunked.push(arr.slice(i, i + chunk));
     }
 
-    return result;
+    return chunked;
 };
 
 export { arrChunk };

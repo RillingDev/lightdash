@@ -19,13 +19,13 @@ const objMap = (
     obj: IAnyObject,
     fn: forEachEntryMapper<any, any>
 ): IAnyObject => {
-    const objNew: IAnyObject = Array.isArray(obj) ? [] : {};
+    const mapped: IAnyObject = Array.isArray(obj) ? [] : {};
 
     forEachEntry(obj, (val, key) => {
-        objNew[key] = fn(val, key, obj);
+        mapped[key] = fn(val, key, obj);
     });
 
-    return objNew;
+    return mapped;
 };
 
 export { objMap };

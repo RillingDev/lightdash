@@ -10,13 +10,13 @@
  * // => Map<any, number>{1: 4, 2: 2, 3: 1, 4: 1}
  */
 const arrCount = <T>(arr: T[]): Map<T, number> => {
-    const result = new Map<T, number>();
+    const counted = new Map<T, number>();
 
     arr.forEach(val =>
-        result.set(val, result.has(val) ? result.get(val)! + 1 : 1)
+        counted.set(val, counted.has(val) ? counted.get(val)! + 1 : 1)
     );
 
-    return result;
+    return counted;
 };
 
 export { arrCount };
