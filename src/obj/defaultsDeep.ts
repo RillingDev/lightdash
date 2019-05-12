@@ -33,7 +33,9 @@ const objDefaultsDeep = (
                 ? objDefaultsDeep(valGiven, valDefault)
                 : valDefault;
         } else {
-            defaulted[keyDefault] = isUndefined(valGiven) ? valDefault : valGiven;
+            defaulted[keyDefault] = isUndefined(valGiven)
+                ? valDefault
+                : valGiven;
         }
     });
 

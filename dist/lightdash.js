@@ -1330,7 +1330,9 @@ var _l = (function (exports) {
                     : valDefault;
             }
             else {
-                defaulted[keyDefault] = isUndefined(valGiven) ? valDefault : valGiven;
+                defaulted[keyDefault] = isUndefined(valGiven)
+                    ? valDefault
+                    : valGiven;
             }
         });
         return defaulted;
@@ -1582,138 +1584,75 @@ var _l = (function (exports) {
         return shuffled;
     };
 
-    /**
-     * Value checking, type checking, and comparison.
-     *
-     * Note that some equivalents found in lodash are not provided here due to native equivalents:
-     * - isArray -> Array.isArray
-     * - isInteger -> Number.isInteger
-     * - isSafeInteger -> Number.isSafeInteger
-     * - isFinite -> Number.isFinite
-     * - isNaN -> Number.isNaN
-     *
-     * @namespace Is
-     */
-    /**
-     * Get values and properties of a target.
-     *
-     * @namespace Get
-     */
-    /**
-     * Number manipulation and comparison.
-     *
-     * @namespace Number
-     */
-    /**
-     * String manipulation and comparison.
-     *
-     * @namespace String
-     */
-    /**
-     * Array manipulation and analysis.
-     *
-     * @namespace Array
-     */
-    /**
-     * Object manipulation and analysis.
-     *
-     * @namespace Object
-     */
-    /**
-     * Map manipulation.
-     *
-     * @namespace Map
-     */
-    /**
-     * Looping through ranges, arrays and objects.
-     *
-     * @namespace For
-     */
-    /**
-     * Function manipulation.
-     *
-     * @namespace Fn
-     */
-    /**
-     * Array and object search.
-     *
-     * @namespace Search
-     */
-    /**
-     * Random number generation and value picking.
-     *
-     * @namespace Random
-     */
-
-    exports.isEqual = isEqual;
-    exports.isInstanceOf = isInstanceOf;
-    exports.isTypeOf = isTypeOf;
-    exports.isUndefined = isUndefined;
-    exports.isNil = isNil;
-    exports.isNumber = isNumber;
-    exports.isString = isString;
-    exports.isBoolean = isBoolean;
-    exports.isSymbol = isSymbol;
-    exports.isObject = isObject;
-    exports.isObjectLike = isObjectLike;
-    exports.isObjectPlain = isObjectPlain;
-    exports.isArrayLike = isArrayLike;
-    exports.isArrayBuffer = isArrayBuffer;
-    exports.isArrayTyped = isArrayTyped;
-    exports.isPromise = isPromise;
-    exports.isMap = isMap;
-    exports.isSet = isSet;
-    exports.isWeakMap = isWeakMap;
-    exports.isWeakSet = isWeakSet;
-    exports.isDate = isDate;
-    exports.isRegExp = isRegExp;
-    exports.isFunction = isFunction;
-    exports.isError = isError;
-    exports.isEmpty = isEmpty;
-    exports.isIndex = isIndex;
-    exports.getPath = getPath;
-    exports.getSize = getSize;
-    exports.getName = getName;
-    exports.numClamp = numClamp;
-    exports.numSafe = numSafe;
-    exports.strDistance = strDistance;
-    exports.strSimilar = strSimilar;
-    exports.strFromKebabCase = strFromKebabCase;
-    exports.strFromPascalCase = strFromPascalCase;
-    exports.strFromSnakeCase = strFromSnakeCase;
-    exports.strToCamelCase = strToCamelCase;
-    exports.strToKebabCase = strToKebabCase;
-    exports.strToPascalCase = strToPascalCase;
-    exports.strToSnakeCase = strToSnakeCase;
-    exports.arrFromDeep = arrFromDeep;
-    exports.arrMapDeep = arrMapDeep;
-    exports.arrCompact = arrCompact;
     exports.arrChunk = arrChunk;
-    exports.arrStep = arrStep;
+    exports.arrCollect = arrCollect;
+    exports.arrCompact = arrCompact;
+    exports.arrCount = arrCount;
+    exports.arrDifference = arrDifference;
+    exports.arrFromDeep = arrFromDeep;
+    exports.arrIntersection = arrIntersection;
+    exports.arrMapDeep = arrMapDeep;
     exports.arrRemoveIndex = arrRemoveIndex;
     exports.arrRemoveItem = arrRemoveItem;
-    exports.arrCount = arrCount;
-    exports.arrCollect = arrCollect;
-    exports.arrDifference = arrDifference;
-    exports.arrIntersection = arrIntersection;
+    exports.arrStep = arrStep;
     exports.arrUniq = arrUniq;
-    exports.objFrom = objFrom;
-    exports.objFromDeep = objFromDeep;
-    exports.objMap = objMap;
-    exports.objMapDeep = objMapDeep;
-    exports.objDefaults = objDefaults;
-    exports.objDefaultsDeep = objDefaultsDeep;
-    exports.objDecycle = objDecycle;
-    exports.mapFromObject = mapFromObject;
     exports.fnDebounce = fnDebounce;
     exports.fnThrottle = fnThrottle;
     exports.forEachDeep = forEachDeep;
     exports.forEachEntry = forEachEntry;
     exports.forEachEntryDeep = forEachEntryDeep;
-    exports.searchBinary = searchBinary;
-    exports.randNumber = randNumber;
+    exports.getName = getName;
+    exports.getPath = getPath;
+    exports.getSize = getSize;
+    exports.isArrayBuffer = isArrayBuffer;
+    exports.isArrayLike = isArrayLike;
+    exports.isArrayTyped = isArrayTyped;
+    exports.isBoolean = isBoolean;
+    exports.isDate = isDate;
+    exports.isEmpty = isEmpty;
+    exports.isEqual = isEqual;
+    exports.isError = isError;
+    exports.isFunction = isFunction;
+    exports.isIndex = isIndex;
+    exports.isInstanceOf = isInstanceOf;
+    exports.isMap = isMap;
+    exports.isNil = isNil;
+    exports.isNumber = isNumber;
+    exports.isObject = isObject;
+    exports.isObjectLike = isObjectLike;
+    exports.isObjectPlain = isObjectPlain;
+    exports.isPromise = isPromise;
+    exports.isRegExp = isRegExp;
+    exports.isSet = isSet;
+    exports.isString = isString;
+    exports.isSymbol = isSymbol;
+    exports.isTypeOf = isTypeOf;
+    exports.isUndefined = isUndefined;
+    exports.isWeakMap = isWeakMap;
+    exports.isWeakSet = isWeakSet;
+    exports.mapFromObject = mapFromObject;
+    exports.numClamp = numClamp;
+    exports.numSafe = numSafe;
+    exports.objDecycle = objDecycle;
+    exports.objDefaults = objDefaults;
+    exports.objDefaultsDeep = objDefaultsDeep;
+    exports.objFrom = objFrom;
+    exports.objFromDeep = objFromDeep;
+    exports.objMap = objMap;
+    exports.objMapDeep = objMapDeep;
     exports.randItem = randItem;
+    exports.randNumber = randNumber;
     exports.randShuffle = randShuffle;
+    exports.searchBinary = searchBinary;
+    exports.strDistance = strDistance;
+    exports.strFromKebabCase = strFromKebabCase;
+    exports.strFromPascalCase = strFromPascalCase;
+    exports.strFromSnakeCase = strFromSnakeCase;
+    exports.strSimilar = strSimilar;
+    exports.strToCamelCase = strToCamelCase;
+    exports.strToKebabCase = strToKebabCase;
+    exports.strToPascalCase = strToPascalCase;
+    exports.strToSnakeCase = strToSnakeCase;
 
     return exports;
 
