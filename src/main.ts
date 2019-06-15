@@ -74,6 +74,7 @@ import { fnThrottle } from "./fn/throttle";
 
 import { searchBinary } from "./search/binary";
 
+import { arrMerge } from "./arr/merge";
 import { randItem } from "./rand/item";
 import { randNumber } from "./rand/number";
 import { randShuffle } from "./rand/shuffle";
@@ -122,6 +123,7 @@ export {
     arrFromDeep,
     arrMapDeep,
     arrCompact,
+    arrMerge,
     arrChunk,
     arrStep,
     arrRemoveIndex,

@@ -1593,6 +1593,7 @@ exports.arrDifference = arrDifference;
 exports.arrFromDeep = arrFromDeep;
 exports.arrIntersection = arrIntersection;
 exports.arrMapDeep = arrMapDeep;
+exports.arrMerge = arrMerge;
 exports.arrRemoveIndex = arrRemoveIndex;
 exports.arrRemoveItem = arrRemoveItem;
 exports.arrStep = arrStep;
