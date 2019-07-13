@@ -6,8 +6,8 @@
  * Otherwise null is returned.
  *
  * @since 10.2.0
- * @param {any} val Value to check.
- * @returns {string} The name of the value.
+ * @param val Value to check.
+ * @returns The name of the value.
  * @example
  * getName(class Foo{})
  * // => "Foo"

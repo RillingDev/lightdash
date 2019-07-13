@@ -1,7 +1,4 @@
-import { isNil } from "../is/nil";
-import { isObject } from "../is/object";
-import { isString } from "../is/string";
-import { isSymbol } from "../is/symbol";
+import { isObject, isString, isSymbol } from "lodash";
 
 /**
  * Gets name of a value.
@@ -11,8 +8,8 @@ import { isSymbol } from "../is/symbol";
  * Otherwise null is returned.
  *
  * @since 10.2.0
- * @param {any} val Value to check.
- * @returns {string} The name of the value.
+ * @param val Value to check.
+ * @returns The name of the value.
  * @example
  * getName(class Foo{})
  * // => "Foo"
@@ -33,10 +30,10 @@ const getName = (val: any): string | null => {
     if (isString(val)) {
         return val;
     }
-    if (isObject(val) && !isNil(val.name)) {
-        return val.name;
+    if (isObject(val) && isString((<any>val).name)) {
+        return (<any>val).name;
     }
-    if (isSymbol(val) && !isNil(val.description)) {
+    if (isSymbol(val) && isString(val.description)) {
         return val.description;
     }
 

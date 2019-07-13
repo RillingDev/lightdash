@@ -6,10 +6,10 @@ import { IAnyObject } from "./lib/IAnyObject";
  * Can take a custom replacer function and a pre-filled weak set of references.
  *
  * @since 6.0.0
- * @param {Object} obj Object to decycle.
- * @param {function} [fn=() => null] Decycling function (`fn(key: *, val: any, index: number, obj: object) => void`)
- * @param {WeakSet<any>} [references=new WeakSet()] WeakSet prefilled with encountered references.
- * @returns {Object} Decycled object.
+ * @param obj Object to decycle.
+ * @param [fn=() => null] Decycling function (`fn(key: *, val: any, index: number, obj: object) => void`)
+ * @param [references=new WeakSet()] WeakSet prefilled with encountered references.
+ * @returns Decycled object.
  * @example
  * const a = {a: {}, b: 1, c: 2};
  *

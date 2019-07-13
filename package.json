@@ -10,17 +10,17 @@
             "module": "_l",
             "file": "lightdash"
         },
-        "external": []
+        "external": [
+            "lodash"
+        ]
     },
     "scripts": {
         "start": "npm-run-all lint build test docs",
         "build": "rollup -c ./tasks/rollup.config.js",
-        "build:iife": "rollup -c ./tasks/rollup.config.iife.js",
-        "build:iife-min": "rollup -c ./tasks/rollup.config.iife-min.js",
         "build:test": "rollup -c ./tasks/rollup.config.test.js",
         "build:declarations": "tsc --build ./tasks/tsconfig.declarations.json",
         "watch": "rollup -c ./tasks/rollup.config.js --watch",
-        "dist": "npm-run-all --parallel build build:iife build:iife-min build:declarations",
+        "dist": "npm-run-all --parallel build build:declarations",
         "lint": "npm-run-all --parallel lint:ts",
         "lint:ts": "tslint ./src/**/*.ts ./spec/**/*.ts",
         "fix": "npm-run-all fix:ts fix:prettier",
@@ -48,7 +48,10 @@
         "url": "https://github.com/FelixRilling/lightdash/issues"
     },
     "homepage": "https://github.com/FelixRilling/lightdash#readme",
-    "dependencies": {},
+    "dependencies": {
+        "@types/lodash": "^4.14.136",
+        "lodash": "^4.17.14"
+    },
     "devDependencies": {
         "@types/jasmine": "^3.3.13",
         "docdash": "^1.1.1",

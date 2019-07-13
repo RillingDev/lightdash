@@ -5,9 +5,9 @@ import { forEachMapper } from "../for/lib/forEachMapper";
  * otherwise the return value will be used as key.
  *
  * @since 6.1.0
- * @param {any[]} arr Array to collect.
- * @param {function} fn Function to use for collection (`fn(val: *, index: number, arr: any[]) => any`).
- * @returns {Map<any, any[]>} Map<val: *, arr: any[]> Collected map.
+ * @param arr Array to collect.
+ * @param fn Function to use for collection (`fn(val: *, index: number, arr: any[]) => any`).
+ * @returns Map<val: *, arr: any[]> Collected map.
  * @example
  * arrCollect([1, 2, 3, 4, 5], val => val % 2)
  * // => Map<any, any[]>{0: [2, 4], 1: [1, 3, 5]}

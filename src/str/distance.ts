@@ -3,9 +3,9 @@
  * Returns the levenshtein string distance of two strings.
  *
  * @since 6.3.0
- * @param {string} str1 First string to compare.
- * @param {string} str2 Second string to compare.
- * @returns {number} Distance between the two strings.
+ * @param str1 First string to compare.
+ * @param str2 Second string to compare.
+ * @returns Distance between the two strings.
  * @example
  * strDistance("Kitten", "Sitting")
  * // => 3

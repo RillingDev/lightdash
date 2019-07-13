@@ -4,9 +4,9 @@ import { anyClass } from "./lib/anyClass";
  * If at least one class gives back true, true is returned.
  *
  * @since 1.0.0
- * @param {any} val Value to check.
- * @param {...Class} targets Classes to check.
- * @returns {boolean} If the value is an instance of the class.
+ * @param val Value to check.
+ * @param targets Classes to check.
+ * @returns If the value is an instance of the class.
  * @example
  * isInstanceOf([], Array)
  * // => true

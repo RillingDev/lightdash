@@ -2,10 +2,10 @@
  * Clamps a number in a given range.
  *
  * @since 1.0.0
- * @param {number} val Value to clamp
- * @param {number} min Inclusive minimum value.
- * @param {number} max Inclusive maximum value.
- * @returns {number} Value clamped into the range given.
+ * @param val Value to clamp
+ * @param min Inclusive minimum value.
+ * @param max Inclusive maximum value.
+ * @returns Value clamped into the range given.
  * @example
  * numClamp(5, 0, 10)
  * // => 5

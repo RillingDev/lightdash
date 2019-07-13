@@ -2,8 +2,8 @@
  * Creates a PascalCase string from an array of words.
  *
  * @since 6.2.0
- * @param {string[]} arr Words to use.
- * @returns {string} PascalCase string of the words.
+ * @param arr Words to use.
+ * @returns PascalCase string of the words.
  * @example
  * strToPascalCase(["foo", "bar"])
  * // => "FooBar"

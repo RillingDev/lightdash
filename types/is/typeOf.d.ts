@@ -3,9 +3,9 @@
  * If at least one type gives back true, true is returned.
  *
  * @since 1.0.0
- * @param {any} val Value to check.
- * @param {...string} types Type strings to compare the value to.
- * @returns {boolean} If the value has the type provided.
+ * @param val Value to check.
+ * @param types Type strings to compare the value to.
+ * @returns If the value has the type provided.
  * @example
  * isTypeOf("foo", "string")
  * // => true
