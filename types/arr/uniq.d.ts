@@ -1,7 +1,6 @@
 /**
  * Returns an array of all unique elements in an array.
  *
- * @memberof Array
  * @since 1.0.0
  * @param {any[]} arr Array to use.
  * @returns {any[]} Array of the unique values.

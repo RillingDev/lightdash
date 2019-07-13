@@ -3,7 +3,6 @@ import { forEachEntryIterator } from "./lib/forEachEntryIterator";
 /**
  * Iterates over each entry of an object.
  *
- * @memberof For
  * @param {object} obj Object to iterate.
  * @param {function} fn Function to use (`fn(key: *, val: *, index: number, obj: object) => void`).
  * @example

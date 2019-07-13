@@ -8,7 +8,6 @@ import { objMap } from "./map";
  *
  * Can take a custom replacer function and a pre-filled weak set of references.
  *
- * @memberof Object
  * @since 6.0.0
  * @param {Object} obj Object to decycle.
  * @param {function} [fn=() => null] Decycling function (`fn(key: *, val: any, index: number, obj: object) => void`)

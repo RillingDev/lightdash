@@ -6,7 +6,6 @@ import { anyVoidFn } from "./lib/anyVoidFn";
  * Throttling ensures that the function can only be invoked once in the given timeout.
  * @see https://css-tricks.com/the-difference-between-throttling-and-debouncing/
  *
- * @memberof Fn
  * @since 3.1.0
  * @param {Function} fn Function to throttle.
  * @param {number} timeout Timeout to use.

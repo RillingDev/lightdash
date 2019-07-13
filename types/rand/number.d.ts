@@ -1,7 +1,6 @@
 /**
  * Return a random number in the given range.
  *
- * @memberof Random
  * @since 3.0.0
  * @param {number} [min=0] Inclusive minimum value.
  * @param {number} [max=1] Inclusive maximum value.

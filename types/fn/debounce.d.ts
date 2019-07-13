@@ -5,7 +5,6 @@ import { anyVoidFn } from "./lib/anyVoidFn";
  * Debouncing combines multiple function invocations in the given timeout into a single one.
  * @see https://css-tricks.com/the-difference-between-throttling-and-debouncing/
  *
- * @memberof Fn
  * @since 8.1.0
  * @param {Function} fn Function to debounce.
  * @param {number} timeout Timeout to use.

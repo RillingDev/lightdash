@@ -1,7 +1,6 @@
 /**
  * Clamps a number in the range of safe integers.
  *
- * @memberof Number
  * @since 7.1.0
  * @param {number} val Value to use.
  * @returns {number} Value clamped into the range of safe integers.

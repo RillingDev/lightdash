@@ -3,7 +3,6 @@ import { isInstanceOf } from "./instanceOf";
 /**
  * Checks if a value is a promise.
  *
- * @memberof Is
  * @since 3.0.0
  * @param {any} val Value to check.
  * @returns {boolean} If the value is a promise.

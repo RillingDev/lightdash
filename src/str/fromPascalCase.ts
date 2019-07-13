@@ -5,7 +5,6 @@ import { arrCompact } from "../arr/compact";
  *
  * Functions the same as the removed strFromCamelCase.
  *
- * @memberof String
  * @since 6.2.0
  * @param {string} str String in PascalCase.
  * @returns {string[]} Words of the PascalCase string.

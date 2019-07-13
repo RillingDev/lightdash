@@ -1,7 +1,6 @@
 /**
  * Creates a snake_case string from an array of words.
  *
- * @memberof String
  * @since 6.2.0
  * @param {string[]} arr Words to use.
  * @returns {string} snake_case string of the words.

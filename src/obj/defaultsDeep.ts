@@ -8,7 +8,6 @@ import { IAnyObject } from "./lib/IAnyObject";
 /**
  * Recursively sets every nil property of object to the value from the default object.
  *
- * @memberof Object
  * @since 2.7.0
  * @param {Object} obj Object to default.
  * @param {Object} objDefault Object containing the default values.

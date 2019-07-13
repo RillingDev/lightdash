@@ -11,7 +11,6 @@ import { isUndefined } from "../is/undefined";
  * If the value is object-like, the length of its entries is returned.
  * Otherwise -1 is returned.
  *
- * @memberof Get
  * @since 6.0.0
  * @param {any} val Value to check.
  * @returns {number} The size of the value.

@@ -1,7 +1,6 @@
 /**
  * Counts how many times an element appears in an array.
  *
- * @memberof Array
  * @since 2.0.0
  * @param {any[]} arr Array to count.
  * @returns {Map<any, number>}  Map containing the counted result (`Map<val: *, count: number>`).

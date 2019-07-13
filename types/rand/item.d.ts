@@ -1,7 +1,6 @@
 /**
  * Return a random item from an array.
  *
- * @memberof Random
  * @since 3.0.0
  * @param {any[]} arr Array to use.
  * @returns {any} Random item from the array.

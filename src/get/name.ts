@@ -10,7 +10,6 @@ import { isSymbol } from "../is/symbol";
  * If the value is a string, it is returned as is.
  * Otherwise null is returned.
  *
- * @memberof Get
  * @since 10.2.0
  * @param {any} val Value to check.
  * @returns {string} The name of the value.

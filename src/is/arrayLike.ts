@@ -6,7 +6,6 @@ import { isObjectLike } from "./objectLike";
  *
  * A value is considered array-like if it is object-like and has a length property.
  *
- * @memberof Is
  * @since 1.0.0
  * @param {any} val Value to check.
  * @returns {boolean} If the value is an array-like.

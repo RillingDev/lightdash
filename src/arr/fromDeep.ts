@@ -3,7 +3,6 @@ import { arrMapDeep } from "./mapDeep";
 /**
  * Recursively creates a new array with the values of the input iterable.
  *
- * @memberof Array
  * @since 2.0.0
  * @param {any[]} arr Array to copy recursively.
  * @returns {any[]} Recursively copied array.

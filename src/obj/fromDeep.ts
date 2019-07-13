@@ -6,7 +6,6 @@ import { objMapDeep } from "./mapDeep";
 /**
  * Recursively creates a new object with the entries of the input object.
  *
- * @memberof Object
  * @since 1.0.0
  * @param {Object} obj Object to copy.
  * @returns {Object} Copy of the object.

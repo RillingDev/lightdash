@@ -1,7 +1,6 @@
 /**
  * Returns an array with instances of the given item removed.
  *
- * @memberof Array
  * @since 2.8.0
  * @param {any[]} arr Array to use.
  * @param {any} targetItem Item to remove.

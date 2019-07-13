@@ -1,7 +1,6 @@
 /**
  * Merges an arbitrary amount of arrays.
  *
- * @memberof Array
  * @since 10.1.0
  * @param {...any[]} values Arrays to merge.
  * @returns {any[]} merged array.

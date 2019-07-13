@@ -1,7 +1,6 @@
 /**
  * Clamps a number in a given range.
  *
- * @memberof Number
  * @since 1.0.0
  * @param {number} val Value to clamp
  * @param {number} min Inclusive minimum value.

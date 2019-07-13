@@ -2,7 +2,6 @@ import { forEachMapper } from "../for/lib/forEachMapper";
 /**
  * Recursively maps the values of the input array with the iterator function and return the result.
  *
- * @memberof Array
  * @since 1.0.0
  * @param {any[]} arr Array to map.
  * @param {function} fn Function to use for mapping (`fn(val: *, index: number, arr: any[]) => any`).

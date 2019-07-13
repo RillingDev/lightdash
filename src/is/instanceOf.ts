@@ -4,7 +4,6 @@ import { anyClass } from "./lib/anyClass";
  * Checks if the value is an instance of any of the given classes.
  * If at least one class gives back true, true is returned.
  *
- * @memberof Is
  * @since 1.0.0
  * @param {any} val Value to check.
  * @param {...Class} targets Classes to check.

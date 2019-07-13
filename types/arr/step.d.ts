@@ -1,7 +1,6 @@
 /**
  * Returns an array with every n-th item from the input array.
  *
- * @memberof Array
  * @since 1.0.0
  * @param {any[]} arr Array to use.
  * @param {number} step Step to use.

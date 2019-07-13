@@ -2,7 +2,6 @@ import { IAnyObject } from "../obj/lib/IAnyObject";
 /**
  * Creates a map from an object.
  *
- * @memberof Map
  * @since 1.0.0
  * @param {Object} obj Object to use.
  * @returns {Map} Map created from the object.

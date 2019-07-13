@@ -5,7 +5,6 @@ import { strDistance } from "./distance";
 /**
  * Returns strings similar to the input based its distance to the values in the list given.
  *
- * @memberof String
  * @since 6.3.0
  * @param {string} str String to check.
  * @param {Array<string>} list Array of values to compare the string to.

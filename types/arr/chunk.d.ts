@@ -1,7 +1,6 @@
 /**
  * Creates an array of elements split into sub arrays by size.
  *
- * @memberof Array
  * @since 2.0.0
  * @param {any[]} arr Array to chunk.
  * @param {number} chunk Size of the chunks.

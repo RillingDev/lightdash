@@ -1,7 +1,6 @@
 /**
  * Shuffles an array randomly and returns it, using the Fisher-Yates shuffle algorithm.
  *
- * @memberof Random
  * @since 5.0.0
  * @param {any[]} arr Array to shuffle
  * @returns {any[]} Shuffled array.
