@@ -1,13 +1,13 @@
-import { getName } from "../../src/get/name";
+import { name } from "../../src/get/name";
 
-describe("getName", () => {
+describe("name", () => {
     it("gets name", () => {
-        expect(getName(class Foo {})).toBe("Foo");
+        expect(name(class Foo {})).toBe("Foo");
         // tslint:disable-next-line:no-empty
-        expect(getName(function bar() {})).toBe("bar");
-        expect(getName(Symbol("abc"))).toBe("abc");
-        expect(getName("foo")).toBe("foo");
-        expect(getName(1)).toBe(null);
-        expect(getName(null)).toBe(null);
+        expect(name(function bar() {})).toBe("bar");
+        expect(name(Symbol("abc"))).toBe("abc");
+        expect(name("foo")).toBe("foo");
+        expect(name(1)).toBe(null);
+        expect(name(null)).toBe(null);
     });
 });

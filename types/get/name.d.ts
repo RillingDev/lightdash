@@ -6,23 +6,23 @@
  * Otherwise null is returned.
  *
  * @since 10.2.0
- * @param val Value to check.
+ * @param value Value to check.
  * @returns The name of the value.
  * @example
- * getName(class Foo{})
+ * name(class Foo{})
  * // => "Foo"
  *
- * getName(function bar(){})
+ * name(function bar(){})
  * // => "bar"
  *
- * getName(Symbol("abc"))
+ * name(Symbol("abc"))
  * // => "abc"
  *
- * getName("foo")
+ * name("foo")
  * // => "foo"
  *
- * getName(1)
+ * name(1)
  * // => null
  */
-declare const getName: (val: any) => string | null;
-export { getName };
+declare const name: (value: any) => string | null;
+export { name };

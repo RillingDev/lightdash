@@ -1,15 +1,15 @@
-import { arrRemoveItem } from "../../src/arr/removeItem";
+import { removeItem } from "../../src/arr/removeItem";
 
-describe("arrRemoveItem", () => {
+describe("removeItem", () => {
     it("removes all items", () => {
-        expect(arrRemoveItem(["foo", "bar", "fizz", "bar"], "bar")).toEqual([
+        expect(removeItem(["foo", "bar", "fizz", "bar"], "bar")).toEqual([
             "foo",
             "fizz"
         ]);
     });
     it("removes one item", () => {
-        expect(
-            arrRemoveItem(["foo", "bar", "fizz", "bar"], "bar", false)
-        ).toEqual(["foo", "fizz", "bar"]);
+        expect(removeItem(["foo", "bar", "fizz", "bar"], "bar", false)).toEqual(
+            ["foo", "fizz", "bar"]
+        );
     });
 });

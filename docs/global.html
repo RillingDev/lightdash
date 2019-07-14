@@ -27,7 +27,7 @@
 
 <nav >
     
-    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#arrCollect">arrCollect</a></li><li><a href="global.html#arrCount">arrCount</a></li><li><a href="global.html#arrRemoveIndex">arrRemoveIndex</a></li><li><a href="global.html#arrRemoveItem">arrRemoveItem</a></li><li><a href="global.html#arrStep">arrStep</a></li><li><a href="global.html#getName">getName</a></li><li><a href="global.html#isInstanceOf">isInstanceOf</a></li><li><a href="global.html#isPromise">isPromise</a></li><li><a href="global.html#isTypeOf">isTypeOf</a></li><li><a href="global.html#numClamp">numClamp</a></li><li><a href="global.html#numSafe">numSafe</a></li><li><a href="global.html#objDecycle">objDecycle</a></li><li><a href="global.html#searchBinary">searchBinary</a></li><li><a href="global.html#strDistance">strDistance</a></li><li><a href="global.html#strSimilar">strSimilar</a></li><li><a href="global.html#strToPascalCase">strToPascalCase</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#binarySearch">binarySearch</a></li><li><a href="global.html#decycle">decycle</a></li><li><a href="global.html#distance">distance</a></li><li><a href="global.html#groupMapBy">groupMapBy</a></li><li><a href="global.html#isPromise">isPromise</a></li><li><a href="global.html#name">name</a></li><li><a href="global.html#pascalCase">pascalCase</a></li><li><a href="global.html#removeIndex">removeIndex</a></li><li><a href="global.html#removeItem">removeItem</a></li><li><a href="global.html#similar">similar</a></li><li><a href="global.html#step">step</a></li><li><a href="global.html#toMap">toMap</a></li></ul>
 </nav>
 
 <div id="main">
@@ -124,7 +124,7 @@
 
     
 
-    <h4 class="name" id="arrCollect"><span class="type-signature"></span>arrCollect<span class="signature">(arr, fn)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="binarySearch"><span class="type-signature"></span>binarySearch<span class="signature">(arr, search)</span><span class="type-signature"></span></h4>
 
     
 
@@ -136,2191 +136,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="lightdash.esm.js.html">lightdash.esm.js</a>, <a href="lightdash.esm.js.html#line203">line 203</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-    <dt class="tag-since">Since:</dt>
-    <dd class="tag-since"><ul class="dummy"><li>6.1.0</li></ul></dd>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-<div class="description">
-    <p>Collects the values of an array in a map as arrays.
-If the function returns a nil value, the element will be skipped,
-otherwise the return value will be used as key.</p>
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Example</h5>
-    
-    <pre class="prettyprint"><code>arrCollect([1, 2, 3, 4, 5], val => val % 2)
-// => Map&lt;any, any[]>{0: [2, 4], 1: [1, 3, 5]}</code></pre>
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>arr</code></td>
-            
-
-            <td class="type">
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>Array to collect.</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>fn</code></td>
-            
-
-            <td class="type">
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>Function to use for collection (<code>fn(val: *, index: number, arr: any[]) =&gt; any</code>).</p></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
-<div class="param-desc">
-    <p>Map&lt;val: *, arr: any[]&gt; Collected map.</p>
-</div>
-
-
-
-    
-
-
-
-        
-            
-
-    
-
-    <h4 class="name" id="arrCount"><span class="type-signature"></span>arrCount<span class="signature">(arr)</span><span class="type-signature"></span></h4>
-
-    
-
-
-
-
-<dl class="details">
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="lightdash.esm.js.html">lightdash.esm.js</a>, <a href="lightdash.esm.js.html#line271">line 271</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-    <dt class="tag-since">Since:</dt>
-    <dd class="tag-since"><ul class="dummy"><li>2.0.0</li></ul></dd>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-<div class="description">
-    <p>Counts how many times an element appears in an array.</p>
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Example</h5>
-    
-    <pre class="prettyprint"><code>arrCount([1, 1, 2, 2, 1, 3, 4, 1])
-// => Map&lt;any, number>{1: 4, 2: 2, 3: 1, 4: 1}</code></pre>
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>arr</code></td>
-            
-
-            <td class="type">
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>Array to count.</p></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
-<div class="param-desc">
-    <p>Map containing the counted result (<code>Map&lt;val: *, count: number&gt;</code>).</p>
-</div>
-
-
-
-    
-
-
-
-        
-            
-
-    
-
-    <h4 class="name" id="arrRemoveIndex"><span class="type-signature"></span>arrRemoveIndex<span class="signature">(arr, targetIndex)</span><span class="type-signature"></span></h4>
-
-    
-
-
-
-
-<dl class="details">
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="lightdash.esm.js.html">lightdash.esm.js</a>, <a href="lightdash.esm.js.html#line288">line 288</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-    <dt class="tag-since">Since:</dt>
-    <dd class="tag-since"><ul class="dummy"><li>2.8.0</li></ul></dd>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-<div class="description">
-    <p>Returns an array with the item at the index removed.</p>
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Example</h5>
-    
-    <pre class="prettyprint"><code>arrRemoveIndex(["foo", "bar", "fizz"], 1)
-// => ["foo", "fizz"]</code></pre>
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>arr</code></td>
-            
-
-            <td class="type">
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>Array to use.</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>targetIndex</code></td>
-            
-
-            <td class="type">
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>Index to remove.</p></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
-<div class="param-desc">
-    <p>Array with the index removed.</p>
-</div>
-
-
-
-    
-
-
-
-        
-            
-
-    
-
-    <h4 class="name" id="arrRemoveItem"><span class="type-signature"></span>arrRemoveItem<span class="signature">(arr, targetItem, removeAll<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></h4>
-
-    
-
-
-
-
-<dl class="details">
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="lightdash.esm.js.html">lightdash.esm.js</a>, <a href="lightdash.esm.js.html#line305">line 305</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-    <dt class="tag-since">Since:</dt>
-    <dd class="tag-since"><ul class="dummy"><li>2.8.0</li></ul></dd>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-<div class="description">
-    <p>Returns an array with instances of the given item removed.</p>
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Example</h5>
-    
-    <pre class="prettyprint"><code>arrRemoveItem(["foo", "bar", "fizz", "bar"], "bar")
-// => ["foo", "fizz"]
-
-arrRemoveItem(["foo", "bar", "fizz", "bar"], "bar", false)
-// => ["foo", "fizz", "bar"]</code></pre>
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-        <th>Attributes</th>
-        
-
-        
-        <th>Default</th>
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>arr</code></td>
-            
-
-            <td class="type">
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-
-                
-
-                
-                </td>
-            
-
-            
-                <td class="default">
-                
-                </td>
-            
-
-            <td class="description last"><p>Array to use.</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>targetItem</code></td>
-            
-
-            <td class="type">
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-
-                
-
-                
-                </td>
-            
-
-            
-                <td class="default">
-                
-                </td>
-            
-
-            <td class="description last"><p>Item to remove.</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>removeAll</code></td>
-            
-
-            <td class="type">
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-                <td class="default">
-                
-                    <code>true</code>
-                
-                </td>
-            
-
-            <td class="description last"><p>If all occurrences should be removed, otherwise just the first occurrence will be.</p></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
-<div class="param-desc">
-    <p>Array with the item removed.</p>
-</div>
-
-
-
-    
-
-
-
-        
-            
-
-    
-
-    <h4 class="name" id="arrStep"><span class="type-signature"></span>arrStep<span class="signature">(arr, step)</span><span class="type-signature"></span></h4>
-
-    
-
-
-
-
-<dl class="details">
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="lightdash.esm.js.html">lightdash.esm.js</a>, <a href="lightdash.esm.js.html#line320">line 320</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-    <dt class="tag-since">Since:</dt>
-    <dd class="tag-since"><ul class="dummy"><li>1.0.0</li></ul></dd>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-<div class="description">
-    <p>Returns an array with every n-th item from the input array.</p>
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Example</h5>
-    
-    <pre class="prettyprint"><code>arrStep([1, 2, 3, 4, 5, 6], 2)
-// => [1, 3, 5]</code></pre>
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>arr</code></td>
-            
-
-            <td class="type">
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>Array to use.</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>step</code></td>
-            
-
-            <td class="type">
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>Step to use.</p></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
-<div class="param-desc">
-    <p>Stepped array.</p>
-</div>
-
-
-
-    
-
-
-
-        
-            
-
-    
-
-    <h4 class="name" id="getName"><span class="type-signature"></span>getName<span class="signature">(val)</span><span class="type-signature"></span></h4>
-
-    
-
-
-
-
-<dl class="details">
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="lightdash.esm.js.html">lightdash.esm.js</a>, <a href="lightdash.esm.js.html#line84">line 84</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-    <dt class="tag-since">Since:</dt>
-    <dd class="tag-since"><ul class="dummy"><li>10.2.0</li></ul></dd>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-<div class="description">
-    <p>Gets name of a value.</p>
-<p>If the value has a name or description property, the value of that is returned.
-If the value is a string, it is returned as is.
-Otherwise null is returned.</p>
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Example</h5>
-    
-    <pre class="prettyprint"><code>getName(class Foo{})
-// => "Foo"
-
-getName(function bar(){})
-// => "bar"
-
-getName(Symbol("abc"))
-// => "abc"
-
-getName("foo")
-// => "foo"
-
-getName(1)
-// => null</code></pre>
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>val</code></td>
-            
-
-            <td class="type">
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>Value to check.</p></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
-<div class="param-desc">
-    <p>The name of the value.</p>
-</div>
-
-
-
-    
-
-
-
-        
-            
-
-    
-
-    <h4 class="name" id="isInstanceOf"><span class="type-signature"></span>isInstanceOf<span class="signature">(val, &hellip;targets)</span><span class="type-signature"></span></h4>
-
-    
-
-
-
-
-<dl class="details">
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="lightdash.esm.js.html">lightdash.esm.js</a>, <a href="lightdash.esm.js.html#line21">line 21</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-    <dt class="tag-since">Since:</dt>
-    <dd class="tag-since"><ul class="dummy"><li>1.0.0</li></ul></dd>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-<div class="description">
-    <p>Checks if the value is an instance of any of the given classes.
-If at least one class gives back true, true is returned.</p>
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Example</h5>
-    
-    <pre class="prettyprint"><code>isInstanceOf([], Array)
-// => true
-
-isInstanceOf([], Map, Set, Array)
-// => true
-
-isInstanceOf({}, Array, Set)
-// => false</code></pre>
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-        <th>Attributes</th>
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>val</code></td>
-            
-
-            <td class="type">
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-
-                
-
-                
-                </td>
-            
-
-            
-
-            <td class="description last"><p>Value to check.</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>targets</code></td>
-            
-
-            <td class="type">
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-
-                
-
-                
-                    &lt;repeatable><br>
-                
-                </td>
-            
-
-            
-
-            <td class="description last"><p>Classes to check.</p></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
-<div class="param-desc">
-    <p>If the value is an instance of the class.</p>
-</div>
-
-
-
-    
-
-
-
-        
-            
-
-    
-
-    <h4 class="name" id="isPromise"><span class="type-signature"></span>isPromise<span class="signature">(val)</span><span class="type-signature"></span></h4>
-
-    
-
-
-
-
-<dl class="details">
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="lightdash.esm.js.html">lightdash.esm.js</a>, <a href="lightdash.esm.js.html#line36">line 36</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-    <dt class="tag-since">Since:</dt>
-    <dd class="tag-since"><ul class="dummy"><li>3.0.0</li></ul></dd>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-<div class="description">
-    <p>Checks if a value is a promise.</p>
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Example</h5>
-    
-    <pre class="prettyprint"><code>isPromise(new Promise((resolve, reject) => resolve("foo")));
-// => true
-
-isPromise(() => "foo");
-// => false</code></pre>
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>val</code></td>
-            
-
-            <td class="type">
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>Value to check.</p></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
-<div class="param-desc">
-    <p>If the value is a promise.</p>
-</div>
-
-
-
-    
-
-
-
-        
-            
-
-    
-
-    <h4 class="name" id="isTypeOf"><span class="type-signature"></span>isTypeOf<span class="signature">(val, &hellip;types)</span><span class="type-signature"></span></h4>
-
-    
-
-
-
-
-<dl class="details">
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="lightdash.esm.js.html">lightdash.esm.js</a>, <a href="lightdash.esm.js.html#line56">line 56</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-    <dt class="tag-since">Since:</dt>
-    <dd class="tag-since"><ul class="dummy"><li>1.0.0</li></ul></dd>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-<div class="description">
-    <p>Checks if the value has any of the given types.
-If at least one type gives back true, true is returned.</p>
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Example</h5>
-    
-    <pre class="prettyprint"><code>isTypeOf("foo", "string")
-// => true
-
-isTypeOf("foo", "number", "string")
-// => true
-
-isTypeOf("foo", "number")
-// => false</code></pre>
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-        <th>Attributes</th>
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>val</code></td>
-            
-
-            <td class="type">
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-
-                
-
-                
-                </td>
-            
-
-            
-
-            <td class="description last"><p>Value to check.</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>types</code></td>
-            
-
-            <td class="type">
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-
-                
-
-                
-                    &lt;repeatable><br>
-                
-                </td>
-            
-
-            
-
-            <td class="description last"><p>Type strings to compare the value to.</p></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
-<div class="param-desc">
-    <p>If the value has the type provided.</p>
-</div>
-
-
-
-    
-
-
-
-        
-            
-
-    
-
-    <h4 class="name" id="numClamp"><span class="type-signature"></span>numClamp<span class="signature">(val, min, max)</span><span class="type-signature"></span></h4>
-
-    
-
-
-
-
-<dl class="details">
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="lightdash.esm.js.html">lightdash.esm.js</a>, <a href="lightdash.esm.js.html#line115">line 115</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-    <dt class="tag-since">Since:</dt>
-    <dd class="tag-since"><ul class="dummy"><li>1.0.0</li></ul></dd>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-<div class="description">
-    <p>Clamps a number in a given range.</p>
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Example</h5>
-    
-    <pre class="prettyprint"><code>numClamp(5, 0, 10)
-// => 5
-
-numClamp(-2, 0, 10)
-// => 0
-
-numClamp(99, 0, 10)
-// => 10</code></pre>
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>val</code></td>
-            
-
-            <td class="type">
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>Value to clamp</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>min</code></td>
-            
-
-            <td class="type">
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>Inclusive minimum value.</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>max</code></td>
-            
-
-            <td class="type">
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>Inclusive maximum value.</p></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
-<div class="param-desc">
-    <p>Value clamped into the range given.</p>
-</div>
-
-
-
-    
-
-
-
-        
-            
-
-    
-
-    <h4 class="name" id="numSafe"><span class="type-signature"></span>numSafe<span class="signature">(val)</span><span class="type-signature"></span></h4>
-
-    
-
-
-
-
-<dl class="details">
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="lightdash.esm.js.html">lightdash.esm.js</a>, <a href="lightdash.esm.js.html#line138">line 138</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-    <dt class="tag-since">Since:</dt>
-    <dd class="tag-since"><ul class="dummy"><li>7.1.0</li></ul></dd>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-<div class="description">
-    <p>Clamps a number in the range of safe integers.</p>
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Example</h5>
-    
-    <pre class="prettyprint"><code>numSafe(99999999999999999)
-// => Number.MAX_SAFE_INTEGER
-
-numSafe(-Infinity)
-// => Number.MIN_SAFE_INTEGER</code></pre>
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>val</code></td>
-            
-
-            <td class="type">
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>Value to use.</p></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
-<div class="param-desc">
-    <p>Value clamped into the range of safe integers.</p>
-</div>
-
-
-
-    
-
-
-
-        
-            
-
-    
-
-    <h4 class="name" id="objDecycle"><span class="type-signature"></span>objDecycle<span class="signature">(obj, fn<span class="signature-attributes">opt</span>, references<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></h4>
-
-    
-
-
-
-
-<dl class="details">
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="lightdash.esm.js.html">lightdash.esm.js</a>, <a href="lightdash.esm.js.html#line343">line 343</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-    <dt class="tag-since">Since:</dt>
-    <dd class="tag-since"><ul class="dummy"><li>6.0.0</li></ul></dd>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-<div class="description">
-    <p>Replaces every circular reference in an object with a value, defaulting to null.</p>
-<p>Can take a custom replacer function and a pre-filled weak set of references.</p>
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Example</h5>
-    
-    <pre class="prettyprint"><code>const a = {a: {}, b: 1, c: 2};
-
-a.a = a;
-
-objDecycle(a)
-// => {a: null, b: 1, c: 2}
-
-objDecycle(a, key => `_${key}`)
-// => {a: "_a", b: 1, c: 2}</code></pre>
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-        <th>Attributes</th>
-        
-
-        
-        <th>Default</th>
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>obj</code></td>
-            
-
-            <td class="type">
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-
-                
-
-                
-                </td>
-            
-
-            
-                <td class="default">
-                
-                </td>
-            
-
-            <td class="description last"><p>Object to decycle.</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>fn</code></td>
-            
-
-            <td class="type">
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-                <td class="default">
-                
-                    <code>() => null</code>
-                
-                </td>
-            
-
-            <td class="description last"><p>Decycling function (<code>fn(key: *, val: any, index: number, obj: object) =&gt; void</code>)</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>references</code></td>
-            
-
-            <td class="type">
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-                <td class="default">
-                
-                    <code>new WeakSet()</code>
-                
-                </td>
-            
-
-            <td class="description last"><p>WeakSet prefilled with encountered references.</p></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
-<div class="param-desc">
-    <p>Decycled object.</p>
-</div>
-
-
-
-    
-
-
-
-        
-            
-
-    
-
-    <h4 class="name" id="searchBinary"><span class="type-signature"></span>searchBinary<span class="signature">(arr, search)</span><span class="type-signature"></span></h4>
-
-    
-
-
-
-
-<dl class="details">
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="lightdash.esm.js.html">lightdash.esm.js</a>, <a href="lightdash.esm.js.html#line371">line 371</a>
+        <a href="lightdash.esm.js.html">lightdash.esm.js</a>, <a href="lightdash.esm.js.html#line284">line 284</a>
     </li></ul></dd>
     
 
@@ -2376,10 +192,10 @@ objDecycle(a, key => `_${key}`)
 
     <h5>Example</h5>
     
-    <pre class="prettyprint"><code>searchBinary([0, 1, 2], 1)
+    <pre class="prettyprint"><code>binarySearch([0, 1, 2], 1)
 // => 1
 
-searchBinary([0, 1, 2], 100)
+binarySearch([0, 1, 2], 100)
 // => null</code></pre>
 
 
@@ -2479,7 +295,7 @@ searchBinary([0, 1, 2], 100)
 
     
 
-    <h4 class="name" id="strDistance"><span class="type-signature"></span>strDistance<span class="signature">(str1, str2)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="decycle"><span class="type-signature"></span>decycle<span class="signature">(collection, replacer, references)</span><span class="type-signature"></span></h4>
 
     
 
@@ -2491,7 +307,201 @@ searchBinary([0, 1, 2], 100)
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="lightdash.esm.js.html">lightdash.esm.js</a>, <a href="lightdash.esm.js.html#line158">line 158</a>
+        <a href="lightdash.esm.js.html">lightdash.esm.js</a>, <a href="lightdash.esm.js.html#line214">line 214</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+    <dt class="tag-since">Since:</dt>
+    <dd class="tag-since"><ul class="dummy"><li>6.0.0</li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description">
+    <p>Replaces every circular reference in an object with a value, defaulting to null.</p>
+<p>Can take a custom replacer function and a pre-filled weak set of references.</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>const a = {a: {}, b: 1, c: 2};
+
+a.a = a;
+
+decycle(a)
+// => {a: null, b: 1, c: 2}
+
+decycle(a, key => `_${key}`)
+// => {a: "_a", b: 1, c: 2}</code></pre>
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>collection</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Object to decycle.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>replacer</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Value replacer function</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>references</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>WeakSet prefilled with encountered references, not recommended to provide this manually.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>Decycled object.</p>
+</div>
+
+
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="distance"><span class="type-signature"></span>distance<span class="signature">(str1, str2)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="lightdash.esm.js.html">lightdash.esm.js</a>, <a href="lightdash.esm.js.html#line48">line 48</a>
     </li></ul></dd>
     
 
@@ -2547,13 +557,13 @@ searchBinary([0, 1, 2], 100)
 
     <h5>Example</h5>
     
-    <pre class="prettyprint"><code>strDistance("Kitten", "Sitting")
+    <pre class="prettyprint"><code>distance("Kitten", "Sitting")
 // => 3
 
-strDistance("String", "Stribng")
+distance("String", "Stribng")
 // => 1
 
-strDistance("foo", "foo")
+distance("foo", "foo")
 // => 0</code></pre>
 
 
@@ -2653,7 +663,7 @@ strDistance("foo", "foo")
 
     
 
-    <h4 class="name" id="strSimilar"><span class="type-signature"></span>strSimilar<span class="signature">(str, list, returnFull<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="groupMapBy"><span class="type-signature"></span>groupMapBy<span class="signature">(collection, iteratee)</span><span class="type-signature"></span></h4>
 
     
 
@@ -2665,7 +675,1020 @@ strDistance("foo", "foo")
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="lightdash.esm.js.html">lightdash.esm.js</a>, <a href="lightdash.esm.js.html#line236">line 236</a>
+        <a href="lightdash.esm.js.html">lightdash.esm.js</a>, <a href="lightdash.esm.js.html#line107">line 107</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+    <dt class="tag-since">Since:</dt>
+    <dd class="tag-since"><ul class="dummy"><li>6.1.0</li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description">
+    <p>Collects the values of an array in a map as array values,
+using the return value of the function as key.</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>groupMapBy([1, 2, 3, 4, 5], val => val % 2)
+// => Map{0: [2, 4], 1: [1, 3, 5]}</code></pre>
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>collection</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Array to collect.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>iteratee</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Function to use for collection.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>Collected map.</p>
+</div>
+
+
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="isPromise"><span class="type-signature"></span>isPromise<span class="signature">(value)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="lightdash.esm.js.html">lightdash.esm.js</a>, <a href="lightdash.esm.js.html#line16">line 16</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+    <dt class="tag-since">Since:</dt>
+    <dd class="tag-since"><ul class="dummy"><li>3.0.0</li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description">
+    <p>Checks if a value is a promise.</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>isPromise(new Promise((resolve, reject) => resolve("foo")));
+// => true
+
+isPromise(() => "foo");
+// => false</code></pre>
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>value</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Value to check.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>If the value is a promise.</p>
+</div>
+
+
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="name"><span class="type-signature"></span>name<span class="signature">(value)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="lightdash.esm.js.html">lightdash.esm.js</a>, <a href="lightdash.esm.js.html#line257">line 257</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+    <dt class="tag-since">Since:</dt>
+    <dd class="tag-since"><ul class="dummy"><li>10.2.0</li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description">
+    <p>Gets name of a value.</p>
+<p>If the value has a name or description property, the value of that is returned.
+If the value is a string, it is returned as is.
+Otherwise null is returned.</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>name(class Foo{})
+// => "Foo"
+
+name(function bar(){})
+// => "bar"
+
+name(Symbol("abc"))
+// => "abc"
+
+name("foo")
+// => "foo"
+
+name(1)
+// => null</code></pre>
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>value</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Value to check.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>The name of the value.</p>
+</div>
+
+
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="pascalCase"><span class="type-signature"></span>pascalCase<span class="signature">(str)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="lightdash.esm.js.html">lightdash.esm.js</a>, <a href="lightdash.esm.js.html#line93">line 93</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+    <dt class="tag-since">Since:</dt>
+    <dd class="tag-since"><ul class="dummy"><li>6.2.0</li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description">
+    <p>Creates a PascalCase string from a string.</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>pascalCase(["fooBar")
+// => "FooBar"
+
+pascalCase("__foo_bar__")
+// => "FizzBuzzBazz"</code></pre>
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>str</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>String to use.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>PascalCase string of the words.</p>
+</div>
+
+
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="removeIndex"><span class="type-signature"></span>removeIndex<span class="signature">(collection, targetIndex)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="lightdash.esm.js.html">lightdash.esm.js</a>, <a href="lightdash.esm.js.html#line159">line 159</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+    <dt class="tag-since">Since:</dt>
+    <dd class="tag-since"><ul class="dummy"><li>2.8.0</li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description">
+    <p>Returns an array with the item at the index removed.</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>removeIndex(["foo", "bar", "fizz"], 1)
+// => ["foo", "fizz"]</code></pre>
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>collection</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Array to use.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>targetIndex</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Index to remove.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>Array with the index removed.</p>
+</div>
+
+
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="removeItem"><span class="type-signature"></span>removeItem<span class="signature">(collection, targetValue, removeAll)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="lightdash.esm.js.html">lightdash.esm.js</a>, <a href="lightdash.esm.js.html#line176">line 176</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+    <dt class="tag-since">Since:</dt>
+    <dd class="tag-since"><ul class="dummy"><li>2.8.0</li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description">
+    <p>Returns an array with instances of the given item removed.</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>removeItem(["foo", "bar", "fizz", "bar"], "bar")
+// => ["foo", "fizz"]
+
+removeItem(["foo", "bar", "fizz", "bar"], "bar", false)
+// => ["foo", "fizz", "bar"]</code></pre>
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+        <th>Default</th>
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>collection</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last"><p>Array to use.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>targetValue</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last"><p>Item to remove.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>removeAll</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+                <td class="default">
+                
+                    <code>true</code>
+                
+                </td>
+            
+
+            <td class="description last"><p>If all occurrences should be removed, otherwise just the first occurrence will be.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>Array with the item removed.</p>
+</div>
+
+
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="similar"><span class="type-signature"></span>similar<span class="signature">(str, list, returnFull)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="lightdash.esm.js.html">lightdash.esm.js</a>, <a href="lightdash.esm.js.html#line139">line 139</a>
     </li></ul></dd>
     
 
@@ -2721,16 +1744,16 @@ strDistance("foo", "foo")
 
     <h5>Example</h5>
     
-    <pre class="prettyprint"><code>strSimilar("Fob", ["Foo", "Bar"])
+    <pre class="prettyprint"><code>similar("Fob", ["Foo", "Bar"])
 // => ["Foo"]
 
-strSimilar("cmmit", ["init", "commit", "push"])
+similar("cmmit", ["init", "commit", "push"])
 // => ["commit"]
 
-strSimilar("Kitten", ["Sitten", "Sitting", "Bitten"])
+similar("Kitten", ["Sitten", "Sitting", "Bitten"])
 // => ["Sitten", "Bitten"]
 
-strSimilar("cmmit", ["init", "commit", "push"], true)
+similar("cmmit", ["init", "commit", "push"], true)
 // => Map&lt;number, string[]>{1: ["commit"], 3: ["init"], 5: ["push"]}</code></pre>
 
 
@@ -2748,8 +1771,6 @@ strSimilar("cmmit", ["init", "commit", "push"], true)
 
         <th>Type</th>
 
-        
-        <th>Attributes</th>
         
 
         
@@ -2773,14 +1794,6 @@ strSimilar("cmmit", ["init", "commit", "push"], true)
             </td>
 
             
-                <td class="attributes">
-                
-
-                
-
-                
-                </td>
-            
 
             
                 <td class="default">
@@ -2803,14 +1816,6 @@ strSimilar("cmmit", ["init", "commit", "push"], true)
             </td>
 
             
-                <td class="attributes">
-                
-
-                
-
-                
-                </td>
-            
 
             
                 <td class="default">
@@ -2832,16 +1837,6 @@ strSimilar("cmmit", ["init", "commit", "push"], true)
             
             </td>
 
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
             
 
             
@@ -2892,7 +1887,7 @@ strSimilar("cmmit", ["init", "commit", "push"], true)
 
     
 
-    <h4 class="name" id="strToPascalCase"><span class="type-signature"></span>strToPascalCase<span class="signature">(arr)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="step"><span class="type-signature"></span>step<span class="signature">(collection, n)</span><span class="type-signature"></span></h4>
 
     
 
@@ -2904,7 +1899,7 @@ strSimilar("cmmit", ["init", "commit", "push"], true)
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="lightdash.esm.js.html">lightdash.esm.js</a>, <a href="lightdash.esm.js.html#line257">line 257</a>
+        <a href="lightdash.esm.js.html">lightdash.esm.js</a>, <a href="lightdash.esm.js.html#line191">line 191</a>
     </li></ul></dd>
     
 
@@ -2912,7 +1907,7 @@ strSimilar("cmmit", ["init", "commit", "push"], true)
 
     
     <dt class="tag-since">Since:</dt>
-    <dd class="tag-since"><ul class="dummy"><li>6.2.0</li></ul></dd>
+    <dd class="tag-since"><ul class="dummy"><li>1.0.0</li></ul></dd>
     
 
     
@@ -2947,7 +1942,7 @@ strSimilar("cmmit", ["init", "commit", "push"], true)
 
 
 <div class="description">
-    <p>Creates a PascalCase string from an array of words.</p>
+    <p>Returns an array with every n-th item from the input array.</p>
 </div>
 
 
@@ -2960,11 +1955,8 @@ strSimilar("cmmit", ["init", "commit", "push"], true)
 
     <h5>Example</h5>
     
-    <pre class="prettyprint"><code>strToPascalCase(["foo", "bar"])
-// => "FooBar"
-
-strToPascalCase(["Fizz","buzz","BaZZ"])
-// => "FizzBuzzBazz"</code></pre>
+    <pre class="prettyprint"><code>step([1, 2, 3, 4, 5, 6], 2)
+// => [1, 3, 5]</code></pre>
 
 
 
@@ -2994,7 +1986,7 @@ strToPascalCase(["Fizz","buzz","BaZZ"])
 
         <tr>
             
-                <td class="name"><code>arr</code></td>
+                <td class="name"><code>collection</code></td>
             
 
             <td class="type">
@@ -3005,7 +1997,25 @@ strToPascalCase(["Fizz","buzz","BaZZ"])
 
             
 
-            <td class="description last"><p>Words to use.</p></td>
+            <td class="description last"><p>Array to use.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>n</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Step to use.</p></td>
         </tr>
 
     
@@ -3031,7 +2041,157 @@ strToPascalCase(["Fizz","buzz","BaZZ"])
 
         
 <div class="param-desc">
-    <p>PascalCase string of the words.</p>
+    <p>Stepped array.</p>
+</div>
+
+
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="toMap"><span class="type-signature"></span>toMap<span class="signature">(object)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="lightdash.esm.js.html">lightdash.esm.js</a>, <a href="lightdash.esm.js.html#line28">line 28</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+    <dt class="tag-since">Since:</dt>
+    <dd class="tag-since"><ul class="dummy"><li>1.0.0</li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description">
+    <p>Creates a map from an object.</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>toMap({a: 1, b: 4, c: 5})
+// => Map{a: 1, b: 4, c: 5}</code></pre>
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>object</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Object to use.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>Map created from the object.</p>
 </div>
 
 
@@ -3060,7 +2220,7 @@ strToPascalCase(["Fizz","buzz","BaZZ"])
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.2</a> on Sat Jul 13 2019 17:13:01 GMT+0200 (Central European Summer Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.2</a> on Sun Jul 14 2019 12:09:48 GMT+0200 (Central European Summer Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
 </footer>
 
 <script>prettyPrint();</script>

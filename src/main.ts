@@ -1,41 +1,33 @@
-import { isInstanceOf } from "./is/instanceOf";
-import { isPromise } from "./is/promise";
-import { isTypeOf } from "./is/typeOf";
+import { isPromise } from "./is/isPromise";
 
-import { getName } from "./get/name";
+import { toMap } from "./lang/toMap";
 
-import { numClamp } from "./num/clamp";
-import { numSafe } from "./num/safe";
+import { distance } from "./str/distance";
+import { pascalCase } from "./str/pascalCase";
+import { similar } from "./str/similar";
 
-import { strDistance } from "./str/distance";
-import { strSimilar } from "./str/similar";
-import { strToPascalCase } from "./str/toPascalCase";
+import { removeIndex } from "./arr/removeIndex";
+import { removeItem } from "./arr/removeItem";
+import { step } from "./arr/step";
 
-import { arrCollect } from "./arr/collect";
-import { arrCount } from "./arr/count";
-import { arrRemoveIndex } from "./arr/removeIndex";
-import { arrRemoveItem } from "./arr/removeItem";
-import { arrStep } from "./arr/step";
+import { decycle } from "./collection/decycle";
+import { groupMapBy } from "./collection/groupMapBy";
 
-import { objDecycle } from "./obj/decycle";
+import { name } from "./get/name";
 
-import { searchBinary } from "./search/binary";
+import { binarySearch } from "./search/binarySearch";
 
 export {
-    isInstanceOf,
-    isTypeOf,
     isPromise,
-    getName,
-    numClamp,
-    numSafe,
-    strDistance,
-    strSimilar,
-    strToPascalCase,
-    arrStep,
-    arrRemoveIndex,
-    arrRemoveItem,
-    arrCount,
-    arrCollect,
-    objDecycle,
-    searchBinary
+    toMap,
+    pascalCase,
+    distance,
+    similar,
+    step,
+    removeIndex,
+    removeItem,
+    groupMapBy,
+    decycle,
+    name,
+    binarySearch
 };

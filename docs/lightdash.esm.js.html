@@ -27,7 +27,7 @@
 
 <nav >
     
-    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#arrCollect">arrCollect</a></li><li><a href="global.html#arrCount">arrCount</a></li><li><a href="global.html#arrRemoveIndex">arrRemoveIndex</a></li><li><a href="global.html#arrRemoveItem">arrRemoveItem</a></li><li><a href="global.html#arrStep">arrStep</a></li><li><a href="global.html#getName">getName</a></li><li><a href="global.html#isInstanceOf">isInstanceOf</a></li><li><a href="global.html#isPromise">isPromise</a></li><li><a href="global.html#isTypeOf">isTypeOf</a></li><li><a href="global.html#numClamp">numClamp</a></li><li><a href="global.html#numSafe">numSafe</a></li><li><a href="global.html#objDecycle">objDecycle</a></li><li><a href="global.html#searchBinary">searchBinary</a></li><li><a href="global.html#strDistance">strDistance</a></li><li><a href="global.html#strSimilar">strSimilar</a></li><li><a href="global.html#strToPascalCase">strToPascalCase</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#binarySearch">binarySearch</a></li><li><a href="global.html#decycle">decycle</a></li><li><a href="global.html#distance">distance</a></li><li><a href="global.html#groupMapBy">groupMapBy</a></li><li><a href="global.html#isPromise">isPromise</a></li><li><a href="global.html#name">name</a></li><li><a href="global.html#pascalCase">pascalCase</a></li><li><a href="global.html#removeIndex">removeIndex</a></li><li><a href="global.html#removeItem">removeItem</a></li><li><a href="global.html#similar">similar</a></li><li><a href="global.html#step">step</a></li><li><a href="global.html#toMap">toMap</a></li></ul>
 </nav>
 
 <div id="main">
@@ -42,33 +42,13 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>import { isString, isObject, isSymbol, isNil, map, isObjectLike } from 'lodash';
-
-/**
- * Checks if the value is an instance of any of the given classes.
- * If at least one class gives back true, true is returned.
- *
- * @since 1.0.0
- * @param val Value to check.
- * @param targets Classes to check.
- * @returns If the value is an instance of the class.
- * @example
- * isInstanceOf([], Array)
- * // => true
- *
- * isInstanceOf([], Map, Set, Array)
- * // => true
- *
- * isInstanceOf({}, Array, Set)
- * // => false
- */
-const isInstanceOf = (val, ...targets) => targets.some(target => val instanceof target);
+            <pre class="prettyprint source linenums"><code>import { toPairs, upperFirst, camelCase, forEach, concat, filter, indexOf, isArrayLike, map, mapValues, isObjectLike, isString, isObject, isSymbol } from 'lodash';
 
 /**
  * Checks if a value is a promise.
  *
  * @since 3.0.0
- * @param val Value to check.
+ * @param value Value to check.
  * @returns If the value is a promise.
  * @example
  * isPromise(new Promise((resolve, reject) => resolve("foo")));
@@ -77,109 +57,19 @@ const isInstanceOf = (val, ...targets) => targets.some(target => val instanceof 
  * isPromise(() => "foo");
  * // => false
  */
-const isPromise = (val) => isInstanceOf(val, Promise);
+const isPromise = (value) => value instanceof Promise;
 
 /**
- * Checks if the value has any of the given types.
- * If at least one type gives back true, true is returned.
+ * Creates a map from an object.
  *
  * @since 1.0.0
- * @param val Value to check.
- * @param types Type strings to compare the value to.
- * @returns If the value has the type provided.
+ * @param object Object to use.
+ * @returns Map created from the object.
  * @example
- * isTypeOf("foo", "string")
- * // => true
- *
- * isTypeOf("foo", "number", "string")
- * // => true
- *
- * isTypeOf("foo", "number")
- * // => false
+ * toMap({a: 1, b: 4, c: 5})
+ * // => Map{a: 1, b: 4, c: 5}
  */
-const isTypeOf = (val, ...types) => types.some(type => typeof val === type);
-
-/**
- * Gets name of a value.
- *
- * If the value has a name or description property, the value of that is returned.
- * If the value is a string, it is returned as is.
- * Otherwise null is returned.
- *
- * @since 10.2.0
- * @param val Value to check.
- * @returns The name of the value.
- * @example
- * getName(class Foo{})
- * // => "Foo"
- *
- * getName(function bar(){})
- * // => "bar"
- *
- * getName(Symbol("abc"))
- * // => "abc"
- *
- * getName("foo")
- * // => "foo"
- *
- * getName(1)
- * // => null
- */
-const getName = (val) => {
-    if (isString(val)) {
-        return val;
-    }
-    if (isObject(val) &amp;&amp; isString(val.name)) {
-        return val.name;
-    }
-    if (isSymbol(val) &amp;&amp; isString(val.description)) {
-        return val.description;
-    }
-    return null;
-};
-
-/**
- * Clamps a number in a given range.
- *
- * @since 1.0.0
- * @param val Value to clamp
- * @param min Inclusive minimum value.
- * @param max Inclusive maximum value.
- * @returns Value clamped into the range given.
- * @example
- * numClamp(5, 0, 10)
- * // => 5
- *
- * numClamp(-2, 0, 10)
- * // => 0
- *
- * numClamp(99, 0, 10)
- * // => 10
- */
-const numClamp = (val, min, max) => {
-    if (val &lt; min) {
-        return min;
-    }
-    if (val > max) {
-        return max;
-    }
-    return val;
-};
-
-/**
- * Clamps a number in the range of safe integers.
- *
- * @since 7.1.0
- * @param val Value to use.
- * @returns Value clamped into the range of safe integers.
- * @example
- * numSafe(99999999999999999)
- * // => Number.MAX_SAFE_INTEGER
- *
- * numSafe(-Infinity)
- * // => Number.MIN_SAFE_INTEGER
- */
-const numSafe = (val) => numClamp(val, Number.MIN_SAFE_INTEGER, Number.MAX_SAFE_INTEGER);
+const toMap = (object) => new Map(toPairs(object));
 
 // noinspection SpellCheckingInspection
 /**
@@ -190,16 +80,16 @@ const numSafe = (val) => numClamp(val, Number.MIN_SAFE_INTEGER, Number.MAX_SAFE_
  * @param str2 Second string to compare.
  * @returns Distance between the two strings.
  * @example
- * strDistance("Kitten", "Sitting")
+ * distance("Kitten", "Sitting")
  * // => 3
  *
- * strDistance("String", "Stribng")
+ * distance("String", "Stribng")
  * // => 1
  *
- * strDistance("foo", "foo")
+ * distance("foo", "foo")
  * // => 0
  */
-const strDistance = (str1, str2) => {
+const distance = (str1, str2) => {
     if (str1.length === 0) {
         return str2.length;
     }
@@ -232,27 +122,40 @@ const strDistance = (str1, str2) => {
 };
 
 /**
- * Collects the values of an array in a map as arrays.
- * If the function returns a nil value, the element will be skipped,
- * otherwise the return value will be used as key.
+ * Creates a PascalCase string from a string.
+ *
+ * @since 6.2.0
+ * @param str String to use.
+ * @returns PascalCase string of the words.
+ * @example
+ * pascalCase(["fooBar")
+ * // => "FooBar"
+ *
+ * pascalCase("__foo_bar__")
+ * // => "FizzBuzzBazz"
+ */
+const pascalCase = (str) => upperFirst(camelCase(str));
+
+/**
+ * Collects the values of an array in a map as array values,
+ * using the return value of the function as key.
  *
  * @since 6.1.0
- * @param arr Array to collect.
- * @param fn Function to use for collection (`fn(val: *, index: number, arr: any[]) => any`).
- * @returns Map&lt;val: *, arr: any[]> Collected map.
+ * @param collection Array to collect.
+ * @param iteratee Function to use for collection.
+ * @returns Collected map.
  * @example
- * arrCollect([1, 2, 3, 4, 5], val => val % 2)
- * // => Map&lt;any, any[]>{0: [2, 4], 1: [1, 3, 5]}
+ * groupMapBy([1, 2, 3, 4, 5], val => val % 2)
+ * // => Map{0: [2, 4], 1: [1, 3, 5]}
  */
-const arrCollect = (arr, fn) => {
-    const collected = new Map();
-    arr.forEach((val, index) => {
-        const key = fn(val, index, arr);
-        if (!isNil(key)) {
-            collected.set(key, collected.has(key) ? [...collected.get(key), val] : [val]);
-        }
+const groupMapBy = (collection, iteratee) => {
+    const result = new Map();
+    forEach(collection, (val, index, _collection) => {
+        const key = iteratee(val, index, _collection);
+        const value = concat(result.has(key) ? result.get(key) : [], val);
+        result.set(key, value);
     });
-    return collected;
+    return result;
 };
 
 // noinspection SpellCheckingInspection
@@ -262,106 +165,74 @@ const arrCollect = (arr, fn) => {
  * @since 6.3.0
  * @param str String to check.
  * @param list Array of values to compare the string to.
- * @param [returnFull=false] If the full map should be returned, rather than just the closest matches.
+ * @param returnFull If the full map should be returned, rather than just the closest matches.
  * @returns Array of the closest matches, or the map if `returnFull` is true.
  * @example
- * strSimilar("Fob", ["Foo", "Bar"])
+ * similar("Fob", ["Foo", "Bar"])
  * // => ["Foo"]
  *
- * strSimilar("cmmit", ["init", "commit", "push"])
+ * similar("cmmit", ["init", "commit", "push"])
  * // => ["commit"]
  *
- * strSimilar("Kitten", ["Sitten", "Sitting", "Bitten"])
+ * similar("Kitten", ["Sitten", "Sitting", "Bitten"])
  * // => ["Sitten", "Bitten"]
  *
- * strSimilar("cmmit", ["init", "commit", "push"], true)
+ * similar("cmmit", ["init", "commit", "push"], true)
  * // => Map&lt;number, string[]>{1: ["commit"], 3: ["init"], 5: ["push"]}
  */
-const strSimilar = (str, list, returnFull = false) => {
-    const result = arrCollect(list, (val) => strDistance(str, val));
-    if (!returnFull) {
-        return result.get(Math.min(...result.keys()));
+const similar = (str, list, returnFull = false) => {
+    const result = groupMapBy(list, (value) => distance(str, value));
+    if (returnFull) {
+        return result;
     }
-    return result;
-};
-
-/**
- * Creates a PascalCase string from an array of words.
- *
- * @since 6.2.0
- * @param arr Words to use.
- * @returns PascalCase string of the words.
- * @example
- * strToPascalCase(["foo", "bar"])
- * // => "FooBar"
- *
- * strToPascalCase(["Fizz","buzz","BaZZ"])
- * // => "FizzBuzzBazz"
- */
-const strToPascalCase = (arr) => arr
-    .map(val => val.substr(0, 1).toUpperCase() + val.substr(1).toLowerCase())
-    .join("");
-
-/**
- * Counts how many times an element appears in an array.
- *
- * @since 2.0.0
- * @param arr Array to count.
- * @returns  Map containing the counted result (`Map&lt;val: *, count: number>`).
- * @example
- * arrCount([1, 1, 2, 2, 1, 3, 4, 1])
- * // => Map&lt;any, number>{1: 4, 2: 2, 3: 1, 4: 1}
- */
-const arrCount = (arr) => {
-    const counted = new Map();
-    arr.forEach(val => counted.set(val, counted.has(val) ? counted.get(val) + 1 : 1));
-    return counted;
+    const lowestKey = Math.min(...result.keys());
+    return result.get(lowestKey);
 };
 
 /**
  * Returns an array with the item at the index removed.
  *
  * @since 2.8.0
- * @param arr Array to use.
+ * @param collection Array to use.
  * @param targetIndex Index to remove.
  * @returns Array with the index removed.
  * @example
- * arrRemoveIndex(["foo", "bar", "fizz"], 1)
+ * removeIndex(["foo", "bar", "fizz"], 1)
  * // => ["foo", "fizz"]
  */
-const arrRemoveIndex = (arr, targetIndex) => arr.filter((val, index) => index !== targetIndex);
+const removeIndex = (collection, targetIndex) => filter(collection, (value, index) => index !== targetIndex);
 
 /**
  * Returns an array with instances of the given item removed.
  *
  * @since 2.8.0
- * @param arr Array to use.
- * @param targetItem Item to remove.
- * @param [removeAll=true] If all occurrences should be removed, otherwise just the first occurrence will be.
+ * @param collection Array to use.
+ * @param targetValue Item to remove.
+ * @param removeAll If all occurrences should be removed, otherwise just the first occurrence will be.
  * @returns Array with the item removed.
  * @example
- * arrRemoveItem(["foo", "bar", "fizz", "bar"], "bar")
+ * removeItem(["foo", "bar", "fizz", "bar"], "bar")
  * // => ["foo", "fizz"]
  *
- * arrRemoveItem(["foo", "bar", "fizz", "bar"], "bar", false)
+ * removeItem(["foo", "bar", "fizz", "bar"], "bar", false)
  * // => ["foo", "fizz", "bar"]
  */
-const arrRemoveItem = (arr, targetItem, removeAll = true) => removeAll
-    ? arr.filter(item => item !== targetItem)
-    : arrRemoveIndex(arr, arr.indexOf(targetItem));
+const removeItem = (collection, targetValue, removeAll = true) => removeAll
+    ? filter(collection, value => value !== targetValue)
+    : removeIndex(collection, indexOf(collection, targetValue));
 
 /**
  * Returns an array with every n-th item from the input array.
  *
  * @since 1.0.0
- * @param arr Array to use.
- * @param step Step to use.
+ * @param collection Array to use.
+ * @param n Step to use.
  * @returns Stepped array.
  * @example
- * arrStep([1, 2, 3, 4, 5, 6], 2)
+ * step([1, 2, 3, 4, 5, 6], 2)
  * // => [1, 3, 5]
  */
-const arrStep = (arr, step) => arr.filter((val, index) => index % step === 0);
+const step = (collection, n) => filter(collection, (value, index) => index % n === 0);
 
 /**
  * Replaces every circular reference in an object with a value, defaulting to null.
@@ -369,33 +240,75 @@ const arrStep = (arr, step) => arr.filter((val, index) => index % step === 0);
  * Can take a custom replacer function and a pre-filled weak set of references.
  *
  * @since 6.0.0
- * @param obj Object to decycle.
- * @param [fn=() => null] Decycling function (`fn(key: *, val: any, index: number, obj: object) => void`)
- * @param [references=new WeakSet()] WeakSet prefilled with encountered references.
+ * @param collection Object to decycle.
+ * @param replacer Value replacer function
+ * @param references WeakSet prefilled with encountered references, not recommended to provide this manually.
  * @returns Decycled object.
  * @example
  * const a = {a: {}, b: 1, c: 2};
  *
  * a.a = a;
  *
- * objDecycle(a)
+ * decycle(a)
  * // => {a: null, b: 1, c: 2}
  *
- * objDecycle(a, key => `_${key}`)
+ * decycle(a, key => `_${key}`)
  * // => {a: "_a", b: 1, c: 2}
  */
-const objDecycle = (obj, fn = () => null, references = new WeakSet()) => {
-    references.add(obj);
-    return map(obj, (val, key, objNew) => {
-        if (references.has(val)) {
-            return fn(val, key, objNew);
+const decycle = (collection, replacer = () => null, references = new WeakSet()) => {
+    // TODO: find a way to properly avoid any's here.
+    const decycler = (value, key, _collection) => {
+        if (references.has(value)) {
+            return replacer(value, key, _collection);
         }
-        if (isObjectLike(val)) {
-            references.add(val);
-            return objDecycle(val, fn, references);
+        if (isObjectLike(value)) {
+            return decycle(value, replacer, references);
         }
-        return val;
-    });
+        return value;
+    };
+    references.add(collection);
+    return isArrayLike(collection)
+        ? map(collection, decycler)
+        : mapValues(collection, decycler);
+};
+
+/**
+ * Gets name of a value.
+ *
+ * If the value has a name or description property, the value of that is returned.
+ * If the value is a string, it is returned as is.
+ * Otherwise null is returned.
+ *
+ * @since 10.2.0
+ * @param value Value to check.
+ * @returns The name of the value.
+ * @example
+ * name(class Foo{})
+ * // => "Foo"
+ *
+ * name(function bar(){})
+ * // => "bar"
+ *
+ * name(Symbol("abc"))
+ * // => "abc"
+ *
+ * name("foo")
+ * // => "foo"
+ *
+ * name(1)
+ * // => null
+ */
+const name = (value) => {
+    if (isString(value)) {
+        return value;
+    }
+    if (isObject(value) &amp;&amp; isString(value.name)) {
+        return value.name;
+    }
+    if (isSymbol(value) &amp;&amp; isString(value.description)) {
+        return value.description;
+    }
+    return null;
 };
 
 /**
@@ -406,13 +319,13 @@ const objDecycle = (obj, fn = () => null, references = new WeakSet()) => {
  * @param search Value to search.
  * @returns Index of the value in the array, or null if none is found.
  * @example
- * searchBinary([0, 1, 2], 1)
+ * binarySearch([0, 1, 2], 1)
  * // => 1
  *
- * searchBinary([0, 1, 2], 100)
+ * binarySearch([0, 1, 2], 100)
  * // => null
  */
-const searchBinary = (arr, search) => {
+const binarySearch = (arr, search) => {
     let low = 0;
     let high = arr.length - 1;
     let mid;
@@ -432,7 +345,7 @@ const searchBinary = (arr, search) => {
     return null;
 };
 
-export { arrCollect, arrCount, arrRemoveIndex, arrRemoveItem, arrStep, getName, isInstanceOf, isPromise, isTypeOf, numClamp, numSafe, objDecycle, searchBinary, strDistance, strSimilar, strToPascalCase };
+export { binarySearch, decycle, distance, groupMapBy, isPromise, name, pascalCase, removeIndex, removeItem, similar, step, toMap };
 </code></pre>
         </article>
     </section>
@@ -447,7 +360,7 @@ export { arrCollect, arrCount, arrRemoveIndex, arrRemoveItem, arrStep, getName, 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.2</a> on Sat Jul 13 2019 17:13:01 GMT+0200 (Central European Summer Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.2</a> on Sun Jul 14 2019 12:09:48 GMT+0200 (Central European Summer Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
 </footer>
 
 <script>prettyPrint();</script>

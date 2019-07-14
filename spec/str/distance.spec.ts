@@ -1,9 +1,9 @@
-import { strDistance } from "../../src/str/distance";
+import { distance } from "../../src/str/distance";
 
-describe("strDistance", () => {
+describe("distance", () => {
     it("gets distance", () => {
-        expect(strDistance("Kitten", "Sitting")).toBe(3);
-        expect(strDistance("String", "Stribng")).toBe(1);
-        expect(strDistance("foo", "foo")).toBe(0);
+        expect(distance("Kitten", "Sitting")).toBe(3);
+        expect(distance("String", "Stribng")).toBe(1);
+        expect(distance("foo", "foo")).toBe(0);
     });
 });

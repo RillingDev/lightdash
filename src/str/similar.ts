@@ -1,5 +1,6 @@
-import { arrCollect } from "../arr/collect";
-import { strDistance } from "./distance";
+import { List } from "lodash";
+import { groupMapBy } from "../collection/groupMapBy";
+import { distance } from "./distance";
 
 // noinspection SpellCheckingInspection
 /**
@@ -8,35 +9,37 @@ import { strDistance } from "./distance";
  * @since 6.3.0
  * @param str String to check.
  * @param list Array of values to compare the string to.
- * @param [returnFull=false] If the full map should be returned, rather than just the closest matches.
+ * @param returnFull If the full map should be returned, rather than just the closest matches.
  * @returns Array of the closest matches, or the map if `returnFull` is true.
  * @example
- * strSimilar("Fob", ["Foo", "Bar"])
+ * similar("Fob", ["Foo", "Bar"])
  * // => ["Foo"]
  *
- * strSimilar("cmmit", ["init", "commit", "push"])
+ * similar("cmmit", ["init", "commit", "push"])
  * // => ["commit"]
  *
- * strSimilar("Kitten", ["Sitten", "Sitting", "Bitten"])
+ * similar("Kitten", ["Sitten", "Sitting", "Bitten"])
  * // => ["Sitten", "Bitten"]
  *
- * strSimilar("cmmit", ["init", "commit", "push"], true)
+ * similar("cmmit", ["init", "commit", "push"], true)
  * // => Map<number, string[]>{1: ["commit"], 3: ["init"], 5: ["push"]}
  */
-const strSimilar = (
+const similar = (
     str: string,
-    list: string[],
+    list: List<string>,
     returnFull = false
-): string[] | Map<number, string[]> => {
-    const result: Map<number, string[]> = arrCollect(list, (val: string) =>
-        strDistance(str, val)
+): List<string> | Map<number, List<string>> => {
+    const result: Map<number, List<string>> = groupMapBy(
+        list,
+        (value: string) => distance(str, value)
     );
 
-    if (!returnFull) {
-        return result.get(Math.min(...result.keys()))!;
+    if (returnFull) {
+        return result;
     }
 
-    return result;
+    const lowestKey = Math.min(...result.keys());
+    return result.get(lowestKey)!;
 };
 
-export { strSimilar };
+export { similar };

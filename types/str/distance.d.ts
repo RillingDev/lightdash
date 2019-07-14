@@ -6,14 +6,14 @@
  * @param str2 Second string to compare.
  * @returns Distance between the two strings.
  * @example
- * strDistance("Kitten", "Sitting")
+ * distance("Kitten", "Sitting")
  * // => 3
  *
- * strDistance("String", "Stribng")
+ * distance("String", "Stribng")
  * // => 1
  *
- * strDistance("foo", "foo")
+ * distance("foo", "foo")
  * // => 0
  */
-declare const strDistance: (str1: string, str2: string) => number;
-export { strDistance };
+declare const distance: (str1: string, str2: string) => number;
+export { distance };

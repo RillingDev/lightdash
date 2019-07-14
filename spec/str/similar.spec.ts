@@ -1,16 +1,16 @@
-import { strSimilar } from "../../src/str/similar";
+import { similar } from "../../src/str/similar";
 
-describe("strSimilar", () => {
+describe("similar", () => {
     it("gets similar", () => {
-        expect(strSimilar("Fob", ["Foo", "Bar"])).toEqual(["Foo"]);
-        expect(strSimilar("cmmit", ["init", "commit", "push"])).toEqual([
+        expect(similar("Fob", ["Foo", "Bar"])).toEqual(["Foo"]);
+        expect(similar("cmmit", ["init", "commit", "push"])).toEqual([
             "commit"
         ]);
-        expect(strSimilar("Kitten", ["Sitten", "Sitting", "Bitten"])).toEqual([
+        expect(similar("Kitten", ["Sitten", "Sitting", "Bitten"])).toEqual([
             "Sitten",
             "Bitten"
         ]);
-        expect(strSimilar("cmmit", ["init", "commit", "push"], true)).toEqual(
+        expect(similar("cmmit", ["init", "commit", "push"], true)).toEqual(
             new Map([[1, ["commit"]], [3, ["init"]], [5, ["push"]]])
         );
     });

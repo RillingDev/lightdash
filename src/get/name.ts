@@ -8,36 +8,36 @@ import { isObject, isString, isSymbol } from "lodash";
  * Otherwise null is returned.
  *
  * @since 10.2.0
- * @param val Value to check.
+ * @param value Value to check.
  * @returns The name of the value.
  * @example
- * getName(class Foo{})
+ * name(class Foo{})
  * // => "Foo"
  *
- * getName(function bar(){})
+ * name(function bar(){})
  * // => "bar"
  *
- * getName(Symbol("abc"))
+ * name(Symbol("abc"))
  * // => "abc"
  *
- * getName("foo")
+ * name("foo")
  * // => "foo"
  *
- * getName(1)
+ * name(1)
  * // => null
  */
-const getName = (val: any): string | null => {
-    if (isString(val)) {
-        return val;
+const name = (value: any): string | null => {
+    if (isString(value)) {
+        return value;
     }
-    if (isObject(val) && isString((<any>val).name)) {
-        return (<any>val).name;
+    if (isObject(value) && isString((<any>value).name)) {
+        return (<any>value).name;
     }
-    if (isSymbol(val) && isString(val.description)) {
-        return val.description;
+    if (isSymbol(value) && isString(value.description)) {
+        return value.description;
     }
 
     return null;
 };
 
-export { getName };
+export { name };

@@ -1,10 +1,7 @@
-import { arrRemoveIndex } from "../../src/arr/removeIndex";
+import { removeIndex } from "../../src/arr/removeIndex";
 
-describe("arrRemoveIndex", () => {
+describe("removeIndex", () => {
     it("removes index", () => {
-        expect(arrRemoveIndex(["foo", "bar", "fizz"], 1)).toEqual([
-            "foo",
-            "fizz"
-        ]);
+        expect(removeIndex(["foo", "bar", "fizz"], 1)).toEqual(["foo", "fizz"]);
     });
 });
