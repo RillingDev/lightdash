@@ -12,6 +12,7 @@ import { step } from "./arr/step";
 
 import { decycle } from "./collection/decycle";
 import { groupMapBy } from "./collection/groupMapBy";
+import { groupMapMergingBy } from "./collection/groupMapMergingBy";
 
 import { name } from "./get/name";
 

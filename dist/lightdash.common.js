@@ -97,26 +97,56 @@ const distance = (str1, str2) => {
 const pascalCase = (str) => lodash.upperFirst(lodash.camelCase(str));
 
 /**
+ * Collects elements in an array into a an array of merged elements.
+ *
+ * @since 11.0.0
+ * @param collection Collection to group.
+ * @param keyFn Function returning the key for the value.
+ * @param initializerFn Function initializing a new mergable object.
+ * @param mergeMutator Consumer mutating the existing object with the new data.
+ * @returns Grouped and merged map.
+ * @example
+ * groupMapMergingBy(
+ *     ["foo", "bar", "fizz", "buzz"],
+ *     val => val.startsWith("f"),
+ *     () => {
+ *        return {
+ *            count: 0,
+ *            matches: []
+ *        };
+ *     },
+ *     (current, val) => {
+ *         current.count++;
+ *         current.matches.push(val);
+ *     }
+ * )
+ * // => Map{"f": {count: 2, matches: ["foo", "fizz"]}, "b": {count: 2, matches: ["bar", "buzz"]}}
+ */
+const groupMapMergingBy = (collection, keyFn, initializerFn, mergeMutator) => {
+    const result = new Map();
+    lodash.forEach(collection, (value, index) => {
+        const key = keyFn(value, index, collection);
+        if (!result.has(key)) {
+            result.set(key, initializerFn(value, index, collection));
+        }
+        mergeMutator(result.get(key), value, index, collection);
+    });
+    return result;
+};
+
+/**
  * Collects the values of an array in a map as array values,
  * using the return value of the function as key.
  *
  * @since 6.1.0
- * @param collection Array to collect.
- * @param iteratee Function to use for collection.
- * @returns Collected map.
+ * @param collection Collection to group.
+ * @param keyFn Function to use for grouping.
+ * @returns Grouped map.
  * @example
  * groupMapBy([1, 2, 3, 4, 5], val => val % 2)
  * // => Map{0: [2, 4], 1: [1, 3, 5]}
  */
-const groupMapBy = (collection, iteratee) => {
-    const result = new Map();
-    lodash.forEach(collection, (val, index, _collection) => {
-        const key = iteratee(val, index, _collection);
-        const value = lodash.concat(result.has(key) ? result.get(key) : [], val);
-        result.set(key, value);
-    });
-    return result;
-};
+const groupMapBy = (collection, keyFn) => groupMapMergingBy(collection, keyFn, () => [], (current, value) => current.push(value));
 
 // noinspection SpellCheckingInspection
 /**
