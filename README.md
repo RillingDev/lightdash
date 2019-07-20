@@ -1,12 +1,11 @@
 # lightdash
 
-> A lightweight TypeScript utility library inspired by lodash.
+> A lightweight TypeScript utility library to complement lodash.
 
 ## Introduction
 
-Lightdash is an extensive object of utility functions written in TypeScript, designed to be lightweight and modern.
-It's heavily inspired by lodash and underscore, but with the goal to be tiny and as fast as possible.
-It is completely written from scratch with the latest ES8+ features.
+Lightdash is an extensive object of utility functions to complement [lodash](https://lodash.com/)
+written in TypeScript, designed to be lightweight and modern.
 
 **[Docs](https://felixrilling.github.io/lightdash/)**
 
@@ -18,29 +17,29 @@ Installation:
 npm install lightdash
 ```
 
-When Ssing ES Modules:
+When Using ES Modules:
 
 ```typescript
-import { arrDifference } from "lightdash";
+import { groupMapBy } from "lightdash";
 
-arrDifference([1, 2, 3], [1, 3]);
+groupMapBy([1, 2, 3, 4, 5], val => val % 2);
 ```
 
 When using CommonJS (Node):
 
 ```typescript
-const { arrDifference } = require("lightdash");
+const { groupMapBy } = require("lightdash");
 
-arrDifference([1, 2, 3], [1, 3]);
-```
-
-If you use lightdash directly in the browser, use the exposed `_l` namespace.
-
-```typescript
-_l.arrDifference([1, 2, 3], [1, 3]);
+groupMapBy([1, 2, 3, 4, 5], val => val % 2);
 ```
 
 ## Updating
+
+### v10.x -> v11.x
+
+Breaking:
+
+- Made the library complement lodash rather than replace it. All duplicate methods have been removed.
 
 ### v9.x -> v10.x
 
