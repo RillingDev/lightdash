@@ -20,7 +20,7 @@ var lodash = require('lodash');
 const isPromise = (value) => value instanceof Promise;
 
 /**
- * Creates a map from an object.
+ * Creates a map from an objects entries.
  *
  * @since 1.0.0
  * @param object Object to use.
@@ -86,7 +86,7 @@ const distance = (str1, str2) => {
  *
  * @since 6.2.0
  * @param str String to use.
- * @returns PascalCase string of the words.
+ * @returns PascalCase string of the input string.
  * @example
  * pascalCase(["fooBar")
  * // => "FooBar"
@@ -101,12 +101,12 @@ const pascalCase = (str) => lodash.upperFirst(lodash.camelCase(str));
  *
  * @since 11.0.0
  * @param collection Collection to group.
- * @param keyFn Function returning the key for the value.
- * @param initializerFn Function initializing a new mergable object.
- * @param mergeMutator Consumer mutating the existing object with the new data.
+ * @param keyProducer Function returning the key for the value.
+ * @param initializer Function initializing a new mergable object.
+ * @param reducer Consumer mutating the existing object with the new data.
  * @returns Grouped and merged map.
  * @example
- * groupMapMergingBy(
+ * groupMapReducingBy(
  *     ["foo", "bar", "fizz", "buzz"],
  *     val => val.startsWith("f"),
  *     () => {
@@ -118,18 +118,19 @@ const pascalCase = (str) => lodash.upperFirst(lodash.camelCase(str));
  *     (current, val) => {
  *         current.count++;
  *         current.matches.push(val);
+ *         return current;
  *     }
  * )
  * // => Map{"f": {count: 2, matches: ["foo", "fizz"]}, "b": {count: 2, matches: ["bar", "buzz"]}}
  */
-const groupMapMergingBy = (collection, keyFn, initializerFn, mergeMutator) => {
+const groupMapReducingBy = (collection, keyProducer, initializer, reducer) => {
     const result = new Map();
     lodash.forEach(collection, (value, index) => {
-        const key = keyFn(value, index, collection);
+        const key = keyProducer(value, index, collection);
         if (!result.has(key)) {
-            result.set(key, initializerFn(value, index, collection));
+            result.set(key, initializer(value, index, collection));
         }
-        mergeMutator(result.get(key), value, index, collection);
+        result.set(key, reducer(result.get(key), value, index, collection));
     });
     return result;
 };
@@ -146,15 +147,15 @@ const groupMapMergingBy = (collection, keyFn, initializerFn, mergeMutator) => {
  * groupMapBy([1, 2, 3, 4, 5], val => val % 2)
  * // => Map{0: [2, 4], 1: [1, 3, 5]}
  */
-const groupMapBy = (collection, keyFn) => groupMapMergingBy(collection, keyFn, () => [], (current, value) => current.push(value));
+const groupMapBy = (collection, keyFn) => groupMapReducingBy(collection, keyFn, () => [], (current, value) => [...current, value]);
 
 // noinspection SpellCheckingInspection
 /**
- * Returns strings similar to the input based its distance to the values in the list given.
+ * Returns strings similar to the input based its levenshtein distance to the values in the list given.
  *
  * @since 6.3.0
  * @param str String to check.
- * @param list Array of values to compare the string to.
+ * @param collection Array of values to compare the string to.
  * @param returnFull If the full map should be returned, rather than just the closest matches.
  * @returns Array of the closest matches, or the map if `returnFull` is true.
  * @example
@@ -170,8 +171,8 @@ const groupMapBy = (collection, keyFn) => groupMapMergingBy(collection, keyFn, (
  * similar("cmmit", ["init", "commit", "push"], true)
  * // => Map<number, string[]>{1: ["commit"], 3: ["init"], 5: ["push"]}
  */
-const similar = (str, list, returnFull = false) => {
-    const result = groupMapBy(list, (value) => distance(str, value));
+const similar = (str, collection, returnFull = false) => {
+    const result = groupMapBy(collection, (value) => distance(str, value));
     if (returnFull) {
         return result;
     }
@@ -180,12 +181,12 @@ const similar = (str, list, returnFull = false) => {
 };
 
 /**
- * Returns an array with the item at the index removed.
+ * Returns a new array with the item at the given index removed.
  *
  * @since 2.8.0
- * @param collection Array to use.
+ * @param collection Collection to use.
  * @param targetIndex Index to remove.
- * @returns Array with the index removed.
+ * @returns Collection with the index removed.
  * @example
  * removeIndex(["foo", "bar", "fizz"], 1)
  * // => ["foo", "fizz"]
@@ -193,13 +194,13 @@ const similar = (str, list, returnFull = false) => {
 const removeIndex = (collection, targetIndex) => lodash.filter(collection, (value, index) => index !== targetIndex);
 
 /**
- * Returns an array with instances of the given item removed.
+ * Returns a new collection with instances of the given item removed.
  *
  * @since 2.8.0
- * @param collection Array to use.
+ * @param collection Collection to use.
  * @param targetValue Item to remove.
- * @param removeAll If all occurrences should be removed, otherwise just the first occurrence will be.
- * @returns Array with the item removed.
+ * @param removeAll If all occurrences should be removed, otherwise just the first occurrence will.
+ * @returns Collection with the item removed.
  * @example
  * removeItem(["foo", "bar", "fizz", "bar"], "bar")
  * // => ["foo", "fizz"]
@@ -212,12 +213,12 @@ const removeItem = (collection, targetValue, removeAll = true) => removeAll
     : removeIndex(collection, lodash.indexOf(collection, targetValue));
 
 /**
- * Returns an array with every n-th item from the input array.
+ * Returns a new collection with every n-th item from the input array.
  *
  * @since 1.0.0
- * @param collection Array to use.
+ * @param collection Collection to use.
  * @param n Step to use.
- * @returns Stepped array.
+ * @returns Stepped collection.
  * @example
  * step([1, 2, 3, 4, 5, 6], 2)
  * // => [1, 3, 5]
@@ -227,11 +228,11 @@ const step = (collection, n) => lodash.filter(collection, (value, index) => inde
 /**
  * Replaces every circular reference in an object with a value, defaulting to null.
  *
- * Can take a custom replacer function and a pre-filled weak set of references.
+ * Can take a custom replacer function.
  *
  * @since 6.0.0
  * @param collection Object to decycle.
- * @param replacer Value replacer function
+ * @param replacer Circular reference value replacer function
  * @param references WeakSet prefilled with encountered references, not recommended to provide this manually.
  * @returns Decycled object.
  * @example

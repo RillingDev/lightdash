@@ -5,7 +5,7 @@ import { camelCase, upperFirst } from "lodash";
  *
  * @since 6.2.0
  * @param str String to use.
- * @returns PascalCase string of the words.
+ * @returns PascalCase string of the input string.
  * @example
  * pascalCase(["fooBar")
  * // => "FooBar"

@@ -1,5 +1,5 @@
-import { List, ListIterator } from "lodash";
-import { groupMapMergingBy } from "./groupMapMergingBy";
+import { List, ListIterator, merge } from "lodash";
+import { groupMapReducingBy } from "./groupMapReducingBy";
 
 /**
  * Collects the values of an array in a map as array values,
@@ -17,11 +17,11 @@ const groupMapBy = <T, TKey>(
     collection: List<T>,
     keyFn: ListIterator<T, TKey>
 ): Map<TKey, T[]> =>
-    groupMapMergingBy(
+    groupMapReducingBy(
         collection,
         keyFn,
         () => <T[]>[],
-        (current, value) => current.push(value)
+        (current, value) => [...current, value]
     );
 
 export { groupMapBy };

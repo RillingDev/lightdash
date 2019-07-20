@@ -4,11 +4,11 @@ import { distance } from "./distance";
 
 // noinspection SpellCheckingInspection
 /**
- * Returns strings similar to the input based its distance to the values in the list given.
+ * Returns strings similar to the input based its levenshtein distance to the values in the list given.
  *
  * @since 6.3.0
  * @param str String to check.
- * @param list Array of values to compare the string to.
+ * @param collection Array of values to compare the string to.
  * @param returnFull If the full map should be returned, rather than just the closest matches.
  * @returns Array of the closest matches, or the map if `returnFull` is true.
  * @example
@@ -26,11 +26,11 @@ import { distance } from "./distance";
  */
 const similar = (
     str: string,
-    list: List<string>,
+    collection: List<string>,
     returnFull = false
 ): List<string> | Map<number, List<string>> => {
     const result: Map<number, List<string>> = groupMapBy(
-        list,
+        collection,
         (value: string) => distance(str, value)
     );
 

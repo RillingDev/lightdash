@@ -1,9 +1,9 @@
 /**
- * Returns strings similar to the input based its distance to the values in the list given.
+ * Returns strings similar to the input based its levenshtein distance to the values in the list given.
  *
  * @since 6.3.0
  * @param str String to check.
- * @param list Array of values to compare the string to.
+ * @param collection Array of values to compare the string to.
  * @param returnFull If the full map should be returned, rather than just the closest matches.
  * @returns Array of the closest matches, or the map if `returnFull` is true.
  * @example
@@ -19,5 +19,5 @@
  * similar("cmmit", ["init", "commit", "push"], true)
  * // => Map<number, string[]>{1: ["commit"], 3: ["init"], 5: ["push"]}
  */
-declare const similar: (str: string, list: ArrayLike<string>, returnFull?: boolean) => ArrayLike<string> | Map<number, ArrayLike<string>>;
+declare const similar: (str: string, collection: ArrayLike<string>, returnFull?: boolean) => ArrayLike<string> | Map<number, ArrayLike<string>>;
 export { similar };

@@ -1,6 +1,6 @@
 import { Dictionary, NumericDictionary } from "lodash";
 /**
- * Creates a map from an object.
+ * Creates a map from an objects entries.
  *
  * @since 1.0.0
  * @param object Object to use.

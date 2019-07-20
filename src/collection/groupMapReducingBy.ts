@@ -5,12 +5,12 @@ import { forEach, List, ListIterator } from "lodash";
  *
  * @since 11.0.0
  * @param collection Collection to group.
- * @param keyFn Function returning the key for the value.
- * @param initializerFn Function initializing a new mergable object.
- * @param mergeMutator Consumer mutating the existing object with the new data.
+ * @param keyProducer Function returning the key for the value.
+ * @param initializer Function initializing a new mergable object.
+ * @param reducer Consumer mutating the existing object with the new data.
  * @returns Grouped and merged map.
  * @example
- * groupMapMergingBy(
+ * groupMapReducingBy(
  *     ["foo", "bar", "fizz", "buzz"],
  *     val => val.startsWith("f"),
  *     () => {
@@ -22,28 +22,29 @@ import { forEach, List, ListIterator } from "lodash";
  *     (current, val) => {
  *         current.count++;
  *         current.matches.push(val);
+ *         return current;
  *     }
  * )
  * // => Map{"f": {count: 2, matches: ["foo", "fizz"]}, "b": {count: 2, matches: ["bar", "buzz"]}}
  */
-const groupMapMergingBy = <T, TKey, TMerged>(
+const groupMapReducingBy = <T, TKey, TMerged>(
     collection: List<T>,
-    keyFn: ListIterator<T, TKey>,
-    initializerFn: ListIterator<T, TMerged>,
-    mergeMutator: (current: TMerged, value: T, index: number, collection: List<T>) => void
+    keyProducer: ListIterator<T, TKey>,
+    initializer: ListIterator<T, TMerged>,
+    reducer: (current: TMerged, value: T, index: number, collection: List<T>) => TMerged
 ): Map<TKey, TMerged> => {
     const result = new Map<TKey, TMerged>();
 
     forEach(collection, (value, index) => {
-        const key = keyFn(value, index, collection);
+        const key = keyProducer(value, index, collection);
         if (!result.has(key)) {
-            result.set(key, initializerFn(value, index, collection));
+            result.set(key, initializer(value, index, collection));
         }
 
-        mergeMutator(result.get(key)!, value, index, collection);
+        result.set(key, reducer(result.get(key)!, value, index, collection));
     });
 
     return result;
 };
 
-export { groupMapMergingBy };
+export { groupMapReducingBy };
