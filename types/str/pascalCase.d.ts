@@ -5,7 +5,7 @@
  * @param str String to use.
  * @returns PascalCase string of the input string.
  * @example
- * pascalCase(["fooBar")
+ * pascalCase("fooBar")
  * // => "FooBar"
  *
  * pascalCase("__foo_bar__")

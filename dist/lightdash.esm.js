@@ -1,4 +1,4 @@
-import { toPairs, upperFirst, camelCase, forEach, filter, indexOf, isArrayLike, map, mapValues, isObjectLike, isString, isObject, isSymbol } from 'lodash';
+import { toPairs, upperFirst, camelCase, forEach, filter, indexOf, isArrayLike, map, mapValues, isObjectLike, isString, isObject, isSymbol, isEmpty } from 'lodash';
 
 /**
  * Checks if a value is a promise.
@@ -84,7 +84,7 @@ const distance = (str1, str2) => {
  * @param str String to use.
  * @returns PascalCase string of the input string.
  * @example
- * pascalCase(["fooBar")
+ * pascalCase("fooBar")
  * // => "FooBar"
  *
  * pascalCase("__foo_bar__")
@@ -332,4 +332,22 @@ const binarySearch = (arr, search) => {
     return null;
 };
 
-export { binarySearch, decycle, distance, groupMapBy, isPromise, name, pascalCase, removeIndex, removeItem, similar, step, toMap };
+/**
+ * Checks if the string is blank (no non-space content).
+ *
+ * @since 11.0.0
+ * @param str String to use.
+ * @returns If the file is blank.
+ * @example
+ * isBlank("")
+ * // => true
+ *
+ * isBlank("  ")
+ * // => true
+ *
+ * isBlank(" foo ")
+ * // => false
+ */
+const isBlank = (str) => isEmpty(str.trim());
+
+export { binarySearch, decycle, distance, groupMapBy, groupMapReducingBy, isBlank, isPromise, name, pascalCase, removeIndex, removeItem, similar, step, toMap };

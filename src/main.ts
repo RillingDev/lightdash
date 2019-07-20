@@ -17,6 +17,7 @@ import { groupMapReducingBy } from "./collection/groupMapReducingBy";
 import { name } from "./get/name";
 
 import { binarySearch } from "./search/binarySearch";
+import { isBlank } from "./str/blank";
 
 export {
     isPromise,
@@ -24,10 +25,12 @@ export {
     pascalCase,
     distance,
     similar,
+    isBlank,
     step,
     removeIndex,
     removeItem,
     groupMapBy,
+    groupMapReducingBy,
     decycle,
     name,
     binarySearch

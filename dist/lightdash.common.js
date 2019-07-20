@@ -88,7 +88,7 @@ const distance = (str1, str2) => {
  * @param str String to use.
  * @returns PascalCase string of the input string.
  * @example
- * pascalCase(["fooBar")
+ * pascalCase("fooBar")
  * // => "FooBar"
  *
  * pascalCase("__foo_bar__")
@@ -336,10 +336,30 @@ const binarySearch = (arr, search) => {
     return null;
 };
 
+/**
+ * Checks if the string is blank (no non-space content).
+ *
+ * @since 11.0.0
+ * @param str String to use.
+ * @returns If the file is blank.
+ * @example
+ * isBlank("")
+ * // => true
+ *
+ * isBlank("  ")
+ * // => true
+ *
+ * isBlank(" foo ")
+ * // => false
+ */
+const isBlank = (str) => lodash.isEmpty(str.trim());
+
 exports.binarySearch = binarySearch;
 exports.decycle = decycle;
 exports.distance = distance;
 exports.groupMapBy = groupMapBy;
+exports.groupMapReducingBy = groupMapReducingBy;
+exports.isBlank = isBlank;
 exports.isPromise = isPromise;
 exports.name = name;
 exports.pascalCase = pascalCase;
