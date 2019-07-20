@@ -1,23 +1,72 @@
+import { isBlank } from "./is/isBlank";
 import { isPromise } from "./is/isPromise";
 
 import { toMap } from "./lang/toMap";
 
-import { distance } from "./str/distance";
-import { pascalCase } from "./str/pascalCase";
-import { similar } from "./str/similar";
+import { distance } from "./string/distance";
+import { pascalCase } from "./string/pascalCase";
+import { similar } from "./string/similar";
 
-import { removeIndex } from "./arr/removeIndex";
-import { removeItem } from "./arr/removeItem";
-import { step } from "./arr/step";
+import { groupMapBy } from "./array/groupMapBy";
+import { groupMapReducingBy } from "./array/groupMapReducingBy";
+import { removeIndex } from "./array/removeIndex";
+import { removeItem } from "./array/removeItem";
+import { step } from "./array/step";
 
-import { decycle } from "./collection/decycle";
-import { groupMapBy } from "./collection/groupMapBy";
-import { groupMapReducingBy } from "./collection/groupMapReducingBy";
-
-import { name } from "./get/name";
+import { decycle } from "./object/decycle";
+import { name } from "./object/name";
 
 import { binarySearch } from "./search/binarySearch";
-import { isBlank } from "./str/blank";
+
+/**
+ * @namespace Is
+ */
+const l_Is = {
+    isPromise,
+    isBlank
+};
+
+/**
+ * @namespace Lang
+ */
+const l_Lang = {
+    toMap
+};
+
+/**
+ * @namespace String
+ */
+const l_String = {
+    distance,
+    pascalCase,
+    similar
+};
+
+/**
+ * @namespace Array
+ */
+const l_Array = {
+    removeIndex,
+    removeItem,
+    step,
+    groupMapBy,
+    groupMapReducingBy
+};
+
+/**
+ * @namespace Object
+ */
+const l_Object = {
+    decycle,
+    name
+};
+
+/**
+ * @namespace Search
+ */
+const l_Search = {
+    binarySearch
+};
 
 export {
     isPromise,
@@ -33,5 +82,11 @@ export {
     groupMapReducingBy,
     decycle,
     name,
-    binarySearch
+    binarySearch,
+    l_Is,
+    l_Lang,
+    l_String,
+    l_Array,
+    l_Object,
+    l_Search
 };

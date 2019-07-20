@@ -3,7 +3,7 @@
 <head>
     
     <meta charset="utf-8">
-    <title>Home - Documentation</title>
+    <title>Lang - Documentation</title>
     
     
     <script src="scripts/prettify/prettify.js"></script>
@@ -32,23 +32,241 @@
 
 <div id="main">
     
+    <h1 class="page-title">Lang</h1>
+    
 
     
 
 
 
+
+<section>
+
+<header>
+    
+        <h2>
+        Lang
+        </h2>
+        
+    
+</header>
+
+<article>
+    
+        <div class="container-overview">
+        
+            
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="lightdash.esm.js.html">lightdash.esm.js</a>, <a href="lightdash.esm.js.html#line374">line 374</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+            
+
+            
+        
+        </div>
+    
+
+    
+
+    
+
+    
+    
+    
+
+     
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Methods</h3>
+
+        
+            
+
+    
+
+    <h4 class="name" id=".toMap"><span class="type-signature">(static) </span>toMap<span class="signature">(object)</span><span class="type-signature"></span></h4>
+
     
 
 
-    <section class="package">
-        <h3> </h3>		
-    </section>
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="lightdash.esm.js.html">lightdash.esm.js</a>, <a href="lightdash.esm.js.html#line49">line 49</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+    <dt class="tag-since">Since:</dt>
+    <dd class="tag-since"><ul class="dummy"><li>1.0.0</li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description">
+    <p>Creates a map from an objects entries.</p>
+</div>
 
 
 
 
 
 
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>toMap({a: 1, b: 4, c: 5})
+// => Map{a: 1, b: 4, c: 5}</code></pre>
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>object</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Object to use.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>Map created from the object.</p>
+</div>
 
 
 
@@ -56,55 +274,15 @@
 
 
 
-    <section class="readme">
-        <article><h1>lightdash</h1>
-<blockquote>
-<p>A lightweight TypeScript utility library inspired by lodash.</p>
-</blockquote>
-<h2>Introduction</h2>
-<p>Lightdash is an extensive object of utility functions written in TypeScript, designed to be lightweight and modern.
-It's heavily inspired by lodash and underscore, but with the goal to be tiny and as fast as possible.
-It is completely written from scratch with the latest ES8+ features.</p>
-<p><strong><a href="https://felixrilling.github.io/lightdash/">Docs</a></strong></p>
-<h2>Usage</h2>
-<p>Installation:</p>
-<pre class="prettyprint source lang-shell"><code>npm install lightdash
-</code></pre>
-<p>When Ssing ES Modules:</p>
-<pre class="prettyprint source lang-typescript"><code>import { arrDifference } from &quot;lightdash&quot;;
+        
+    
 
-arrDifference([1, 2, 3], [1, 3]);
-</code></pre>
-<p>When using CommonJS (Node):</p>
-<pre class="prettyprint source lang-typescript"><code>const { arrDifference } = require(&quot;lightdash&quot;);
+    
 
-arrDifference([1, 2, 3], [1, 3]);
-</code></pre>
-<p>If you use lightdash directly in the browser, use the exposed <code>_l</code> namespace.</p>
-<pre class="prettyprint source lang-typescript"><code>_l.arrDifference([1, 2, 3], [1, 3]);
-</code></pre>
-<h2>Updating</h2>
-<h3>v9.x -&gt; v10.x</h3>
-<p>Breaking:</p>
-<ul>
-<li>changed entry iteration from key,val,index,object to val,key,object</li>
-<li>removed isArray and strFromCamelCase (use Array.isArray and strFromPascalCase instead)</li>
-<li>removed &quot;immediate&quot; param for fn* methods</li>
-</ul>
-<h3>v8.x -&gt; v9.x</h3>
-<p>Breaking:</p>
-<ul>
-<li>Merged arrRemoveItem and arrRemoveItemFirst</li>
-<li>Removed isArguments and isNull</li>
-<li>Removed numSum, numMedian and numAverage</li>
-<li>Removed fnCurry</li>
-<li>Removed hasPath</li>
-</ul>
-<h2>Contributing</h2>
-<p>Contributions are always welcome, no matter if you have a requests, an idea, found a bug, or spotted a typo: Feel free to create a PR or open an issue!</p></article>
-    </section>
+    
+</article>
 
-
+</section>
 
 
 

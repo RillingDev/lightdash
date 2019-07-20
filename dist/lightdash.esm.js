@@ -1,9 +1,29 @@
-import { toPairs, upperFirst, camelCase, forEach, filter, indexOf, isArrayLike, map, mapValues, isObjectLike, isString, isObject, isSymbol, isEmpty } from 'lodash';
+import { isEmpty, toPairs, upperFirst, camelCase, forEach, filter, indexOf, isArrayLike, map, mapValues, isObjectLike, isString, isObject, isSymbol } from 'lodash';
+
+/**
+ * Checks if the string is blank (no non-space content).
+ *
+ * @since 11.0.0
+ * @memberOf Is
+ * @param str String to use.
+ * @returns If the file is blank.
+ * @example
+ * isBlank("")
+ * // => true
+ *
+ * isBlank("  ")
+ * // => true
+ *
+ * isBlank(" foo ")
+ * // => false
+ */
+const isBlank = (str) => isEmpty(str.trim());
 
 /**
  * Checks if a value is a promise.
  *
  * @since 3.0.0
+ * @memberOf Is
  * @param value Value to check.
  * @returns If the value is a promise.
  * @example
@@ -19,6 +39,7 @@ const isPromise = (value) => value instanceof Promise;
  * Creates a map from an objects entries.
  *
  * @since 1.0.0
+ * @memberOf Lang
  * @param object Object to use.
  * @returns Map created from the object.
  * @example
@@ -32,6 +53,7 @@ const toMap = (object) => new Map(toPairs(object));
  * Returns the levenshtein string distance of two strings.
  *
  * @since 6.3.0
+ * @memberOf String
  * @param str1 First string to compare.
  * @param str2 Second string to compare.
  * @returns Distance between the two strings.
@@ -81,6 +103,7 @@ const distance = (str1, str2) => {
  * Creates a PascalCase string from a string.
  *
  * @since 6.2.0
+ * @memberOf String
  * @param str String to use.
  * @returns PascalCase string of the input string.
  * @example
@@ -96,6 +119,7 @@ const pascalCase = (str) => upperFirst(camelCase(str));
  * Collects elements in an array into a an array of merged elements.
  *
  * @since 11.0.0
+ * @memberOf Array
  * @param collection Collection to group.
  * @param keyProducer Function returning the key for the value.
  * @param initializer Function initializing a new mergable object.
@@ -136,6 +160,7 @@ const groupMapReducingBy = (collection, keyProducer, initializer, reducer) => {
  * using the return value of the function as key.
  *
  * @since 6.1.0
+ * @memberOf Array
  * @param collection Collection to group.
  * @param keyFn Function to use for grouping.
  * @returns Grouped map.
@@ -150,6 +175,7 @@ const groupMapBy = (collection, keyFn) => groupMapReducingBy(collection, keyFn, 
  * Returns strings similar to the input based its levenshtein distance to the values in the list given.
  *
  * @since 6.3.0
+ * @memberOf String
  * @param str String to check.
  * @param collection Array of values to compare the string to.
  * @param returnFull If the full map should be returned, rather than just the closest matches.
@@ -180,6 +206,7 @@ const similar = (str, collection, returnFull = false) => {
  * Returns a new array with the item at the given index removed.
  *
  * @since 2.8.0
+ * @memberOf Array
  * @param collection Collection to use.
  * @param targetIndex Index to remove.
  * @returns Collection with the index removed.
@@ -193,6 +220,7 @@ const removeIndex = (collection, targetIndex) => filter(collection, (value, inde
  * Returns a new collection with instances of the given item removed.
  *
  * @since 2.8.0
+ * @memberOf Array
  * @param collection Collection to use.
  * @param targetValue Item to remove.
  * @param removeAll If all occurrences should be removed, otherwise just the first occurrence will.
@@ -212,6 +240,7 @@ const removeItem = (collection, targetValue, removeAll = true) => removeAll
  * Returns a new collection with every n-th item from the input array.
  *
  * @since 1.0.0
+ * @memberOf Array
  * @param collection Collection to use.
  * @param n Step to use.
  * @returns Stepped collection.
@@ -227,6 +256,7 @@ const step = (collection, n) => filter(collection, (value, index) => index % n =
  * Can take a custom replacer function.
  *
  * @since 6.0.0
+ * @memberOf Object
  * @param collection Object to decycle.
  * @param replacer Circular reference value replacer function
  * @param references WeakSet prefilled with encountered references, not recommended to provide this manually.
@@ -267,6 +297,7 @@ const decycle = (collection, replacer = () => null, references = new WeakSet()) 
  * Otherwise null is returned.
  *
  * @since 10.2.0
+ * @memberOf Object
  * @param value Value to check.
  * @returns The name of the value.
  * @example
@@ -302,6 +333,7 @@ const name = (value) => {
  * Binary-search implementation.
  *
  * @since 5.0.0
+ * @memberOf Search
  * @param arr Array to search in.
  * @param search Value to search.
  * @returns Index of the value in the array, or null if none is found.
@@ -333,21 +365,48 @@ const binarySearch = (arr, search) => {
 };
 
 /**
- * Checks if the string is blank (no non-space content).
- *
- * @since 11.0.0
- * @param str String to use.
- * @returns If the file is blank.
- * @example
- * isBlank("")
- * // => true
- *
- * isBlank("  ")
- * // => true
- *
- * isBlank(" foo ")
- * // => false
+ * @namespace Is
  */
-const isBlank = (str) => isEmpty(str.trim());
+const l_Is = {
+    isPromise,
+    isBlank
+};
+/**
+ * @namespace Lang
+ */
+const l_Lang = {
+    toMap
+};
+/**
+ * @namespace String
+ */
+const l_String = {
+    distance,
+    pascalCase,
+    similar
+};
+/**
+ * @namespace Array
+ */
+const l_Array = {
+    removeIndex,
+    removeItem,
+    step,
+    groupMapBy,
+    groupMapReducingBy
+};
+/**
+ * @namespace Object
+ */
+const l_Object = {
+    decycle,
+    name
+};
+/**
+ * @namespace Search
+ */
+const l_Search = {
+    binarySearch
+};
 
-export { binarySearch, decycle, distance, groupMapBy, groupMapReducingBy, isBlank, isPromise, name, pascalCase, removeIndex, removeItem, similar, step, toMap };
+export { binarySearch, decycle, distance, groupMapBy, groupMapReducingBy, isBlank, isPromise, l_Array, l_Is, l_Lang, l_Object, l_Search, l_String, name, pascalCase, removeIndex, removeItem, similar, step, toMap };

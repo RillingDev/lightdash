@@ -1,14 +1,14 @@
-import "./str/distance.spec";
-import "./str/pascalCase.spec";
-import "./str/similar.spec";
+import "./string/distance.spec";
+import "./string/pascalCase.spec";
+import "./string/similar.spec";
 
-import "./arr/removeIndex.spec";
-import "./arr/removeItem.spec";
-import "./arr/step.spec";
+import "./array/removeIndex.spec";
+import "./array/removeItem.spec";
+import "./array/step.spec";
 
-import "./collection/decycle.spec";
-import "./collection/groupMapBy.spec";
+import "./array/groupMapBy.spec";
+import "./object/decycle.spec";
 
-import "./get/name.spec";
+import "./object/name.spec";
 
 import "./search/binarySearch.spec";

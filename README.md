@@ -4,7 +4,7 @@
 
 ## Introduction
 
-Lightdash is an extensive collection of utility functions written in TypeScript, designed to be lightweight and modern.
+Lightdash is an extensive object of utility functions written in TypeScript, designed to be lightweight and modern.
 It's heavily inspired by lodash and underscore, but with the goal to be tiny and as fast as possible.
 It is completely written from scratch with the latest ES8+ features.
 
@@ -46,7 +46,7 @@ _l.arrDifference([1, 2, 3], [1, 3]);
 
 Breaking:
 
-- changed entry iteration from key,val,index,obj to val,key,obj
+- changed entry iteration from key,val,index,object to val,key,object
 - removed isArray and strFromCamelCase (use Array.isArray and strFromPascalCase instead)
 - removed "immediate" param for fn* methods
 
