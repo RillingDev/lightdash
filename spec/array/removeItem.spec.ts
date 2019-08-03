@@ -7,7 +7,7 @@ describe("removeItem", () => {
             "fizz"
         ]);
     });
-    it("removes one item", () => {
+    it("removes the first item", () => {
         expect(removeItem(["foo", "bar", "fizz", "bar"], "bar", false)).toEqual(
             ["foo", "fizz", "bar"]
         );

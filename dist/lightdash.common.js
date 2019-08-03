@@ -132,7 +132,7 @@ const pascalCase = (str) => lodash.upperFirst(lodash.camelCase(str));
  * @example
  * groupMapReducingBy(
  *     ["foo", "bar", "fizz", "buzz"],
- *     val => val.startsWith("f"),
+ *     val => val.charAt(0),
  *     () => {
  *        return {
  *            count: 0,
@@ -172,7 +172,7 @@ const groupMapReducingBy = (collection, keyProducer, initializer, reducer) => {
  * groupMapBy([1, 2, 3, 4, 5], val => val % 2)
  * // => Map{0: [2, 4], 1: [1, 3, 5]}
  */
-const groupMapBy = (collection, keyFn) => groupMapReducingBy(collection, keyFn, () => [], (current, value) => [...current, value]);
+const groupMapBy = (collection, keyFn) => groupMapReducingBy(collection, keyFn, () => [], (current, value) => lodash.concat(current, value));
 
 // noinspection SpellCheckingInspection
 /**
@@ -225,7 +225,7 @@ const matchAll = (str, pattern) => {
     const matches = [];
     let match;
     // tslint:disable-next-line:no-conditional-assignment
-    while (match = pattern.exec(str)) {
+    while ((match = pattern.exec(str))) {
         matches.push(match);
     }
     return matches;

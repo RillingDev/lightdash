@@ -1,4 +1,4 @@
-import { List, ListIterator } from "lodash";
+import { concat, List, ListIterator } from "lodash";
 import { groupMapReducingBy } from "./groupMapReducingBy";
 
 /**
@@ -22,7 +22,7 @@ const groupMapBy = <T, TKey>(
         collection,
         keyFn,
         () => <T[]>[],
-        (current, value) => [...current, value]
+        (current, value) => concat(current, value)
     );
 
 export { groupMapBy };

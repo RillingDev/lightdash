@@ -11,7 +11,8 @@ import { Dictionary, NumericDictionary, toPairs } from "lodash";
  * toMap({a: 1, b: 4, c: 5})
  * // => Map{a: 1, b: 4, c: 5}
  */
-const toMap = <T>(object: Dictionary<T> | NumericDictionary<T>): Map<any, T> =>
-    new Map(toPairs(object));
+const toMap = <T>(
+    object: Dictionary<T> | NumericDictionary<T>
+): Map<PropertyKey, T> => new Map(toPairs(object));
 
 export { toMap };

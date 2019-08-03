@@ -10,5 +10,5 @@ import { Dictionary, NumericDictionary } from "lodash";
  * toMap({a: 1, b: 4, c: 5})
  * // => Map{a: 1, b: 4, c: 5}
  */
-declare const toMap: <T>(object: Dictionary<T> | NumericDictionary<T>) => Map<any, T>;
+declare const toMap: <T>(object: Dictionary<T> | NumericDictionary<T>) => Map<string | number | symbol, T>;
 export { toMap };

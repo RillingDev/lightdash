@@ -13,7 +13,7 @@ import { forEach, List, ListIterator } from "lodash";
  * @example
  * groupMapReducingBy(
  *     ["foo", "bar", "fizz", "buzz"],
- *     val => val.startsWith("f"),
+ *     val => val.charAt(0),
  *     () => {
  *        return {
  *            count: 0,

@@ -25,7 +25,7 @@ declare const l_Is: {
  * @namespace Lang
  */
 declare const l_Lang: {
-    toMap: <T>(object: import("lodash").Dictionary<T> | import("lodash").NumericDictionary<T>) => Map<any, T>;
+    toMap: <T>(object: import("lodash").Dictionary<T> | import("lodash").NumericDictionary<T>) => Map<string | number | symbol, T>;
 };
 /**
  * @namespace String

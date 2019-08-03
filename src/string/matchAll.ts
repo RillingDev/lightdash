@@ -17,7 +17,7 @@ const matchAll = (str: string, pattern: RegExp): RegExpExecArray[] => {
     const matches: RegExpExecArray[] = [];
     let match: RegExpExecArray | null;
     // tslint:disable-next-line:no-conditional-assignment
-    while (match = pattern.exec(str)) {
+    while ((match = pattern.exec(str))) {
         matches.push(match);
     }
     return matches;
