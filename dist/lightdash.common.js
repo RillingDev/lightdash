@@ -1585,6 +1585,161 @@ const randShuffle = (arr) => {
     return shuffled;
 };
 
+/**
+ * Value checking, type checking, and comparison.
+ *
+ * Note that some equivalents found in lodash are not provided here due to native equivalents:
+ * - isArray -> Array.isArray
+ * - isInteger -> Number.isInteger
+ * - isSafeInteger -> Number.isSafeInteger
+ * - isFinite -> Number.isFinite
+ * - isNaN -> Number.isNaN
+ *
+ * @namespace Is
+ */
+const l_Is = {
+    isEqual,
+    isInstanceOf,
+    isTypeOf,
+    isUndefined,
+    isNil,
+    isNumber,
+    isString,
+    isBoolean,
+    isSymbol,
+    isObject,
+    isObjectLike,
+    isObjectPlain,
+    isArrayLike,
+    isArrayBuffer,
+    isArrayTyped,
+    isPromise,
+    isMap,
+    isSet,
+    isWeakMap,
+    isWeakSet,
+    isDate,
+    isRegExp,
+    isFunction,
+    isError,
+    isEmpty,
+    isIndex
+};
+/**
+ * Get values and properties of a target.
+ *
+ * @namespace Get
+ */
+const l_Get = {
+    getPath,
+    getSize,
+    getName
+};
+/**
+ * Number manipulation and comparison.
+ *
+ * @namespace Number
+ */
+const l_Number = {
+    numClamp,
+    numSafe
+};
+/**
+ * String manipulation and comparison.
+ *
+ * @namespace String
+ */
+const l_String = {
+    strDistance,
+    strSimilar,
+    strFromKebabCase,
+    strFromPascalCase,
+    strFromSnakeCase,
+    strToCamelCase,
+    strToKebabCase,
+    strToPascalCase,
+    strToSnakeCase
+};
+/**
+ * Array manipulation and analysis.
+ *
+ * @namespace Array
+ */
+const l_Array = {
+    arrFromDeep,
+    arrMapDeep,
+    arrCompact,
+    arrMerge,
+    arrChunk,
+    arrStep,
+    arrRemoveIndex,
+    arrRemoveItem,
+    arrCount,
+    arrCollect,
+    arrDifference,
+    arrIntersection,
+    arrUniq
+};
+/**
+ * Object manipulation and analysis.
+ *
+ * @namespace Object
+ */
+const l_Object = {
+    objFrom,
+    objFromDeep,
+    objMap,
+    objMapDeep,
+    objDefaults,
+    objDefaultsDeep,
+    objDecycle
+};
+/**
+ * Map manipulation.
+ *
+ * @namespace Map
+ */
+const l_Map = {
+    mapFromObject
+};
+/**
+ * Looping through ranges, arrays and objects.
+ *
+ * @namespace For
+ */
+const l_For = {
+    forEachDeep,
+    forEachEntry,
+    forEachEntryDeep
+};
+/**
+ * Function manipulation.
+ *
+ * @namespace Fn
+ */
+const l_Fn = {
+    fnDebounce,
+    fnThrottle
+};
+/**
+ * Array and object search.
+ *
+ * @namespace Search
+ */
+const l_Search = {
+    searchBinary
+};
+/**
+ * Random number generation and value picking.
+ *
+ * @namespace Random
+ */
+const l_Random = {
+    randNumber,
+    randItem,
+    randShuffle
+};
+
 exports.arrChunk = arrChunk;
 exports.arrCollect = arrCollect;
 exports.arrCompact = arrCompact;
@@ -1632,6 +1787,17 @@ exports.isTypeOf = isTypeOf;
 exports.isUndefined = isUndefined;
 exports.isWeakMap = isWeakMap;
 exports.isWeakSet = isWeakSet;
+exports.l_Array = l_Array;
+exports.l_Fn = l_Fn;
+exports.l_For = l_For;
+exports.l_Get = l_Get;
+exports.l_Is = l_Is;
+exports.l_Map = l_Map;
+exports.l_Number = l_Number;
+exports.l_Object = l_Object;
+exports.l_Random = l_Random;
+exports.l_Search = l_Search;
+exports.l_String = l_String;
 exports.mapFromObject = mapFromObject;
 exports.numClamp = numClamp;
 exports.numSafe = numSafe;

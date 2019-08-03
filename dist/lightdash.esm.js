@@ -1581,4 +1581,159 @@ const randShuffle = (arr) => {
     return shuffled;
 };
 
-export { arrChunk, arrCollect, arrCompact, arrCount, arrDifference, arrFromDeep, arrIntersection, arrMapDeep, arrMerge, arrRemoveIndex, arrRemoveItem, arrStep, arrUniq, fnDebounce, fnThrottle, forEachDeep, forEachEntry, forEachEntryDeep, getName, getPath, getSize, isArrayBuffer, isArrayLike, isArrayTyped, isBoolean, isDate, isEmpty, isEqual, isError, isFunction, isIndex, isInstanceOf, isMap, isNil, isNumber, isObject, isObjectLike, isObjectPlain, isPromise, isRegExp, isSet, isString, isSymbol, isTypeOf, isUndefined, isWeakMap, isWeakSet, mapFromObject, numClamp, numSafe, objDecycle, objDefaults, objDefaultsDeep, objFrom, objFromDeep, objMap, objMapDeep, randItem, randNumber, randShuffle, searchBinary, strDistance, strFromKebabCase, strFromPascalCase, strFromSnakeCase, strSimilar, strToCamelCase, strToKebabCase, strToPascalCase, strToSnakeCase };
+/**
+ * Value checking, type checking, and comparison.
+ *
+ * Note that some equivalents found in lodash are not provided here due to native equivalents:
+ * - isArray -> Array.isArray
+ * - isInteger -> Number.isInteger
+ * - isSafeInteger -> Number.isSafeInteger
+ * - isFinite -> Number.isFinite
+ * - isNaN -> Number.isNaN
+ *
+ * @namespace Is
+ */
+const l_Is = {
+    isEqual,
+    isInstanceOf,
+    isTypeOf,
+    isUndefined,
+    isNil,
+    isNumber,
+    isString,
+    isBoolean,
+    isSymbol,
+    isObject,
+    isObjectLike,
+    isObjectPlain,
+    isArrayLike,
+    isArrayBuffer,
+    isArrayTyped,
+    isPromise,
+    isMap,
+    isSet,
+    isWeakMap,
+    isWeakSet,
+    isDate,
+    isRegExp,
+    isFunction,
+    isError,
+    isEmpty,
+    isIndex
+};
+/**
+ * Get values and properties of a target.
+ *
+ * @namespace Get
+ */
+const l_Get = {
+    getPath,
+    getSize,
+    getName
+};
+/**
+ * Number manipulation and comparison.
+ *
+ * @namespace Number
+ */
+const l_Number = {
+    numClamp,
+    numSafe
+};
+/**
+ * String manipulation and comparison.
+ *
+ * @namespace String
+ */
+const l_String = {
+    strDistance,
+    strSimilar,
+    strFromKebabCase,
+    strFromPascalCase,
+    strFromSnakeCase,
+    strToCamelCase,
+    strToKebabCase,
+    strToPascalCase,
+    strToSnakeCase
+};
+/**
+ * Array manipulation and analysis.
+ *
+ * @namespace Array
+ */
+const l_Array = {
+    arrFromDeep,
+    arrMapDeep,
+    arrCompact,
+    arrMerge,
+    arrChunk,
+    arrStep,
+    arrRemoveIndex,
+    arrRemoveItem,
+    arrCount,
+    arrCollect,
+    arrDifference,
+    arrIntersection,
+    arrUniq
+};
+/**
+ * Object manipulation and analysis.
+ *
+ * @namespace Object
+ */
+const l_Object = {
+    objFrom,
+    objFromDeep,
+    objMap,
+    objMapDeep,
+    objDefaults,
+    objDefaultsDeep,
+    objDecycle
+};
+/**
+ * Map manipulation.
+ *
+ * @namespace Map
+ */
+const l_Map = {
+    mapFromObject
+};
+/**
+ * Looping through ranges, arrays and objects.
+ *
+ * @namespace For
+ */
+const l_For = {
+    forEachDeep,
+    forEachEntry,
+    forEachEntryDeep
+};
+/**
+ * Function manipulation.
+ *
+ * @namespace Fn
+ */
+const l_Fn = {
+    fnDebounce,
+    fnThrottle
+};
+/**
+ * Array and object search.
+ *
+ * @namespace Search
+ */
+const l_Search = {
+    searchBinary
+};
+/**
+ * Random number generation and value picking.
+ *
+ * @namespace Random
+ */
+const l_Random = {
+    randNumber,
+    randItem,
+    randShuffle
+};
+
+export { arrChunk, arrCollect, arrCompact, arrCount, arrDifference, arrFromDeep, arrIntersection, arrMapDeep, arrMerge, arrRemoveIndex, arrRemoveItem, arrStep, arrUniq, fnDebounce, fnThrottle, forEachDeep, forEachEntry, forEachEntryDeep, getName, getPath, getSize, isArrayBuffer, isArrayLike, isArrayTyped, isBoolean, isDate, isEmpty, isEqual, isError, isFunction, isIndex, isInstanceOf, isMap, isNil, isNumber, isObject, isObjectLike, isObjectPlain, isPromise, isRegExp, isSet, isString, isSymbol, isTypeOf, isUndefined, isWeakMap, isWeakSet, l_Array, l_Fn, l_For, l_Get, l_Is, l_Map, l_Number, l_Object, l_Random, l_Search, l_String, mapFromObject, numClamp, numSafe, objDecycle, objDefaults, objDefaultsDeep, objFrom, objFromDeep, objMap, objMapDeep, randItem, randNumber, randShuffle, searchBinary, strDistance, strFromKebabCase, strFromPascalCase, strFromSnakeCase, strSimilar, strToCamelCase, strToKebabCase, strToPascalCase, strToSnakeCase };
