@@ -9,6 +9,16 @@ written in TypeScript, designed to be lightweight and modern.
 
 **[Docs](https://felixrilling.github.io/lightdash/)**
 
+## Versions
+
+### >= v11.x
+
+An utility library built on top of lodash, complementing it.
+
+### v10.x
+
+A standalone utility library to replace lodash.
+
 ## Usage
 
 Installation:
