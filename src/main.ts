@@ -6,6 +6,7 @@ import { toMap } from "./lang/toMap";
 import { distance } from "./string/distance";
 import { pascalCase } from "./string/pascalCase";
 import { similar } from "./string/similar";
+import { matchAll } from "./string/matchAll";
 
 import { groupMapBy } from "./array/groupMapBy";
 import { groupMapReducingBy } from "./array/groupMapReducingBy";
@@ -39,7 +40,8 @@ const l_Lang = {
 const l_String = {
     distance,
     pascalCase,
-    similar
+    similar,
+    matchAll
 };
 
 /**
@@ -74,6 +76,7 @@ export {
     pascalCase,
     distance,
     similar,
+    matchAll,
     isBlank,
     step,
     removeIndex,

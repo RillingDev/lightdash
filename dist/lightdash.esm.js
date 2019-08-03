@@ -203,6 +203,31 @@ const similar = (str, collection, returnFull = false) => {
 };
 
 /**
+ * Finds all regex matches in a string. Meant to be used with a global regex.
+ *
+ * @since 11.0.0
+ * @memberOf String
+ * @param str String to match against.
+ * @param pattern SRegex pattern to match.
+ * @returns Array of all matches.
+ * @example
+ * matchAll("Kitten", /t/g)
+ * // => [[0: "t"], [1: "t"]]
+ *
+ * matchAll("Kitten", /f/g)
+ * // => []
+ */
+const matchAll = (str, pattern) => {
+    const matches = [];
+    let match;
+    // tslint:disable-next-line:no-conditional-assignment
+    while (match = pattern.exec(str)) {
+        matches.push(match);
+    }
+    return matches;
+};
+
+/**
  * Returns a new array with the item at the given index removed.
  *
  * @since 2.8.0
@@ -383,7 +408,8 @@ const l_Lang = {
 const l_String = {
     distance,
     pascalCase,
-    similar
+    similar,
+    matchAll
 };
 /**
  * @namespace Array
@@ -409,4 +435,4 @@ const l_Search = {
     binarySearch
 };
 
-export { binarySearch, decycle, distance, groupMapBy, groupMapReducingBy, isBlank, isPromise, l_Array, l_Is, l_Lang, l_Object, l_Search, l_String, name, pascalCase, removeIndex, removeItem, similar, step, toMap };
+export { binarySearch, decycle, distance, groupMapBy, groupMapReducingBy, isBlank, isPromise, l_Array, l_Is, l_Lang, l_Object, l_Search, l_String, matchAll, name, pascalCase, removeIndex, removeItem, similar, step, toMap };

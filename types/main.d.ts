@@ -5,6 +5,7 @@ import { toMap } from "./lang/toMap";
 import { distance } from "./string/distance";
 import { pascalCase } from "./string/pascalCase";
 import { similar } from "./string/similar";
+import { matchAll } from "./string/matchAll";
 import { groupMapBy } from "./array/groupMapBy";
 import { groupMapReducingBy } from "./array/groupMapReducingBy";
 import { removeIndex } from "./array/removeIndex";
@@ -33,6 +34,7 @@ declare const l_String: {
     distance: (str1: string, str2: string) => number;
     pascalCase: (str: string) => string;
     similar: (str: string, collection: ArrayLike<string>, returnFull?: boolean) => ArrayLike<string> | Map<number, ArrayLike<string>>;
+    matchAll: (str: string, pattern: RegExp) => RegExpExecArray[];
 };
 /**
  * @namespace Array
@@ -57,4 +59,4 @@ declare const l_Object: {
 declare const l_Search: {
     binarySearch: (arr: ArrayLike<number>, search: number) => number | null;
 };
-export { isPromise, toMap, pascalCase, distance, similar, isBlank, step, removeIndex, removeItem, groupMapBy, groupMapReducingBy, decycle, name, binarySearch, l_Is, l_Lang, l_String, l_Array, l_Object, l_Search };
+export { isPromise, toMap, pascalCase, distance, similar, matchAll, isBlank, step, removeIndex, removeItem, groupMapBy, groupMapReducingBy, decycle, name, binarySearch, l_Is, l_Lang, l_String, l_Array, l_Object, l_Search };
