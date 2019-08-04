@@ -1,96 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    
-    <meta charset="utf-8">
-    <title>lightdash.esm.js - Documentation</title>
-    
-    
-    <script src="scripts/prettify/prettify.js"></script>
-    <script src="scripts/prettify/lang-css.js"></script>
-    <!--[if lt IE 9]>
-      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
-    <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
-    <script src="scripts/nav.js" defer></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-</head>
-<body>
+'use strict';
 
-<input type="checkbox" id="nav-trigger" class="nav-trigger" />
-<label for="nav-trigger" class="navicon-button x">
-  <div class="navicon"></div>
-</label>
-
-<label for="nav-trigger" class="overlay"></label>
-
-<nav >
-    
-    <h2><a href="index.html">Home</a></h2><h3>Namespaces</h3><ul><li><a href="Array.html">Array</a><ul class='methods'><li data-type='method'><a href="Array.html#.groupMapBy">groupMapBy</a></li><li data-type='method'><a href="Array.html#.groupMapReducingBy">groupMapReducingBy</a></li><li data-type='method'><a href="Array.html#.removeIndex">removeIndex</a></li><li data-type='method'><a href="Array.html#.removeItem">removeItem</a></li><li data-type='method'><a href="Array.html#.step">step</a></li></ul></li><li><a href="Is.html">Is</a><ul class='methods'><li data-type='method'><a href="Is.html#.isBlank">isBlank</a></li><li data-type='method'><a href="Is.html#.isPromise">isPromise</a></li></ul></li><li><a href="Lang.html">Lang</a><ul class='methods'><li data-type='method'><a href="Lang.html#.toMap">toMap</a></li></ul></li><li><a href="Object.html">Object</a><ul class='methods'><li data-type='method'><a href="Object.html#.decycle">decycle</a></li><li data-type='method'><a href="Object.html#.name">name</a></li></ul></li><li><a href="Search.html">Search</a><ul class='methods'><li data-type='method'><a href="Search.html#.binarySearch">binarySearch</a></li></ul></li><li><a href="String.html">String</a><ul class='methods'><li data-type='method'><a href="String.html#.distance">distance</a></li><li data-type='method'><a href="String.html#.matchAll">matchAll</a></li><li data-type='method'><a href="String.html#.pascalCase">pascalCase</a></li><li data-type='method'><a href="String.html#.similar">similar</a></li></ul></li></ul>
-</nav>
-
-<div id="main">
-    
-    <h1 class="page-title">lightdash.esm.js</h1>
-    
-
-    
-
-
-
-    
-    <section>
-        <article>
-            <pre class="prettyprint source linenums"><code>import { isEmpty, toPairs, upperFirst, camelCase, forEach, concat, filter, indexOf, isArrayLike, map, mapValues, isObjectLike, isString, isObject, isSymbol } from 'lodash';
-
-/**
- * Checks if the string is blank (no non-space content).
- *
- * @since 11.0.0
- * @memberOf Is
- * @param str String to use.
- * @returns If the file is blank.
- * @example
- * isBlank("")
- * // => true
- *
- * isBlank("  ")
- * // => true
- *
- * isBlank(" foo ")
- * // => false
- */
-const isBlank = (str) => isEmpty(str.trim());
-
-/**
- * Checks if a value is a promise.
- *
- * @since 3.0.0
- * @memberOf Is
- * @param value Value to check.
- * @returns If the value is a promise.
- * @example
- * isPromise(new Promise((resolve, reject) => resolve("foo")));
- * // => true
- *
- * isPromise(() => "foo");
- * // => false
- */
-const isPromise = (value) => value instanceof Promise;
-
-/**
- * Creates a map from an objects entries.
- *
- * @since 1.0.0
- * @memberOf Lang
- * @param object Object to use.
- * @returns Map created from the object.
- * @example
- * toMap({a: 1, b: 4, c: 5})
- * // => Map{a: 1, b: 4, c: 5}
- */
-const toMap = (object) => new Map(toPairs(object));
+var lodash = require('lodash');
 
 // noinspection SpellCheckingInspection
 /**
@@ -119,16 +29,16 @@ const distance = (str1, str2) => {
         return str1.length;
     }
     const matrix = [];
-    for (let y = 0; y &lt;= str2.length; y++) {
+    for (let y = 0; y <= str2.length; y++) {
         matrix[y] = [y];
     }
-    for (let x = 0; x &lt;= str1.length; x++) {
+    for (let x = 0; x <= str1.length; x++) {
         matrix[0][x] = x;
     }
-    for (let y = 1; y &lt;= str2.length; y++) {
+    for (let y = 1; y <= str2.length; y++) {
         const matrixColumnCurrent = matrix[y];
         const matrixColumnLast = matrix[y - 1];
-        for (let x = 1; x &lt;= str1.length; x++) {
+        for (let x = 1; x <= str1.length; x++) {
             if (str2.charAt(y - 1) === str1.charAt(x - 1)) {
                 matrixColumnCurrent[x] = matrixColumnLast[x - 1];
             }
@@ -142,6 +52,14 @@ const distance = (str1, str2) => {
     }
     return matrix[str2.length][str1.length];
 };
+
+describe("distance", () => {
+    it("gets distance", () => {
+        expect(distance("Kitten", "Sitting")).toBe(3);
+        expect(distance("String", "Stribng")).toBe(1);
+        expect(distance("foo", "foo")).toBe(0);
+    });
+});
 
 /**
  * Creates a PascalCase string from a string.
@@ -157,7 +75,14 @@ const distance = (str1, str2) => {
  * pascalCase("__foo_bar__")
  * // => "FizzBuzzBazz"
  */
-const pascalCase = (str) => upperFirst(camelCase(str));
+const pascalCase = (str) => lodash.upperFirst(lodash.camelCase(str));
+
+describe("strToPascalCase", () => {
+    it("converts to PascalCase", () => {
+        expect(pascalCase("fooBar")).toBe("FooBar");
+        expect(pascalCase("__fizz_buzz__")).toBe("FizzBuzz");
+    });
+});
 
 /**
  * Collects elements in an array into a an array of merged elements.
@@ -189,7 +114,7 @@ const pascalCase = (str) => upperFirst(camelCase(str));
  */
 const groupMapReducingBy = (collection, keyProducer, initializer, reducer) => {
     const result = new Map();
-    forEach(collection, (value, index) => {
+    lodash.forEach(collection, (value, index) => {
         const key = keyProducer(value, index, collection);
         if (!result.has(key)) {
             result.set(key, initializer(value, index, collection));
@@ -212,7 +137,7 @@ const groupMapReducingBy = (collection, keyProducer, initializer, reducer) => {
  * groupMapBy([1, 2, 3, 4, 5], val => val % 2)
  * // => Map{0: [2, 4], 1: [1, 3, 5]}
  */
-const groupMapBy = (collection, keyFn) => groupMapReducingBy(collection, keyFn, () => [], (current, value) => concat(current, value));
+const groupMapBy = (collection, keyFn) => groupMapReducingBy(collection, keyFn, () => [], (current, value) => lodash.concat(current, value));
 
 // noinspection SpellCheckingInspection
 /**
@@ -235,7 +160,7 @@ const groupMapBy = (collection, keyFn) => groupMapReducingBy(collection, keyFn, 
  * // => ["Sitten", "Bitten"]
  *
  * similar("cmmit", ["init", "commit", "push"], true)
- * // => Map&lt;number, string[]>{1: ["commit"], 3: ["init"], 5: ["push"]}
+ * // => Map<number, string[]>{1: ["commit"], 3: ["init"], 5: ["push"]}
  */
 const similar = (str, collection, returnFull = false) => {
     const result = groupMapBy(collection, (value) => distance(str, value));
@@ -245,6 +170,20 @@ const similar = (str, collection, returnFull = false) => {
     const lowestKey = Math.min(...result.keys());
     return result.get(lowestKey);
 };
+
+describe("similar", () => {
+    it("gets similar", () => {
+        expect(similar("Fob", ["Foo", "Bar"])).toEqual(["Foo"]);
+        expect(similar("cmmit", ["init", "commit", "push"])).toEqual([
+            "commit"
+        ]);
+        expect(similar("Kitten", ["Sitten", "Sitting", "Bitten"])).toEqual([
+            "Sitten",
+            "Bitten"
+        ]);
+        expect(similar("cmmit", ["init", "commit", "push"], true)).toEqual(new Map([[1, ["commit"]], [3, ["init"]], [5, ["push"]]]));
+    });
+});
 
 /**
  * Finds all regex matches in a string. Meant to be used with a global regex.
@@ -271,6 +210,15 @@ const matchAll = (str, pattern) => {
     return matches;
 };
 
+describe("matchAll", () => {
+    it("matches all", () => {
+        const actual = matchAll("Kitten", /t/g);
+        expect(actual.length).toBe(2);
+        expect(actual[0].toString()).toBe("t");
+        expect(actual[1].toString()).toBe("t");
+    });
+});
+
 /**
  * Returns a new array with the item at the given index removed.
  *
@@ -283,7 +231,13 @@ const matchAll = (str, pattern) => {
  * removeIndex(["foo", "bar", "fizz"], 1)
  * // => ["foo", "fizz"]
  */
-const removeIndex = (collection, targetIndex) => filter(collection, (value, index) => index !== targetIndex);
+const removeIndex = (collection, targetIndex) => lodash.filter(collection, (value, index) => index !== targetIndex);
+
+describe("removeIndex", () => {
+    it("removes index", () => {
+        expect(removeIndex(["foo", "bar", "fizz"], 1)).toEqual(["foo", "fizz"]);
+    });
+});
 
 /**
  * Returns a new collection with instances of the given item removed.
@@ -302,8 +256,20 @@ const removeIndex = (collection, targetIndex) => filter(collection, (value, inde
  * // => ["foo", "fizz", "bar"]
  */
 const removeItem = (collection, targetValue, removeAll = true) => removeAll
-    ? filter(collection, value => value !== targetValue)
-    : removeIndex(collection, indexOf(collection, targetValue));
+    ? lodash.filter(collection, value => value !== targetValue)
+    : removeIndex(collection, lodash.indexOf(collection, targetValue));
+
+describe("removeItem", () => {
+    it("removes all items", () => {
+        expect(removeItem(["foo", "bar", "fizz", "bar"], "bar")).toEqual([
+            "foo",
+            "fizz"
+        ]);
+    });
+    it("removes the first item", () => {
+        expect(removeItem(["foo", "bar", "fizz", "bar"], "bar", false)).toEqual(["foo", "fizz", "bar"]);
+    });
+});
 
 /**
  * Returns a new collection with every n-th item from the input array.
@@ -317,7 +283,37 @@ const removeItem = (collection, targetValue, removeAll = true) => removeAll
  * step([1, 2, 3, 4, 5, 6], 2)
  * // => [1, 3, 5]
  */
-const step = (collection, n) => filter(collection, (value, index) => index % n === 0);
+const step = (collection, n) => lodash.filter(collection, (value, index) => index % n === 0);
+
+describe("step", () => {
+    it("steps items", () => {
+        expect(step([1, 2, 3, 4, 5, 6], 2)).toEqual([1, 3, 5]);
+    });
+});
+
+describe("groupMapBy", () => {
+    it("groups items", () => {
+        expect(groupMapBy([1, 2, 3, 4, 5], val => val % 2)).toEqual(new Map([[0, [2, 4]], [1, [1, 3, 5]]]));
+    });
+});
+
+describe("groupMapReducingBy", () => {
+    it("groups items", () => {
+        expect(groupMapReducingBy(["foo", "bar", "fizz", "buzz"], val => val.charAt(0), () => {
+            return {
+                count: 0,
+                matches: []
+            };
+        }, (current, val) => {
+            current.count++;
+            current.matches.push(val);
+            return current;
+        })).toEqual(new Map([
+            ["f", { count: 2, matches: ["foo", "fizz"] }],
+            ["b", { count: 2, matches: ["bar", "buzz"] }]
+        ]));
+    });
+});
 
 /**
  * Replaces every circular reference in an object with a value, defaulting to null.
@@ -347,16 +343,33 @@ const decycle = (collection, replacer = () => null, references = new WeakSet()) 
         if (references.has(value)) {
             return replacer(value, key, _collection);
         }
-        if (isObjectLike(value)) {
+        if (lodash.isObjectLike(value)) {
             return decycle(value, replacer, references);
         }
         return value;
     };
     references.add(collection);
-    return isArrayLike(collection)
-        ? map(collection, decycler)
-        : mapValues(collection, decycler);
+    return lodash.isArrayLike(collection)
+        ? lodash.map(collection, decycler)
+        : lodash.mapValues(collection, decycler);
 };
+
+describe("decycle", () => {
+    it("decycles", () => {
+        const a = { a: {}, b: 1, c: 2 };
+        a.a = a;
+        expect(decycle(a)).toEqual({ a: null, b: 1, c: 2 });
+    });
+    it("decycles with custom replacer", () => {
+        const a = { a: {}, b: 1, c: 2 };
+        a.a = a;
+        expect(decycle(a, (val, key) => `_${key}`)).toEqual({
+            a: "_a",
+            b: 1,
+            c: 2
+        });
+    });
+});
 
 /**
  * Gets name of a value.
@@ -386,17 +399,40 @@ const decycle = (collection, replacer = () => null, references = new WeakSet()) 
  * // => null
  */
 const name = (value) => {
-    if (isString(value)) {
+    if (lodash.isString(value)) {
         return value;
     }
-    if (isObject(value) &amp;&amp; isString(value.name)) {
+    if (lodash.isObject(value) && lodash.isString(value.name)) {
         return value.name;
     }
-    if (isSymbol(value) &amp;&amp; isString(value.description)) {
+    if (lodash.isSymbol(value) && lodash.isString(value.description)) {
         return value.description;
     }
     return null;
 };
+
+describe("name", () => {
+    it("gets name of class", () => {
+        expect(name(class Foo {
+        })).toBe("Foo");
+    });
+    it("gets name of function", () => {
+        // tslint:disable-next-line:no-empty
+        expect(name(function bar() { })).toBe("bar");
+    });
+    it("gets name of symbol", () => {
+        expect(name(Symbol("abc"))).toBe("abc");
+    });
+    it("gets name of string", () => {
+        expect(name("foo")).toBe("foo");
+    });
+    it("gets null for number", () => {
+        expect(name(1)).toBe(null);
+    });
+    it("gets null for null", () => {
+        expect(name(null)).toBe(null);
+    });
+});
 
 /**
  * Binary-search implementation.
@@ -417,13 +453,13 @@ const binarySearch = (arr, search) => {
     let low = 0;
     let high = arr.length - 1;
     let mid;
-    while (low &lt;= high) {
+    while (low <= high) {
         mid = Math.floor(low + (high - low) / 2);
         const current = arr[mid];
         if (current === search) {
             return mid;
         }
-        if (current &lt; search) {
+        if (current < search) {
             low = mid + 1;
         }
         else {
@@ -433,75 +469,11 @@ const binarySearch = (arr, search) => {
     return null;
 };
 
-/**
- * @namespace Is
- */
-const l_Is = {
-    isPromise,
-    isBlank
-};
-/**
- * @namespace Lang
- */
-const l_Lang = {
-    toMap
-};
-/**
- * @namespace String
- */
-const l_String = {
-    distance,
-    pascalCase,
-    similar,
-    matchAll
-};
-/**
- * @namespace Array
- */
-const l_Array = {
-    removeIndex,
-    removeItem,
-    step,
-    groupMapBy,
-    groupMapReducingBy
-};
-/**
- * @namespace Object
- */
-const l_Object = {
-    decycle,
-    name
-};
-/**
- * @namespace Search
- */
-const l_Search = {
-    binarySearch
-};
-
-export { binarySearch, decycle, distance, groupMapBy, groupMapReducingBy, isBlank, isPromise, l_Array, l_Is, l_Lang, l_Object, l_Search, l_String, matchAll, name, pascalCase, removeIndex, removeItem, similar, step, toMap };
-</code></pre>
-        </article>
-    </section>
-
-
-
-
-    
-    
-</div>
-
-<br class="clear">
-
-<footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.3</a> on Sun Aug 04 2019 11:38:33 GMT+0200 (Central European Summer Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
-</footer>
-
-<script>prettyPrint();</script>
-<script src="scripts/polyfill.js"></script>
-<script src="scripts/linenumber.js"></script>
-
-
-
-</body>
-</html>
+describe("binarySearch", () => {
+    it("searches for value", () => {
+        expect(binarySearch([0, 1, 2], 1)).toBe(1);
+    });
+    it("returns null for no match", () => {
+        expect(binarySearch([0, 1, 2], 100)).toBeNull();
+    });
+});
