@@ -11,12 +11,12 @@
             "file": "lightdash"
         },
         "external": [
-            "lodash"
+
         ],
         "browser": {
             "enabled": true,
             "globals": {
-                "lodash": "_"
+
             }
         }
     },

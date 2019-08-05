@@ -32,7 +32,7 @@ export default {
     output: getOutputs(),
     external: settings.external,
     plugins: [
-        resolve(),
+        resolve({browser:true}),
         typescript({
             cacheRoot: "./.cache/ts/main",
             useTsconfigDeclarationDir: true
