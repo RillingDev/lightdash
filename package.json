@@ -10,14 +10,10 @@
             "module": "l_",
             "file": "lightdash"
         },
-        "external": [
-
-        ],
+        "external": [],
         "browser": {
             "enabled": true,
-            "globals": {
-
-            }
+            "globals": {}
         }
     },
     "scripts": {
@@ -26,11 +22,8 @@
         "build:test": "rollup -c ./tasks/rollup.config.test.js",
         "watch": "rollup -c ./tasks/rollup.config.js --watch",
         "dist": "npm-run-all build test docs",
-        "lint": "npm-run-all --parallel lint:ts",
-        "lint:ts": "tslint ./src/**/*.ts ./spec/**/*.ts",
-        "fix": "npm-run-all fix:ts fix:prettier",
-        "fix:ts": "tslint ./src/**/*.ts ./spec/**/*.ts --fix",
-        "fix:prettier": "prettier ./src/**/*.ts ./spec/**/*.ts --write",
+        "lint": "eslint ./src/**/*.ts ./spec/**/*.ts --ext .js,.ts",
+        "fix": "eslint ./src/**/*.ts ./spec/**/*.ts --ext .js,.ts --fix",
         "test": "npm-run-all build:test test:jasmine",
         "test:jasmine": "jasmine",
         "docs": "jsdoc -c jsdoc.json"
@@ -58,16 +51,20 @@
         "lodash": "^4.17.15"
     },
     "devDependencies": {
-        "@types/jasmine": "^3.3.16",
+        "@types/jasmine": "^3.4.2",
+        "@typescript-eslint/eslint-plugin": "^2.3.2",
+        "@typescript-eslint/parser": "^2.3.2",
         "docdash": "^1.1.1",
-        "jasmine": "^3.4.0",
+        "eslint": "^6.5.1",
+        "eslint-config-prettier": "^6.4.0",
+        "eslint-plugin-prettier": "^3.1.1",
+        "jasmine": "^3.5.0",
         "jsdoc": "^3.6.3",
         "npm-run-all": "^4.1.5",
         "prettier": "^1.18.2",
-        "rollup": "^1.18.0",
+        "rollup": "^1.23.1",
         "rollup-plugin-node-resolve": "^5.2.0",
-        "rollup-plugin-typescript2": "^0.22.1",
-        "tslint": "^5.18.0",
-        "typescript": "^3.5.3"
+        "rollup-plugin-typescript2": "^0.24.3",
+        "typescript": "^3.6.2"
     }
 }
