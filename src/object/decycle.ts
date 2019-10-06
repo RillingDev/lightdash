@@ -2,8 +2,6 @@ import {
     Dictionary,
     isArrayLike,
     isObjectLike,
-    List,
-    ListIterator,
     map,
     mapValues,
     ObjectIterator
@@ -32,12 +30,12 @@ import {
  * // => {a: "_a", b: 1, c: 2}
  */
 const decycle = <T>(
-    collection: Dictionary<T> | List<T>,
-    replacer: ObjectIterator<T, any> | ListIterator<T, any> = () => null,
-    references: WeakSet<any> = new WeakSet<any>()
-): Dictionary<any> | List<any> => {
+    collection: Dictionary<T>,
+    replacer: ObjectIterator<T, any> = () => null,
+    references: WeakSet<any> = new WeakSet()
+): Dictionary<any> => {
     // TODO: find a way to properly avoid any's here.
-    const decycler = (value: any, key: any, _collection: any) => {
+    const decycler = (value: any, key: string, _collection: T): any => {
         if (references.has(value)) {
             return replacer(value, key, _collection);
         }

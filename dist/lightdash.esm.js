@@ -301,6 +301,7 @@ const decycle = (collection, replacer = () => null, references = new WeakSet()) 
     // TODO: find a way to properly avoid any's here.
     const decycler = (value, key, _collection) => {
         if (references.has(value)) {
+            // @ts-ignore TODO evaluate
             return replacer(value, key, _collection);
         }
         if (isObjectLike(value)) {

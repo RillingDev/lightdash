@@ -2,7 +2,7 @@
 
 var lodash = require('lodash');
 
-// noinspection SpellCheckingInspection
+// Noinspection SpellCheckingInspection
 /**
  * Returns the levenshtein string distance of two strings.
  *
@@ -139,7 +139,7 @@ const groupMapReducingBy = (collection, keyProducer, initializer, reducer) => {
  */
 const groupMapBy = (collection, keyFn) => groupMapReducingBy(collection, keyFn, () => [], (current, value) => lodash.concat(current, value));
 
-// noinspection SpellCheckingInspection
+// Noinspection SpellCheckingInspection
 /**
  * Returns strings similar to the input based its levenshtein distance to the values in the list given.
  *
@@ -203,7 +203,7 @@ describe("similar", () => {
 const matchAll = (str, pattern) => {
     const matches = [];
     let match;
-    // tslint:disable-next-line:no-conditional-assignment
+    // eslint-disable-next-line no-extra-parens
     while ((match = pattern.exec(str))) {
         matches.push(match);
     }
@@ -402,7 +402,9 @@ const name = (value) => {
     if (lodash.isString(value)) {
         return value;
     }
+    // eslint-disable-next-line no-extra-parens
     if (lodash.isObject(value) && lodash.isString(value.name)) {
+        // eslint-disable-next-line no-extra-parens
         return value.name;
     }
     if (lodash.isSymbol(value) && lodash.isString(value.description)) {
@@ -417,7 +419,7 @@ describe("name", () => {
         })).toBe("Foo");
     });
     it("gets name of function", () => {
-        // tslint:disable-next-line:no-empty
+        // eslint-disable-next-line @typescript-eslint/no-empty-function
         expect(name(function bar() { })).toBe("bar");
     });
     it("gets name of symbol", () => {

@@ -10,10 +10,14 @@
             "module": "l_",
             "file": "lightdash"
         },
-        "external": [],
+        "external": [
+            "lodash"
+        ],
         "browser": {
             "enabled": true,
-            "globals": {}
+            "globals": {
+                "lodash": "_"
+            }
         }
     },
     "scripts": {

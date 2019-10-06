@@ -41,10 +41,10 @@ declare const l_String: {
  */
 declare const l_Array: {
     removeIndex: <T>(collection: ArrayLike<T>, targetIndex: number) => T[];
-    removeItem: <T>(collection: ArrayLike<T>, targetValue: T, removeAll?: boolean) => ArrayLike<T>;
-    step: <T>(collection: ArrayLike<T>, n: number) => ArrayLike<T>;
-    groupMapBy: <T, TKey>(collection: ArrayLike<T>, keyFn: import("lodash").ListIterator<T, TKey>) => Map<TKey, T[]>;
-    groupMapReducingBy: <T, TKey, TMerged>(collection: ArrayLike<T>, keyProducer: import("lodash").ListIterator<T, TKey>, initializer: import("lodash").ListIterator<T, TMerged>, reducer: (current: TMerged, value: T, index: number, collection: ArrayLike<T>) => TMerged) => Map<TKey, TMerged>;
+    removeItem: <T_1>(collection: ArrayLike<T_1>, targetValue: T_1, removeAll?: boolean) => ArrayLike<T_1>;
+    step: <T_2>(collection: ArrayLike<T_2>, n: number) => ArrayLike<T_2>;
+    groupMapBy: <T_3, TKey>(collection: ArrayLike<T_3>, keyFn: import("lodash").ListIterator<T_3, TKey>) => Map<TKey, T_3[]>;
+    groupMapReducingBy: <T_4, TKey_1, TMerged>(collection: ArrayLike<T_4>, keyProducer: import("lodash").ListIterator<T_4, TKey_1>, initializer: import("lodash").ListIterator<T_4, TMerged>, reducer: (current: TMerged, value: T_4, index: number, collection: ArrayLike<T_4>) => TMerged) => Map<TKey_1, TMerged>;
 };
 /**
  * @namespace Object

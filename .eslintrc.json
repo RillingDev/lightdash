@@ -15,7 +15,7 @@
     "parserOptions": {
         "ecmaVersion": 2018,
         "sourceType": "module",
-        "project": "./tsconfig.json"
+        "project": "./tsconfig.test.json"
     },
     "env": {
         "browser": true,
@@ -23,22 +23,6 @@
         "node": true
     },
     "rules": {
-        "indent": [
-            "warn",
-            4
-        ],
-        "linebreak-style": [
-            "warn",
-            "unix"
-        ],
-        "quotes": [
-            "warn",
-            "double"
-        ],
-        "semi": [
-            "error",
-            "always"
-        ],
         "capitalized-comments": "warn",
         "curly": [
             "warn",
@@ -66,6 +50,14 @@
             {
                 "allowExpressions": true
             }
-        ]
+        ],
+        "@typescript-eslint/consistent-type-assertions": [
+            "warn",
+            {
+                "assertionStyle": "angle-bracket"
+            }
+        ],
+        "@typescript-eslint/no-explicit-any": "off",
+        "@typescript-eslint/no-non-null-assertion": "off"
     }
 }

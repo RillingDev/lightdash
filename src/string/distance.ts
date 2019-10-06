@@ -1,4 +1,4 @@
-// noinspection SpellCheckingInspection
+// Noinspection SpellCheckingInspection
 /**
  * Returns the levenshtein string distance of two strings.
  *

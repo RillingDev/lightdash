@@ -5,7 +5,7 @@ describe("name", () => {
         expect(name(class Foo {})).toBe("Foo");
     });
     it("gets name of function", () => {
-        // tslint:disable-next-line:no-empty
+        // eslint-disable-next-line @typescript-eslint/no-empty-function
         expect(name(function bar() {})).toBe("bar");
     });
     it("gets name of symbol", () => {
