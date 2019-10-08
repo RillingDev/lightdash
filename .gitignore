@@ -35,7 +35,7 @@ npm-debug.*
 # Temp Files
 .cache/
 .tmp/
-spec/out/
+spec/dist/
 
 # Safe files
 _key*
