@@ -1,4 +1,4 @@
-import { Dictionary, ListIterator, ObjectIterator } from "lodash";
+import { Dictionary, ObjectIterator } from "lodash";
 /**
  * Replaces every circular reference in an object with a value, defaulting to null.
  *
@@ -21,5 +21,5 @@ import { Dictionary, ListIterator, ObjectIterator } from "lodash";
  * decycle(a, key => `_${key}`)
  * // => {a: "_a", b: 1, c: 2}
  */
-declare const decycle: <T>(collection: Dictionary<T> | ArrayLike<T>, replacer?: ObjectIterator<T, any> | ListIterator<T, any>, references?: WeakSet<any>) => Dictionary<any> | ArrayLike<any>;
+declare const decycle: <T>(collection: Dictionary<T>, replacer?: ObjectIterator<T, any>, references?: WeakSet<any>) => Dictionary<any>;
 export { decycle };

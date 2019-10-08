@@ -48,7 +48,7 @@ const isPromise = (value) => value instanceof Promise;
  */
 const toMap = (object) => new Map(toPairs(object));
 
-// noinspection SpellCheckingInspection
+// Noinspection SpellCheckingInspection
 /**
  * Returns the levenshtein string distance of two strings.
  *
@@ -170,7 +170,7 @@ const groupMapReducingBy = (collection, keyProducer, initializer, reducer) => {
  */
 const groupMapBy = (collection, keyFn) => groupMapReducingBy(collection, keyFn, () => [], (current, value) => concat(current, value));
 
-// noinspection SpellCheckingInspection
+// Noinspection SpellCheckingInspection
 /**
  * Returns strings similar to the input based its levenshtein distance to the values in the list given.
  *
@@ -220,7 +220,7 @@ const similar = (str, collection, returnFull = false) => {
 const matchAll = (str, pattern) => {
     const matches = [];
     let match;
-    // tslint:disable-next-line:no-conditional-assignment
+    // eslint-disable-next-line no-extra-parens
     while ((match = pattern.exec(str))) {
         matches.push(match);
     }
@@ -301,7 +301,6 @@ const decycle = (collection, replacer = () => null, references = new WeakSet()) 
     // TODO: find a way to properly avoid any's here.
     const decycler = (value, key, _collection) => {
         if (references.has(value)) {
-            // @ts-ignore TODO evaluate
             return replacer(value, key, _collection);
         }
         if (isObjectLike(value)) {
@@ -346,7 +345,9 @@ const name = (value) => {
     if (isString(value)) {
         return value;
     }
+    // eslint-disable-next-line no-extra-parens
     if (isObject(value) && isString(value.name)) {
+        // eslint-disable-next-line no-extra-parens
         return value.name;
     }
     if (isSymbol(value) && isString(value.description)) {
