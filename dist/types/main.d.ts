@@ -50,7 +50,7 @@ declare const l_Array: {
  * @namespace Object
  */
 declare const l_Object: {
-    decycle: <T>(collection: import("lodash").Dictionary<T> | ArrayLike<T>, replacer?: import("lodash").ObjectIterator<T, any> | import("lodash").ListIterator<T, any>, references?: WeakSet<any>) => import("lodash").Dictionary<any> | ArrayLike<any>;
+    decycle: <T>(collection: import("lodash").Dictionary<T>, replacer?: import("lodash").ObjectIterator<T, any>, references?: WeakSet<any>) => import("lodash").Dictionary<any>;
     name: (value: any) => string | null;
 };
 /**
