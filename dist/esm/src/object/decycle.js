@@ -1,4 +1,5 @@
 import { isArrayLike, isObjectLike, map, mapValues } from "lodash";
+// TODO: find a way to properly avoid any's here.
 /**
  * Replaces every circular reference in an object with a value, defaulting to null.
  *
@@ -22,7 +23,6 @@ import { isArrayLike, isObjectLike, map, mapValues } from "lodash";
  * // => {a: "_a", b: 1, c: 2}
  */
 const decycle = (collection, replacer = () => null, references = new WeakSet()) => {
-    // TODO: find a way to properly avoid any's here.
     const decycler = (value, key, _collection) => {
         if (references.has(value)) {
             return replacer(value, key, _collection);

@@ -2,11 +2,21 @@ import {
     Dictionary,
     isArrayLike,
     isObjectLike,
+    List,
     map,
     mapValues,
-    ObjectIterator
+    NumericDictionary
 } from "lodash";
 
+type Collection<T> = Dictionary<T> | NumericDictionary<T> | List<T>;
+
+type CollectionIterator<T, U> = (
+    val: T,
+    key: PropertyKey,
+    _collection: Collection<T>
+) => U;
+
+// TODO: find a way to properly avoid any's here.
 /**
  * Replaces every circular reference in an object with a value, defaulting to null.
  *
@@ -30,18 +40,21 @@ import {
  * // => {a: "_a", b: 1, c: 2}
  */
 const decycle = <T>(
-    collection: Dictionary<T>,
-    replacer: ObjectIterator<T, any> = () => null,
+    collection: Collection<T>,
+    replacer: CollectionIterator<T | Collection<T>, any> = () => null,
     references: WeakSet<any> = new WeakSet()
-): Dictionary<any> => {
-    // TODO: find a way to properly avoid any's here.
-    const decycler = (value: any, key: string, _collection: T): any => {
+): Collection<any> => {
+    const decycler: CollectionIterator<T | Collection<T>, any> = (
+        value,
+        key,
+        _collection
+    ): any => {
         if (references.has(value)) {
             return replacer(value, key, _collection);
         }
 
         if (isObjectLike(value)) {
-            return decycle(value, replacer, references);
+            return decycle(<Collection<T>>value, replacer, references);
         }
 
         return value;
