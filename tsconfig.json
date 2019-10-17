@@ -1,5 +1,6 @@
 {
     "compilerOptions": {
+        "moduleResolution": "node",
         "rootDir": "./",
         "baseUrl": "./",
         "target": "esnext",
@@ -17,7 +18,11 @@
         "node_modules"
     ],
     "references": [
-        { "path": "./src" },
-        { "path": "./spec" }
+        {
+            "path": "./src"
+        },
+        {
+            "path": "./spec"
+        }
     ]
 }
