@@ -9,3 +9,4 @@ describe("binarySearch", () => {
         expect(binarySearch_1.binarySearch([0, 1, 2], 100)).toBeNull();
     });
 });
+//# sourceMappingURL=binarySearch.spec.js.map

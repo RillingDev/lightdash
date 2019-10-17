@@ -1,17 +1,23 @@
 {
     "compilerOptions": {
+        "rootDir": "./",
         "baseUrl": "./",
-        "outDir": "./dist/esm/",
-        "declaration": true,
-        "declarationDir": "./dist/types",
-        "module": "esnext",
         "target": "esnext",
         "newLine": "LF",
         "strict": true,
-        "noImplicitAny": true,
-        "removeComments": false,
+        "experimentalDecorators": true,
         "emitDecoratorMetadata": true,
-        "experimentalDecorators": true
+        "removeComments": false,
+        "sourceMap": true,
+        "declarationMap": true,
+        "composite": true
     },
-    "include": ["src/**/*.ts"]
+    "include": [],
+    "exclude": [
+        "node_modules"
+    ],
+    "references": [
+        { "path": "./src" },
+        { "path": "./spec" }
+    ]
 }

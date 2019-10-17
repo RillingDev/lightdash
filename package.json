@@ -2,9 +2,9 @@
     "name": "lightdash",
     "version": "11.1.0-0",
     "description": "A lightweight TypeScript utility library to complement lodash",
-    "main": "./dist/cjs/main.js",
-    "module": "./dist/esm/main.js",
-    "types": "./dist/types/main.d.ts",
+    "main": "./dist/lightdash.common.js",
+    "module": "./dist/esm/src/main.js",
+    "types": "./dist/esm/src/main.d.ts",
     "rollupOptions": {
         "moduleName": "l_",
         "outputName": "lightdash",
@@ -17,17 +17,13 @@
     },
     "scripts": {
         "start": "npm run dist",
-        "build": "npm-run-all -p build:esm build:misc",
-        "build:esm": "tsc --build tsconfig.json",
-        "build:misc": "npm-run-all build:cjs build:iife",
-        "build:cjs": "tsc --build tsconfig.cjs.json",
-        "build:iife": "rollup -c rollup.config.iife.js",
-        "build:test": "tsc --build tsconfig.test.json",
+        "build": "npm-run-all build:tsc build:bundle",
+        "build:tsc": "tsc --build ./tsconfig.json",
+        "build:bundle": "rollup -c rollup.config.js",
         "dist": "npm-run-all lint test build docs",
-        "lint": "eslint ./src/**/*.ts ./spec/**/*.ts --ext .js,.ts",
-        "fix": "eslint ./src/**/*.ts ./spec/**/*.ts --ext .js,.ts --fix",
-        "test": "npm-run-all build:test test:jasmine",
-        "test:jasmine": "jasmine",
+        "lint": "eslint ./src/ ./spec/src/ --ext .ts",
+        "fix": "eslint ./src/ ./spec/src/ --ext .ts --fix",
+        "test": "jasmine",
         "docs": "jsdoc -c jsdoc.json"
     },
     "repository": {
@@ -53,9 +49,9 @@
         "lodash": "^4.17.15"
     },
     "devDependencies": {
-        "@types/jasmine": "^3.4.2",
-        "@typescript-eslint/eslint-plugin": "^2.3.2",
-        "@typescript-eslint/parser": "^2.3.2",
+        "@types/jasmine": "^3.4.4",
+        "@typescript-eslint/eslint-plugin": "^2.4.0",
+        "@typescript-eslint/parser": "^2.4.0",
         "docdash": "^1.1.1",
         "eslint": "^6.5.1",
         "eslint-config-prettier": "^6.4.0",
@@ -64,8 +60,8 @@
         "jsdoc": "^3.6.3",
         "npm-run-all": "^4.1.5",
         "prettier": "^1.18.2",
-        "rollup": "^1.23.1",
+        "rollup": "^1.24.0",
         "rollup-plugin-node-resolve": "^5.2.0",
-        "typescript": "^3.6.2"
+        "typescript": "^3.6.4"
     }
 }

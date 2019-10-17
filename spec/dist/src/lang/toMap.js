@@ -14,3 +14,4 @@ const lodash_1 = require("lodash");
  */
 const toMap = (object) => new Map(lodash_1.toPairs(object));
 exports.toMap = toMap;
+//# sourceMappingURL=toMap.js.map

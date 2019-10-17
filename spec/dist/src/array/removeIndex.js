@@ -15,3 +15,4 @@ const lodash_1 = require("lodash");
  */
 const removeIndex = (collection, targetIndex) => lodash_1.filter(collection, (value, index) => index !== targetIndex);
 exports.removeIndex = removeIndex;
+//# sourceMappingURL=removeIndex.js.map

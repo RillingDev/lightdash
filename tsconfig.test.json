@@ -1,8 +1,0 @@
-{
-    "extends": "./tsconfig.cjs.json",
-    "compilerOptions": {
-        "baseUrl": "./",
-        "outDir": "./spec/dist/"
-    },
-    "include": ["src/**/*.ts", "spec/src/**/*.ts"]
-}

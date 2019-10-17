@@ -6,3 +6,4 @@ describe("removeIndex", () => {
         expect(removeIndex_1.removeIndex(["foo", "bar", "fizz"], 1)).toEqual(["foo", "fizz"]);
     });
 });
+//# sourceMappingURL=removeIndex.spec.js.map

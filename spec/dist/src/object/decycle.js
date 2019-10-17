@@ -40,3 +40,4 @@ const decycle = (collection, replacer = () => null, references = new WeakSet()) 
         : lodash_1.mapValues(collection, decycler);
 };
 exports.decycle = decycle;
+//# sourceMappingURL=decycle.js.map

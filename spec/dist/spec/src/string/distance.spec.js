@@ -8,3 +8,4 @@ describe("distance", () => {
         expect(distance_1.distance("foo", "foo")).toBe(0);
     });
 });
+//# sourceMappingURL=distance.spec.js.map

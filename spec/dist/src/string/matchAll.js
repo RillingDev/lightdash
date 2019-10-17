@@ -25,3 +25,4 @@ const matchAll = (str, pattern) => {
     return matches;
 };
 exports.matchAll = matchAll;
+//# sourceMappingURL=matchAll.js.map

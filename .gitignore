@@ -36,6 +36,7 @@ npm-debug.*
 .cache/
 .tmp/
 spec/dist/
+tsconfig.tsbuildinfo
 
 # Safe files
 _key*

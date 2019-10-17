@@ -9,3 +9,4 @@ describe("matchAll", () => {
         expect(actual[1].toString()).toBe("t");
     });
 });
+//# sourceMappingURL=matchAll.spec.js.map

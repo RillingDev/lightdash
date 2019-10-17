@@ -15,7 +15,7 @@
     "parserOptions": {
         "ecmaVersion": 2018,
         "sourceType": "module",
-        "project": "./tsconfig.test.json"
+        "project": "./tsconfig.lint.json"
     },
     "env": {
         "browser": true,

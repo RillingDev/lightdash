@@ -7,3 +7,4 @@ describe("strToPascalCase", () => {
         expect(pascalCase_1.pascalCase("__fizz_buzz__")).toBe("FizzBuzz");
     });
 });
+//# sourceMappingURL=pascalCase.spec.js.map

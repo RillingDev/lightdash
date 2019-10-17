@@ -16,3 +16,4 @@ Object.defineProperty(exports, "__esModule", { value: true });
  */
 const isPromise = (value) => value instanceof Promise;
 exports.isPromise = isPromise;
+//# sourceMappingURL=isPromise.js.map

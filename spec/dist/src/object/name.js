@@ -43,3 +43,4 @@ const name = (value) => {
     return null;
 };
 exports.name = name;
+//# sourceMappingURL=name.js.map

@@ -34,3 +34,4 @@ const similar = (str, collection, returnFull = false) => {
     return result.get(lowestKey);
 };
 exports.similar = similar;
+//# sourceMappingURL=similar.js.map
