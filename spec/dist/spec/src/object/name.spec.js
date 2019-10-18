@@ -23,4 +23,3 @@ describe("name", () => {
         expect(name_1.name(null)).toBe(null);
     });
 });
-//# sourceMappingURL=name.spec.js.map

@@ -15,4 +15,3 @@ const lodash_1 = require("lodash");
  */
 const step = (collection, n) => lodash_1.filter(collection, (value, index) => index % n === 0);
 exports.step = step;
-//# sourceMappingURL=step.js.map

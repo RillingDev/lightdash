@@ -16,7 +16,6 @@
 const matchAll = (str: string, pattern: RegExp): RegExpExecArray[] => {
     const matches: RegExpExecArray[] = [];
     let match: RegExpExecArray | null;
-    // eslint-disable-next-line no-extra-parens
     while ((match = pattern.exec(str))) {
         matches.push(match);
     }

@@ -51,4 +51,3 @@ const distance = (str1, str2) => {
     return matrix[str2.length][str1.length];
 };
 exports.distance = distance;
-//# sourceMappingURL=distance.js.map

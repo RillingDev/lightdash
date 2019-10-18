@@ -17,4 +17,3 @@ const groupMapReducingBy_1 = require("./groupMapReducingBy");
  */
 const groupMapBy = (collection, keyFn) => groupMapReducingBy_1.groupMapReducingBy(collection, keyFn, () => [], (current, value) => lodash_1.concat(current, value));
 exports.groupMapBy = groupMapBy;
-//# sourceMappingURL=groupMapBy.js.map

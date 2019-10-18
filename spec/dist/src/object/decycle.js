@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const lodash_1 = require("lodash");
+// TODO: find a way to properly avoid any's here.
 /**
  * Replaces every circular reference in an object with a value, defaulting to null.
  *
@@ -24,7 +25,6 @@ const lodash_1 = require("lodash");
  * // => {a: "_a", b: 1, c: 2}
  */
 const decycle = (collection, replacer = () => null, references = new WeakSet()) => {
-    // TODO: find a way to properly avoid any's here.
     const decycler = (value, key, _collection) => {
         if (references.has(value)) {
             return replacer(value, key, _collection);
@@ -40,4 +40,3 @@ const decycle = (collection, replacer = () => null, references = new WeakSet()) 
         : lodash_1.mapValues(collection, decycler);
 };
 exports.decycle = decycle;
-//# sourceMappingURL=decycle.js.map
