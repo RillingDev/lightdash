@@ -18,11 +18,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const matchAll = (str, pattern) => {
     const matches = [];
     let match;
-    // eslint-disable-next-line no-extra-parens
     while ((match = pattern.exec(str))) {
         matches.push(match);
     }
     return matches;
 };
 exports.matchAll = matchAll;
-//# sourceMappingURL=matchAll.js.map

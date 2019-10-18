@@ -31,9 +31,7 @@ const name = (value: any): string | null => {
     if (isString(value)) {
         return value;
     }
-    // eslint-disable-next-line no-extra-parens
     if (isObject(value) && isString((<any>value).name)) {
-        // eslint-disable-next-line no-extra-parens
         return (<any>value).name;
     }
     if (isSymbol(value) && isString(value.description)) {

@@ -35,4 +35,3 @@ const binarySearch = (arr, search) => {
     return null;
 };
 exports.binarySearch = binarySearch;
-//# sourceMappingURL=binarySearch.js.map

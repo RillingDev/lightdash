@@ -17,4 +17,3 @@ const lodash_1 = require("lodash");
  */
 const pascalCase = (str) => lodash_1.upperFirst(lodash_1.camelCase(str));
 exports.pascalCase = pascalCase;
-//# sourceMappingURL=pascalCase.js.map

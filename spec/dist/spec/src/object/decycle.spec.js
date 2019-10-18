@@ -17,4 +17,3 @@ describe("decycle", () => {
         });
     });
 });
-//# sourceMappingURL=decycle.spec.js.map

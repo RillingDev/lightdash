@@ -32,9 +32,7 @@ const name = (value) => {
     if (lodash_1.isString(value)) {
         return value;
     }
-    // eslint-disable-next-line no-extra-parens
     if (lodash_1.isObject(value) && lodash_1.isString(value.name)) {
-        // eslint-disable-next-line no-extra-parens
         return value.name;
     }
     if (lodash_1.isSymbol(value) && lodash_1.isString(value.description)) {
@@ -43,4 +41,3 @@ const name = (value) => {
     return null;
 };
 exports.name = name;
-//# sourceMappingURL=name.js.map
