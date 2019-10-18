@@ -1,6 +1,6 @@
 {
     "name": "lightdash",
-    "version": "10.2.4",
+    "version": "10.3.0",
     "description": "A lightweight TypeScript utility library to complement lodash",
     "main": "./dist/lightdash.common.js",
     "module": "./dist/esm/src/main.js",
