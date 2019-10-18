@@ -31,8 +31,8 @@ const name = (value: any): string | null => {
     if (isString(value)) {
         return value;
     }
-    if (isObject(value) && isString((<any>value).name)) {
-        return (<any>value).name;
+    if (isObject(value) && isString((<{ [key: string]: any }>value).name)) {
+        return (<{ [key: string]: any }>value).name;
     }
     if (isSymbol(value) && isString(value.description)) {
         return value.description;
