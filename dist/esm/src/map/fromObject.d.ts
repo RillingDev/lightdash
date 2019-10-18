@@ -1,4 +1,4 @@
-import { IAnyObject } from "../obj/lib/IAnyObject";
+import { AnyObject } from "../obj/lib/AnyObject";
 /**
  * Creates a map from an object.
  *
@@ -10,6 +10,6 @@ import { IAnyObject } from "../obj/lib/IAnyObject";
  * mapFromObject({a: 1, b: 4, c: 5})
  * // => Map<string,number>{a: 1, b: 4, c: 5}
  */
-declare const mapFromObject: (obj: IAnyObject) => Map<string, any>;
+declare const mapFromObject: (obj: AnyObject) => Map<string, any>;
 export { mapFromObject };
 //# sourceMappingURL=fromObject.d.ts.map

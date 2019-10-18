@@ -1,4 +1,4 @@
-import { anyVoidFn } from "./lib/anyVoidFn";
+import { AnyVoidFn } from "./lib/AnyVoidFn";
 
 /**
  * Creates a debounced function.
@@ -16,15 +16,14 @@ import { anyVoidFn } from "./lib/anyVoidFn";
  * const fooDebounced = fnDebounce(foo, 500);
  * // function calls will be debounced to 500ms
  */
-const fnDebounce = (fn: anyVoidFn<any>, timeout: number): anyVoidFn<any> => {
+const fnDebounce = (fn: AnyVoidFn<any>, timeout: number): AnyVoidFn<any> => {
     let timer: any = null; // Seems to require any, as the return type of the browser and node are different here.
 
-    // tslint:disable-next-line:only-arrow-functions
-    return function() {
+    return function(...args) {
         clearTimeout(timer);
         timer = setTimeout(() => {
             timer = null;
-            fn.apply(this, Array.of(arguments));
+            fn.apply(this, args);
         }, timeout);
     };
 };

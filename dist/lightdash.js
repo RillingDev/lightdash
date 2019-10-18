@@ -753,7 +753,7 @@ var l_ = (function (exports) {
      */
     const numSafe = (val) => numClamp(val, Number.MIN_SAFE_INTEGER, Number.MAX_SAFE_INTEGER);
 
-    // noinspection SpellCheckingInspection
+    // Noinspection SpellCheckingInspection
     /**
      * Returns the levenshtein string distance of two strings.
      *
@@ -910,7 +910,7 @@ var l_ = (function (exports) {
         return collected;
     };
 
-    // noinspection SpellCheckingInspection
+    // Noinspection SpellCheckingInspection
     /**
      * Returns strings similar to the input based its distance to the values in the list given.
      *
@@ -1439,12 +1439,11 @@ var l_ = (function (exports) {
      */
     const fnDebounce = (fn, timeout) => {
         let timer = null; // Seems to require any, as the return type of the browser and node are different here.
-        // tslint:disable-next-line:only-arrow-functions
-        return function () {
+        return function (...args) {
             clearTimeout(timer);
             timer = setTimeout(() => {
                 timer = null;
-                fn.apply(this, Array.of(arguments));
+                fn.apply(this, args);
             }, timeout);
         };
     };
@@ -1468,12 +1467,11 @@ var l_ = (function (exports) {
     const fnThrottle = (fn, timeout) => {
         let timer = null; // Seems to require any, as the return type of the browser and node are different here.
         let last = null;
-        // tslint:disable-next-line:only-arrow-functions
-        return function () {
+        return function (...args) {
             const now = Date.now();
             const run = () => {
                 last = now;
-                fn.apply(this, Array.of(arguments));
+                fn.apply(this, args);
             };
             if (last != null && now < last + timeout) {
                 clearTimeout(timer);
@@ -1590,6 +1588,7 @@ var l_ = (function (exports) {
         return shuffled;
     };
 
+    /* eslint-disable @typescript-eslint/camelcase */
     /**
      * Value checking, type checking, and comparison.
      *

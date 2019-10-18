@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/camelcase */
 import { isIndex } from "./is/_index";
 import { isArrayBuffer } from "./is/arrayBuffer";
 import { isArrayLike } from "./is/arrayLike";

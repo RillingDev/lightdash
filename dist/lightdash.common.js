@@ -754,7 +754,7 @@ const numClamp = (val, min, max) => {
  */
 const numSafe = (val) => numClamp(val, Number.MIN_SAFE_INTEGER, Number.MAX_SAFE_INTEGER);
 
-// noinspection SpellCheckingInspection
+// Noinspection SpellCheckingInspection
 /**
  * Returns the levenshtein string distance of two strings.
  *
@@ -911,7 +911,7 @@ const arrCollect = (arr, fn) => {
     return collected;
 };
 
-// noinspection SpellCheckingInspection
+// Noinspection SpellCheckingInspection
 /**
  * Returns strings similar to the input based its distance to the values in the list given.
  *
@@ -1440,12 +1440,11 @@ const forEachEntryDeep = (obj, fn) => forEachEntry(obj, (val, key) => isObjectLi
  */
 const fnDebounce = (fn, timeout) => {
     let timer = null; // Seems to require any, as the return type of the browser and node are different here.
-    // tslint:disable-next-line:only-arrow-functions
-    return function () {
+    return function (...args) {
         clearTimeout(timer);
         timer = setTimeout(() => {
             timer = null;
-            fn.apply(this, Array.of(arguments));
+            fn.apply(this, args);
         }, timeout);
     };
 };
@@ -1469,12 +1468,11 @@ const fnDebounce = (fn, timeout) => {
 const fnThrottle = (fn, timeout) => {
     let timer = null; // Seems to require any, as the return type of the browser and node are different here.
     let last = null;
-    // tslint:disable-next-line:only-arrow-functions
-    return function () {
+    return function (...args) {
         const now = Date.now();
         const run = () => {
             last = now;
-            fn.apply(this, Array.of(arguments));
+            fn.apply(this, args);
         };
         if (last != null && now < last + timeout) {
             clearTimeout(timer);
@@ -1591,6 +1589,7 @@ const randShuffle = (arr) => {
     return shuffled;
 };
 
+/* eslint-disable @typescript-eslint/camelcase */
 /**
  * Value checking, type checking, and comparison.
  *

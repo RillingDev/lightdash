@@ -1,4 +1,4 @@
-import { anyClass } from "./lib/anyClass";
+import { AnyClass } from "./lib/AnyClass";
 
 /**
  * Checks if the value is an instance of any of the given classes.
@@ -19,7 +19,7 @@ import { anyClass } from "./lib/anyClass";
  * isInstanceOf({}, Array, Set)
  * // => false
  */
-const isInstanceOf = (val: any, ...targets: anyClass[]): boolean =>
+const isInstanceOf = (val: any, ...targets: AnyClass[]): boolean =>
     targets.some(target => val instanceof target);
 
-export { isInstanceOf, anyClass };
+export { isInstanceOf, AnyClass };

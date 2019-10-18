@@ -1,4 +1,4 @@
-import { forEachMapper } from "../for/lib/forEachMapper";
+import { ForEachMapper } from "../for/lib/ForEachMapper";
 
 // TODO: Figure out a way to properly use generics here.
 /**
@@ -13,7 +13,7 @@ import { forEachMapper } from "../for/lib/forEachMapper";
  * arrMapDeep([2, 4, [1, 1, [16], 4]], val => val * 2)
  * // => [4, 8, [2, 2, [32], 8]]
  */
-const arrMapDeep = (arr: any[], fn: forEachMapper<any, any>): any[] =>
+const arrMapDeep = (arr: any[], fn: ForEachMapper<any, any>): any[] =>
     arr.map((val, index) =>
         Array.isArray(val) ? arrMapDeep(val, fn) : fn(val, index, arr)
     );

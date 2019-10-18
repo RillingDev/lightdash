@@ -17,11 +17,7 @@
  * randNumber(2, 10, true)
  * // => 6.23132496
  */
-const randNumber = (
-    min: number = 0,
-    max: number = 1,
-    float: boolean = false
-): number => {
+const randNumber = (min = 0, max = 1, float = false): number => {
     const diff = max - min;
 
     if (diff === 0) {

@@ -1,4 +1,4 @@
-import { anyClass } from "./lib/anyClass";
+import { AnyClass } from "./lib/AnyClass";
 /**
  * Checks if the value is an instance of any of the given classes.
  * If at least one class gives back true, true is returned.
@@ -18,6 +18,6 @@ import { anyClass } from "./lib/anyClass";
  * isInstanceOf({}, Array, Set)
  * // => false
  */
-declare const isInstanceOf: (val: any, ...targets: anyClass[]) => boolean;
-export { isInstanceOf, anyClass };
+declare const isInstanceOf: (val: any, ...targets: AnyClass[]) => boolean;
+export { isInstanceOf, AnyClass };
 //# sourceMappingURL=instanceOf.d.ts.map

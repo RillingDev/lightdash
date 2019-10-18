@@ -1,4 +1,4 @@
-import { IAnyObject } from "./lib/IAnyObject";
+import { AnyObject } from "./lib/AnyObject";
 /**
  * Recursively sets every nil property of object to the value from the default object.
  *
@@ -11,6 +11,6 @@ import { IAnyObject } from "./lib/IAnyObject";
  * objDefaultsDeep({a: [1, 2], c: {f: "x"}}, {a: [1, 2, 3], b: 2, c: {f: "y"}})
  * // => {a: [1, 2, 3], b: 2, c: {f: "x"}}
  */
-declare const objDefaultsDeep: (obj: IAnyObject, objDefault: IAnyObject) => IAnyObject;
+declare const objDefaultsDeep: (obj: AnyObject, objDefault: AnyObject) => AnyObject;
 export { objDefaultsDeep };
 //# sourceMappingURL=defaultsDeep.d.ts.map

@@ -1,4 +1,4 @@
-import { anyVoidFn } from "./lib/anyVoidFn";
+import { AnyVoidFn } from "./lib/AnyVoidFn";
 /**
  * Creates a debounced function.
  *
@@ -15,6 +15,6 @@ import { anyVoidFn } from "./lib/anyVoidFn";
  * const fooDebounced = fnDebounce(foo, 500);
  * // function calls will be debounced to 500ms
  */
-declare const fnDebounce: (fn: anyVoidFn<any>, timeout: number) => anyVoidFn<any>;
+declare const fnDebounce: (fn: AnyVoidFn<any>, timeout: number) => AnyVoidFn<any>;
 export { fnDebounce };
 //# sourceMappingURL=debounce.d.ts.map

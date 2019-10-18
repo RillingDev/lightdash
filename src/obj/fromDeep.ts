@@ -1,6 +1,6 @@
 import { isObjectLike } from "../is/objectLike";
 import { objFrom } from "./from";
-import { IAnyObject } from "./lib/IAnyObject";
+import { AnyObject } from "./lib/AnyObject";
 import { objMapDeep } from "./mapDeep";
 
 /**
@@ -18,7 +18,7 @@ import { objMapDeep } from "./mapDeep";
  * // a = {a: {b: 2, c: {a: 10, b: 20}}
  * // b = {a: {b: 2, c: {a: 123, b: 20}}}
  */
-const objFromDeep = (obj: IAnyObject): IAnyObject =>
+const objFromDeep = (obj: AnyObject): AnyObject =>
     objMapDeep(objFrom(obj), val => (isObjectLike(val) ? objFrom(val) : val));
 
 export { objFromDeep };

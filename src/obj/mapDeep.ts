@@ -1,6 +1,6 @@
-import { forEachEntryMapper } from "../for/lib/forEachEntryMapper";
+import { ForEachEntryMapper } from "../for/lib/ForEachEntryMapper";
 import { isObjectLike } from "../is/objectLike";
-import { IAnyObject } from "./lib/IAnyObject";
+import { AnyObject } from "./lib/AnyObject";
 import { objMap } from "./map";
 
 // TODO: Figure out a way to properly use generics here.
@@ -17,9 +17,9 @@ import { objMap } from "./map";
  * // => {a: {b: 4, c: [20, 40]}}
  */
 const objMapDeep = (
-    obj: IAnyObject,
-    fn: forEachEntryMapper<any, any>
-): IAnyObject =>
+    obj: AnyObject,
+    fn: ForEachEntryMapper<any, any>
+): AnyObject =>
     objMap(obj, (val, key, objNew) =>
         isObjectLike(val) ? objMapDeep(val, fn) : fn(val, key, objNew)
     );

@@ -1,1 +1,1 @@
-{"version":3,"file":"fromObject.js","sourceRoot":"","sources":["../../../../src/map/fromObject.ts"],"names":[],"mappings":"AAEA;;;;;;;;;;GAUG;AACH,MAAM,aAAa,GAAG,CAAC,GAAe,EAAoB,EAAE,CACxD,IAAI,GAAG,CAAC,MAAM,CAAC,OAAO,CAAC,GAAG,CAAC,CAAC,CAAC;AAEjC,OAAO,EAAE,aAAa,EAAE,CAAC"}
+{"version":3,"file":"fromObject.js","sourceRoot":"","sources":["../../../../src/map/fromObject.ts"],"names":[],"mappings":"AAEA;;;;;;;;;;GAUG;AACH,MAAM,aAAa,GAAG,CAAC,GAAc,EAAoB,EAAE,CACvD,IAAI,GAAG,CAAC,MAAM,CAAC,OAAO,CAAC,GAAG,CAAC,CAAC,CAAC;AAEjC,OAAO,EAAE,aAAa,EAAE,CAAC"}

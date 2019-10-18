@@ -1,4 +1,4 @@
-import { IAnyObject } from "../obj/lib/IAnyObject";
+import { AnyObject } from "../obj/lib/AnyObject";
 /**
  * Checks if a value is an object.
  *
@@ -19,6 +19,6 @@ import { IAnyObject } from "../obj/lib/IAnyObject";
  * isObject(1)
  * // => false
  */
-declare const isObject: (val: any) => val is IAnyObject;
+declare const isObject: (val: any) => val is AnyObject;
 export { isObject };
 //# sourceMappingURL=object.d.ts.map

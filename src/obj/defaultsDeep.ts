@@ -2,7 +2,7 @@ import { forEachEntry } from "../for/eachEntry";
 import { isObjectLike } from "../is/objectLike";
 import { isUndefined } from "../is/undefined";
 import { objFrom } from "./from";
-import { IAnyObject } from "./lib/IAnyObject";
+import { AnyObject } from "./lib/AnyObject";
 
 // TODO: Figure out a way to properly use generics here.
 /**
@@ -17,11 +17,8 @@ import { IAnyObject } from "./lib/IAnyObject";
  * objDefaultsDeep({a: [1, 2], c: {f: "x"}}, {a: [1, 2, 3], b: 2, c: {f: "y"}})
  * // => {a: [1, 2, 3], b: 2, c: {f: "x"}}
  */
-const objDefaultsDeep = (
-    obj: IAnyObject,
-    objDefault: IAnyObject
-): IAnyObject => {
-    const defaulted: IAnyObject = Array.isArray(obj)
+const objDefaultsDeep = (obj: AnyObject, objDefault: AnyObject): AnyObject => {
+    const defaulted: AnyObject = Array.isArray(obj)
         ? Array.from(obj)
         : objFrom(obj);
 

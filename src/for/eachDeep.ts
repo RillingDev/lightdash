@@ -1,4 +1,4 @@
-import { forEachIterator } from "./lib/forEachIterator";
+import { ForEachIterator } from "./lib/ForEachIterator";
 
 /**
  * Recursively iterates over each element in an array.
@@ -14,7 +14,7 @@ import { forEachIterator } from "./lib/forEachIterator";
  * })
  * // a = [0, 4, [0, 1, [0], 12]]
  */
-const forEachDeep = (arr: any[], fn: forEachIterator<any>): void =>
+const forEachDeep = (arr: any[], fn: ForEachIterator<any>): void =>
     arr.forEach((val, index) =>
         Array.isArray(val) ? forEachDeep(val, fn) : fn(val, index, arr)
     );

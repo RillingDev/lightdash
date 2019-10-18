@@ -1,5 +1,5 @@
-import { forEachEntryMapper } from "../for/lib/forEachEntryMapper";
-import { IAnyObject } from "./lib/IAnyObject";
+import { ForEachEntryMapper } from "../for/lib/ForEachEntryMapper";
+import { AnyObject } from "./lib/AnyObject";
 /**
  * Replaces every circular reference in an object with a value, defaulting to null.
  *
@@ -22,6 +22,6 @@ import { IAnyObject } from "./lib/IAnyObject";
  * objDecycle(a, key => `_${key}`)
  * // => {a: "_a", b: 1, c: 2}
  */
-declare const objDecycle: (obj: IAnyObject, fn?: forEachEntryMapper<any, any>, references?: WeakSet<any>) => IAnyObject;
+declare const objDecycle: (obj: AnyObject, fn?: ForEachEntryMapper<any, any>, references?: WeakSet<any>) => AnyObject;
 export { objDecycle };
 //# sourceMappingURL=decycle.d.ts.map

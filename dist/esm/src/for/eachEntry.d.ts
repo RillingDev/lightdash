@@ -1,5 +1,5 @@
-import { IAnyObject } from "../obj/lib/IAnyObject";
-import { forEachEntryIterator } from "./lib/forEachEntryIterator";
+import { AnyObject } from "../obj/lib/AnyObject";
+import { ForEachEntryIterator } from "./lib/ForEachEntryIterator";
 /**
  * Iterates over each entry of an object.
  *
@@ -14,6 +14,6 @@ import { forEachEntryIterator } from "./lib/forEachEntryIterator";
  * })
  * // a = {a: 0, b: 2}
  */
-declare const forEachEntry: (obj: IAnyObject, fn: forEachEntryIterator<any>) => void;
+declare const forEachEntry: (obj: AnyObject, fn: ForEachEntryIterator<any>) => void;
 export { forEachEntry };
 //# sourceMappingURL=eachEntry.d.ts.map

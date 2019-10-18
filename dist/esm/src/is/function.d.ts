@@ -1,4 +1,4 @@
-import { anyFn } from "../fn/lib/anyFn";
+import { AnyFn } from "../fn/lib/AnyFn";
 /**
  * Checks if a value is a function.
  *
@@ -16,6 +16,6 @@ import { anyFn } from "../fn/lib/anyFn";
  * isFunction(null)
  * // => false
  */
-declare const isFunction: (val: any) => val is anyFn<any>;
+declare const isFunction: (val: any) => val is AnyFn<any>;
 export { isFunction };
 //# sourceMappingURL=function.d.ts.map

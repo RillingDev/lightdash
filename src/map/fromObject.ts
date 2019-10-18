@@ -1,4 +1,4 @@
-import { IAnyObject } from "../obj/lib/IAnyObject";
+import { AnyObject } from "../obj/lib/AnyObject";
 
 /**
  * Creates a map from an object.
@@ -11,7 +11,7 @@ import { IAnyObject } from "../obj/lib/IAnyObject";
  * mapFromObject({a: 1, b: 4, c: 5})
  * // => Map<string,number>{a: 1, b: 4, c: 5}
  */
-const mapFromObject = (obj: IAnyObject): Map<string, any> =>
+const mapFromObject = (obj: AnyObject): Map<string, any> =>
     new Map(Object.entries(obj));
 
 export { mapFromObject };

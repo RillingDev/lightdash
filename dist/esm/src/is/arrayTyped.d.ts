@@ -15,6 +15,6 @@
  * isArrayTyped([]);
  * // => false
  */
-declare const isArrayTyped: (val: any) => val is Int8Array | Uint8Array | Int16Array | Uint16Array | Int32Array | Uint32Array | Float32Array | Float64Array;
+declare const isArrayTyped: (val: any) => val is Int8Array | Int16Array | Int32Array | Uint8Array | Uint16Array | Uint32Array | Float32Array | Float64Array;
 export { isArrayTyped };
 //# sourceMappingURL=arrayTyped.d.ts.map

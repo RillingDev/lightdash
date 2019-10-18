@@ -1,4 +1,4 @@
-import { anyVoidFn } from "./lib/anyVoidFn";
+import { AnyVoidFn } from "./lib/AnyVoidFn";
 /**
  * Creates a throttled function.
  *
@@ -15,6 +15,6 @@ import { anyVoidFn } from "./lib/anyVoidFn";
  * const fooThrottled = fnThrottle(foo, 500);
  * // function calls will be throttled to 500ms
  */
-declare const fnThrottle: (fn: anyVoidFn<any>, timeout: number) => anyVoidFn<any>;
+declare const fnThrottle: (fn: AnyVoidFn<any>, timeout: number) => AnyVoidFn<any>;
 export { fnThrottle };
 //# sourceMappingURL=throttle.d.ts.map

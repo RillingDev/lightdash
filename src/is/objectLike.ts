@@ -1,5 +1,4 @@
 import { isNil } from "./nil";
-import { isObject } from "./object";
 import { isTypeOf } from "./typeOf";
 
 /**

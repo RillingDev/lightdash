@@ -1,4 +1,4 @@
-import { anyFn } from "../fn/lib/anyFn";
+import { AnyFn } from "../fn/lib/AnyFn";
 import { isTypeOf } from "./typeOf";
 
 /**
@@ -18,6 +18,6 @@ import { isTypeOf } from "./typeOf";
  * isFunction(null)
  * // => false
  */
-const isFunction = (val: any): val is anyFn<any> => isTypeOf(val, "function");
+const isFunction = (val: any): val is AnyFn<any> => isTypeOf(val, "function");
 
 export { isFunction };

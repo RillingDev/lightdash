@@ -1,4 +1,4 @@
-import { anyVoidFn } from "./lib/anyVoidFn";
+import { AnyVoidFn } from "./lib/AnyVoidFn";
 
 /**
  * Creates a throttled function.
@@ -16,17 +16,16 @@ import { anyVoidFn } from "./lib/anyVoidFn";
  * const fooThrottled = fnThrottle(foo, 500);
  * // function calls will be throttled to 500ms
  */
-const fnThrottle = (fn: anyVoidFn<any>, timeout: number): anyVoidFn<any> => {
+const fnThrottle = (fn: AnyVoidFn<any>, timeout: number): AnyVoidFn<any> => {
     let timer: any = null; // Seems to require any, as the return type of the browser and node are different here.
     let last: number | null = null;
 
-    // tslint:disable-next-line:only-arrow-functions
-    return function() {
+    return function(...args) {
         const now = Date.now();
 
-        const run = () => {
+        const run = (): void => {
             last = now;
-            fn.apply(this, Array.of(arguments));
+            fn.apply(this, args);
         };
 
         if (last != null && now < last + timeout) {

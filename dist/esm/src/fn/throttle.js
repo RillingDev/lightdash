@@ -17,12 +17,11 @@
 const fnThrottle = (fn, timeout) => {
     let timer = null; // Seems to require any, as the return type of the browser and node are different here.
     let last = null;
-    // tslint:disable-next-line:only-arrow-functions
-    return function () {
+    return function (...args) {
         const now = Date.now();
         const run = () => {
             last = now;
-            fn.apply(this, Array.of(arguments));
+            fn.apply(this, args);
         };
         if (last != null && now < last + timeout) {
             clearTimeout(timer);

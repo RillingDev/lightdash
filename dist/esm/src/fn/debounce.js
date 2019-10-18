@@ -16,12 +16,11 @@
  */
 const fnDebounce = (fn, timeout) => {
     let timer = null; // Seems to require any, as the return type of the browser and node are different here.
-    // tslint:disable-next-line:only-arrow-functions
-    return function () {
+    return function (...args) {
         clearTimeout(timer);
         timer = setTimeout(() => {
             timer = null;
-            fn.apply(this, Array.of(arguments));
+            fn.apply(this, args);
         }, timeout);
     };
 };

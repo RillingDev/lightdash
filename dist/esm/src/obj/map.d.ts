@@ -1,5 +1,5 @@
-import { forEachEntryMapper } from "../for/lib/forEachEntryMapper";
-import { IAnyObject } from "./lib/IAnyObject";
+import { ForEachEntryMapper } from "../for/lib/ForEachEntryMapper";
+import { AnyObject } from "./lib/AnyObject";
 /**
  * Maps each entry of an object and returns the result.
  *
@@ -12,6 +12,6 @@ import { IAnyObject } from "./lib/IAnyObject";
  * objMap({a: 4, b: 2}, (key, val) => val * 2)
  * // => {a: 8, b: 4}
  */
-declare const objMap: (obj: IAnyObject, fn: forEachEntryMapper<any, any>) => IAnyObject;
+declare const objMap: (obj: AnyObject, fn: ForEachEntryMapper<any, any>) => AnyObject;
 export { objMap };
 //# sourceMappingURL=map.d.ts.map

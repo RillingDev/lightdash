@@ -1,4 +1,4 @@
-import { IAnyObject } from "../obj/lib/IAnyObject";
+import { AnyObject } from "../obj/lib/AnyObject";
 import { isFunction } from "./function";
 import { isObjectLike } from "./objectLike";
 
@@ -22,7 +22,7 @@ import { isObjectLike } from "./objectLike";
  * isObject(1)
  * // => false
  */
-const isObject = (val: any): val is IAnyObject =>
+const isObject = (val: any): val is AnyObject =>
     isObjectLike(val) || isFunction(val);
 
 export { isObject };

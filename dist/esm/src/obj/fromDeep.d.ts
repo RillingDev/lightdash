@@ -1,4 +1,4 @@
-import { IAnyObject } from "./lib/IAnyObject";
+import { AnyObject } from "./lib/AnyObject";
 /**
  * Recursively creates a new object with the entries of the input object.
  *
@@ -14,6 +14,6 @@ import { IAnyObject } from "./lib/IAnyObject";
  * // a = {a: {b: 2, c: {a: 10, b: 20}}
  * // b = {a: {b: 2, c: {a: 123, b: 20}}}
  */
-declare const objFromDeep: (obj: IAnyObject) => IAnyObject;
+declare const objFromDeep: (obj: AnyObject) => AnyObject;
 export { objFromDeep };
 //# sourceMappingURL=fromDeep.d.ts.map

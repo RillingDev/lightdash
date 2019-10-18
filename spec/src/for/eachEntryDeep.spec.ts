@@ -1,9 +1,9 @@
 import { forEachEntryDeep } from "../../../src/for/eachEntryDeep";
-import { IAnyObject } from "../../../src/obj/lib/IAnyObject";
+import { AnyObject } from "../../../src/obj/lib/AnyObject";
 
 describe("forEachEntryDeep", () => {
     it("iterates", () => {
-        const a: IAnyObject = { a: 1, b: { c: [1, 2] } };
+        const a: AnyObject = { a: 1, b: { c: [1, 2] } };
 
         forEachEntryDeep(a, (val, key, obj) => {
             obj[key] = val * 2;

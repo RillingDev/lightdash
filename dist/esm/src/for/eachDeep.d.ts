@@ -1,4 +1,4 @@
-import { forEachIterator } from "./lib/forEachIterator";
+import { ForEachIterator } from "./lib/ForEachIterator";
 /**
  * Recursively iterates over each element in an array.
  *
@@ -13,6 +13,6 @@ import { forEachIterator } from "./lib/forEachIterator";
  * })
  * // a = [0, 4, [0, 1, [0], 12]]
  */
-declare const forEachDeep: (arr: any[], fn: forEachIterator<any>) => void;
+declare const forEachDeep: (arr: any[], fn: ForEachIterator<any>) => void;
 export { forEachDeep };
 //# sourceMappingURL=eachDeep.d.ts.map

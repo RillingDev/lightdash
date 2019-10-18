@@ -1,7 +1,7 @@
 import { forEachEntry } from "../for/eachEntry";
 import { isUndefined } from "../is/undefined";
 import { objFrom } from "./from";
-import { IAnyObject } from "./lib/IAnyObject";
+import { AnyObject } from "./lib/AnyObject";
 
 // TODO: Figure out a way to properly use generics here.
 /**
@@ -16,8 +16,8 @@ import { IAnyObject } from "./lib/IAnyObject";
  * objDefaults({a: 1, c: 5}, {a: 1, b: 2, c: 3})
  * // => {a: 1, b: 2, c: 5}
  */
-const objDefaults = (obj: IAnyObject, objDefault: IAnyObject): IAnyObject => {
-    const defaulted: IAnyObject = Array.isArray(obj)
+const objDefaults = (obj: AnyObject, objDefault: AnyObject): AnyObject => {
+    const defaulted: AnyObject = Array.isArray(obj)
         ? Array.from(obj)
         : objFrom(obj);
 

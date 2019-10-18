@@ -1,4 +1,4 @@
-import { IAnyObject } from "./lib/IAnyObject";
+import { AnyObject } from "./lib/AnyObject";
 /**
  * Sets every nil property of an object to the value from the default object.
  *
@@ -11,6 +11,6 @@ import { IAnyObject } from "./lib/IAnyObject";
  * objDefaults({a: 1, c: 5}, {a: 1, b: 2, c: 3})
  * // => {a: 1, b: 2, c: 5}
  */
-declare const objDefaults: (obj: IAnyObject, objDefault: IAnyObject) => IAnyObject;
+declare const objDefaults: (obj: AnyObject, objDefault: AnyObject) => AnyObject;
 export { objDefaults };
 //# sourceMappingURL=defaults.d.ts.map

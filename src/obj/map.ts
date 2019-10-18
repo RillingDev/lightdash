@@ -1,6 +1,6 @@
 import { forEachEntry } from "../for/eachEntry";
-import { forEachEntryMapper } from "../for/lib/forEachEntryMapper";
-import { IAnyObject } from "./lib/IAnyObject";
+import { ForEachEntryMapper } from "../for/lib/ForEachEntryMapper";
+import { AnyObject } from "./lib/AnyObject";
 
 // TODO: Figure out a way to properly use generics here.
 /**
@@ -16,10 +16,10 @@ import { IAnyObject } from "./lib/IAnyObject";
  * // => {a: 8, b: 4}
  */
 const objMap = (
-    obj: IAnyObject,
-    fn: forEachEntryMapper<any, any>
-): IAnyObject => {
-    const mapped: IAnyObject = Array.isArray(obj) ? [] : {};
+    obj: AnyObject,
+    fn: ForEachEntryMapper<any, any>
+): AnyObject => {
+    const mapped: AnyObject = Array.isArray(obj) ? [] : {};
 
     forEachEntry(obj, (val, key) => {
         mapped[key] = fn(val, key, obj);

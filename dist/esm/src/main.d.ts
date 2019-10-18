@@ -82,7 +82,7 @@ import { randShuffle } from "./rand/shuffle";
  */
 declare const l_Is: {
     isEqual: (a: any, b: any) => boolean;
-    isInstanceOf: (val: any, ...targets: import("./is/lib/anyClass").anyClass[]) => boolean;
+    isInstanceOf: (val: any, ...targets: import("./is/lib/AnyClass").AnyClass[]) => boolean;
     isTypeOf: (val: any, ...types: string[]) => boolean;
     isUndefined: (val: any) => val is undefined;
     isNil: (val: any) => val is null | undefined;
@@ -90,12 +90,12 @@ declare const l_Is: {
     isString: (val: any) => val is string;
     isBoolean: (val: any) => val is boolean;
     isSymbol: (val: any) => val is symbol;
-    isObject: (val: any) => val is import("./obj/lib/IAnyObject").IAnyObject;
+    isObject: (val: any) => val is import("./obj/lib/AnyObject").AnyObject;
     isObjectLike: (val: any) => boolean;
     isObjectPlain: (val: any) => val is object;
     isArrayLike: (val: any) => val is ArrayLike<any>;
     isArrayBuffer: (val: any) => val is ArrayBuffer;
-    isArrayTyped: (val: any) => val is Int8Array | Uint8Array | Int16Array | Uint16Array | Int32Array | Uint32Array | Float32Array | Float64Array;
+    isArrayTyped: (val: any) => val is Int8Array | Int16Array | Int32Array | Uint8Array | Uint16Array | Uint32Array | Float32Array | Float64Array;
     isPromise: (val: any) => val is Promise<any>;
     isMap: (val: any) => val is Map<any, any>;
     isSet: (val: any) => val is Set<any>;
@@ -103,7 +103,7 @@ declare const l_Is: {
     isWeakSet: (val: any) => val is WeakSet<any>;
     isDate: (val: any) => val is Date;
     isRegExp: (val: any) => val is RegExp;
-    isFunction: (val: any) => val is import("./fn/lib/anyFn").anyFn<any>;
+    isFunction: (val: any) => val is import("./fn/lib/AnyFn").AnyFn<any>;
     isError: (val: any) => val is Error;
     isEmpty: (val: any) => boolean;
     isIndex: (val: any) => boolean;
@@ -150,7 +150,7 @@ declare const l_String: {
  */
 declare const l_Array: {
     arrFromDeep: <T>(arr: T[]) => T[];
-    arrMapDeep: (arr: any[], fn: import("./for/lib/forEachMapper").forEachMapper<any, any>) => any[];
+    arrMapDeep: (arr: any[], fn: import("./for/lib/ForEachMapper").ForEachMapper<any, any>) => any[];
     arrCompact: <T_1>(arr: T_1[]) => T_1[];
     arrMerge: <T_2>(...values: T_2[][]) => T_2[];
     arrChunk: <T_3>(arr: T_3[], chunk: number) => T_3[][];
@@ -158,7 +158,7 @@ declare const l_Array: {
     arrRemoveIndex: <T_5>(arr: T_5[], targetIndex: number) => T_5[];
     arrRemoveItem: <T_6>(arr: T_6[], targetItem: T_6, removeAll?: boolean) => T_6[];
     arrCount: <T_7>(arr: T_7[]) => Map<T_7, number>;
-    arrCollect: <T_8, U>(arr: T_8[], fn: import("./for/lib/forEachMapper").forEachMapper<T_8, U>) => Map<U, T_8[]>;
+    arrCollect: <T_8, U>(arr: T_8[], fn: import("./for/lib/ForEachMapper").ForEachMapper<T_8, U>) => Map<U, T_8[]>;
     arrDifference: <T_9>(arr: T_9[], ...values: T_9[][]) => T_9[];
     arrIntersection: <T_10>(arr: T_10[], ...values: T_10[][]) => T_10[];
     arrUniq: <T_11>(arr: T_11[]) => T_11[];
@@ -170,12 +170,12 @@ declare const l_Array: {
  */
 declare const l_Object: {
     objFrom: <T>(obj: T) => T;
-    objFromDeep: (obj: import("./obj/lib/IAnyObject").IAnyObject) => import("./obj/lib/IAnyObject").IAnyObject;
-    objMap: (obj: import("./obj/lib/IAnyObject").IAnyObject, fn: import("./for/lib/forEachEntryMapper").forEachEntryMapper<any, any>) => import("./obj/lib/IAnyObject").IAnyObject;
-    objMapDeep: (obj: import("./obj/lib/IAnyObject").IAnyObject, fn: import("./for/lib/forEachEntryMapper").forEachEntryMapper<any, any>) => import("./obj/lib/IAnyObject").IAnyObject;
-    objDefaults: (obj: import("./obj/lib/IAnyObject").IAnyObject, objDefault: import("./obj/lib/IAnyObject").IAnyObject) => import("./obj/lib/IAnyObject").IAnyObject;
-    objDefaultsDeep: (obj: import("./obj/lib/IAnyObject").IAnyObject, objDefault: import("./obj/lib/IAnyObject").IAnyObject) => import("./obj/lib/IAnyObject").IAnyObject;
-    objDecycle: (obj: import("./obj/lib/IAnyObject").IAnyObject, fn?: import("./for/lib/forEachEntryMapper").forEachEntryMapper<any, any>, references?: WeakSet<any>) => import("./obj/lib/IAnyObject").IAnyObject;
+    objFromDeep: (obj: import("./obj/lib/AnyObject").AnyObject) => import("./obj/lib/AnyObject").AnyObject;
+    objMap: (obj: import("./obj/lib/AnyObject").AnyObject, fn: import("./for/lib/ForEachEntryMapper").ForEachEntryMapper<any, any>) => import("./obj/lib/AnyObject").AnyObject;
+    objMapDeep: (obj: import("./obj/lib/AnyObject").AnyObject, fn: import("./for/lib/ForEachEntryMapper").ForEachEntryMapper<any, any>) => import("./obj/lib/AnyObject").AnyObject;
+    objDefaults: (obj: import("./obj/lib/AnyObject").AnyObject, objDefault: import("./obj/lib/AnyObject").AnyObject) => import("./obj/lib/AnyObject").AnyObject;
+    objDefaultsDeep: (obj: import("./obj/lib/AnyObject").AnyObject, objDefault: import("./obj/lib/AnyObject").AnyObject) => import("./obj/lib/AnyObject").AnyObject;
+    objDecycle: (obj: import("./obj/lib/AnyObject").AnyObject, fn?: import("./for/lib/ForEachEntryMapper").ForEachEntryMapper<any, any>, references?: WeakSet<any>) => import("./obj/lib/AnyObject").AnyObject;
 };
 /**
  * Map manipulation.
@@ -183,7 +183,7 @@ declare const l_Object: {
  * @namespace Map
  */
 declare const l_Map: {
-    mapFromObject: (obj: import("./obj/lib/IAnyObject").IAnyObject) => Map<string, any>;
+    mapFromObject: (obj: import("./obj/lib/AnyObject").AnyObject) => Map<string, any>;
 };
 /**
  * Looping through ranges, arrays and objects.
@@ -191,9 +191,9 @@ declare const l_Map: {
  * @namespace For
  */
 declare const l_For: {
-    forEachDeep: (arr: any[], fn: import("./for/lib/forEachIterator").forEachIterator<any>) => void;
-    forEachEntry: (obj: import("./obj/lib/IAnyObject").IAnyObject, fn: import("./for/lib/forEachEntryIterator").forEachEntryIterator<any>) => void;
-    forEachEntryDeep: (obj: import("./obj/lib/IAnyObject").IAnyObject, fn: import("./for/lib/forEachEntryIterator").forEachEntryIterator<any>) => void;
+    forEachDeep: (arr: any[], fn: import("./for/lib/ForEachIterator").ForEachIterator<any>) => void;
+    forEachEntry: (obj: import("./obj/lib/AnyObject").AnyObject, fn: import("./for/lib/ForEachEntryIterator").ForEachEntryIterator<any>) => void;
+    forEachEntryDeep: (obj: import("./obj/lib/AnyObject").AnyObject, fn: import("./for/lib/ForEachEntryIterator").ForEachEntryIterator<any>) => void;
 };
 /**
  * Function manipulation.
@@ -201,8 +201,8 @@ declare const l_For: {
  * @namespace Fn
  */
 declare const l_Fn: {
-    fnDebounce: (fn: import("./fn/lib/anyVoidFn").anyVoidFn<any>, timeout: number) => import("./fn/lib/anyVoidFn").anyVoidFn<any>;
-    fnThrottle: (fn: import("./fn/lib/anyVoidFn").anyVoidFn<any>, timeout: number) => import("./fn/lib/anyVoidFn").anyVoidFn<any>;
+    fnDebounce: (fn: import("./fn/lib/AnyVoidFn").AnyVoidFn<any>, timeout: number) => import("./fn/lib/AnyVoidFn").AnyVoidFn<any>;
+    fnThrottle: (fn: import("./fn/lib/AnyVoidFn").AnyVoidFn<any>, timeout: number) => import("./fn/lib/AnyVoidFn").AnyVoidFn<any>;
 };
 /**
  * Array and object search.

@@ -1,1 +1,1 @@
-{"version":3,"file":"fromDeep.d.ts","sourceRoot":"","sources":["../../../../src/obj/fromDeep.ts"],"names":[],"mappings":"AAEA,OAAO,EAAE,UAAU,EAAE,MAAM,kBAAkB,CAAC;AAG9C;;;;;;;;;;;;;;GAcG;AACH,QAAA,MAAM,WAAW,iCAC4D,CAAC;AAE9E,OAAO,EAAE,WAAW,EAAE,CAAC"}
+{"version":3,"file":"fromDeep.d.ts","sourceRoot":"","sources":["../../../../src/obj/fromDeep.ts"],"names":[],"mappings":"AAEA,OAAO,EAAE,SAAS,EAAE,MAAM,iBAAiB,CAAC;AAG5C;;;;;;;;;;;;;;GAcG;AACH,QAAA,MAAM,WAAW,+BAC4D,CAAC;AAE9E,OAAO,EAAE,WAAW,EAAE,CAAC"}
