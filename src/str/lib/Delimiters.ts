@@ -1,4 +1,4 @@
-const enum Delimiters {
+enum Delimiters {
     KEBAB = "-",
     SNAKE = "_"
 }

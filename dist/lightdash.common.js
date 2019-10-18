@@ -818,6 +818,12 @@ const strDistance = (str1, str2) => {
  */
 const arrCompact = (arr) => arr.filter(val => val);
 
+var Delimiters;
+(function (Delimiters) {
+    Delimiters["KEBAB"] = "-";
+    Delimiters["SNAKE"] = "_";
+})(Delimiters || (Delimiters = {}));
+
 /**
  * Creates an array of words from a kebab-case string.
  *
@@ -832,7 +838,7 @@ const arrCompact = (arr) => arr.filter(val => val);
  * strFromKebabCase("Fizz-buzz-BaZZ")
  * // => ["Fizz","buzz","BaZZ"]
  */
-const strFromKebabCase = (str) => arrCompact(str.split("-" /* KEBAB */));
+const strFromKebabCase = (str) => arrCompact(str.split(Delimiters.KEBAB));
 
 /**
  * Creates an array of words from a PascalCase or camelCase string.
@@ -878,7 +884,7 @@ const strFromPascalCase = (str) => {
  * strFromSnakeCase("Fizz_buzz_BaZZ")
  * // => ["Fizz","buzz","BaZZ"]
  */
-const strFromSnakeCase = (str) => arrCompact(str.split("_" /* SNAKE */));
+const strFromSnakeCase = (str) => arrCompact(str.split(Delimiters.SNAKE));
 
 /**
  * Collects the values of an array in a map as arrays.
@@ -970,7 +976,7 @@ const strToCamelCase = (arr) => arr
  * strToKebabCase(["Fizz","buzz","BaZZ"])
  * // => "fizz-buzz-bazz"
  */
-const strToKebabCase = (arr) => arr.map(val => val.toLowerCase()).join("-" /* KEBAB */);
+const strToKebabCase = (arr) => arr.map(val => val.toLowerCase()).join(Delimiters.KEBAB);
 
 /**
  * Creates a PascalCase string from an array of words.
@@ -1004,7 +1010,7 @@ const strToPascalCase = (arr) => arr
  * strToSnakeCase(["Fizz","buzz","BaZZ"])
  * // => "fizz_buzz_bazz"
  */
-const strToSnakeCase = (arr) => arr.map(val => val.toLowerCase()).join("_" /* SNAKE */);
+const strToSnakeCase = (arr) => arr.map(val => val.toLowerCase()).join(Delimiters.SNAKE);
 
 /**
  * Creates an array of elements split into sub arrays by size.
@@ -1821,3 +1827,4 @@ exports.strToCamelCase = strToCamelCase;
 exports.strToKebabCase = strToKebabCase;
 exports.strToPascalCase = strToPascalCase;
 exports.strToSnakeCase = strToSnakeCase;
+//# sourceMappingURL=lightdash.common.js.map

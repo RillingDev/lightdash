@@ -1,4 +1,4 @@
-var _l = (function (exports) {
+var l_ = (function (exports) {
     'use strict';
 
     // File is named "_index.ts" to avoid it being treated as a module index file.
@@ -817,6 +817,12 @@ var _l = (function (exports) {
      */
     const arrCompact = (arr) => arr.filter(val => val);
 
+    var Delimiters;
+    (function (Delimiters) {
+        Delimiters["KEBAB"] = "-";
+        Delimiters["SNAKE"] = "_";
+    })(Delimiters || (Delimiters = {}));
+
     /**
      * Creates an array of words from a kebab-case string.
      *
@@ -831,7 +837,7 @@ var _l = (function (exports) {
      * strFromKebabCase("Fizz-buzz-BaZZ")
      * // => ["Fizz","buzz","BaZZ"]
      */
-    const strFromKebabCase = (str) => arrCompact(str.split("-" /* KEBAB */));
+    const strFromKebabCase = (str) => arrCompact(str.split(Delimiters.KEBAB));
 
     /**
      * Creates an array of words from a PascalCase or camelCase string.
@@ -877,7 +883,7 @@ var _l = (function (exports) {
      * strFromSnakeCase("Fizz_buzz_BaZZ")
      * // => ["Fizz","buzz","BaZZ"]
      */
-    const strFromSnakeCase = (str) => arrCompact(str.split("_" /* SNAKE */));
+    const strFromSnakeCase = (str) => arrCompact(str.split(Delimiters.SNAKE));
 
     /**
      * Collects the values of an array in a map as arrays.
@@ -969,7 +975,7 @@ var _l = (function (exports) {
      * strToKebabCase(["Fizz","buzz","BaZZ"])
      * // => "fizz-buzz-bazz"
      */
-    const strToKebabCase = (arr) => arr.map(val => val.toLowerCase()).join("-" /* KEBAB */);
+    const strToKebabCase = (arr) => arr.map(val => val.toLowerCase()).join(Delimiters.KEBAB);
 
     /**
      * Creates a PascalCase string from an array of words.
@@ -1003,7 +1009,7 @@ var _l = (function (exports) {
      * strToSnakeCase(["Fizz","buzz","BaZZ"])
      * // => "fizz_buzz_bazz"
      */
-    const strToSnakeCase = (arr) => arr.map(val => val.toLowerCase()).join("_" /* SNAKE */);
+    const strToSnakeCase = (arr) => arr.map(val => val.toLowerCase()).join(Delimiters.SNAKE);
 
     /**
      * Creates an array of elements split into sub arrays by size.

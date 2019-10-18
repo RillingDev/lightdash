@@ -4,7 +4,7 @@
         "dictionaries": ["jsdoc"]
     },
     "source": {
-        "include": ["./README.md", "./dist/lightdash.esm.js"],
+        "include": ["./README.md", "./dist/lightdash.js"],
         "excludePattern": "(node_modules/|docs/)"
     },
     "plugins": ["plugins/markdown"],
