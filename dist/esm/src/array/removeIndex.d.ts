@@ -1,3 +1,4 @@
+import { List } from "lodash";
 /**
  * Returns a new array with the item at the given index removed.
  *
@@ -10,6 +11,6 @@
  * removeIndex(["foo", "bar", "fizz"], 1)
  * // => ["foo", "fizz"]
  */
-declare const removeIndex: <T>(collection: ArrayLike<T>, targetIndex: number) => T[];
+declare const removeIndex: <T>(collection: List<T>, targetIndex: number) => T[];
 export { removeIndex };
 //# sourceMappingURL=removeIndex.d.ts.map

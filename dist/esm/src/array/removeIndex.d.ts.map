@@ -1,1 +1,1 @@
-{"version":3,"file":"removeIndex.d.ts","sourceRoot":"","sources":["../../../../src/array/removeIndex.ts"],"names":[],"mappings":"AAEA;;;;;;;;;;;GAWG;AACH,QAAA,MAAM,WAAW,2DAC8C,CAAC;AAEhE,OAAO,EAAE,WAAW,EAAE,CAAC"}
+{"version":3,"file":"removeIndex.d.ts","sourceRoot":"","sources":["../../../../src/array/removeIndex.ts"],"names":[],"mappings":"AAAA,OAAO,EAAU,IAAI,EAAE,MAAM,QAAQ,CAAC;AAEtC;;;;;;;;;;;GAWG;AACH,QAAA,MAAM,WAAW,sDAC8C,CAAC;AAEhE,OAAO,EAAE,WAAW,EAAE,CAAC"}

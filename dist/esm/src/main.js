@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/camelcase */
 import { isBlank } from "./is/isBlank";
 import { isPromise } from "./is/isPromise";
 import { toMap } from "./lang/toMap";

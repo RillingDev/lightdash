@@ -8,8 +8,8 @@ describe("removeItem", () => {
         ]);
     });
     it("removes the first item", () => {
-        expect(removeItem(["foo", "bar", "fizz", "bar"], "bar", false)).toEqual(
-            ["foo", "fizz", "bar"]
-        );
+        expect(
+            removeItem(["foo", "bar", "fizz", "bar"], "bar", false)
+        ).toEqual(["foo", "fizz", "bar"]);
     });
 });

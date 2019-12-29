@@ -1,3 +1,4 @@
+import { List } from "lodash";
 /**
  * Returns a new collection with instances of the given item removed.
  *
@@ -14,6 +15,6 @@
  * removeItem(["foo", "bar", "fizz", "bar"], "bar", false)
  * // => ["foo", "fizz", "bar"]
  */
-declare const removeItem: <T>(collection: ArrayLike<T>, targetValue: T, removeAll?: boolean) => ArrayLike<T>;
+declare const removeItem: <T>(collection: List<T>, targetValue: T, removeAll?: boolean) => List<T>;
 export { removeItem };
 //# sourceMappingURL=removeItem.d.ts.map

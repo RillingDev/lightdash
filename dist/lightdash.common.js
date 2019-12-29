@@ -224,7 +224,6 @@ const similar = (str, collection, returnFull = false) => {
 const matchAll = (str, pattern) => {
     const matches = [];
     let match;
-    // eslint-disable-next-line no-extra-parens
     while ((match = pattern.exec(str))) {
         matches.push(match);
     }
@@ -349,9 +348,7 @@ const name = (value) => {
     if (lodash.isString(value)) {
         return value;
     }
-    // eslint-disable-next-line no-extra-parens
     if (lodash.isObject(value) && lodash.isString(value.name)) {
-        // eslint-disable-next-line no-extra-parens
         return value.name;
     }
     if (lodash.isSymbol(value) && lodash.isString(value.description)) {
@@ -395,6 +392,7 @@ const binarySearch = (arr, search) => {
     return null;
 };
 
+/* eslint-disable @typescript-eslint/camelcase */
 /**
  * @namespace Is
  */

@@ -41,7 +41,7 @@ type CollectionIterator<T, U> = (
  */
 const decycle = <T>(
     collection: Collection<T>,
-    replacer: CollectionIterator<T | Collection<T>, any> = () => null,
+    replacer: CollectionIterator<T | Collection<T>, any> = (): null => null,
     references: WeakSet<any> = new WeakSet()
 ): Collection<any> => {
     const decycler: CollectionIterator<T | Collection<T>, any> = (

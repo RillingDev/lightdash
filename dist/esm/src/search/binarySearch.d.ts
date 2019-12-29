@@ -1,3 +1,4 @@
+import { List } from "lodash";
 /**
  * Binary-search implementation.
  *
@@ -13,6 +14,6 @@
  * binarySearch([0, 1, 2], 100)
  * // => null
  */
-declare const binarySearch: (arr: ArrayLike<number>, search: number) => number | null;
+declare const binarySearch: (arr: List<number>, search: number) => number | null;
 export { binarySearch };
 //# sourceMappingURL=binarySearch.d.ts.map

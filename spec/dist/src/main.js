@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+/* eslint-disable @typescript-eslint/camelcase */
 const isBlank_1 = require("./is/isBlank");
 exports.isBlank = isBlank_1.isBlank;
 const isPromise_1 = require("./is/isPromise");

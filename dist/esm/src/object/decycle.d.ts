@@ -1,4 +1,6 @@
-import { Dictionary, ObjectIterator } from "lodash";
+import { Dictionary, List, NumericDictionary } from "lodash";
+declare type Collection<T> = Dictionary<T> | NumericDictionary<T> | List<T>;
+declare type CollectionIterator<T, U> = (val: T, key: PropertyKey, _collection: Collection<T>) => U;
 /**
  * Replaces every circular reference in an object with a value, defaulting to null.
  *
@@ -21,6 +23,6 @@ import { Dictionary, ObjectIterator } from "lodash";
  * decycle(a, key => `_${key}`)
  * // => {a: "_a", b: 1, c: 2}
  */
-declare const decycle: <T>(collection: Dictionary<T>, replacer?: ObjectIterator<T, any>, references?: WeakSet<any>) => Dictionary<any>;
+declare const decycle: <T>(collection: Collection<T>, replacer?: CollectionIterator<T | Dictionary<T> | NumericDictionary<T> | List<T>, any>, references?: WeakSet<any>) => Collection<any>;
 export { decycle };
 //# sourceMappingURL=decycle.d.ts.map

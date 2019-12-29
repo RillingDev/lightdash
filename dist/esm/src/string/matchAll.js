@@ -16,7 +16,6 @@
 const matchAll = (str, pattern) => {
     const matches = [];
     let match;
-    // eslint-disable-next-line no-extra-parens
     while ((match = pattern.exec(str))) {
         matches.push(match);
     }

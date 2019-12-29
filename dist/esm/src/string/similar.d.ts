@@ -1,3 +1,4 @@
+import { List } from "lodash";
 /**
  * Returns strings similar to the input based its levenshtein distance to the values in the list given.
  *
@@ -20,6 +21,6 @@
  * similar("cmmit", ["init", "commit", "push"], true)
  * // => Map<number, string[]>{1: ["commit"], 3: ["init"], 5: ["push"]}
  */
-declare const similar: (str: string, collection: ArrayLike<string>, returnFull?: boolean) => ArrayLike<string> | Map<number, ArrayLike<string>>;
+declare const similar: (str: string, collection: List<string>, returnFull?: boolean) => List<string> | Map<number, List<string>>;
 export { similar };
 //# sourceMappingURL=similar.d.ts.map

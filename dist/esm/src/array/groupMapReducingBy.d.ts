@@ -1,4 +1,4 @@
-import { ListIterator } from "lodash";
+import { List, ListIterator } from "lodash";
 /**
  * Collects elements in an array into a an array of merged elements.
  *
@@ -27,6 +27,6 @@ import { ListIterator } from "lodash";
  * )
  * // => Map{"f": {count: 2, matches: ["foo", "fizz"]}, "b": {count: 2, matches: ["bar", "buzz"]}}
  */
-declare const groupMapReducingBy: <T, TKey, TMerged>(collection: ArrayLike<T>, keyProducer: ListIterator<T, TKey>, initializer: ListIterator<T, TMerged>, reducer: (current: TMerged, value: T, index: number, collection: ArrayLike<T>) => TMerged) => Map<TKey, TMerged>;
+declare const groupMapReducingBy: <T, TKey, TMerged>(collection: List<T>, keyProducer: ListIterator<T, TKey>, initializer: ListIterator<T, TMerged>, reducer: (current: TMerged, value: T, index: number, collection: List<T>) => TMerged) => Map<TKey, TMerged>;
 export { groupMapReducingBy };
 //# sourceMappingURL=groupMapReducingBy.d.ts.map

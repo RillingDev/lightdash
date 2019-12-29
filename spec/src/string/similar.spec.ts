@@ -11,7 +11,11 @@ describe("similar", () => {
             "Bitten"
         ]);
         expect(similar("cmmit", ["init", "commit", "push"], true)).toEqual(
-            new Map([[1, ["commit"]], [3, ["init"]], [5, ["push"]]])
+            new Map([
+                [1, ["commit"]],
+                [3, ["init"]],
+                [5, ["push"]]
+            ])
         );
     });
 });
