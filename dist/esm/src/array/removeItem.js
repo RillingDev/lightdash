@@ -4,7 +4,7 @@ import { removeIndex } from "./removeIndex";
  * Returns a new collection with instances of the given item removed.
  *
  * @since 2.8.0
- * @memberOf Array
+ * @category Array
  * @param collection Collection to use.
  * @param targetValue Item to remove.
  * @param removeAll If all occurrences should be removed, otherwise just the first occurrence will.

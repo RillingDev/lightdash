@@ -2,7 +2,7 @@
  * Binary-search implementation.
  *
  * @since 5.0.0
- * @memberOf Search
+ * @category Search
  * @param arr Array to search in.
  * @param search Value to search.
  * @returns Index of the value in the array, or null if none is found.

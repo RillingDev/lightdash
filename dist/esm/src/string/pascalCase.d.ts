@@ -2,7 +2,7 @@
  * Creates a PascalCase string from a string.
  *
  * @since 6.2.0
- * @memberOf String
+ * @category String
  * @param str String to use.
  * @returns PascalCase string of the input string.
  * @example

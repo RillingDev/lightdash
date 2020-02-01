@@ -4,7 +4,7 @@ import { List, ListIterator } from "lodash";
  * using the return value of the function as key.
  *
  * @since 6.1.0
- * @memberOf Array
+ * @category Array
  * @param collection Collection to group.
  * @param keyFn Function to use for grouping.
  * @returns Grouped map.

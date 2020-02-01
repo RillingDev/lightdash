@@ -6,7 +6,7 @@ import { isArrayLike, isObjectLike, map, mapValues } from "lodash";
  * Can take a custom replacer function.
  *
  * @since 6.0.0
- * @memberOf Object
+ * @category Object
  * @param collection Object to decycle.
  * @param replacer Circular reference value replacer function
  * @param references WeakSet prefilled with encountered references, not recommended to provide this manually.

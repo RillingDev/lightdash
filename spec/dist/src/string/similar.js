@@ -7,7 +7,7 @@ const distance_1 = require("./distance");
  * Returns strings similar to the input based its levenshtein distance to the values in the list given.
  *
  * @since 6.3.0
- * @memberOf String
+ * @category String
  * @param str String to check.
  * @param collection Array of values to compare the string to.
  * @param returnFull If the full map should be returned, rather than just the closest matches.

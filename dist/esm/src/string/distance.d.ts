@@ -2,7 +2,7 @@
  * Returns the levenshtein string distance of two strings.
  *
  * @since 6.3.0
- * @memberOf String
+ * @category String
  * @param str1 First string to compare.
  * @param str2 Second string to compare.
  * @returns Distance between the two strings.

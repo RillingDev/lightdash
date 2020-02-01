@@ -4,7 +4,7 @@ import { filter, List } from "lodash";
  * Returns a new array with the item at the given index removed.
  *
  * @since 2.8.0
- * @memberOf Array
+ * @category Array
  * @param collection Collection to use.
  * @param targetIndex Index to remove.
  * @returns Collection with the index removed.

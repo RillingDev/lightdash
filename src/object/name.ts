@@ -8,7 +8,7 @@ import { isObject, isString, isSymbol } from "lodash";
  * Otherwise null is returned.
  *
  * @since 10.2.0
- * @memberOf Object
+ * @category Object
  * @param value Value to check.
  * @returns The name of the value.
  * @example

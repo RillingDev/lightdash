@@ -14,50 +14,5 @@ import { step } from "./array/step";
 import { decycle } from "./object/decycle";
 import { name } from "./object/name";
 import { binarySearch } from "./search/binarySearch";
-/**
- * @namespace Is
- */
-const l_Is = {
-    isPromise,
-    isBlank
-};
-/**
- * @namespace Lang
- */
-const l_Lang = {
-    toMap
-};
-/**
- * @namespace String
- */
-const l_String = {
-    distance,
-    pascalCase,
-    similar,
-    matchAll
-};
-/**
- * @namespace Array
- */
-const l_Array = {
-    removeIndex,
-    removeItem,
-    step,
-    groupMapBy,
-    groupMapReducingBy
-};
-/**
- * @namespace Object
- */
-const l_Object = {
-    decycle,
-    name
-};
-/**
- * @namespace Search
- */
-const l_Search = {
-    binarySearch
-};
-export { isPromise, toMap, pascalCase, distance, similar, matchAll, isBlank, step, removeIndex, removeItem, groupMapBy, groupMapReducingBy, decycle, name, binarySearch, l_Is, l_Lang, l_String, l_Array, l_Object, l_Search };
+export { isPromise, toMap, pascalCase, distance, similar, matchAll, isBlank, step, removeIndex, removeItem, groupMapBy, groupMapReducingBy, decycle, name, binarySearch };
 //# sourceMappingURL=main.js.map

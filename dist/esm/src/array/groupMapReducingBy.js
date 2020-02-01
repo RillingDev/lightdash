@@ -3,7 +3,7 @@ import { forEach } from "lodash";
  * Collects elements in an array into a an array of merged elements.
  *
  * @since 11.0.0
- * @memberOf Array
+ * @category Array
  * @param collection Collection to group.
  * @param keyProducer Function returning the key for the value.
  * @param initializer Function initializing a new mergable object.

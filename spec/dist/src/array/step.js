@@ -5,7 +5,7 @@ const lodash_1 = require("lodash");
  * Returns a new collection with every n-th item from the input array.
  *
  * @since 1.0.0
- * @memberOf Array
+ * @category Array
  * @param collection Collection to use.
  * @param n Step to use.
  * @returns Stepped collection.
