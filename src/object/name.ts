@@ -1,6 +1,13 @@
 import { isObject, isString, isSymbol } from "lodash";
 
 /**
+ * @private
+ */
+interface AnyObject {
+    [key: string]: any;
+}
+
+/**
  * Gets name of a value.
  *
  * If the value has a name or description property, the value of that is returned.
@@ -31,8 +38,8 @@ const name = (value: any): string | null => {
     if (isString(value)) {
         return value;
     }
-    if (isObject(value) && isString((<{ [key: string]: any }>value).name)) {
-        return (<{ [key: string]: any }>value).name;
+    if (isObject(value) && isString((<AnyObject>value).name)) {
+        return (<AnyObject>value).name;
     }
     if (isSymbol(value) && isString(value.description)) {
         return value.description;

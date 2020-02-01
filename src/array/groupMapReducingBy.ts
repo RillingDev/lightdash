@@ -28,18 +28,18 @@ import { forEach, List, ListIterator } from "lodash";
  * )
  * // => Map{"f": {count: 2, matches: ["foo", "fizz"]}, "b": {count: 2, matches: ["bar", "buzz"]}}
  */
-const groupMapReducingBy = <T, TKey, TMerged>(
-    collection: List<T>,
-    keyProducer: ListIterator<T, TKey>,
-    initializer: ListIterator<T, TMerged>,
+const groupMapReducingBy = <TValue, UKey, VMerged>(
+    collection: List<TValue>,
+    keyProducer: ListIterator<TValue, UKey>,
+    initializer: ListIterator<TValue, VMerged>,
     reducer: (
-        current: TMerged,
-        value: T,
+        current: VMerged,
+        value: TValue,
         index: number,
-        collection: List<T>
-    ) => TMerged
-): Map<TKey, TMerged> => {
-    const result = new Map<TKey, TMerged>();
+        collection: List<TValue>
+    ) => VMerged
+): Map<UKey, VMerged> => {
+    const result = new Map<UKey, VMerged>();
 
     forEach(collection, (value, index) => {
         const key = keyProducer(value, index, collection);

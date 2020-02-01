@@ -2,7 +2,6 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const groupMapBy_1 = require("../array/groupMapBy");
 const distance_1 = require("./distance");
-// Noinspection SpellCheckingInspection
 /**
  * Returns strings similar to the input based its levenshtein distance to the values in the list given.
  *

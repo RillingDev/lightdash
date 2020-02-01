@@ -45,12 +45,13 @@ type CollectionIterator<T, U> = (
  * decycle(a, key => `_${key}`)
  * // => {a: "_a", b: 1, c: 2}
  */
-const decycle = <T>(
-    collection: Collection<T>,
-    replacer: CollectionIterator<T | Collection<T>, any> = (): null => null,
+const decycle = <TValue>(
+    collection: Collection<TValue>,
+    replacer: CollectionIterator<TValue | Collection<TValue>, any> = (): null =>
+        null,
     references: WeakSet<any> = new WeakSet()
 ): Collection<any> => {
-    const decycler: CollectionIterator<T | Collection<T>, any> = (
+    const decycler: CollectionIterator<TValue | Collection<TValue>, any> = (
         value,
         key,
         _collection
@@ -60,7 +61,7 @@ const decycle = <T>(
         }
 
         if (isObjectLike(value)) {
-            return decycle(<Collection<T>>value, replacer, references);
+            return decycle(<Collection<TValue>>value, replacer, references);
         }
 
         return value;

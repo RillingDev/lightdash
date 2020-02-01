@@ -11,6 +11,6 @@ import { List } from "lodash";
  * removeIndex(["foo", "bar", "fizz"], 1)
  * // => ["foo", "fizz"]
  */
-declare const removeIndex: <T>(collection: List<T>, targetIndex: number) => T[];
+declare const removeIndex: <TValue>(collection: List<TValue>, targetIndex: number) => TValue[];
 export { removeIndex };
 //# sourceMappingURL=removeIndex.d.ts.map

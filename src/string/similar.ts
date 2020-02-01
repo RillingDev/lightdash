@@ -2,7 +2,6 @@ import { List } from "lodash";
 import { groupMapBy } from "../array/groupMapBy";
 import { distance } from "./distance";
 
-// Noinspection SpellCheckingInspection
 /**
  * Returns strings similar to the input based its levenshtein distance to the values in the list given.
  *

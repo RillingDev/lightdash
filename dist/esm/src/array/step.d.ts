@@ -11,6 +11,6 @@ import { List } from "lodash";
  * step([1, 2, 3, 4, 5, 6], 2)
  * // => [1, 3, 5]
  */
-declare const step: <T>(collection: List<T>, n: number) => List<T>;
+declare const step: <TValue>(collection: List<TValue>, n: number) => List<TValue>;
 export { step };
 //# sourceMappingURL=step.d.ts.map

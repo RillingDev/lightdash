@@ -14,14 +14,14 @@ import { groupMapReducingBy } from "./groupMapReducingBy";
  * groupMapBy([1, 2, 3, 4, 5], val => val % 2)
  * // => Map{0: [2, 4], 1: [1, 3, 5]}
  */
-const groupMapBy = <T, TKey>(
-    collection: List<T>,
-    keyFn: ListIterator<T, TKey>
-): Map<TKey, T[]> =>
+const groupMapBy = <TValue, UKey>(
+    collection: List<TValue>,
+    keyFn: ListIterator<TValue, UKey>
+): Map<UKey, TValue[]> =>
     groupMapReducingBy(
         collection,
         keyFn,
-        () => <T[]>[],
+        () => <TValue[]>[],
         (current, value) => concat(current, value)
     );
 

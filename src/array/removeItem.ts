@@ -17,11 +17,11 @@ import { removeIndex } from "./removeIndex";
  * removeItem(["foo", "bar", "fizz", "bar"], "bar", false)
  * // => ["foo", "fizz", "bar"]
  */
-const removeItem = <T>(
-    collection: List<T>,
-    targetValue: T,
+const removeItem = <TValue>(
+    collection: List<TValue>,
+    targetValue: TValue,
     removeAll = true
-): List<T> =>
+): List<TValue> =>
     removeAll
         ? filter(collection, value => value !== targetValue)
         : removeIndex(collection, indexOf(collection, targetValue));

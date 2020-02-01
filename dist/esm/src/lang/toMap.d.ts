@@ -10,6 +10,6 @@ import { Dictionary, NumericDictionary } from "lodash";
  * toMap({a: 1, b: 4, c: 5})
  * // => Map{a: 1, b: 4, c: 5}
  */
-declare const toMap: <T>(object: Dictionary<T> | NumericDictionary<T>) => Map<string | number | symbol, T>;
+declare const toMap: <TValue>(object: Dictionary<TValue> | NumericDictionary<TValue>) => Map<string | number | symbol, TValue>;
 export { toMap };
 //# sourceMappingURL=toMap.d.ts.map

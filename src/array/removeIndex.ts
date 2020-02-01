@@ -12,7 +12,9 @@ import { filter, List } from "lodash";
  * removeIndex(["foo", "bar", "fizz"], 1)
  * // => ["foo", "fizz"]
  */
-const removeIndex = <T>(collection: List<T>, targetIndex: number): T[] =>
-    filter(collection, (value, index) => index !== targetIndex);
+const removeIndex = <TValue>(
+    collection: List<TValue>,
+    targetIndex: number
+): TValue[] => filter(collection, (value, index) => index !== targetIndex);
 
 export { removeIndex };

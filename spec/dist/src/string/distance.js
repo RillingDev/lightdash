@@ -1,6 +1,5 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-// Noinspection SpellCheckingInspection
 /**
  * Returns the levenshtein string distance of two strings.
  *

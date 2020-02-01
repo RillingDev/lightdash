@@ -15,6 +15,6 @@ import { List } from "lodash";
  * removeItem(["foo", "bar", "fizz", "bar"], "bar", false)
  * // => ["foo", "fizz", "bar"]
  */
-declare const removeItem: <T>(collection: List<T>, targetValue: T, removeAll?: boolean) => List<T>;
+declare const removeItem: <TValue>(collection: List<TValue>, targetValue: TValue, removeAll?: boolean) => List<TValue>;
 export { removeItem };
 //# sourceMappingURL=removeItem.d.ts.map

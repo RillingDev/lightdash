@@ -49,7 +49,6 @@ var l_ = (function (exports, lodash) {
      */
     const toMap = (object) => new Map(lodash.toPairs(object));
 
-    // Noinspection SpellCheckingInspection
     /**
      * Returns the levenshtein string distance of two strings.
      *
@@ -171,7 +170,6 @@ var l_ = (function (exports, lodash) {
      */
     const groupMapBy = (collection, keyFn) => groupMapReducingBy(collection, keyFn, () => [], (current, value) => lodash.concat(current, value));
 
-    // Noinspection SpellCheckingInspection
     /**
      * Returns strings similar to the input based its levenshtein distance to the values in the list given.
      *

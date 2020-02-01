@@ -27,6 +27,6 @@ import { List, ListIterator } from "lodash";
  * )
  * // => Map{"f": {count: 2, matches: ["foo", "fizz"]}, "b": {count: 2, matches: ["bar", "buzz"]}}
  */
-declare const groupMapReducingBy: <T, TKey, TMerged>(collection: List<T>, keyProducer: ListIterator<T, TKey>, initializer: ListIterator<T, TMerged>, reducer: (current: TMerged, value: T, index: number, collection: List<T>) => TMerged) => Map<TKey, TMerged>;
+declare const groupMapReducingBy: <TValue, UKey, VMerged>(collection: List<TValue>, keyProducer: ListIterator<TValue, UKey>, initializer: ListIterator<TValue, VMerged>, reducer: (current: VMerged, value: TValue, index: number, collection: List<TValue>) => VMerged) => Map<UKey, VMerged>;
 export { groupMapReducingBy };
 //# sourceMappingURL=groupMapReducingBy.d.ts.map
