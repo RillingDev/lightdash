@@ -8,8 +8,14 @@ import {
     NumericDictionary
 } from "lodash";
 
+/**
+ * @private
+ */
 type Collection<T> = Dictionary<T> | NumericDictionary<T> | List<T>;
 
+/**
+ * @private
+ */
 type CollectionIterator<T, U> = (
     val: T,
     key: PropertyKey,
