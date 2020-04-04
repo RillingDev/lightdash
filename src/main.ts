@@ -17,6 +17,8 @@ import { step } from "./array/step";
 
 import { decycle } from "./object/decycle";
 import { name } from "./object/name";
+import { deepFreeze } from "./object/deepFreeze";
+import { deepSeal } from "./object/deepSeal";
 
 import { binarySearch } from "./search/binarySearch";
 
@@ -34,6 +36,8 @@ export {
     groupMapBy,
     groupMapReducingBy,
     decycle,
+    deepFreeze,
+    deepSeal,
     name,
     binarySearch,
 };

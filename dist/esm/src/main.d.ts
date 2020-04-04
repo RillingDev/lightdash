@@ -12,6 +12,8 @@ import { removeItem } from "./array/removeItem";
 import { step } from "./array/step";
 import { decycle } from "./object/decycle";
 import { name } from "./object/name";
+import { deepFreeze } from "./object/deepFreeze";
+import { deepSeal } from "./object/deepSeal";
 import { binarySearch } from "./search/binarySearch";
-export { isPromise, toMap, pascalCase, distance, similar, matchAll, isBlank, step, removeIndex, removeItem, groupMapBy, groupMapReducingBy, decycle, name, binarySearch, };
+export { isPromise, toMap, pascalCase, distance, similar, matchAll, isBlank, step, removeIndex, removeItem, groupMapBy, groupMapReducingBy, decycle, deepFreeze, deepSeal, name, binarySearch, };
 //# sourceMappingURL=main.d.ts.map

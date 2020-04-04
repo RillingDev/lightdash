@@ -356,6 +356,48 @@ const name = (value) => {
 };
 
 /**
+ * @private
+ */
+const deepObjectMutate = (target, mutator) => {
+    if (lodash.isObject(target)) {
+        lodash.forEach(target, (val) => deepObjectMutate(val, mutator));
+        mutator(target);
+    }
+};
+
+/**
+ * Recursively freezes objects, useful for constant objects.
+ *
+ * This function mutates the input value and calls Object.freeze() recursively on all sub-objects.
+ *
+ * @since 12.0.0
+ * @category Object
+ * @param target Object to recursively freeze.
+ * @example
+ * const a = {a: {b: 2}, b: [1, {foo: "foo"}], c: 2};
+ *
+ * deepFreeze(a)
+ * // => object and all sub-objects are frozen.
+ */
+const deepFreeze = (target) => deepObjectMutate(target, Object.freeze);
+
+/**
+ * Recursively seals objects, useful for constant objects.
+ *
+ * This function mutates the input value and calls Object.seal() recursively on all sub-objects.
+ *
+ * @since 12.0.0
+ * @category Object
+ * @param target Object to recursively seal.
+ * @example
+ * const a = {a: {b: 2}, b: [1, {foo: "foo"}], c: 2};
+ *
+ * deepSeal(a)
+ * // => object and all sub-objects are sealed.
+ */
+const deepSeal = (target) => deepObjectMutate(target, Object.seal);
+
+/**
  * Binary-search implementation.
  *
  * @since 5.0.0
@@ -392,6 +434,8 @@ const binarySearch = (arr, search) => {
 
 exports.binarySearch = binarySearch;
 exports.decycle = decycle;
+exports.deepFreeze = deepFreeze;
+exports.deepSeal = deepSeal;
 exports.distance = distance;
 exports.groupMapBy = groupMapBy;
 exports.groupMapReducingBy = groupMapReducingBy;

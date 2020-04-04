@@ -2726,6 +2726,12 @@ img {
 			<a href="globals.html#decycle" class="tsd-kind-icon">decycle</a>
 		</li>
 		<li class=" tsd-kind-function">
+			<a href="globals.html#deepfreeze" class="tsd-kind-icon">deep<wbr>Freeze</a>
+		</li>
+		<li class=" tsd-kind-function">
+			<a href="globals.html#deepseal" class="tsd-kind-icon">deep<wbr>Seal</a>
+		</li>
+		<li class=" tsd-kind-function">
 			<a href="globals.html#distance" class="tsd-kind-icon">distance</a>
 		</li>
 		<li class=" tsd-kind-function tsd-has-type-parameter">
@@ -2870,6 +2876,8 @@ groupMapBy([<span class="hljs-number">1</span>, <span class="hljs-number">2</spa
 						<h3>Object Functions</h3>
 						<ul class="tsd-index-list">
 							<li class="tsd-kind-function tsd-has-type-parameter"><a href="globals.html#decycle" class="tsd-kind-icon">decycle</a></li>
+							<li class="tsd-kind-function"><a href="globals.html#deepfreeze" class="tsd-kind-icon">deep<wbr>Freeze</a></li>
+							<li class="tsd-kind-function"><a href="globals.html#deepseal" class="tsd-kind-icon">deep<wbr>Seal</a></li>
 							<li class="tsd-kind-function"><a href="globals.html#name" class="tsd-kind-icon">name</a></li>
 						</ul>
 						<h3>Search Functions</h3>
@@ -3468,6 +3476,94 @@ groupMapBy([<span class="hljs-number">1</span>, <span class="hljs-number">2</spa
 						</ul>
 						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Collection</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						<p>Decycled object.</p>
+					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel tsd-member tsd-kind-function">
+				<a name="deepfreeze" class="tsd-anchor"></a>
+				<h3><span class="tsd-flag ts-flagConst">Const</span> deep<wbr>Freeze</h3>
+				<ul class="tsd-signatures tsd-kind-function">
+					<li class="tsd-signature tsd-kind-icon">deep<wbr>Freeze<span class="tsd-signature-symbol">(</span>target<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+				</ul>
+				<ul class="tsd-descriptions">
+					<li class="tsd-description">
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in object/deepFreeze.ts:17</li>
+							</ul>
+						</aside>
+						<div class="tsd-comment tsd-typography">
+							<div class="lead">
+								<p>Recursively freezes objects, useful for constant objects.</p>
+							</div>
+							<p>This function mutates the input value and calls Object.freeze() recursively on all sub-objects.</p>
+							<dl class="tsd-comment-tags">
+								<dt>since</dt>
+								<dd><p>12.0.0</p>
+								</dd>
+								<dt>example</dt>
+								<dd><p>const a = {a: {b: 2}, b: [1, {foo: &quot;foo&quot;}], c: 2};</p>
+									<p>deepFreeze(a)
+									// =&gt; object and all sub-objects are frozen.</p>
+								</dd>
+							</dl>
+						</div>
+						<h4 class="tsd-parameters-title">Parameters</h4>
+						<ul class="tsd-parameters">
+							<li>
+								<h5>target: <span class="tsd-signature-type">any</span></h5>
+								<div class="tsd-comment tsd-typography">
+									<div class="lead">
+										<p>Object to recursively freeze.</p>
+									</div>
+								</div>
+							</li>
+						</ul>
+						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel tsd-member tsd-kind-function">
+				<a name="deepseal" class="tsd-anchor"></a>
+				<h3><span class="tsd-flag ts-flagConst">Const</span> deep<wbr>Seal</h3>
+				<ul class="tsd-signatures tsd-kind-function">
+					<li class="tsd-signature tsd-kind-icon">deep<wbr>Seal<span class="tsd-signature-symbol">(</span>target<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+				</ul>
+				<ul class="tsd-descriptions">
+					<li class="tsd-description">
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in object/deepSeal.ts:17</li>
+							</ul>
+						</aside>
+						<div class="tsd-comment tsd-typography">
+							<div class="lead">
+								<p>Recursively seals objects, useful for constant objects.</p>
+							</div>
+							<p>This function mutates the input value and calls Object.seal() recursively on all sub-objects.</p>
+							<dl class="tsd-comment-tags">
+								<dt>since</dt>
+								<dd><p>12.0.0</p>
+								</dd>
+								<dt>example</dt>
+								<dd><p>const a = {a: {b: 2}, b: [1, {foo: &quot;foo&quot;}], c: 2};</p>
+									<p>deepSeal(a)
+									// =&gt; object and all sub-objects are sealed.</p>
+								</dd>
+							</dl>
+						</div>
+						<h4 class="tsd-parameters-title">Parameters</h4>
+						<ul class="tsd-parameters">
+							<li>
+								<h5>target: <span class="tsd-signature-type">any</span></h5>
+								<div class="tsd-comment tsd-typography">
+									<div class="lead">
+										<p>Object to recursively seal.</p>
+									</div>
+								</div>
+							</li>
+						</ul>
+						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 					</li>
 				</ul>
 			</section>
