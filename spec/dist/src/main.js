@@ -1,6 +1,5 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-/* eslint-disable @typescript-eslint/camelcase */
 const isBlank_1 = require("./is/isBlank");
 exports.isBlank = isBlank_1.isBlank;
 const isPromise_1 = require("./is/isPromise");
@@ -19,6 +18,8 @@ const groupMapBy_1 = require("./array/groupMapBy");
 exports.groupMapBy = groupMapBy_1.groupMapBy;
 const groupMapReducingBy_1 = require("./array/groupMapReducingBy");
 exports.groupMapReducingBy = groupMapReducingBy_1.groupMapReducingBy;
+const countMapBy_1 = require("./array/countMapBy");
+exports.countMapBy = countMapBy_1.countMapBy;
 const removeIndex_1 = require("./array/removeIndex");
 exports.removeIndex = removeIndex_1.removeIndex;
 const removeItem_1 = require("./array/removeItem");

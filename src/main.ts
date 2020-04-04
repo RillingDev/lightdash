@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/camelcase */
 import { isBlank } from "./is/isBlank";
 import { isPromise } from "./is/isPromise";
 
@@ -11,6 +10,7 @@ import { matchAll } from "./string/matchAll";
 
 import { groupMapBy } from "./array/groupMapBy";
 import { groupMapReducingBy } from "./array/groupMapReducingBy";
+import { countMapBy } from "./array/countMapBy";
 import { removeIndex } from "./array/removeIndex";
 import { removeItem } from "./array/removeItem";
 import { step } from "./array/step";
@@ -35,6 +35,7 @@ export {
     removeItem,
     groupMapBy,
     groupMapReducingBy,
+    countMapBy,
     decycle,
     deepFreeze,
     deepSeal,

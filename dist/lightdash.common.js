@@ -229,6 +229,21 @@ const matchAll = (str, pattern) => {
 };
 
 /**
+ * Counts the values of an array in a map,
+ * using the return value of the function as key.
+ *
+ * @since 12.0.0
+ * @category Array
+ * @param collection Collection to count.
+ * @param keyFn Function to use for key generation.
+ * @returns Count map.
+ * @example
+ * countMapBy([1, 2, 4, 2, 4, 4], val => val)
+ * // => Map{1: 1, 2: 2, 4: 3}
+ */
+const countMapBy = (collection, keyFn) => groupMapReducingBy(collection, keyFn, () => 0, (current) => current + 1);
+
+/**
  * Returns a new array with the item at the given index removed.
  *
  * @since 2.8.0
@@ -433,6 +448,7 @@ const binarySearch = (arr, search) => {
 };
 
 exports.binarySearch = binarySearch;
+exports.countMapBy = countMapBy;
 exports.decycle = decycle;
 exports.deepFreeze = deepFreeze;
 exports.deepSeal = deepSeal;
