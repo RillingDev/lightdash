@@ -5,7 +5,7 @@ import {
     List,
     map,
     mapValues,
-    NumericDictionary
+    NumericDictionary,
 } from "lodash";
 
 /**

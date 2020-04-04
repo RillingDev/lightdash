@@ -13,7 +13,7 @@ describe("decycle", () => {
         expect(decycle_1.decycle(a, (val, key) => `_${key}`)).toEqual({
             a: "_a",
             b: 1,
-            c: 2
+            c: 2,
         });
     });
 });

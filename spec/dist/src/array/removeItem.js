@@ -19,6 +19,6 @@ const removeIndex_1 = require("./removeIndex");
  * // => ["foo", "fizz", "bar"]
  */
 const removeItem = (collection, targetValue, removeAll = true) => removeAll
-    ? lodash_1.filter(collection, value => value !== targetValue)
+    ? lodash_1.filter(collection, (value) => value !== targetValue)
     : removeIndex_1.removeIndex(collection, lodash_1.indexOf(collection, targetValue));
 exports.removeItem = removeItem;

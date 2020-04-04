@@ -35,5 +35,5 @@ export {
     groupMapReducingBy,
     decycle,
     name,
-    binarySearch
+    binarySearch,
 };

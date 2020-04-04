@@ -259,7 +259,7 @@ const removeIndex = (collection, targetIndex) => lodash.filter(collection, (valu
  * // => ["foo", "fizz", "bar"]
  */
 const removeItem = (collection, targetValue, removeAll = true) => removeAll
-    ? lodash.filter(collection, value => value !== targetValue)
+    ? lodash.filter(collection, (value) => value !== targetValue)
     : removeIndex(collection, lodash.indexOf(collection, targetValue));
 
 /**

@@ -23,7 +23,7 @@ const removeItem = <TValue>(
     removeAll = true
 ): List<TValue> =>
     removeAll
-        ? filter(collection, value => value !== targetValue)
+        ? filter(collection, (value) => value !== targetValue)
         : removeIndex(collection, indexOf(collection, targetValue));
 
 export { removeItem };

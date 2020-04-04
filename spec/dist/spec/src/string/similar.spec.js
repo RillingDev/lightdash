@@ -5,16 +5,16 @@ describe("similar", () => {
     it("gets similar", () => {
         expect(similar_1.similar("Fob", ["Foo", "Bar"])).toEqual(["Foo"]);
         expect(similar_1.similar("cmmit", ["init", "commit", "push"])).toEqual([
-            "commit"
+            "commit",
         ]);
         expect(similar_1.similar("Kitten", ["Sitten", "Sitting", "Bitten"])).toEqual([
             "Sitten",
-            "Bitten"
+            "Bitten",
         ]);
         expect(similar_1.similar("cmmit", ["init", "commit", "push"], true)).toEqual(new Map([
             [1, ["commit"]],
             [3, ["init"]],
-            [5, ["push"]]
+            [5, ["push"]],
         ]));
     });
 });

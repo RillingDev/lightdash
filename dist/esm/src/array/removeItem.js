@@ -17,7 +17,7 @@ import { removeIndex } from "./removeIndex";
  * // => ["foo", "fizz", "bar"]
  */
 const removeItem = (collection, targetValue, removeAll = true) => removeAll
-    ? filter(collection, value => value !== targetValue)
+    ? filter(collection, (value) => value !== targetValue)
     : removeIndex(collection, indexOf(collection, targetValue));
 export { removeItem };
 //# sourceMappingURL=removeItem.js.map

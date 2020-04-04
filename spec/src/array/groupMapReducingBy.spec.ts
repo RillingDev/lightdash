@@ -5,11 +5,11 @@ describe("groupMapReducingBy", () => {
         expect(
             groupMapReducingBy(
                 ["foo", "bar", "fizz", "buzz"],
-                val => val.charAt(0),
+                (val) => val.charAt(0),
                 () => {
                     return {
                         count: 0,
-                        matches: <string[]>[]
+                        matches: <string[]>[],
                     };
                 },
                 (current, val) => {
@@ -21,7 +21,7 @@ describe("groupMapReducingBy", () => {
         ).toEqual(
             new Map([
                 ["f", { count: 2, matches: ["foo", "fizz"] }],
-                ["b", { count: 2, matches: ["bar", "buzz"] }]
+                ["b", { count: 2, matches: ["bar", "buzz"] }],
             ])
         );
     });

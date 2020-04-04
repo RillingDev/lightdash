@@ -13,5 +13,5 @@ import { step } from "./array/step";
 import { decycle } from "./object/decycle";
 import { name } from "./object/name";
 import { binarySearch } from "./search/binarySearch";
-export { isPromise, toMap, pascalCase, distance, similar, matchAll, isBlank, step, removeIndex, removeItem, groupMapBy, groupMapReducingBy, decycle, name, binarySearch };
+export { isPromise, toMap, pascalCase, distance, similar, matchAll, isBlank, step, removeIndex, removeItem, groupMapBy, groupMapReducingBy, decycle, name, binarySearch, };
 //# sourceMappingURL=main.d.ts.map
