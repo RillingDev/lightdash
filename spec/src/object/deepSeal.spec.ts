@@ -11,4 +11,14 @@ describe("deepSeal", () => {
         expect(Object.isSealed(a.b)).toBeTrue();
         expect(Object.isSealed(a.b[1])).toBeTrue();
     });
+
+    it("works with circular refs", () => {
+        const a = { b: <object | null>null };
+        a.b = { a: a };
+
+        deepSeal(a);
+
+        expect(Object.isSealed(a)).toBeTrue();
+        expect(Object.isSealed(a.b)).toBeTrue();
+    });
 });

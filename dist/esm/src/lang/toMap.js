@@ -1,4 +1,4 @@
-import { toPairs, identity } from "lodash";
+import { identity, toPairs } from "lodash";
 /**
  * Creates a map from an objects entries.
  *

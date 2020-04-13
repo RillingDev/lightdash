@@ -378,9 +378,9 @@ const name = (value) => {
 /**
  * @private
  */
-const deepObjectMutate = (target, mutator) => {
-    if (lodash.isObject(target)) {
-        lodash.forEach(target, (val) => deepObjectMutate(val, mutator));
+const deepObjectMutate = (target, mutator, stack = []) => {
+    if (lodash.isObject(target) && !stack.includes(target)) {
+        lodash.forEach(target, (val) => deepObjectMutate(val, mutator, [...stack, target]));
         mutator(target);
     }
 };

@@ -5,10 +5,13 @@ import { forEach, isObject } from "lodash";
  */
 const deepObjectMutate = (
     target: any,
-    mutator: (val: object) => void
+    mutator: (val: object) => void,
+    stack: object[] = []
 ): void => {
-    if (isObject(target)) {
-        forEach(target, (val) => deepObjectMutate(val, mutator));
+    if (isObject(target) && !stack.includes(target)) {
+        forEach(target, (val) =>
+            deepObjectMutate(val, mutator, [...stack, target])
+        );
         mutator(target);
     }
 };

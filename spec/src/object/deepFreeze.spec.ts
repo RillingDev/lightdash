@@ -11,4 +11,14 @@ describe("deepFreeze", () => {
         expect(Object.isFrozen(a.b)).toBeTrue();
         expect(Object.isFrozen(a.b[1])).toBeTrue();
     });
+
+    it("works with circular refs", () => {
+        const a = { b: <object | null>null };
+        a.b = { a: a };
+
+        deepFreeze(a);
+
+        expect(Object.isFrozen(a)).toBeTrue();
+        expect(Object.isFrozen(a.b)).toBeTrue();
+    });
 });

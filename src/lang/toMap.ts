@@ -1,4 +1,4 @@
-import { Dictionary, NumericDictionary, toPairs, identity } from "lodash";
+import { Dictionary, identity, NumericDictionary, toPairs } from "lodash";
 
 /**
  * Creates a map from an objects entries.
