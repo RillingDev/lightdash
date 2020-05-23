@@ -2744,6 +2744,9 @@ img {
 		<li class=" tsd-kind-function tsd-has-type-parameter">
 			<a href="globals.html#groupmapreducingby" class="tsd-kind-icon">group<wbr>Map<wbr>Reducing<wbr>By</a>
 		</li>
+		<li class=" tsd-kind-function tsd-has-type-parameter">
+			<a href="globals.html#insert" class="tsd-kind-icon">insert</a>
+		</li>
 		<li class=" tsd-kind-function">
 			<a href="globals.html#isblank" class="tsd-kind-icon">is<wbr>Blank</a>
 		</li>
@@ -2864,6 +2867,7 @@ groupMapBy([<span class="hljs-number">1</span>, <span class="hljs-number">2</spa
 							<li class="tsd-kind-function tsd-has-type-parameter"><a href="globals.html#countmapby" class="tsd-kind-icon">count<wbr>Map<wbr>By</a></li>
 							<li class="tsd-kind-function tsd-has-type-parameter"><a href="globals.html#groupmapby" class="tsd-kind-icon">group<wbr>Map<wbr>By</a></li>
 							<li class="tsd-kind-function tsd-has-type-parameter"><a href="globals.html#groupmapreducingby" class="tsd-kind-icon">group<wbr>Map<wbr>Reducing<wbr>By</a></li>
+							<li class="tsd-kind-function tsd-has-type-parameter"><a href="globals.html#insert" class="tsd-kind-icon">insert</a></li>
 							<li class="tsd-kind-function tsd-has-type-parameter"><a href="globals.html#removeindex" class="tsd-kind-icon">remove<wbr>Index</a></li>
 							<li class="tsd-kind-function tsd-has-type-parameter"><a href="globals.html#removeitem" class="tsd-kind-icon">remove<wbr>Item</a></li>
 							<li class="tsd-kind-function tsd-has-type-parameter"><a href="globals.html#step" class="tsd-kind-icon">step</a></li>
@@ -3140,6 +3144,76 @@ groupMapBy([<span class="hljs-number">1</span>, <span class="hljs-number">2</spa
 						</ul>
 						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Map</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">UKey</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">VMerged</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						<p>Grouped and merged map.</p>
+					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel tsd-member tsd-kind-function tsd-has-type-parameter">
+				<a name="insert" class="tsd-anchor"></a>
+				<h3><span class="tsd-flag ts-flagConst">Const</span> insert</h3>
+				<ul class="tsd-signatures tsd-kind-function tsd-has-type-parameter">
+					<li class="tsd-signature tsd-kind-icon">insert&lt;TValue, UKey&gt;<span class="tsd-signature-symbol">(</span>collection<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">TValue</span><span class="tsd-signature-symbol">&gt;</span>, index<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, <span class="tsd-signature-symbol">...</span>values<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">TValue</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">TValue</span><span class="tsd-signature-symbol">&gt;</span></li>
+				</ul>
+				<ul class="tsd-descriptions">
+					<li class="tsd-description">
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in array/insert.ts:16</li>
+							</ul>
+						</aside>
+						<div class="tsd-comment tsd-typography">
+							<div class="lead">
+								<p>Returns a copy of an array with the value(s) inserted at the position.
+									If the index is equal or higher the array length, the value(s) will appended.
+								If the index is less than 0, the value(s) will prepended.</p>
+							</div>
+							<dl class="tsd-comment-tags">
+								<dt>since</dt>
+								<dd><p>12.1.0</p>
+								</dd>
+								<dt>example</dt>
+								<dd><p>insert([&quot;foo&quot;, &quot;fizz&quot;], 1, &quot;bar&quot;)
+									// =&gt; [&quot;foo&quot;, &quot;bar&quot;, &quot;fizz&quot;]</p>
+								</dd>
+							</dl>
+						</div>
+						<h4 class="tsd-type-parameters-title">Type parameters</h4>
+						<ul class="tsd-type-parameters">
+							<li>
+								<h4>TValue</h4>
+							</li>
+							<li>
+								<h4>UKey</h4>
+							</li>
+						</ul>
+						<h4 class="tsd-parameters-title">Parameters</h4>
+						<ul class="tsd-parameters">
+							<li>
+								<h5>collection: <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">TValue</span><span class="tsd-signature-symbol">&gt;</span></h5>
+								<div class="tsd-comment tsd-typography">
+									<div class="lead">
+										<p>Collection to insert to.</p>
+									</div>
+								</div>
+							</li>
+							<li>
+								<h5>index: <span class="tsd-signature-type">number</span></h5>
+								<div class="tsd-comment tsd-typography">
+									<div class="lead">
+										<p>Index to start inserting</p>
+									</div>
+								</div>
+							</li>
+							<li>
+								<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>values: <span class="tsd-signature-type">TValue</span><span class="tsd-signature-symbol">[]</span></h5>
+								<div class="tsd-comment tsd-typography">
+									<div class="lead">
+										<p>Value(s) to insert</p>
+									</div>
+								</div>
+							</li>
+						</ul>
+						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">TValue</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						<p>Copy with value(s) inserted</p>
 					</li>
 				</ul>
 			</section>

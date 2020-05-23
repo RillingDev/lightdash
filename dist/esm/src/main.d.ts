@@ -11,6 +11,7 @@ export { countMapBy } from "./array/countMapBy";
 export { removeIndex } from "./array/removeIndex";
 export { removeItem } from "./array/removeItem";
 export { step } from "./array/step";
+export { insert } from "./array/insert";
 export { decycle } from "./object/decycle";
 export { name } from "./object/name";
 export { deepFreeze } from "./object/deepFreeze";
