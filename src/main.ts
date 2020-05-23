@@ -11,8 +11,7 @@ export { matchAll } from "./string/matchAll";
 export { groupMapBy } from "./array/groupMapBy";
 export { groupMapReducingBy } from "./array/groupMapReducingBy";
 export { countMapBy } from "./array/countMapBy";
-export { removeIndex } from "./array/removeIndex";
-export { removeItem } from "./array/removeItem";
+export { pullFirst } from "./array/pullFirst";
 export { step } from "./array/step";
 export { insert } from "./array/insert";
 

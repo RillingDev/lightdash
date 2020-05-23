@@ -249,38 +249,25 @@ const matchAll = (str, pattern) => {
 const countMapBy = (collection, keyFn) => groupMapReducingBy(collection, keyFn, () => 0, (current) => current + 1);
 
 /**
- * Returns a new array with the item at the given index removed.
+ * Removes the first occurrence of an element from an array.
+ *
+ * Note: the input array is being mutated.
  *
  * @since 2.8.0
  * @category Array
- * @param collection Collection to use.
- * @param targetIndex Index to remove.
- * @returns Collection with the index removed.
+ * @param collection The array to modify.
+ * @param targetValue The value to remove.
+ * @returns The mutated collection.
  * @example
- * removeIndex(["foo", "bar", "fizz"], 1)
- * // => ["foo", "fizz"]
+ * const a = ["foo", "bar", "fizz", "bar"];
+ * removeItem(a, "bar")
+ * // a equals ["foo", "fizz", "bar"]
  */
-const removeIndex = (collection, targetIndex) => lodash.filter(collection, (value, index) => index !== targetIndex);
-
-/**
- * Returns a new collection with instances of the given item removed.
- *
- * @since 2.8.0
- * @category Array
- * @param collection Collection to use.
- * @param targetValue Item to remove.
- * @param removeAll If all occurrences should be removed, otherwise just the first occurrence will.
- * @returns Collection with the item removed.
- * @example
- * removeItem(["foo", "bar", "fizz", "bar"], "bar")
- * // => ["foo", "fizz"]
- *
- * removeItem(["foo", "bar", "fizz", "bar"], "bar", false)
- * // => ["foo", "fizz", "bar"]
- */
-const removeItem = (collection, targetValue, removeAll = true) => removeAll
-    ? lodash.filter(collection, (value) => value !== targetValue)
-    : removeIndex(collection, lodash.indexOf(collection, targetValue));
+const pullFirst = (collection, targetValue) => {
+    const targetIndex = lodash.indexOf(collection, targetValue);
+    lodash.remove(collection, (val, index) => index === targetIndex);
+    return collection;
+};
 
 /**
  * Returns a new collection with every n-th item from the input array.
@@ -455,8 +442,7 @@ exports.isPromise = isPromise;
 exports.matchAll = matchAll;
 exports.name = name;
 exports.pascalCase = pascalCase;
-exports.removeIndex = removeIndex;
-exports.removeItem = removeItem;
+exports.pullFirst = pullFirst;
 exports.similar = similar;
 exports.step = step;
 exports.toMap = toMap;

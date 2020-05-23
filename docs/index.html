@@ -2760,10 +2760,7 @@ img {
 			<a href="globals.html#pascalcase" class="tsd-kind-icon">pascal<wbr>Case</a>
 		</li>
 		<li class=" tsd-kind-function tsd-has-type-parameter">
-			<a href="globals.html#removeindex" class="tsd-kind-icon">remove<wbr>Index</a>
-		</li>
-		<li class=" tsd-kind-function tsd-has-type-parameter">
-			<a href="globals.html#removeitem" class="tsd-kind-icon">remove<wbr>Item</a>
+			<a href="globals.html#pullfirst" class="tsd-kind-icon">pull<wbr>First</a>
 		</li>
 		<li class=" tsd-kind-function">
 			<a href="globals.html#similar" class="tsd-kind-icon">similar</a>
@@ -2866,8 +2863,7 @@ groupMapBy([<span class="hljs-number">1</span>, <span class="hljs-number">2</spa
 							<li class="tsd-kind-function tsd-has-type-parameter"><a href="globals.html#groupmapby" class="tsd-kind-icon">group<wbr>Map<wbr>By</a></li>
 							<li class="tsd-kind-function tsd-has-type-parameter"><a href="globals.html#groupmapreducingby" class="tsd-kind-icon">group<wbr>Map<wbr>Reducing<wbr>By</a></li>
 							<li class="tsd-kind-function tsd-has-type-parameter"><a href="globals.html#insert" class="tsd-kind-icon">insert</a></li>
-							<li class="tsd-kind-function tsd-has-type-parameter"><a href="globals.html#removeindex" class="tsd-kind-icon">remove<wbr>Index</a></li>
-							<li class="tsd-kind-function tsd-has-type-parameter"><a href="globals.html#removeitem" class="tsd-kind-icon">remove<wbr>Item</a></li>
+							<li class="tsd-kind-function tsd-has-type-parameter"><a href="globals.html#pullfirst" class="tsd-kind-icon">pull<wbr>First</a></li>
 							<li class="tsd-kind-function tsd-has-type-parameter"><a href="globals.html#step" class="tsd-kind-icon">step</a></li>
 						</ul>
 						<h3>Is Functions</h3>
@@ -3212,29 +3208,31 @@ groupMapBy([<span class="hljs-number">1</span>, <span class="hljs-number">2</spa
 				</ul>
 			</section>
 			<section class="tsd-panel tsd-member tsd-kind-function tsd-has-type-parameter">
-				<a name="removeindex" class="tsd-anchor"></a>
-				<h3><span class="tsd-flag ts-flagConst">Const</span> remove<wbr>Index</h3>
+				<a name="pullfirst" class="tsd-anchor"></a>
+				<h3><span class="tsd-flag ts-flagConst">Const</span> pull<wbr>First</h3>
 				<ul class="tsd-signatures tsd-kind-function tsd-has-type-parameter">
-					<li class="tsd-signature tsd-kind-icon">remove<wbr>Index&lt;TValue&gt;<span class="tsd-signature-symbol">(</span>collection<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">List</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">TValue</span><span class="tsd-signature-symbol">&gt;</span>, targetIndex<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">TValue</span><span class="tsd-signature-symbol">[]</span></li>
+					<li class="tsd-signature tsd-kind-icon">pull<wbr>First&lt;TValue&gt;<span class="tsd-signature-symbol">(</span>collection<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">List</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">TValue</span><span class="tsd-signature-symbol">&gt;</span>, targetValue<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">TValue</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">List</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">TValue</span><span class="tsd-signature-symbol">&gt;</span></li>
 				</ul>
 				<ul class="tsd-descriptions">
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in array/removeIndex.ts:15</li>
+								<li>Defined in array/pullFirst.ts:18</li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
 							<div class="lead">
-								<p>Returns a new array with the item at the given index removed.</p>
+								<p>Removes the first occurrence of an element from an array.</p>
 							</div>
+							<p>Note: the input array is being mutated.</p>
 							<dl class="tsd-comment-tags">
 								<dt>since</dt>
 								<dd><p>2.8.0</p>
 								</dd>
 								<dt>example</dt>
-								<dd><p>removeIndex([&quot;foo&quot;, &quot;bar&quot;, &quot;fizz&quot;], 1)
-									// =&gt; [&quot;foo&quot;, &quot;fizz&quot;]</p>
+								<dd><p>const a = [&quot;foo&quot;, &quot;bar&quot;, &quot;fizz&quot;, &quot;bar&quot;];
+										removeItem(a, &quot;bar&quot;)
+									// a equals [&quot;foo&quot;, &quot;fizz&quot;, &quot;bar&quot;]</p>
 								</dd>
 							</dl>
 						</div>
@@ -3250,66 +3248,7 @@ groupMapBy([<span class="hljs-number">1</span>, <span class="hljs-number">2</spa
 								<h5>collection: <span class="tsd-signature-type">List</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">TValue</span><span class="tsd-signature-symbol">&gt;</span></h5>
 								<div class="tsd-comment tsd-typography">
 									<div class="lead">
-										<p>Collection to use.</p>
-									</div>
-								</div>
-							</li>
-							<li>
-								<h5>targetIndex: <span class="tsd-signature-type">number</span></h5>
-								<div class="tsd-comment tsd-typography">
-									<div class="lead">
-										<p>Index to remove.</p>
-									</div>
-								</div>
-							</li>
-						</ul>
-						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">TValue</span><span class="tsd-signature-symbol">[]</span></h4>
-						<p>Collection with the index removed.</p>
-					</li>
-				</ul>
-			</section>
-			<section class="tsd-panel tsd-member tsd-kind-function tsd-has-type-parameter">
-				<a name="removeitem" class="tsd-anchor"></a>
-				<h3><span class="tsd-flag ts-flagConst">Const</span> remove<wbr>Item</h3>
-				<ul class="tsd-signatures tsd-kind-function tsd-has-type-parameter">
-					<li class="tsd-signature tsd-kind-icon">remove<wbr>Item&lt;TValue&gt;<span class="tsd-signature-symbol">(</span>collection<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">List</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">TValue</span><span class="tsd-signature-symbol">&gt;</span>, targetValue<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">TValue</span>, removeAll<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">List</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">TValue</span><span class="tsd-signature-symbol">&gt;</span></li>
-				</ul>
-				<ul class="tsd-descriptions">
-					<li class="tsd-description">
-						<aside class="tsd-sources">
-							<ul>
-								<li>Defined in array/removeItem.ts:20</li>
-							</ul>
-						</aside>
-						<div class="tsd-comment tsd-typography">
-							<div class="lead">
-								<p>Returns a new collection with instances of the given item removed.</p>
-							</div>
-							<dl class="tsd-comment-tags">
-								<dt>since</dt>
-								<dd><p>2.8.0</p>
-								</dd>
-								<dt>example</dt>
-								<dd><p>removeItem([&quot;foo&quot;, &quot;bar&quot;, &quot;fizz&quot;, &quot;bar&quot;], &quot;bar&quot;)
-									// =&gt; [&quot;foo&quot;, &quot;fizz&quot;]</p>
-									<p>removeItem([&quot;foo&quot;, &quot;bar&quot;, &quot;fizz&quot;, &quot;bar&quot;], &quot;bar&quot;, false)
-									// =&gt; [&quot;foo&quot;, &quot;fizz&quot;, &quot;bar&quot;]</p>
-								</dd>
-							</dl>
-						</div>
-						<h4 class="tsd-type-parameters-title">Type parameters</h4>
-						<ul class="tsd-type-parameters">
-							<li>
-								<h4>TValue</h4>
-							</li>
-						</ul>
-						<h4 class="tsd-parameters-title">Parameters</h4>
-						<ul class="tsd-parameters">
-							<li>
-								<h5>collection: <span class="tsd-signature-type">List</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">TValue</span><span class="tsd-signature-symbol">&gt;</span></h5>
-								<div class="tsd-comment tsd-typography">
-									<div class="lead">
-										<p>Collection to use.</p>
+										<p>The array to modify.</p>
 									</div>
 								</div>
 							</li>
@@ -3317,21 +3256,13 @@ groupMapBy([<span class="hljs-number">1</span>, <span class="hljs-number">2</spa
 								<h5>targetValue: <span class="tsd-signature-type">TValue</span></h5>
 								<div class="tsd-comment tsd-typography">
 									<div class="lead">
-										<p>Item to remove.</p>
-									</div>
-								</div>
-							</li>
-							<li>
-								<h5><span class="tsd-flag ts-flagDefault value">Default value</span> removeAll: <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> = true</span></h5>
-								<div class="tsd-comment tsd-typography">
-									<div class="lead">
-										<p>If all occurrences should be removed, otherwise just the first occurrence will.</p>
+										<p>The value to remove.</p>
 									</div>
 								</div>
 							</li>
 						</ul>
 						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">List</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">TValue</span><span class="tsd-signature-symbol">&gt;</span></h4>
-						<p>Collection with the item removed.</p>
+						<p>The mutated collection.</p>
 					</li>
 				</ul>
 			</section>
