@@ -12,6 +12,6 @@
  * deepSeal(a)
  * // => object and all sub-objects are sealed.
  */
-declare const deepSeal: (target: any) => void;
+declare const deepSeal: (target: object) => void;
 export { deepSeal };
 //# sourceMappingURL=deepSeal.d.ts.map

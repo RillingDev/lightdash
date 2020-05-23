@@ -1,4 +1,4 @@
-import { deepObjectMutate } from "./lib/deepObjectMutate";
+import { visit } from "./lib/visit";
 /**
  * Recursively seals objects, useful for constant objects.
  *
@@ -13,6 +13,6 @@ import { deepObjectMutate } from "./lib/deepObjectMutate";
  * deepSeal(a)
  * // => object and all sub-objects are sealed.
  */
-const deepSeal = (target) => deepObjectMutate(target, Object.seal);
+const deepSeal = (target) => visit(target, Object.seal);
 export { deepSeal };
 //# sourceMappingURL=deepSeal.js.map

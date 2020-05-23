@@ -12,6 +12,6 @@
  * deepFreeze(a)
  * // => object and all sub-objects are frozen.
  */
-declare const deepFreeze: (target: any) => void;
+declare const deepFreeze: (target: object) => void;
 export { deepFreeze };
 //# sourceMappingURL=deepFreeze.d.ts.map

@@ -29,6 +29,6 @@ declare type CollectionIterator<T, U> = (val: T, key: PropertyKey, _collection: 
  * decycle(a, key => `_${key}`)
  * // => {a: "_a", b: 1, c: 2}
  */
-declare const decycle: <TValue>(collection: Collection<TValue>, replacer?: CollectionIterator<TValue | Dictionary<TValue> | NumericDictionary<TValue> | List<TValue>, any>, references?: WeakSet<any>) => Collection<any>;
+declare const decycle: <TValue, UResult>(collection: Collection<TValue>, replacer?: CollectionIterator<TValue | Dictionary<TValue> | NumericDictionary<TValue> | List<TValue>, any>, references?: WeakSet<any>) => Collection<any>;
 export { decycle };
 //# sourceMappingURL=decycle.d.ts.map

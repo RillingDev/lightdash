@@ -1,4 +1,4 @@
-import { deepObjectMutate } from "./lib/deepObjectMutate";
+import { visit } from "./lib/visit";
 /**
  * Recursively freezes objects, useful for constant objects.
  *
@@ -13,6 +13,6 @@ import { deepObjectMutate } from "./lib/deepObjectMutate";
  * deepFreeze(a)
  * // => object and all sub-objects are frozen.
  */
-const deepFreeze = (target) => deepObjectMutate(target, Object.freeze);
+const deepFreeze = (target) => visit(target, Object.freeze);
 export { deepFreeze };
 //# sourceMappingURL=deepFreeze.js.map

@@ -1,1 +1,1 @@
-{"version":3,"file":"deepSeal.d.ts","sourceRoot":"","sources":["../../../../src/object/deepSeal.ts"],"names":[],"mappings":"AAEA;;;;;;;;;;;;;GAaG;AACH,QAAA,MAAM,QAAQ,WAAY,GAAG,KAAG,IAA6C,CAAC;AAE9E,OAAO,EAAE,QAAQ,EAAE,CAAC"}
+{"version":3,"file":"deepSeal.d.ts","sourceRoot":"","sources":["../../../../src/object/deepSeal.ts"],"names":[],"mappings":"AAEA;;;;;;;;;;;;;GAaG;AACH,QAAA,MAAM,QAAQ,WAAY,MAAM,KAAG,IAAkC,CAAC;AAEtE,OAAO,EAAE,QAAQ,EAAE,CAAC"}

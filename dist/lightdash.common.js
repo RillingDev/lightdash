@@ -385,17 +385,24 @@ const name = (value) => {
 };
 
 /**
+ * Helper method recursively executing the callback against all object properties.
+ * Only object-like values will have the callback executed.
+ * If the same reference is encountered after the first time, it will be skipped.
+ *
  * @private
  */
-const deepObjectMutate = (target, mutator, stack = new Set()) => {
-    if (lodash.isObject(target) && !stack.has(target)) {
-        for (const val of Object.values(target)) {
-            const newStack = new Set(stack);
-            newStack.add(target);
-            deepObjectMutate(val, mutator, newStack);
+const visit = (root, callback) => {
+    const visitStack = new WeakSet();
+    const visitObject = (target) => {
+        visitStack.add(target);
+        for (const prop of Object.values(target)) {
+            if (lodash.isObject(prop) && !visitStack.has(prop)) {
+                visitObject(prop);
+            }
         }
-        mutator(target);
-    }
+        callback(target);
+    };
+    visitObject(root);
 };
 
 /**
@@ -412,7 +419,7 @@ const deepObjectMutate = (target, mutator, stack = new Set()) => {
  * deepFreeze(a)
  * // => object and all sub-objects are frozen.
  */
-const deepFreeze = (target) => deepObjectMutate(target, Object.freeze);
+const deepFreeze = (target) => visit(target, Object.freeze);
 
 /**
  * Recursively seals objects, useful for constant objects.
@@ -428,7 +435,7 @@ const deepFreeze = (target) => deepObjectMutate(target, Object.freeze);
  * deepSeal(a)
  * // => object and all sub-objects are sealed.
  */
-const deepSeal = (target) => deepObjectMutate(target, Object.seal);
+const deepSeal = (target) => visit(target, Object.seal);
 
 exports.countMapBy = countMapBy;
 exports.decycle = decycle;

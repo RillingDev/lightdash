@@ -45,7 +45,7 @@ type CollectionIterator<T, U> = (
  * decycle(a, key => `_${key}`)
  * // => {a: "_a", b: 1, c: 2}
  */
-const decycle = <TValue>(
+const decycle = <TValue,UResult>(
     collection: Collection<TValue>,
     replacer: CollectionIterator<TValue | Collection<TValue>, any> = (): null =>
         null,

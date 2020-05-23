@@ -1,4 +1,4 @@
-import { deepObjectMutate } from "./lib/deepObjectMutate";
+import { visit } from "./lib/visit";
 
 /**
  * Recursively freezes objects, useful for constant objects.
@@ -14,7 +14,6 @@ import { deepObjectMutate } from "./lib/deepObjectMutate";
  * deepFreeze(a)
  * // => object and all sub-objects are frozen.
  */
-const deepFreeze = (target: any): void =>
-    deepObjectMutate(target, Object.freeze);
+const deepFreeze = (target: object): void => visit(target, Object.freeze);
 
 export { deepFreeze };
