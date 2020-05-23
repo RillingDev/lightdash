@@ -20,5 +20,3 @@ export { decycle } from "./object/decycle";
 export { name } from "./object/name";
 export { deepFreeze } from "./object/deepFreeze";
 export { deepSeal } from "./object/deepSeal";
-
-export { binarySearch } from "./search/binarySearch";
