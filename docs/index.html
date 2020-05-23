@@ -3147,15 +3147,16 @@ groupMapBy([<span class="hljs-number">1</span>, <span class="hljs-number">2</spa
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in array/insert.ts:16</li>
+								<li>Defined in array/insert.ts:18</li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
 							<div class="lead">
-								<p>Returns a copy of an array with the value(s) inserted at the position.
+								<p>Inserts value(s) at the given position.
 									If the index is equal or higher the array length, the value(s) will appended.
 								If the index is less than 0, the value(s) will prepended.</p>
 							</div>
+							<p>Note: the input array is being mutated.</p>
 							<dl class="tsd-comment-tags">
 								<dt>since</dt>
 								<dd><p>12.1.0</p>
@@ -3189,7 +3190,7 @@ groupMapBy([<span class="hljs-number">1</span>, <span class="hljs-number">2</spa
 								<h5>index: <span class="tsd-signature-type">number</span></h5>
 								<div class="tsd-comment tsd-typography">
 									<div class="lead">
-										<p>Index to start inserting</p>
+										<p>Index to start inserting.</p>
 									</div>
 								</div>
 							</li>
@@ -3197,13 +3198,13 @@ groupMapBy([<span class="hljs-number">1</span>, <span class="hljs-number">2</spa
 								<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>values: <span class="tsd-signature-type">TValue</span><span class="tsd-signature-symbol">[]</span></h5>
 								<div class="tsd-comment tsd-typography">
 									<div class="lead">
-										<p>Value(s) to insert</p>
+										<p>Value(s) to insert.</p>
 									</div>
 								</div>
 							</li>
 						</ul>
 						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">TValue</span><span class="tsd-signature-symbol">&gt;</span></h4>
-						<p>Copy with value(s) inserted</p>
+						<p>Collection.</p>
 					</li>
 				</ul>
 			</section>
