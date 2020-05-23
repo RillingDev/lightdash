@@ -1,1 +1,1 @@
-{"version":3,"file":"deepFreeze.d.ts","sourceRoot":"","sources":["../../../../src/object/deepFreeze.ts"],"names":[],"mappings":"AAEA;;;;;;;;;;;;;GAaG;AACH,QAAA,MAAM,UAAU,uBAC2B,CAAC;AAE5C,OAAO,EAAE,UAAU,EAAE,CAAC"}
+{"version":3,"file":"deepFreeze.d.ts","sourceRoot":"","sources":["../../../../src/object/deepFreeze.ts"],"names":[],"mappings":"AAEA;;;;;;;;;;;;;GAaG;AACH,QAAA,MAAM,UAAU,WAAY,GAAG,KAAG,IACS,CAAC;AAE5C,OAAO,EAAE,UAAU,EAAE,CAAC"}

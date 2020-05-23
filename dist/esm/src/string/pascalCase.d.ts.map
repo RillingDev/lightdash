@@ -1,1 +1,1 @@
-{"version":3,"file":"pascalCase.d.ts","sourceRoot":"","sources":["../../../../src/string/pascalCase.ts"],"names":[],"mappings":"AAEA;;;;;;;;;;;;;GAaG;AACH,QAAA,MAAM,UAAU,yBAAsD,CAAC;AAEvE,OAAO,EAAE,UAAU,EAAE,CAAC"}
+{"version":3,"file":"pascalCase.d.ts","sourceRoot":"","sources":["../../../../src/string/pascalCase.ts"],"names":[],"mappings":"AAEA;;;;;;;;;;;;;GAaG;AACH,QAAA,MAAM,UAAU,QAAS,MAAM,KAAG,MAAoC,CAAC;AAEvE,OAAO,EAAE,UAAU,EAAE,CAAC"}
