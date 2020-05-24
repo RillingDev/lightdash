@@ -2768,6 +2768,9 @@ img {
 		<li class=" tsd-kind-function tsd-has-type-parameter">
 			<a href="globals.html#tomap" class="tsd-kind-icon">to<wbr>Map</a>
 		</li>
+		<li class=" tsd-kind-function tsd-has-type-parameter">
+			<a href="globals.html#tomapby" class="tsd-kind-icon">to<wbr>Map<wbr>By</a>
+		</li>
 	</ul>
 </nav>
 <div class="container container-main">
@@ -2870,6 +2873,7 @@ groupMapBy([<span class="hljs-number">1</span>, <span class="hljs-number">2</spa
 						<h3>Lang Functions</h3>
 						<ul class="tsd-index-list">
 							<li class="tsd-kind-function tsd-has-type-parameter"><a href="globals.html#tomap" class="tsd-kind-icon">to<wbr>Map</a></li>
+							<li class="tsd-kind-function tsd-has-type-parameter"><a href="globals.html#tomapby" class="tsd-kind-icon">to<wbr>Map<wbr>By</a></li>
 						</ul>
 						<h3>Object Functions</h3>
 						<ul class="tsd-index-list">
@@ -3421,13 +3425,13 @@ groupMapBy([<span class="hljs-number">1</span>, <span class="hljs-number">2</spa
 				<a name="tomap" class="tsd-anchor"></a>
 				<h3><span class="tsd-flag ts-flagConst">Const</span> to<wbr>Map</h3>
 				<ul class="tsd-signatures tsd-kind-function tsd-has-type-parameter">
-					<li class="tsd-signature tsd-kind-icon">to<wbr>Map&lt;TValue, UKey, VInitialValue&gt;<span class="tsd-signature-symbol">(</span>object<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Dictionary</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">VInitialValue</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">NumericDictionary</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">VInitialValue</span><span class="tsd-signature-symbol">&gt;</span>, keyMapper<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-symbol">(</span>key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">PropertyKey</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">UKey</span>, valueMapper<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">VInitialValue</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">TValue</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Map</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">UKey</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">TValue</span><span class="tsd-signature-symbol">&gt;</span></li>
+					<li class="tsd-signature tsd-kind-icon">to<wbr>Map&lt;TValue&gt;<span class="tsd-signature-symbol">(</span>object<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Dictionary</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">TValue</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">NumericDictionary</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">TValue</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Map</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">TValue</span><span class="tsd-signature-symbol">&gt;</span></li>
 				</ul>
 				<ul class="tsd-descriptions">
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in lang/toMap.ts:19</li>
+								<li>Defined in lang/toMap.ts:14</li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -3441,7 +3445,54 @@ groupMapBy([<span class="hljs-number">1</span>, <span class="hljs-number">2</spa
 								<dt>example</dt>
 								<dd><p>toMap({a: 1, b: 4, c: 5})
 									// =&gt; Map{&quot;a&quot;: 1, &quot;b&quot;: 4, &quot;c&quot;: 5}</p>
-									<p>toMap({a: 1, b: 4, c: 5}, key =&gt; { return { key }; }, value =&gt; value * 2)
+								</dd>
+							</dl>
+						</div>
+						<h4 class="tsd-type-parameters-title">Type parameters</h4>
+						<ul class="tsd-type-parameters">
+							<li>
+								<h4>TValue</h4>
+							</li>
+						</ul>
+						<h4 class="tsd-parameters-title">Parameters</h4>
+						<ul class="tsd-parameters">
+							<li>
+								<h5>object: <span class="tsd-signature-type">Dictionary</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">TValue</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">NumericDictionary</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">TValue</span><span class="tsd-signature-symbol">&gt;</span></h5>
+								<div class="tsd-comment tsd-typography">
+									<div class="lead">
+										<p>Object to use.</p>
+									</div>
+								</div>
+							</li>
+						</ul>
+						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Map</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">TValue</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						<p>Map created from the object.</p>
+					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel tsd-member tsd-kind-function tsd-has-type-parameter">
+				<a name="tomapby" class="tsd-anchor"></a>
+				<h3><span class="tsd-flag ts-flagConst">Const</span> to<wbr>Map<wbr>By</h3>
+				<ul class="tsd-signatures tsd-kind-function tsd-has-type-parameter">
+					<li class="tsd-signature tsd-kind-icon">to<wbr>Map<wbr>By&lt;TValue, UKey, VInitialValue&gt;<span class="tsd-signature-symbol">(</span>object<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Dictionary</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">VInitialValue</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">NumericDictionary</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">VInitialValue</span><span class="tsd-signature-symbol">&gt;</span>, keyMapper<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, val<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">VInitialValue</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">UKey</span>, valueMapper<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">VInitialValue</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">TValue</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Map</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">UKey</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">TValue</span><span class="tsd-signature-symbol">&gt;</span></li>
+				</ul>
+				<ul class="tsd-descriptions">
+					<li class="tsd-description">
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in lang/toMapBy.ts:16</li>
+							</ul>
+						</aside>
+						<div class="tsd-comment tsd-typography">
+							<div class="lead">
+								<p>Creates a map from an objects entries, mapping the keys and values.</p>
+							</div>
+							<dl class="tsd-comment-tags">
+								<dt>since</dt>
+								<dd><p>13.0.0</p>
+								</dd>
+								<dt>example</dt>
+								<dd><p>toMap({a: 1, b: 4, c: 5}, key =&gt; { return { key }; }, value =&gt; value * 2)
 									// =&gt; Map{{key: &quot;a&quot;}: 2, {key: &quot;b&quot;}: 8, {key: &quot;a&quot;}: 10}</p>
 								</dd>
 							</dl>
@@ -3469,23 +3520,26 @@ groupMapBy([<span class="hljs-number">1</span>, <span class="hljs-number">2</spa
 								</div>
 							</li>
 							<li>
-								<h5><span class="tsd-flag ts-flagDefault value">Default value</span> keyMapper: <span class="tsd-signature-symbol">(</span>key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">PropertyKey</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">UKey</span><span class="tsd-signature-symbol"> = identity</span></h5>
+								<h5>keyMapper: <span class="tsd-signature-symbol">(</span>key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, val<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">VInitialValue</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">UKey</span></h5>
 								<div class="tsd-comment tsd-typography">
 									<div class="lead">
-										<p>Function mapping keys, defaulting to identity.</p>
+										<p>Function mapping keys.</p>
 									</div>
 								</div>
 								<ul class="tsd-parameters">
 									<li class="tsd-parameter-signature">
 										<ul class="tsd-signatures tsd-kind-type-literal">
-											<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">PropertyKey</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">UKey</span></li>
+											<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, val<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">VInitialValue</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">UKey</span></li>
 										</ul>
 										<ul class="tsd-descriptions">
 											<li class="tsd-description">
 												<h4 class="tsd-parameters-title">Parameters</h4>
 												<ul class="tsd-parameters">
 													<li>
-														<h5>key: <span class="tsd-signature-type">PropertyKey</span></h5>
+														<h5>key: <span class="tsd-signature-type">string</span></h5>
+													</li>
+													<li>
+														<h5>val: <span class="tsd-signature-type">VInitialValue</span></h5>
 													</li>
 												</ul>
 												<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">UKey</span></h4>
@@ -3495,21 +3549,24 @@ groupMapBy([<span class="hljs-number">1</span>, <span class="hljs-number">2</spa
 								</ul>
 							</li>
 							<li>
-								<h5><span class="tsd-flag ts-flagDefault value">Default value</span> valueMapper: <span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">VInitialValue</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">TValue</span><span class="tsd-signature-symbol"> = identity</span></h5>
+								<h5>valueMapper: <span class="tsd-signature-symbol">(</span>key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">VInitialValue</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">TValue</span></h5>
 								<div class="tsd-comment tsd-typography">
 									<div class="lead">
-										<p>Function mapping values, defaulting to identity.</p>
+										<p>Function mapping values.</p>
 									</div>
 								</div>
 								<ul class="tsd-parameters">
 									<li class="tsd-parameter-signature">
 										<ul class="tsd-signatures tsd-kind-type-literal">
-											<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">VInitialValue</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">TValue</span></li>
+											<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">VInitialValue</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">TValue</span></li>
 										</ul>
 										<ul class="tsd-descriptions">
 											<li class="tsd-description">
 												<h4 class="tsd-parameters-title">Parameters</h4>
 												<ul class="tsd-parameters">
+													<li>
+														<h5>key: <span class="tsd-signature-type">string</span></h5>
+													</li>
 													<li>
 														<h5>value: <span class="tsd-signature-type">VInitialValue</span></h5>
 													</li>

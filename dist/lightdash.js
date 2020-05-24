@@ -42,17 +42,30 @@ var l_ = (function (exports, lodash) {
      * @since 1.0.0
      * @category Lang
      * @param object Object to use.
-     * @param keyMapper Function mapping keys, defaulting to identity.
-     * @param valueMapper Function mapping values, defaulting to identity.
      * @returns Map created from the object.
      * @example
      * toMap({a: 1, b: 4, c: 5})
      * // => Map{"a": 1, "b": 4, "c": 5}
+     */
+    const toMap = (object) => new Map(lodash.toPairs(object));
+
+    /**
+     * Creates a map from an objects entries, mapping the keys and values.
      *
+     * @since 13.0.0
+     * @category Lang
+     * @param object Object to use.
+     * @param keyMapper Function mapping keys.
+     * @param valueMapper Function mapping values.
+     * @returns Map created from the object.
+     * @example
      * toMap({a: 1, b: 4, c: 5}, key => { return { key }; }, value => value * 2)
      * // => Map{{key: "a"}: 2, {key: "b"}: 8, {key: "a"}: 10}
      */
-    const toMap = (object, keyMapper = lodash.identity, valueMapper = lodash.identity) => new Map(lodash.toPairs(object).map(([key, val]) => [keyMapper(key), valueMapper(val)]));
+    const toMapBy = (object, keyMapper, valueMapper) => new Map(lodash.toPairs(object).map(([key, val]) => [
+        keyMapper(key, val),
+        valueMapper(key, val),
+    ]));
 
     /**
      * Returns the levenshtein string distance of two strings.
@@ -411,6 +424,7 @@ var l_ = (function (exports, lodash) {
     exports.similar = similar;
     exports.step = step;
     exports.toMap = toMap;
+    exports.toMapBy = toMapBy;
 
     return exports;
 
