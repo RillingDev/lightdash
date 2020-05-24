@@ -16,10 +16,10 @@
  * // => ["foo", "bar", "fizz"]
  */
 const insert = <TValue, UKey>(
-    collection: Array<TValue>,
+    collection: TValue[],
     index: number,
     ...values: TValue[]
-): Array<TValue> => {
+): TValue[] => {
     collection.splice(index, 0, ...values);
     return collection;
 };

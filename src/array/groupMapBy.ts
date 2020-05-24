@@ -8,7 +8,7 @@ import { groupMapReducingBy } from "./groupMapReducingBy";
  * @since 6.1.0
  * @category Array
  * @param collection Collection to group.
- * @param keyFn Function to use for grouping.
+ * @param keyMapper Function to use for grouping.
  * @returns Grouped map.
  * @example
  * groupMapBy([1, 2, 3, 4, 5], val => val % 2)
@@ -16,11 +16,11 @@ import { groupMapReducingBy } from "./groupMapReducingBy";
  */
 const groupMapBy = <TValue, UKey>(
     collection: List<TValue>,
-    keyFn: ListIterator<TValue, UKey>
+    keyMapper: ListIterator<TValue, UKey>
 ): Map<UKey, TValue[]> =>
     groupMapReducingBy(
         collection,
-        keyFn,
+        keyMapper,
         () => <TValue[]>[],
         (current, value) => concat(current, value)
     );
