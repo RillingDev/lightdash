@@ -142,7 +142,7 @@ const pascalCase = (str) => lodash.upperFirst(lodash.camelCase(str));
  * @since 11.0.0
  * @category Array
  * @param collection Collection to group.
- * @param keyProducer Function returning the key for the value.
+ * @param keyMapper Function returning the key for the value.
  * @param initializer Function initializing a new mergable object.
  * @param reducer Consumer mutating the existing object with the new data.
  * @returns Grouped and merged map.
@@ -164,10 +164,10 @@ const pascalCase = (str) => lodash.upperFirst(lodash.camelCase(str));
  * )
  * // => Map{"f": {count: 2, matches: ["foo", "fizz"]}, "b": {count: 2, matches: ["bar", "buzz"]}}
  */
-const groupMapReducingBy = (collection, keyProducer, initializer, reducer) => {
+const groupMapReducingBy = (collection, keyMapper, initializer, reducer) => {
     const result = new Map();
     lodash.forEach(collection, (value, index) => {
-        const key = keyProducer(value, index, collection);
+        const key = keyMapper(value, index, collection);
         if (!result.has(key)) {
             result.set(key, initializer(value, index, collection));
         }
@@ -183,13 +183,13 @@ const groupMapReducingBy = (collection, keyProducer, initializer, reducer) => {
  * @since 6.1.0
  * @category Array
  * @param collection Collection to group.
- * @param keyFn Function to use for grouping.
+ * @param keyMapper Function to use for grouping.
  * @returns Grouped map.
  * @example
  * groupMapBy([1, 2, 3, 4, 5], val => val % 2)
  * // => Map{0: [2, 4], 1: [1, 3, 5]}
  */
-const groupMapBy = (collection, keyFn) => groupMapReducingBy(collection, keyFn, () => [], (current, value) => lodash.concat(current, value));
+const groupMapBy = (collection, keyMapper) => groupMapReducingBy(collection, keyMapper, () => [], (current, value) => lodash.concat(current, value));
 
 /**
  * Returns strings similar to the input based its levenshtein distance to the values in the list given.
@@ -253,13 +253,13 @@ const matchAll = (str, pattern) => {
  * @since 12.0.0
  * @category Array
  * @param collection Collection to count.
- * @param keyFn Function to use for key generation.
+ * @param keyMapper Function to use for key generation.
  * @returns Count map.
  * @example
  * countMapBy([1, 2, 4, 2, 4, 4], val => val)
  * // => Map{1: 1, 2: 2, 4: 3}
  */
-const countMapBy = (collection, keyFn) => groupMapReducingBy(collection, keyFn, () => 0, (current) => current + 1);
+const countMapBy = (collection, keyMapper) => groupMapReducingBy(collection, keyMapper, () => 0, (current) => current + 1);
 
 /**
  * Removes the first occurrence of an element from an array.
@@ -326,7 +326,7 @@ const insert = (collection, index, ...values) => {
  * Otherwise null is returned.
  *
  * @since 10.2.0
- * @category Object
+ * @category Lang
  * @param value Value to check.
  * @returns The name of the value.
  * @example

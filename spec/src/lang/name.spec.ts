@@ -1,4 +1,4 @@
-import { name } from "../../../src/object/name";
+import { name } from "../../../src/lang/name";
 
 describe("name", () => {
     it("gets name of class", () => {

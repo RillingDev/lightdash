@@ -6,12 +6,12 @@ import { List, ListIterator } from "lodash";
  * @since 12.0.0
  * @category Array
  * @param collection Collection to count.
- * @param keyFn Function to use for key generation.
+ * @param keyMapper Function to use for key generation.
  * @returns Count map.
  * @example
  * countMapBy([1, 2, 4, 2, 4, 4], val => val)
  * // => Map{1: 1, 2: 2, 4: 3}
  */
-declare const countMapBy: <TValue, UKey>(collection: List<TValue>, keyFn: ListIterator<TValue, UKey>) => Map<UKey, number>;
+declare const countMapBy: <TValue, UKey>(collection: List<TValue>, keyMapper: ListIterator<TValue, UKey>) => Map<UKey, number>;
 export { countMapBy };
 //# sourceMappingURL=countMapBy.d.ts.map

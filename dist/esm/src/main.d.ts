@@ -12,7 +12,7 @@ export { countMapBy } from "./array/countMapBy";
 export { pullFirst } from "./array/pullFirst";
 export { step } from "./array/step";
 export { insert } from "./array/insert";
-export { name } from "./object/name";
+export { name } from "./lang/name";
 export { deepFreeze } from "./object/deepFreeze";
 export { deepSeal } from "./object/deepSeal";
 //# sourceMappingURL=main.d.ts.map

@@ -15,7 +15,7 @@ interface AnyObject {
  * Otherwise null is returned.
  *
  * @since 10.2.0
- * @category Object
+ * @category Lang
  * @param value Value to check.
  * @returns The name of the value.
  * @example
