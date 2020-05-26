@@ -8,8 +8,8 @@ describe("name", () => {
         // eslint-disable-next-line @typescript-eslint/no-empty-function
         expect(name(function bar() {})).toBe("bar");
     });
-    it("gets name of symbol", () => {
-        expect(name(Symbol("abc"))).toBe("abc");
+    it("gets key of symbol", () => {
+        expect(name(Symbol.for("abc"))).toBe("abc");
     });
     it("gets name of string", () => {
         expect(name("foo")).toBe("foo");

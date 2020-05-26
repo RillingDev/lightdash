@@ -1,16 +1,10 @@
-import { isObject, isString, isSymbol } from "lodash";
-
-/**
- * @private
- */
-interface AnyObject {
-    [key: string]: any;
-}
+import { isFunction, isString, isSymbol } from "lodash";
 
 /**
  * Gets name of a value.
  *
- * If the value has a name or description property, the value of that is returned.
+ * If the value is a function, its name is returned.
+ * If the value is a symbol, its key is returned.
  * If the value is a string, it is returned as is.
  * Otherwise null is returned.
  *
@@ -25,7 +19,7 @@ interface AnyObject {
  * name(function bar(){})
  * // => "bar"
  *
- * name(Symbol("abc"))
+ * name(Symbol.for("abc"))
  * // => "abc"
  *
  * name("foo")
@@ -38,11 +32,11 @@ const name = (value: any): string | null => {
     if (isString(value)) {
         return value;
     }
-    if (isObject(value) && isString((<AnyObject>value).name)) {
-        return (<AnyObject>value).name;
+    if (isSymbol(value)) {
+        return Symbol.keyFor(value as symbol) ?? null;
     }
-    if (isSymbol(value) && isString(value.description)) {
-        return value.description;
+    if (isFunction(value)) {
+        return value.name;
     }
 
     return null;
