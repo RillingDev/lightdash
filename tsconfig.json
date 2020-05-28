@@ -12,9 +12,7 @@
         "emitDecoratorMetadata": true
     },
     "include": [],
-    "exclude": [
-        "node_modules"
-    ],
+    "exclude": ["node_modules"],
     "references": [
         {
             "path": "./src/tsconfig.json"

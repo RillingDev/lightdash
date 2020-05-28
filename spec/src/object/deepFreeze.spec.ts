@@ -13,7 +13,7 @@ describe("deepFreeze", () => {
     });
 
     it("works with circular refs", () => {
-        const a = { b: <object | null>null };
+        const a = { b: null as object | null };
         a.b = { a: a };
 
         deepFreeze(a);

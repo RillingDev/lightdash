@@ -3432,14 +3432,15 @@ groupMapBy([<span class="hljs-number">1</span>, <span class="hljs-number">2</spa
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in lang/name.ts:37</li>
+								<li>Defined in lang/name.ts:31</li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
 							<div class="lead">
 								<p>Gets name of a value.</p>
 							</div>
-							<p>If the value has a name or description property, the value of that is returned.
+							<p>If the value is a function, its name is returned.
+								If the value is a symbol, its key is returned.
 								If the value is a string, it is returned as is.
 							Otherwise null is returned.</p>
 							<dl class="tsd-comment-tags">
@@ -3451,7 +3452,7 @@ groupMapBy([<span class="hljs-number">1</span>, <span class="hljs-number">2</spa
 									// =&gt; &quot;Foo&quot;</p>
 									<p>name(function bar(){})
 									// =&gt; &quot;bar&quot;</p>
-									<p>name(Symbol(&quot;abc&quot;))
+									<p>name(Symbol.for(&quot;abc&quot;))
 									// =&gt; &quot;abc&quot;</p>
 									<p>name(&quot;foo&quot;)
 									// =&gt; &quot;foo&quot;</p>

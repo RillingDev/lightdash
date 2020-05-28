@@ -1,8 +1,9 @@
-import { isObject, isString, isSymbol } from "lodash";
+import { isFunction, isString, isSymbol } from "lodash";
 /**
  * Gets name of a value.
  *
- * If the value has a name or description property, the value of that is returned.
+ * If the value is a function, its name is returned.
+ * If the value is a symbol, its key is returned.
  * If the value is a string, it is returned as is.
  * Otherwise null is returned.
  *
@@ -17,7 +18,7 @@ import { isObject, isString, isSymbol } from "lodash";
  * name(function bar(){})
  * // => "bar"
  *
- * name(Symbol("abc"))
+ * name(Symbol.for("abc"))
  * // => "abc"
  *
  * name("foo")
@@ -27,14 +28,15 @@ import { isObject, isString, isSymbol } from "lodash";
  * // => null
  */
 const name = (value) => {
+    var _a;
     if (isString(value)) {
         return value;
     }
-    if (isObject(value) && isString(value.name)) {
-        return value.name;
+    if (isSymbol(value)) {
+        return (_a = Symbol.keyFor(value)) !== null && _a !== void 0 ? _a : null;
     }
-    if (isSymbol(value) && isString(value.description)) {
-        return value.description;
+    if (isFunction(value)) {
+        return value.name;
     }
     return null;
 };

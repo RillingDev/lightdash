@@ -21,7 +21,7 @@ const groupMapBy = <TValue, UKey>(
     groupMapReducingBy(
         collection,
         keyMapper,
-        () => <TValue[]>[],
+        () => [] as TValue[],
         (current, value) => concat(current, value)
     );
 

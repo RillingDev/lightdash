@@ -9,7 +9,7 @@ describe("groupMapReducingBy", () => {
                 () => {
                     return {
                         count: 0,
-                        matches: <string[]>[],
+                        matches: [] as string[],
                     };
                 },
                 (current, val) => {
