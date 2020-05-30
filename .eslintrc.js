@@ -8,7 +8,7 @@ module.exports = {
         sourceType: "module",
     },
     env: {
-        "es6": true,
+        es6: true,
         "shared-node-browser": true,
     },
     plugins: ["import", "@typescript-eslint", "prettier"],
@@ -31,7 +31,7 @@ module.exports = {
         "consistent-return": "warn",
         "no-implicit-coercion": "warn",
         "no-dupe-else-if": "warn",
-        "radix": "warn",
+        radix: "warn",
 
         "prettier/prettier": "warn",
 
@@ -51,31 +51,6 @@ module.exports = {
         "@typescript-eslint/no-throw-literal": "error",
         "@typescript-eslint/no-dynamic-delete": "error",
         "@typescript-eslint/no-implied-eval": "error",
-        "@typescript-eslint/naming-convention": [
-            "warn",
-            { selector: "default", format: ["strictCamelCase"] },
-            { selector: "class", format: ["StrictPascalCase"] },
-            {
-                selector: "interface",
-                format: ["StrictPascalCase"],
-                custom: {
-                    regex: "^I[A-Z]",
-                    match: false,
-                },
-            },
-            { selector: "typeAlias", format: ["StrictPascalCase"] },
-            {
-                selector: "typeParameter",
-                format: ["PascalCase"],
-                custom: {
-                    regex: "^[A-Z][A-Z]",
-                    match: true,
-                },
-            },
-            { selector: "enum", format: ["StrictPascalCase"] },
-            { selector: "enumMember", format: ["UPPER_CASE"] },
-            { selector: "variable", format: ["strictCamelCase", "UPPER_CASE"] },
-        ],
         "@typescript-eslint/consistent-type-assertions": [
             "warn",
             {
@@ -95,6 +70,41 @@ module.exports = {
         "@typescript-eslint/prefer-nullish-coalescing": "warn",
         "@typescript-eslint/prefer-optional-chain": "warn",
         "@typescript-eslint/prefer-readonly": "warn",
+        "@typescript-eslint/naming-convention": [
+            "warn",
+            {
+                selector: "default",
+                format: ["strictCamelCase"],
+                leadingUnderscore: "forbid",
+                trailingUnderscore: "forbid",
+            },
+            { selector: "variable", format: ["strictCamelCase", "UPPER_CASE"] },
+            {
+                selector: "property",
+                format: ["strictCamelCase", "StrictPascalCase"],
+            },
+            {
+                selector: "property",
+                modifiers: ["static"],
+                format: ["UPPER_CASE"],
+            },
+            { selector: "typeAlias", format: ["StrictPascalCase"] },
+            {
+                selector: "typeParameter",
+                format: ["PascalCase"], // Allow "T", "TValue", "Value" and such
+            },
+            {
+                selector: "interface",
+                format: ["StrictPascalCase"],
+                custom: {
+                    regex: "^I[A-Z]",
+                    match: false,
+                },
+            },
+            { selector: "class", format: ["StrictPascalCase"] },
+            { selector: "enum", format: ["StrictPascalCase"] },
+            { selector: "enumMember", format: ["UPPER_CASE"] },
+        ],
         "@typescript-eslint/ban-types": [
             "warn",
             {
