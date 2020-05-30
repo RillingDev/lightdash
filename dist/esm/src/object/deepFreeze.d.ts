@@ -5,13 +5,13 @@
  *
  * @since 12.0.0
  * @category Object
- * @param target Object to recursively freeze.
+ * @param object Object to recursively freeze.
  * @example
  * const a = {a: {b: 2}, b: [1, {foo: "foo"}], c: 2};
  *
  * deepFreeze(a)
  * // => object and all sub-objects are frozen.
  */
-declare const deepFreeze: (target: object) => void;
+declare const deepFreeze: (object: object) => void;
 export { deepFreeze };
 //# sourceMappingURL=deepFreeze.d.ts.map

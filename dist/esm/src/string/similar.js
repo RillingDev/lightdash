@@ -5,8 +5,8 @@ import { distance } from "./distance";
  *
  * @since 6.3.0
  * @category String
- * @param str String to check.
- * @param collection Array of values to compare the string to.
+ * @param string String to check.
+ * @param array Array of values to compare the string to.
  * @param returnFull If the full map should be returned, rather than just the closest matches.
  * @returns Array of the closest matches, or the map if `returnFull` is true.
  * @example
@@ -22,8 +22,8 @@ import { distance } from "./distance";
  * similar("cmmit", ["init", "commit", "push"], true)
  * // => Map<number, string[]>{1: ["commit"], 3: ["init"], 5: ["push"]}
  */
-const similar = (str, collection, returnFull = false) => {
-    const result = groupMapBy(collection, (value) => distance(str, value));
+const similar = (string, array, returnFull = false) => {
+    const result = groupMapBy(array, (value) => distance(string, value));
     if (returnFull) {
         return result;
     }

@@ -3,7 +3,7 @@
  *
  * @since 11.0.0
  * @category String
- * @param str String to match against.
+ * @param string String to match against.
  * @param pattern SRegex pattern to match.
  * @returns Array of all matches.
  * @example
@@ -13,6 +13,6 @@
  * matchAll("Kitten", /f/g)
  * // => []
  */
-declare const matchAll: (str: string, pattern: RegExp) => RegExpExecArray[];
+declare const matchAll: (string: string, pattern: RegExp) => RegExpExecArray[];
 export { matchAll };
 //# sourceMappingURL=matchAll.d.ts.map

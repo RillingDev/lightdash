@@ -4,7 +4,7 @@ import { List, ListIterator } from "lodash";
  *
  * @since 11.0.0
  * @category Array
- * @param collection Collection to group.
+ * @param array Array to group.
  * @param keyMapper Function returning the key for the value.
  * @param initializer Function initializing a new mergable object.
  * @param reducer Consumer mutating the existing object with the new data.
@@ -27,6 +27,6 @@ import { List, ListIterator } from "lodash";
  * )
  * // => Map{"f": {count: 2, matches: ["foo", "fizz"]}, "b": {count: 2, matches: ["bar", "buzz"]}}
  */
-declare const groupMapReducingBy: <TValue, UKey, VMerged>(collection: List<TValue>, keyMapper: ListIterator<TValue, UKey>, initializer: ListIterator<TValue, VMerged>, reducer: (current: VMerged, value: TValue, index: number, collection: List<TValue>) => VMerged) => Map<UKey, VMerged>;
+declare const groupMapReducingBy: <TValue, UKey, VMerged>(array: List<TValue>, keyMapper: ListIterator<TValue, UKey>, initializer: ListIterator<TValue, VMerged>, reducer: (current: VMerged, value: TValue, index: number, collection: List<TValue>) => VMerged) => Map<UKey, VMerged>;
 export { groupMapReducingBy };
 //# sourceMappingURL=groupMapReducingBy.d.ts.map

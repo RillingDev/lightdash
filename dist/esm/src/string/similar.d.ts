@@ -4,8 +4,8 @@ import { List } from "lodash";
  *
  * @since 6.3.0
  * @category String
- * @param str String to check.
- * @param collection Array of values to compare the string to.
+ * @param string String to check.
+ * @param array Array of values to compare the string to.
  * @param returnFull If the full map should be returned, rather than just the closest matches.
  * @returns Array of the closest matches, or the map if `returnFull` is true.
  * @example
@@ -21,6 +21,6 @@ import { List } from "lodash";
  * similar("cmmit", ["init", "commit", "push"], true)
  * // => Map<number, string[]>{1: ["commit"], 3: ["init"], 5: ["push"]}
  */
-declare const similar: (str: string, collection: List<string>, returnFull?: boolean) => List<string> | Map<number, List<string>>;
+declare const similar: (string: string, array: List<string>, returnFull?: boolean) => List<string> | Map<number, List<string>>;
 export { similar };
 //# sourceMappingURL=similar.d.ts.map

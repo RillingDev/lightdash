@@ -1,1 +1,1 @@
-{"version":3,"file":"pullFirst.d.ts","sourceRoot":"","sources":["../../../../src/array/pullFirst.ts"],"names":[],"mappings":"AAAA,OAAO,EAAW,IAAI,EAAU,MAAM,QAAQ,CAAC;AAE/C;;;;;;;;;;;;;;GAcG;AACH,QAAA,MAAM,SAAS,yEAOd,CAAC;AAEF,OAAO,EAAE,SAAS,EAAE,CAAC"}
+{"version":3,"file":"pullFirst.d.ts","sourceRoot":"","sources":["../../../../src/array/pullFirst.ts"],"names":[],"mappings":"AAAA,OAAO,EAAW,IAAI,EAAU,MAAM,QAAQ,CAAC;AAE/C;;;;;;;;;;;;;;GAcG;AACH,QAAA,MAAM,SAAS,8DAOd,CAAC;AAEF,OAAO,EAAE,SAAS,EAAE,CAAC"}

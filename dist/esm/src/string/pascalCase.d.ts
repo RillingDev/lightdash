@@ -3,7 +3,7 @@
  *
  * @since 6.2.0
  * @category String
- * @param str String to use.
+ * @param string String to use.
  * @returns PascalCase string of the input string.
  * @example
  * pascalCase("fooBar")
@@ -12,6 +12,6 @@
  * pascalCase("__foo_bar__")
  * // => "FizzBuzzBazz"
  */
-declare const pascalCase: (str: string) => string;
+declare const pascalCase: (string: string) => string;
 export { pascalCase };
 //# sourceMappingURL=pascalCase.d.ts.map

@@ -7,14 +7,17 @@
  *
  * @since 12.1.0
  * @category Array
- * @param collection Collection to insert to.
+ * @param array Array to insertAt to.
  * @param index Index to start inserting.
- * @param values Value(s) to insert.
+ * @param values Value(s) to insertAt.
  * @returns Collection.
  * @example
- * insert(["foo", "fizz"], 1, "bar")
+ * insertAt(["foo", "fizz"], 1, "bar")
  * // => ["foo", "bar", "fizz"]
  */
-declare const insert: <TValue, UKey>(collection: TValue[], index: number, ...values: TValue[]) => TValue[];
-export { insert };
-//# sourceMappingURL=insert.d.ts.map
+const insertAt = (array, index, ...values) => {
+    array.splice(index, 0, ...values);
+    return array;
+};
+export { insertAt };
+//# sourceMappingURL=insertAt.js.map

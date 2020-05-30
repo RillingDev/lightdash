@@ -9,7 +9,7 @@ var lodash = require('lodash');
  *
  * @since 11.0.0
  * @category Is
- * @param str String to use.
+ * @param string String to use.
  * @returns If the file is blank.
  * @example
  * isBlank("")
@@ -21,7 +21,7 @@ var lodash = require('lodash');
  * isBlank(" foo ")
  * // => false
  */
-const isBlank = (str) => lodash.isEmpty(str.trim());
+const isBlank = (string) => lodash.isEmpty(string.trim());
 
 /**
  * Checks if a value is a promise.
@@ -75,8 +75,8 @@ const toMapBy = (object, keyMapper, valueMapper) => new Map(lodash.toPairs(objec
  *
  * @since 6.3.0
  * @category String
- * @param str1 First string to compare.
- * @param str2 Second string to compare.
+ * @param string1 First string to compare.
+ * @param string2 Second string to compare.
  * @returns Distance between the two strings.
  * @example
  * distance("Kitten", "Sitting")
@@ -88,25 +88,25 @@ const toMapBy = (object, keyMapper, valueMapper) => new Map(lodash.toPairs(objec
  * distance("foo", "foo")
  * // => 0
  */
-const distance = (str1, str2) => {
-    if (str1.length === 0) {
-        return str2.length;
+const distance = (string1, string2) => {
+    if (string1.length === 0) {
+        return string2.length;
     }
-    if (str2.length === 0) {
-        return str1.length;
+    if (string2.length === 0) {
+        return string1.length;
     }
     const matrix = [];
-    for (let y = 0; y <= str2.length; y++) {
+    for (let y = 0; y <= string2.length; y++) {
         matrix[y] = [y];
     }
-    for (let x = 0; x <= str1.length; x++) {
+    for (let x = 0; x <= string1.length; x++) {
         matrix[0][x] = x;
     }
-    for (let y = 1; y <= str2.length; y++) {
+    for (let y = 1; y <= string2.length; y++) {
         const matrixColumnCurrent = matrix[y];
         const matrixColumnLast = matrix[y - 1];
-        for (let x = 1; x <= str1.length; x++) {
-            if (str2.charAt(y - 1) === str1.charAt(x - 1)) {
+        for (let x = 1; x <= string1.length; x++) {
+            if (string2.charAt(y - 1) === string1.charAt(x - 1)) {
                 matrixColumnCurrent[x] = matrixColumnLast[x - 1];
             }
             else {
@@ -117,7 +117,7 @@ const distance = (str1, str2) => {
             }
         }
     }
-    return matrix[str2.length][str1.length];
+    return matrix[string2.length][string1.length];
 };
 
 /**
@@ -125,7 +125,7 @@ const distance = (str1, str2) => {
  *
  * @since 6.2.0
  * @category String
- * @param str String to use.
+ * @param string String to use.
  * @returns PascalCase string of the input string.
  * @example
  * pascalCase("fooBar")
@@ -134,14 +134,14 @@ const distance = (str1, str2) => {
  * pascalCase("__foo_bar__")
  * // => "FizzBuzzBazz"
  */
-const pascalCase = (str) => lodash.upperFirst(lodash.camelCase(str));
+const pascalCase = (string) => lodash.upperFirst(lodash.camelCase(string));
 
 /**
  * Collects elements in an array into a an array of merged elements.
  *
  * @since 11.0.0
  * @category Array
- * @param collection Collection to group.
+ * @param array Array to group.
  * @param keyMapper Function returning the key for the value.
  * @param initializer Function initializing a new mergable object.
  * @param reducer Consumer mutating the existing object with the new data.
@@ -164,14 +164,14 @@ const pascalCase = (str) => lodash.upperFirst(lodash.camelCase(str));
  * )
  * // => Map{"f": {count: 2, matches: ["foo", "fizz"]}, "b": {count: 2, matches: ["bar", "buzz"]}}
  */
-const groupMapReducingBy = (collection, keyMapper, initializer, reducer) => {
+const groupMapReducingBy = (array, keyMapper, initializer, reducer) => {
     const result = new Map();
-    lodash.forEach(collection, (value, index) => {
-        const key = keyMapper(value, index, collection);
+    lodash.forEach(array, (value, index) => {
+        const key = keyMapper(value, index, array);
         if (!result.has(key)) {
-            result.set(key, initializer(value, index, collection));
+            result.set(key, initializer(value, index, array));
         }
-        result.set(key, reducer(result.get(key), value, index, collection));
+        result.set(key, reducer(result.get(key), value, index, array));
     });
     return result;
 };
@@ -182,22 +182,22 @@ const groupMapReducingBy = (collection, keyMapper, initializer, reducer) => {
  *
  * @since 6.1.0
  * @category Array
- * @param collection Collection to group.
+ * @param array Array to group.
  * @param keyMapper Function to use for grouping.
  * @returns Grouped map.
  * @example
  * groupMapBy([1, 2, 3, 4, 5], val => val % 2)
  * // => Map{0: [2, 4], 1: [1, 3, 5]}
  */
-const groupMapBy = (collection, keyMapper) => groupMapReducingBy(collection, keyMapper, () => [], (current, value) => lodash.concat(current, value));
+const groupMapBy = (array, keyMapper) => groupMapReducingBy(array, keyMapper, () => [], (current, value) => lodash.concat(current, value));
 
 /**
  * Returns strings similar to the input based its levenshtein distance to the values in the list given.
  *
  * @since 6.3.0
  * @category String
- * @param str String to check.
- * @param collection Array of values to compare the string to.
+ * @param string String to check.
+ * @param array Array of values to compare the string to.
  * @param returnFull If the full map should be returned, rather than just the closest matches.
  * @returns Array of the closest matches, or the map if `returnFull` is true.
  * @example
@@ -213,8 +213,8 @@ const groupMapBy = (collection, keyMapper) => groupMapReducingBy(collection, key
  * similar("cmmit", ["init", "commit", "push"], true)
  * // => Map<number, string[]>{1: ["commit"], 3: ["init"], 5: ["push"]}
  */
-const similar = (str, collection, returnFull = false) => {
-    const result = groupMapBy(collection, (value) => distance(str, value));
+const similar = (string, array, returnFull = false) => {
+    const result = groupMapBy(array, (value) => distance(string, value));
     if (returnFull) {
         return result;
     }
@@ -227,7 +227,7 @@ const similar = (str, collection, returnFull = false) => {
  *
  * @since 11.0.0
  * @category String
- * @param str String to match against.
+ * @param string String to match against.
  * @param pattern SRegex pattern to match.
  * @returns Array of all matches.
  * @example
@@ -237,10 +237,10 @@ const similar = (str, collection, returnFull = false) => {
  * matchAll("Kitten", /f/g)
  * // => []
  */
-const matchAll = (str, pattern) => {
+const matchAll = (string, pattern) => {
     const matches = [];
     let match;
-    while ((match = pattern.exec(str))) {
+    while ((match = pattern.exec(string))) {
         matches.push(match);
     }
     return matches;
@@ -252,14 +252,14 @@ const matchAll = (str, pattern) => {
  *
  * @since 12.0.0
  * @category Array
- * @param collection Collection to count.
+ * @param array Array to count.
  * @param keyMapper Function to use for key generation.
  * @returns Count map.
  * @example
  * countMapBy([1, 2, 4, 2, 4, 4], val => val)
  * // => Map{1: 1, 2: 2, 4: 3}
  */
-const countMapBy = (collection, keyMapper) => groupMapReducingBy(collection, keyMapper, () => 0, (current) => current + 1);
+const countMapBy = (array, keyMapper) => groupMapReducingBy(array, keyMapper, () => 0, (current) => current + 1);
 
 /**
  * Removes the first occurrence of an element from an array.
@@ -268,18 +268,18 @@ const countMapBy = (collection, keyMapper) => groupMapReducingBy(collection, key
  *
  * @since 2.8.0
  * @category Array
- * @param collection The array to modify.
- * @param targetValue The value to remove.
+ * @param array Array to modify.
+ * @param value The value to remove.
  * @returns The mutated collection.
  * @example
  * const a = ["foo", "bar", "fizz", "bar"];
  * removeItem(a, "bar")
  * // a equals ["foo", "fizz", "bar"]
  */
-const pullFirst = (collection, targetValue) => {
-    const targetIndex = lodash.indexOf(collection, targetValue);
-    lodash.remove(collection, (val, index) => index === targetIndex);
-    return collection;
+const pullFirst = (array, value) => {
+    const targetIndex = lodash.indexOf(array, value);
+    lodash.remove(array, (val, index) => index === targetIndex);
+    return array;
 };
 
 /**
@@ -287,14 +287,14 @@ const pullFirst = (collection, targetValue) => {
  *
  * @since 1.0.0
  * @category Array
- * @param collection Collection to use.
- * @param n Step to use.
+ * @param array Array to use.
+ * @param stepSize Step to use.
  * @returns Stepped collection.
  * @example
  * step([1, 2, 3, 4, 5, 6], 2)
  * // => [1, 3, 5]
  */
-const step = (collection, n) => lodash.filter(collection, (value, index) => index % n === 0);
+const step = (array, stepSize) => lodash.filter(array, (value, index) => index % stepSize === 0);
 
 /**
  * Inserts value(s) at the given position.
@@ -305,17 +305,17 @@ const step = (collection, n) => lodash.filter(collection, (value, index) => inde
  *
  * @since 12.1.0
  * @category Array
- * @param collection Collection to insert to.
+ * @param array Array to insertAt to.
  * @param index Index to start inserting.
- * @param values Value(s) to insert.
+ * @param values Value(s) to insertAt.
  * @returns Collection.
  * @example
- * insert(["foo", "fizz"], 1, "bar")
+ * insertAt(["foo", "fizz"], 1, "bar")
  * // => ["foo", "bar", "fizz"]
  */
-const insert = (collection, index, ...values) => {
-    collection.splice(index, 0, ...values);
-    return collection;
+const insertAt = (array, index, ...values) => {
+    array.splice(index, 0, ...values);
+    return array;
 };
 
 /**
@@ -388,14 +388,14 @@ const visit = (root, callback) => {
  *
  * @since 12.0.0
  * @category Object
- * @param target Object to recursively freeze.
+ * @param object Object to recursively freeze.
  * @example
  * const a = {a: {b: 2}, b: [1, {foo: "foo"}], c: 2};
  *
  * deepFreeze(a)
  * // => object and all sub-objects are frozen.
  */
-const deepFreeze = (target) => visit(target, Object.freeze);
+const deepFreeze = (object) => visit(object, Object.freeze);
 
 /**
  * Recursively seals objects, useful for constant objects.
@@ -404,14 +404,14 @@ const deepFreeze = (target) => visit(target, Object.freeze);
  *
  * @since 12.0.0
  * @category Object
- * @param target Object to recursively seal.
+ * @param object Object to recursively seal.
  * @example
  * const a = {a: {b: 2}, b: [1, {foo: "foo"}], c: 2};
  *
  * deepSeal(a)
  * // => object and all sub-objects are sealed.
  */
-const deepSeal = (target) => visit(target, Object.seal);
+const deepSeal = (object) => visit(object, Object.seal);
 
 exports.countMapBy = countMapBy;
 exports.deepFreeze = deepFreeze;
@@ -419,7 +419,7 @@ exports.deepSeal = deepSeal;
 exports.distance = distance;
 exports.groupMapBy = groupMapBy;
 exports.groupMapReducingBy = groupMapReducingBy;
-exports.insert = insert;
+exports.insertAt = insertAt;
 exports.isBlank = isBlank;
 exports.isPromise = isPromise;
 exports.matchAll = matchAll;

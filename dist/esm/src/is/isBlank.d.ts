@@ -3,7 +3,7 @@
  *
  * @since 11.0.0
  * @category Is
- * @param str String to use.
+ * @param string String to use.
  * @returns If the file is blank.
  * @example
  * isBlank("")
@@ -15,6 +15,6 @@
  * isBlank(" foo ")
  * // => false
  */
-declare const isBlank: (str: string) => boolean;
+declare const isBlank: (string: string) => boolean;
 export { isBlank };
 //# sourceMappingURL=isBlank.d.ts.map

@@ -3,8 +3,8 @@
  *
  * @since 6.3.0
  * @category String
- * @param str1 First string to compare.
- * @param str2 Second string to compare.
+ * @param string1 First string to compare.
+ * @param string2 Second string to compare.
  * @returns Distance between the two strings.
  * @example
  * distance("Kitten", "Sitting")
@@ -16,6 +16,6 @@
  * distance("foo", "foo")
  * // => 0
  */
-declare const distance: (str1: string, str2: string) => number;
+declare const distance: (string1: string, string2: string) => number;
 export { distance };
 //# sourceMappingURL=distance.d.ts.map

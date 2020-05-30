@@ -1,1 +1,1 @@
-{"version":3,"file":"matchAll.d.ts","sourceRoot":"","sources":["../../../../src/string/matchAll.ts"],"names":[],"mappings":"AAAA;;;;;;;;;;;;;;GAcG;AACH,QAAA,MAAM,QAAQ,QAAS,MAAM,WAAW,MAAM,KAAG,eAAe,EAO/D,CAAC;AACF,OAAO,EAAE,QAAQ,EAAE,CAAC"}
+{"version":3,"file":"matchAll.d.ts","sourceRoot":"","sources":["../../../../src/string/matchAll.ts"],"names":[],"mappings":"AAAA;;;;;;;;;;;;;;GAcG;AACH,QAAA,MAAM,QAAQ,WAAY,MAAM,WAAW,MAAM,KAAG,eAAe,EAOlE,CAAC;AACF,OAAO,EAAE,QAAQ,EAAE,CAAC"}

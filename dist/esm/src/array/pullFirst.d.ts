@@ -6,14 +6,14 @@ import { List } from "lodash";
  *
  * @since 2.8.0
  * @category Array
- * @param collection The array to modify.
- * @param targetValue The value to remove.
+ * @param array Array to modify.
+ * @param value The value to remove.
  * @returns The mutated collection.
  * @example
  * const a = ["foo", "bar", "fizz", "bar"];
  * removeItem(a, "bar")
  * // a equals ["foo", "fizz", "bar"]
  */
-declare const pullFirst: <TValue>(collection: List<TValue>, targetValue: TValue) => List<TValue>;
+declare const pullFirst: <TValue>(array: List<TValue>, value: TValue) => List<TValue>;
 export { pullFirst };
 //# sourceMappingURL=pullFirst.d.ts.map

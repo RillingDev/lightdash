@@ -5,13 +5,13 @@ import { groupMapReducingBy } from "./groupMapReducingBy";
  *
  * @since 12.0.0
  * @category Array
- * @param collection Collection to count.
+ * @param array Array to count.
  * @param keyMapper Function to use for key generation.
  * @returns Count map.
  * @example
  * countMapBy([1, 2, 4, 2, 4, 4], val => val)
  * // => Map{1: 1, 2: 2, 4: 3}
  */
-const countMapBy = (collection, keyMapper) => groupMapReducingBy(collection, keyMapper, () => 0, (current) => current + 1);
+const countMapBy = (array, keyMapper) => groupMapReducingBy(array, keyMapper, () => 0, (current) => current + 1);
 export { countMapBy };
 //# sourceMappingURL=countMapBy.js.map

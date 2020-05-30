@@ -4,7 +4,7 @@ import { forEach } from "lodash";
  *
  * @since 11.0.0
  * @category Array
- * @param collection Collection to group.
+ * @param array Array to group.
  * @param keyMapper Function returning the key for the value.
  * @param initializer Function initializing a new mergable object.
  * @param reducer Consumer mutating the existing object with the new data.
@@ -27,14 +27,14 @@ import { forEach } from "lodash";
  * )
  * // => Map{"f": {count: 2, matches: ["foo", "fizz"]}, "b": {count: 2, matches: ["bar", "buzz"]}}
  */
-const groupMapReducingBy = (collection, keyMapper, initializer, reducer) => {
+const groupMapReducingBy = (array, keyMapper, initializer, reducer) => {
     const result = new Map();
-    forEach(collection, (value, index) => {
-        const key = keyMapper(value, index, collection);
+    forEach(array, (value, index) => {
+        const key = keyMapper(value, index, array);
         if (!result.has(key)) {
-            result.set(key, initializer(value, index, collection));
+            result.set(key, initializer(value, index, array));
         }
-        result.set(key, reducer(result.get(key), value, index, collection));
+        result.set(key, reducer(result.get(key), value, index, array));
     });
     return result;
 };

@@ -12,6 +12,6 @@
  * isPromise(() => "foo");
  * // => false
  */
-declare const isPromise: (value: any) => value is Promise<any>;
+declare const isPromise: (value: unknown) => value is Promise<unknown>;
 export { isPromise };
 //# sourceMappingURL=isPromise.d.ts.map

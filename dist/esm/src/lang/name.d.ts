@@ -26,6 +26,6 @@
  * name(1)
  * // => null
  */
-declare const name: (value: any) => string | null;
+declare const name: (value: unknown) => string | null;
 export { name };
 //# sourceMappingURL=name.d.ts.map

@@ -1,1 +1,1 @@
-{"version":3,"file":"isPromise.d.ts","sourceRoot":"","sources":["../../../../src/is/isPromise.ts"],"names":[],"mappings":"AAAA;;;;;;;;;;;;;GAaG;AACH,QAAA,MAAM,SAAS,UAAW,GAAG,0BACD,CAAC;AAE7B,OAAO,EAAE,SAAS,EAAE,CAAC"}
+{"version":3,"file":"isPromise.d.ts","sourceRoot":"","sources":["../../../../src/is/isPromise.ts"],"names":[],"mappings":"AAAA;;;;;;;;;;;;;GAaG;AACH,QAAA,MAAM,SAAS,UAAW,OAAO,8BACL,CAAC;AAE7B,OAAO,EAAE,SAAS,EAAE,CAAC"}
