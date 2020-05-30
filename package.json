@@ -5,6 +5,16 @@
     "main": "./dist/lightdash.common.js",
     "module": "./dist/esm/src/main.js",
     "types": "./dist/esm/src/main.d.ts",
+    "files": [
+        "./src/",
+        "./dist/",
+        "./docs/"
+    ],
+    "directories": {
+        "lib": "./src/",
+        "test": "./spec/",
+        "doc": "./docs/"
+    },
     "rollupOptions": {
         "moduleName": "l_",
         "outputName": "lightdash",
