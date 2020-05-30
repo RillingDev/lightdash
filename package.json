@@ -6,9 +6,9 @@
     "module": "./dist/esm/src/main.js",
     "types": "./dist/esm/src/main.d.ts",
     "files": [
-        "./src/",
-        "./dist/",
-        "./docs/"
+        "./src/**/*",
+        "./dist/**/*",
+        "./docs/**/*"
     ],
     "directories": {
         "lib": "./src/",
