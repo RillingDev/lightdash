@@ -14,7 +14,7 @@ export { groupMapReducingBy } from "./array/groupMapReducingBy";
 export { countMapBy } from "./array/countMapBy";
 export { pullFirst } from "./array/pullFirst";
 export { step } from "./array/step";
-export { insert } from "./array/insert";
+export { insertAt } from "./array/insertAt";
 
 export { name } from "./lang/name";
 export { deepFreeze } from "./object/deepFreeze";

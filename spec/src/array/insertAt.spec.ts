@@ -1,8 +1,8 @@
-import { insert } from "../../../src/array/insert";
+import { insertAt } from "../../../src/array/insertAt";
 
-describe("insert", () => {
+describe("insertAt", () => {
     it("inserts single", () => {
-        expect(insert(["foo", "fizz"], 1, "bar")).toEqual([
+        expect(insertAt(["foo", "fizz"], 1, "bar")).toEqual([
             "foo",
             "bar",
             "fizz",
@@ -10,7 +10,7 @@ describe("insert", () => {
     });
 
     it("inserts multiple", () => {
-        expect(insert(["foo", "fizz"], 1, "bar", "bazz")).toEqual([
+        expect(insertAt(["foo", "fizz"], 1, "bar", "bazz")).toEqual([
             "foo",
             "bar",
             "bazz",
@@ -19,7 +19,7 @@ describe("insert", () => {
     });
 
     it("appends if higher or equal length", () => {
-        expect(insert(["foo", "fizz"], 999, "bar")).toEqual([
+        expect(insertAt(["foo", "fizz"], 999, "bar")).toEqual([
             "foo",
             "fizz",
             "bar",
@@ -27,7 +27,7 @@ describe("insert", () => {
     });
 
     it("prepends if less than 0", () => {
-        expect(insert(["foo", "fizz"], -999, "bar")).toEqual([
+        expect(insertAt(["foo", "fizz"], -999, "bar")).toEqual([
             "bar",
             "foo",
             "fizz",
