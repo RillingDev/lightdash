@@ -5,7 +5,7 @@ import { camelCase, upperFirst } from "lodash";
  *
  * @since 6.2.0
  * @category String
- * @param str String to use.
+ * @param string String to use.
  * @returns PascalCase string of the input string.
  * @example
  * pascalCase("fooBar")
@@ -14,6 +14,6 @@ import { camelCase, upperFirst } from "lodash";
  * pascalCase("__foo_bar__")
  * // => "FizzBuzzBazz"
  */
-const pascalCase = (str: string): string => upperFirst(camelCase(str));
+const pascalCase = (string: string): string => upperFirst(camelCase(string));
 
 export { pascalCase };

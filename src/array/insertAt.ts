@@ -7,7 +7,7 @@
  *
  * @since 12.1.0
  * @category Array
- * @param collection Collection to insertAt to.
+ * @param array Array to insertAt to.
  * @param index Index to start inserting.
  * @param values Value(s) to insertAt.
  * @returns Collection.
@@ -16,12 +16,12 @@
  * // => ["foo", "bar", "fizz"]
  */
 const insertAt = <TValue, UKey>(
-    collection: TValue[],
+    array: TValue[],
     index: number,
     ...values: TValue[]
 ): TValue[] => {
-    collection.splice(index, 0, ...values);
-    return collection;
+    array.splice(index, 0, ...values);
+    return array;
 };
 
 export { insertAt };

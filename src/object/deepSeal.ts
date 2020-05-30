@@ -7,13 +7,13 @@ import { visit } from "./lib/visit";
  *
  * @since 12.0.0
  * @category Object
- * @param target Object to recursively seal.
+ * @param object Object to recursively seal.
  * @example
  * const a = {a: {b: 2}, b: [1, {foo: "foo"}], c: 2};
  *
  * deepSeal(a)
  * // => object and all sub-objects are sealed.
  */
-const deepSeal = (target: object): void => visit(target, Object.seal);
+const deepSeal = (object: object): void => visit(object, Object.seal);
 
 export { deepSeal };

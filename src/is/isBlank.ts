@@ -5,7 +5,7 @@ import { isEmpty } from "lodash";
  *
  * @since 11.0.0
  * @category Is
- * @param str String to use.
+ * @param string String to use.
  * @returns If the file is blank.
  * @example
  * isBlank("")
@@ -17,6 +17,6 @@ import { isEmpty } from "lodash";
  * isBlank(" foo ")
  * // => false
  */
-const isBlank = (str: string): boolean => isEmpty(str.trim());
+const isBlank = (string: string): boolean => isEmpty(string.trim());
 
 export { isBlank };

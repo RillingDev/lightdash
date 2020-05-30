@@ -7,7 +7,7 @@ import { groupMapReducingBy } from "./groupMapReducingBy";
  *
  * @since 12.0.0
  * @category Array
- * @param collection Collection to count.
+ * @param array Array to count.
  * @param keyMapper Function to use for key generation.
  * @returns Count map.
  * @example
@@ -15,11 +15,11 @@ import { groupMapReducingBy } from "./groupMapReducingBy";
  * // => Map{1: 1, 2: 2, 4: 3}
  */
 const countMapBy = <TValue, UKey>(
-    collection: List<TValue>,
+    array: List<TValue>,
     keyMapper: ListIterator<TValue, UKey>
 ): Map<UKey, number> =>
     groupMapReducingBy(
-        collection,
+        array,
         keyMapper,
         () => 0,
         (current) => current + 1

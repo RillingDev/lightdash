@@ -3,7 +3,7 @@
  *
  * @since 11.0.0
  * @category String
- * @param str String to match against.
+ * @param string String to match against.
  * @param pattern SRegex pattern to match.
  * @returns Array of all matches.
  * @example
@@ -13,10 +13,10 @@
  * matchAll("Kitten", /f/g)
  * // => []
  */
-const matchAll = (str: string, pattern: RegExp): RegExpExecArray[] => {
+const matchAll = (string: string, pattern: RegExp): RegExpExecArray[] => {
     const matches: RegExpExecArray[] = [];
     let match: RegExpExecArray | null;
-    while ((match = pattern.exec(str))) {
+    while ((match = pattern.exec(string))) {
         matches.push(match);
     }
     return matches;

@@ -7,13 +7,13 @@ import { visit } from "./lib/visit";
  *
  * @since 12.0.0
  * @category Object
- * @param target Object to recursively freeze.
+ * @param object Object to recursively freeze.
  * @example
  * const a = {a: {b: 2}, b: [1, {foo: "foo"}], c: 2};
  *
  * deepFreeze(a)
  * // => object and all sub-objects are frozen.
  */
-const deepFreeze = (target: object): void => visit(target, Object.freeze);
+const deepFreeze = (object: object): void => visit(object, Object.freeze);
 
 export { deepFreeze };

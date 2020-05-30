@@ -7,8 +7,8 @@ import { indexOf, List, remove } from "lodash";
  *
  * @since 2.8.0
  * @category Array
- * @param collection The array to modify.
- * @param targetValue The value to remove.
+ * @param array Array to modify.
+ * @param value The value to remove.
  * @returns The mutated collection.
  * @example
  * const a = ["foo", "bar", "fizz", "bar"];
@@ -16,12 +16,12 @@ import { indexOf, List, remove } from "lodash";
  * // a equals ["foo", "fizz", "bar"]
  */
 const pullFirst = <TValue>(
-    collection: List<TValue>,
-    targetValue: TValue
+    array: List<TValue>,
+    value: TValue
 ): List<TValue> => {
-    const targetIndex = indexOf(collection, targetValue);
-    remove(collection, (val, index) => index === targetIndex);
-    return collection;
+    const targetIndex = indexOf(array, value);
+    remove(array, (val, index) => index === targetIndex);
+    return array;
 };
 
 export { pullFirst };
