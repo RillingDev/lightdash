@@ -28,7 +28,7 @@ import { isFunction, isString, isSymbol } from "lodash";
  * name(1)
  * // => null
  */
-const name = (value: any): string | null => {
+const name = (value: unknown): string | null => {
     if (isString(value)) {
         return value;
     }
