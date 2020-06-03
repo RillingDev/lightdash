@@ -7,7 +7,6 @@ export { toMapBy } from "./lang/toMapBy";
 export { distance } from "./string/distance";
 export { pascalCase } from "./string/pascalCase";
 export { similar } from "./string/similar";
-export { matchAll } from "./string/matchAll";
 
 export { groupMapBy } from "./array/groupMapBy";
 export { groupMapReducingBy } from "./array/groupMapReducingBy";
