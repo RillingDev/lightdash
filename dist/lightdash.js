@@ -220,27 +220,53 @@ var l_ = (function (exports, lodash) {
     };
 
     /**
-     * Finds all regex matches in a string. Meant to be used with a global regex.
+     * Removes a value from the end of a string. If the string does not end with the value, nothing is done.
      *
-     * @since 11.0.0
+     * @since 13.0.0
      * @category String
-     * @param string String to match against.
-     * @param pattern SRegex pattern to match.
-     * @returns Array of all matches.
+     * @param string String to check.
+     * @param removeValue Value to remove.
+     * @returns String with the value removed from the end.
      * @example
-     * matchAll("Kitten", /t/g)
-     * // => [[0: "t"], [1: "t"]]
+     * removeEnd("FooBar", "Bar")
+     * // => "Foo"
      *
-     * matchAll("Kitten", /f/g)
-     * // => []
+     * removeEnd("FooBar", "Foo")
+     * // => "FooBar"
+     *
+     * removeEnd("FooBar", "Buzz")
+     * // => "FooBar"
      */
-    const matchAll = (string, pattern) => {
-        const matches = [];
-        let match;
-        while ((match = pattern.exec(string))) {
-            matches.push(match);
+    const removeEnd = (string, removeValue) => {
+        if (!string.endsWith(removeValue)) {
+            return string;
         }
-        return matches;
+        return string.substring(0, string.length - removeValue.length);
+    };
+
+    /**
+     * Removes a value from the start of a string. If the string does not start with the value, nothing is done.
+     *
+     * @since 13.0.0
+     * @category String
+     * @param string String to check.
+     * @param removeValue Value to remove.
+     * @returns String with the value removed from the start.
+     * @example
+     * removeStart("FooBar", "Foo")
+     * // => "Bar"
+     *
+     * removeStart("FooBar", "Bar")
+     * // => "FooBar"
+     *
+     * removeStart("FooBar", "Buzz")
+     * // => "FooBar"
+     */
+    const removeStart = (string, removeValue) => {
+        if (!string.startsWith(removeValue)) {
+            return string;
+        }
+        return string.substring(removeValue.length);
     };
 
     /**
@@ -419,10 +445,11 @@ var l_ = (function (exports, lodash) {
     exports.insertAt = insertAt;
     exports.isBlank = isBlank;
     exports.isPromise = isPromise;
-    exports.matchAll = matchAll;
     exports.name = name;
     exports.pascalCase = pascalCase;
     exports.pullFirst = pullFirst;
+    exports.removeEnd = removeEnd;
+    exports.removeStart = removeStart;
     exports.similar = similar;
     exports.step = step;
     exports.toMap = toMap;
