@@ -30,5 +30,6 @@ npm-debug.*
 tsconfig.tsbuildinfo
 tsconfig.*.tsbuildinfo
 
-# Build Output files
-dist/
+# Source files
+src/
+spec/

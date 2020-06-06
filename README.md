@@ -43,14 +43,6 @@ const { groupMapBy } = require("lightdash");
 groupMapBy([1, 2, 3, 4, 5], val => val % 2);
 ```
 
-When using in the browser (you have to load lodash before lightdash):
-
-```typescript
-const { groupMapBy } = l_;
-
-groupMapBy([1, 2, 3, 4, 5], val => val % 2);
-```
-
 ## Updating
 
 ### v10.x -> v11.x
