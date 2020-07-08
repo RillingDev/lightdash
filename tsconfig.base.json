@@ -1,0 +1,16 @@
+{
+    "compilerOptions": {
+        "target": "ES2019",
+        "newLine": "LF",
+        "removeComments": false,
+        "moduleResolution": "node",
+        "esModuleInterop": true,
+        "strict": true,
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true,
+        "lib": [
+            "esnext",
+            "dom"
+        ]
+    }
+}

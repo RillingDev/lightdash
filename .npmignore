@@ -30,6 +30,15 @@ npm-debug.*
 tsconfig.tsbuildinfo
 tsconfig.*.tsbuildinfo
 
-# Source files
+
+
+# Source Files
 src/
 spec/
+
+# Config Files
+.eslintrc.json
+.eslintignore
+.editorconfig
+typedoc.json
+jasmine.json
