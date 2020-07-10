@@ -11,25 +11,25 @@ import { uniq } from "lodash";
  * @since 13.0.0
  * @category Enum
  * @param targetEnum Enum to get an item of.
- * @param targetValue Item to search.
- * @returns Enum value or null if none matched
+ * @param targetValue Item value to search.
+ * @returns Enum item or null if none matched
  * @throws TypeError if not all values in enum are unique.
  * @example
  * enum MyStringEnum {
  *    FOO = "Foo",
  *    BAR = "Bar",
  * }
- * valueOf<MyStringEnum>(MyStringEnum, "Foo");
+ * findByValue<MyStringEnum>(MyStringEnum, "Foo");
  * // => MyStringEnum.FOO
  *
  * enum MyStringEnum {
  *    FOO = "Foo",
  *    BAR = "Bar",
  * }
- * valueOf<MyStringEnum>(MyStringEnum, "Fizz");
+ * findByValue<MyStringEnum>(MyStringEnum, "Fizz");
  * // => null
  */
-export const valueOf = <TEnum>(
+export const findByValue = <TEnum>(
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     targetEnum: Record<string, TEnum[any]>,
     // eslint-disable-next-line @typescript-eslint/no-explicit-any

@@ -22,4 +22,4 @@ export { insertAt } from "./array/insertAt";
 export { deepFreeze } from "./object/deepFreeze";
 export { deepSeal } from "./object/deepSeal";
 
-export { valueOf } from "./enum/valueOf";
+export { findByValue } from "./enum/findByValue";

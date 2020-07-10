@@ -1,12 +1,12 @@
-import { valueOf } from "../../src/enum/valueOf";
+import { findByValue } from "../../src/enum/findByValue";
 
-describe("valueOf", () => {
+describe("findByValue", () => {
     it("retrieves matching for string enums", () => {
         enum MyStringEnum {
             FOO = "Foo",
             BAR = "Bar",
         }
-        const value = valueOf<MyStringEnum>(MyStringEnum, "Foo");
+        const value = findByValue<MyStringEnum>(MyStringEnum, "Foo");
         expect(value as string | null).toEqual("Foo");
     });
     it("retrieves matching for number enums", () => {
@@ -14,7 +14,7 @@ describe("valueOf", () => {
             FOO = 1,
             BAR = 2,
         }
-        const value = valueOf<MyNumberEnum>(MyNumberEnum, 2);
+        const value = findByValue<MyNumberEnum>(MyNumberEnum, 2);
         expect(value as number | null).toEqual(2);
     });
     it("retrieves matching for mixed enums", () => {
@@ -22,7 +22,7 @@ describe("valueOf", () => {
             FOO = "Foo",
             BAR = 2,
         }
-        const value = valueOf<StringsOnBothSides>(StringsOnBothSides, "Foo");
+        const value = findByValue<StringsOnBothSides>(StringsOnBothSides, "Foo");
         expect(value as string | number | null).toEqual("Foo");
     });
     it("returns null for no match", () => {
@@ -30,7 +30,7 @@ describe("valueOf", () => {
             FOO = "Foo",
             BAR = "Bar",
         }
-        const value = valueOf<MyStringEnum>(MyStringEnum, "Fizz");
+        const value = findByValue<MyStringEnum>(MyStringEnum, "Fizz");
         expect(value as string | null).toBeNull();
     });
     it("throws for duplicate enum values", () => {
@@ -38,7 +38,7 @@ describe("valueOf", () => {
             FOO = "Foo",
             FOO_AGAIN = "Foo",
         }
-        expect(() => valueOf<MyStringEnum>(MyStringEnum, "Foo")).toThrow(
+        expect(() => findByValue<MyStringEnum>(MyStringEnum, "Foo")).toThrow(
             new TypeError(
                 "Enums where the same value is used for multiple items are not supported!"
             )
