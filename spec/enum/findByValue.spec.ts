@@ -22,7 +22,10 @@ describe("findByValue", () => {
             FOO = "Foo",
             BAR = 2,
         }
-        const value = findByValue<StringsOnBothSides>(StringsOnBothSides, "Foo");
+        const value = findByValue<StringsOnBothSides>(
+            StringsOnBothSides,
+            "Foo"
+        );
         expect(value as string | number | null).toEqual("Foo");
     });
     it("returns null for no match", () => {

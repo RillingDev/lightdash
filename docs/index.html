@@ -2733,6 +2733,12 @@ img {
 			<a href="globals.html#distance" class="tsd-kind-icon">distance</a>
 		</li>
 		<li class=" tsd-kind-function tsd-has-type-parameter">
+			<a href="globals.html#findbykey" class="tsd-kind-icon">find<wbr>ByKey</a>
+		</li>
+		<li class=" tsd-kind-function tsd-has-type-parameter">
+			<a href="globals.html#findbyvalue" class="tsd-kind-icon">find<wbr>ByValue</a>
+		</li>
+		<li class=" tsd-kind-function tsd-has-type-parameter">
 			<a href="globals.html#groupmapby" class="tsd-kind-icon">group<wbr>Map<wbr>By</a>
 		</li>
 		<li class=" tsd-kind-function tsd-has-type-parameter">
@@ -2776,9 +2782,6 @@ img {
 		</li>
 		<li class=" tsd-kind-function tsd-has-type-parameter">
 			<a href="globals.html#tomapby" class="tsd-kind-icon">to<wbr>Map<wbr>By</a>
-		</li>
-		<li class=" tsd-kind-function tsd-has-type-parameter">
-			<a href="globals.html#valueof" class="tsd-kind-icon">value<wbr>Of</a>
 		</li>
 	</ul>
 </nav>
@@ -2873,7 +2876,8 @@ groupMapBy([<span class="hljs-number">1</span>, <span class="hljs-number">2</spa
 						</ul>
 						<h3>Enum Functions</h3>
 						<ul class="tsd-index-list">
-							<li class="tsd-kind-function tsd-has-type-parameter"><a href="globals.html#valueof" class="tsd-kind-icon">value<wbr>Of</a></li>
+							<li class="tsd-kind-function tsd-has-type-parameter"><a href="globals.html#findbykey" class="tsd-kind-icon">find<wbr>ByKey</a></li>
+							<li class="tsd-kind-function tsd-has-type-parameter"><a href="globals.html#findbyvalue" class="tsd-kind-icon">find<wbr>ByValue</a></li>
 						</ul>
 						<h3>Is Functions</h3>
 						<ul class="tsd-index-list">
@@ -3339,16 +3343,88 @@ groupMapBy([<span class="hljs-number">1</span>, <span class="hljs-number">2</spa
 		<section class="tsd-panel-group tsd-member-group ">
 			<h2>Enum Functions</h2>
 			<section class="tsd-panel tsd-member tsd-kind-function tsd-has-type-parameter">
-				<a name="valueof" class="tsd-anchor"></a>
-				<h3><span class="tsd-flag ts-flagConst">Const</span> value<wbr>Of</h3>
+				<a name="findbykey" class="tsd-anchor"></a>
+				<h3><span class="tsd-flag ts-flagConst">Const</span> find<wbr>ByKey</h3>
 				<ul class="tsd-signatures tsd-kind-function tsd-has-type-parameter">
-					<li class="tsd-signature tsd-kind-icon">value<wbr>Of&lt;TEnum&gt;<span class="tsd-signature-symbol">(</span>targetEnum<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Record</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">TEnum</span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol">&gt;</span>, targetValue<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">TEnum</span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">TEnum</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></li>
+					<li class="tsd-signature tsd-kind-icon">find<wbr>ByKey&lt;TEnum&gt;<span class="tsd-signature-symbol">(</span>targetEnum<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Record</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">unknown</span><span class="tsd-signature-symbol">&gt;</span>, targetKey<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">TEnum</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></li>
 				</ul>
 				<ul class="tsd-descriptions">
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in enum/valueOf.ts:32</li>
+								<li>Defined in enum/findByKey.ts:27</li>
+							</ul>
+						</aside>
+						<div class="tsd-comment tsd-typography">
+							<div class="lead">
+								<p>Retrieves the corresponding enum item for a key;
+									This can be useful for mapping external data to properly typed data.
+								NOTE: due to the way enums work in TypeScript, a handful of quirks apply:</p>
+								<ul>
+									<li><code>const</code> enums cannot be used due to being inlined during compilation.</li>
+								</ul>
+							</div>
+							<dl class="tsd-comment-tags">
+								<dt>since</dt>
+								<dd><p>13.0.0</p>
+								</dd>
+								<dt>example</dt>
+								<dd><p>enum MyStringEnum {
+										FOO = &quot;Foo&quot;,
+										BAR = &quot;Bar&quot;,
+										}
+										findByKey<MyStringEnum>(MyStringEnum, &quot;FOO&quot;);
+									// =&gt; MyStringEnum.FOO</p>
+									<p>enum MyStringEnum {
+										FOO = &quot;Foo&quot;,
+										BAR = &quot;Bar&quot;,
+										}
+										findByKey<MyStringEnum>(MyStringEnum, &quot;FIZZ&quot;);
+									// =&gt; null</p>
+								</dd>
+							</dl>
+						</div>
+						<h4 class="tsd-type-parameters-title">Type parameters</h4>
+						<ul class="tsd-type-parameters">
+							<li>
+								<h4>TEnum</h4>
+							</li>
+						</ul>
+						<h4 class="tsd-parameters-title">Parameters</h4>
+						<ul class="tsd-parameters">
+							<li>
+								<h5>targetEnum: <span class="tsd-signature-type">Record</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">unknown</span><span class="tsd-signature-symbol">&gt;</span></h5>
+								<div class="tsd-comment tsd-typography">
+									<div class="lead">
+										<p>Enum to get an item of.</p>
+									</div>
+								</div>
+							</li>
+							<li>
+								<h5>targetKey: <span class="tsd-signature-type">string</span></h5>
+								<div class="tsd-comment tsd-typography">
+									<div class="lead">
+										<p>Item key to search.</p>
+									</div>
+								</div>
+							</li>
+						</ul>
+						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">TEnum</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></h4>
+						<p>Enum item or null if none matched</p>
+					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel tsd-member tsd-kind-function tsd-has-type-parameter">
+				<a name="findbyvalue" class="tsd-anchor"></a>
+				<h3><span class="tsd-flag ts-flagConst">Const</span> find<wbr>ByValue</h3>
+				<ul class="tsd-signatures tsd-kind-function tsd-has-type-parameter">
+					<li class="tsd-signature tsd-kind-icon">find<wbr>ByValue&lt;TEnum&gt;<span class="tsd-signature-symbol">(</span>targetEnum<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Record</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">TEnum</span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol">&gt;</span>, targetValue<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">TEnum</span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">TEnum</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></li>
+				</ul>
+				<ul class="tsd-descriptions">
+					<li class="tsd-description">
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in enum/findByValue.ts:32</li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -3374,13 +3450,13 @@ groupMapBy([<span class="hljs-number">1</span>, <span class="hljs-number">2</spa
 										FOO = &quot;Foo&quot;,
 										BAR = &quot;Bar&quot;,
 										}
-										valueOf<MyStringEnum>(MyStringEnum, &quot;Foo&quot;);
+										findByValue<MyStringEnum>(MyStringEnum, &quot;Foo&quot;);
 									// =&gt; MyStringEnum.FOO</p>
 									<p>enum MyStringEnum {
 										FOO = &quot;Foo&quot;,
 										BAR = &quot;Bar&quot;,
 										}
-										valueOf<MyStringEnum>(MyStringEnum, &quot;Fizz&quot;);
+										findByValue<MyStringEnum>(MyStringEnum, &quot;Fizz&quot;);
 									// =&gt; null</p>
 								</dd>
 							</dl>
@@ -3405,13 +3481,13 @@ groupMapBy([<span class="hljs-number">1</span>, <span class="hljs-number">2</spa
 								<h5>targetValue: <span class="tsd-signature-type">TEnum</span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">]</span></h5>
 								<div class="tsd-comment tsd-typography">
 									<div class="lead">
-										<p>Item to search.</p>
+										<p>Item value to search.</p>
 									</div>
 								</div>
 							</li>
 						</ul>
 						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">TEnum</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></h4>
-						<p>Enum value or null if none matched</p>
+						<p>Enum item or null if none matched</p>
 					</li>
 				</ul>
 			</section>
