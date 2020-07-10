@@ -3,6 +3,8 @@ export { isPromise } from "./is/isPromise";
 
 export { toMap } from "./lang/toMap";
 export { toMapBy } from "./lang/toMapBy";
+export { name } from "./lang/name";
+export { requireNonNilElseThrow } from "./lang/requireNonNilElseThrow";
 
 export { distance } from "./string/distance";
 export { pascalCase } from "./string/pascalCase";
@@ -16,8 +18,6 @@ export { countMapBy } from "./array/countMapBy";
 export { pullFirst } from "./array/pullFirst";
 export { step } from "./array/step";
 export { insertAt } from "./array/insertAt";
-
-export { name } from "./lang/name";
 
 export { deepFreeze } from "./object/deepFreeze";
 export { deepSeal } from "./object/deepSeal";
