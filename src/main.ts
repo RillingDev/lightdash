@@ -18,5 +18,8 @@ export { step } from "./array/step";
 export { insertAt } from "./array/insertAt";
 
 export { name } from "./lang/name";
+
 export { deepFreeze } from "./object/deepFreeze";
 export { deepSeal } from "./object/deepSeal";
+
+export { valueOf } from "./enum/valueOf";
