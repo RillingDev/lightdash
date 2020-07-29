@@ -8,7 +8,6 @@ export { requireNonNilElseThrow } from "./lang/requireNonNilElseThrow";
 
 export { distance } from "./string/distance";
 export { pascalCase } from "./string/pascalCase";
-export { similar } from "./string/similar";
 export { removeEnd } from "./string/removeEnd";
 export { removeStart } from "./string/removeStart";
 
