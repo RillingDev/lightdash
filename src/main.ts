@@ -21,4 +21,3 @@ export { deepFreeze } from "./object/deepFreeze";
 export { deepSeal } from "./object/deepSeal";
 
 export { findByKey } from "./enum/findByKey";
-export { findByValue } from "./enum/findByValue";
