@@ -1,7 +1,7 @@
 {
     "name": "lightdash",
     "version": "13.0.0-6",
-    "description": "A lightweight TypeScript utility library to complement lodash",
+    "description": "A small TypeScript utility library to complement lodash",
     "main": "./dist/cjs/main.js",
     "module": "./dist/esm/main.js",
     "types": "./dist/esm/main.d.ts",
@@ -25,7 +25,7 @@
         "url": "git+https://github.com/FelixRilling/lightdash.git"
     },
     "keywords": [
-        "lightdash",
+        "lodash",
         "utility"
     ],
     "author": "Felix Rilling",
