@@ -1,6 +1,5 @@
-export { isBlank } from "./is/isBlank";
-export { isPromise } from "./is/isPromise";
-
+export { isBlank } from "./lang/isBlank";
+export { isPromise } from "./lang/isPromise";
 export { toMap } from "./lang/toMap";
 export { toMapBy } from "./lang/toMapBy";
 export { name } from "./lang/name";

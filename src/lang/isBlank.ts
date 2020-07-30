@@ -4,7 +4,7 @@ import { isEmpty } from "lodash";
  * Checks if the string is blank (no non-space content).
  *
  * @since 11.0.0
- * @category Is
+ * @category Lang
  * @param string String to use.
  * @returns If the file is blank.
  * @example
