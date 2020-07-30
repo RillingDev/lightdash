@@ -8,7 +8,7 @@
  * @category Enum
  * @param targetEnum Enum to get an item of.
  * @param targetKey Item key to search.
- * @returns Enum item or null if none matched
+ * @returns Enum item or null if none matched.
  * @example
  * enum MyStringEnum {
  *    FOO = "Foo",

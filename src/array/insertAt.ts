@@ -1,9 +1,9 @@
 /**
  * Inserts value(s) at the given position.
- * If the index is equal or higher the array length, the value(s) will appended.
- * If the index is less than 0, the value(s) will prepended.
+ * If the index is equal or higher the array length, the value(s) will be appended.
+ * If the index is less than 0, the value(s) will be prepended.
  *
- * Note: the input array is being mutated.
+ * Note that the input array is being mutated.
  *
  * @since 12.1.0
  * @category Array

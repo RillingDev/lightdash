@@ -1,7 +1,7 @@
 import { forEach, List, ListIterator } from "lodash";
 
 /**
- * Collects elements in an array into a an array of merged elements.
+ * Collects elements in an array into an array of merged elements.
  *
  * @since 11.0.0
  * @category Array
