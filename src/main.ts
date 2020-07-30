@@ -20,4 +20,6 @@ export { insertAt } from "./array/insertAt";
 export { deepFreeze } from "./object/deepFreeze";
 export { deepSeal } from "./object/deepSeal";
 
+export { getExistingElseThrow } from "./map/getExistingElseThrow";
+
 export { findByKey } from "./enum/findByKey";
