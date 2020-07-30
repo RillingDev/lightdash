@@ -25,13 +25,11 @@
  * // => null
  */
 export const findByKey = <TEnum>(
-    targetEnum: Record<string, unknown>,
+    targetEnum: Record<string, TEnum>,
     targetKey: string
 ): TEnum | null => {
-    for (const key of Object.keys(targetEnum)) {
-        if (key === targetKey) {
-            return targetEnum[key] as TEnum;
-        }
+    if (targetKey in targetEnum) {
+        return targetEnum[targetKey];
     }
     return null;
 };
