@@ -11,7 +11,7 @@ import { camelCase, upperFirst } from "lodash";
  * pascalCase("fooBar")
  * // => "FooBar"
  *
- * pascalCase("__foo_bar__")
+ * pascalCase("fizz-buzz_bazz")
  * // => "FizzBuzzBazz"
  */
 const pascalCase = (string: string): string => upperFirst(camelCase(string));
