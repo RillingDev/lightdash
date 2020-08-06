@@ -33,7 +33,7 @@ const name = (value: unknown): string | null => {
         return value;
     }
     if (isSymbol(value)) {
-        return Symbol.keyFor(value as symbol) ?? null;
+        return Symbol.keyFor(value) ?? null;
     }
     if (isFunction(value)) {
         return value.name;
