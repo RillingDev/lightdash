@@ -2730,9 +2730,6 @@ img {
 			<a href="globals.html#deepseal" class="tsd-kind-icon">deep<wbr>Seal</a>
 		</li>
 		<li class=" tsd-kind-function tsd-has-type-parameter">
-			<a href="globals.html#findbykey" class="tsd-kind-icon">find<wbr>ByKey</a>
-		</li>
-		<li class=" tsd-kind-function tsd-has-type-parameter">
 			<a href="globals.html#getexistingelsethrow" class="tsd-kind-icon">get<wbr>Existing<wbr>Else<wbr>Throw</a>
 		</li>
 		<li class=" tsd-kind-function tsd-has-type-parameter">
@@ -2786,72 +2783,31 @@ img {
 				<h1>lightdash</h1>
 			</a>
 			<blockquote>
-				<p>A lightweight TypeScript utility library to complement lodash.</p>
+				<p>A small TypeScript utility library to complement lodash.</p>
 			</blockquote>
 			<a href="#introduction" id="introduction" style="color: inherit; text-decoration: none;">
 				<h2>Introduction</h2>
 			</a>
-			<p>Lightdash is an extensive object of utility functions to complement <a href="https://lodash.com/">lodash</a>
-			written in TypeScript, designed to be lightweight and modern.</p>
+			<p>Lightdash is a utility library aiming to complement <a href="https://lodash.com/">lodash</a>,
+			written in TypeScript.</p>
 			<p><strong><a href="https://felixrilling.github.io/lightdash/">Docs</a></strong></p>
-			<a href="#versions" id="versions" style="color: inherit; text-decoration: none;">
-				<h2>Versions</h2>
-			</a>
-			<a href="#gt-v11x" id="gt-v11x" style="color: inherit; text-decoration: none;">
-				<h3>&gt;= v11.x</h3>
-			</a>
-			<p>An utility library built on top of lodash, complementing it.</p>
-			<a href="#v10x" id="v10x" style="color: inherit; text-decoration: none;">
-				<h3>v10.x</h3>
-			</a>
-			<p>A standalone utility library to replace lodash.</p>
 			<a href="#usage" id="usage" style="color: inherit; text-decoration: none;">
 				<h2>Usage</h2>
 			</a>
 			<p>Installation:</p>
 			<pre><code class="language-shell">npm install lightdash</code></pre>
-			<p>When Using ES Modules:</p>
+			<p>When using ES Modules:</p>
 			<pre><code class="language-typescript"><span class="hljs-keyword">import</span> { groupMapBy } <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;lightdash&quot;</span>;
 
-groupMapBy([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>], <span class="hljs-function"><span class="hljs-params">val</span> =&gt;</span> val % <span class="hljs-number">2</span>);</code></pre>
-			<p>When using CommonJS (Node):</p>
+groupMapBy([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>], <span class="hljs-function">(<span class="hljs-params">val</span>) =&gt;</span> val % <span class="hljs-number">2</span>);</code></pre>
+			<p>When using CommonJS (e.g. Node):</p>
 			<pre><code class="language-typescript"><span class="hljs-keyword">const</span> { groupMapBy } = <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;lightdash&quot;</span>);
 
-groupMapBy([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>], <span class="hljs-function"><span class="hljs-params">val</span> =&gt;</span> val % <span class="hljs-number">2</span>);</code></pre>
-			<a href="#updating" id="updating" style="color: inherit; text-decoration: none;">
-				<h2>Updating</h2>
-			</a>
-			<a href="#v10x--gt-v11x" id="v10x--gt-v11x" style="color: inherit; text-decoration: none;">
-				<h3>v10.x -&gt; v11.x</h3>
-			</a>
-			<p>Breaking:</p>
-			<ul>
-				<li>Made the library complement lodash rather than replace it. All duplicate methods have been removed.</li>
-			</ul>
-			<a href="#v9x--gt-v10x" id="v9x--gt-v10x" style="color: inherit; text-decoration: none;">
-				<h3>v9.x -&gt; v10.x</h3>
-			</a>
-			<p>Breaking:</p>
-			<ul>
-				<li>changed entry iteration from key,val,index,object to val,key,object</li>
-				<li>removed isArray and strFromCamelCase (use Array.isArray and strFromPascalCase instead)</li>
-				<li>removed &quot;immediate&quot; param for fn* methods</li>
-			</ul>
-			<a href="#v8x--gt-v9x" id="v8x--gt-v9x" style="color: inherit; text-decoration: none;">
-				<h3>v8.x -&gt; v9.x</h3>
-			</a>
-			<p>Breaking:</p>
-			<ul>
-				<li>Merged arrRemoveItem and arrRemoveItemFirst</li>
-				<li>Removed isArguments and isNull</li>
-				<li>Removed numSum, numMedian and numAverage</li>
-				<li>Removed fnCurry</li>
-				<li>Removed hasPath</li>
-			</ul>
+groupMapBy([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>], <span class="hljs-function">(<span class="hljs-params">val</span>) =&gt;</span> val % <span class="hljs-number">2</span>);</code></pre>
 			<a href="#contributing" id="contributing" style="color: inherit; text-decoration: none;">
 				<h2>Contributing</h2>
 			</a>
-			<p>Contributions are always welcome, no matter if you have a requests, an idea, found a bug, or spotted a typo: Feel free to create a PR or open an issue!</p>
+			<p>Contributions are always welcome, no matter if you have a request, an idea, found a bug, or spotted a typo: Feel free to create a PR or open an issue!</p>
 		</div>
 		<div style="position:relative;"><a name="typedoc-main-index" class="tsd-anchor"></a></div>
 		<section class="tsd-panel-group tsd-index-group">
@@ -2867,10 +2823,6 @@ groupMapBy([<span class="hljs-number">1</span>, <span class="hljs-number">2</spa
 							<li class="tsd-kind-function tsd-has-type-parameter"><a href="globals.html#insertat" class="tsd-kind-icon">insert<wbr>At</a></li>
 							<li class="tsd-kind-function tsd-has-type-parameter"><a href="globals.html#pullfirst" class="tsd-kind-icon">pull<wbr>First</a></li>
 							<li class="tsd-kind-function tsd-has-type-parameter"><a href="globals.html#step" class="tsd-kind-icon">step</a></li>
-						</ul>
-						<h3>Enum Functions</h3>
-						<ul class="tsd-index-list">
-							<li class="tsd-kind-function tsd-has-type-parameter"><a href="globals.html#findbykey" class="tsd-kind-icon">find<wbr>ByKey</a></li>
 						</ul>
 						<h3>Lang Functions</h3>
 						<ul class="tsd-index-list">
@@ -3039,7 +2991,7 @@ groupMapBy([<span class="hljs-number">1</span>, <span class="hljs-number">2</spa
 						</aside>
 						<div class="tsd-comment tsd-typography">
 							<div class="lead">
-								<p>Collects elements in an array into a an array of merged elements.</p>
+								<p>Collects elements in an array into an array of merged elements.</p>
 							</div>
 							<dl class="tsd-comment-tags">
 								<dt>since</dt>
@@ -3160,10 +3112,10 @@ groupMapBy([<span class="hljs-number">1</span>, <span class="hljs-number">2</spa
 						<div class="tsd-comment tsd-typography">
 							<div class="lead">
 								<p>Inserts value(s) at the given position.
-									If the index is equal or higher the array length, the value(s) will appended.
-								If the index is less than 0, the value(s) will prepended.</p>
+									If the index is equal or higher the array length, the value(s) will be appended.
+								If the index is less than 0, the value(s) will be prepended.</p>
 							</div>
-							<p>Note: the input array is being mutated.</p>
+							<p>Note that the input array is being mutated.</p>
 							<dl class="tsd-comment-tags">
 								<dt>since</dt>
 								<dd><p>12.1.0</p>
@@ -3328,81 +3280,6 @@ groupMapBy([<span class="hljs-number">1</span>, <span class="hljs-number">2</spa
 						</ul>
 						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">List</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">TValue</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						<p>Stepped collection.</p>
-					</li>
-				</ul>
-			</section>
-		</section>
-		<section class="tsd-panel-group tsd-member-group ">
-			<h2>Enum Functions</h2>
-			<section class="tsd-panel tsd-member tsd-kind-function tsd-has-type-parameter">
-				<a name="findbykey" class="tsd-anchor"></a>
-				<h3><span class="tsd-flag ts-flagConst">Const</span> find<wbr>ByKey</h3>
-				<ul class="tsd-signatures tsd-kind-function tsd-has-type-parameter">
-					<li class="tsd-signature tsd-kind-icon">find<wbr>ByKey&lt;TEnum&gt;<span class="tsd-signature-symbol">(</span>targetEnum<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Record</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">TEnum</span><span class="tsd-signature-symbol">&gt;</span>, targetKey<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">TEnum</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></li>
-				</ul>
-				<ul class="tsd-descriptions">
-					<li class="tsd-description">
-						<aside class="tsd-sources">
-							<ul>
-								<li>Defined in enum/findByKey.ts:27</li>
-							</ul>
-						</aside>
-						<div class="tsd-comment tsd-typography">
-							<div class="lead">
-								<p>Retrieves the corresponding enum item for a key;
-									This can be useful for mapping external data to properly typed data.
-								NOTE: due to the way enums work in TypeScript, a handful of quirks apply:</p>
-								<ul>
-									<li><code>const</code> enums cannot be used due to being inlined during compilation.</li>
-								</ul>
-							</div>
-							<dl class="tsd-comment-tags">
-								<dt>since</dt>
-								<dd><p>13.0.0</p>
-								</dd>
-								<dt>example</dt>
-								<dd><p>enum MyStringEnum {
-										FOO = &quot;Foo&quot;,
-										BAR = &quot;Bar&quot;,
-										}
-										findByKey<MyStringEnum>(MyStringEnum, &quot;FOO&quot;);
-									// =&gt; MyStringEnum.FOO</p>
-									<p>enum MyStringEnum {
-										FOO = &quot;Foo&quot;,
-										BAR = &quot;Bar&quot;,
-										}
-										findByKey<MyStringEnum>(MyStringEnum, &quot;FIZZ&quot;);
-									// =&gt; null</p>
-								</dd>
-							</dl>
-						</div>
-						<h4 class="tsd-type-parameters-title">Type parameters</h4>
-						<ul class="tsd-type-parameters">
-							<li>
-								<h4>TEnum</h4>
-							</li>
-						</ul>
-						<h4 class="tsd-parameters-title">Parameters</h4>
-						<ul class="tsd-parameters">
-							<li>
-								<h5>targetEnum: <span class="tsd-signature-type">Record</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">TEnum</span><span class="tsd-signature-symbol">&gt;</span></h5>
-								<div class="tsd-comment tsd-typography">
-									<div class="lead">
-										<p>Enum to get an item of.</p>
-									</div>
-								</div>
-							</li>
-							<li>
-								<h5>targetKey: <span class="tsd-signature-type">string</span></h5>
-								<div class="tsd-comment tsd-typography">
-									<div class="lead">
-										<p>Item key to search.</p>
-									</div>
-								</div>
-							</li>
-						</ul>
-						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">TEnum</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></h4>
-						<p>Enum item or null if none matched</p>
 					</li>
 				</ul>
 			</section>
@@ -3978,7 +3855,7 @@ groupMapBy([<span class="hljs-number">1</span>, <span class="hljs-number">2</spa
 								<dt>example</dt>
 								<dd><p>pascalCase(&quot;fooBar&quot;)
 									// =&gt; &quot;FooBar&quot;</p>
-									<p>pascalCase(&quot;<strong>foo_bar</strong>&quot;)
+									<p>pascalCase(&quot;fizz-buzz_bazz&quot;)
 									// =&gt; &quot;FizzBuzzBazz&quot;</p>
 								</dd>
 							</dl>
