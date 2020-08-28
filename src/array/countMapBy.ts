@@ -1,4 +1,4 @@
-import { List, ListIterator } from "lodash";
+import type { List, ListIterator } from "lodash";
 import { groupMapReducingBy } from "./groupMapReducingBy";
 
 /**

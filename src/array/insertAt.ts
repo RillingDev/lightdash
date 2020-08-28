@@ -15,7 +15,7 @@
  * insertAt(["foo", "fizz"], 1, "bar")
  * // => ["foo", "bar", "fizz"]
  */
-const insertAt = <TValue, UKey>(
+const insertAt = <TValue>(
     array: TValue[],
     index: number,
     ...values: TValue[]

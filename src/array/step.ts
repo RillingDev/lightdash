@@ -1,4 +1,5 @@
-import { filter, List } from "lodash";
+import type { List } from "lodash";
+import { filter } from "lodash";
 
 /**
  * Returns a new collection with every n-th item from the input array.
@@ -13,6 +14,6 @@ import { filter, List } from "lodash";
  * // => [1, 3, 5]
  */
 const step = <TValue>(array: List<TValue>, stepSize: number): List<TValue> =>
-    filter(array, (value, index) => index % stepSize === 0);
+    filter(array, (_value, index) => index % stepSize === 0);
 
 export { step };

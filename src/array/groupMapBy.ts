@@ -1,4 +1,5 @@
-import { concat, List, ListIterator } from "lodash";
+import type { List, ListIterator } from "lodash";
+import { concat } from "lodash";
 import { groupMapReducingBy } from "./groupMapReducingBy";
 
 /**

@@ -1,4 +1,5 @@
-import { indexOf, List, remove } from "lodash";
+import type { List } from "lodash";
+import { indexOf, remove } from "lodash";
 
 /**
  * Removes the first occurrence of an element from an array.
@@ -20,7 +21,7 @@ const pullFirst = <TValue>(
     value: TValue
 ): List<TValue> => {
     const targetIndex = indexOf(array, value);
-    remove(array, (val, index) => index === targetIndex);
+    remove(array, (_val, index) => index === targetIndex);
     return array;
 };
 

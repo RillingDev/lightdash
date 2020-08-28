@@ -1,4 +1,5 @@
-import { Dictionary, NumericDictionary, toPairs } from "lodash";
+import type { Dictionary, NumericDictionary } from "lodash";
+import { toPairs } from "lodash";
 
 /**
  * Creates a map from an objects entries, mapping the keys and values.

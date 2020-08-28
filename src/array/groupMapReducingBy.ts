@@ -1,4 +1,5 @@
-import { forEach, List, ListIterator } from "lodash";
+import type { List, ListIterator } from "lodash";
+import { forEach } from "lodash";
 
 /**
  * Collects elements in an array into an array of merged elements.
