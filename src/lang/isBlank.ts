@@ -6,7 +6,7 @@ import { isEmpty } from "lodash";
  * @since 11.0.0
  * @category Lang
  * @param string String to use.
- * @returns If the file is blank.
+ * @returns If the string is blank.
  * @example
  * isBlank("")
  * // => true
