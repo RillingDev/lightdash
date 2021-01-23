@@ -39,23 +39,23 @@
     },
     "homepage": "https://github.com/FelixRilling/lightdash#readme",
     "dependencies": {
-        "@types/lodash": "^4.14.166",
+        "@types/lodash": "^4.14.168",
         "lodash": "^4.17.20"
     },
     "devDependencies": {
-        "@types/jasmine": "^3.6.2",
-        "@typescript-eslint/eslint-plugin": "^4.11.0",
-        "@typescript-eslint/parser": "^4.11.0",
-        "eslint": "^7.16.0",
-        "eslint-config-prettier": "^7.1.0",
+        "@types/jasmine": "^3.6.3",
+        "@typescript-eslint/eslint-plugin": "^4.14.1",
+        "@typescript-eslint/parser": "^4.14.1",
+        "eslint": "^7.19.0",
+        "eslint-config-prettier": "^7.2.0",
         "eslint-plugin-import": "^2.22.1",
-        "eslint-plugin-prettier": "^3.3.0",
-        "jasmine": "^3.6.3",
+        "eslint-plugin-prettier": "^3.3.1",
+        "jasmine": "^3.6.4",
         "prettier": "^2.2.1",
         "rimraf": "^3.0.2",
         "ts-mockito": "^2.6.1",
         "ts-node": "^9.1.1",
-        "typedoc": "^0.19.2",
+        "typedoc": "~0.19.2",
         "typescript": "^4.1.3"
     }
 }
