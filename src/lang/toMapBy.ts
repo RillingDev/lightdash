@@ -2,13 +2,13 @@ import type { Dictionary, NumericDictionary } from "lodash";
 import { toPairs } from "lodash";
 
 /**
- * Creates a map from an objects entries, mapping the keys and values.
+ * Creates a map from an objects entries.
  *
  * @since 13.0.0
  * @category Lang
  * @param object Object to use.
- * @param keyMapper Function mapping keys.
- * @param valueMapper Function mapping values.
+ * @param keyMapper Function mapping an object key to a map key.
+ * @param valueMapper Function mapping an object value to a map value.
  * @returns Map created from the object.
  * @example
  * toMap({a: 1, b: 4, c: 5}, key => { return { key }; }, value => value * 2)

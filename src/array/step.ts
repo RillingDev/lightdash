@@ -2,7 +2,7 @@ import type { List } from "lodash";
 import { filter } from "lodash";
 
 /**
- * Returns a new collection with every n-th item from the input array.
+ * Returns a new array with every n-th item from the input array.
  *
  * @since 1.0.0
  * @category Array

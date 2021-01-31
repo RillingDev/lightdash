@@ -6,7 +6,7 @@
  * @param map Map to check against.
  * @param key Key to get the value for.
  * @returns The corresponding value.
- * @throws Error if map does not contain key.
+ * @throws TypeError if map does not contain key.
  * @example
  * getExistingElseThrow(new Map([["key", 1]]), "key")
  * // => 1

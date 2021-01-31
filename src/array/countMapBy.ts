@@ -2,8 +2,9 @@ import type { List, ListIterator } from "lodash";
 import { groupMapReducingBy } from "./groupMapReducingBy";
 
 /**
- * Counts the values of an array in a map,
- * using the return value of the function as key.
+ * Counts the values of an array into a map,
+ * with the key being based on a key mapper and the value being the occurrences
+ * of the key mapper result in the initial array.
  *
  * @since 12.0.0
  * @category Array

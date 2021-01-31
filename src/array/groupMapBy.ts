@@ -3,13 +3,14 @@ import { concat } from "lodash";
 import { groupMapReducingBy } from "./groupMapReducingBy";
 
 /**
- * Collects the values of an array in a map as array values,
- * using the return value of the function as key.
+ * Groups the elements of an array into a map,
+ * with the key being based on a key mapper and the value being the values
+ * for the same key mapper result.
  *
  * @since 6.1.0
  * @category Array
  * @param array Array to group.
- * @param keyMapper Function to use for grouping.
+ * @param keyMapper Function returning the key for the value.
  * @returns Grouped map.
  * @example
  * groupMapBy([1, 2, 3, 4, 5], val => val % 2)

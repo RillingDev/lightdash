@@ -1,6 +1,6 @@
 /**
- * Inserts value(s) at the given position.
- * If the index is equal or higher the array length, the value(s) will be appended.
+ * Inserts the value(s) at the given position.
+ * If the index is equal or higher than the array length, the value(s) will be appended.
  * If the index is less than 0, the value(s) will be prepended.
  *
  * Note that the input array is being mutated.
