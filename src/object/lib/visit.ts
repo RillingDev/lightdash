@@ -1,4 +1,4 @@
-import { isObject } from "lodash";
+import { forIn, isObject } from "lodash";
 
 /**
  * Helper method recursively executing the callback against all object properties.
@@ -11,11 +11,11 @@ const visit = (root: object, callback: (val: object) => void): void => {
     const visitStack = new WeakSet<object>();
     const visitObject = (target: object): void => {
         visitStack.add(target);
-        for (const prop of Object.values(target)) {
-            if (isObject(prop) && !visitStack.has(prop)) {
-                visitObject(prop);
+        forIn(target, (value) => {
+            if (isObject(value) && !visitStack.has(value)) {
+                visitObject(value);
             }
-        }
+        });
         callback(target);
     };
     visitObject(root);
