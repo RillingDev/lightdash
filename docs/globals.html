@@ -186,13 +186,14 @@ groupMapBy([<span class="hljs-number">1</span>, <span class="hljs-number">2</spa
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in array/countMapBy.ts:17</li>
+								<li>Defined in array/countMapBy.ts:18</li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
 							<div class="lead">
-								<p>Counts the values of an array in a map,
-								using the return value of the function as key.</p>
+								<p>Counts the values of an array into a map,
+									with the key being based on a key mapper and the value being the occurrences
+								of the key mapper result in the initial array.</p>
 							</div>
 							<dl class="tsd-comment-tags">
 								<dt>since</dt>
@@ -247,13 +248,14 @@ groupMapBy([<span class="hljs-number">1</span>, <span class="hljs-number">2</spa
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in array/groupMapBy.ts:18</li>
+								<li>Defined in array/groupMapBy.ts:19</li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
 							<div class="lead">
-								<p>Collects the values of an array in a map as array values,
-								using the return value of the function as key.</p>
+								<p>Groups the elements of an array into a map,
+									with the key being based on a key mapper and the value being the values
+								for the same key mapper result.</p>
 							</div>
 							<dl class="tsd-comment-tags">
 								<dt>since</dt>
@@ -288,7 +290,7 @@ groupMapBy([<span class="hljs-number">1</span>, <span class="hljs-number">2</spa
 								<h5>keyMapper: <span class="tsd-signature-type">ListIterator</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">TValue</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">UKey</span><span class="tsd-signature-symbol">&gt;</span></h5>
 								<div class="tsd-comment tsd-typography">
 									<div class="lead">
-										<p>Function to use for grouping.</p>
+										<p>Function returning the key for the value.</p>
 									</div>
 								</div>
 							</li>
@@ -302,18 +304,20 @@ groupMapBy([<span class="hljs-number">1</span>, <span class="hljs-number">2</spa
 				<a name="groupmapreducingby" class="tsd-anchor"></a>
 				<h3><span class="tsd-flag ts-flagConst">Const</span> group<wbr>Map<wbr>Reducing<wbr>By</h3>
 				<ul class="tsd-signatures tsd-kind-function tsd-has-type-parameter">
-					<li class="tsd-signature tsd-kind-icon">group<wbr>Map<wbr>Reducing<wbr>By&lt;TValue, UKey, VMerged&gt;<span class="tsd-signature-symbol">(</span>array<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">List</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">TValue</span><span class="tsd-signature-symbol">&gt;</span>, keyMapper<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ListIterator</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">TValue</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">UKey</span><span class="tsd-signature-symbol">&gt;</span>, initializer<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ListIterator</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">TValue</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">VMerged</span><span class="tsd-signature-symbol">&gt;</span>, reducer<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>current<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">VMerged</span>, value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">TValue</span>, index<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, collection<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">List</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">TValue</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">VMerged</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Map</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">UKey</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">VMerged</span><span class="tsd-signature-symbol">&gt;</span></li>
+					<li class="tsd-signature tsd-kind-icon">group<wbr>Map<wbr>Reducing<wbr>By&lt;TValue, UKey, VReduced&gt;<span class="tsd-signature-symbol">(</span>array<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">List</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">TValue</span><span class="tsd-signature-symbol">&gt;</span>, keyMapper<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ListIterator</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">TValue</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">UKey</span><span class="tsd-signature-symbol">&gt;</span>, initializer<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ListIterator</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">TValue</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">VReduced</span><span class="tsd-signature-symbol">&gt;</span>, reducer<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>current<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">VReduced</span>, value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">TValue</span>, index<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, collection<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">List</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">TValue</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">VReduced</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Map</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">UKey</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">VReduced</span><span class="tsd-signature-symbol">&gt;</span></li>
 				</ul>
 				<ul class="tsd-descriptions">
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in array/groupMapReducingBy.ts:32</li>
+								<li>Defined in array/groupMapReducingBy.ts:34</li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
 							<div class="lead">
-								<p>Collects elements in an array into an array of merged elements.</p>
+								<p>Groups the elements of an array into a map,
+									with the key being based on a key mapper and the value being the values
+								for the same key mapper result being reduced.</p>
 							</div>
 							<dl class="tsd-comment-tags">
 								<dt>since</dt>
@@ -348,7 +352,7 @@ groupMapBy([<span class="hljs-number">1</span>, <span class="hljs-number">2</spa
 								<h4>UKey</h4>
 							</li>
 							<li>
-								<h4>VMerged</h4>
+								<h4>VReduced</h4>
 							</li>
 						</ul>
 						<h4 class="tsd-parameters-title">Parameters</h4>
@@ -370,31 +374,31 @@ groupMapBy([<span class="hljs-number">1</span>, <span class="hljs-number">2</spa
 								</div>
 							</li>
 							<li>
-								<h5>initializer: <span class="tsd-signature-type">ListIterator</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">TValue</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">VMerged</span><span class="tsd-signature-symbol">&gt;</span></h5>
+								<h5>initializer: <span class="tsd-signature-type">ListIterator</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">TValue</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">VReduced</span><span class="tsd-signature-symbol">&gt;</span></h5>
 								<div class="tsd-comment tsd-typography">
 									<div class="lead">
-										<p>Function initializing a new mergable object.</p>
+										<p>Function initializing a new reduction result object.</p>
 									</div>
 								</div>
 							</li>
 							<li>
-								<h5>reducer: <span class="tsd-signature-symbol">(</span>current<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">VMerged</span>, value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">TValue</span>, index<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, collection<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">List</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">TValue</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">VMerged</span></h5>
+								<h5>reducer: <span class="tsd-signature-symbol">(</span>current<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">VReduced</span>, value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">TValue</span>, index<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, collection<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">List</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">TValue</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">VReduced</span></h5>
 								<div class="tsd-comment tsd-typography">
 									<div class="lead">
-										<p>Consumer mutating the existing object with the new data.</p>
+										<p>Consumer mutating the existing reduction result object with the new data.</p>
 									</div>
 								</div>
 								<ul class="tsd-parameters">
 									<li class="tsd-parameter-signature">
 										<ul class="tsd-signatures tsd-kind-type-literal">
-											<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>current<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">VMerged</span>, value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">TValue</span>, index<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, collection<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">List</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">TValue</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">VMerged</span></li>
+											<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>current<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">VReduced</span>, value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">TValue</span>, index<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, collection<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">List</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">TValue</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">VReduced</span></li>
 										</ul>
 										<ul class="tsd-descriptions">
 											<li class="tsd-description">
 												<h4 class="tsd-parameters-title">Parameters</h4>
 												<ul class="tsd-parameters">
 													<li>
-														<h5>current: <span class="tsd-signature-type">VMerged</span></h5>
+														<h5>current: <span class="tsd-signature-type">VReduced</span></h5>
 													</li>
 													<li>
 														<h5>value: <span class="tsd-signature-type">TValue</span></h5>
@@ -406,15 +410,15 @@ groupMapBy([<span class="hljs-number">1</span>, <span class="hljs-number">2</spa
 														<h5>collection: <span class="tsd-signature-type">List</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">TValue</span><span class="tsd-signature-symbol">&gt;</span></h5>
 													</li>
 												</ul>
-												<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">VMerged</span></h4>
+												<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">VReduced</span></h4>
 											</li>
 										</ul>
 									</li>
 								</ul>
 							</li>
 						</ul>
-						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Map</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">UKey</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">VMerged</span><span class="tsd-signature-symbol">&gt;</span></h4>
-						<p>Grouped and merged map.</p>
+						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Map</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">UKey</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">VReduced</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						<p>Grouped and reduced map.</p>
 					</li>
 				</ul>
 			</section>
@@ -428,13 +432,13 @@ groupMapBy([<span class="hljs-number">1</span>, <span class="hljs-number">2</spa
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in array/insertAt.ts:18</li>
+								<li>Defined in array/insertAt.ts:31</li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
 							<div class="lead">
-								<p>Inserts value(s) at the given position.
-									If the index is equal or higher the array length, the value(s) will be appended.
+								<p>Inserts the value(s) at the given position.
+									If the index is equal or higher than the array length, the value(s) will be appended.
 								If the index is less than 0, the value(s) will be prepended.</p>
 							</div>
 							<p>Note that the input array is being mutated.</p>
@@ -443,8 +447,18 @@ groupMapBy([<span class="hljs-number">1</span>, <span class="hljs-number">2</spa
 								<dd><p>12.1.0</p>
 								</dd>
 								<dt>example</dt>
-								<dd><p>insertAt([&quot;foo&quot;, &quot;fizz&quot;], 1, &quot;bar&quot;)
+								<dd><p>const a = [&quot;foo&quot;, &quot;fizz&quot;];
+										insertAt(a, 1, &quot;bar&quot;)
 									// =&gt; [&quot;foo&quot;, &quot;bar&quot;, &quot;fizz&quot;]</p>
+									<p>const b = [&quot;foo&quot;, &quot;fizz&quot;];
+										insertAt(b, 1, &quot;bar&quot;, &quot;bazz&quot;))
+									// =&gt; [&quot;foo&quot;, &quot;bar&quot;, &quot;fizz&quot;, &quot;bazz&quot;]</p>
+									<p>const c = [&quot;foo&quot;, &quot;fizz&quot;];
+										insertAt(c, 999, &quot;bar&quot;))
+									// =&gt; [&quot;foo&quot;, &quot;fizz&quot;, &quot;bar&quot;]</p>
+									<p>const d = [&quot;foo&quot;, &quot;fizz&quot;];
+										insertAt(d, -999, &quot;bar&quot;))
+									// =&gt; [&quot;bar&quot;, &quot;foo&quot;, &quot;fizz&quot;]</p>
 								</dd>
 							</dl>
 						</div>
@@ -460,7 +474,7 @@ groupMapBy([<span class="hljs-number">1</span>, <span class="hljs-number">2</spa
 								<h5>array: <span class="tsd-signature-type">TValue</span><span class="tsd-signature-symbol">[]</span></h5>
 								<div class="tsd-comment tsd-typography">
 									<div class="lead">
-										<p>Array to insertAt to.</p>
+										<p>Array to modify.</p>
 									</div>
 								</div>
 							</li>
@@ -468,7 +482,7 @@ groupMapBy([<span class="hljs-number">1</span>, <span class="hljs-number">2</spa
 								<h5>index: <span class="tsd-signature-type">number</span></h5>
 								<div class="tsd-comment tsd-typography">
 									<div class="lead">
-										<p>Index to start inserting.</p>
+										<p>Index to insert at.</p>
 									</div>
 								</div>
 							</li>
@@ -476,13 +490,13 @@ groupMapBy([<span class="hljs-number">1</span>, <span class="hljs-number">2</spa
 								<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>values: <span class="tsd-signature-type">TValue</span><span class="tsd-signature-symbol">[]</span></h5>
 								<div class="tsd-comment tsd-typography">
 									<div class="lead">
-										<p>Value(s) to insertAt.</p>
+										<p>Value(s) to insert.</p>
 									</div>
 								</div>
 							</li>
 						</ul>
 						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">TValue</span><span class="tsd-signature-symbol">[]</span></h4>
-						<p>Collection.</p>
+						<p>The mutated array.</p>
 					</li>
 				</ul>
 			</section>
@@ -496,14 +510,15 @@ groupMapBy([<span class="hljs-number">1</span>, <span class="hljs-number">2</spa
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in array/pullFirst.ts:19</li>
+								<li>Defined in array/pullFirst.ts:24</li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
 							<div class="lead">
-								<p>Removes the first occurrence of an element from an array.</p>
+								<p>Removes the first occurrence of an element from an array.
+								If the element does not exist in the array nothing is done.</p>
 							</div>
-							<p>Note: the input array is being mutated.</p>
+							<p>Note that the input array is being mutated.</p>
 							<dl class="tsd-comment-tags">
 								<dt>since</dt>
 								<dd><p>2.8.0</p>
@@ -511,7 +526,10 @@ groupMapBy([<span class="hljs-number">1</span>, <span class="hljs-number">2</spa
 								<dt>example</dt>
 								<dd><p>const a = [&quot;foo&quot;, &quot;bar&quot;, &quot;fizz&quot;, &quot;bar&quot;];
 										removeItem(a, &quot;bar&quot;)
-									// a equals [&quot;foo&quot;, &quot;fizz&quot;, &quot;bar&quot;]</p>
+									// =&gt; [&quot;foo&quot;, &quot;fizz&quot;, &quot;bar&quot;]</p>
+									<p>const b = [&quot;foo&quot;, &quot;bar&quot;, &quot;fizz&quot;, &quot;bar&quot;];
+										removeItem(b, &quot;bazz&quot;)
+									// =&gt; [&quot;foo&quot;, &quot;bar&quot;, &quot;fizz&quot;, &quot;bar&quot;]</p>
 								</dd>
 							</dl>
 						</div>
@@ -541,7 +559,7 @@ groupMapBy([<span class="hljs-number">1</span>, <span class="hljs-number">2</spa
 							</li>
 						</ul>
 						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">List</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">TValue</span><span class="tsd-signature-symbol">&gt;</span></h4>
-						<p>The mutated collection.</p>
+						<p>The mutated array.</p>
 					</li>
 				</ul>
 			</section>
@@ -560,7 +578,7 @@ groupMapBy([<span class="hljs-number">1</span>, <span class="hljs-number">2</spa
 						</aside>
 						<div class="tsd-comment tsd-typography">
 							<div class="lead">
-								<p>Returns a new collection with every n-th item from the input array.</p>
+								<p>Returns a new array with every n-th item from the input array.</p>
 							</div>
 							<dl class="tsd-comment-tags">
 								<dt>since</dt>
@@ -890,7 +908,7 @@ groupMapBy([<span class="hljs-number">1</span>, <span class="hljs-number">2</spa
 						</aside>
 						<div class="tsd-comment tsd-typography">
 							<div class="lead">
-								<p>Creates a map from an objects entries, mapping the keys and values.</p>
+								<p>Creates a map from an objects entries.</p>
 							</div>
 							<dl class="tsd-comment-tags">
 								<dt>since</dt>
@@ -928,7 +946,7 @@ groupMapBy([<span class="hljs-number">1</span>, <span class="hljs-number">2</spa
 								<h5>keyMapper: <span class="tsd-signature-symbol">(</span>key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, val<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">VInitialValue</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">UKey</span></h5>
 								<div class="tsd-comment tsd-typography">
 									<div class="lead">
-										<p>Function mapping keys.</p>
+										<p>Function mapping an object key to a map key.</p>
 									</div>
 								</div>
 								<ul class="tsd-parameters">
@@ -957,7 +975,7 @@ groupMapBy([<span class="hljs-number">1</span>, <span class="hljs-number">2</spa
 								<h5>valueMapper: <span class="tsd-signature-symbol">(</span>key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">VInitialValue</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">TValue</span></h5>
 								<div class="tsd-comment tsd-typography">
 									<div class="lead">
-										<p>Function mapping values.</p>
+										<p>Function mapping an object value to a map value.</p>
 									</div>
 								</div>
 								<ul class="tsd-parameters">
@@ -1013,7 +1031,7 @@ groupMapBy([<span class="hljs-number">1</span>, <span class="hljs-number">2</spa
 								<dd><p>13.0.0</p>
 								</dd>
 								<dt>throws</dt>
-								<dd><p>Error if map does not contain key.</p>
+								<dd><p>TypeError if map does not contain key.</p>
 								</dd>
 								<dt>example</dt>
 								<dd><p>getExistingElseThrow(new Map([[&quot;key&quot;, 1]]), &quot;key&quot;)

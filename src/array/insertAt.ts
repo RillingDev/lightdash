@@ -7,13 +7,26 @@
  *
  * @since 12.1.0
  * @category Array
- * @param array Array to insertAt to.
- * @param index Index to start inserting.
- * @param values Value(s) to insertAt.
- * @returns Collection.
+ * @param array Array to modify.
+ * @param index Index to insert at.
+ * @param values Value(s) to insert.
+ * @returns The mutated array.
  * @example
- * insertAt(["foo", "fizz"], 1, "bar")
+ * const a = ["foo", "fizz"];
+ * insertAt(a, 1, "bar")
  * // => ["foo", "bar", "fizz"]
+ *
+ * const b = ["foo", "fizz"];
+ * insertAt(b, 1, "bar", "bazz"))
+ * // => ["foo", "bar", "fizz", "bazz"]
+ *
+ * const c = ["foo", "fizz"];
+ * insertAt(c, 999, "bar"))
+ * // => ["foo", "fizz", "bar"]
+ *
+ * const d = ["foo", "fizz"];
+ * insertAt(d, -999, "bar"))
+ * // => ["bar", "foo", "fizz"]
  */
 const insertAt = <TValue>(
     array: TValue[],
