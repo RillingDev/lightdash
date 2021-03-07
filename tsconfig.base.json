@@ -1,19 +1,15 @@
 {
     "compilerOptions": {
-        "target": "ES2019",
+        // General
         "newLine": "LF",
         "removeComments": false,
         "moduleResolution": "node",
         "esModuleInterop": true,
         "strict": true,
-        "forceConsistentCasingInFileNames": true,
-        "noUnusedParameters": true,
-        "noUnusedLocals": true,
-        "experimentalDecorators": true,
-        "emitDecoratorMetadata": true,
+        // Per-project
+        "target": "ES2019",
         "lib": [
-            "esnext",
-            "dom"
+            "ESNext"
         ]
     },
     "include": [],

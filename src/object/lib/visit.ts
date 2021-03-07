@@ -5,7 +5,7 @@ import { forIn, isObject } from "lodash";
  * Only object-like values will have the callback executed.
  * If the same reference is encountered after the first time, it will be skipped.
  *
- * @private
+ * @internal
  */
 const visit = (root: object, callback: (val: object) => void): void => {
     const visitStack = new WeakSet<object>();
