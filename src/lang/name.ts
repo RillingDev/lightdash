@@ -6,7 +6,7 @@ import { isFunction, isString, isSymbol } from "lodash";
  * If the value is a function, its name is returned.
  * If the value is a symbol, its key is returned.
  * If the value is a string, it is returned as is.
- * Otherwise null is returned.
+ * Otherwise, null is returned.
  *
  * @since 10.2.0
  * @category Lang
