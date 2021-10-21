@@ -13,6 +13,6 @@
  * // => false
  */
 const isPromise = (value: unknown): value is Promise<unknown> =>
-    value instanceof Promise;
+	value instanceof Promise;
 
 export { isPromise };

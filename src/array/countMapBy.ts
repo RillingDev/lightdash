@@ -16,14 +16,14 @@ import { groupMapReducingBy } from "./groupMapReducingBy";
  * // => Map{1: 1, 2: 2, 4: 3}
  */
 const countMapBy = <TValue, UKey>(
-    array: List<TValue>,
-    keyMapper: ListIterator<TValue, UKey>
+	array: List<TValue>,
+	keyMapper: ListIterator<TValue, UKey>
 ): Map<UKey, number> =>
-    groupMapReducingBy(
-        array,
-        keyMapper,
-        () => 0,
-        (current) => current + 1
-    );
+	groupMapReducingBy(
+		array,
+		keyMapper,
+		() => 0,
+		(current) => current + 1
+	);
 
 export { countMapBy };

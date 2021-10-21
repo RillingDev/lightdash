@@ -13,7 +13,7 @@ import { toPairs } from "lodash";
  * // => Map{"a": 1, "b": 4, "c": 5}
  */
 const toMap = <TValue>(
-    object: Dictionary<TValue> | NumericDictionary<TValue>
+	object: Dictionary<TValue> | NumericDictionary<TValue>
 ): Map<string, TValue> => new Map(toPairs(object));
 
 export { toMap };

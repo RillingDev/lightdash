@@ -15,18 +15,18 @@
  * // => throws TypeError
  */
 const getExistingElseThrow = <TKey, UValue>(
-    map: Map<TKey, UValue>,
-    key: TKey
+	map: Map<TKey, UValue>,
+	key: TKey
 ): UValue => {
-    if (!map.has(key)) {
-        const mapKeysVisualization = JSON.stringify(Array.from(map.keys()));
-        throw new TypeError(
-            `Could not find key '${String(
-                key
-            )}' in map keys '${mapKeysVisualization}'.`
-        );
-    }
-    return map.get(key)!;
+	if (!map.has(key)) {
+		const mapKeysVisualization = JSON.stringify(Array.from(map.keys()));
+		throw new TypeError(
+			`Could not find key '${String(
+				key
+			)}' in map keys '${mapKeysVisualization}'.`
+		);
+	}
+	return map.get(key)!;
 };
 
 export { getExistingElseThrow };

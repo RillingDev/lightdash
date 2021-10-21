@@ -1,17 +1,14 @@
 {
-    "compilerOptions": {
-        // General
-        "newLine": "LF",
-        "removeComments": false,
-        "moduleResolution": "node",
-        "esModuleInterop": true,
-        "strict": true,
-        // Per-project
-        "target": "ES2019",
-        "lib": [
-            "ESNext"
-        ]
-    },
-    "include": [],
-    "exclude": ["node_modules"]
+	"compilerOptions": {
+		// General
+		"newLine": "LF",
+		"moduleResolution": "node",
+		"esModuleInterop": true,
+		"strict": true,
+		// Per-project
+		"target": "ES2019",
+		"lib": ["ESNext"]
+	},
+	"include": [],
+	"exclude": ["node_modules"]
 }

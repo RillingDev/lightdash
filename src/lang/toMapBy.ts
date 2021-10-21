@@ -15,15 +15,15 @@ import { toPairs } from "lodash";
  * // => Map{{key: "a"}: 2, {key: "b"}: 8, {key: "a"}: 10}
  */
 const toMapBy = <TValue, UKey, VInitialValue>(
-    object: Dictionary<VInitialValue> | NumericDictionary<VInitialValue>,
-    keyMapper: (key: string, val: VInitialValue) => UKey,
-    valueMapper: (key: string, value: VInitialValue) => TValue
+	object: Dictionary<VInitialValue> | NumericDictionary<VInitialValue>,
+	keyMapper: (key: string, val: VInitialValue) => UKey,
+	valueMapper: (key: string, value: VInitialValue) => TValue
 ): Map<UKey, TValue> =>
-    new Map(
-        toPairs(object).map(([key, val]) => [
-            keyMapper(key, val),
-            valueMapper(key, val),
-        ])
-    );
+	new Map(
+		toPairs(object).map(([key, val]) => [
+			keyMapper(key, val),
+			valueMapper(key, val),
+		])
+	);
 
 export { toMapBy };

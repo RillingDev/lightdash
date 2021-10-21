@@ -32,28 +32,28 @@ import { forEach } from "lodash";
  * // => Map{"f": {count: 2, matches: ["foo", "fizz"]}, "b": {count: 2, matches: ["bar", "buzz"]}}
  */
 const groupMapReducingBy = <TValue, UKey, VReduced>(
-    array: List<TValue>,
-    keyMapper: ListIterator<TValue, UKey>,
-    initializer: ListIterator<TValue, VReduced>,
-    reducer: (
-        current: VReduced,
-        value: TValue,
-        index: number,
-        collection: List<TValue>
-    ) => VReduced
+	array: List<TValue>,
+	keyMapper: ListIterator<TValue, UKey>,
+	initializer: ListIterator<TValue, VReduced>,
+	reducer: (
+		current: VReduced,
+		value: TValue,
+		index: number,
+		collection: List<TValue>
+	) => VReduced
 ): Map<UKey, VReduced> => {
-    const result = new Map<UKey, VReduced>();
+	const result = new Map<UKey, VReduced>();
 
-    forEach(array, (value, index) => {
-        const key = keyMapper(value, index, array);
-        if (!result.has(key)) {
-            result.set(key, initializer(value, index, array));
-        }
+	forEach(array, (value, index) => {
+		const key = keyMapper(value, index, array);
+		if (!result.has(key)) {
+			result.set(key, initializer(value, index, array));
+		}
 
-        result.set(key, reducer(result.get(key)!, value, index, array));
-    });
+		result.set(key, reducer(result.get(key)!, value, index, array));
+	});
 
-    return result;
+	return result;
 };
 
 export { groupMapReducingBy };

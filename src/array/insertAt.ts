@@ -29,12 +29,12 @@
  * // => ["bar", "foo", "fizz"]
  */
 const insertAt = <TValue>(
-    array: TValue[],
-    index: number,
-    ...values: TValue[]
+	array: TValue[],
+	index: number,
+	...values: TValue[]
 ): TValue[] => {
-    array.splice(index, 0, ...values);
-    return array;
+	array.splice(index, 0, ...values);
+	return array;
 };
 
 export { insertAt };

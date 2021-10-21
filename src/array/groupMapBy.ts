@@ -17,14 +17,14 @@ import { groupMapReducingBy } from "./groupMapReducingBy";
  * // => Map{0: [2, 4], 1: [1, 3, 5]}
  */
 const groupMapBy = <TValue, UKey>(
-    array: List<TValue>,
-    keyMapper: ListIterator<TValue, UKey>
+	array: List<TValue>,
+	keyMapper: ListIterator<TValue, UKey>
 ): Map<UKey, TValue[]> =>
-    groupMapReducingBy(
-        array,
-        keyMapper,
-        () => [] as TValue[],
-        (current, value) => concat(current, value)
-    );
+	groupMapReducingBy(
+		array,
+		keyMapper,
+		() => [] as TValue[],
+		(current, value) => concat(current, value)
+	);
 
 export { groupMapBy };

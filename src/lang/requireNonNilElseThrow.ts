@@ -15,13 +15,13 @@
  * // => throws TypeError
  */
 const requireNonNilElseThrow = <T>(
-    value: T | null | undefined,
-    errorSupplier: () => Error
+	value: T | null | undefined,
+	errorSupplier: () => Error
 ): T => {
-    if (value == null) {
-        throw errorSupplier();
-    }
-    return value;
+	if (value == null) {
+		throw errorSupplier();
+	}
+	return value;
 };
 
 export { requireNonNilElseThrow };

@@ -14,6 +14,6 @@ import { filter } from "lodash";
  * // => [1, 3, 5]
  */
 const step = <TValue>(array: List<TValue>, stepSize: number): List<TValue> =>
-    filter(array, (_value, index) => index % stepSize === 0);
+	filter(array, (_value, index) => index % stepSize === 0);
 
 export { step };

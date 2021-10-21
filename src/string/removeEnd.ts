@@ -17,11 +17,11 @@
  * // => "FooBar"
  */
 const removeEnd = (string: string, removeValue: string): string => {
-    if (!string.endsWith(removeValue)) {
-        return string;
-    }
+	if (!string.endsWith(removeValue)) {
+		return string;
+	}
 
-    return string.substring(0, string.length - removeValue.length);
+	return string.substring(0, string.length - removeValue.length);
 };
 
 export { removeEnd };

@@ -22,12 +22,12 @@ import { indexOf, remove } from "lodash";
  * // => ["foo", "bar", "fizz", "bar"]
  */
 const pullFirst = <TValue>(
-    array: List<TValue>,
-    value: TValue
+	array: List<TValue>,
+	value: TValue
 ): List<TValue> => {
-    const targetIndex = indexOf(array, value);
-    remove(array, (_val, index) => index === targetIndex);
-    return array;
+	const targetIndex = indexOf(array, value);
+	remove(array, (_val, index) => index === targetIndex);
+	return array;
 };
 
 export { pullFirst };

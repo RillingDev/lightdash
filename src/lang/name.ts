@@ -29,17 +29,17 @@ import { isFunction, isString, isSymbol } from "lodash";
  * // => null
  */
 const name = (value: unknown): string | null => {
-    if (isString(value)) {
-        return value;
-    }
-    if (isSymbol(value)) {
-        return Symbol.keyFor(value) ?? null;
-    }
-    if (isFunction(value)) {
-        return value.name;
-    }
+	if (isString(value)) {
+		return value;
+	}
+	if (isSymbol(value)) {
+		return Symbol.keyFor(value) ?? null;
+	}
+	if (isFunction(value)) {
+		return value.name;
+	}
 
-    return null;
+	return null;
 };
 
 export { name };

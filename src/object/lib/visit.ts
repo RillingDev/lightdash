@@ -8,17 +8,17 @@ import { forIn, isObject } from "lodash";
  * @internal
  */
 const visit = (root: object, callback: (val: object) => void): void => {
-    const visitStack = new WeakSet<object>();
-    const visitObject = (target: object): void => {
-        visitStack.add(target);
-        forIn(target, (value) => {
-            if (isObject(value) && !visitStack.has(value)) {
-                visitObject(value);
-            }
-        });
-        callback(target);
-    };
-    visitObject(root);
+	const visitStack = new WeakSet<object>();
+	const visitObject = (target: object): void => {
+		visitStack.add(target);
+		forIn(target, (value) => {
+			if (isObject(value) && !visitStack.has(value)) {
+				visitObject(value);
+			}
+		});
+		callback(target);
+	};
+	visitObject(root);
 };
 
 export { visit };
