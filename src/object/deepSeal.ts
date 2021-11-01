@@ -3,7 +3,7 @@ import { visit } from "./lib/visit";
 /**
  * Recursively seals objects, useful for constant objects.
  *
- * This function mutates the input value and calls Object.seal() recursively on all sub-objects.
+ * This function mutates the input value and seals all sub-objects recursively.
  *
  * @since 12.0.0
  * @category Object

@@ -3,7 +3,7 @@ import { visit } from "./lib/visit";
 /**
  * Recursively freezes objects, useful for constant objects.
  *
- * This function mutates the input value and calls Object.freeze() recursively on all sub-objects.
+ * This function mutates the input value and freezes all sub-objects recursively.
  *
  * @since 12.0.0
  * @category Object
