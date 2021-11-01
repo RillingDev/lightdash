@@ -15,7 +15,7 @@
  * // => throws TypeError
  */
 const getExistingElseThrow = <TKey, UValue>(
-	map: Map<TKey, UValue>,
+	map: ReadonlyMap<TKey, UValue>,
 	key: TKey
 ): UValue => {
 	if (!map.has(key)) {
