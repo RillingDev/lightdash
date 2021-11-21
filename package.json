@@ -1,6 +1,6 @@
 {
     "name": "lightdash",
-    "version": "13.0.2",
+    "version": "13.0.3",
     "description": "A small TypeScript utility library to complement lodash",
     "main": "./dist/cjs/main.js",
     "module": "./dist/esm/main.js",
@@ -43,19 +43,19 @@
         "lodash": "^4.17.21"
     },
     "devDependencies": {
-		"@types/jasmine": "^3.7.7",
-		"@typescript-eslint/eslint-plugin": "^5.0.0",
-		"@typescript-eslint/parser": "^5.0.0",
-		"eslint": "^8.0.0",
-		"eslint-config-prettier": "^8.3.0",
-		"eslint-plugin-import": "^2.25.2",
-		"eslint-plugin-prettier": "^4.0.0",
-		"jasmine": "^3.7.0",
-		"prettier": "^2.3.2",
-		"rimraf": "^3.0.2",
-		"ts-mockito": "^2.6.1",
-		"ts-node": "^10.0.0",
-		"typedoc": "^0.22.2",
-		"typescript": "^4.3.4"
+        "@types/jasmine": "^3.7.7",
+        "@typescript-eslint/eslint-plugin": "^5.0.0",
+        "@typescript-eslint/parser": "^5.0.0",
+        "eslint": "^8.0.0",
+        "eslint-config-prettier": "^8.3.0",
+        "eslint-plugin-import": "^2.25.2",
+        "eslint-plugin-prettier": "^4.0.0",
+        "jasmine": "^3.7.0",
+        "prettier": "^2.3.2",
+        "rimraf": "^3.0.2",
+        "ts-mockito": "^2.6.1",
+        "ts-node": "^10.0.0",
+        "typedoc": "^0.22.2",
+        "typescript": "^4.3.4"
     }
 }
