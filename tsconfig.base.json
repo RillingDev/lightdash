@@ -3,10 +3,12 @@
 		// General
 		"newLine": "LF",
 		"moduleResolution": "node",
-		"esModuleInterop": true,
 		"strict": true,
+		"useDefineForClassFields": true,
 		// Per-project
+		"esModuleInterop": true,
 		"target": "ES2019",
+		"module": "ES2015",
 		"lib": ["ESNext"]
 	},
 	"include": [],
