@@ -1,13 +1,12 @@
 # lightdash
 
-> A small TypeScript utility library to complement lodash.
+> A small JavaScript utility library to complement lodash.
 
 ## Introduction
 
-Lightdash is a utility library aiming to complement [lodash](https://lodash.com/),
-written in TypeScript.
+Lightdash is a utility library aiming to complement [lodash](https://lodash.com/).
 
-**[Docs](https://felixrilling.github.io/lightdash/)**
+[Documentation](https://felixrilling.github.io/lightdash/)
 
 ## Usage
 
@@ -17,18 +16,10 @@ Installation:
 npm install lightdash
 ```
 
-When using ES Modules:
+And import it:
 
 ```typescript
 import { groupMapBy } from "lightdash";
-
-groupMapBy([1, 2, 3, 4, 5], (val) => val % 2);
-```
-
-When using CommonJS (e.g. Node):
-
-```typescript
-const { groupMapBy } = require("lightdash");
 
 groupMapBy([1, 2, 3, 4, 5], (val) => val % 2);
 ```
