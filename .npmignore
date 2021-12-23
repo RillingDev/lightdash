@@ -34,14 +34,14 @@ tsconfig.*.tsbuildinfo
 
 # Source Files
 src/
-spec/
+__tests__/
 
 # Config/Infrastructure Files
-.eslintrc.js
+.eslintrc.json
 .eslintignore
 .editorconfig
 typedoc.json
-jasmine.json
+jest.config.js
 tsconfig.base.json
 tsconfig.json
 .github/

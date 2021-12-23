@@ -6,4 +6,4 @@
 ./docs/
 
 # don't lint build tooling configs
-.eslintrc.js
+jest.config.js
