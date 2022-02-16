@@ -5,11 +5,11 @@ describe("deepSeal", () => {
 		const a = { a: { b: 2 }, b: [1, { foo: "foo" }], c: 2 };
 		deepSeal(a);
 
-		expect(Object.isSealed(a)).toBeTrue();
-		expect(Object.isSealed(a.a)).toBeTrue();
-		expect(Object.isSealed(a.a.b)).toBeTrue();
-		expect(Object.isSealed(a.b)).toBeTrue();
-		expect(Object.isSealed(a.b[1])).toBeTrue();
+		expect(Object.isSealed(a)).toBe(true);
+		expect(Object.isSealed(a.a)).toBe(true);
+		expect(Object.isSealed(a.a.b)).toBe(true);
+		expect(Object.isSealed(a.b)).toBe(true);
+		expect(Object.isSealed(a.b[1])).toBe(true);
 	});
 
 	it("works with circular refs", () => {
@@ -18,7 +18,7 @@ describe("deepSeal", () => {
 
 		deepSeal(a);
 
-		expect(Object.isSealed(a)).toBeTrue();
-		expect(Object.isSealed(a.b)).toBeTrue();
+		expect(Object.isSealed(a)).toBe(true);
+		expect(Object.isSealed(a.b)).toBe(true);
 	});
 });

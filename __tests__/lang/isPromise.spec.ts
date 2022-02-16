@@ -8,13 +8,13 @@ describe("isPromise", () => {
 					resolve("foo");
 				})
 			)
-		).toBeTrue();
+		).toBe(true);
 	});
 	it("false for other", () => {
-		expect(isPromise(() => "foo")).toBeFalse();
-		expect(isPromise({})).toBeFalse();
-		expect(isPromise([])).toBeFalse();
-		expect(isPromise(null)).toBeFalse();
-		expect(isPromise(undefined)).toBeFalse();
+		expect(isPromise(() => "foo")).toBe(false);
+		expect(isPromise({})).toBe(false);
+		expect(isPromise([])).toBe(false);
+		expect(isPromise(null)).toBe(false);
+		expect(isPromise(undefined)).toBe(false);
 	});
 });
