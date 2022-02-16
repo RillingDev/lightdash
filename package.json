@@ -38,8 +38,8 @@
 		"url": "https://github.com/FelixRilling/lightdash/issues"
 	},
 	"homepage": "https://github.com/FelixRilling/lightdash#readme",
-	"dependencies": {
-		"@types/lodash": "^4.14.170",
+	"peerDependencies": {
+		"@types/lodash": "^4.14.178",
 		"lodash": "^4.17.21"
 	},
 	"devDependencies": {
