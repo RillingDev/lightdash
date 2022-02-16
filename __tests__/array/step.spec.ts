@@ -1,4 +1,4 @@
-import { step } from "../../src/array/step";
+import { step } from "../../src/array/step.js";
 
 describe("step", () => {
 	it("steps items", () => {

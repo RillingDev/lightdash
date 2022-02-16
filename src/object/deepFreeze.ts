@@ -1,4 +1,4 @@
-import { visit } from "./lib/visit";
+import { visit } from "./lib/visit.js";
 
 /**
  * Recursively freezes objects, useful for constant objects.

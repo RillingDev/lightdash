@@ -1,4 +1,4 @@
-import { name } from "../../src/lang/name";
+import { name } from "../../src/lang/name.js";
 
 describe("name", () => {
 	it("gets name of class", () => {

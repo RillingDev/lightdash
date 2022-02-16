@@ -1,4 +1,4 @@
-import { pullFirst } from "../../src/array/pullFirst";
+import { pullFirst } from "../../src/array/pullFirst.js";
 
 describe("pullFirst", () => {
 	it("removes the first item", () => {

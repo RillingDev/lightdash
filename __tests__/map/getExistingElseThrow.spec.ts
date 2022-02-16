@@ -1,4 +1,4 @@
-import { getExistingElseThrow } from "../../src/map/getExistingElseThrow";
+import { getExistingElseThrow } from "../../src/map/getExistingElseThrow.js";
 
 describe("getExistingElseThrow", () => {
 	it("returns value if key exists", () => {

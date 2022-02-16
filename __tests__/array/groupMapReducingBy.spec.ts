@@ -1,4 +1,4 @@
-import { groupMapReducingBy } from "../../src/array/groupMapReducingBy";
+import { groupMapReducingBy } from "../../src/array/groupMapReducingBy.js";
 
 describe("groupMapReducingBy", () => {
 	it("groups items", () => {

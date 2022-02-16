@@ -1,4 +1,4 @@
-import { groupMapBy } from "../../src/array/groupMapBy";
+import { groupMapBy } from "../../src/array/groupMapBy.js";
 
 describe("groupMapBy", () => {
 	it("groups items", () => {

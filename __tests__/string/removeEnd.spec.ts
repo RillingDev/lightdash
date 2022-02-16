@@ -1,4 +1,4 @@
-import { removeEnd } from "../../src/string/removeEnd";
+import { removeEnd } from "../../src/string/removeEnd.js";
 
 describe("removeEnd", () => {
 	it("removes from end", () => {

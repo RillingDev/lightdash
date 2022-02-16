@@ -1,4 +1,4 @@
-import { countMapBy } from "../../src/array/countMapBy";
+import { countMapBy } from "../../src/array/countMapBy.js";
 
 describe("countMapBy", () => {
 	it("counts items", () => {

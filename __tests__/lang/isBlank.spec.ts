@@ -1,4 +1,4 @@
-import { isBlank } from "../../src/lang/isBlank";
+import { isBlank } from "../../src/lang/isBlank.js";
 
 describe("isBlank", () => {
 	it("true for empty", () => {

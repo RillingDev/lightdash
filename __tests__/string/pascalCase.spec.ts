@@ -1,4 +1,4 @@
-import { pascalCase } from "../../src/string/pascalCase";
+import { pascalCase } from "../../src/string/pascalCase.js";
 
 describe("pascalCase", () => {
 	it("converts to PascalCase", () => {

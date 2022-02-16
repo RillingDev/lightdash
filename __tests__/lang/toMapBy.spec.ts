@@ -1,4 +1,4 @@
-import { toMapBy } from "../../src/lang/toMapBy";
+import { toMapBy } from "../../src/lang/toMapBy.js";
 
 describe("toMapBy", () => {
 	it("maps keys/values", () => {

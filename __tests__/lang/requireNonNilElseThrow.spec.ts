@@ -1,4 +1,4 @@
-import { requireNonNilElseThrow } from "../../src/lang/requireNonNilElseThrow";
+import { requireNonNilElseThrow } from "../../src/lang/requireNonNilElseThrow.js";
 
 describe("requireNonNilElseThrow", () => {
 	it("returns value if non-nil", () => {

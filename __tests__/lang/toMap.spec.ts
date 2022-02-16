@@ -1,4 +1,4 @@
-import { toMap } from "../../src/lang/toMap";
+import { toMap } from "../../src/lang/toMap.js";
 
 describe("toMap", () => {
 	it("converts to map", () => {

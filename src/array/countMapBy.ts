@@ -1,5 +1,5 @@
 import type { List, ListIterator } from "lodash";
-import { groupMapReducingBy } from "./groupMapReducingBy";
+import { groupMapReducingBy } from "./groupMapReducingBy.js";
 
 /**
  * Counts the values of an array into a map,

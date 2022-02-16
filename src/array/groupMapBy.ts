@@ -1,6 +1,6 @@
 import type { List, ListIterator } from "lodash";
 import { concat } from "lodash";
-import { groupMapReducingBy } from "./groupMapReducingBy";
+import { groupMapReducingBy } from "./groupMapReducingBy.js";
 
 /**
  * Groups the elements of an array into a map,

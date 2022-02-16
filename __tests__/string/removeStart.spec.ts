@@ -1,4 +1,4 @@
-import { removeStart } from "../../src/string/removeStart";
+import { removeStart } from "../../src/string/removeStart.js";
 
 describe("removeStart", () => {
 	it("removes from start", () => {

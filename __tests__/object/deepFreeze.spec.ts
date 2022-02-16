@@ -1,4 +1,4 @@
-import { deepFreeze } from "../../src/object/deepFreeze";
+import { deepFreeze } from "../../src/object/deepFreeze.js";
 
 describe("deepFreeze", () => {
 	it("seals all", () => {

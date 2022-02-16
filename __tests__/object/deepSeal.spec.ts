@@ -1,4 +1,4 @@
-import { deepSeal } from "../../src/object/deepSeal";
+import { deepSeal } from "../../src/object/deepSeal.js";
 
 describe("deepSeal", () => {
 	it("seals all", () => {

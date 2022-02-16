@@ -1,4 +1,4 @@
-import { insertAt } from "../../src/array/insertAt";
+import { insertAt } from "../../src/array/insertAt.js";
 
 describe("insertAt", () => {
 	it("inserts single", () => {

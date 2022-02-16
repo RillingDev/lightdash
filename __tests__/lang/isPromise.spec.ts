@@ -1,4 +1,4 @@
-import { isPromise } from "../../src/lang/isPromise";
+import { isPromise } from "../../src/lang/isPromise.js";
 
 describe("isPromise", () => {
 	it("true for promise", () => {
