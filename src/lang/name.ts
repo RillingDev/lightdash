@@ -1,5 +1,3 @@
-import { isFunction, isString, isSymbol } from "lodash";
-
 /**
  * Gets name of a value.
  *
@@ -28,18 +26,16 @@ import { isFunction, isString, isSymbol } from "lodash";
  * name(1)
  * // => null
  */
-const name = (value: unknown): string | null => {
-	if (isString(value)) {
+export const name = (value: unknown): string | null => {
+	if (typeof value == "string") {
 		return value;
 	}
-	if (isSymbol(value)) {
+	if (typeof value == "symbol") {
 		return Symbol.keyFor(value) ?? null;
 	}
-	if (isFunction(value)) {
+	if (typeof value == "function") {
 		return value.name;
 	}
 
 	return null;
 };
-
-export { name };
