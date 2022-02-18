@@ -1,4 +1,3 @@
-import type { Dictionary, NumericDictionary } from "lodash";
 import { toPairs } from "lodash";
 
 /**
@@ -15,7 +14,7 @@ import { toPairs } from "lodash";
  * // => Map{{key: "a"}: 2, {key: "b"}: 8, {key: "a"}: 10}
  */
 const toMapBy = <TValue, UKey, VInitialValue>(
-	object: Dictionary<VInitialValue> | NumericDictionary<VInitialValue>,
+	object: Record<string, VInitialValue>,
 	keyMapper: (key: string, val: VInitialValue) => UKey,
 	valueMapper: (key: string, value: VInitialValue) => TValue
 ): Map<UKey, TValue> =>

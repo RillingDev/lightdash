@@ -1,4 +1,3 @@
-import type { List } from "lodash";
 import { filter } from "lodash";
 
 /**
@@ -13,7 +12,9 @@ import { filter } from "lodash";
  * step([1, 2, 3, 4, 5, 6], 2)
  * // => [1, 3, 5]
  */
-const step = <TValue>(array: List<TValue>, stepSize: number): List<TValue> =>
-	filter(array, (_value, index) => index % stepSize === 0);
+const step = <TValue>(
+	array: ReadonlyArray<TValue>,
+	stepSize: number
+): TValue[] => filter(array, (_value, index) => index % stepSize === 0);
 
 export { step };

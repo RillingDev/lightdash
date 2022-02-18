@@ -1,4 +1,3 @@
-import type { Dictionary, NumericDictionary } from "lodash";
 import { toPairs } from "lodash";
 
 /**
@@ -12,8 +11,7 @@ import { toPairs } from "lodash";
  * toMap({a: 1, b: 4, c: 5})
  * // => Map{"a": 1, "b": 4, "c": 5}
  */
-const toMap = <TValue>(
-	object: Dictionary<TValue> | NumericDictionary<TValue>
-): Map<string, TValue> => new Map(toPairs(object));
+const toMap = <TValue>(object: Record<string, TValue>): Map<string, TValue> =>
+	new Map(toPairs(object));
 
 export { toMap };

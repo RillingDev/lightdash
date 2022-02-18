@@ -1,4 +1,3 @@
-import type { List } from "lodash";
 import { indexOf, remove } from "lodash";
 
 /**
@@ -21,10 +20,7 @@ import { indexOf, remove } from "lodash";
  * removeItem(b, "bazz")
  * // => ["foo", "bar", "fizz", "bar"]
  */
-const pullFirst = <TValue>(
-	array: List<TValue>,
-	value: TValue
-): List<TValue> => {
+const pullFirst = <TValue>(array: TValue[], value: TValue): TValue[] => {
 	const targetIndex = indexOf(array, value);
 	remove(array, (_val, index) => index === targetIndex);
 	return array;
