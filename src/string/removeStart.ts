@@ -16,12 +16,10 @@
  * removeStart("FooBar", "Buzz")
  * // => "FooBar"
  */
-const removeStart = (string: string, removeValue: string): string => {
+export const removeStart = (string: string, removeValue: string): string => {
 	if (!string.startsWith(removeValue)) {
 		return string;
 	}
 
 	return string.substring(removeValue.length);
 };
-
-export { removeStart };
