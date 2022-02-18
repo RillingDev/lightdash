@@ -28,7 +28,7 @@
  * insertAt(d, -999, "bar"))
  * // => ["bar", "foo", "fizz"]
  */
-const insertAt = <TValue>(
+export const insertAt = <TValue>(
 	array: TValue[],
 	index: number,
 	...values: TValue[]
@@ -36,5 +36,3 @@ const insertAt = <TValue>(
 	array.splice(index, 0, ...values);
 	return array;
 };
-
-export { insertAt };

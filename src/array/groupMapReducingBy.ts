@@ -30,7 +30,7 @@ import type { ArrayIterator } from "./lib/ArrayIterator.js";
  * )
  * // => Map{"f": {count: 2, matches: ["foo", "fizz"]}, "b": {count: 2, matches: ["bar", "buzz"]}}
  */
-const groupMapReducingBy = <TValue, UKey, VReduced>(
+export const groupMapReducingBy = <TValue, UKey, VReduced>(
 	array: ReadonlyArray<TValue>,
 	keyMapper: ArrayIterator<TValue, UKey>,
 	initializer: ArrayIterator<TValue, VReduced>,
@@ -54,5 +54,3 @@ const groupMapReducingBy = <TValue, UKey, VReduced>(
 
 	return result;
 };
-
-export { groupMapReducingBy };

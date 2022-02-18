@@ -15,7 +15,7 @@ import type { ArrayIterator } from "./lib/ArrayIterator.js";
  * countMapBy([1, 2, 4, 2, 4, 4], val => val)
  * // => Map{1: 1, 2: 2, 4: 3}
  */
-const countMapBy = <TValue, UKey>(
+export const countMapBy = <TValue, UKey>(
 	array: ReadonlyArray<TValue>,
 	keyMapper: ArrayIterator<TValue, UKey>
 ): Map<UKey, number> =>
@@ -25,5 +25,3 @@ const countMapBy = <TValue, UKey>(
 		() => 0,
 		(current) => current + 1
 	);
-
-export { countMapBy };

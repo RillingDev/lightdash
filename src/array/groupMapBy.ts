@@ -15,7 +15,7 @@ import type { ArrayIterator } from "./lib/ArrayIterator.js";
  * groupMapBy([1, 2, 3, 4, 5], val => val % 2)
  * // => Map{0: [2, 4], 1: [1, 3, 5]}
  */
-const groupMapBy = <TValue, UKey>(
+export const groupMapBy = <TValue, UKey>(
 	array: ReadonlyArray<TValue>,
 	keyMapper: ArrayIterator<TValue, UKey>
 ): Map<UKey, TValue[]> =>
@@ -25,5 +25,3 @@ const groupMapBy = <TValue, UKey>(
 		() => [] as TValue[],
 		(current, value) => current.concat(value)
 	);
-
-export { groupMapBy };
