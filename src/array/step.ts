@@ -1,5 +1,3 @@
-import { filter } from "lodash";
-
 /**
  * Returns a new array with every n-th item from the input array.
  *
@@ -12,9 +10,7 @@ import { filter } from "lodash";
  * step([1, 2, 3, 4, 5, 6], 2)
  * // => [1, 3, 5]
  */
-const step = <TValue>(
+export const step = <TValue>(
 	array: ReadonlyArray<TValue>,
 	stepSize: number
-): TValue[] => filter(array, (_value, index) => index % stepSize === 0);
-
-export { step };
+): TValue[] => array.filter((_value, index) => index % stepSize === 0);
