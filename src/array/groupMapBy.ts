@@ -1,6 +1,5 @@
-import type { List, ListIterator } from "lodash";
-import { concat } from "lodash";
 import { groupMapReducingBy } from "./groupMapReducingBy.js";
+import type { ArrayIterator } from "./lib/ArrayIterator.js";
 
 /**
  * Groups the elements of an array into a map,
@@ -17,14 +16,14 @@ import { groupMapReducingBy } from "./groupMapReducingBy.js";
  * // => Map{0: [2, 4], 1: [1, 3, 5]}
  */
 const groupMapBy = <TValue, UKey>(
-	array: List<TValue>,
-	keyMapper: ListIterator<TValue, UKey>
+	array: ReadonlyArray<TValue>,
+	keyMapper: ArrayIterator<TValue, UKey>
 ): Map<UKey, TValue[]> =>
 	groupMapReducingBy(
 		array,
 		keyMapper,
 		() => [] as TValue[],
-		(current, value) => concat(current, value)
+		(current, value) => current.concat(value)
 	);
 
 export { groupMapBy };

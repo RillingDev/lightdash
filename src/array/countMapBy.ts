@@ -1,5 +1,5 @@
-import type { List, ListIterator } from "lodash";
 import { groupMapReducingBy } from "./groupMapReducingBy.js";
+import type { ArrayIterator } from "./lib/ArrayIterator.js";
 
 /**
  * Counts the values of an array into a map,
@@ -16,8 +16,8 @@ import { groupMapReducingBy } from "./groupMapReducingBy.js";
  * // => Map{1: 1, 2: 2, 4: 3}
  */
 const countMapBy = <TValue, UKey>(
-	array: List<TValue>,
-	keyMapper: ListIterator<TValue, UKey>
+	array: ReadonlyArray<TValue>,
+	keyMapper: ArrayIterator<TValue, UKey>
 ): Map<UKey, number> =>
 	groupMapReducingBy(
 		array,

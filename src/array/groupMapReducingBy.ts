@@ -1,5 +1,4 @@
-import type { List, ListIterator } from "lodash";
-import { forEach } from "lodash";
+import type { ArrayIterator } from "./lib/ArrayIterator.js";
 
 /**
  * Groups the elements of an array into a map,
@@ -32,19 +31,19 @@ import { forEach } from "lodash";
  * // => Map{"f": {count: 2, matches: ["foo", "fizz"]}, "b": {count: 2, matches: ["bar", "buzz"]}}
  */
 const groupMapReducingBy = <TValue, UKey, VReduced>(
-	array: List<TValue>,
-	keyMapper: ListIterator<TValue, UKey>,
-	initializer: ListIterator<TValue, VReduced>,
+	array: ReadonlyArray<TValue>,
+	keyMapper: ArrayIterator<TValue, UKey>,
+	initializer: ArrayIterator<TValue, VReduced>,
 	reducer: (
 		current: VReduced,
 		value: TValue,
 		index: number,
-		collection: List<TValue>
+		collection: ReadonlyArray<TValue>
 	) => VReduced
 ): Map<UKey, VReduced> => {
 	const result = new Map<UKey, VReduced>();
 
-	forEach(array, (value, index) => {
+	array.forEach((value, index) => {
 		const key = keyMapper(value, index, array);
 		if (!result.has(key)) {
 			result.set(key, initializer(value, index, array));
