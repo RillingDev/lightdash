@@ -14,7 +14,7 @@
  * getExistingElseThrow(new Map([["key", 1]]), "foo")
  * // => throws TypeError
  */
-const getExistingElseThrow = <TKey, UValue>(
+export const getExistingElseThrow = <TKey, UValue>(
 	map: ReadonlyMap<TKey, UValue>,
 	key: TKey
 ): UValue => {
@@ -28,5 +28,3 @@ const getExistingElseThrow = <TKey, UValue>(
 	}
 	return map.get(key)!;
 };
-
-export { getExistingElseThrow };

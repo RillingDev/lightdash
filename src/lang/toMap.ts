@@ -1,5 +1,3 @@
-import { toPairs } from "lodash";
-
 /**
  * Creates a map from an objects entries.
  *
@@ -11,7 +9,6 @@ import { toPairs } from "lodash";
  * toMap({a: 1, b: 4, c: 5})
  * // => Map{"a": 1, "b": 4, "c": 5}
  */
-const toMap = <TValue>(object: Record<string, TValue>): Map<string, TValue> =>
-	new Map(toPairs(object));
-
-export { toMap };
+export const toMap = <TValue>(
+	object: Record<string, TValue>
+): Map<string, TValue> => new Map(Object.entries(object));

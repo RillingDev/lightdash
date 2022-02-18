@@ -14,7 +14,7 @@
  * requireNonNilElseThrow(null, () => new TypeError())
  * // => throws TypeError
  */
-const requireNonNilElseThrow = <T>(
+export const requireNonNilElseThrow = <T>(
 	value: T | null | undefined,
 	errorSupplier: () => Error
 ): T => {
@@ -23,5 +23,3 @@ const requireNonNilElseThrow = <T>(
 	}
 	return value;
 };
-
-export { requireNonNilElseThrow };
