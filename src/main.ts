@@ -8,6 +8,7 @@ export { requireNonNilElseThrow } from "./lang/requireNonNilElseThrow.js";
 export { removeEnd } from "./string/removeEnd.js";
 export { removeStart } from "./string/removeStart.js";
 
+export type { ArrayIterator } from "./array/lib/ArrayIterator.js";
 export { groupMapBy } from "./array/groupMapBy.js";
 export { groupMapReducingBy } from "./array/groupMapReducingBy.js";
 export { countMapBy } from "./array/countMapBy.js";

@@ -5,7 +5,7 @@ const isObject = (value: unknown): value is object =>
 	value != null && typeof value == "object";
 
 /**
- * Helper method recursively executing the callback against all own  properties.
+ * Helper method recursively executing the callback against all own properties.
  * Only non-function object values will have the callback executed.
  * If the same reference is encountered after the first time, it will be skipped.
  *
