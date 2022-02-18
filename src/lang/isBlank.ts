@@ -1,5 +1,3 @@
-import { isEmpty } from "lodash";
-
 /**
  * Checks if the string is blank (no non-space content).
  *
@@ -17,6 +15,4 @@ import { isEmpty } from "lodash";
  * isBlank(" foo ")
  * // => false
  */
-const isBlank = (string: string): boolean => isEmpty(string.trim());
-
-export { isBlank };
+export const isBlank = (string: string): boolean => string.trim().length == 0;
