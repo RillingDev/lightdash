@@ -5,7 +5,6 @@ export { toMapBy } from "./lang/toMapBy.js";
 export { name } from "./lang/name.js";
 export { requireNonNilElseThrow } from "./lang/requireNonNilElseThrow.js";
 
-export { pascalCase } from "./string/pascalCase.js";
 export { removeEnd } from "./string/removeEnd.js";
 export { removeStart } from "./string/removeStart.js";
 
