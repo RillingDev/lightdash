@@ -12,7 +12,5 @@
  * isPromise(() => "foo");
  * // => false
  */
-const isPromise = (value: unknown): value is Promise<unknown> =>
+export const isPromise = (value: unknown): value is Promise<unknown> =>
 	value instanceof Promise;
-
-export { isPromise };

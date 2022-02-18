@@ -7,6 +7,7 @@
  *
  * @since 12.1.0
  * @category Array
+ * @see lodash.pullAt
  * @param array Array to modify.
  * @param index Index to insert at.
  * @param values Value(s) to insert.

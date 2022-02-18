@@ -1,5 +1,3 @@
-import { indexOf, remove } from "lodash";
-
 /**
  * Removes the first occurrence of an element from an array.
  * If the element does not exist in the array nothing is done.
@@ -8,6 +6,7 @@ import { indexOf, remove } from "lodash";
  *
  * @since 2.8.0
  * @category Array
+ * @see lodash.pullAt
  * @param array Array to modify.
  * @param value The value to remove.
  * @returns The mutated array.
@@ -20,10 +19,12 @@ import { indexOf, remove } from "lodash";
  * removeItem(b, "bazz")
  * // => ["foo", "bar", "fizz", "bar"]
  */
-const pullFirst = <TValue>(array: TValue[], value: TValue): TValue[] => {
-	const targetIndex = indexOf(array, value);
-	remove(array, (_val, index) => index === targetIndex);
+export const pullFirst = <TValue>(array: TValue[], value: TValue): TValue[] => {
+	if (!array.includes(value)) {
+		return array;
+	}
+
+	const firstIndex = array.indexOf(value);
+	array.splice(firstIndex, 1);
 	return array;
 };
-
-export { pullFirst };
