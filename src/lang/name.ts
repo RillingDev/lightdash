@@ -1,5 +1,5 @@
 /**
- * Gets name of a value.
+ * Gets the name of a value.
  *
  * If the value is a function, its name is returned.
  * If the value is a symbol, its key is returned.

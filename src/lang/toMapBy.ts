@@ -1,8 +1,9 @@
 /**
- * Creates a map from an objects entries.
+ * Creates a map from the own entries of an object.
  *
  * @since 13.0.0
  * @category Lang
+ * @see toMap
  * @param object Object to use.
  * @param keyMapper Function mapping an object key to a map key.
  * @param valueMapper Function mapping an object value to a map value.

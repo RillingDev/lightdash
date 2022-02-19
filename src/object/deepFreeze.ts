@@ -1,12 +1,14 @@
 import { visit } from "./lib/visit.js";
 
 /**
- * Recursively freezes objects, useful for constant objects.
+ * Recursively freezes an objects and all own non-function sub-objects.
  *
- * This function mutates the input value and freezes all sub-objects recursively.
+ * Note that the input object is being mutated.
  *
  * @since 12.0.0
  * @category Object
+ * @see deepSeal
+ * @see Object.freeze
  * @param object Object to recursively freeze.
  * @example
  * const a = {a: {b: 2}, b: [1, {foo: "foo"}], c: 2};

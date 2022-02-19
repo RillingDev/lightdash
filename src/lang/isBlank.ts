@@ -1,5 +1,5 @@
 /**
- * Checks if the string is blank (no non-space content).
+ * Checks if the string is blank (has no non-space content).
  *
  * @since 11.0.0
  * @category Lang

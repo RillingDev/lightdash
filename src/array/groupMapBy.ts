@@ -8,6 +8,7 @@ import type { ArrayIterator } from "./lib/ArrayIterator.js";
  *
  * @since 6.1.0
  * @category Array
+ * @see groupMapReducingBy
  * @param array Array to group.
  * @param keyMapper Function returning the key for the value.
  * @returns Grouped map.

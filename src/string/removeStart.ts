@@ -1,8 +1,11 @@
 /**
- * Removes a value from the start of a string. If the string does not start with the value, nothing is done.
+ * Removes a value from the start of a string.
+ *
+ * If the string does not start with the value, nothing is done.
  *
  * @since 13.0.0
  * @category String
+ * @see removeEnd
  * @param string String to check.
  * @param removeValue Value to remove.
  * @returns String with the value removed from the start.

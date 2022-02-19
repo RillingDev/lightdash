@@ -7,10 +7,12 @@ import type { ArrayIterator } from "./lib/ArrayIterator.js";
  *
  * @since 11.0.0
  * @category Array
+ * @see groupMapBy
+ * @see countMapBy
  * @param array Array to group.
  * @param keyMapper Function returning the key for the value.
  * @param initializer Function initializing a new reduction result object.
- * @param reducer Consumer mutating the existing reduction result object with the new data.
+ * @param reducer Consumer creating a new reduction result object based on the previous result and the new data.
  * @returns Grouped and reduced map.
  * @example
  * groupMapReducingBy(

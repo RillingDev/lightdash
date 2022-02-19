@@ -1,12 +1,14 @@
 import { visit } from "./lib/visit.js";
 
 /**
- * Recursively seals objects, useful for constant objects.
+ * Recursively seals an objects and all own non-function sub-objects.
  *
- * This function mutates the input value and seals all sub-objects recursively.
+ * Note that the input object is being mutated.
  *
  * @since 12.0.0
  * @category Object
+ * @see deepFreeze
+ * @see Object.seal
  * @param object Object to recursively seal.
  * @example
  * const a = {a: {b: 2}, b: [1, {foo: "foo"}], c: 2};

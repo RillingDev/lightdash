@@ -8,6 +8,8 @@ import type { ArrayIterator } from "./lib/ArrayIterator.js";
  *
  * @since 12.0.0
  * @category Array
+ * @see groupMapBy
+ * @see groupMapReducingBy
  * @param array Array to count.
  * @param keyMapper Function to use for key generation.
  * @returns Count map.
