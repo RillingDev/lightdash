@@ -4,10 +4,9 @@
 		"newLine": "LF",
 		"moduleResolution": "node",
 		"strict": true,
-		"useDefineForClassFields": true,
 		// Per-project
 		"esModuleInterop": true,
-		"target": "ES2021",
+		"target": "ES2022",
 		"module": "ES2020",
 		"lib": ["ESNext"]
 	},
