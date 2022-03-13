@@ -1,3 +1,5 @@
+import { toMapBy } from "./toMapBy.js";
+
 /**
  * Creates a map from the own entries of an object.
  *
@@ -11,5 +13,10 @@
  * // => Map{"a": 1, "b": 4, "c": 5}
  */
 export const toMap = <TValue>(
-	object: Record<string, TValue>
-): Map<string, TValue> => new Map(Object.entries(object));
+	object: Record<PropertyKey, TValue>
+): Map<string, TValue> =>
+	toMapBy(
+		object,
+		(key) => key,
+		(key, value) => value
+	);

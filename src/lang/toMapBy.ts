@@ -13,7 +13,7 @@
  * // => Map{{key: "a"}: 2, {key: "b"}: 8, {key: "a"}: 10}
  */
 export const toMapBy = <TValue, UKey, VInitialValue>(
-	object: Record<string, VInitialValue>,
+	object: Record<PropertyKey, VInitialValue>,
 	keyMapper: (key: string, val: VInitialValue) => UKey,
 	valueMapper: (key: string, value: VInitialValue) => TValue
 ): Map<UKey, TValue> =>
