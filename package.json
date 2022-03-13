@@ -1,6 +1,6 @@
 {
 	"name": "lightdash",
-	"version": "14.0.0-0",
+	"version": "14.0.0-1",
 	"description": "A small TypeScript utility library to complement lodash",
 	"type": "module",
 	"main": "./dist/main.js",
