@@ -15,4 +15,15 @@ describe("toMapBy", () => {
 		expect(actualEntries[1]).toEqual([{ key: "b" }, 8]);
 		expect(actualEntries[2]).toEqual([{ key: "c" }, 10]);
 	});
+	it("supports arrays", () => {
+		const actual = toMapBy(
+			[1, 2, 3],
+			(_key, value) => value,
+			(_key, value) => value * 2
+		);
+		expect(actual).toBeInstanceOf(Map);
+		expect(actual.get(1)).toEqual(2);
+		expect(actual.get(2)).toEqual(4);
+		expect(actual.get(3)).toEqual(6);
+	});
 });
