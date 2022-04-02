@@ -1,6 +1,6 @@
 /**
  * Removes the first occurrence of an element from an array.
- * If the element does not exist in the array nothing is done.
+ * If the element does not exist in the array, nothing is done.
  *
  * Note that the input array is being mutated.
  *

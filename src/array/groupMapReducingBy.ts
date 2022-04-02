@@ -2,7 +2,7 @@ import type { ArrayIterator } from "./lib/ArrayIterator.js";
 
 /**
  * Groups the elements of an array into a map,
- * with the key being based on a key mapper and the value being the values
+ * with the key being based on a key mapper, and the value being the values
  * for the same key mapper result being reduced.
  *
  * @since 11.0.0
