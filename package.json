@@ -26,6 +26,7 @@
 	},
 	"type": "module",
 	"exports": "./dist/main.js",
+	"main": "./dist/main.js",
 	"scripts": {
 		"start": "npm run dist",
 		"dist": "npm run clean && npm run lint && npm run build && npm run test && npm run docs",
