@@ -31,8 +31,6 @@ npm-debug.*
 tsconfig.tsbuildinfo
 tsconfig.*.tsbuildinfo
 
-
-
 # Build Output files
 dist/
 docs/
