@@ -1,5 +1,4 @@
 export { isBlank } from "./lang/isBlank.js";
-export { isPromise } from "./lang/isPromise.js";
 export { toMap } from "./lang/toMap.js";
 export { toMapBy } from "./lang/toMapBy.js";
 export { name } from "./lang/name.js";
