@@ -6,8 +6,8 @@
 		"strict": true,
 		// Per-project
 		"esModuleInterop": true,
-		"target": "ES2022",
 		"module": "ES2020",
+		"target": "ES2022",
 		"lib": ["ES2022"]
 	},
 	"include": [],
