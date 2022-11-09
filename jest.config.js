@@ -1,16 +1,18 @@
-/** @type {import('ts-jest').InitialOptionsTsJest} */
+/** @type {import('ts-jest').JestConfigWithTsJest} */
 export default {
 	preset: "ts-jest/presets/default-esm",
 	testEnvironment: "node",
-	testPathIgnorePatterns: ["./node_modules/", "./__tests__/helper/"],
 	// https://kulshekhar.github.io/ts-jest/docs/guides/esm-support/
-	globals: {
-		"ts-jest": {
-			useESM: true,
-			tsconfig: "./__tests__/tsconfig.json",
-		},
-	},
 	moduleNameMapper: {
 		"^(\\.{1,2}/.*)\\.js$": "$1",
+	},
+	transform: {
+		"<regex_match_files>": [
+			"ts-jest",
+			{
+				tsconfig: "./__tests__/tsconfig.json",
+				useESM: true,
+			},
+		],
 	},
 };
