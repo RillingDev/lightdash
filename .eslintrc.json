@@ -120,10 +120,10 @@
 		"@typescript-eslint/no-base-to-string": "error",
 		"@typescript-eslint/no-confusing-non-null-assertion": "warn",
 		"@typescript-eslint/no-dynamic-delete": "error",
-		"@typescript-eslint/no-non-null-assertion": "off",
 		// Essential when working with maps
+		"@typescript-eslint/no-non-null-assertion": "off",
 		"@typescript-eslint/no-redeclare": "error",
-		"@typescript-eslint/no-shadow": "error",
+		"@typescript-eslint/no-shadow": "warn",
 		"@typescript-eslint/no-throw-literal": "error",
 		"@typescript-eslint/no-unnecessary-condition": "warn",
 		"@typescript-eslint/prefer-enum-initializers": "warn",
