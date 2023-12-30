@@ -16,7 +16,7 @@
  */
 export const requireNonNilElseThrow = <T>(
 	value: T | null | undefined,
-	errorSupplier: () => Error
+	errorSupplier: () => Error,
 ): T => {
 	if (value == null) {
 		throw errorSupplier();

@@ -16,13 +16,13 @@ describe("groupMapReducingBy", () => {
 					current.count++;
 					current.matches.push(val);
 					return current;
-				}
-			)
+				},
+			),
 		).toEqual(
 			new Map([
 				["f", { count: 2, matches: ["foo", "fizz"] }],
 				["b", { count: 2, matches: ["bar", "buzz"] }],
-			])
+			]),
 		);
 	});
 });

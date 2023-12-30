@@ -16,14 +16,14 @@
  */
 export const getExistingElseThrow = <TKey, UValue>(
 	map: ReadonlyMap<TKey, UValue>,
-	key: TKey
+	key: TKey,
 ): UValue => {
 	if (!map.has(key)) {
 		const mapKeysVisualization = JSON.stringify(Array.from(map.keys()));
 		throw new TypeError(
 			`Could not find key '${String(
-				key
-			)}' in map keys '${mapKeysVisualization}'.`
+				key,
+			)}' in map keys '${mapKeysVisualization}'.`,
 		);
 	}
 	return map.get(key)!;

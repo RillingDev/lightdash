@@ -18,12 +18,12 @@ import type { ArrayIterator } from "./lib/ArrayIterator.js";
  * // => Map{1: 1, 2: 2, 4: 3}
  */
 export const countMapBy = <TValue, UKey>(
-	array: ReadonlyArray<TValue>,
-	keyMapper: ArrayIterator<TValue, UKey>
+	array: readonly TValue[],
+	keyMapper: ArrayIterator<TValue, UKey>,
 ): Map<UKey, number> =>
 	groupMapReducingBy(
 		array,
 		keyMapper,
 		() => 0,
-		(current) => current + 1
+		(current) => current + 1,
 	);

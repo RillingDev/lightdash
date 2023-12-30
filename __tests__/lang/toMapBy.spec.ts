@@ -7,7 +7,7 @@ describe("toMapBy", () => {
 			(key) => {
 				return { key };
 			},
-			(_key, value) => value * 2
+			(_key, value) => value * 2,
 		);
 		expect(actual).toBeInstanceOf(Map);
 		const actualEntries = Array.from(actual.entries());
@@ -19,7 +19,7 @@ describe("toMapBy", () => {
 		const actual = toMapBy(
 			[1, 2, 3],
 			(_key, value) => value,
-			(_key, value) => value * 2
+			(_key, value) => value * 2,
 		);
 		expect(actual).toBeInstanceOf(Map);
 		expect(actual.get(1)).toEqual(2);

@@ -18,11 +18,11 @@
 export const toMapBy = <TValue, UKey, VInitialValue>(
 	object: Record<PropertyKey, VInitialValue> | ArrayLike<VInitialValue>,
 	keyMapper: (key: string, val: VInitialValue) => UKey,
-	valueMapper: (key: string, value: VInitialValue) => TValue
+	valueMapper: (key: string, value: VInitialValue) => TValue,
 ): Map<UKey, TValue> =>
 	new Map(
 		Object.entries(object).map(([key, val]) => [
 			keyMapper(key, val),
 			valueMapper(key, val),
-		])
+		]),
 	);

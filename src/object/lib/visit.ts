@@ -13,9 +13,9 @@ const isObject = (value: unknown): value is object =>
  */
 export const visit = (
 	root: object,
-	callback: (value: object) => void
+	callback: (value: object) => void,
 ): void => {
-	const visitStack = new WeakSet<object>();
+	const visitStack = new WeakSet();
 	const visitObject = (target: object): void => {
 		visitStack.add(target);
 		Object.values(target).forEach((value) => {

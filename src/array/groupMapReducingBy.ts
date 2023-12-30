@@ -33,15 +33,15 @@ import type { ArrayIterator } from "./lib/ArrayIterator.js";
  * // => Map{"f": {count: 2, matches: ["foo", "fizz"]}, "b": {count: 2, matches: ["bar", "buzz"]}}
  */
 export const groupMapReducingBy = <TValue, UKey, VReduced>(
-	array: ReadonlyArray<TValue>,
+	array: readonly TValue[],
 	keyMapper: ArrayIterator<TValue, UKey>,
 	initializer: ArrayIterator<TValue, VReduced>,
 	reducer: (
 		current: VReduced,
 		value: TValue,
 		index: number,
-		collection: ReadonlyArray<TValue>
-	) => VReduced
+		collection: readonly TValue[],
+	) => VReduced,
 ): Map<UKey, VReduced> => {
 	const result = new Map<UKey, VReduced>();
 

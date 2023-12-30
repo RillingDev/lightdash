@@ -17,12 +17,12 @@ import type { ArrayIterator } from "./lib/ArrayIterator.js";
  * // => Map{0: [2, 4], 1: [1, 3, 5]}
  */
 export const groupMapBy = <TValue, UKey>(
-	array: ReadonlyArray<TValue>,
-	keyMapper: ArrayIterator<TValue, UKey>
+	array: readonly TValue[],
+	keyMapper: ArrayIterator<TValue, UKey>,
 ): Map<UKey, TValue[]> =>
 	groupMapReducingBy(
 		array,
 		keyMapper,
 		() => [] as TValue[],
-		(current, value) => current.concat(value)
+		(current, value) => current.concat(value),
 	);

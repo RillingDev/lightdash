@@ -4,5 +4,5 @@
 export type ArrayIterator<TValue, UResult> = (
 	value: TValue,
 	index: number,
-	collection: ReadonlyArray<TValue>
+	collection: readonly TValue[],
 ) => UResult;

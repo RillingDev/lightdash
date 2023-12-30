@@ -6,9 +6,9 @@ describe("getExistingElseThrow", () => {
 	});
 	it("throws map does not contain key", () => {
 		expect(() =>
-			getExistingElseThrow(new Map([["key", 1]]), "foo")
+			getExistingElseThrow(new Map([["key", 1]]), "foo"),
 		).toThrowError(
-			new TypeError("Could not find key 'foo' in map keys '[\"key\"]'.")
+			new TypeError("Could not find key 'foo' in map keys '[\"key\"]'."),
 		);
 	});
 });

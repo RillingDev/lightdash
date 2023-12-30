@@ -16,5 +16,6 @@ import { visit } from "./lib/visit.js";
  * deepFreeze(a)
  * // => object and all sub-objects are frozen.
  */
-export const deepFreeze = (object: object): void =>
+export const deepFreeze = (object: object): void => {
 	visit(object, Object.freeze);
+};

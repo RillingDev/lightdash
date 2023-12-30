@@ -11,6 +11,6 @@
  * // => [1, 3, 5]
  */
 export const step = <TValue>(
-	array: ReadonlyArray<TValue>,
-	stepSize: number
+	array: readonly TValue[],
+	stepSize: number,
 ): TValue[] => array.filter((_value, index) => index % stepSize === 0);

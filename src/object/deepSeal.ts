@@ -16,4 +16,6 @@ import { visit } from "./lib/visit.js";
  * deepSeal(a)
  * // => object and all sub-objects are sealed.
  */
-export const deepSeal = (object: object): void => visit(object, Object.seal);
+export const deepSeal = (object: object): void => {
+	visit(object, Object.seal);
+};

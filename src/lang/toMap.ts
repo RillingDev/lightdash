@@ -13,10 +13,10 @@ import { toMapBy } from "./toMapBy.js";
  * // => Map{"a": 1, "b": 4, "c": 5}
  */
 export const toMap = <TValue>(
-	object: Record<PropertyKey, TValue> | ArrayLike<TValue>
+	object: Record<PropertyKey, TValue> | ArrayLike<TValue>,
 ): Map<string, TValue> =>
 	toMapBy(
 		object,
 		(key) => key,
-		(key, value) => value
+		(key, value) => value,
 	);
