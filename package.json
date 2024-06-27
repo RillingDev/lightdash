@@ -6,9 +6,9 @@
 		"lodash",
 		"utility"
 	],
-	"homepage": "https://github.com/FelixRilling/lightdash#readme",
+	"homepage": "https://github.com/RillingDev/lightdash#readme",
 	"bugs": {
-		"url": "https://github.com/FelixRilling/lightdash/issues"
+		"url": "https://github.com/RillingDev/lightdash/issues"
 	},
 	"license": "Apache-2.0",
 	"author": {
@@ -22,7 +22,7 @@
 	],
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/FelixRilling/lightdash.git"
+		"url": "git+https://github.com/RillingDev/lightdash.git"
 	},
 	"type": "module",
 	"exports": "./dist/main.js",

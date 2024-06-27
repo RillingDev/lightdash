@@ -6,7 +6,7 @@
 
 Lightdash is a utility library aiming to complement [lodash](https://lodash.com/).
 
-[Documentation](https://felixrilling.github.io/lightdash/)
+[Documentation](https://RillingDev.github.io/lightdash/)
 
 ## Usage
 
