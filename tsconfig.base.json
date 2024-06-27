@@ -1,7 +1,6 @@
 {
 	"compilerOptions": {
 		// General
-		"newLine": "LF",
 		"moduleResolution": "Node16",
 		"strict": true,
 		"esModuleInterop": true,

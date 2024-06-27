@@ -3,9 +3,11 @@ module.exports = {
 	root: true,
 	parser: "@typescript-eslint/parser",
 	parserOptions: {
+		ecmaVersion: "latest",
+		sourceType: "module",
 		project: ["./src/tsconfig.json", "./__tests__/tsconfig.json"],
 	},
-	plugins: ["@typescript-eslint", "prettier"],
+	plugins: ["prettier"],
 	extends: [
 		"eslint:recommended",
 		"plugin:@typescript-eslint/strict-type-checked",
