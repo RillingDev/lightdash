@@ -15,6 +15,7 @@ import type { ArrayIterator } from "./lib/ArrayIterator.js";
  * @example
  * groupMapBy([1, 2, 3, 4, 5], val => val % 2)
  * // => Map{0: [2, 4], 1: [1, 3, 5]}
+ * @deprecated Use the native Map.groupBy() instead
  */
 export const groupMapBy = <TValue, UKey>(
 	array: readonly TValue[],
