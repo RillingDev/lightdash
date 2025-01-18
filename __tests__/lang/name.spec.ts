@@ -2,11 +2,9 @@ import { name } from "../../src/lang/name.js";
 
 describe("name", () => {
 	it("gets name of class", () => {
-		// eslint-disable-next-line @typescript-eslint/no-extraneous-class
 		expect(name(class Foo {})).toBe("Foo");
 	});
 	it("gets name of function", () => {
-		// eslint-disable-next-line @typescript-eslint/no-empty-function
 		expect(name(function bar() {})).toBe("bar");
 	});
 	it("gets key of symbol", () => {
