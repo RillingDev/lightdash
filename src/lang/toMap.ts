@@ -18,5 +18,5 @@ export const toMap = <TValue>(
 	toMapBy(
 		object,
 		(key) => key,
-		(key, value) => value,
+		(_key, value) => value,
 	);
