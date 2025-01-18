@@ -5,7 +5,11 @@ describe("name", () => {
 		expect(name(class Foo {})).toBe("Foo");
 	});
 	it("gets name of function", () => {
-		expect(name(function bar() {})).toBe("bar");
+		expect(
+			name(function bar() {
+				// NOOP
+			}),
+		).toBe("bar");
 	});
 	it("gets key of symbol", () => {
 		expect(name(Symbol.for("abc"))).toBe("abc");
